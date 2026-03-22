@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive - We make threat intelligence easy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-dark-alt: #16213e;
+    --color-white: #ffffff;
+    --color-light: #f5f5f7;
+    --color-muted: #6b7280;
+    --color-muted-light: #9ca3af;
+    --color-red: #e53834;
+    --color-red-dark: #c1121f;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: #333;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-dark);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; height: auto; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Header / Nav ── */
+  .site-header {
+    background: var(--color-dark);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo img {
+    height: 36px;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .main-nav a:hover {
+    opacity: 1;
+  }
+
+  .nav-cta {
+    background: var(--color-red);
+    color: var(--color-white) !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    opacity: 1 !important;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-red-dark);
+  }
+
+  /* ── Hero Section ── */
+  .hero {
+    background: var(--color-dark);
+    color: var(--color-white);
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(229, 56, 52, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-top {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 56px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+  }
+
+  .hero .icp-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 36px;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── ICP cards inside hero ── */
+  .hero .icp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero .icp-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+    transition: all 0.25s ease;
+  }
+
+  .hero .icp-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--color-red);
+    transform: translateY(-3px);
+  }
+
+  .hero .icp-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+
+  .hero .icp-card .learn-more {
+    color: var(--color-red);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .hero .icp-card:hover .learn-more {
+    gap: 10px;
+  }
+
+  .learn-more .arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+
+  .hero .icp-card:hover .learn-more .arrow {
+    transform: translateX(2px);
+  }
+
+  /* ── Social Proof / Testimonial ── */
+  .social-proof {
+    padding: 48px 0;
+    text-align: center;
+  }
+
+  .social-proof-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 48px 44px;
+  }
+
+  .testimonial-rotator {
+    position: relative;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .testimonial {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    width: 100%;
+  }
+
+  .testimonial.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .testimonial blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto 12px;
+    line-height: 1.6;
+  }
+
+  .testimonial cite {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-style: normal;
+  }
+
+  /* (ICP cards are now inside the hero section) */
+
+  /* ── About Us Section ── */
+  .about-section {
+    padding: 48px 0;
+  }
+
+  .about-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 48px 44px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+
+  .about-content h2::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  /* ── Things That Make Us Different ── */
+  .differentiators {
+    background: var(--color-light);
+    border-radius: 12px;
+    padding: 40px 36px;
+  }
+
+  .differentiators h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 28px;
+  }
+
+  .diff-rotator {
+    position: relative;
+    min-height: 80px;
+  }
+
+  .diff-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    width: 100%;
+  }
+
+  .diff-item.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .diff-item p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+    padding-left: 20px;
+    border-left: 3px solid var(--color-red);
+  }
+
+  .diff-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .diff-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 0;
+  }
+
+  .diff-dot.active {
+    background: var(--color-red);
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 30px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+
+  .footer-col h4 {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col a {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-white);
+  }
+
+  .footer-newsletter input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    outline: none;
+  }
+
+  .footer-newsletter input::placeholder {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-newsletter button {
+    padding: 12px 24px;
+    background: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .footer-newsletter button:hover {
+    background: var(--color-red-dark);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-social a {
+    color: rgba(255,255,255,0.5);
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover {
+    color: var(--color-white);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero .icp-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .main-nav ul { gap: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .hero { padding: 50px 0 40px; }
+    .hero .icp-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 16px; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- HEADER / NAV (simplified per plan)          -->
+<!-- ════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo">
+      <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/64f69732ba3db4524c9883be_cosive_logo_reverse_full_color_transparent_print.webp" alt="Cosive">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/capabilities/cloud-misp">Products</a></li>
+        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- HERO SECTION                                -->
+<!-- Header + Tagline + ICP Self-Selection       -->
+<!-- ════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <h1>We make threat intelligence easy</h1>
+      <p class="tagline">With decades of threat intelligence experience, Cosive can help you reach your intelligence sharing or cybersecurity operations goals.</p>
+    </div>
+
+    <p class="icp-heading">We can help you turn your wishlist into reality.</p>
+
+    <div class="icp-grid">
+
+      <a href="/solutions/sharing-communities" class="icp-card">
+        <h3>Want to set up a sharing community?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/solutions/new-to-cti" class="icp-card">
+        <h3>Creating a new CTI team and need help?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/solutions/cti-improvement" class="icp-card">
+        <h3>Want to make your CTI team better with CTI-CMM?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/solutions/run-misp-for-me" class="icp-card">
+        <h3>Want someone to run MISP for you?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/solutions/secops-improvement" class="icp-card">
+        <h3>Need help improving your SecOps?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/solutions/financial-services" class="icp-card">
+        <h3>Are you a bank or a financial organisation?</h3>
+        <span class="learn-more">Learn More <span class="arrow">&rarr;</span></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SOCIAL PROOF (rotating testimonials)        -->
+<!-- ════════════════════════════════════════════ -->
+<section class="social-proof">
+  <div class="container">
+    <div class="social-proof-card">
+    <div class="testimonial-rotator" id="testimonialRotator">
+      <div class="testimonial active">
+        <blockquote>&ldquo;Cosive were just so easy to work with. Our account manager was the same person who helped make sure our project was a success.&rdquo;</blockquote>
+        <cite>&mdash; Anonymised customer</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>&ldquo;They understood our requirements from day one and delivered a sharing platform that our members actually use.&rdquo;</blockquote>
+        <cite>&mdash; Sharing community operator</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>&ldquo;Cosive helped us go from zero to a fully operational CTI function in under six months.&rdquo;</blockquote>
+        <cite>&mdash; Financial services CISO</cite>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ABOUT US + THINGS THAT MAKE US DIFFERENT    -->
+<!-- ════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-card">
+    <div class="about-grid">
+
+      <!-- About Us -->
+      <div class="about-content">
+        <h2>About Cosive</h2>
+        <p>Cosive is a cybersecurity consultancy specialising in Cyber Threat Intelligence (CTI) and Security Operations (SecOps). We help organisations, government agencies, and critical infrastructure providers around the world build and operate modern security capabilities through specialised consulting, engineering, and managed security platforms.</p>
+      </div>
+
+      <!-- Things that make us different (rotating) -->
+      <div class="differentiators">
+        <h3>Things that make us different</h3>
+        <div class="diff-rotator" id="diffRotator">
+          <div class="diff-item active">
+            <p>We partner with our customers, working with them over many years to help them achieve their goals.</p>
+          </div>
+          <div class="diff-item">
+            <p>We contribute improvements to open source software like MISP.</p>
+          </div>
+          <div class="diff-item">
+            <p>We're so technical that even our project manager codes in Javascript.</p>
+          </div>
+          <div class="diff-item">
+            <p>The MISP developers attended our training course on MISP.</p>
+          </div>
+          <div class="diff-item">
+            <p>We're core contributors to the CTI-CMM project.</p>
+          </div>
+        </div>
+        <div class="diff-dots" id="diffDots">
+          <button class="diff-dot active" data-index="0"></button>
+          <button class="diff-dot" data-index="1"></button>
+          <button class="diff-dot" data-index="2"></button>
+          <button class="diff-dot" data-index="3"></button>
+          <button class="diff-dot" data-index="4"></button>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- FOOTER                                      -->
+<!-- ════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="/">
+          <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/647e84e0bd3f03d1718e0c0f_cosive_logo_reverse_full_color_transparent_print%20(2).png" alt="Cosive" style="height: 32px;">
+        </a>
+        <p>Globally recognised leaders in Cyber Threat Intelligence &amp; Security Operations.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/capabilities">Capabilities</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact-us">Contact</a></li>
+          <li><a href="/careers">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/cosive">LinkedIn</a></li>
+          <li><a href="https://twitter.com/cosiveco">Twitter</a></li>
+          <li><a href="https://www.youtube.com/channel/UCQuzjwtwaH5MxAgMwEiB_1g">YouTube</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Subscribe to our newsletter</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 16px;">Receive occasional news and articles from Cosive.</p>
+        <form class="footer-newsletter">
+          <input type="text" placeholder="Full name">
+          <input type="email" placeholder="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>Copyright &copy; Cosive Pty Ltd.</div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+        <a href="https://twitter.com/cosiveco">Twitter</a>
+        <a href="https://www.youtube.com/channel/UCQuzjwtwaH5MxAgMwEiB_1g">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Rotation Scripts ── -->
+<script>
+// Testimonial rotator
+(function() {
+  const items = document.querySelectorAll('#testimonialRotator .testimonial');
+  let current = 0;
+  setInterval(() => {
+    items[current].classList.remove('active');
+    current = (current + 1) % items.length;
+    items[current].classList.add('active');
+  }, 5000);
+})();
+
+// Differentiators rotator
+(function() {
+  const items = document.querySelectorAll('#diffRotator .diff-item');
+  const dots = document.querySelectorAll('#diffDots .diff-dot');
+  let current = 0;
+  let interval;
+
+  function showItem(index) {
+    items[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    items[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAutoRotate() {
+    interval = setInterval(() => {
+      showItem((current + 1) % items.length);
+    }, 4000);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(interval);
+      showItem(parseInt(dot.dataset.index));
+      startAutoRotate();
+    });
+  });
+
+  startAutoRotate();
+})();
+</script>
+
+</body>
+</html>

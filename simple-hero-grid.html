@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive - Threat Intelligence</title>
+<style>
+  :root {
+    --bg-dark: #0a0e14;
+    --text-main: #ffffff;
+    --text-muted: #a0aab2;
+    --accent-red: #ff3333; /* Based on Cosive logo */
+    --card-bg: #151a22;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+  }
+
+  /* Hero Section */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 60px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* Inline Contact Form */
+  .contact-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 80px;
+  }
+
+  .contact-form input[type="email"] {
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #000;
+    color: #fff;
+    width: 300px;
+  }
+
+  .contact-form button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--accent-red);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* ICP Grid Section */
+  .icp-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+  }
+
+  .icp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+
+  .icp-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #2a313c;
+    transition: transform 0.2s;
+  }
+
+  .icp-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+  }
+
+  .icp-card h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .icp-card a {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>We make threat intelligence easy</h1>
+    <p>With decades of threat intelligence experience, Cosive can help you reach your intelligence sharing or cybersecurity operations goals.</p>
+    
+    <form class="contact-form">
+      <input type="email" placeholder="Enter your work email" required>
+      <button type="submit">Get in touch</button>
+    </form>
+  </section>
+
+  <section class="icp-section">
+    <div class="icp-grid">
+      <div class="icp-card">
+        <h3>Want to set up a sharing community?</h3>
+        <a href="/solutions/sharing-communities">Learn More &rarr;</a>
+      </div>
+      <div class="icp-card">
+        <h3>Creating a new CTI team and need help?</h3>
+        <a href="/solutions/new-to-cti">Learn More &rarr;</a>
+      </div>
+      <div class="icp-card">
+        <h3>Want to make your CTI team better with CTI-CMM?</h3>
+        <a href="/solutions/cti-improvement">Learn More &rarr;</a>
+      </div>
+      <div class="icp-card">
+        <h3>Want someone to run MISP for you?</h3>
+        <a href="/solutions/run-misp-for-me">Learn More &rarr;</a>
+      </div>
+      <div class="icp-card">
+        <h3>Need help improving your SecOps?</h3>
+        <a href="#">Learn More &rarr;</a>
+      </div>
+      <div class="icp-card">
+        <h3>Are you a bank or a financial organisation?</h3>
+        <a href="#">Learn More &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

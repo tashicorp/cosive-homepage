@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive Homepage Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0a0e14;
+    --bg-card: #151a22;
+    --bg-card-hover: #1a2129;
+    --text-main: #ffffff;
+    --text-muted: #8a939c;
+    --accent-red: #e53834;
+    --border: #1e2530;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--accent-red); }
+
+  .badge {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+
+  .hero {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-red);
+    margin-bottom: 24px;
+  }
+
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .mockup-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mockup-card:hover {
+    background: var(--bg-card-hover);
+    border-color: #2a3340;
+  }
+
+  .card-number {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-red);
+    opacity: 0.7;
+  }
+
+  .card-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .card-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.04);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .card-link {
+    font-size: 13px;
+    color: var(--accent-red);
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .mockup-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 640px) {
+    .mockup-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">cosive<span>.</span></div>
+    <div class="badge">Mockup Gallery</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Homepage Mockups</h1>
+    <p>Design explorations for the Cosive homepage. Each mockup takes a different approach to guiding visitors toward the right solution for their cybersecurity needs.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Homepage Layouts</div>
+    <div class="mockup-grid">
+
+      <a href="mockup.html" class="mockup-card">
+        <span class="card-number">01</span>
+        <div class="card-title">Hero + ICP Card Grid</div>
+        <div class="card-desc">Full-featured design with a hero section, 3x2 grid of ICP cards, rotating testimonials, and company differentiators.</div>
+        <div class="card-tags">
+          <span class="tag">Hero</span>
+          <span class="tag">Card Grid</span>
+          <span class="tag">Testimonials</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="mockup2.html" class="mockup-card">
+        <span class="card-number">02</span>
+        <div class="card-title">Grouped ICP Cards</div>
+        <div class="card-desc">ICP cards organized into three themed groups (CTI, Sharing &amp; Platforms, Operations) inside a white panel with visual hierarchy.</div>
+        <div class="card-tags">
+          <span class="tag">Grouped Layout</span>
+          <span class="tag">Category Headers</span>
+          <span class="tag">Icons</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="mockup3.html" class="mockup-card">
+        <span class="card-number">03</span>
+        <div class="card-title">Interactive Explorer Panel</div>
+        <div class="card-desc">Two-column explorer with a clickable sidebar list on the left and a detail pane on the right. Auto-rotates through options.</div>
+        <div class="card-tags">
+          <span class="tag">Interactive</span>
+          <span class="tag">Split Panel</span>
+          <span class="tag">Auto-rotate</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="mockup4.html" class="mockup-card">
+        <span class="card-number">04</span>
+        <div class="card-title">Vertical List Navigation</div>
+        <div class="card-desc">Full-width list items grouped by category, each with an icon, question prompt, description, and arrow link. Red left-border accent.</div>
+        <div class="card-tags">
+          <span class="tag">List Layout</span>
+          <span class="tag">Full-width Items</span>
+          <span class="tag">Grouped</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="mockup5.html" class="mockup-card">
+        <span class="card-number">05</span>
+        <div class="card-title">Streamlined List Variant</div>
+        <div class="card-desc">Refined take on the list layout with cleaner styling, better mobile optimization, and a more compact visual footprint.</div>
+        <div class="card-tags">
+          <span class="tag">List Layout</span>
+          <span class="tag">Compact</span>
+          <span class="tag">Mobile-first</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="cosive-original.html" class="mockup-card">
+        <span class="card-number">06</span>
+        <div class="card-title">"I am..." Persona Navigation</div>
+        <div class="card-desc">Persona-driven approach where visitors self-identify with an "I am..." prompt, leading to categorized solution lists.</div>
+        <div class="card-tags">
+          <span class="tag">Persona-based</span>
+          <span class="tag">Self-selection</span>
+          <span class="tag">List Groups</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Earlier Explorations</div>
+    <div class="mockup-grid">
+
+      <a href="simple-hero-grid.html" class="mockup-card">
+        <span class="card-number">A</span>
+        <div class="card-title">Simple Hero + Grid</div>
+        <div class="card-desc">Minimal starting point with a hero section, email signup, and a basic 6-card grid. No header/footer chrome.</div>
+        <div class="card-tags">
+          <span class="tag">Minimal</span>
+          <span class="tag">Prototype</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+      <a href="grouped-navigation.html" class="mockup-card">
+        <span class="card-number">B</span>
+        <div class="card-title">Grouped Category Navigation</div>
+        <div class="card-desc">Three-column category grouping with red header bars. Centered hero, compact card layout under category headers.</div>
+        <div class="card-tags">
+          <span class="tag">3-column</span>
+          <span class="tag">Prototype</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Solution Pages</div>
+    <div class="mockup-grid">
+
+      <a href="sharing-communities.html" class="mockup-card full-width">
+        <span class="card-number">S1</span>
+        <div class="card-title">Sharing Communities &mdash; Solution Page</div>
+        <div class="card-desc">Full solution landing page with breadcrumbs, lead capture form, embedded testimonial, numbered challenge list, FAQ accordion, and bottom CTA. This is the target template for individual solution pages.</div>
+        <div class="card-tags">
+          <span class="tag">Landing Page</span>
+          <span class="tag">Lead Form</span>
+          <span class="tag">FAQ Accordion</span>
+          <span class="tag">CTA</span>
+        </div>
+        <div class="card-link">View mockup &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
