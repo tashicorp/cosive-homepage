@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive - We make threat intelligence easy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-red: #e53834;
+    --color-red-dark: #c1121f;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-bg);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .header-logo img {
+    height: 30px;
+    filter: brightness(0);
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover {
+    color: var(--color-text);
+  }
+
+  .nav-cta {
+    color: var(--color-text) !important;
+    border: 1px solid var(--color-border) !important;
+    padding: 8px 20px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-surface) !important;
+    border-color: #d0d3d8 !important;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: calc(100vh - 73px);
+    display: flex;
+    padding: 0;
+  }
+
+  .hero > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.35rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    max-width: 100%;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  .hero-main {
+    padding-right: 48px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .industry-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+
+  .chevron-circle {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  .chevron-circle svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  /* Industry Cards (2x2 grid in left two-thirds) */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .industry-card {
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    aspect-ratio: 8 / 4;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .industry-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 100%);
+    z-index: 1;
+    transition: background 0.3s;
+  }
+
+  .industry-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    z-index: 0;
+    transition: transform 0.4s, filter 0.4s;
+  }
+
+  .industry-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+  }
+
+  .industry-card:hover::before {
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 100%);
+  }
+
+  .industry-card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(60%);
+  }
+
+  .industry-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 28px 28px 24px;
+  }
+
+  .industry-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .industry-card .card-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .industry-card .card-cta {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+  }
+
+  .industry-card .card-cta svg {
+    stroke: rgba(255,255,255,0.85);
+  }
+
+  /* Hero testimonial (right third) */
+  .hero-testimonial {
+    background: transparent;
+    border-left: 1px solid var(--color-border);
+    padding: 64px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .hero-testimonial .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 8rem;
+    line-height: 0.8;
+    color: var(--color-red);
+    opacity: 1;
+    margin-bottom: 24px;
+  }
+
+  .hero-testimonial blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+
+  .hero-testimonial cite {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .hero-testimonial .hero-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .hero-testimonial .hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .hero-testimonial .hero-dot.active {
+    background: var(--color-red);
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-red);
+    transition: gap 0.2s;
+  }
+
+  .card-cta:hover { gap: 10px; }
+
+  .card-cta svg {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: middle;
+  }
+
+  /* ── Light Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-inner .footer-logo img {
+    height: 22px;
+    filter: brightness(0);
+    opacity: 0.4;
+  }
+
+  .footer-copyright {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--color-text); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero { min-height: auto; }
+    .hero-main { padding-top: 40px; padding-bottom: 40px; }
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-main { padding-right: 0; }
+    .hero-testimonial { border-left: none; padding: 32px 0; }
+    .hero-subtitle { max-width: 100%; }
+    .main-nav ul { gap: 4px; }
+    .main-nav a { font-size: 0.82rem; padding: 8px 12px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .hero-main { padding-top: 32px; padding-bottom: 32px; }
+    .industry-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 16px; height: auto; padding: 16px 0; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo">
+      <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/647e84e0bd3f03d1718e0c0f_cosive_logo_reverse_full_color_transparent_print%20(2).png" alt="Cosive">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/capabilities/cloud-misp">Products</a></li>
+        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-layout">
+
+      <div class="hero-main">
+        <h1>Build a CTI function your stakeholders can rely on.</h1>
+        <p class="hero-subtitle">Cosive is a specialist CTI consultancy that helps you stand up, scale, and run successful cyber threat intelligence programmes and sharing hubs.</p>
+        <h3 class="industry-heading">See how we work with your industry <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+        <div class="industry-grid">
+        <a href="financial-services.html" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Financial services">
+          <div class="industry-card-content">
+            <h2>Banks &amp; Financial Services</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="critical-infrastructure.html" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80" alt="Energy infrastructure">
+          <div class="industry-card-content">
+            <h2>Critical Infrastructure</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/solutions/enterprise" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Enterprise office">
+          <div class="industry-card-content">
+            <h2>Enterprise</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/solutions/government" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1672264597620-d792bb6de88d?w=600&q=80" alt="Australian Parliament House" style="object-position: center 35%;">
+          <div class="industry-card-content">
+            <h2>Government</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </div>
+      </div>
+
+      <div class="hero-testimonial" id="heroTestimonial">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote id="heroQuote">Cosive helped us go from zero to a fully operational CTI function in under six months.</blockquote>
+        <cite id="heroCite">&mdash; Financial services CISO</cite>
+        <div class="hero-dots" id="heroDots">
+          <button class="hero-dot active" data-index="0" aria-label="Testimonial 1"></button>
+          <button class="hero-dot" data-index="1" aria-label="Testimonial 2"></button>
+          <button class="hero-dot" data-index="2" aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var quotes = [
+    { text: 'Cosive helped us go from zero to a fully operational CTI function in under six months.', cite: '— Financial services CISO' },
+    { text: 'Their MISP expertise is unmatched. We finally have a sharing platform our members actually use.', cite: '— Sharing community operator' },
+    { text: 'The team at Cosive understood our security challenges from day one and delivered real, measurable outcomes.', cite: '— Government agency director' }
+  ];
+  var current = 0;
+  var quoteEl = document.getElementById('heroQuote');
+  var citeEl = document.getElementById('heroCite');
+  var dots = document.querySelectorAll('.hero-dot');
+  var timer;
+
+  function show(i) {
+    dots[current].classList.remove('active');
+    current = i;
+    quoteEl.style.opacity = 0;
+    citeEl.style.opacity = 0;
+    setTimeout(function() {
+      quoteEl.textContent = '\u201C' + quotes[current].text + '\u201D';
+      citeEl.textContent = quotes[current].cite;
+      quoteEl.style.opacity = 1;
+      citeEl.style.opacity = 1;
+      dots[current].classList.add('active');
+    }, 300);
+  }
+
+  quoteEl.style.transition = 'opacity 0.3s';
+  citeEl.style.transition = 'opacity 0.3s';
+
+  function next() { show((current + 1) % quotes.length); }
+  function startTimer() { timer = setInterval(next, 5000); }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      clearInterval(timer);
+      show(parseInt(this.dataset.index));
+      startTimer();
+    });
+  });
+
+  startTimer();
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-logo">
+      <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/647e84e0bd3f03d1718e0c0f_cosive_logo_reverse_full_color_transparent_print%20(2).png" alt="Cosive">
+    </a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/security-consulting">Security Consulting</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>
