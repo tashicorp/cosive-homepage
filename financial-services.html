@@ -208,8 +208,8 @@
   .hero-form .btn-submit {
     display: inline-block;
     padding: 10px 28px;
-    background: var(--color-white);
-    color: var(--color-dark);
+    background: var(--color-red);
+    color: var(--color-white);
     font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 600;
@@ -222,7 +222,7 @@
   }
 
   .hero-form .btn-submit:hover {
-    background: rgba(255,255,255,0.85);
+    background: var(--color-red-dark);
   }
 
   .hero-top > img {
@@ -470,16 +470,16 @@
 
   /* ── Goal CTA section ── */
   .goal-cta {
-    padding: 64px 0 80px;
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    padding: 80px 0;
+    background: var(--color-dark);
+    text-align: center;
   }
 
   .goal-cta-heading {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-white);
     text-align: center;
     margin-bottom: 32px;
   }
@@ -487,6 +487,7 @@
   .goal-cta-form {
     max-width: 480px;
     margin: 0 auto;
+    text-align: left;
   }
 
   .goal-cta-form .form-field {
@@ -499,7 +500,7 @@
   .goal-cta-form label {
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: rgba(255,255,255,0.6);
   }
 
   .goal-cta-form input,
@@ -507,12 +508,17 @@
     font-family: var(--font-body);
     font-size: 0.95rem;
     padding: 8px 14px;
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 6px;
-    background: var(--color-white);
-    color: var(--color-text);
+    background: rgba(255,255,255,0.08);
+    color: var(--color-white);
     outline: none;
     transition: border-color 0.2s;
+  }
+
+  .goal-cta-form input::placeholder,
+  .goal-cta-form textarea::placeholder {
+    color: rgba(255,255,255,0.35);
   }
 
   .goal-cta-form input:focus,
@@ -528,7 +534,7 @@
   .goal-cta-form .btn-submit {
     display: inline-block;
     padding: 10px 28px;
-    background: var(--color-text);
+    background: var(--color-red);
     color: var(--color-white);
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -542,7 +548,7 @@
   }
 
   .goal-cta-form .btn-submit:hover {
-    background: var(--color-dark);
+    background: var(--color-red-dark);
   }
 
   /* ── Light Footer ── */
@@ -673,7 +679,7 @@
         <label for="contact-message">How can we help?</label>
         <textarea id="contact-message" placeholder="Tell us about your CTI goals..."></textarea>
       </div>
-      <button type="submit" class="btn-submit">Get in touch</button>
+      <button type="submit" class="btn-submit">Submit</button>
     </form>
   </div>
 </div>
@@ -747,7 +753,7 @@
           <label for="goal-message">How can we help?</label>
           <textarea id="goal-message" placeholder="Tell us about your CTI goals..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Get in touch</button>
+        <button type="submit" class="btn-submit">Submit</button>
       </form>
     </div>
   </div>
