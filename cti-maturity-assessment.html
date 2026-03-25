@@ -161,14 +161,19 @@
   /* ── Hero ── */
   .hero {
     background: var(--color-bg);
-    padding: 80px 0;
+    padding: 0;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 64px;
-    align-items: start;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .hero-content {
+    padding-top: 80px;
+    padding-right: 48px;
   }
 
   .hero-content .section-label {
@@ -197,6 +202,7 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    padding-bottom: 80px;
   }
 
   .trust-badge {
@@ -341,10 +347,12 @@
 
   /* ── Lead form ── */
   .lead-form-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    padding: 40px 36px;
+    border-left: 1px solid var(--color-border);
+    padding: 80px 40px 40px;
+    margin-right: -48px;
+    padding-right: 88px;
+    display: flex;
+    flex-direction: column;
   }
 
   .lead-form-card h2 {
@@ -352,103 +360,69 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 6px;
-  }
-
-  .lead-form-card .form-subtext {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 28px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    margin-bottom: 20px;
   }
 
   .form-group {
-    margin-bottom: 14px;
-  }
-
-  .form-group.full-width {
-    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
   }
 
   .form-group label {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 6px;
-  }
-
-  .form-group label .optional {
-    font-weight: 400;
     color: var(--color-text-secondary);
   }
 
   .form-group input,
   .form-group textarea {
-    width: 100%;
-    padding: 11px 14px;
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    color: var(--color-text);
-    background: var(--color-white);
+    font-size: 1.05rem;
+    padding: 12px 16px;
     border: 1px solid var(--color-border);
     border-radius: 6px;
+    background: var(--color-surface);
+    color: var(--color-text);
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: #b0b5bc;
+    transition: border-color 0.2s;
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
     border-color: var(--color-red);
-    box-shadow: 0 0 0 3px rgba(229,56,52,0.08);
   }
 
   .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 140px;
   }
 
   .btn-primary {
     display: inline-block;
-    width: 100%;
-    padding: 14px 36px;
-    background: var(--color-red);
+    padding: 12px 32px;
+    background: var(--color-text);
     color: var(--color-white);
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
     transition: background 0.2s;
-    text-align: center;
+    width: fit-content;
+    align-self: flex-end;
     margin-top: 6px;
   }
 
-  .btn-primary:hover { background: var(--color-red-dark); }
-
-  .form-privacy {
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
-    margin-top: 14px;
-    text-align: center;
-  }
+  .btn-primary:hover { background: var(--color-dark); }
 
   /* ── Service section ── */
   .section-service {
     background: var(--color-surface);
     padding: 80px 0;
+    border-top: 1px solid var(--color-border);
   }
 
   .service-grid {
@@ -669,40 +643,52 @@
 
   /* ── Final CTA ── */
   .section-cta {
-    background: var(--color-surface);
+    background: var(--color-dark);
     padding: 80px 0;
     text-align: center;
+  }
+
+  .section-cta .section-label {
+    color: var(--color-red);
   }
 
   .section-cta .section-title {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--color-white);
   }
 
-  .section-cta .cta-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    max-width: 520px;
-    margin: 0 auto 32px;
+  .cta-form {
+    max-width: 480px;
+    margin: 32px auto 0;
+    text-align: left;
   }
 
-  .btn-primary-inline {
-    display: inline-block;
-    padding: 14px 40px;
+  .cta-form .form-group label {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .cta-form .form-group input,
+  .cta-form .form-group textarea {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: var(--color-white);
+  }
+
+  .cta-form .form-group input::placeholder,
+  .cta-form .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .cta-form .btn-primary {
     background: var(--color-red);
     color: var(--color-white);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 600;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
   }
 
-  .btn-primary-inline:hover { background: var(--color-red-dark); }
+  .cta-form .btn-primary:hover {
+    background: var(--color-red-dark);
+  }
 
   /* ── Light Footer ── */
   .site-footer {
@@ -743,7 +729,9 @@
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .container { padding: 0 24px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-content { padding-right: 0; }
+    .lead-form-card { border-left: none; border-bottom: none; padding: 32px 0 0; margin-right: 0; padding-right: 0; }
     .hero-content h1 { font-size: 2rem; }
     .service-grid { grid-template-columns: 1fr; }
     .benefits-grid { grid-template-columns: repeat(2, 1fr); }
@@ -844,37 +832,22 @@
       </div>
 
       <div class="lead-form-card" id="assessmentForm">
-        <h2>Request an Assessment</h2>
-        <p class="form-subtext">Speak with one of our senior CTI assessors.</p>
-        <form onsubmit="return false;">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" placeholder="Jane">
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" placeholder="Smith">
-            </div>
+        <h2>Talk to our team</h2>
+
+        <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" placeholder="Your name">
           </div>
           <div class="form-group">
-            <label for="email">Work Email</label>
-            <input type="email" id="email" placeholder="jane@organisation.com">
+            <label for="email">Work email</label>
+            <input type="email" id="email" placeholder="you@company.com">
           </div>
           <div class="form-group">
-            <label for="organisation">Organisation</label>
-            <input type="text" id="organisation" placeholder="Your organisation name">
+            <label for="goals">How can we help?</label>
+            <textarea id="goals" placeholder="Tell us about your CTI goals..."></textarea>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone <span class="optional">(optional)</span></label>
-            <input type="tel" id="phone" placeholder="+61 4xx xxx xxx">
-          </div>
-          <div class="form-group">
-            <label for="goals">Tell us about your CTI goals</label>
-            <textarea id="goals" placeholder="What are you hoping to achieve with a CTI assessment?"></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Request Assessment</button>
-          <p class="form-privacy">We'll respond within one business day.</p>
+          <button type="submit" class="btn-primary">Submit</button>
         </form>
       </div>
 
@@ -1031,8 +1004,23 @@
   <div class="container">
     <span class="section-label">Get Started</span>
     <h2 class="section-title">Ready to enhance your threat intelligence capabilities?</h2>
-    <p class="cta-subtitle">Contact us to learn more about our CTI Maturity Assessment from one of our senior assessors.</p>
-    <a href="#assessmentForm" class="btn-primary-inline" onclick="document.getElementById('assessmentForm').scrollIntoView({behavior:'smooth',block:'center'});return false;">Request an Assessment</a>
+    <div class="cta-form">
+      <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+        <div class="form-group">
+          <label for="cta-name">Name</label>
+          <input type="text" id="cta-name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="cta-email">Work email</label>
+          <input type="email" id="cta-email" placeholder="you@company.com">
+        </div>
+        <div class="form-group">
+          <label for="cta-message">How can we help?</label>
+          <textarea id="cta-message" placeholder="Tell us about your CTI goals..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+    </div>
   </div>
 </section>
 
