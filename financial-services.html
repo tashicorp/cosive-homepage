@@ -56,11 +56,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 52px;
   }
 
   .header-logo img {
-    height: 30px;
+    height: 24px;
     filter: brightness(0);
   }
 
@@ -97,18 +97,139 @@
     border-color: #d0d3d8 !important;
   }
 
-  /* ── Hero banner: full-width image with testimonial overlay ── */
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .breadcrumb nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-text);
+  }
+
+  .breadcrumb .separator {
+    color: var(--color-border);
+  }
+
+  .breadcrumb .current {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  /* ── Hero row: image + form ── */
+  .hero-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    margin: 0;
+    align-items: stretch;
+  }
+
   .hero-top {
     position: relative;
-    overflow: hidden;
-    max-height: 420px;
-    border-radius: 10px;
-    margin: 24px 48px;
+    overflow: visible;
+    border-radius: 0;
+    margin: 0;
+    min-height: 0;
+  }
+
+  /* Hero form */
+  .hero-form {
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0;
+    background: var(--color-dark);
+  }
+
+  .hero-form h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 14px;
+  }
+
+  .hero-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .hero-form label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .hero-form input,
+  .hero-form textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+    color: var(--color-white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .hero-form input::placeholder,
+  .hero-form textarea::placeholder {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .hero-form input:focus,
+  .hero-form textarea:focus {
+    border-color: var(--color-red);
+  }
+
+  .hero-form textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  .hero-form .btn-submit {
+    display: inline-block;
+    padding: 10px 28px;
+    background: var(--color-white);
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: fit-content;
+    align-self: flex-end;
+  }
+
+  .hero-form .btn-submit:hover {
+    background: rgba(255,255,255,0.85);
   }
 
   .hero-top > img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 420px;
+    height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
     display: block;
@@ -118,22 +239,36 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(14,20,28,0.15) 0%, rgba(14,20,28,0.6) 55%, rgba(14,20,28,0.85) 75%);
+    background: linear-gradient(to top right, rgba(14,20,28,0.9) 0%, rgba(14,20,28,0.75) 40%, rgba(14,20,28,0.45) 70%, rgba(14,20,28,0.2) 100%);
     z-index: 1;
   }
 
-  /* Hero testimonial (overlaid on right third) */
-  .hero-testimonial {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 33.333%;
+  /* Hero overlay: testimonial + category heading stacked */
+  .hero-overlay {
+    position: relative;
     z-index: 2;
-    padding: 56px 48px;
+    padding: 24px 48px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .hero-testimonial {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 50%;
+  }
+
+  .hero-category h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
   }
 
   .hero-testimonial .quote-mark {
@@ -142,21 +277,21 @@
     line-height: 0.8;
     color: var(--color-red);
     opacity: 1;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .hero-testimonial blockquote {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
     font-style: normal;
     color: var(--color-white);
-    line-height: 1.5;
-    margin-bottom: 24px;
+    line-height: 1.45;
+    margin-bottom: 20px;
   }
 
   .hero-testimonial cite {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: rgba(255,255,255,0.6);
     font-style: normal;
     font-weight: 400;
@@ -164,13 +299,13 @@
 
   .hero-testimonial .hero-dots {
     display: flex;
-    gap: 8px;
-    margin-top: 28px;
+    gap: 10px;
+    margin-top: 32px;
   }
 
   .hero-testimonial .hero-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: rgba(255,255,255,0.25);
     border: none;
@@ -185,7 +320,7 @@
 
   /* ── Content section (full width below) ── */
   .hero-content {
-    padding: 32px 0 80px;
+    padding: 48px 0 80px;
   }
 
   .hero-label {
@@ -272,24 +407,24 @@
   }
 
   .tag {
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 3px;
     letter-spacing: 0.3px;
     text-transform: uppercase;
   }
 
-  .tag-dora     { color: #1a5276; background: rgba(26,82,118,0.08); }
-  .tag-frida    { color: #1565a0; background: rgba(21,101,160,0.08); }
-  .tag-fncrf    { color: #2874a6; background: rgba(40,116,166,0.08); }
-  .tag-csr      { color: #0e4d6e; background: rgba(14,77,110,0.08); }
-  .tag-nis2     { color: #1a3c6e; background: rgba(26,60,110,0.08); }
-  .tag-pcidss   { color: #21618c; background: rgba(33,97,140,0.08); }
+  .tag-dora,
+  .tag-frida,
+  .tag-fncrf,
+  .tag-csr,
+  .tag-nis2,
+  .tag-pcidss   { color: #1a2332; background: rgba(26,35,50,0.08); }
 
   .solution-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.35;
   }
@@ -303,7 +438,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-red);
     transition: gap 0.2s;
@@ -332,6 +467,83 @@
   }
 
   .btn-primary:hover { background: var(--color-red-dark); }
+
+  /* ── Goal CTA section ── */
+  .goal-cta {
+    padding: 64px 0 80px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .goal-cta-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .goal-cta-form {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .goal-cta-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .goal-cta-form label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .goal-cta-form input,
+  .goal-cta-form textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-white);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .goal-cta-form input:focus,
+  .goal-cta-form textarea:focus {
+    border-color: var(--color-red);
+  }
+
+  .goal-cta-form textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  .goal-cta-form .btn-submit {
+    display: inline-block;
+    padding: 10px 28px;
+    background: var(--color-text);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: fit-content;
+    align-self: flex-end;
+  }
+
+  .goal-cta-form .btn-submit:hover {
+    background: var(--color-dark);
+  }
 
   /* ── Light Footer ── */
   .site-footer {
@@ -372,7 +584,8 @@
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .container { padding: 0 24px; }
-    .hero-top { max-height: 600px; margin: 24px; }
+    .hero-row { margin: 24px; grid-template-columns: 2fr 1fr; }
+    .hero-top { margin: 0; }
     .hero-testimonial { width: 40%; padding: 40px 24px; }
     .hero-testimonial blockquote { font-size: 1.3rem; }
     .hero-content h1 { font-size: 1.8rem; }
@@ -383,7 +596,9 @@
   }
 
   @media (max-width: 600px) {
-    .hero-top { max-height: 500px; margin: 16px; border-radius: 8px; }
+    .hero-row { margin: 16px; grid-template-columns: 1fr; }
+    .hero-top { margin: 0; border-radius: 8px 8px 0 0; }
+    .hero-form { border-radius: 0 0 8px 8px; border-left: 1px solid var(--color-border); border-top: none; }
     .hero-testimonial { width: 100%; position: relative; padding: 32px 24px; }
     .hero-top::after { background: rgba(14,20,28,0.7); }
     .hero-testimonial blockquote { font-size: 1.2rem; }
@@ -399,7 +614,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="mockup8.html" class="header-logo">
+    <a href="mockup8-v2.html" class="header-logo">
       <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/647e84e0bd3f03d1718e0c0f_cosive_logo_reverse_full_color_transparent_print%20(2).png" alt="Cosive">
     </a>
     <nav class="main-nav">
@@ -414,64 +629,126 @@
   </div>
 </header>
 
-<div class="hero-top">
-  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Financial district skyline">
-  <div class="hero-testimonial" id="heroTestimonial">
-    <div class="quote-mark">&ldquo;</div>
-    <blockquote id="heroQuote">Cosive helped us go from zero to a fully operational CTI function in under six months.</blockquote>
-    <cite id="heroCite">&mdash; Financial services CISO</cite>
-    <div class="hero-dots" id="heroDots">
-      <button class="hero-dot active" data-index="0" aria-label="Testimonial 1"></button>
-      <button class="hero-dot" data-index="1" aria-label="Testimonial 2"></button>
-      <button class="hero-dot" data-index="2" aria-label="Testimonial 3"></button>
+<div class="breadcrumb">
+  <div class="container">
+    <nav>
+      <a href="mockup8-v2.html">Home</a>
+      <span class="separator">/</span>
+      <span class="current">Central Banks &amp; Financial Services</span>
+    </nav>
+  </div>
+</div>
+
+<div class="hero-row">
+  <div class="hero-top">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Financial district skyline">
+    <div class="hero-overlay">
+      <div class="hero-testimonial" id="heroTestimonial">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote id="heroQuote">Cosive helped us go from zero to a fully operational CTI function in under six months.</blockquote>
+        <cite id="heroCite">&mdash; Financial services CISO</cite>
+        <div class="hero-dots" id="heroDots">
+          <button class="hero-dot active" data-index="0" aria-label="Testimonial 1"></button>
+          <button class="hero-dot" data-index="1" aria-label="Testimonial 2"></button>
+          <button class="hero-dot" data-index="2" aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+      <div class="hero-category">
+        <h1>Central Banks &amp; Financial Services</h1>
+      </div>
     </div>
+  </div>
+  <div class="hero-form">
+    <h3>Talk to our team</h3>
+    <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+      <div class="form-field">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" placeholder="Your name">
+      </div>
+      <div class="form-field">
+        <label for="contact-email">Work email</label>
+        <input type="email" id="contact-email" placeholder="you@company.com">
+      </div>
+      <div class="form-field">
+        <label for="contact-message">How can we help?</label>
+        <textarea id="contact-message" placeholder="Tell us about your CTI goals..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Get in touch</button>
+    </form>
   </div>
 </div>
 
 <section class="hero-content">
   <div class="container">
-    <span class="hero-label">Banks &amp; Financial Services</span>
-    <h1>Meet every regulatory CTI obligation with confidence.</h1>
-    <p class="hero-subtitle">We help banks and financial institutions build, mature, and run CTI capabilities that satisfy DORA, FRIDA, and sector-specific compliance requirements.</p>
-    <h3 class="solutions-heading">See how we help <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+    <h1>Meet your intelligence sharing obligations with confidence.</h1>
+    <p class="hero-subtitle">We help banks and financial institutions build, mature, and run cyber threat and fraud intelligence capabilities that satisfy DORA, FRIDA, and sector-specific compliance requirements.</p>
+    <h3 class="solutions-heading">How we help with fraud <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="solutions-grid">
 
-      <a href="/solutions/fraud-reporting" class="solution-card">
+      <a href="cti-maturity-assessment.html" class="solution-card">
         <div class="card-tags"><span class="tag tag-frida">FRIDA</span><span class="tag tag-fncrf">FNC-RF</span></div>
         <h3>Share fraudulent bank account information with a regulator</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
-      <a href="/solutions/threat-intel-hub" class="solution-card">
+      <a href="cti-maturity-assessment.html" class="solution-card">
         <div class="card-tags"><span class="tag tag-dora">DORA</span></div>
         <h3>Consume and share threat intel from a central hub</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
-      <a href="/solutions/new-to-cti" class="solution-card">
+      <a href="cti-maturity-assessment.html" class="solution-card">
         <div class="card-tags"><span class="tag tag-dora">DORA</span><span class="tag tag-csr">CSR</span><span class="tag tag-pcidss">PCI-DSS</span></div>
         <h3>Stand up a new CTI function with expert guidance</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
-      <a href="/solutions/cti-improvement" class="solution-card">
+    </div>
+
+    <h3 class="solutions-heading" style="margin-top: 48px;">How we help with cyber threat intelligence <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+    <div class="solutions-grid">
+
+      <a href="cti-maturity-assessment.html" class="solution-card">
         <div class="card-tags"><span class="tag tag-dora">DORA</span></div>
-        <h3>Improve your CTI capability using CTI-CMM</h3>
+        <h3>Build a threat intelligence sharing community</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
-      <a href="/solutions/run-misp-for-me" class="solution-card">
-        <div class="card-tags"><span class="tag tag-dora">DORA</span><span class="tag tag-frida">FRIDA</span></div>
-        <h3>Get a fully managed MISP instance</h3>
+      <a href="cti-maturity-assessment.html" class="solution-card">
+        <div class="card-tags"><span class="tag tag-dora">DORA</span><span class="tag tag-nis2">NIS2</span></div>
+        <h3>Automate threat intelligence collection and enrichment</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
-      <a href="/solutions/secops-improvement" class="solution-card">
-        <div class="card-tags"><span class="tag tag-csr">CSR</span><span class="tag tag-nis2">NIS2</span></div>
-        <h3>Strengthen your security operations</h3>
+      <a href="cti-maturity-assessment.html" class="solution-card">
+        <div class="card-tags"><span class="tag tag-csr">CSR</span></div>
+        <h3>Produce actionable intelligence reports for stakeholders</h3>
         <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<section class="goal-cta">
+  <div class="container">
+    <h3 class="goal-cta-heading">Don't see your goal? Tell us what you want to accomplish.</h3>
+    <div class="goal-cta-form">
+      <form onsubmit="return false;" style="display:flex;flex-direction:column;">
+        <div class="form-field">
+          <label for="goal-name">Name</label>
+          <input type="text" id="goal-name" placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="goal-email">Work email</label>
+          <input type="email" id="goal-email" placeholder="you@company.com">
+        </div>
+        <div class="form-field">
+          <label for="goal-message">How can we help?</label>
+          <textarea id="goal-message" placeholder="Tell us about your CTI goals..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Get in touch</button>
+      </form>
     </div>
   </div>
 </section>
@@ -523,7 +800,7 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <a href="mockup8.html" class="footer-logo">
+    <a href="mockup8-v2.html" class="footer-logo">
       <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/647e84e0bd3f03d1718e0c0f_cosive_logo_reverse_full_color_transparent_print%20(2).png" alt="Cosive">
     </a>
     <div class="footer-links">
