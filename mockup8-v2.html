@@ -164,7 +164,7 @@
     height: 1.2em;
   }
 
-  /* Industry Cards (2x2 grid in left two-thirds) */
+  /* Industry Cards (2x3 grid in left two-thirds) */
   .industry-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -177,7 +177,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    aspect-ratio: 8 / 4;
+    aspect-ratio: 8 / 2.65;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -188,7 +188,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
     z-index: 1;
     transition: background 0.3s;
   }
@@ -210,7 +210,7 @@
   }
 
   .industry-card:hover::before {
-    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 100%);
   }
 
   .industry-card:hover img {
@@ -556,7 +556,7 @@
         <a href="financial-services.html" class="industry-card">
           <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Financial services">
           <div class="industry-card-content">
-            <h2>Central Banks &amp; Financial Services</h2>
+            <h2>Central Banking &amp; Financial Services</h2>
             <div class="card-actions">
               <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
             </div>
@@ -564,7 +564,7 @@
         </a>
 
         <a href="critical-infrastructure.html" class="industry-card">
-          <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&q=80" alt="Power station">
+          <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&q=80" alt="Telecoms tower and infrastructure">
           <div class="industry-card-content">
             <h2>Critical Infrastructure</h2>
             <div class="card-actions">
@@ -573,10 +573,10 @@
           </div>
         </a>
 
-        <a href="/solutions/enterprise" class="industry-card">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Enterprise office">
+        <a href="/solutions/resources-energy" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80" alt="Mining and energy operations">
           <div class="industry-card-content">
-            <h2>Enterprise</h2>
+            <h2>Operational Technology</h2>
             <div class="card-actions">
               <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
             </div>
@@ -584,9 +584,29 @@
         </a>
 
         <a href="/solutions/government" class="industry-card">
-          <img src="https://images.unsplash.com/photo-1672264597620-d792bb6de88d?w=600&q=80" alt="Australian Parliament House" style="object-position: center 35%;">
+          <img src="https://images.unsplash.com/photo-1672264597620-d792bb6de88d?w=600&q=80" alt="Government building" style="object-position: center 35%;">
           <div class="industry-card-content">
-            <h2>Government &amp; Defence</h2>
+            <h2>Government &amp; Public Sector</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/solutions/insurance-healthcare" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Healthcare and insurance">
+          <div class="industry-card-content">
+            <h2>Healthcare</h2>
+            <div class="card-actions">
+              <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/solutions/enterprise" class="industry-card">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Enterprise and digital platforms">
+          <div class="industry-card-content">
+            <h2>Information Technology</h2>
             <div class="card-actions">
               <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
             </div>
