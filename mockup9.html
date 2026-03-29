@@ -97,44 +97,9 @@
     border-color: #d0d3d8 !important;
   }
 
-  /* ── STIX Graph Background ── */
-  .hero {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero > canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 1;
-    pointer-events: none;
-  }
-
-  .hero > .container {
-    position: relative;
-    z-index: 1;
-  }
-
   /* ── Hero ── */
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at top left, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0) 65%);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .hero > .container {
-    position: relative;
-    z-index: 1;
+  .hero {
+    background: #fafafa;
   }
 
   .hero h1 .highlight {
@@ -147,7 +112,7 @@
   }
 
   .hero {
-    padding: 72px 0 0;
+    padding: 144px 0 0;
   }
 
   .hero h1 {
@@ -157,7 +122,7 @@
     line-height: 1.15;
     color: var(--color-text);
     letter-spacing: -0.5px;
-    margin-bottom: 48px;
+    margin-bottom: 96px;
     max-width: 66.66%;
   }
 
@@ -165,7 +130,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 96px;
   }
 
   .hero-subtitle {
@@ -181,7 +146,7 @@
     font-weight: 700;
     color: var(--color-text-secondary);
     letter-spacing: -0.3px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
 
   .chevron-circle {
@@ -200,7 +165,7 @@
   .industry-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 32px;
   }
 
   .industry-card {
@@ -253,12 +218,12 @@
   .industry-card-content {
     position: relative;
     z-index: 2;
-    padding: 22px 22px 20px;
+    padding: 28px 28px 26px;
   }
 
   .industry-card h2 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
     color: #fff;
@@ -273,7 +238,7 @@
 
   .industry-card .card-cta {
     color: rgba(255,255,255,0.85);
-    font-size: 1rem;
+    font-size: 1.15rem;
   }
 
   .industry-card .card-cta svg {
@@ -284,7 +249,7 @@
   .hero-testimonial {
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
-    padding: 72px 0 72px;
+    padding: 144px 0 144px;
   }
 
   .hero-testimonial .testimonial-inner {
@@ -363,7 +328,7 @@
 
   /* ── Services section ── */
   .services-section {
-    padding: 48px 0 80px;
+    padding: 96px 0 160px;
     border-top: 1px solid var(--color-border);
   }
 
@@ -374,13 +339,13 @@
     font-weight: 700;
     color: var(--color-text-secondary);
     letter-spacing: -0.3px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 48px;
   }
 
   .service-card {
@@ -423,7 +388,7 @@
   /* ── Light Footer ── */
   .site-footer {
     border-top: 1px solid var(--color-border);
-    padding: 32px 0;
+    padding: 64px 0;
   }
 
   .footer-inner {
@@ -498,10 +463,9 @@
 </header>
 
 <section class="hero">
-<canvas id="stixGraph"></canvas>
   <div class="container">
     <h1>We are a <span class="highlight">cyber threat and fraud intelligence</span> consultancy that helps you start, improve, and run successful intel programmes and sharing hubs.</h1>
-    <h3 class="industry-heading">How we help you <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+    <h3 class="industry-heading">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="industry-grid">
 
       <a href="/solutions/cyber-threat-intelligence" class="industry-card" data-cluster="0">
@@ -550,311 +514,6 @@
     </div>
   </div>
 </section>
-
-<script>
-(function() {
-  var canvas = document.getElementById('stixGraph');
-  var ctx = canvas.getContext('2d');
-  var hero = canvas.parentElement;
-  var dpr = window.devicePixelRatio || 1;
-  var W, H;
-
-  // Offscreen canvases — one per cluster (blur applied only on composite)
-  var layerCanvases = [];
-  var layerCtxs = [];
-  for (var i = 0; i < 3; i++) {
-    var lc = document.createElement('canvas');
-    layerCanvases.push(lc);
-    layerCtxs.push(lc.getContext('2d'));
-  }
-
-  function resize() {
-    W = hero.offsetWidth;
-    H = hero.offsetHeight;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    for (var i = 0; i < 3; i++) {
-      layerCanvases[i].width = W * dpr;
-      layerCanvases[i].height = H * dpr;
-      layerCtxs[i].setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // ── Cluster definitions: CTI (left), Fraud (center), SecOps (right) ──
-  var clusters = [
-    { // Cyber Threat Intelligence — warm reds/oranges
-      xMin: 0.05, xMax: 0.30, yMin: 0.10, yMax: 0.90,
-      nodes: [
-        { label: 'threat-actor',   color: '#c1121f', size: 42 },
-        { label: 'intrusion-set',  color: '#d94530', size: 38 },
-        { label: 'campaign',       color: '#e53834', size: 40 },
-        { label: 'attack-pattern', color: '#b03028', size: 36 },
-        { label: 'malware',        color: '#c4382e', size: 38 },
-        { label: 'vulnerability',  color: '#d45a2a', size: 34 },
-        { label: 'tool',           color: '#a8362c', size: 30 },
-        { label: 'infrastructure', color: '#b5452e', size: 30 },
-        { label: 'identity',       color: '#cc5040', size: 28 },
-        { label: 'report',         color: '#a04035', size: 26 },
-      ],
-      // Intra-cluster edges: [fromLocalIdx, toLocalIdx]
-      edges: [
-        [0, 4], // threat-actor → uses → malware
-        [0, 3], // threat-actor → uses → attack-pattern
-        [0, 1], // threat-actor → attributed-to → intrusion-set
-        [1, 2], // intrusion-set → attributed-to → campaign
-        [2, 4], // campaign → uses → malware
-        [2, 3], // campaign → uses → attack-pattern
-        [4, 5], // malware → exploits → vulnerability
-        [4, 6], // malware → uses → tool
-        [3, 5], // attack-pattern → targets → vulnerability
-        [6, 7], // tool → uses → infrastructure
-        [0, 8], // threat-actor → targets → identity
-        [2, 9], // campaign → documented-in → report
-        [1, 7], // intrusion-set → uses → infrastructure
-      ]
-    },
-    { // Fraud Intelligence — teal/cyan tones
-      xMin: 0.38, xMax: 0.62, yMin: 0.10, yMax: 0.90,
-      nodes: [
-        { label: 'identity',       color: '#17b8a0', size: 40 },
-        { label: 'indicator',      color: '#1a9e96', size: 38 },
-        { label: 'observed-data',  color: '#14a393', size: 36 },
-        { label: 'email-addr',     color: '#20b0a0', size: 26 },
-        { label: 'user-account',   color: '#1aab8a', size: 26 },
-        { label: 'url',            color: '#25a5b5', size: 24 },
-        { label: 'domain-name',    color: '#1d9480', size: 26 },
-        { label: 'grouping',       color: '#2aad9a', size: 30 },
-        { label: 'sighting',       color: '#189e88', size: 32 },
-        { label: 'report',         color: '#22b5a5', size: 26 },
-      ],
-      edges: [
-        [0, 4], // identity → related-to → user-account
-        [0, 3], // identity → related-to → email-addr
-        [1, 5], // indicator → indicates → url
-        [1, 6], // indicator → indicates → domain-name
-        [1, 3], // indicator → based-on → email-addr
-        [2, 4], // observed-data → contains → user-account
-        [2, 5], // observed-data → contains → url
-        [7, 1], // grouping → contains → indicator
-        [7, 2], // grouping → contains → observed-data
-        [8, 0], // sighting → sighting-of → identity
-        [8, 1], // sighting → sighting-of → indicator
-        [9, 7], // report → documents → grouping
-        [6, 5], // domain-name → resolves-to → url
-      ]
-    },
-    { // Security Operations / IoCs — blues/cool tones
-      xMin: 0.70, xMax: 0.95, yMin: 0.10, yMax: 0.90,
-      nodes: [
-        { label: 'indicator',        color: '#2d8bc9', size: 40 },
-        { label: 'malware',          color: '#3474a6', size: 38 },
-        { label: 'ipv4-addr',        color: '#287daf', size: 26 },
-        { label: 'domain-name',      color: '#2893ba', size: 26 },
-        { label: 'file',             color: '#4a8ab8', size: 24 },
-        { label: 'network-traffic',  color: '#3a7db0', size: 26 },
-        { label: 'process',          color: '#5090c0', size: 24 },
-        { label: 'email-message',    color: '#4586b5', size: 26 },
-        { label: 'course-of-action', color: '#2576a8', size: 34 },
-        { label: 'sighting',         color: '#3080b5', size: 32 },
-      ],
-      edges: [
-        [0, 1], // indicator → indicates → malware
-        [0, 2], // indicator → based-on → ipv4-addr
-        [0, 3], // indicator → based-on → domain-name
-        [0, 4], // indicator → based-on → file
-        [1, 4], // malware → drops → file
-        [1, 6], // malware → creates → process
-        [5, 2], // network-traffic → src → ipv4-addr
-        [5, 3], // network-traffic → dst → domain-name
-        [7, 3], // email-message → contains → domain-name
-        [8, 1], // course-of-action → mitigates → malware
-        [8, 0], // course-of-action → mitigates → indicator
-        [9, 0], // sighting → sighting-of → indicator
-        [9, 1], // sighting → sighting-of → malware
-      ]
-    }
-  ];
-
-  // Build flat node array and edge list from cluster definitions
-  var nodes = [];
-  var edges = [];
-  var clusterOffsets = []; // starting index of each cluster in nodes[]
-
-  clusters.forEach(function(cluster, ci) {
-    var offset = nodes.length;
-    clusterOffsets.push(offset);
-    cluster.nodes.forEach(function(n) {
-      nodes.push({
-        baseX: cluster.xMin + Math.random() * (cluster.xMax - cluster.xMin),
-        baseY: cluster.yMin + Math.random() * (cluster.yMax - cluster.yMin),
-        driftX: (Math.random() - 0.5) * 0.04,
-        driftY: (Math.random() - 0.5) * 0.03,
-        driftSpeed: 0.3 + Math.random() * 0.5,
-        phase: Math.random() * Math.PI * 2,
-        size: n.size * (0.9 + Math.random() * 0.2),
-        label: n.label,
-        color: n.color,
-        cluster: ci,
-      });
-    });
-    cluster.edges.forEach(function(e) {
-      edges.push([offset + e[0], offset + e[1]]);
-    });
-  });
-
-  // Inter-cluster bridge edges (sparse, for realism)
-  // CTI malware (idx 4) → SecOps indicator (idx 20)
-  edges.push([clusterOffsets[0] + 4, clusterOffsets[2] + 0]);
-  // CTI threat-actor (idx 0) → Fraud identity (idx 10)
-  edges.push([clusterOffsets[0] + 0, clusterOffsets[1] + 0]);
-  // Fraud indicator (idx 11) → SecOps malware (idx 21)
-  edges.push([clusterOffsets[1] + 1, clusterOffsets[2] + 1]);
-  // SecOps sighting (idx 29) → CTI intrusion-set (idx 1)
-  edges.push([clusterOffsets[2] + 9, clusterOffsets[0] + 1]);
-
-  // ── Hover-reveal state ──
-  var activeCluster = -1;
-  var clusterBlur = [2, 2, 2];
-  var clusterTarget = [2, 2, 2];
-
-  function getPos(node, t) {
-    var elapsed = t * 0.001;
-    var x = node.baseX + Math.sin(elapsed * node.driftSpeed + node.phase) * node.driftX;
-    var y = node.baseY + Math.cos(elapsed * node.driftSpeed + node.phase) * node.driftY;
-    return { x: x * W, y: y * H };
-  }
-
-  // Which cluster "owns" an edge for rendering purposes
-  function edgeCluster(edge) {
-    var cA = nodes[edge[0]].cluster;
-    var cB = nodes[edge[1]].cluster;
-    if (cA === cB) return cA;
-    // Inter-cluster: render with the sharper (less blurred) cluster
-    return clusterBlur[cA] <= clusterBlur[cB] ? cA : cB;
-  }
-
-  function hexAlpha(val) {
-    var clamped = Math.max(0, Math.min(255, Math.round(val)));
-    return (clamped < 16 ? '0' : '') + clamped.toString(16);
-  }
-
-  var startTime = Date.now();
-
-  function drawClusterToLayer(c, positions) {
-    var lctx = layerCtxs[c];
-    lctx.clearRect(0, 0, W, H);
-    var blur = clusterBlur[c];
-    var em = 1 - Math.min(blur / 2, 1);
-    var edgeAlpha = 0.25 + em * 0.35;
-
-    // Draw edges belonging to this cluster
-    edges.forEach(function(edge) {
-      if (edgeCluster(edge) !== c) return;
-      var a = positions[edge[0]];
-      var b = positions[edge[1]];
-      var dx = b.x - a.x;
-      var dy = b.y - a.y;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist === 0) return;
-      var ux = dx / dist;
-      var uy = dy / dist;
-      var rA = nodes[edge[0]].size + 2;
-      var rB = nodes[edge[1]].size + 2;
-      if (dist < rA + rB) return;
-      lctx.beginPath();
-      lctx.moveTo(a.x + ux * rA, a.y + uy * rA);
-      lctx.lineTo(b.x - ux * rB, b.y - uy * rB);
-      lctx.strokeStyle = 'rgba(0, 0, 0, ' + edgeAlpha.toFixed(2) + ')';
-      lctx.lineWidth = 1.5;
-      lctx.stroke();
-    });
-
-    // Draw nodes belonging to this cluster
-    nodes.forEach(function(node, i) {
-      if (node.cluster !== c) return;
-      var p = positions[i];
-      var glowA  = hexAlpha(0x25 + em * 0x15);
-      var fillA  = hexAlpha(0x60 + em * 0x30);
-      var strokeA = hexAlpha(0x99 + em * 0x44);
-      var labelA = hexAlpha(0xdd + em * 0x22);
-      // Outer glow
-      lctx.beginPath();
-      lctx.arc(p.x, p.y, node.size + 10, 0, Math.PI * 2);
-      lctx.fillStyle = node.color + glowA;
-      lctx.fill();
-      // Node circle
-      lctx.beginPath();
-      lctx.arc(p.x, p.y, node.size, 0, Math.PI * 2);
-      lctx.fillStyle = node.color + fillA;
-      lctx.fill();
-      lctx.strokeStyle = node.color + strokeA;
-      lctx.lineWidth = 2;
-      lctx.stroke();
-      // Label
-      lctx.font = '600 11px Manrope, sans-serif';
-      lctx.fillStyle = node.color + labelA;
-      lctx.textAlign = 'center';
-      lctx.textBaseline = 'middle';
-      lctx.fillText(node.label, p.x, p.y);
-    });
-  }
-
-  function draw() {
-    var t = Date.now() - startTime;
-
-    // Smooth lerp blur values toward targets
-    for (var c = 0; c < 3; c++) {
-      clusterBlur[c] += (clusterTarget[c] - clusterBlur[c]) * 0.1;
-      if (Math.abs(clusterBlur[c] - clusterTarget[c]) < 0.02) clusterBlur[c] = clusterTarget[c];
-    }
-
-    var positions = nodes.map(function(node) { return getPos(node, t); });
-
-    // Draw each cluster to its offscreen canvas (no filter)
-    for (var c = 0; c < 3; c++) {
-      drawClusterToLayer(c, positions);
-    }
-
-    // Composite onto main canvas — blur applied only here (3x per frame)
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Blurriest first so sharp clusters paint on top
-    var order = [0, 1, 2];
-    order.sort(function(a, b) { return clusterBlur[b] - clusterBlur[a]; });
-    for (var pass = 0; pass < 3; pass++) {
-      var ci = order[pass];
-      var blur = clusterBlur[ci] * dpr;
-      ctx.filter = blur > 0.05 ? 'blur(' + blur.toFixed(1) + 'px)' : 'none';
-      ctx.drawImage(layerCanvases[ci], 0, 0);
-    }
-    ctx.filter = 'none';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    requestAnimationFrame(draw);
-  }
-
-  // Nav card hover → reveal corresponding cluster
-  var cards = document.querySelectorAll('.industry-card[data-cluster]');
-  cards.forEach(function(card) {
-    card.addEventListener('mouseenter', function() {
-      activeCluster = parseInt(this.dataset.cluster);
-      clusterTarget = [2, 2, 2];
-      clusterTarget[activeCluster] = 0;
-    });
-    card.addEventListener('mouseleave', function() {
-      activeCluster = -1;
-      clusterTarget = [2, 2, 2];
-    });
-  });
-
-  draw();
-})();
-</script>
 
 <script>
 (function() {
