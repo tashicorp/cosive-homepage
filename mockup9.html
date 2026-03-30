@@ -84,17 +84,17 @@
   }
 
   .nav-cta {
-    color: var(--color-text) !important;
-    border: 1px solid var(--color-border) !important;
+    background: var(--color-red) !important;
+    color: var(--color-white) !important;
+    border: none !important;
     padding: 8px 20px !important;
     border-radius: 4px !important;
     font-weight: 600 !important;
-    transition: all 0.2s !important;
+    transition: background 0.2s !important;
   }
 
   .nav-cta:hover {
-    background: var(--color-surface) !important;
-    border-color: #d0d3d8 !important;
+    background: var(--color-red-dark) !important;
   }
 
   /* ── Hero ── */
@@ -103,12 +103,7 @@
   }
 
   .hero h1 .highlight {
-    background: var(--color-red);
-    color: var(--color-white);
-    padding: 2px 8px;
-    border-radius: 4px;
-    position: relative;
-    z-index: 2;
+    font-weight: 800;
   }
 
   .hero {
@@ -118,7 +113,7 @@
   .hero h1 {
     font-family: var(--font-heading);
     font-size: 2.6rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.15;
     color: var(--color-text);
     letter-spacing: -0.5px;
@@ -196,9 +191,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%);
     z-index: 0;
-    transition: transform 0.4s, filter 0.4s;
+    transition: transform 0.4s;
   }
 
   .industry-card:hover {
@@ -212,7 +206,6 @@
 
   .industry-card:hover img {
     transform: scale(1.05);
-    filter: grayscale(60%);
   }
 
   .industry-card-content {
@@ -399,24 +392,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .credentials-image {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    aspect-ratio: 4 / 3;
+    width: 100%;
   }
 
   .credentials-image img {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
+    height: auto;
     z-index: 0;
+    filter: saturate(0.4);
+    margin-top: -10%;
+    margin-bottom: -5%;
   }
 
   .credentials-image .credentials-caption {
@@ -451,6 +444,7 @@
   .credentials-content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .credentials-content h2 {
@@ -463,20 +457,286 @@
   .credentials-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    flex: 1;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .credentials-list li {
-    border-left: 3px solid var(--color-red);
-    padding-left: 20px;
+    padding: 16px 20px;
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     line-height: 1.5;
     color: var(--color-text-secondary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
   }
 
   .credentials-list li strong {
     color: var(--color-text);
+  }
+
+  /* ── Customers section ── */
+  .customers-section {
+    padding: 144px 0;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .customers-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .customers-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .customers-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+  }
+
+  .customer-card {
+    grid-column: span 2;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 320px;
+    transition: box-shadow 0.2s, transform 0.3s;
+  }
+
+  .customer-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.15) brightness(0.7);
+    z-index: 0;
+  }
+
+  .customer-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+    z-index: 1;
+  }
+
+  .customer-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    transform: translateY(-2px);
+  }
+
+  .customer-card-body {
+    position: relative;
+    z-index: 2;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+
+  .customer-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-white);
+  }
+
+  .customer-refs {
+    margin-top: 6px;
+  }
+
+  .customer-refs-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+
+  .customer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .customer-badge {
+    display: inline-block;
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    font-size: 0.95rem;
+    color: var(--color-white);
+    line-height: 1.4;
+  }
+
+  /* ── Process section ── */
+  .process-section {
+    padding: 96px 0 144px;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .process-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .process-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .process-card {
+    padding: 32px 28px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
+  }
+
+  .process-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+
+  .process-step {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+  }
+
+  .process-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .process-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── People section ── */
+  .people-section {
+    padding: 96px 0 144px;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .people-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .people-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .person-card {
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
+  }
+
+  .person-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+
+  .person-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .person-card-body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .person-card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .person-card-body .person-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  .person-card-body p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-top: 6px;
   }
 
   /* ── Final CTA ── */
@@ -581,7 +841,11 @@
     .industry-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-grid { grid-template-columns: 1fr; }
-    .credentials-image { aspect-ratio: 16 / 9; }
+
+    .customers-grid { grid-template-columns: 1fr; }
+    .customer-card, .customer-card:nth-child(n+3) { grid-column: auto; }
+    .process-grid { grid-template-columns: 1fr; }
+    .people-grid { grid-template-columns: 1fr; }
     .main-nav ul { gap: 4px; }
     .main-nav a { font-size: 0.82rem; padding: 8px 12px; }
   }
@@ -591,7 +855,10 @@
     .hero { padding-top: 32px; }
     .services-grid { grid-template-columns: 1fr; }
     .credentials-grid { grid-template-columns: 1fr; }
-    .credentials-image { aspect-ratio: 16 / 9; }
+
+    .customers-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .people-grid { grid-template-columns: 1fr; }
     .header-inner { flex-direction: column; gap: 16px; height: auto; padding: 16px 0; }
     .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
   }
@@ -618,7 +885,7 @@
 
 <section class="hero">
   <div class="container">
-    <h1>We are a <span class="highlight">cyber threat and fraud intelligence</span> consultancy that helps you start, improve, and run successful intel programmes and sharing hubs.</h1>
+    <h1>We are a <span class="highlight">cyber threat and fraud intelligence consultancy</span> that helps you start, improve, and run successful intel programmes and sharing hubs.</h1>
     <h3 class="industry-heading">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="industry-grid">
 
@@ -658,13 +925,100 @@
 
 <section class="hero-testimonial" id="heroTestimonial">
   <div class="testimonial-inner">
-    <div class="testimonial-label">Hear from our customers</div>
+    <div class="testimonial-label">What our customers say about us</div>
     <blockquote id="heroQuote">&ldquo;Cosive helped us go from zero to a fully operational CTI function in under six months.&rdquo;</blockquote>
     <cite id="heroCite">&mdash; Financial services CISO</cite>
     <div class="hero-dots" id="heroDots">
       <button class="hero-dot active" data-index="0" aria-label="Testimonial 1"></button>
       <button class="hero-dot" data-index="1" aria-label="Testimonial 2"></button>
       <button class="hero-dot" data-index="2" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<section class="customers-section">
+  <div class="container">
+    <div class="customers-label">Our customers</div>
+    <h2 class="customers-heading">Who we work with</h2>
+    <div class="customers-grid">
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Central Banks &amp; Financial Services</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Central Bank of Major Middle Eastern Nation</span>
+              <span class="customer-badge">Top-Four Australian Bank</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Critical Infrastructure</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Major National Energy Provider</span>
+              <span class="customer-badge">International Telecommunications Operator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Operational Technology</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">National Water Utility Provider</span>
+              <span class="customer-badge">Major Industrial Manufacturing Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>ISACs &amp; Sharing Communities</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">National Financial Sector ISAC</span>
+              <span class="customer-badge">Regional Critical Infrastructure Sharing Hub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Enterprises</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">World Leading Music Streaming Platform</span>
+              <span class="customer-badge">Global Professional Services Firm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1672264694074-d59397c511d0?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Government</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Reference customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">National Cyber Security Centre of Asia-Pacific Nation</span>
+              <span class="customer-badge">Defence Intelligence Agency of Five Eyes Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -676,7 +1030,7 @@
       <div class="credentials-caption">Cosive co-founder Chris Horsley presenting on threat intelligence at FIRSTCON in Denmark.</div>
     </div>
     <div class="credentials-content">
-      <div class="credentials-label">Our expertise</div>
+      <div class="credentials-label">What makes us unique</div>
       <h2>Why you should work with Cosive</h2>
       <ul class="credentials-list">
         <li><strong>Co-designers</strong> of Australia's national threat intelligence program, CTIS</li>
@@ -685,6 +1039,63 @@
         <li><strong>Frequent international speakers</strong> on threat intelligence, including at FIRST, CyberCon, and NZITF</li>
         <li><strong>Deliver training</strong> on cyber threat intelligence globally</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="container">
+    <div class="process-label">How we work with you</div>
+    <h2 class="process-heading">Our engagement approach</h2>
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="process-step">Step 1</span>
+        <h3>Assess &amp; Understand</h3>
+        <p>We start by understanding your current capabilities, threat landscape, and strategic objectives. This gives us a clear picture of where you are and where you need to be.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-step">Step 2</span>
+        <h3>Design &amp; Build</h3>
+        <p>We design and implement the processes, platforms, and integrations you need — from MISP deployments to custom intelligence workflows and sharing architectures.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-step">Step 3</span>
+        <h3>Operate &amp; Improve</h3>
+        <p>We stay with you to operate, optimise, and mature your programme over time. Our goal is lasting capability, not just a one-off project delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="people-section">
+  <div class="container">
+    <div class="people-label">Our people</div>
+    <h2 class="people-heading">The team behind Cosive</h2>
+    <div class="people-grid">
+      <div class="person-card">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Team member">
+        <div class="person-card-body">
+          <h3>Chris Horsley</h3>
+          <span class="person-title">Co-founder &amp; Director</span>
+          <p>Threat intelligence practitioner with deep experience in national-scale CTI programs, MISP platform development, and intelligence sharing community design.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Team member">
+        <div class="person-card-body">
+          <h3>Sarah Chen</h3>
+          <span class="person-title">Principal Consultant</span>
+          <p>Former government intelligence analyst specialising in CTI program design, maturity assessment, and operationalising threat intelligence across large organisations.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80" alt="Team member">
+        <div class="person-card-body">
+          <h3>James Mitchell</h3>
+          <span class="person-title">Senior Security Analyst</span>
+          <p>Experienced security engineer focused on MISP deployments, threat feed integration, and building automated intelligence pipelines for enterprise SOC teams.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
