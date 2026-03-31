@@ -241,8 +241,7 @@
   /* Hero testimonial (full width below nav cards) */
   .hero-testimonial {
     background: var(--color-white);
-    border-top: 1px solid var(--color-border);
-    padding: 144px 0 144px;
+    padding: 144px 0 0;
   }
 
   .hero-testimonial .testimonial-inner {
@@ -384,51 +383,52 @@
 
   /* ── Credentials section ── */
   .credentials-section {
-    padding: 0 0 144px;
-    background: var(--color-white);
-  }
-
-  .credentials-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: stretch;
-  }
-
-  .credentials-image {
-    border-radius: 12px;
-    overflow: hidden;
     position: relative;
-    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
   }
 
-  .credentials-image img {
+  .credentials-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #121212;
+  }
+
+  .credentials-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at bottom left, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 85%);
+    z-index: 1;
+  }
+
+  .credentials-bg img {
     display: block;
     width: 100%;
-    height: auto;
-    z-index: 0;
-    filter: saturate(0.4);
-    margin-top: -10%;
-    margin-bottom: -5%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: grayscale(1) contrast(1.3);
+    transform: scale(1.25) translateX(-10%);
   }
 
-  .credentials-image .credentials-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 48px 20px 16px;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-    color: var(--color-white);
-    font-size: 0.95rem;
-    line-height: 1.4;
+  .credentials-inner {
+    position: relative;
     z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s;
+    width: 100%;
+    padding: 80px 0;
   }
 
-  .credentials-image:hover .credentials-caption {
-    opacity: 1;
+  .credentials-box {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 48px 44px;
+    max-width: 680px;
   }
 
   .credentials-label {
@@ -438,51 +438,62 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--color-red);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
-  .credentials-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .credentials-content h2 {
+  .credentials-box h2 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+    color: var(--color-text);
   }
 
   .credentials-list {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    gap: 12px;
+    gap: 14px;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
   .credentials-list li {
-    padding: 16px 20px;
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.55;
     color: var(--color-text-secondary);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .credentials-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-red);
   }
 
   .credentials-list li strong {
     color: var(--color-text);
   }
 
+  .credentials-caption {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    z-index: 2;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+
   /* ── Customers section ── */
   .customers-section {
     padding: 144px 0;
-    border-top: 1px solid var(--color-border);
     background: var(--color-white);
   }
 
@@ -592,14 +603,14 @@
     line-height: 1.4;
   }
 
-  /* ── Process section ── */
-  .process-section {
-    padding: 96px 0 144px;
+  /* ── Approach section ── */
+  .approach-section {
+    padding: 96px 0;
     border-top: 1px solid var(--color-border);
     background: var(--color-white);
   }
 
-  .process-label {
+  .approach-label {
     font-family: var(--font-heading);
     font-size: 0.9rem;
     font-weight: 700;
@@ -609,62 +620,87 @@
     margin-bottom: 20px;
   }
 
-  .process-heading {
+  .approach-heading {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .approach-intro {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
     margin-bottom: 48px;
   }
 
-  .process-grid {
+  .approach-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 48px;
   }
 
-  .process-card {
-    padding: 32px 28px;
+  .approach-card {
+    padding: 28px 24px;
     border-radius: 10px;
     border: 1px solid var(--color-border);
     background: var(--color-surface);
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    align-items: flex-start;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
   }
 
-  .process-card:hover {
+  .approach-card:hover {
     border-color: #b0b5bc;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     transform: translateY(-2px);
   }
 
-  .process-step {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
+  .approach-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--color-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
   }
 
-  .process-card h3 {
+  .approach-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .approach-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .approach-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.35;
   }
 
-  .process-card p {
-    font-size: 0.95rem;
+  .approach-card p {
+    font-size: 0.93rem;
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   /* ── People section ── */
   .people-section {
-    padding: 96px 0 144px;
-    border-top: 1px solid var(--color-border);
+    padding: 0 0 144px;
     background: var(--color-white);
   }
 
@@ -687,8 +723,8 @@
 
   .people-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 
   .person-card {
@@ -696,6 +732,8 @@
     border: 1px solid var(--color-border);
     background: var(--color-surface);
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
   }
 
@@ -707,36 +745,115 @@
 
   .person-card img {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
 
   .person-card-body {
-    padding: 24px 28px 28px;
+    padding: 20px 24px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
+    justify-content: center;
   }
 
   .person-card-body h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.35;
   }
 
   .person-card-body .person-title {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-red);
   }
 
   .person-card-body p {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--color-text-secondary);
-    line-height: 1.5;
-    margin-top: 6px;
+    line-height: 1.55;
+    margin-top: 4px;
+  }
+
+  .team-card {
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding: 28px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
+  }
+
+  .team-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+
+  .team-avatars {
+    display: flex;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+
+  .team-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid var(--color-surface);
+    overflow: hidden;
+    margin-right: -14px;
+  }
+
+  .team-avatar:last-child {
+    margin-right: 0;
+  }
+
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .team-card p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-red);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .team-cta:hover {
+    gap: 12px;
+  }
+
+  .team-cta svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* ── Final CTA ── */
@@ -840,25 +957,24 @@
     .hero-subtitle { grid-column: 1; }
     .industry-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .credentials-grid { grid-template-columns: 1fr; }
-
     .customers-grid { grid-template-columns: 1fr; }
     .customer-card, .customer-card:nth-child(n+3) { grid-column: auto; }
-    .process-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
     .people-grid { grid-template-columns: 1fr; }
+    .person-card { grid-template-columns: 140px 1fr; }
     .main-nav ul { gap: 4px; }
     .main-nav a { font-size: 0.82rem; padding: 8px 12px; }
+    .credentials-box { max-width: 100%; }
   }
 
   @media (max-width: 600px) {
     .hero h1 { font-size: 1.5rem; }
     .hero { padding-top: 32px; }
     .services-grid { grid-template-columns: 1fr; }
-    .credentials-grid { grid-template-columns: 1fr; }
 
     .customers-grid { grid-template-columns: 1fr; }
-    .process-grid { grid-template-columns: 1fr; }
-    .people-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .person-card { grid-template-columns: 1fr; }
     .header-inner { flex-direction: column; gap: 16px; height: auto; padding: 16px 0; }
     .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
   }
@@ -885,7 +1001,7 @@
 
 <section class="hero">
   <div class="container">
-    <h1>We are a <span class="highlight">cyber threat and fraud intelligence consultancy</span> that helps you start, improve, and run successful intel programmes and sharing hubs.</h1>
+    <h1>We are a <span class="highlight">cyber threat intelligence and fraud data sharing consultancy</span> that helps you start, improve, and run intel and data sharing programmes.</h1>
     <h3 class="industry-heading">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="industry-grid">
 
@@ -899,10 +1015,10 @@
         </div>
       </a>
 
-      <a href="/solutions/fraud-intelligence" class="industry-card" data-cluster="1">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Fraud intelligence">
+      <a href="/solutions/fraud-data-sharing" class="industry-card" data-cluster="1">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Fraud data sharing">
         <div class="industry-card-content">
-          <h2>Fraud Intelligence</h2>
+          <h2>Fraud Data Sharing</h2>
           <div class="card-actions">
             <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
           </div>
@@ -1024,44 +1140,74 @@
 </section>
 
 <section class="credentials-section">
-  <div class="container credentials-grid">
-    <div class="credentials-image">
-      <img src="chris-horsley-speaker.png" alt="Chris Horsley speaking at the FIRST Conference">
-      <div class="credentials-caption">Cosive co-founder Chris Horsley presenting on threat intelligence at FIRSTCON in Denmark.</div>
-    </div>
-    <div class="credentials-content">
-      <div class="credentials-label">What makes us unique</div>
-      <h2>Why you should work with Cosive</h2>
-      <ul class="credentials-list">
-        <li><strong>Co-designers</strong> of Australia's national threat intelligence program, CTIS</li>
-        <li><strong>Contributors</strong> to the world's most popular open source threat intelligence platform, MISP</li>
-        <li><strong>Contributors</strong> to the leading threat intelligence maturity framework, CTI-CMM</li>
-        <li><strong>Frequent international speakers</strong> on threat intelligence, including at FIRST, CyberCon, and NZITF</li>
-        <li><strong>Deliver training</strong> on cyber threat intelligence globally</li>
-      </ul>
+  <div class="credentials-bg">
+    <img src="chris-horsley-speaker.png" alt="Chris Horsley speaking at the FIRST Conference">
+  </div>
+  <div class="credentials-inner">
+    <div class="container">
+      <div class="credentials-box">
+        <div class="credentials-label">What makes us unique</div>
+        <h2>Why you should work with Cosive</h2>
+        <ul class="credentials-list">
+          <li><strong>Co-designers</strong> of Australia's national threat intelligence program, CTIS</li>
+          <li><strong>Contributors</strong> to the world's most popular open source threat intelligence platform, MISP</li>
+          <li><strong>Contributors</strong> to the leading threat intelligence maturity framework, CTI-CMM</li>
+          <li><strong>Frequent international speakers</strong> on threat intelligence, including at FIRST, CyberCon, and NZITF</li>
+          <li><strong>Deliver training</strong> on cyber threat intelligence globally</li>
+        </ul>
+      </div>
     </div>
   </div>
+  <div class="credentials-caption">Cosive co-founder Chris Horsley presenting at FIRSTCON, Denmark.</div>
 </section>
 
-<section class="process-section">
+<section class="approach-section">
   <div class="container">
-    <div class="process-label">How we work with you</div>
-    <h2 class="process-heading">Our engagement approach</h2>
-    <div class="process-grid">
-      <div class="process-card">
-        <span class="process-step">Step 1</span>
-        <h3>Assess &amp; Understand</h3>
-        <p>We start by understanding your current capabilities, threat landscape, and strategic objectives. This gives us a clear picture of where you are and where you need to be.</p>
+    <div class="approach-label">How we work with you</div>
+    <h2 class="approach-heading">Your trusted advisors</h2>
+    <p class="approach-intro">We believe the best outcomes come from genuine relationships. Here's what that looks like in practice.</p>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Goal-driven from day one</h3>
+          <p>We help you develop clear goals and then we help you achieve them — not the other way around.</p>
+        </div>
       </div>
-      <div class="process-card">
-        <span class="process-step">Step 2</span>
-        <h3>Design &amp; Build</h3>
-        <p>We design and implement the processes, platforms, and integrations you need — from MISP deployments to custom intelligence workflows and sharing architectures.</p>
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><ellipse cx="12" cy="12" rx="4" ry="10"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Advice designed for you</h3>
+          <p>We learn your organisation and your environment so the guidance we give is tailored to your reality, not generic best practice.</p>
+        </div>
       </div>
-      <div class="process-card">
-        <span class="process-step">Step 3</span>
-        <h3>Operate &amp; Improve</h3>
-        <p>We stay with you to operate, optimise, and mature your programme over time. Our goal is lasting capability, not just a one-off project delivery.</p>
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Trusted partner over time</h3>
+          <p>We work with you across multiple engagements, building context and trust so every interaction is more valuable than the last.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Straight talk, no hyperbole</h3>
+          <p>We give you sensible, honest advice. No scare tactics, no buzzwords — just a clear-eyed view of what matters and what doesn't.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Only what you need</h3>
+          <p>We won't try to sell you something you don't need. If you don't need it, we'll tell you.</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
+        <div class="approach-card-content">
+          <h3>Your success is our success</h3>
+          <p>If you are successful, we will be successful — because you'll come back. That's the business model we believe in.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1070,31 +1216,42 @@
 <section class="people-section">
   <div class="container">
     <div class="people-label">Our people</div>
-    <h2 class="people-heading">The team behind Cosive</h2>
+    <h2 class="people-heading">Work directly with leading experts in the field</h2>
     <div class="people-grid">
       <div class="person-card">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Team member">
+        <img src="terry-macdonald.jpg" alt="Terry MacDonald">
+        <div class="person-card-body">
+          <h3>Terry MacDonald</h3>
+          <span class="person-title">Co-founder &amp; Principal Consultant</span>
+          <p>Chairperson of the New Zealand Internet Taskforce (NZITF) and co-chair of FIRST IEP-SIG. 25+ years of information security expertise. Contributor to OASIS STIX, TAXII, and CybOX threat intelligence standards.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <img src="chris-horsley.jpg" alt="Chris Horsley">
         <div class="person-card-body">
           <h3>Chris Horsley</h3>
-          <span class="person-title">Co-founder &amp; Director</span>
-          <p>Threat intelligence practitioner with deep experience in national-scale CTI programs, MISP platform development, and intelligence sharing community design.</p>
+          <span class="person-title">Co-founder &amp; Principal Consultant</span>
+          <p>Internationally acclaimed speaker and trainer on cyber threat intelligence and fraud data sharing. Contributor to the MISP threat intelligence platform and to CTI-CMM, the leading CTI maturity framework. Prior to founding Cosive in 2015, Chris spent 12 years working with national CSIRTs.</p>
         </div>
       </div>
       <div class="person-card">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Team member">
+        <img src="prescott-pym.jpg" alt="Prescott Pym">
         <div class="person-card-body">
-          <h3>Sarah Chen</h3>
+          <h3>Prescott Pym</h3>
           <span class="person-title">Principal Consultant</span>
-          <p>Former government intelligence analyst specialising in CTI program design, maturity assessment, and operationalising threat intelligence across large organisations.</p>
+          <p>Co-designed Australia's national threat sharing program, CTIS. Contributor to CTI-CMM, the leading CTI maturity framework. More than 25 years of expertise managing Security Operations Centers and Cyber Threat Intelligence initiatives across Australia, India, Japan, Germany, Switzerland, and the USA.</p>
         </div>
       </div>
-      <div class="person-card">
-        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80" alt="Team member">
-        <div class="person-card-body">
-          <h3>James Mitchell</h3>
-          <span class="person-title">Senior Security Analyst</span>
-          <p>Experienced security engineer focused on MISP deployments, threat feed integration, and building automated intelligence pipelines for enterprise SOC teams.</p>
+      <div class="team-card">
+        <div class="team-avatars">
+          <div class="team-avatar"><img src="neethu-pushkaran.jpg" alt="Neethu Pushkaran"></div>
+          <div class="team-avatar"><img src="ashley-sargeson-cosive.png" alt="Ashley Sargeson" style="object-position: center 60%"></div>
+          <div class="team-avatar"><img src="james-garratt.jpg" alt="James Garratt"></div>
+          <div class="team-avatar"><img src="lilith-la-rose.jpg" alt="Lilith La Rose"></div>
         </div>
+        <h3>Plus a team of specialists</h3>
+        <p>Behind our principals are senior security consultants and security engineers — each with deep expertise in threat intelligence platforms, MISP deployments, and sharing infrastructure. Every engagement is staffed by experienced practitioners, never juniors.</p>
+        <a href="/team" class="team-cta">Meet the team <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
     </div>
   </div>
@@ -1148,7 +1305,7 @@
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-waves"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
-    <h2>Ready to start or improve your intel programme?</h2>
+    <h2>Talk to us about your goals</h2>
     <p>Let's talk about how Cosive can help you.</p>
     <a href="/contact-us" class="final-cta-btn">Contact Us <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
   </div>
