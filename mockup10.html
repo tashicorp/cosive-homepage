@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive - We make threat intelligence easy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-red: #e53834;
+    --color-red-dark: #c1121f;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-bg);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .header-logo img {
+    height: 30px;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover {
+    color: var(--color-text);
+  }
+
+  .nav-cta {
+    background: var(--color-red) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: 8px 20px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-red-dark) !important;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--color-white);
+  }
+
+  .hero h1 .highlight {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: var(--color-red);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
+  }
+
+  .hero {
+    padding: 144px 0 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-text);
+    letter-spacing: -0.5px;
+    margin-bottom: 96px;
+    max-width: 66.66%;
+  }
+
+  .hero-subtitle-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 96px;
+  }
+
+  .hero-subtitle {
+    grid-column: 1 / 3;
+    font-size: 1.35rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .industry-heading {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: -0.3px;
+    margin-bottom: 32px;
+  }
+
+  .chevron-circle {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  .chevron-circle svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  /* Nav Cards (1x3 grid) */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .industry-card {
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .industry-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%);
+    z-index: 1;
+    transition: background 0.3s;
+  }
+
+  .industry-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.4s;
+  }
+
+  .industry-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+  }
+
+  .industry-card:hover::before {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 100%);
+  }
+
+  .industry-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .industry-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 28px 28px 26px;
+  }
+
+  .industry-card h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .industry-card .card-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .industry-card .card-cta {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.15rem;
+  }
+
+  .industry-card .card-cta svg {
+    stroke: rgba(255,255,255,0.85);
+  }
+
+  /* Hero testimonial (full width below nav cards) */
+  .hero-testimonial {
+    background: var(--color-white);
+    padding: 144px 0 0;
+  }
+
+  .hero-testimonial .testimonial-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 48px;
+    text-align: center;
+  }
+
+  .hero-testimonial .testimonial-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .hero-testimonial blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.875rem;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-text);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    min-height: 5.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-testimonial cite {
+    font-size: 1.3rem;
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .hero-testimonial .hero-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    justify-content: center;
+  }
+
+  .hero-testimonial .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .hero-testimonial .hero-dot.active {
+    background: var(--color-red);
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-red);
+    transition: gap 0.2s;
+  }
+
+  .card-cta:hover { gap: 10px; }
+
+  .card-cta svg {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: middle;
+  }
+
+  /* ── Services section ── */
+  .services-section {
+    padding: 96px 0 160px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .services-section .section-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: -0.3px;
+    margin-bottom: 32px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .service-card {
+    padding: 32px 28px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    text-decoration: none;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+
+  .service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .service-card .card-cta {
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  /* ── Credentials section ── */
+  .credentials-section {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .credentials-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #121212;
+  }
+
+  .credentials-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at bottom left, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 85%);
+    z-index: 1;
+  }
+
+  .credentials-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: grayscale(1) contrast(1.3);
+    transform: scale(1.25) translateX(-10%);
+  }
+
+  .credentials-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 80px 0;
+  }
+
+  .credentials-box {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 56px 52px;
+    max-width: 720px;
+    margin-left: calc(25vw - 360px);
+  }
+
+  .credentials-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 16px;
+  }
+
+  .credentials-box h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: var(--color-text);
+  }
+
+  .credentials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .credentials-list li {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    padding-left: 22px;
+    position: relative;
+  }
+
+  .credentials-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-red);
+  }
+
+  .credentials-list li strong {
+    color: var(--color-text);
+  }
+
+  .credentials-caption {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    z-index: 2;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+
+  /* ── Customers section ── */
+  .customers-section {
+    padding: 144px 0;
+    background: var(--color-white);
+  }
+
+  .customers-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .customers-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .customers-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+  }
+
+  .customer-card {
+    grid-column: span 2;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 320px;
+    transition: box-shadow 0.2s;
+  }
+
+  .customer-card:nth-child(4),
+  .customer-card:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  .customer-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.4) brightness(0.7);
+    z-index: 0;
+  }
+
+  .customer-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+    z-index: 1;
+  }
+
+  .customer-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+
+  .customer-card-body {
+    position: relative;
+    z-index: 2;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+
+  .customer-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-white);
+  }
+
+  .customer-refs {
+    margin-top: 6px;
+  }
+
+  .customer-refs-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-red);
+    margin-bottom: 12px;
+  }
+
+  .customer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .customer-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    color: var(--color-white);
+    line-height: 1.3;
+  }
+
+  /* ── Case Studies section ── */
+  .case-studies-section {
+    padding: 0 0 144px;
+    background: var(--color-white);
+  }
+
+  .case-studies-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .case-studies-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .case-studies-intro {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .case-study-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .case-study-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .case-study-card-body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .case-study-card {
+    cursor: pointer;
+  }
+
+  .case-study-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .case-study-tag {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-red);
+  }
+
+  .case-study-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .case-study-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .case-studies-cta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-red);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .case-studies-cta:hover {
+    gap: 14px;
+  }
+
+  .case-studies-cta svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ── Approach section ── */
+  /* ── People section ── */
+  .people-section {
+    padding: 96px 0 0;
+    background: var(--color-white);
+  }
+
+  .people-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .people-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .person-card {
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .person-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  .person-card-body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .person-card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .person-card-body .person-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  .person-card-body p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-top: 4px;
+  }
+
+  .team-card {
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 28px 24px;
+  }
+
+  .team-avatars {
+    display: flex;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+
+  .team-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid var(--color-surface);
+    overflow: hidden;
+    margin-right: -14px;
+  }
+
+  .team-avatar:last-child {
+    margin-right: 0;
+  }
+
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .team-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-red);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .team-cta:hover {
+    gap: 12px;
+  }
+
+  .team-cta svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ── People-CTA separator ── */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: 96px 0 0;
+    background: var(--color-white);
+  }
+
+  .people-cta-separator svg {
+    width: 80px;
+    height: auto;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    background: var(--color-white);
+    padding: 72px 0 96px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+
+  .final-cta p {
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 36px;
+  }
+
+  .final-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .final-cta-btn:hover {
+    background: var(--color-red-dark);
+  }
+
+  .final-cta-btn svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke: var(--color-white);
+  }
+
+  /* ── Light Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 64px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-inner .footer-logo img {
+    height: 30px;
+  }
+
+  .footer-copyright {
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--color-red); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero { padding-top: 48px; }
+    .hero-subtitle-row { grid-template-columns: 1fr; }
+    .hero-subtitle { grid-column: 1; }
+    .industry-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .customers-grid { grid-template-columns: 1fr; }
+    .customer-card, .customer-card:nth-child(n+3), .customer-card:nth-child(4), .customer-card:nth-child(5) { grid-column: auto; }
+    .case-studies-grid { grid-template-columns: 1fr; }
+    .people-grid { grid-template-columns: repeat(2, 1fr); }
+    .main-nav ul { gap: 4px; }
+    .main-nav a { font-size: 0.82rem; padding: 8px 12px; }
+    .credentials-box { max-width: 100%; margin-left: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.5rem; }
+    .hero { padding-top: 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+
+    .customers-grid { grid-template-columns: 1fr; }
+    .case-studies-grid { grid-template-columns: 1fr; }
+    .people-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 16px; height: auto; padding: 16px 0; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/capabilities/cloud-misp">CloudMISP</a></li>
+        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>We are a <span class="highlight">cyber threat intelligence and fraud data sharing consultancy</span> that helps you start, improve, and run intel and data sharing programmes.</h1>
+    <h3 class="industry-heading">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+    <div class="industry-grid">
+
+      <a href="/solutions/cyber-threat-intelligence" class="industry-card" data-cluster="0">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Cyber threat intelligence">
+        <div class="industry-card-content">
+          <h2>Cyber Threat Intelligence</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/solutions/fraud-data-sharing" class="industry-card" data-cluster="1">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Fraud data sharing">
+        <div class="industry-card-content">
+          <h2>Fraud Data Sharing</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/solutions/security-operations" class="industry-card" data-cluster="2">
+        <img src="https://unsplash.com/photos/PSpf_XgOM5w/download?w=800" alt="Security operations">
+        <div class="industry-card-content">
+          <h2>Security Operations</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero-testimonial" id="heroTestimonial">
+  <div class="testimonial-inner">
+    <div class="testimonial-label">What our customers say about us</div>
+    <blockquote id="heroQuote">&ldquo;Cosive helped us go from zero to a fully operational CTI function in under six months.&rdquo;</blockquote>
+    <cite id="heroCite">&mdash; Financial services CISO</cite>
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" data-index="0" aria-label="Testimonial 1"></button>
+      <button class="hero-dot" data-index="1" aria-label="Testimonial 2"></button>
+      <button class="hero-dot" data-index="2" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<section class="customers-section">
+  <div class="container">
+    <div class="customers-label">Our customers</div>
+    <h2 class="customers-heading">Who we work with</h2>
+    <div class="customers-grid">
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Central Banks &amp; Financial Services</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Example customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Middle Eastern Central Bank</span>
+              <span class="customer-badge">Australian, US, NZ Banks</span>
+              <span class="customer-badge">International Payments Provider</span>
+              <span class="customer-badge">US Insurance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Critical Infrastructure</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Example customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Energy Regulators</span>
+              <span class="customer-badge">US Network Provider</span>
+              <span class="customer-badge">Australian MSSPs</span>
+              <span class="customer-badge">UK Rail Company</span>
+              <span class="customer-badge">Global DNS Regulator</span>
+              <span class="customer-badge">Data Centre Providers</span>
+              <span class="customer-badge">Health Providers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Operational Technology</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Example customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Global Mining Company</span>
+              <span class="customer-badge">Australian Water Utility</span>
+              <span class="customer-badge">Freight Companies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Enterprises</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Example customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">Retail Companies</span>
+              <span class="customer-badge">Online Auction Houses</span>
+              <span class="customer-badge">Universities</span>
+              <span class="customer-badge">Global Security Consultancies</span>
+              <span class="customer-badge">Global Music Providers</span>
+              <span class="customer-badge">CTI Vendors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-card">
+        <div class="customer-card-bg" style="background-image: url('https://images.unsplash.com/photo-1672264694074-d59397c511d0?w=800&q=80')"></div>
+        <div class="customer-card-body">
+          <h3>Government</h3>
+          <div class="customer-refs">
+            <div class="customer-refs-label">Example customers</div>
+            <div class="customer-badges">
+              <span class="customer-badge">National Cyber Security Centres</span>
+              <span class="customer-badge">Government Agencies</span>
+              <span class="customer-badge">State Governments</span>
+              <span class="customer-badge">City Councils</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-studies-section">
+  <div class="container">
+    <div class="case-studies-label">Case studies</div>
+    <h2 class="case-studies-heading">See how we've helped organisations like yours</h2>
+    <p class="case-studies-intro">Real results from real engagements across threat intelligence, fraud data sharing, and security operations.</p>
+    <div class="case-studies-grid">
+      <div class="case-study-card">
+        <img src="https://unsplash.com/photos/UwnH5jSrdr4/download?w=800" alt="Financial data sharing">
+        <div class="case-study-card-body">
+          <span class="case-study-tag">Financial Services</span>
+          <h3>Building a national fraud data sharing hub from the ground up</h3>
+          <p>How we helped a central bank design and deploy a MISP-based fraud intelligence sharing platform connecting major financial institutions across their country.</p>
+        </div>
+      </div>
+      <div class="case-study-card">
+        <img src="https://unsplash.com/photos/P-t9yap_20M/download?w=800" alt="Australian government">
+        <div class="case-study-card-body">
+          <span class="case-study-tag">Government</span>
+          <h3>Co-designing Australia's national threat sharing programme</h3>
+          <p>Working with government to architect CTIS — the national cyber threat intelligence sharing platform now used across Australian government and critical infrastructure.</p>
+        </div>
+      </div>
+      <div class="case-study-card">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Energy infrastructure">
+        <div class="case-study-card-body">
+          <span class="case-study-tag">Critical Infrastructure</span>
+          <h3>Maturing a CTI programme for a national energy provider</h3>
+          <p>Helping an energy provider move from ad-hoc threat intelligence to a structured, operationalised CTI capability integrated with their SOC.</p>
+        </div>
+      </div>
+    </div>
+    <a href="/case-studies" class="case-studies-cta">View all case studies <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
+</section>
+
+<section class="credentials-section">
+  <div class="credentials-bg">
+    <img src="chris-horsley-speaker.png" alt="Chris Horsley speaking at the FIRST Conference">
+  </div>
+  <div class="credentials-inner">
+    <div class="container">
+      <div class="credentials-box">
+        <div class="credentials-label">What makes us unique</div>
+        <h2>Why you should work with Cosive</h2>
+        <ul class="credentials-list">
+          <li><strong>Co-designers</strong> of Australia's national threat intelligence program, CTIS</li>
+          <li><strong>Contributors</strong> to the world's most popular open source threat intelligence platform, MISP</li>
+          <li><strong>Contributors</strong> to the leading threat intelligence maturity framework, CTI-CMM</li>
+          <li><strong>Frequent international speakers</strong> on threat intelligence, including at FIRST, CyberCon, and NZITF</li>
+          <li><strong>Deliver training</strong> on cyber threat intelligence globally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="credentials-caption">Cosive co-founder Chris Horsley presenting at FIRSTCON, Denmark.</div>
+</section>
+
+<section class="people-section">
+  <div class="container">
+    <div class="people-label">Our people</div>
+    <h2 class="people-heading">Work directly with leading experts in the field</h2>
+    <div class="people-grid">
+      <div class="person-card">
+        <img src="terry-macdonald.jpg" alt="Terry MacDonald">
+        <div class="person-card-body">
+          <h3>Terry MacDonald</h3>
+          <span class="person-title">Co-founder &amp; Principal Consultant</span>
+          <p>Chairperson of the New Zealand Internet Taskforce (NZITF) and co-chair of FIRST IEP-SIG. 25+ years of information security expertise. Contributor to OASIS STIX, TAXII, and CybOX threat intelligence standards.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <img src="chris-horsley.jpg" alt="Chris Horsley">
+        <div class="person-card-body">
+          <h3>Chris Horsley</h3>
+          <span class="person-title">Co-founder &amp; Principal Consultant</span>
+          <p>Internationally acclaimed speaker and trainer on cyber threat intelligence and fraud data sharing. Contributor to the MISP threat intelligence platform and to CTI-CMM, the leading CTI maturity framework. Prior to founding Cosive in 2015, Chris spent 12 years working with national CSIRTs.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <img src="prescott-pym.jpg" alt="Prescott Pym">
+        <div class="person-card-body">
+          <h3>Prescott Pym</h3>
+          <span class="person-title">Principal Consultant</span>
+          <p>Co-designed Australia's national threat sharing program, CTIS. Contributor to CTI-CMM, the leading CTI maturity framework. More than 25 years of expertise managing Security Operations Centers and Cyber Threat Intelligence initiatives across Australia, India, Japan, Germany, Switzerland, and the USA.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatars">
+          <div class="team-avatar"><img src="neethu-pushkaran.jpg" alt="Neethu Pushkaran"></div>
+          <div class="team-avatar"><img src="ashley-sargeson-cosive.png" alt="Ashley Sargeson" style="object-position: center 60%"></div>
+          <div class="team-avatar"><img src="james-garratt.jpg" alt="James Garratt"></div>
+          <div class="team-avatar"><img src="lilith-la-rose.jpg" alt="Lilith La Rose"></div>
+        </div>
+        <h3>Plus a team of specialists</h3>
+        <p>Behind our principals are senior security consultants and security engineers — each with deep expertise in threat intelligence platforms, MISP deployments, and sharing infrastructure. Every engagement is staffed by experienced practitioners, never juniors.</p>
+        <a href="/team" class="team-cta">Meet the team <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var quotes = [
+    { text: 'Cosive helped us go from zero to a fully operational CTI function in under six months.', cite: '— Financial services CISO' },
+    { text: 'Their MISP expertise is unmatched. We finally have a sharing platform our members actually use.', cite: '— Sharing community operator' },
+    { text: 'The team at Cosive understood our security challenges from day one and delivered real, measurable outcomes.', cite: '— Government agency director' }
+  ];
+  var current = 0;
+  var quoteEl = document.getElementById('heroQuote');
+  var citeEl = document.getElementById('heroCite');
+  var dots = document.querySelectorAll('.hero-dot');
+  var timer;
+
+  function show(i) {
+    dots[current].classList.remove('active');
+    current = i;
+    quoteEl.style.opacity = 0;
+    citeEl.style.opacity = 0;
+    setTimeout(function() {
+      quoteEl.textContent = '\u201C' + quotes[current].text + '\u201D'
+      citeEl.textContent = quotes[current].cite;
+      quoteEl.style.opacity = 1;
+      citeEl.style.opacity = 1;
+      dots[current].classList.add('active');
+    }, 300);
+  }
+
+  quoteEl.style.transition = 'opacity 0.3s';
+  citeEl.style.transition = 'opacity 0.3s';
+
+  function next() { show((current + 1) % quotes.length); }
+  function startTimer() { timer = setInterval(next, 5000); }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      clearInterval(timer);
+      show(parseInt(this.dataset.index));
+      startTimer();
+    });
+  });
+
+  startTimer();
+})();
+</script>
+
+<div class="people-cta-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Talk to us about your goals</h2>
+    <p>Let's talk about how Cosive can help you.</p>
+    <a href="/contact-us" class="final-cta-btn">Contact Us <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/security-consulting">Security Consulting</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>
