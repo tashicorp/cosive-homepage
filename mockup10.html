@@ -90,6 +90,23 @@
     border-radius: 4px !important;
     font-weight: 600 !important;
     transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  /* Hamburger toggle (hidden on desktop) */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--color-text);
+  }
+
+  .nav-toggle svg {
+    width: 24px;
+    height: 24px;
+    display: block;
   }
 
   .nav-cta:hover {
@@ -968,33 +985,151 @@
   .footer-links a:hover { color: var(--color-red); }
 
   /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .industry-grid { grid-template-columns: 1fr; }
+    .industry-card { aspect-ratio: 3 / 1; }
+    .customers-grid { grid-template-columns: repeat(2, 1fr); }
+    .customer-card, .customer-card:nth-child(n+3), .customer-card:nth-child(4), .customer-card:nth-child(5) { grid-column: auto; }
+
+    /* Credentials — stack image on top, box below */
+    .credentials-section {
+      min-height: auto;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .credentials-bg {
+      position: relative;
+      height: 280px;
+    }
+    .credentials-bg::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    }
+    .credentials-inner {
+      position: relative;
+      padding: 0;
+    }
+    .credentials-inner .container {
+      padding: 0;
+    }
+    .credentials-box {
+      max-width: 100%;
+      margin-left: 0;
+      padding: 32px 24px;
+      border-radius: 0;
+      background: var(--color-surface);
+      backdrop-filter: none;
+    }
+    .credentials-bg { order: 1; }
+    .credentials-caption {
+      order: 2;
+      position: relative;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      top: auto;
+      padding: 10px 24px;
+      background: #121212;
+    }
+    .credentials-inner { order: 3; }
+
+    /* People — 2x2 grid */
+    .people-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 900px) {
     .container { padding: 0 24px; }
-    .hero h1 { font-size: 1.8rem; }
+
+    /* Header nav — accordion on tablet/mobile */
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: 0.95rem; padding: 14px 0; border-radius: 0; }
+    .header-inner { flex-wrap: wrap; height: auto; padding: 16px 24px; }
+
+    /* Hero */
     .hero { padding-top: 48px; }
-    .hero-subtitle-row { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem; max-width: 100%; margin-bottom: 48px; }
+    .hero-subtitle-row { grid-template-columns: 1fr; margin-bottom: 48px; }
     .hero-subtitle { grid-column: 1; }
+
+    /* Industry cards */
     .industry-grid { grid-template-columns: 1fr; }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 64px; }
+
+    /* Services */
+    .services-section { padding: 64px 0 80px; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Customers */
+    .customers-section { padding: 64px 0; }
     .customers-grid { grid-template-columns: 1fr; }
     .customer-card, .customer-card:nth-child(n+3), .customer-card:nth-child(4), .customer-card:nth-child(5) { grid-column: auto; }
+    .customer-card { min-height: 220px; }
+
+    /* Case studies */
+    .case-studies-section { padding-bottom: 64px; }
     .case-studies-grid { grid-template-columns: 1fr; }
+
+    /* People */
+    .people-section { padding-top: 48px; }
     .people-grid { grid-template-columns: repeat(2, 1fr); }
-    .main-nav ul { gap: 4px; }
-    .main-nav a { font-size: 0.82rem; padding: 8px 12px; }
-    .credentials-box { max-width: 100%; margin-left: 0; }
+
+    /* People-CTA separator */
+    .people-cta-separator { padding-top: 48px; }
+
+    /* Final CTA */
+    .final-cta { padding: 48px 0 64px; }
   }
 
   @media (max-width: 600px) {
-    .hero h1 { font-size: 1.5rem; }
+    /* Hero */
     .hero { padding-top: 32px; }
+    .hero h1 { font-size: 1.5rem; margin-bottom: 32px; }
+    .hero-subtitle-row { margin-bottom: 32px; }
+    .hero-subtitle { font-size: 1.1rem; }
+
+    /* Industry cards */
+    .industry-grid { gap: 16px; }
+    .industry-card h2 { font-size: 1.4rem; }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 48px; }
+    .hero-testimonial blockquote { font-size: 1.3rem; min-height: auto; }
+    .hero-testimonial cite { font-size: 1rem; }
+
+    /* Services */
     .services-grid { grid-template-columns: 1fr; }
 
+    /* Credentials */
+    .credentials-box h2 { font-size: 1.5rem; }
+
+    /* Customers */
+    .customers-heading { font-size: 1.6rem; }
     .customers-grid { grid-template-columns: 1fr; }
+    .customer-card-body { padding: 24px; }
+
+    /* Case studies */
+    .case-studies-heading { font-size: 1.6rem; }
     .case-studies-grid { grid-template-columns: 1fr; }
+    .case-study-card img { height: 160px; }
+
+    /* People */
+    .people-heading { font-size: 1.6rem; }
     .people-grid { grid-template-columns: 1fr; }
-    .header-inner { flex-direction: column; gap: 16px; height: auto; padding: 16px 0; }
-    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .person-card img { aspect-ratio: 3 / 2; }
+
+    /* Final CTA */
+    .final-cta h2 { font-size: 1.8rem; }
+    .final-cta p { font-size: 1.1rem; }
+
+    /* Footer */
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
   }
 </style>
 </head>
@@ -1005,6 +1140,9 @@
     <a href="/" class="header-logo">
       <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
     </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
     <nav class="main-nav">
       <ul>
         <li><a href="/capabilities/cloud-misp">CloudMISP</a></li>
@@ -1330,6 +1468,18 @@
     <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
   </div>
 </footer>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    // Swap icon between hamburger and X
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+</script>
 
 </body>
 </html>
