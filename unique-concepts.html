@@ -202,6 +202,19 @@
     flex-shrink: 0;
   }
 
+  .concept-embed {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .concept-embed iframe {
+    width: 100%;
+    height: 680px;
+    border: none;
+    display: block;
+  }
+
   .concept-preview {
     display: block;
     border: 1px solid var(--color-border);
@@ -312,42 +325,38 @@
   <div class="concept" id="concept-c">
     <div class="concept-header">
       <span class="concept-letter">C</span>
-      <h2 class="concept-name">Bold Keyword Blocks</h2>
+      <h2 class="concept-name">Credential Spotlight</h2>
     </div>
     <div class="concept-info">
       <div class="concept-info-left">
-        <p class="concept-description">Each credential's bold keyword displayed large and prominent as a block heading, with smaller description text underneath. Stacked vertically with generous spacing and a red accent bar to the left of each block, like a pull-quote style.</p>
+        <p class="concept-description">A single credential displayed at a time in dramatic large typography, auto-cycling every 4 seconds with a smooth crossfade. Clickable dot navigation and a red progress bar at the bottom. Totally different — interactive and temporal, only one item visible at any moment.</p>
         <div class="concept-traits">
-          <span class="trait">Bold headings</span>
-          <span class="trait">Red accent bars</span>
-          <span class="trait">Pull-quote style</span>
-          <span class="trait">Generous spacing</span>
+          <span class="trait">Auto-cycling</span>
+          <span class="trait">Crossfade animation</span>
+          <span class="trait">Dot navigation</span>
+          <span class="trait">Progress bar</span>
         </div>
       </div>
       <a class="concept-cta" href="unique-concept-c.html">View Concept <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></a>
     </div>
-    <a class="concept-preview" href="unique-concept-c.html">
-      <img src="previews/unique-concept-c.png" alt="Concept C preview">
-      <div class="preview-bar">
-        <span>View full concept</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-      </div>
-    </a>
+    <div class="concept-embed">
+      <iframe src="unique-concept-c.html" title="Concept C live preview"></iframe>
+    </div>
   </div>
 
   <div class="concept" id="concept-d">
     <div class="concept-header">
       <span class="concept-letter">D</span>
-      <h2 class="concept-name">Inline Flowing Paragraph</h2>
+      <h2 class="concept-name">Typographic Watermark Blocks</h2>
     </div>
     <div class="concept-info">
       <div class="concept-info-left">
-        <p class="concept-description">Credentials woven into flowing paragraphs of prose instead of a list. Bold keywords highlighted in red for emphasis. An editorial, narrative feel — reads like a confident pitch. Compact and minimal with no visual list structures at all.</p>
+        <p class="concept-description">Each credential keyword rendered as enormous semi-transparent background text with the actual description overlaid in smaller, solid text. Creates a bold editorial/magazine feel with layered typography. No icons, no numbers, no borders — pure typographic drama.</p>
         <div class="concept-traits">
-          <span class="trait">Prose narrative</span>
-          <span class="trait">Red bold keywords</span>
-          <span class="trait">Editorial tone</span>
-          <span class="trait">Minimal / compact</span>
+          <span class="trait">Giant watermark text</span>
+          <span class="trait">Layered typography</span>
+          <span class="trait">Editorial / magazine</span>
+          <span class="trait">CSS only</span>
         </div>
       </div>
       <a class="concept-cta" href="unique-concept-d.html">View Concept <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></a>

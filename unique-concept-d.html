@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cosive — "What makes us unique" Concept D: Inline Flowing Paragraph</title>
+<title>Cosive — "What makes us unique" Concept D: Typographic Watermark Blocks</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -104,7 +104,7 @@
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 28px;
+    margin-bottom: 36px;
     color: var(--color-text);
   }
 
@@ -117,25 +117,52 @@
     color: #fff;
   }
 
-  /* ── Concept D: Inline Flowing Paragraph ── */
-  .credentials-prose {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: var(--color-text-secondary);
+  /* ── Concept D: Typographic Watermark Blocks ── */
+  .watermark-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
-  .credentials-prose p {
-    margin-bottom: 16px;
+  .watermark-block {
+    position: relative;
+    padding: 12px 0;
+    overflow: hidden;
   }
 
-  .credentials-prose p:last-child {
-    margin-bottom: 0;
+  .watermark-bg {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+    opacity: 0.06;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
   }
 
-  .credentials-prose strong {
-    color: var(--color-red);
+  .watermark-content {
+    position: relative;
+    margin-top: -18px;
+    padding-left: 4px;
+  }
+
+  .watermark-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
     font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2px;
+  }
+
+  .watermark-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
   }
 
   /* ── Responsive ── */
@@ -177,6 +204,13 @@
       background: #121212;
     }
     .credentials-inner { order: 3; }
+
+    .watermark-bg {
+      font-size: 2rem;
+    }
+    .watermark-content {
+      margin-top: -12px;
+    }
   }
 </style>
 </head>
@@ -191,9 +225,42 @@
       <div class="credentials-box">
         <div class="credentials-label">What makes us unique</div>
         <h2>Why you should work with Cosive</h2>
-        <div class="credentials-prose">
-          <p>We helped <strong>co-design Australia's national threat intelligence program, CTIS</strong>, and we're active <strong>contributors to MISP</strong>, the world's most popular open source threat intelligence platform. Our team also contributes to <strong>CTI-CMM</strong>, the leading threat intelligence maturity framework.</p>
-          <p>We're <strong>frequent international speakers</strong> on threat intelligence — presenting at FIRST, CyberCon, and NZITF — and we <strong>deliver training</strong> on cyber threat intelligence to organisations globally.</p>
+        <div class="watermark-blocks">
+          <div class="watermark-block">
+            <div class="watermark-bg">CTIS</div>
+            <div class="watermark-content">
+              <div class="watermark-label">Co-designers of CTIS</div>
+              <div class="watermark-desc">Australia's national threat intelligence program</div>
+            </div>
+          </div>
+          <div class="watermark-block">
+            <div class="watermark-bg">MISP</div>
+            <div class="watermark-content">
+              <div class="watermark-label">MISP Contributors</div>
+              <div class="watermark-desc">The world's most popular open source threat intelligence platform</div>
+            </div>
+          </div>
+          <div class="watermark-block">
+            <div class="watermark-bg">CTI-CMM</div>
+            <div class="watermark-content">
+              <div class="watermark-label">CTI-CMM Contributors</div>
+              <div class="watermark-desc">The leading threat intelligence maturity framework</div>
+            </div>
+          </div>
+          <div class="watermark-block">
+            <div class="watermark-bg">SPEAKERS</div>
+            <div class="watermark-content">
+              <div class="watermark-label">Frequent International Speakers</div>
+              <div class="watermark-desc">On threat intelligence at FIRST, CyberCon, and NZITF</div>
+            </div>
+          </div>
+          <div class="watermark-block">
+            <div class="watermark-bg">TRAINING</div>
+            <div class="watermark-content">
+              <div class="watermark-label">Global Training</div>
+              <div class="watermark-desc">Delivering cyber threat intelligence training worldwide</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
