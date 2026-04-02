@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosive — "What makes us unique" Concept A: Numbered Credentials</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-red: #e53834;
+    --color-red-dark: #c1121f;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Credentials section ── */
+  .credentials-section {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .credentials-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #121212;
+  }
+
+  .credentials-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at bottom left, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 85%);
+    z-index: 1;
+  }
+
+  .credentials-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: grayscale(1) contrast(1.3);
+    transform: scale(1.25) translateX(-10%);
+  }
+
+  .credentials-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 80px 0;
+  }
+
+  .credentials-box {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 56px 52px;
+    max-width: 720px;
+    margin-left: calc(25vw - 360px);
+  }
+
+  .credentials-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 16px;
+  }
+
+  .credentials-box h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--color-text);
+  }
+
+  .credentials-caption {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    z-index: 2;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+
+  /* ── Concept A: Numbered Credentials ── */
+  .numbered-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .numbered-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .numbered-item:first-child {
+    padding-top: 0;
+  }
+
+  .numbered-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .numbered-item-number {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-red);
+    line-height: 1;
+    min-width: 40px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .numbered-item-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  .numbered-item-text strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .credentials-section {
+      min-height: auto;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .credentials-bg {
+      position: relative;
+      height: 280px;
+    }
+    .credentials-bg::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    }
+    .credentials-inner {
+      position: relative;
+      padding: 0;
+    }
+    .credentials-inner .container {
+      padding: 0;
+    }
+    .credentials-box {
+      max-width: 100%;
+      margin-left: 0;
+      padding: 32px 24px;
+      border-radius: 0;
+      background: var(--color-surface);
+      backdrop-filter: none;
+    }
+    .credentials-bg { order: 1; }
+    .credentials-caption {
+      order: 2;
+      position: relative;
+      bottom: auto;
+      right: auto;
+      padding: 10px 24px;
+      background: #121212;
+    }
+    .credentials-inner { order: 3; }
+  }
+</style>
+</head>
+<body>
+
+<section class="credentials-section">
+  <div class="credentials-bg">
+    <img src="chris-horsley-speaker.png" alt="Chris Horsley speaking at the FIRST Conference">
+  </div>
+  <div class="credentials-inner">
+    <div class="container">
+      <div class="credentials-box">
+        <div class="credentials-label">What makes us unique</div>
+        <h2>Why you should work with Cosive</h2>
+        <div class="numbered-credentials">
+          <div class="numbered-item">
+            <div class="numbered-item-number">1</div>
+            <div class="numbered-item-text"><strong>Co-designers</strong> of Australia's national threat intelligence program, CTIS</div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-number">2</div>
+            <div class="numbered-item-text"><strong>Contributors</strong> to the world's most popular open source threat intelligence platform, MISP</div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-number">3</div>
+            <div class="numbered-item-text"><strong>Contributors</strong> to the leading threat intelligence maturity framework, CTI-CMM</div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-number">4</div>
+            <div class="numbered-item-text"><strong>Frequent international speakers</strong> on threat intelligence, including at FIRST, CyberCon, and NZITF</div>
+          </div>
+          <div class="numbered-item">
+            <div class="numbered-item-number">5</div>
+            <div class="numbered-item-text"><strong>Deliver training</strong> on cyber threat intelligence globally</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="credentials-caption">Cosive co-founder Chris Horsley presenting at FIRSTCON, Denmark.</div>
+</section>
+
+</body>
+</html>
