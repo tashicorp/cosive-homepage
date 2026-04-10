@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudMISP - Cosive</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-red: #e53834;
+    --color-red-dark: #c1121f;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-bg);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .header-logo img { height: 30px; }
+
+  .main-nav ul {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text); }
+
+  .nav-cta {
+    background: var(--color-red) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: 8px 20px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-red-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--color-text);
+  }
+
+  .nav-toggle svg { width: 24px; height: 24px; display: block; }
+
+  /* ── Page Banner ── */
+  .page-banner {
+    position: relative;
+    overflow: hidden;
+    background: #121212;
+  }
+
+  .page-banner > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    opacity: 0.4;
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 20, 28, 0.78);
+    z-index: 1;
+  }
+
+  .page-banner-inner {
+    position: relative;
+    z-index: 2;
+    padding: 48px 0 56px;
+  }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .banner-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 32px;
+  }
+
+  .banner-form-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+
+  .banner-form-card .contact-form {
+    gap: 16px;
+  }
+
+  .banner-form-card .form-group label {
+    font-size: 0.82rem;
+  }
+
+  .banner-form-card .form-group input,
+  .banner-form-card .form-group textarea {
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    border-color: var(--color-border);
+  }
+
+  .banner-form-card .form-group textarea {
+    min-height: 80px;
+  }
+
+  .banner-form-card .form-row {
+    gap: 16px;
+  }
+
+  .banner-form-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: 12px 24px;
+  }
+
+  .page-banner .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+  }
+
+  .page-banner .breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+  }
+
+  .page-banner .breadcrumb a:hover { color: #fff; }
+  .page-banner .breadcrumb .separator { color: rgba(255, 255, 255, 0.4); }
+  .page-banner .breadcrumb .current { color: rgba(255, 255, 255, 0.9); }
+
+  .page-banner h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .page-banner .banner-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .banner-description {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.45;
+    margin-top: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .banner-description strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ── Shared section patterns ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-red);
+    margin-bottom: 20px;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-bottom: 48px;
+    letter-spacing: -0.3px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--color-red-dark); }
+
+  /* ── Hero / Definition (Slide 4) ── */
+  .hero-definition {
+    padding: 96px 0;
+    background: var(--color-white);
+  }
+
+  .hero-definition h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-text);
+    letter-spacing: -0.3px;
+    margin-bottom: 64px;
+    max-width: 75%;
+  }
+
+  .hero-definition h1 .highlight {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: var(--color-red);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
+  }
+
+  /* Hero grid */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-text p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Hub diagram */
+  .hub-diagram {
+    position: relative;
+    padding: 40px 0;
+  }
+
+  .hub-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hub-svg line {
+    stroke: var(--color-red);
+    stroke-width: 2;
+  }
+
+  .hub-nodes {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 80px auto;
+    gap: 56px 24px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .hub-node {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hub-node-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .hub-node-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .hub-node--center {
+    grid-column: 2;
+    grid-row: 2;
+    background: var(--color-dark);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    width: 220px;
+    height: 80px;
+  }
+
+  .hub-node--top-left  { grid-column: 1; grid-row: 1; }
+  .hub-node--top-right { grid-column: 3; grid-row: 1; }
+  .hub-node--bot-left  { grid-column: 1; grid-row: 3; }
+  .hub-node--bot-mid   { grid-column: 2; grid-row: 3; }
+  .hub-node--bot-right { grid-column: 3; grid-row: 3; }
+
+  /* ── Features (Slide 5) ── */
+  .features-section {
+    padding: 96px 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .capability-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .capability-row:first-of-type {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .capability-label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+    min-width: 200px;
+    flex-shrink: 0;
+    padding-top: 6px;
+  }
+
+  .capability-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pill-red {
+    background: rgba(229, 56, 52, 0.1);
+    color: var(--color-red);
+    border: 1px solid rgba(229, 56, 52, 0.2);
+  }
+
+  .pill-blue {
+    background: rgba(56, 132, 229, 0.1);
+    color: #2563eb;
+    border: 1px solid rgba(56, 132, 229, 0.2);
+  }
+
+  .pill-dark {
+    background: var(--color-dark);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* ── Infrastructure (Slides 6-7) ── */
+  .infra-section {
+    padding: 96px 0;
+    background: var(--color-surface);
+  }
+
+  .infra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .infra-text p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .infra-text .infra-bold {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 1.1rem;
+  }
+
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .component-tag {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .component-tag-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--color-red);
+  }
+
+  .component-tag-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .component-tag-text {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
+  .upgrade-callout {
+    margin-top: 96px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 40px 48px;
+  }
+
+  .upgrade-callout h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .upgrade-callout p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .release-timeline {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .release-timeline-header h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .release-timeline-header h4 span {
+    color: var(--color-red);
+  }
+
+  .release-timeline-header p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .release-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    overflow-x: auto;
+  }
+
+  .release-grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .release-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+  }
+
+  .release-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+  }
+
+  .release-cell--dots {
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+    padding-bottom: 8px;
+  }
+
+  .release-line {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .release-cell--label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-top: 4px;
+  }
+
+  .release-cell--count {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    padding-top: 2px;
+  }
+
+  .release-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-red);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .release-dot:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
+  }
+
+  .release-dot::before {
+    content: attr(data-version);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-dark);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .release-dot:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Sharing Expertise (Slide 8) ── */
+  .sharing-section {
+    padding: 96px 0;
+    background: var(--color-white);
+  }
+
+  .sharing-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .sharing-text p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .sharing-text .sharing-bold {
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .sharing-help-heading {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+
+  .sharing-icon-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sharing-icon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sharing-icon-item:first-child {
+    padding-top: 0;
+  }
+
+  .sharing-icon-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .sharing-icon-item-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: #4FC3F7;
+    padding-top: 1px;
+  }
+
+  .sharing-icon-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sharing-icon-item-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  .sharing-icon-item-text strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  /* ── Sharing Pattern (Slide 9) ── */
+  .pattern-section {
+    padding: 96px 0;
+    background: var(--color-surface);
+  }
+
+  .pattern-diagram {
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    background: var(--color-white);
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .pattern-org-label {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-text-secondary);
+  }
+
+  .pattern-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: center;
+    min-width: 700px;
+  }
+
+  .pattern-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .pattern-box {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .pattern-box-feed {
+    background: #e8eaed;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .pattern-box-misp {
+    background: var(--color-dark);
+    color: #fff;
+    padding: 16px 24px;
+    font-size: 0.95rem;
+  }
+
+  .pattern-box-partner {
+    background: rgba(229, 56, 52, 0.08);
+    color: var(--color-text);
+    border: 1px solid rgba(229, 56, 52, 0.2);
+    font-size: 0.8rem;
+  }
+
+  .pattern-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    flex-shrink: 0;
+  }
+
+  .pattern-arrow-line {
+    width: 48px;
+    height: 2px;
+    background: var(--color-red);
+    position: relative;
+  }
+
+  .pattern-arrow-line::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid var(--color-red);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+
+  .pattern-arrow-label {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pattern-partner-tag {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+  }
+
+  /* ── DIY Pain Points (Slide 10) ── */
+  .diy-section {
+    padding: 96px 0;
+    background: var(--color-white);
+  }
+
+  .diy-section .section-heading {
+    margin-bottom: 16px;
+  }
+
+  .diy-subtext {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  .diy-callout {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-red);
+    margin-bottom: 40px;
+  }
+
+  /* ── DIY categories ── */
+  .diy-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .diy-category-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-red-dark);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-red);
+    margin-bottom: 16px;
+  }
+
+  .diy-category-heading svg {
+    flex-shrink: 0;
+    color: var(--color-red);
+  }
+
+  .diy-category-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pain-pill {
+    background: rgba(229, 56, 52, 0.07);
+    border: 1px solid rgba(229, 56, 52, 0.18);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-red-dark);
+    line-height: 1.35;
+  }
+
+  /* ── Timeline (Slide 11) ── */
+  .timeline-section {
+    padding: 96px 0;
+    background: var(--color-dark);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .timeline-section .section-heading {
+    color: #fff;
+  }
+
+  .section-label--light {
+    color: var(--color-red);
+  }
+
+  .timeline-subtext {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+
+  .comparison-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 64px;
+  }
+
+  .comparison-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px 24px;
+    gap: 16px;
+  }
+
+  .comparison-bar--diy {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+
+  .comparison-bar--cloudmisp {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 380px;
+  }
+
+  .comparison-bar-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+  }
+
+  .comparison-bar-steps {
+    display: flex;
+    flex: 1;
+    gap: 0;
+  }
+
+  .comparison-step {
+    flex: 1;
+    padding: 12px 16px;
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .comparison-step:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .comparison-step-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .comparison-step-duration {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 500;
+  }
+
+  .comparison-bar-goal {
+    background: var(--color-red);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .comparison-bar-summary {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+    padding-left: 4px;
+  }
+
+  .comparison-bar-summary strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+  }
+
+  .eliminates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .eliminates-column-heading {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .eliminates-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .eliminates-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .eliminates-item--skip svg {
+    color: var(--color-red);
+  }
+
+  .eliminates-item--get svg {
+    color: rgba(74, 222, 128, 0.9);
+  }
+
+  .timeline-cta {
+    text-align: center;
+    padding-top: 16px;
+  }
+
+  /* ── Team (Slides 2-3) ── */
+  .team-section {
+    padding: 96px 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .team-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .person-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .person-card-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.2);
+  }
+
+  .person-card-body {
+    padding: 24px;
+  }
+
+  .person-card-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .person-card-role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-red);
+    margin-bottom: 12px;
+  }
+
+  .person-card-bio {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .social-proof {
+    border-top: 1px solid var(--color-border);
+    padding-top: 48px;
+  }
+
+  .social-proof-text {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .industries-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .industries-list .pill {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    font-weight: 500;
+  }
+
+  .logo-strip {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .logo-strip img {
+    height: 36px;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: opacity 0.2s;
+  }
+
+  .logo-strip img:hover { opacity: 1; filter: none; }
+
+  .logo-strip .text-logo {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Additional Services (Slide 12) ── */
+  .services-section {
+    padding: 96px 0;
+    background: var(--color-surface);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: #b0b5bc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ── Wavy SVG separator ── */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: 96px 0 0;
+    background: var(--color-surface);
+  }
+
+  .people-cta-separator svg {
+    width: 80px;
+    height: auto;
+  }
+
+  /* ── Contact section ── */
+  .contact-section {
+    padding: 72px 0 96px;
+    background: var(--color-surface);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 12px 16px;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    background: var(--color-white);
+    color: var(--color-text);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-red);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .btn-primary {
+    align-self: center;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 64px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-inner .footer-logo img { height: 30px; }
+
+  .footer-copyright {
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--color-red); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .hub-spokes { grid-template-columns: 1fr 1fr; }
+    .diy-categories { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .infra-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1200px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: 0.95rem; padding: 14px 0; border-radius: 0; }
+    .header-inner { flex-wrap: wrap; height: auto; padding: 16px 24px; }
+
+    .page-banner h1 { font-size: 2.2rem; }
+
+    .banner-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-definition { padding: 64px 0; }
+    .hero-definition h1 { font-size: 1.8rem; max-width: 100%; margin-bottom: 48px; }
+    .hub-nodes {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      gap: 16px;
+    }
+    .hub-node--top-left  { grid-column: 1; grid-row: 1; }
+    .hub-node--top-right { grid-column: 2; grid-row: 1; }
+    .hub-node--center    { grid-column: 1 / -1; grid-row: 2; width: 220px; height: 80px; justify-self: center; }
+    .hub-node--bot-left  { grid-column: 1; grid-row: 3; }
+    .hub-node--bot-mid   { grid-column: 2; grid-row: 3; }
+    .hub-node--bot-right { grid-column: 1 / -1; grid-row: 4; justify-self: center; max-width: 300px; }
+
+    .capability-row { flex-direction: column; gap: 12px; }
+    .capability-label { min-width: auto; }
+
+    .infra-grid { grid-template-columns: 1fr; gap: 32px; }
+    .component-grid { grid-template-columns: 1fr 1fr; }
+
+    .diy-categories { grid-template-columns: 1fr; gap: 40px; }
+
+    .comparison-bar { flex-wrap: wrap; }
+    .comparison-bar-steps { flex-wrap: wrap; }
+    .comparison-step { width: 50%; flex: none; }
+    .comparison-bar-goal { margin-top: 8px; width: 100%; text-align: center; }
+    .comparison-bar--cloudmisp { max-width: 100%; }
+    .eliminates-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .team-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+
+    .section-heading { font-size: 1.8rem; }
+
+    .hero-definition,
+    .features-section,
+    .infra-section,
+    .sharing-section,
+    .pattern-section,
+    .diy-section,
+    .team-section,
+    .services-section { padding: 64px 0; }
+
+    .sharing-content { grid-template-columns: 1fr; gap: 40px; }
+
+    .people-cta-separator { padding-top: 48px; }
+    .contact-section { padding: 48px 0 64px; }
+
+    .upgrade-callout { padding: 28px 24px; }
+
+    .release-timeline-header h4 { font-size: 1.1rem; }
+    .release-cell { min-width: 56px; }
+    .release-dot { width: 8px; height: 8px; }
+    .release-cell--dots { gap: 5px; }
+  }
+
+  @media (max-width: 600px) {
+    .page-banner h1 { font-size: 1.8rem; }
+    .page-banner-inner { padding: 20px 0 32px; }
+    .page-banner .banner-subtitle { font-size: 1.1rem; }
+
+    .banner-form-card { padding: 24px; }
+    .banner-form-card .form-row { grid-template-columns: 1fr; }
+
+    .hero-definition h1 { font-size: 1.5rem; margin-bottom: 32px; }
+
+    .hub-nodes {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .hub-node--top-left  { grid-column: 1; grid-row: auto; }
+    .hub-node--top-right { grid-column: 1; grid-row: auto; }
+    .hub-node--center    { grid-column: 1; grid-row: auto; justify-self: center; }
+    .hub-node--bot-left  { grid-column: 1; grid-row: auto; }
+    .hub-node--bot-mid   { grid-column: 1; grid-row: auto; }
+    .hub-node--bot-right { grid-column: 1; grid-row: auto; max-width: none; justify-self: stretch; }
+
+    .section-heading { font-size: 1.5rem; }
+
+    .diy-categories { grid-template-columns: 1fr; gap: 32px; }
+    .comparison-step { width: 100%; }
+    .comparison-bar { padding: 16px 20px; }
+    .comparison-bar-summary strong { font-size: 1.1rem; }
+    .eliminates-grid { gap: 32px; }
+    .component-grid { grid-template-columns: 1fr; }
+
+    .pattern-diagram { padding: 48px 20px; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+    .hero-definition,
+    .features-section,
+    .infra-section,
+    .sharing-section,
+    .pattern-section,
+    .diy-section,
+    .timeline-section,
+    .team-section,
+    .services-section { padding: 40px 0; }
+
+    .sharing-content { grid-template-columns: 1fr; gap: 32px; }
+
+    .release-cell { min-width: 48px; }
+    .release-dot { width: 7px; height: 7px; }
+    .release-cell--dots { gap: 4px; }
+    .release-cell--count { display: none; }
+    .release-timeline-header h4 { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="mockup10.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
+        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. Page Banner (Slide 1) -->
+<div class="page-banner">
+  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80" alt="">
+  <div class="page-banner-inner">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="mockup10.html">Home</a>
+        <span class="separator">/</span>
+        <a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a>
+        <span class="separator">/</span>
+        <span class="current">CloudMISP</span>
+      </nav>
+      <div class="banner-grid">
+        <div class="banner-text">
+          <h1>CloudMISP</h1>
+          <div class="banner-subtitle">MISP as a Service</div>
+          <p class="banner-description">Your CTI <strong>central hub</strong>, connecting your analysts, security tools, and SIEM with the high quality threat intelligence feeds you receive from the MISP Community.</p>
+          <p class="banner-description">Up and running in just 2 business days.</p>
+        </div>
+        <div class="banner-form-card">
+          <h3>Get more information about CloudMISP</h3>
+          <form class="contact-form" action="#" method="post">
+            <input type="hidden" name="category" value="CloudMISP">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="banner-first-name">First name</label>
+                <input type="text" id="banner-first-name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="banner-last-name">Last name</label>
+                <input type="text" id="banner-last-name" name="last_name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="banner-email">Email</label>
+              <input type="email" id="banner-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="banner-company">Company</label>
+              <input type="text" id="banner-company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="banner-message">Message</label>
+              <textarea id="banner-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Contact Us</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Infrastructure (Slides 6-7) -->
+<section class="infra-section">
+  <div class="container">
+    <h2 class="section-heading">What you get</h2>
+
+    <div class="infra-grid">
+      <div class="infra-text">
+        <p>You get your own CloudMISP dedicated containers in your own private network in any AWS region.</p>
+        <p>All parts of the system are fully managed and maintained by Cosive.</p>
+        <p>We have completely rearchitected MISP to speed it up and make it more resilient.</p>
+        <p class="infra-bold">CloudMISP is much more than a MISP server in the cloud!</p>
+      </div>
+      <div>
+        <div class="component-grid">
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+            </div>
+            <div class="component-tag-text">ECS Services</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="component-tag-text">RDS MariaDB</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="component-tag-text">ElastiCache Redis</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="component-tag-text">EFS Storage</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="component-tag-text">Application Load Balancer</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="component-tag-text">NAT Gateway</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="component-tag-text">AWS Backup</div>
+          </div>
+          <div class="component-tag">
+            <div class="component-tag-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="component-tag-text">MISP Background Workers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="upgrade-callout">
+      <h3>You get reliable upgrades</h3>
+      <p>We validate the code changes line-by-line for any new MISP releases, and we perform automated and manual testing to make sure that the new release will work. When an upgrade passes our validation process we can roll it out almost instantly. You will have less than 4 seconds outage window for each upgrade.</p>
+
+      <div class="release-timeline">
+        <div class="release-timeline-header">
+          <h4><span>24</span> MISP releases in 2025</h4>
+          <p>Each dot is a MISP release we validated and deployed for CloudMISP customers</p>
+        </div>
+        <div class="release-grid">
+          <!-- Row 1: Dots -->
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.5 — Jan 12"></div>
+            <div class="release-dot" data-version="v2.5.6 — Jan 13"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.7 — Feb 24"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.8 — Mar 19"></div>
+            <div class="release-dot" data-version="v2.5.9 — Mar 26"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.10 — Apr 4"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.11 — May 7"></div>
+            <div class="release-dot" data-version="v2.5.12 — May 14"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.13 — Jun 6"></div>
+            <div class="release-dot" data-version="v2.5.15 — Jun 24"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.16 — Jul 19"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.18 — Aug 20"></div>
+            <div class="release-dot" data-version="v2.5.19 — Aug 29"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.21 — Sep 11"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.22 — Oct 2"></div>
+            <div class="release-dot" data-version="v2.5.23 — Oct 15"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.24 — Nov 4"></div>
+            <div class="release-dot" data-version="v2.5.25 — Nov 16"></div>
+            <div class="release-dot" data-version="v2.5.26 — Nov 20"></div>
+            <div class="release-dot" data-version="v2.5.27 — Nov 27"></div>
+          </div>
+          <div class="release-cell release-cell--dots">
+            <div class="release-dot" data-version="v2.5.28 — Dec 10"></div>
+            <div class="release-dot" data-version="v2.5.29 — Dec 12"></div>
+            <div class="release-dot" data-version="v2.5.30 — Dec 13"></div>
+            <div class="release-dot" data-version="v2.5.31 — Dec 23"></div>
+          </div>
+          <!-- Row 2: Horizontal line -->
+          <div class="release-line"></div>
+          <!-- Row 3: Month labels -->
+          <div class="release-cell release-cell--label">Jan</div>
+          <div class="release-cell release-cell--label">Feb</div>
+          <div class="release-cell release-cell--label">Mar</div>
+          <div class="release-cell release-cell--label">Apr</div>
+          <div class="release-cell release-cell--label">May</div>
+          <div class="release-cell release-cell--label">Jun</div>
+          <div class="release-cell release-cell--label">Jul</div>
+          <div class="release-cell release-cell--label">Aug</div>
+          <div class="release-cell release-cell--label">Sep</div>
+          <div class="release-cell release-cell--label">Oct</div>
+          <div class="release-cell release-cell--label">Nov</div>
+          <div class="release-cell release-cell--label">Dec</div>
+          <!-- Row 4: Counts -->
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">1</div>
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">1</div>
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">1</div>
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">1</div>
+          <div class="release-cell release-cell--count">2</div>
+          <div class="release-cell release-cell--count">4</div>
+          <div class="release-cell release-cell--count">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero / Definition (Slide 4) -->
+<section class="hero-definition">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="section-label">How it works</div>
+        <h2 class="section-heading">Connect your entire security stack</h2>
+        <p>CloudMISP integrates directly with the tools your team already uses. Threat intel feeds flow in automatically, IOCs push out to your SIEM for detection and aging, and your analysts manage it all through a single interface — secured with your existing identity provider.</p>
+      </div>
+      <div class="hub-diagram">
+        <svg class="hub-svg" id="hubSvg"></svg>
+        <div class="hub-nodes" id="hubNodes">
+          <!-- Row 1: top-left, (empty center), top-right -->
+          <div class="hub-node hub-node--top-left" data-hub="top-left">
+            <div class="hub-node-title">Your Threat Analysts</div>
+            <div class="hub-node-desc">Intel creation &amp; management</div>
+          </div>
+          <div class="hub-node hub-node--center" data-hub="center">CloudMISP</div>
+          <div class="hub-node hub-node--top-right" data-hub="top-right">
+            <div class="hub-node-title">MISP Community</div>
+            <div class="hub-node-desc">CTI sharing</div>
+          </div>
+          <!-- Row 3: bottom nodes -->
+          <div class="hub-node hub-node--bot-left" data-hub="bot-left">
+            <div class="hub-node-title">Okta / Azure Entra ID</div>
+            <div class="hub-node-desc">Authentication</div>
+          </div>
+          <div class="hub-node hub-node--bot-mid" data-hub="bot-mid">
+            <div class="hub-node-title">Microsoft Sentinel &amp; Other SIEMs</div>
+            <div class="hub-node-desc">IOCs and aging</div>
+          </div>
+          <div class="hub-node hub-node--bot-right" data-hub="bot-right">
+            <div class="hub-node-title">Threat Intel Feeds</div>
+            <div class="hub-node-desc">Feed ingestion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features (Slide 5) -->
+<section class="features-section">
+  <div class="container">
+    <div class="section-label">Why CloudMISP?</div>
+    <h2 class="section-heading">Cosive CloudMISP has more features than a standard MISP</h2>
+
+    <div class="capability-row">
+      <div class="capability-label">Integrations</div>
+      <div class="capability-pills">
+        <span class="pill pill-red">Monitoring</span>
+        <span class="pill pill-red">Incident Response</span>
+        <span class="pill pill-red">Digital Forensics</span>
+        <span class="pill pill-red">Alerting</span>
+        <span class="pill pill-red">Threat Hunting</span>
+      </div>
+    </div>
+
+    <div class="capability-row">
+      <div class="capability-label">Intel Sharing Communities</div>
+      <div class="capability-pills">
+        <span class="pill pill-red">Situational Awareness</span>
+        <span class="pill pill-red">Early Warning</span>
+        <span class="pill pill-red">Regulations</span>
+        <span class="pill pill-red">Board-Level Reporting</span>
+      </div>
+    </div>
+
+    <div class="capability-row">
+      <div class="capability-label">Identity Management</div>
+      <div class="capability-pills">
+        <span class="pill pill-red">Single Sign-on</span>
+        <span class="pill pill-red">Auditing</span>
+        <span class="pill pill-red">Control</span>
+      </div>
+    </div>
+
+    <div class="capability-row">
+      <div class="capability-label">Expert Support</div>
+      <div class="capability-pills">
+        <span class="pill pill-red">Training</span>
+        <span class="pill pill-red">Workflow Improvement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Sharing Expertise (Slide 8) -->
+<section class="sharing-section">
+  <div class="container">
+    <div class="sharing-content">
+      <div class="sharing-text">
+        <div class="section-label">Sharing expertise</div>
+        <h2 class="section-heading">Want to share with peers?</h2>
+        <p>We can help you learn how!</p>
+        <p>We have extensive experience developing and implementing CTI sharing programs. Cosive were key partners in the design and engineering of the Australian Signals Directorate's national threat sharing program.</p>
+        <p class="sharing-bold">We can share our learnings so you don't have to make the same mistakes.</p>
+      </div>
+      <div>
+        <div class="sharing-help-heading">How we help</div>
+        <div class="sharing-icon-list">
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>Architecture &amp; Design</strong> of sharing platforms and communities</div>
+          </div>
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>Priority Intel Requirements</strong> to focus on what matters</div>
+          </div>
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>Filtering Unwanted CTI</strong> to reduce noise and alert fatigue</div>
+          </div>
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>Triaging Workflow</strong> for efficient threat assessment</div>
+          </div>
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>Dissemination Workflow</strong> to get intel to the right people</div>
+          </div>
+          <div class="sharing-icon-item">
+            <div class="sharing-icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="sharing-icon-item-text"><strong>STIX/TAXII Ingestion</strong> for standards-based threat data exchange</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Sharing Pattern (Slide 9) -->
+<section class="pattern-section">
+  <div class="container">
+    <div class="section-label">How sharing works</div>
+    <h2 class="section-heading">Typical sharing pattern</h2>
+
+    <div class="pattern-diagram">
+      <div class="pattern-org-label">Your Organisation</div>
+      <div class="pattern-flow">
+
+        <!-- Feeds -->
+        <div class="pattern-column">
+          <div class="pattern-box pattern-box-feed">Feed 1</div>
+          <div class="pattern-box pattern-box-feed">Feed 2</div>
+          <div class="pattern-box pattern-box-feed">Feed 3</div>
+        </div>
+
+        <!-- Arrow: Ingest -->
+        <div class="pattern-arrow">
+          <div>
+            <div class="pattern-arrow-label">Ingest</div>
+            <div class="pattern-arrow-line"></div>
+          </div>
+        </div>
+
+        <!-- Triage MISP -->
+        <div class="pattern-column">
+          <div class="pattern-box pattern-box-misp">Triage CloudMISP</div>
+        </div>
+
+        <!-- Arrow: Publish -->
+        <div class="pattern-arrow">
+          <div>
+            <div class="pattern-arrow-label">Publish</div>
+            <div class="pattern-arrow-line"></div>
+          </div>
+        </div>
+
+        <!-- Sharing MISP -->
+        <div class="pattern-column">
+          <div class="pattern-box pattern-box-misp">Sharing CloudMISP</div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="pattern-arrow">
+          <div>
+            <div class="pattern-arrow-label">Share</div>
+            <div class="pattern-arrow-line"></div>
+          </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="pattern-column">
+          <div class="pattern-box pattern-box-partner">
+            Organisation 1
+            <div class="pattern-partner-tag">Push only</div>
+          </div>
+          <div class="pattern-box pattern-box-partner">
+            Organisation 2
+            <div class="pattern-partner-tag">Push / Pull</div>
+          </div>
+          <div class="pattern-box pattern-box-partner">
+            Organisation 3
+            <div class="pattern-partner-tag">Login access</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. DIY Pain Points (Slide 10) -->
+<section class="diy-section">
+  <div class="container">
+    <div class="section-label">The DIY reality</div>
+    <h2 class="section-heading">I could do this myself</h2>
+    <p class="diy-subtext">Absolutely! But self-hosting MISP means owning the full stack &mdash; infrastructure, security, integrations, and every upgrade. Some organisations have taken 3 months just to get started.</p>
+    <div class="diy-callout">Here's everything you'll need to build, run, and maintain yourself.</div>
+
+    <div class="diy-categories">
+      <div class="diy-category">
+        <div class="diy-category-heading">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Initial setup
+        </div>
+        <div class="diy-category-pills">
+          <div class="pain-pill">Learning MISP from scratch</div>
+          <div class="pain-pill">Weeks/months of dev time</div>
+          <div class="pain-pill">IT ops building the server</div>
+          <div class="pain-pill">Configure network access</div>
+          <div class="pain-pill">Open up firewalls</div>
+        </div>
+      </div>
+      <div class="diy-category">
+        <div class="diy-category-heading">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Ongoing operations
+        </div>
+        <div class="diy-category-pills">
+          <div class="pain-pill">20+ upgrades per year</div>
+          <div class="pain-pill">Automate daily backups</div>
+          <div class="pain-pill">Disaster recovery</div>
+          <div class="pain-pill">Change control approval</div>
+          <div class="pain-pill">Repair MISP when it breaks</div>
+        </div>
+      </div>
+      <div class="diy-category">
+        <div class="diy-category-heading">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          Integrations &amp; security
+        </div>
+        <div class="diy-category-pills">
+          <div class="pain-pill">Develop SSO plugins</div>
+          <div class="pain-pill">Configure SSO</div>
+          <div class="pain-pill">Develop your workflows</div>
+          <div class="pain-pill">Logging &amp; monitoring</div>
+          <div class="pain-pill">Alerting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Timeline (Slide 11) -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-label section-label--light">Save 3 months</div>
+    <h2 class="section-heading">What takes 3 months becomes 1 day</h2>
+    <p class="timeline-subtext">A typical self-hosted MISP deployment takes 3+ months of planning, approvals, and engineering &mdash; then requires ongoing maintenance forever. CloudMISP eliminates all of it.</p>
+
+    <div class="comparison-strip">
+      <div class="comparison-bar-label">DIY self-hosted</div>
+      <div class="comparison-bar comparison-bar--diy">
+        <div class="comparison-bar-steps">
+          <div class="comparison-step">
+            <div class="comparison-step-title">Requirements</div>
+            <div class="comparison-step-duration">1 week</div>
+          </div>
+          <div class="comparison-step">
+            <div class="comparison-step-title">System design</div>
+            <div class="comparison-step-duration">1 week</div>
+          </div>
+          <div class="comparison-step">
+            <div class="comparison-step-title">Approvals</div>
+            <div class="comparison-step-duration">2-3 weeks</div>
+          </div>
+          <div class="comparison-step">
+            <div class="comparison-step-title">Build &amp; test</div>
+            <div class="comparison-step-duration">2-3 weeks</div>
+          </div>
+          <div class="comparison-step">
+            <div class="comparison-step-title">Maintenance</div>
+            <div class="comparison-step-duration">forever</div>
+          </div>
+        </div>
+        <div class="comparison-bar-goal">MISP</div>
+      </div>
+      <div class="comparison-bar-summary"><strong>~3 months</strong> + ongoing maintenance</div>
+
+      <div class="comparison-bar-label" style="margin-top: 32px;">With CloudMISP</div>
+      <div class="comparison-bar comparison-bar--cloudmisp">
+        <div class="comparison-bar-steps">
+          <div class="comparison-step">
+            <div class="comparison-step-title">Sign up</div>
+            <div class="comparison-step-duration">1 day</div>
+          </div>
+        </div>
+        <div class="comparison-bar-goal">CloudMISP</div>
+      </div>
+      <div class="comparison-bar-summary"><strong>1 day</strong> &mdash; fully managed</div>
+    </div>
+
+    <div class="eliminates-grid">
+      <div class="eliminates-column">
+        <div class="eliminates-column-heading">What you skip</div>
+        <div class="eliminates-item eliminates-item--skip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Weeks of requirements gathering
+        </div>
+        <div class="eliminates-item eliminates-item--skip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Infrastructure design &amp; provisioning
+        </div>
+        <div class="eliminates-item eliminates-item--skip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Internal security &amp; change approvals
+        </div>
+        <div class="eliminates-item eliminates-item--skip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Months of build, test, and debug
+        </div>
+        <div class="eliminates-item eliminates-item--skip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Ongoing maintenance forever
+        </div>
+      </div>
+      <div class="eliminates-column">
+        <div class="eliminates-column-heading">What you get</div>
+        <div class="eliminates-item eliminates-item--get">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Production-ready in 1 day
+        </div>
+        <div class="eliminates-item eliminates-item--get">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Pre-configured best practices
+        </div>
+        <div class="eliminates-item eliminates-item--get">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          SSO, backups &amp; DR built in
+        </div>
+        <div class="eliminates-item eliminates-item--get">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          24 upgrades/year handled for you
+        </div>
+        <div class="eliminates-item eliminates-item--get">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Expert support from MISP trainers
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-cta">
+      <a href="#contact" class="btn-primary">Get CloudMISP in 1 day</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Team (Slides 2-3) -->
+<section class="team-section">
+  <div class="container">
+    <div class="section-label">Who are we?</div>
+    <h2 class="section-heading">Cybersecurity practitioners and engineers</h2>
+    <p class="team-intro">We're cybersecurity practitioners and engineers who sell things that make cybersecurity easier. We help organisations get better at Security Operations and Cyber Threat Intelligence with specialised consulting, engineering, and managed security platforms.</p>
+
+    <div class="team-grid">
+      <div class="person-card">
+        <img class="person-card-photo" src="chris-horsley.jpg" alt="Chris Horsley">
+        <div class="person-card-body">
+          <div class="person-card-name">Chris Horsley</div>
+          <div class="person-card-role">Principal Consultant</div>
+          <div class="person-card-bio">Global speaker and trainer on CTI and MISP including at FIRST, AusCERT, AISA CyberCon and hack.lu. Served on national CSIRTs, including JPCERT and AusCERT.</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <img class="person-card-photo" src="terry-macdonald.jpg" alt="Terry MacDonald">
+        <div class="person-card-body">
+          <div class="person-card-name">Terry MacDonald</div>
+          <div class="person-card-role">Principal Consultant</div>
+          <div class="person-card-bio">Major contributor to the OASIS STIX, TAXII and CybOX threat intelligence sharing standards. Chairperson of the New Zealand Internet Task Force.</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <img class="person-card-photo" src="prescott-pym.jpg" alt="Prescott Pym">
+        <div class="person-card-body">
+          <div class="person-card-name">Prescott Pym</div>
+          <div class="person-card-role">Principal Consultant</div>
+          <div class="person-card-bio">14 years in security operations at Verizon. One of the architects behind the Australian Signals Directorate's national threat intelligence sharing program, CTIS.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-proof">
+      <p class="social-proof-text">We are globally recognised Cyber Threat Intelligence experts with extensive threat sharing experience. Our customers are based in US, UK and Europe.</p>
+      <div class="industries-list">
+        <span class="pill">Global Finance</span>
+        <span class="pill">Telecommunications</span>
+        <span class="pill">Critical Infrastructure</span>
+        <span class="pill">Federal Governments</span>
+        <span class="pill">Large Educational Institutions</span>
+      </div>
+      <div class="logo-strip">
+        <img src="logos/auscert.svg" alt="AusCERT">
+        <span class="text-logo">FIRST</span>
+        <span class="text-logo">hack.lu</span>
+        <span class="text-logo">NZITF</span>
+        <span class="text-logo">Australian Cyber Conference</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Additional Services (Slide 12) -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-label">Need even more help?</div>
+    <h2 class="section-heading">We help organisations overcome the common obstacles to running a successful CTI program</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>MISP &amp; CTI Training</h3>
+        <p>MISP Kickstart Training trains your staff to use MISP. CTI Training teaches the basics of a cyber threat intelligence programme.</p>
+      </div>
+      <div class="service-card">
+        <h3>CTI Processes and Workflow</h3>
+        <p>We help you build your CTI processes and MISP workflow so that MISP works the way you work.</p>
+      </div>
+      <div class="service-card">
+        <h3>Custom Integrations</h3>
+        <p>We can build you custom integrations to connect any security tool to any other security tool in any programming language.</p>
+      </div>
+      <div class="service-card">
+        <h3>Help sourcing Threat Intel</h3>
+        <p>We can help you find the right threat intel for you. We partner with many quality CTI providers globally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wavy SVG separator -->
+<div class="people-cta-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
+
+<!-- 11. Contact Form (Slides 13-14) -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Get in touch</div>
+      <h2 class="section-heading">How can we help?</h2>
+      <p class="contact-subtitle">The most important thing is what <strong>you</strong> want to do.</p>
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="CloudMISP">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Contact Us</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="mockup10.html" class="footer-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/security-consulting">Security Consulting</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+
+  // Draw hub diagram SVG lines
+  function drawHubLines() {
+    const diagram = document.querySelector('.hub-diagram');
+    const svg = document.getElementById('hubSvg');
+    if (!diagram || !svg) return;
+
+    const dRect = diagram.getBoundingClientRect();
+    svg.innerHTML = '';
+
+    function nodeCenter(sel, edge) {
+      const el = diagram.querySelector('[data-hub="' + sel + '"]');
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2 - dRect.left;
+      const cy = r.top + r.height / 2 - dRect.top;
+      if (edge === 'bottom') return { x: cx, y: r.bottom - dRect.top };
+      if (edge === 'top') return { x: cx, y: r.top - dRect.top };
+      return { x: cx, y: cy };
+    }
+
+    const connections = [
+      ['top-left', 'bottom', 'center', 'top'],
+      ['top-right', 'bottom', 'center', 'top'],
+      ['center', 'bottom', 'bot-left', 'top'],
+      ['center', 'bottom', 'bot-mid', 'top'],
+      ['center', 'bottom', 'bot-right', 'top'],
+    ];
+
+    connections.forEach(function(c) {
+      const from = nodeCenter(c[0], c[1]);
+      const to = nodeCenter(c[2], c[3]);
+      if (!from || !to) return;
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', from.x);
+      line.setAttribute('y1', from.y);
+      line.setAttribute('x2', to.x);
+      line.setAttribute('y2', to.y);
+      svg.appendChild(line);
+    });
+  }
+
+  drawHubLines();
+  window.addEventListener('resize', drawHubLines);
+</script>
+
+</body>
+</html>

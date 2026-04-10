@@ -1,0 +1,295 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Cosive" [ref=e4] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e5]
+      - navigation [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "CloudMISP" [ref=e9] [cursor=pointer]:
+              - /url: cloudmisp.html
+          - listitem [ref=e10]:
+            - link "Security Consulting" [ref=e11] [cursor=pointer]:
+              - /url: /security-consulting
+          - listitem [ref=e12]:
+            - link "Case Studies" [ref=e13] [cursor=pointer]:
+              - /url: /case-studies
+          - listitem [ref=e14]:
+            - link "Resources" [ref=e15] [cursor=pointer]:
+              - /url: /resources
+          - listitem [ref=e16]:
+            - link "About" [ref=e17] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e18]:
+            - link "Contact Us" [ref=e19] [cursor=pointer]:
+              - /url: "#contact"
+  - generic [ref=e22]:
+    - navigation [ref=e23]:
+      - link "Home" [ref=e24] [cursor=pointer]:
+        - /url: mockup10.html
+      - generic [ref=e25]: /
+      - link "Cyber Threat Intelligence" [ref=e26] [cursor=pointer]:
+        - /url: cyber-threat-intelligence.html
+      - generic [ref=e27]: /
+      - generic [ref=e28]: CloudMISP
+    - heading "CloudMISP" [level=1] [ref=e29]
+    - generic [ref=e30]: MISP as a Service
+  - generic [ref=e32]:
+    - generic [ref=e33]: What's CloudMISP?
+    - heading "Your CTI central hub, connecting your analysts, security tools, and SIEM with the high quality threat intelligence feeds you receive from the MISP Community." [level=1] [ref=e34]
+    - generic [ref=e35]:
+      - img
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: Your Threat Analysts
+          - generic [ref=e39]: Intel creation & management
+        - generic [ref=e40]: CloudMISP
+        - generic [ref=e41]:
+          - generic [ref=e42]: MISP Community
+          - generic [ref=e43]: CTI sharing
+        - generic [ref=e44]:
+          - generic [ref=e45]: Okta / Azure Entra ID
+          - generic [ref=e46]: Authentication
+        - generic [ref=e47]:
+          - generic [ref=e48]: Microsoft Sentinel & Other SIEMs
+          - generic [ref=e49]: IOCs and aging
+        - generic [ref=e50]:
+          - generic [ref=e51]: Threat Intel Feeds
+          - generic [ref=e52]: Feed ingestion
+  - generic [ref=e54]:
+    - generic [ref=e55]: Why CloudMISP?
+    - heading "More features than a standard MISP" [level=2] [ref=e56]
+    - generic [ref=e57]:
+      - generic [ref=e58]: Integrations
+      - generic [ref=e59]:
+        - generic [ref=e60]: Monitoring
+        - generic [ref=e61]: Incident Response
+        - generic [ref=e62]: Digital Forensics
+        - generic [ref=e63]: Alerting
+        - generic [ref=e64]: Threat Hunting
+    - generic [ref=e65]:
+      - generic [ref=e66]: Intel Sharing Communities
+      - generic [ref=e67]:
+        - generic [ref=e68]: Situational Awareness
+        - generic [ref=e69]: Early Warning
+        - generic [ref=e70]: Regulations
+        - generic [ref=e71]: Board-Level Reporting
+    - generic [ref=e72]:
+      - generic [ref=e73]: Identity Management
+      - generic [ref=e74]:
+        - generic [ref=e75]: Single Sign-on
+        - generic [ref=e76]: Auditing
+        - generic [ref=e77]: Control
+    - generic [ref=e78]:
+      - generic [ref=e79]: Expert Support
+      - generic [ref=e80]:
+        - generic [ref=e81]: Training
+        - generic [ref=e82]: Workflow Improvement
+  - generic [ref=e84]:
+    - generic [ref=e85]: What you get
+    - heading "Dedicated infrastructure, fully managed" [level=2] [ref=e86]
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - paragraph [ref=e89]: You get your own CloudMISP dedicated containers in your own private network in any AWS region.
+        - paragraph [ref=e90]: All parts of the system are fully managed and maintained by Cosive.
+        - paragraph [ref=e91]: We have completely rearchitected MISP to speed it up and make it more resilient.
+        - paragraph [ref=e92]: CloudMISP is much more than a MISP server in the cloud!
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - img [ref=e97]
+          - generic [ref=e102]: ECS Services
+        - generic [ref=e103]:
+          - img [ref=e105]
+          - generic [ref=e109]: RDS MariaDB
+        - generic [ref=e110]:
+          - img [ref=e112]
+          - generic [ref=e114]: ElastiCache Redis
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - generic [ref=e119]: EFS Storage
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e125]: Application Load Balancer
+        - generic [ref=e126]:
+          - img [ref=e128]
+          - generic [ref=e130]: NAT Gateway
+        - generic [ref=e131]:
+          - img [ref=e133]
+          - generic [ref=e136]: AWS Backup
+        - generic [ref=e137]:
+          - img [ref=e139]
+          - generic [ref=e141]: MISP Background Workers
+    - generic [ref=e142]:
+      - heading "Reliable upgrades with less than 4 seconds outage" [level=3] [ref=e143]
+      - paragraph [ref=e144]: We validate code changes line-by-line for every new MISP release, and perform automated and manual testing before rolling out.
+  - generic [ref=e146]:
+    - generic [ref=e147]: Want to share with peers?
+    - heading "We can share our learnings so you don't have to make the same mistakes" [level=2] [ref=e148]
+    - paragraph [ref=e150]: We have extensive experience developing and implementing CTI sharing programs. Cosive were key partners in the design and engineering of the Australian Signals Directorate's national threat sharing program.
+    - generic [ref=e151]:
+      - generic [ref=e152]: Architecture & Design
+      - generic [ref=e153]: Priority Intel Requirements
+      - generic [ref=e154]: Filtering Unwanted CTI
+      - generic [ref=e155]: Triaging Workflow
+      - generic [ref=e156]: Dissemination Workflow
+      - generic [ref=e157]: STIX/TAXII Ingestion
+  - generic [ref=e159]:
+    - generic [ref=e160]: How sharing works
+    - heading "Typical sharing pattern" [level=2] [ref=e161]
+    - generic [ref=e162]:
+      - generic [ref=e163]: Your Organisation
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - generic [ref=e166]: Feed 1
+          - generic [ref=e167]: Feed 2
+          - generic [ref=e168]: Feed 3
+        - generic [ref=e171]: Ingest
+        - generic [ref=e174]: Triage CloudMISP
+        - generic [ref=e177]: Publish
+        - generic [ref=e180]: Sharing CloudMISP
+        - generic [ref=e183]: Share
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - text: Organisation 1
+            - generic [ref=e187]: Push only
+          - generic [ref=e188]:
+            - text: Organisation 2
+            - generic [ref=e189]: Push / Pull
+          - generic [ref=e190]:
+            - text: Organisation 3
+            - generic [ref=e191]: Login access
+  - generic [ref=e193]:
+    - heading "I could do this myself" [level=2] [ref=e194]
+    - paragraph [ref=e195]: Absolutely! But be warned — it will take you far longer than you think it will.
+    - generic [ref=e196]: Some organisations have taken 3 months to install MISP themselves.
+    - generic [ref=e197]:
+      - generic [ref=e198]: Learning MISP from scratch
+      - generic [ref=e199]: Weeks/months of dev time
+      - generic [ref=e200]: IT ops building the server
+      - generic [ref=e201]: 20+ upgrades per year
+      - generic [ref=e202]: Automate daily backups
+      - generic [ref=e203]: Disaster recovery
+      - generic [ref=e204]: Change control approval
+      - generic [ref=e205]: Open up firewalls
+      - generic [ref=e206]: Configuring network
+      - generic [ref=e207]: Alerting
+      - generic [ref=e208]: Develop SSO plugins
+      - generic [ref=e209]: Configure SSO
+      - generic [ref=e210]: Develop your workflows
+      - generic [ref=e211]: Repair MISP
+      - generic [ref=e212]: Logging & monitoring
+  - generic [ref=e214]:
+    - heading "CloudMISP could save you 3 months" [level=2] [ref=e215]
+    - generic [ref=e216]:
+      - img [ref=e217]
+      - text: "CloudMISP: 1 day"
+    - generic [ref=e219]:
+      - generic [ref=e220]:
+        - generic [ref=e221]: Requirements
+        - generic [ref=e222]: 1 week
+      - generic [ref=e223]:
+        - generic [ref=e224]: System Design
+        - generic [ref=e225]: 1 week
+      - generic [ref=e226]:
+        - generic [ref=e227]: Internal Approvals
+        - generic [ref=e228]: 2-3 weeks
+      - generic [ref=e229]:
+        - generic [ref=e230]: Implementation & Testing
+        - generic [ref=e231]: 2-3 weeks
+      - generic [ref=e232]:
+        - generic [ref=e233]: Ongoing Maintenance & Upgrades
+        - generic [ref=e234]: 2-4 days/mo forever
+  - generic [ref=e236]:
+    - generic [ref=e237]: Who are we?
+    - heading "Cybersecurity practitioners and engineers" [level=2] [ref=e238]
+    - paragraph [ref=e239]: We help organisations get better at Security Operations and Cyber Threat Intelligence with specialised consulting, engineering, and managed security platforms.
+    - generic [ref=e240]:
+      - generic [ref=e241]:
+        - img "Chris Horsley" [ref=e242]
+        - generic [ref=e243]:
+          - generic [ref=e244]: Chris Horsley
+          - generic [ref=e245]: Principal Consultant
+          - generic [ref=e246]: Regular speaker and trainer at AusCERT, FIRST, hack.lu and Australian Cyber Conference on MISP, threat intelligence, and sharing programs.
+      - generic [ref=e247]:
+        - img "Terry MacDonald" [ref=e248]
+        - generic [ref=e249]:
+          - generic [ref=e250]: Terry MacDonald
+          - generic [ref=e251]: Principal Consultant
+          - generic [ref=e252]: Expert in STIX/TAXII integration and CTI sharing architecture. Co-founder of the NZ Internet Task Force (NZITF) and contributor to open-source threat intelligence tooling.
+      - generic [ref=e253]:
+        - img "Prescott Pym" [ref=e254]
+        - generic [ref=e255]:
+          - generic [ref=e256]: Prescott Pym
+          - generic [ref=e257]: Principal Consultant
+          - generic [ref=e258]: Former Verizon and ASD cyber threat intelligence specialist. Extensive experience in national-scale CTI sharing programs and security operations.
+    - generic [ref=e259]:
+      - paragraph [ref=e260]: Our customers are based in US, UK and Europe.
+      - generic [ref=e261]:
+        - generic [ref=e262]: Global Finance
+        - generic [ref=e263]: Telecommunications
+        - generic [ref=e264]: Critical Infrastructure
+        - generic [ref=e265]: Federal Governments
+        - generic [ref=e266]: Large Educational Institutions
+      - generic [ref=e267]:
+        - img "AusCERT" [ref=e268]
+        - generic [ref=e269]: FIRST
+        - generic [ref=e270]: hack.lu
+        - generic [ref=e271]: NZITF
+        - generic [ref=e272]: Australian Cyber Conference
+  - generic [ref=e274]:
+    - generic [ref=e275]: Need even more help?
+    - heading "We help organisations overcome the common obstacles to running a successful CTI program" [level=2] [ref=e276]
+    - generic [ref=e277]:
+      - generic [ref=e278]:
+        - heading "MISP & CTI Training" [level=3] [ref=e279]
+        - paragraph [ref=e280]: MISP Kickstart Training trains your staff to use MISP. CTI Training teaches the basics of a cyber threat intelligence programme.
+      - generic [ref=e281]:
+        - heading "CTI Processes and Workflow" [level=3] [ref=e282]
+        - paragraph [ref=e283]: We help you build your CTI processes and MISP workflow so that MISP works the way you work.
+      - generic [ref=e284]:
+        - heading "Custom Integrations" [level=3] [ref=e285]
+        - paragraph [ref=e286]: We can build you custom integrations to connect any security tool to any other security tool in any programming language.
+      - generic [ref=e287]:
+        - heading "Help sourcing Threat Intel" [level=3] [ref=e288]
+        - paragraph [ref=e289]: We can help you find the right threat intel for you. We partner with many quality CTI providers globally.
+  - img [ref=e291]
+  - generic [ref=e297]:
+    - generic [ref=e298]: Get in touch
+    - heading "How can we help?" [level=2] [ref=e299]
+    - paragraph [ref=e300]: The most important thing is what you want to do. Tell us about your requirements and we'll get back to you.
+    - generic [ref=e301]:
+      - generic [ref=e302]:
+        - generic [ref=e303]:
+          - generic [ref=e304]: First name
+          - textbox "First name" [ref=e305]
+        - generic [ref=e306]:
+          - generic [ref=e307]: Last name
+          - textbox "Last name" [ref=e308]
+      - generic [ref=e309]:
+        - generic [ref=e310]: Email
+        - textbox "Email" [ref=e311]
+      - generic [ref=e312]:
+        - generic [ref=e313]: Company
+        - textbox "Company" [ref=e314]
+      - generic [ref=e315]:
+        - generic [ref=e316]: Message
+        - textbox "Message" [ref=e317]
+      - button "Contact Us" [ref=e318] [cursor=pointer]
+  - contentinfo [ref=e319]:
+    - generic [ref=e320]:
+      - link "Cosive" [ref=e321] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e322]
+      - generic [ref=e323]:
+        - link "About" [ref=e324] [cursor=pointer]:
+          - /url: /about
+        - link "Security Consulting" [ref=e325] [cursor=pointer]:
+          - /url: /security-consulting
+        - link "Resources" [ref=e326] [cursor=pointer]:
+          - /url: /resources
+        - link "Contact" [ref=e327] [cursor=pointer]:
+          - /url: /contact-us
+        - link "LinkedIn" [ref=e328] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/cosive
+      - generic [ref=e329]: © Cosive Pty Ltd.

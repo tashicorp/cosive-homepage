@@ -1,0 +1,158 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - img "Cosive" [ref=e5]
+      - generic [ref=e6]: Mockup Gallery
+  - generic [ref=e8]:
+    - heading "Homepage Mockups" [level=1] [ref=e9]
+    - paragraph [ref=e10]: Design explorations for the Cosive homepage redesign.
+  - generic [ref=e12]:
+    - generic [ref=e13]: Latest
+    - generic [ref=e14]:
+      - link "10 Homepage — Current Working Version Full-width credentials hero with B&W image overlay, partnership approach cards, real team bios with headshots in 2x2 grid, updated CTI & fraud data sharing positioning throughout. Latest Active Credentials Hero Partnership Approach Real Team Bios View mockup →" [ref=e15] [cursor=pointer]:
+        - /url: mockup10.html
+        - generic [ref=e16]: "10"
+        - generic [ref=e17]: Homepage — Current Working Version
+        - generic [ref=e18]: Full-width credentials hero with B&W image overlay, partnership approach cards, real team bios with headshots in 2x2 grid, updated CTI & fraud data sharing positioning throughout.
+        - generic [ref=e19]:
+          - generic [ref=e20]: Latest
+          - generic [ref=e21]: Active
+          - generic [ref=e22]: Credentials Hero
+          - generic [ref=e23]: Partnership Approach
+          - generic [ref=e24]: Real Team Bios
+        - generic [ref=e25]: View mockup →
+      - link "09 Previous Working Version Contact form above testimonial, \"Choose your environment\" nav with image cards, rewritten hero copy for CTI & fraud intelligence, and \"Choose your goal\" services section. Previous Contact Form Environment Nav Services Grid View mockup →" [ref=e26] [cursor=pointer]:
+        - /url: mockup9.html
+        - generic [ref=e27]: "09"
+        - generic [ref=e28]: Previous Working Version
+        - generic [ref=e29]: Contact form above testimonial, "Choose your environment" nav with image cards, rewritten hero copy for CTI & fraud intelligence, and "Choose your goal" services section.
+        - generic [ref=e30]:
+          - generic [ref=e31]: Previous
+          - generic [ref=e32]: Contact Form
+          - generic [ref=e33]: Environment Nav
+          - generic [ref=e34]: Services Grid
+        - generic [ref=e35]: View mockup →
+      - link "08 v2 Homepage with Contact Form Previous iteration with contact form above testimonial, \"Choose your industry\" nav, rewritten hero copy for CTI & fraud intelligence, and \"Choose your goal\" services section. Previous Contact Form Industry Nav View mockup →" [ref=e36] [cursor=pointer]:
+        - /url: mockup8-v2.html
+        - generic [ref=e37]: 08 v2
+        - generic [ref=e38]: Homepage with Contact Form
+        - generic [ref=e39]: Previous iteration with contact form above testimonial, "Choose your industry" nav, rewritten hero copy for CTI & fraud intelligence, and "Choose your goal" services section.
+        - generic [ref=e40]:
+          - generic [ref=e41]: Previous
+          - generic [ref=e42]: Contact Form
+          - generic [ref=e43]: Industry Nav
+        - generic [ref=e44]: View mockup →
+      - link "08 v2a Central Banks & Financial Services Industry landing page with dark form, full-width hero, testimonial overlay, fraud & CTI goal sections, and bottom CTA form. Landing Page Industry Dark Form View page →" [ref=e45] [cursor=pointer]:
+        - /url: financial-services.html
+        - generic [ref=e46]: 08 v2a
+        - generic [ref=e47]: Central Banks & Financial Services
+        - generic [ref=e48]: Industry landing page with dark form, full-width hero, testimonial overlay, fraud & CTI goal sections, and bottom CTA form.
+        - generic [ref=e49]:
+          - generic [ref=e50]: Landing Page
+          - generic [ref=e51]: Industry
+          - generic [ref=e52]: Dark Form
+        - generic [ref=e53]: View page →
+      - link "08b Critical Infrastructure Industry landing page for CI operators. SOCI Act, NIS2, AESCSF regulatory badges, sector-specific CTI solutions, rotating testimonials. Landing Page Industry Critical Infrastructure View page →" [ref=e54] [cursor=pointer]:
+        - /url: critical-infrastructure.html
+        - generic [ref=e55]: 08b
+        - generic [ref=e56]: Critical Infrastructure
+        - generic [ref=e57]: Industry landing page for CI operators. SOCI Act, NIS2, AESCSF regulatory badges, sector-specific CTI solutions, rotating testimonials.
+        - generic [ref=e58]:
+          - generic [ref=e59]: Landing Page
+          - generic [ref=e60]: Industry
+          - generic [ref=e61]: Critical Infrastructure
+        - generic [ref=e62]: View page →
+      - link "08c Fraud Data Sharing Goal-driven landing page for fraud data sharing. Timeline journey panels, regulator framework rows, nav cards hero. Landing Page Industry Fraud View page →" [ref=e63] [cursor=pointer]:
+        - /url: fraud-data-sharing.html
+        - generic [ref=e64]: 08c
+        - generic [ref=e65]: Fraud Data Sharing
+        - generic [ref=e66]: Goal-driven landing page for fraud data sharing. Timeline journey panels, regulator framework rows, nav cards hero.
+        - generic [ref=e67]:
+          - generic [ref=e68]: Landing Page
+          - generic [ref=e69]: Industry
+          - generic [ref=e70]: Fraud
+        - generic [ref=e71]: View page →
+      - link "08d Fraud Data Sharing v2 Revised fraud data sharing landing page — same content, ready for design adjustments. Landing Page Industry Fraud WIP View page →" [ref=e72] [cursor=pointer]:
+        - /url: fraud-data-sharing-v2.html
+        - generic [ref=e73]: 08d
+        - generic [ref=e74]: Fraud Data Sharing v2
+        - generic [ref=e75]: Revised fraud data sharing landing page — same content, ready for design adjustments.
+        - generic [ref=e76]:
+          - generic [ref=e77]: Landing Page
+          - generic [ref=e78]: Industry
+          - generic [ref=e79]: Fraud
+          - generic [ref=e80]: WIP
+        - generic [ref=e81]: View page →
+      - link "08e Cyber Threat Intelligence CTI landing page — goal-driven nav cards, sharing community focus, CTI-CMM maturity, MISP expertise, FAQ and contact form. Landing Page CTI WIP View page →" [ref=e82] [cursor=pointer]:
+        - /url: cyber-threat-intelligence.html
+        - generic [ref=e83]: 08e
+        - generic [ref=e84]: Cyber Threat Intelligence
+        - generic [ref=e85]: CTI landing page — goal-driven nav cards, sharing community focus, CTI-CMM maturity, MISP expertise, FAQ and contact form.
+        - generic [ref=e86]:
+          - generic [ref=e87]: Landing Page
+          - generic [ref=e88]: CTI
+          - generic [ref=e89]: WIP
+        - generic [ref=e90]: View page →
+      - 'link "08 v1 Hero Only (Minimal) Previous version: minimal hero, industry image cards, rotating testimonial. No contact form or services section. Previous Hero Only Image Cards View mockup →" [ref=e91] [cursor=pointer]':
+        - /url: mockup8.html
+        - generic [ref=e92]: 08 v1
+        - generic [ref=e93]: Hero Only (Minimal)
+        - generic [ref=e94]: "Previous version: minimal hero, industry image cards, rotating testimonial. No contact form or services section."
+        - generic [ref=e95]:
+          - generic [ref=e96]: Previous
+          - generic [ref=e97]: Hero Only
+          - generic [ref=e98]: Image Cards
+        - generic [ref=e99]: View mockup →
+  - generic [ref=e101]:
+    - generic [ref=e102]: Previous Iterations
+    - generic [ref=e103]:
+      - link "07 Pioneer-Inspired Light Layout Full page with hero, solutions grid, expertise section, CTA banner, and footer. View mockup →" [ref=e104] [cursor=pointer]:
+        - /url: mockup7.html
+        - generic [ref=e105]: "07"
+        - generic [ref=e106]: Pioneer-Inspired Light Layout
+        - generic [ref=e107]: Full page with hero, solutions grid, expertise section, CTA banner, and footer.
+        - generic [ref=e108]: View mockup →
+      - link "06 Light & Spacious White background, Feedly-style product cards with category badges, Pioneer-inspired spacing. View mockup →" [ref=e109] [cursor=pointer]:
+        - /url: mockup6.html
+        - generic [ref=e110]: "06"
+        - generic [ref=e111]: Light & Spacious
+        - generic [ref=e112]: White background, Feedly-style product cards with category badges, Pioneer-inspired spacing.
+        - generic [ref=e113]: View mockup →
+      - link "01 Hero + ICP Card Grid Dark design with hero, 3x2 ICP cards, rotating testimonials, differentiators. View mockup →" [ref=e114] [cursor=pointer]:
+        - /url: mockup.html
+        - generic [ref=e115]: "01"
+        - generic [ref=e116]: Hero + ICP Card Grid
+        - generic [ref=e117]: Dark design with hero, 3x2 ICP cards, rotating testimonials, differentiators.
+        - generic [ref=e118]: View mockup →
+      - link "02 Grouped ICP Cards ICP cards in themed groups inside a white panel. View mockup →" [ref=e119] [cursor=pointer]:
+        - /url: mockup2.html
+        - generic [ref=e120]: "02"
+        - generic [ref=e121]: Grouped ICP Cards
+        - generic [ref=e122]: ICP cards in themed groups inside a white panel.
+        - generic [ref=e123]: View mockup →
+      - link "03 Interactive Explorer Two-column explorer with sidebar list and detail pane. View mockup →" [ref=e124] [cursor=pointer]:
+        - /url: mockup3.html
+        - generic [ref=e125]: "03"
+        - generic [ref=e126]: Interactive Explorer
+        - generic [ref=e127]: Two-column explorer with sidebar list and detail pane.
+        - generic [ref=e128]: View mockup →
+      - link "04 Vertical List Full-width list items grouped by category. View mockup →" [ref=e129] [cursor=pointer]:
+        - /url: mockup4.html
+        - generic [ref=e130]: "04"
+        - generic [ref=e131]: Vertical List
+        - generic [ref=e132]: Full-width list items grouped by category.
+        - generic [ref=e133]: View mockup →
+      - link "05 \"I am...\" Persona List Persona-driven approach with categorized solution lists. View mockup →" [ref=e134] [cursor=pointer]:
+        - /url: mockup5.html
+        - generic [ref=e135]: "05"
+        - generic [ref=e136]: "\"I am...\" Persona List"
+        - generic [ref=e137]: Persona-driven approach with categorized solution lists.
+        - generic [ref=e138]: View mockup →
+      - link "Ref Current Live Site Existing cosive.com homepage for reference. View mockup →" [ref=e139] [cursor=pointer]:
+        - /url: cosive-original.html
+        - generic [ref=e140]: Ref
+        - generic [ref=e141]: Current Live Site
+        - generic [ref=e142]: Existing cosive.com homepage for reference.
+        - generic [ref=e143]: View mockup →
+  - link "View previous gallery design →" [ref=e145] [cursor=pointer]:
+    - /url: gallery-archive.html

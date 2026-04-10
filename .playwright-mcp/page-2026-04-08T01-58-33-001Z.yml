@@ -1,0 +1,226 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Cosive" [ref=e4] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e5]
+      - navigation [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "CloudMISP" [ref=e9] [cursor=pointer]:
+              - /url: /capabilities/cloud-misp
+          - listitem [ref=e10]:
+            - link "Security Consulting" [ref=e11] [cursor=pointer]:
+              - /url: /security-consulting
+          - listitem [ref=e12]:
+            - link "Case Studies" [ref=e13] [cursor=pointer]:
+              - /url: /case-studies
+          - listitem [ref=e14]:
+            - link "Resources" [ref=e15] [cursor=pointer]:
+              - /url: /resources
+          - listitem [ref=e16]:
+            - link "About" [ref=e17] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e18]:
+            - link "Contact Us" [ref=e19] [cursor=pointer]:
+              - /url: /contact-us
+  - generic [ref=e22]:
+    - navigation [ref=e23]:
+      - link "Home" [ref=e24] [cursor=pointer]:
+        - /url: mockup10.html
+      - generic [ref=e25]: /
+      - generic [ref=e26]: Fraud Data Sharing
+    - heading "Fraud Data Sharing" [level=1] [ref=e27]
+  - generic [ref=e29]:
+    - heading "We help banks and financial institutions share fraud data securely to detect and prevent fraud faster." [level=1] [ref=e30]
+    - heading "Select your goal" [level=3] [ref=e31]:
+      - text: Select your goal
+      - img [ref=e33]
+    - generic [ref=e36]:
+      - link "Share with your regulator Share with your regulator Learn More" [ref=e37] [cursor=pointer]:
+        - /url: "#"
+        - img "Share with your regulator" [ref=e38]
+        - generic [ref=e39]:
+          - heading "Share with your regulator" [level=2] [ref=e40]
+          - generic [ref=e42]:
+            - text: Learn More
+            - img [ref=e43]
+      - link "Share with other banks Share with other banks Learn More" [ref=e46] [cursor=pointer]:
+        - /url: "#"
+        - img "Share with other banks" [ref=e47]
+        - generic [ref=e48]:
+          - heading "Share with other banks" [level=2] [ref=e49]
+          - generic [ref=e51]:
+            - text: Learn More
+            - img [ref=e52]
+      - link "Start a sharing community Start a sharing community Learn More" [ref=e55] [cursor=pointer]:
+        - /url: "#"
+        - img "Start a sharing community" [ref=e56]
+        - generic [ref=e57]:
+          - heading "Start a sharing community" [level=2] [ref=e58]
+          - generic [ref=e60]:
+            - text: Learn More
+            - img [ref=e61]
+      - link "Integrate with your tools Integrate with your tools Learn More" [ref=e64] [cursor=pointer]:
+        - /url: "#"
+        - img "Integrate with your tools" [ref=e65]
+        - generic [ref=e66]:
+          - heading "Integrate with your tools" [level=2] [ref=e67]
+          - generic [ref=e69]:
+            - text: Learn More
+            - img [ref=e70]
+  - generic [ref=e74]:
+    - generic [ref=e75]: Who we work with
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - generic [ref=e79]: APRA
+          - generic [ref=e80]: RBNZ
+        - heading "Australian & New Zealand Banks" [level=3] [ref=e81]
+        - paragraph [ref=e82]: Share fraud intelligence under APRA CPS 234 and RBNZ guidance to meet information security and operational resilience obligations across AU and NZ.
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: FRIDA
+          - generic [ref=e86]: FNC-RF
+        - heading "European Regulated Banks" [level=3] [ref=e87]
+        - paragraph [ref=e88]: Participate in the ECB's FRIDA initiative and share fraud data with the Banque de France using FNC-RF for fraud typology, mule account reporting, and anonymised fraud indicators across EU member banks.
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]: FCA
+          - generic [ref=e92]: OpRes
+        - heading "UK Regulated Banks" [level=3] [ref=e93]
+        - paragraph [ref=e94]: Meet FCA operational resilience requirements by reporting APP fraud, account takeovers, and emerging threats.
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]: SAMA
+          - generic [ref=e98]: CBUAE
+        - heading "Middle Eastern Central Banks" [level=3] [ref=e99]
+        - paragraph [ref=e100]: Share fraud intelligence with central banks across the GCC region to support regulatory compliance and regional fraud prevention.
+  - generic [ref=e102]:
+    - generic [ref=e103]:
+      - generic [ref=e104]: Why work with us
+      - heading "Fraud data sharing expertise you can trust" [level=2] [ref=e105]
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - img [ref=e109]
+          - generic [ref=e111]:
+            - strong [ref=e112]: Worked directly with regulators
+            - text: (APRA, ECB, FCA) to design fraud sharing frameworks
+        - generic [ref=e113]:
+          - img [ref=e115]
+          - generic [ref=e120]:
+            - strong [ref=e121]: Contributors to MISP
+            - text: ", the world's most popular open source threat intelligence platform"
+        - generic [ref=e122]:
+          - img [ref=e124]
+          - generic [ref=e127]:
+            - strong [ref=e128]: Operated fraud data sharing communities
+            - text: for central banks and financial institutions
+        - generic [ref=e129]:
+          - img [ref=e131]
+          - generic [ref=e134]:
+            - strong [ref=e135]: Trained banks across 4 continents
+            - text: on fraud intelligence sharing
+    - generic [ref=e136]:
+      - img "Chris Horsley presenting at AUSCERT" [ref=e137]
+      - generic [ref=e138]: Cosive co-founder Chris Horsley presenting at AUSCERT.
+  - generic [ref=e140]:
+    - generic [ref=e141]: How we can help
+    - heading "Fraud data sharing services" [level=2] [ref=e142]
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - heading "Fraud sharing strategy" [level=3] [ref=e145]
+        - paragraph [ref=e146]: Assess your current state and design a fraud data sharing roadmap aligned to your regulatory obligations.
+      - generic [ref=e147]:
+        - heading "Platform deployment" [level=3] [ref=e148]
+        - paragraph [ref=e149]: Deploy and configure CloudMISP with sharing groups, taxonomies, and integrations tailored for fraud data.
+      - generic [ref=e150]:
+        - heading "Regulator compliance" [level=3] [ref=e151]
+        - paragraph [ref=e152]: Meet APRA, FCA, ECB, and other regulatory fraud reporting requirements with automated, structured data exchange.
+      - generic [ref=e153]:
+        - heading "Peer-to-peer sharing" [level=3] [ref=e154]
+        - paragraph [ref=e155]: Establish trusted bilateral sharing channels with partner banks for real-time fraud indicator exchange.
+      - generic [ref=e156]:
+        - heading "Community building" [level=3] [ref=e157]
+        - paragraph [ref=e158]: Launch and operate a fraud intelligence sharing community for your region or sector.
+      - generic [ref=e159]:
+        - heading "Tool integration" [level=3] [ref=e160]
+        - paragraph [ref=e161]: Connect MISP to your fraud management platforms, transaction monitoring, and case management systems.
+  - generic [ref=e163]:
+    - generic [ref=e164]: Frequently asked questions
+    - heading "Common questions about fraud data sharing" [level=2] [ref=e165]
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - group [ref=e168]:
+          - generic "What is Fraud Data Sharing?" [ref=e169] [cursor=pointer]:
+            - text: What is Fraud Data Sharing?
+            - img [ref=e170]
+        - group [ref=e172]:
+          - generic "Why is Fraud Data Sharing important?" [ref=e173] [cursor=pointer]:
+            - text: Why is Fraud Data Sharing important?
+            - img [ref=e174]
+        - group [ref=e176]:
+          - generic "What fraud data sharing platforms can you help connect us to?" [ref=e177] [cursor=pointer]:
+            - text: What fraud data sharing platforms can you help connect us to?
+            - img [ref=e178]
+        - group [ref=e180]:
+          - generic "What is MISP?" [ref=e181] [cursor=pointer]:
+            - text: What is MISP?
+            - img [ref=e182]
+        - group [ref=e184]:
+          - generic "What is CloudMISP?" [ref=e185] [cursor=pointer]:
+            - text: What is CloudMISP?
+            - img [ref=e186]
+        - group [ref=e188]:
+          - generic "How long does it take to get started?" [ref=e189] [cursor=pointer]:
+            - text: How long does it take to get started?
+            - img [ref=e190]
+        - group [ref=e192]:
+          - generic "Is shared fraud data kept confidential?" [ref=e193] [cursor=pointer]:
+            - text: Is shared fraud data kept confidential?
+            - img [ref=e194]
+        - group [ref=e196]:
+          - generic "What types of fraud indicators can be shared?" [ref=e197] [cursor=pointer]:
+            - text: What types of fraud indicators can be shared?
+            - img [ref=e198]
+      - img "Credit cards and banking" [ref=e201]
+  - img [ref=e203]
+  - generic [ref=e209]:
+    - generic [ref=e210]: Get in touch
+    - heading "Start sharing fraud data" [level=2] [ref=e211]
+    - paragraph [ref=e212]: Tell us about your fraud data sharing goals and we'll get back to you.
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]: First name
+          - textbox "First name" [ref=e217]
+        - generic [ref=e218]:
+          - generic [ref=e219]: Last name
+          - textbox "Last name" [ref=e220]
+      - generic [ref=e221]:
+        - generic [ref=e222]: Email
+        - textbox "Email" [ref=e223]
+      - generic [ref=e224]:
+        - generic [ref=e225]: Company
+        - textbox "Company" [ref=e226]
+      - generic [ref=e227]:
+        - generic [ref=e228]: Message
+        - textbox "Message" [ref=e229]
+      - button "Send message" [ref=e230] [cursor=pointer]
+  - contentinfo [ref=e231]:
+    - generic [ref=e232]:
+      - link "Cosive" [ref=e233] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e234]
+      - generic [ref=e235]:
+        - link "About" [ref=e236] [cursor=pointer]:
+          - /url: /about
+        - link "Security Consulting" [ref=e237] [cursor=pointer]:
+          - /url: /security-consulting
+        - link "Resources" [ref=e238] [cursor=pointer]:
+          - /url: /resources
+        - link "Contact" [ref=e239] [cursor=pointer]:
+          - /url: /contact-us
+        - link "LinkedIn" [ref=e240] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/cosive
+      - generic [ref=e241]: © Cosive Pty Ltd.

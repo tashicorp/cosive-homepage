@@ -1,0 +1,239 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Cosive" [ref=e4] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e5]
+      - button "Toggle navigation" [expanded] [active] [ref=e241] [cursor=pointer]:
+        - img [ref=e244]
+      - navigation [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "CloudMISP" [ref=e9] [cursor=pointer]:
+              - /url: /capabilities/cloud-misp
+          - listitem [ref=e10]:
+            - link "Security Consulting" [ref=e11] [cursor=pointer]:
+              - /url: /security-consulting
+          - listitem [ref=e12]:
+            - link "Case Studies" [ref=e13] [cursor=pointer]:
+              - /url: /case-studies
+          - listitem [ref=e14]:
+            - link "Resources" [ref=e15] [cursor=pointer]:
+              - /url: /resources
+          - listitem [ref=e16]:
+            - link "About" [ref=e17] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e18]:
+            - link "Contact Us" [ref=e19] [cursor=pointer]:
+              - /url: /contact-us
+  - generic [ref=e22]:
+    - navigation [ref=e23]:
+      - link "Home" [ref=e24] [cursor=pointer]:
+        - /url: mockup10.html
+      - generic [ref=e25]: /
+      - link "Cyber Threat Intelligence" [ref=e26] [cursor=pointer]:
+        - /url: cyber-threat-intelligence.html
+      - generic [ref=e27]: /
+      - generic [ref=e28]: CloudMISP
+    - heading "CloudMISP" [level=1] [ref=e29]
+  - generic [ref=e31]:
+    - heading "Your CTI central hub — we host and manage MISP so your team can focus on threat intelligence." [level=1] [ref=e32]
+    - heading "Select your goal" [level=3] [ref=e33]:
+      - text: Select your goal
+      - img [ref=e35]
+    - generic [ref=e38]:
+      - link "Consume and manage threat intel Consume & manage threat intel Learn More" [ref=e39] [cursor=pointer]:
+        - /url: "#"
+        - img "Consume and manage threat intel" [ref=e40]
+        - generic [ref=e41]:
+          - heading "Consume & manage threat intel" [level=2] [ref=e42]
+          - generic [ref=e44]:
+            - text: Learn More
+            - img [ref=e45]
+      - link "Share with peers and communities Share with peers & communities Learn More" [ref=e48] [cursor=pointer]:
+        - /url: "#"
+        - img "Share with peers and communities" [ref=e49]
+        - generic [ref=e50]:
+          - heading "Share with peers & communities" [level=2] [ref=e51]
+          - generic [ref=e53]:
+            - text: Learn More
+            - img [ref=e54]
+      - link "Replace self-hosted MISP Replace self-hosted MISP Learn More" [ref=e57] [cursor=pointer]:
+        - /url: "#"
+        - img "Replace self-hosted MISP" [ref=e58]
+        - generic [ref=e59]:
+          - heading "Replace self-hosted MISP" [level=2] [ref=e60]
+          - generic [ref=e62]:
+            - text: Learn More
+            - img [ref=e63]
+      - link "Integrate with your tools Integrate with your tools Learn More" [ref=e66] [cursor=pointer]:
+        - /url: "#"
+        - img "Integrate with your tools" [ref=e67]
+        - generic [ref=e68]:
+          - heading "Integrate with your tools" [level=2] [ref=e69]
+          - generic [ref=e71]:
+            - text: Learn More
+            - img [ref=e72]
+  - generic [ref=e76]:
+    - generic [ref=e77]: Who we work with
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - generic [ref=e81]: APRA
+          - generic [ref=e82]: FCA
+        - heading "Global Finance" [level=3] [ref=e83]
+        - paragraph [ref=e84]: Banks and financial institutions using MISP for threat sharing across regulatory boundaries.
+      - generic [ref=e85]:
+        - generic [ref=e87]: ISAC
+        - heading "Telecommunications" [level=3] [ref=e88]
+        - paragraph [ref=e89]: Telcos sharing threat intelligence across their sector through ISACs and peer communities.
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: SOCI
+          - generic [ref=e93]: NIS2
+        - heading "Critical Infrastructure" [level=3] [ref=e94]
+        - paragraph [ref=e95]: Energy, transport, and utilities operators meeting SOCI and NIS2 threat sharing obligations.
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - generic [ref=e98]: ASD
+          - generic [ref=e99]: CISA
+        - heading "Government" [level=3] [ref=e100]
+        - paragraph [ref=e101]: National agencies and defence organisations sharing threat intelligence at scale.
+  - generic [ref=e103]:
+    - generic [ref=e104]:
+      - generic [ref=e105]: Why CloudMISP
+      - heading "More than just MISP in the cloud" [level=2] [ref=e106]
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - img [ref=e110]
+          - generic [ref=e112]:
+            - strong [ref=e113]: Dedicated containers in your own private AWS network
+            - text: — any region, fully managed
+        - generic [ref=e114]:
+          - img [ref=e116]
+          - generic [ref=e118]:
+            - strong [ref=e119]: Rearchitected for speed and resilience
+            - text: — much more than a standard MISP server
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e125]:
+            - strong [ref=e126]: Reliable upgrades with <4 seconds outage
+            - text: — line-by-line code validation and automated testing
+        - generic [ref=e127]:
+          - img [ref=e129]
+          - generic [ref=e134]:
+            - strong [ref=e135]: Expert support from MISP contributors
+            - text: — we train the MISP developers
+    - generic [ref=e136]:
+      - img "Chris Horsley presenting at AUSCERT" [ref=e137]
+      - generic [ref=e138]: Cosive co-founder Chris Horsley presenting at AUSCERT.
+  - generic [ref=e140]:
+    - generic [ref=e141]: What you get
+    - heading "CloudMISP services" [level=2] [ref=e142]
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - heading "Managed MISP hosting" [level=3] [ref=e145]
+        - paragraph [ref=e146]: Dedicated CloudMISP instance on AWS, fully managed and maintained with monitoring, backups, and automated updates.
+      - generic [ref=e147]:
+        - heading "Feed ingestion & curation" [level=3] [ref=e148]
+        - paragraph [ref=e149]: Ingest, triage, and age threat intel feeds automatically so your analysts work with relevant, current intelligence.
+      - generic [ref=e150]:
+        - heading "SSO & identity management" [level=3] [ref=e151]
+        - paragraph [ref=e152]: Okta and Azure Entra ID integration with single sign-on for seamless, secure access across your organisation.
+      - generic [ref=e153]:
+        - heading "SIEM integration" [level=3] [ref=e154]
+        - paragraph [ref=e155]: Push IOCs to Microsoft Sentinel, Splunk, and other SIEMs to operationalise threat intelligence automatically.
+      - generic [ref=e156]:
+        - heading "Sharing community setup" [level=3] [ref=e157]
+        - paragraph [ref=e158]: Configure triage and sharing instances for peer-to-peer exchange with partners and industry communities.
+      - generic [ref=e159]:
+        - heading "MISP & CTI training" [level=3] [ref=e160]
+        - paragraph [ref=e161]: Kickstart training for your staff plus CTI programme fundamentals to build internal capability fast.
+  - generic [ref=e163]:
+    - generic [ref=e164]: Frequently asked questions
+    - heading "Common questions about CloudMISP" [level=2] [ref=e165]
+    - generic [ref=e167]:
+      - group [ref=e168]:
+        - generic "What is CloudMISP?" [ref=e169] [cursor=pointer]:
+          - text: What is CloudMISP?
+          - img [ref=e170]
+        - generic [ref=e243]: CloudMISP is your CTI central hub — it connects analysts, tools, and SIEMs with threat intelligence feeds from the MISP Community and beyond. Instead of running MISP yourself, we host and manage a dedicated instance so your team can focus on threat intelligence rather than infrastructure.
+      - group [ref=e172]:
+        - generic "How is CloudMISP different from running MISP myself?" [ref=e173] [cursor=pointer]:
+          - text: How is CloudMISP different from running MISP myself?
+          - img [ref=e174]
+      - group [ref=e176]:
+        - generic "What infrastructure do I get?" [ref=e177] [cursor=pointer]:
+          - text: What infrastructure do I get?
+          - img [ref=e178]
+      - group [ref=e180]:
+        - generic "Can CloudMISP integrate with my SIEM?" [ref=e181] [cursor=pointer]:
+          - text: Can CloudMISP integrate with my SIEM?
+          - img [ref=e182]
+      - group [ref=e184]:
+        - generic "What does a typical sharing setup look like?" [ref=e185] [cursor=pointer]:
+          - text: What does a typical sharing setup look like?
+          - img [ref=e186]
+      - group [ref=e188]:
+        - generic "How quickly can I get started?" [ref=e189] [cursor=pointer]:
+          - text: How quickly can I get started?
+          - img [ref=e190]
+      - group [ref=e192]:
+        - generic "What additional help is available?" [ref=e193] [cursor=pointer]:
+          - text: What additional help is available?
+          - img [ref=e194]
+  - img [ref=e197]
+  - generic [ref=e203]:
+    - generic [ref=e204]: Get in touch
+    - heading "Get started with CloudMISP" [level=2] [ref=e205]
+    - paragraph [ref=e206]: Tell us about your MISP requirements and we'll get back to you.
+    - generic [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - generic [ref=e210]: First name
+          - textbox "First name" [ref=e211]
+        - generic [ref=e212]:
+          - generic [ref=e213]: Last name
+          - textbox "Last name" [ref=e214]
+      - generic [ref=e215]:
+        - generic [ref=e216]: Work email
+        - textbox "Work email" [ref=e217]
+      - generic [ref=e218]:
+        - generic [ref=e219]: Company
+        - textbox "Company" [ref=e220]
+      - generic [ref=e221]:
+        - generic [ref=e222]: Country
+        - combobox "Country" [ref=e223]:
+          - option "Select a country" [selected]
+          - option "Australia"
+          - option "New Zealand"
+          - option "United States"
+          - option "United Kingdom"
+          - option "Canada"
+          - option "Germany"
+          - option "France"
+          - option "Singapore"
+          - option "Japan"
+          - option "United Arab Emirates"
+          - option "Other"
+      - generic [ref=e224]:
+        - generic [ref=e225]: How can we help?
+        - textbox "How can we help?" [ref=e226]
+      - button "Contact Us" [ref=e227] [cursor=pointer]
+  - contentinfo [ref=e228]:
+    - generic [ref=e229]:
+      - link "Cosive" [ref=e230] [cursor=pointer]:
+        - /url: mockup10.html
+        - img "Cosive" [ref=e231]
+      - generic [ref=e232]:
+        - link "About" [ref=e233] [cursor=pointer]:
+          - /url: /about
+        - link "Security Consulting" [ref=e234] [cursor=pointer]:
+          - /url: /security-consulting
+        - link "Resources" [ref=e235] [cursor=pointer]:
+          - /url: /resources
+        - link "Contact" [ref=e236] [cursor=pointer]:
+          - /url: /contact-us
+        - link "LinkedIn" [ref=e237] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/cosive
+      - generic [ref=e238]: © Cosive Pty Ltd.
