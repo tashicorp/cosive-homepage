@@ -57,10 +57,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 80px;
   }
 
-  .header-logo img { height: 30px; }
+  .header-logo img { height: 36px; }
 
   .main-nav ul {
     display: flex;
@@ -70,7 +70,7 @@
 
   .main-nav a {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 3px;
@@ -263,7 +263,7 @@
     background: var(--color-red);
     color: var(--color-white);
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 600;
     border-radius: 4px;
     border: none;
@@ -367,6 +367,15 @@
     cursor: pointer;
   }
 
+  .scenario-card-img {
+    display: block;
+    width: calc(100% + 56px);
+    height: 180px;
+    object-fit: cover;
+    margin: -32px -28px 16px;
+    border-radius: 10px 10px 0 0;
+  }
+
   .scenario-card:hover {
     border-color: #d0d3d8;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -393,14 +402,14 @@
   }
 
   .scenario-card-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--color-red);
     margin-top: -8px;
   }
 
   .scenario-card-body {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
     line-height: 1.65;
   }
@@ -500,7 +509,7 @@
   }
 
   .capability-item p {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
   }
@@ -719,7 +728,7 @@
   }
 
   .platform-card p {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
     line-height: 1.55;
   }
@@ -919,7 +928,7 @@
   }
 
   .metric-label {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-secondary);
     line-height: 1.4;
   }
@@ -1182,7 +1191,7 @@
   .footer-inner .footer-logo img { height: 30px; }
 
   .footer-copyright {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text);
   }
 
@@ -1192,7 +1201,7 @@
   }
 
   .footer-links a {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text);
     font-weight: 500;
     transition: color 0.2s;
@@ -1232,7 +1241,7 @@
     .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
     .main-nav li + li { border-top: 1px solid var(--color-border); }
     .main-nav li:last-child { border-top: none; }
-    .main-nav a { display: block; font-size: 0.95rem; padding: 14px 0; border-radius: 0; }
+    .main-nav a { display: block; font-size: 1.05rem; padding: 14px 0; border-radius: 0; }
     .header-inner { flex-wrap: wrap; height: auto; padding: 16px 24px; }
 
     .page-banner h1 { font-size: 2.2rem; }
@@ -1294,6 +1303,7 @@
     .fw-panel-header { width: auto; }
     .timeline-panel { padding: 32px 24px; }
     .scenario-card { padding: 24px 20px; }
+    .scenario-card-img { height: 140px; margin: -24px -20px 12px; width: calc(100% + 40px); }
     .capabilities-grid { grid-template-columns: 1fr; }
     .engagement-layout {
       padding: 0 0 0 20px;
@@ -1443,6 +1453,7 @@
 
     <div class="scenarios-grid">
       <div class="scenario-card scenario-card--primary">
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1642780360716-2061e05fa333?w=800&q=80" alt="Clouds in a blue sky" loading="lazy">
         <div class="scenario-card-number">Scenario 1</div>
         <div class="scenario-card-title">You don't have a fraud data platform</div>
         <div class="scenario-card-subtitle">We provide one</div>
@@ -1455,6 +1466,7 @@
       </div>
 
       <div class="scenario-card">
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1653549893012-b8b4fbe97630?w=800&q=80" alt="Abstract integration connections" loading="lazy">
         <div class="scenario-card-number">Scenario 2</div>
         <div class="scenario-card-title">You have a MISP-based fraud data platform</div>
         <div class="scenario-card-subtitle">We connect it</div>
@@ -1467,6 +1479,7 @@
       </div>
 
       <div class="scenario-card">
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&q=80" alt="Light trails on a rooftop at night" loading="lazy">
         <div class="scenario-card-number">Scenario 3</div>
         <div class="scenario-card-title">You have a platform from another vendor</div>
         <div class="scenario-card-subtitle">We make it work</div>
