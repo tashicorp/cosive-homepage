@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consume & Share with Your Regulator - Cosive</title>
+<title>Consume & Share Fraud Data - Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -136,7 +136,7 @@
 
   .banner-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 48px;
     align-items: center;
   }
@@ -279,55 +279,239 @@
     background: var(--color-white);
   }
 
-  .infra-grid {
+  /* ── 2a-i. Outcomes & Value Intro ── */
+  .infra-intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: start;
+    margin-bottom: 72px;
   }
 
-  .infra-text p {
+  .infra-intro p {
     font-size: 1.05rem;
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 16px;
   }
 
-  .sovereignty-card {
-    padding: 0 0 0 32px;
-    border-left: 2px solid var(--color-border);
+  .outcome-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 8px;
   }
 
-  .sovereignty-card-icon {
-    width: 40px;
-    height: 40px;
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .outcome-item-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
     color: var(--color-red);
-    margin-bottom: 16px;
+    background: rgba(229, 56, 52, 0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
   }
 
-  .sovereignty-card-icon svg {
+  .outcome-item-icon svg {
     width: 100%;
     height: 100%;
   }
 
-  .sovereignty-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
+  .outcome-item-text {
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--color-text);
-    margin-bottom: 12px;
+    line-height: 1.5;
+    padding-top: 6px;
   }
 
-  .sovereignty-card p {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
+  /* ── 2a-ii. Scenario Cards ── */
+  .scenarios-heading {
+    margin-bottom: 40px;
   }
+
+  .scenarios-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.35;
+  }
+
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .scenario-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1.5px solid #d0d3d8;
+    border-radius: 10px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .scenario-card:hover {
+    border-color: #d0d3d8;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .scenario-card--primary {
+  }
+
+  .scenario-card-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .scenario-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.35;
+  }
+
+  .scenario-card-subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-red);
+    margin-top: -8px;
+  }
+
+  .scenario-card-body {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .scenario-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .scenario-list li {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .scenario-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-red);
+  }
+
+  .scenario-card a {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-red);
+    transition: color 0.2s;
+  }
+
+  .scenario-card a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+  }
+
+  .scenario-card:hover a {
+    color: var(--color-red-dark);
+  }
+
+  /* ── 2a-iii. Capabilities Bar ── */
+  .capabilities-section {
+    margin-bottom: 56px;
+  }
+
+  .capabilities-heading {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.35;
+    margin-bottom: 32px;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 56px;
+  }
+
+  .capability-item {
+    border-left: 3px solid var(--color-red);
+    padding-left: 24px;
+  }
+
+  .capability-item-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-red);
+    background: rgba(229, 56, 52, 0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .capability-item-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .capability-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .capability-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+
+
 
   /* ── Section B: Engagement Process ── */
   .engagement-section {
     padding: 96px 0;
-    background: var(--color-dark, #1a1f2e);
+    background: var(--color-surface);
   }
 
   .engagement-layout {
@@ -349,13 +533,53 @@
   }
 
   .engagement-section .section-heading {
-    color: var(--color-white);
+    color: var(--color-text);
   }
 
   .engagement-left p {
     font-size: 1.05rem;
-    color: rgba(255,255,255,0.7);
+    color: var(--color-text-secondary);
     line-height: 1.7;
+  }
+
+  .team-badges {
+    margin-top: 32px;
+  }
+
+  .team-badges-label {
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .team-badges-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .team-badge {
+    display: block;
+    padding: 14px 18px;
+    background: #eef2fb;
+    border: 1px solid #d0daf0;
+    border-radius: 6px;
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .team-badge svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #4a7fd4;
   }
 
   .engagement-right {
@@ -366,7 +590,8 @@
   }
 
   .timeline-panel {
-    background: rgba(255,255,255,0.06);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
     border-radius: 12px 0 0 12px;
     flex: 1;
     display: flex;
@@ -386,7 +611,7 @@
 
   .timeline-step {
     padding: 24px 0;
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top: 1px solid var(--color-border);
     display: flex;
     gap: 20px;
     align-items: flex-start;
@@ -405,7 +630,7 @@
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 800;
-    color: rgba(255,255,255,0.25);
+    color: rgba(0,0,0,0.12);
     line-height: 1;
     flex-shrink: 0;
     min-width: 48px;
@@ -421,13 +646,13 @@
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-white);
+    color: var(--color-text);
     line-height: 1.3;
   }
 
   .timeline-step-desc {
     font-size: 1.05rem;
-    color: rgba(255,255,255,0.7);
+    color: var(--color-text-secondary);
     line-height: 1.55;
   }
 
@@ -565,9 +790,9 @@
     inset: 0;
     background: linear-gradient(
       to right,
-      rgba(14,20,28,0.92) 0%,
-      rgba(14,20,28,0.85) 45%,
-      rgba(14,20,28,0.3) 100%
+      rgba(14,20,28,0.95) 0%,
+      rgba(14,20,28,0.92) 45%,
+      rgba(14,20,28,0.55) 100%
     );
   }
 
@@ -624,8 +849,8 @@
 
   .fw-panel-desc {
     flex: 1;
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.85);
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.95);
     line-height: 1.6;
   }
 
@@ -845,6 +1070,9 @@
     line-height: 1.7;
   }
 
+  .faq-answer p { margin-bottom: 12px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+
   .faq-answer a {
     color: var(--color-red);
     font-weight: 600;
@@ -974,7 +1202,8 @@
 
   /* ── Responsive ── */
   @media (max-width: 1200px) {
-    .infra-grid { grid-template-columns: 1fr; }
+    .infra-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
     .engagement-layout {
       flex-direction: column;
       padding: 0 0 0 24px;
@@ -1013,8 +1242,8 @@
       gap: 32px;
     }
 
-    .infra-grid { grid-template-columns: 1fr; gap: 32px; }
-
+    .infra-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .scenarios-grid { grid-template-columns: 1fr; }
     .platforms-grid { grid-template-columns: 1fr; }
     .platform-card::after { display: none; }
     .platform-card { padding-left: 0; }
@@ -1056,10 +1285,16 @@
 
     .metrics-grid { grid-template-columns: 1fr; }
 
+    .team-badge {
+      font-size: 0.88rem;
+      padding: 10px 0;
+    }
+
     .fw-panel-content { flex-direction: column; gap: 16px; padding: 24px 24px; align-items: flex-start; }
     .fw-panel-header { width: auto; }
     .timeline-panel { padding: 32px 24px; }
-
+    .scenario-card { padding: 24px 20px; }
+    .capabilities-grid { grid-template-columns: 1fr; }
     .engagement-layout {
       padding: 0 0 0 20px;
       gap: 24px;
@@ -1118,11 +1353,11 @@
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html">Fraud Data Sharing</a>
         <span class="separator">/</span>
-        <span class="current">Consume &amp; share with your regulator</span>
+        <span class="current">Consume &amp; share fraud data</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1>Consume &amp; share with your regulator</h1>
+          <h1>Consume &amp; share fraud data</h1>
 
           <p class="banner-description">We help banks connect securely to their banking regulators for fraud data sharing &mdash; handling the integration, data mapping, and ongoing management so your fraud team can focus on prevention, not infrastructure.</p>
         </div>
@@ -1160,32 +1395,148 @@
   </div>
 </div>
 
-<!-- 2a. Value Proposition -->
+<!-- 2a. How we help you connect to your regulator -->
 <section class="infra-section">
   <div class="container">
-    <div class="infra-grid">
-      <div class="infra-text">
-        <h2 class="section-heading">How we help you connect to your regulator</h2>
-        <p>We work alongside your fraud team to design and manage the connection to your regulator's data exchange. Whatever platform or format your regulator requires, we handle the integration, data mapping, and ongoing maintenance &mdash; so your team can focus on fraud prevention, not infrastructure.</p>
+
+    <!-- 2a-i. Outcomes & Value Intro -->
+    <div class="section-label">What we do</div>
+    <h2 class="section-heading">How we help you connect to your regulator</h2>
+
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <p>We work alongside your fraud team to design and manage the connection to your regulator's fraud data exchange. We handle the platform, integration, data mapping, and ongoing management &mdash; so your fraud analysts can focus on prevention, not infrastructure.</p>
+        <p>Whether you need to share fraud typology data, consume fraud indicators from your regulator, or do both &mdash; we take the complexity off your plate and make sure your bank meets its regulatory obligations without tying up your fraud team.</p>
       </div>
-      <div class="sovereignty-card">
-        <div class="sovereignty-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="outcome-list">
+        <div class="outcome-item">
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="outcome-item-text">Meet your regulatory fraud data sharing obligations</div>
         </div>
-        <h3>Data sovereignty by design</h3>
-        <p>We host on AWS in any region globally &mdash; your data stays in-jurisdiction. For European banks with strict sovereignty requirements, we can deploy on the AWS EU Sovereign Cloud, ensuring data never leaves EU-controlled infrastructure.</p>
+        <div class="outcome-item">
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </div>
+          <div class="outcome-item-text">Share fraud indicators with your regulator and other banks</div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <div class="outcome-item-text">Consume fraud intelligence to strengthen your defences</div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="outcome-item-text">Free your fraud team to focus on prevention, not plumbing</div>
+        </div>
       </div>
     </div>
+
+    <!-- 2a-ii. Three Scenario Cards -->
+    <div class="scenarios-heading">
+      <div class="scenarios-title">How we work with you depends on where you are today</div>
+    </div>
+
+    <div class="scenarios-grid">
+      <div class="scenario-card scenario-card--primary">
+        <div class="scenario-card-number">Scenario 1</div>
+        <div class="scenario-card-title">You don't have a fraud data platform</div>
+        <div class="scenario-card-subtitle">We provide one</div>
+        <ul class="scenario-list">
+          <li>We provide CloudMISP as your fully managed fraud data platform</li>
+          <li>Handle all data mapping, integration, and ongoing management</li>
+          <li>Deploy in your preferred AWS region &mdash; or the EU Sovereign Cloud for European banks</li>
+        </ul>
+        <a href="cloudmisp.html">Learn about CloudMISP &rarr;</a>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-number">Scenario 2</div>
+        <div class="scenario-card-title">You have a MISP-based fraud data platform</div>
+        <div class="scenario-card-subtitle">We connect it</div>
+        <ul class="scenario-list">
+          <li>Connect your existing MISP instance to your regulator's exchange</li>
+          <li>Develop workflows for consuming and sharing fraud data</li>
+          <li>Build integrations between your fraud systems and MISP</li>
+        </ul>
+        <a href="#engagement">See our typical engagement process &rarr;</a>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-number">Scenario 3</div>
+        <div class="scenario-card-title">You have a platform from another vendor</div>
+        <div class="scenario-card-subtitle">We make it work</div>
+        <ul class="scenario-list">
+          <li>Connect your existing platform to your regulator's exchange</li>
+          <li>Develop workflows and build integrations regardless of vendor</li>
+          <li>Support STIX/TAXII, custom APIs, and proprietary formats</li>
+        </ul>
+        <a href="#engagement">See our typical engagement process &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 2a-iii. Outcomes We Deliver -->
+    <div class="capabilities-section">
+      <div class="capabilities-heading">Outcomes we deliver</div>
+      <div class="capabilities-grid">
+
+        <div class="capability-item">
+          <div class="capability-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h4>Quickly deploy a platform to share data with your regulator and other banks</h4>
+          <p>We provide CloudMISP as a fully managed fraud data platform, hosted in your preferred AWS region, so you can start sharing without building infrastructure.</p>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <h4>Configure your MISP instance to consume and share fraud data</h4>
+          <p>We tune your existing MISP for regulatory fraud data sharing &mdash; taxonomies, sharing groups, feeds, and access controls &mdash; so it works the way your regulator expects.</p>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </div>
+          <h4>Automate the flow of fraud data between your systems and your regulator</h4>
+          <p>We design workflows for consuming, enriching, and sharing fraud indicators so data moves without manual effort &mdash; from your fraud tools to the regulator and back.</p>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+          <h4>Connect your fraud systems directly to your regulator's platform</h4>
+          <p>We build integrations between your case management, transaction monitoring, and reporting tools and the regulator's sharing platform &mdash; so nothing falls through the cracks.</p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- 2b. Engagement Process -->
-<section class="engagement-section">
+<section class="engagement-section" id="engagement">
   <div class="engagement-layout">
     <div class="engagement-left">
       <div class="section-label">How it works</div>
       <h2 class="section-heading">A typical engagement</h2>
       <p>Every engagement starts with understanding your organisation — your regulatory obligations, existing fraud systems, and reporting requirements. We then design the right solution, connect your systems, and provide ongoing management and expert support.</p>
+      <div class="team-badges">
+        <div class="team-badges-label">Our team</div>
+        <div class="team-badges-list">
+          <span class="team-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Fraud Data Sharing Experts</span>
+          <span class="team-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Integration Engineers</span>
+          <span class="team-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Security Architects</span>
+        </div>
+      </div>
     </div>
     <div class="engagement-right">
       <div class="timeline-panel">
@@ -1223,34 +1574,11 @@
   </div>
 </section>
 
-<!-- 2c. Platforms We Support -->
-<section class="platforms-section">
-  <div class="container">
-    <div class="section-label">Platforms</div>
-    <h2 class="section-heading">Fraud sharing platforms we support</h2>
-
-    <div class="platforms-grid">
-      <div class="platform-card">
-        <div class="fw-panel-tags"><span class="tag">FNC-RF</span></div>
-        <h3>FNC-RF</h3>
-        <div class="platform-full-name">Fichier National des Comptes &agrave; Risques et des Fraudes</div>
-        <p>The Banque de France's national file for at-risk accounts and fraud. We help French regulated banks share fraud typology data, mule account indicators, and suspicious account information.</p>
-      </div>
-      <div class="platform-card">
-        <div class="fw-panel-tags"><span class="tag">FRIDA</span></div>
-        <h3>EU FRIDA</h3>
-        <div class="platform-full-name">Fraud Reporting and Information-sharing for the Detection and Assessment of fraud</div>
-        <p>The ECB's pan-European fraud data sharing initiative. We help banks participate by structuring and exchanging fraud indicators across EU member institutions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 3. Regulatory Frameworks -->
 <section class="who-section">
   <div class="container">
     <div class="section-label">Who we work with</div>
-    <h2 class="section-heading">Regulatory frameworks we support</h2>
+    <h2 class="section-heading">We support regulated banks around the world</h2>
   </div>
   <div class="fw-panels">
     <div class="fw-panel">
@@ -1311,68 +1639,9 @@
   </div>
 </section>
 
-<!-- 5. Key Outcomes / Metrics -->
-<section class="metrics-section">
-  <div class="container">
-    <div class="section-label section-label--light">Key outcomes</div>
-    <h2 class="section-heading">What our customers have achieved</h2>
+<!-- 5. Key Outcomes / Metrics — skip for now until we get fraud customers -->
 
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-number">XX%</div>
-        <div class="metric-label">Reduction in fraud losses within the first year</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">XX%</div>
-        <div class="metric-label">Faster detection of mule account networks</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">XXx</div>
-        <div class="metric-label">Increase in actionable fraud indicators shared</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">XX%</div>
-        <div class="metric-label">Reduction in manual compliance reporting effort</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">$XXM+</div>
-        <div class="metric-label">In fraud prevented across customer deployments</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. Case Studies -->
-<section class="cases-section">
-  <div class="container">
-    <div class="section-label">Example engagements</div>
-    <h2 class="section-heading">How we've helped regulated banks</h2>
-
-    <div class="cases-grid">
-      <div class="case-card">
-        <div class="case-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h3>European bank connects to FRIDA</h3>
-        <p>Helped an EU-regulated bank structure their fraud data and connect to the ECB's FRIDA initiative within 3 weeks &mdash; enabling automated fraud indicator exchange with other member institutions.</p>
-      </div>
-      <div class="case-card">
-        <div class="case-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3>French bank reporting to FNC-RF</h3>
-        <p>Designed and delivered automated fraud typology reporting for a French regulated bank, reducing manual reporting effort by 90% and ensuring continuous compliance with Banque de France requirements.</p>
-      </div>
-      <div class="case-card">
-        <div class="case-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>GCC regional sharing</h3>
-        <p>Deployed a sovereign, in-region platform for a Middle Eastern bank to share fraud intelligence with their central bank &mdash; with all data hosted entirely within the region.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- 6. Case Studies — skip for now until we get fraud customers -->
 
 <!-- 7. FAQ -->
 <section class="faq-section">
@@ -1388,7 +1657,12 @@
           What fraud data sharing platforms do you support?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">We support the full range of fraud data sharing platforms used by regulators globally &mdash; including MISP-based systems, STIX/TAXII-based exchanges, and custom API integrations. If your regulator has a specific platform requirement, we can adapt to it.</div>
+        <div class="faq-answer">
+          <p>We currently support the following platforms:</p>
+          <p><strong>FNC-RF</strong> (Fichier National des Comptes &agrave; Risques et des Fraudes) &mdash; The Banque de France's national file for at-risk accounts and fraud. We help French regulated banks share fraud typology data, mule account indicators, and suspicious account information.</p>
+          <p><strong>EU FRIDA</strong> (Fraud Reporting and Information-sharing for the Detection and Assessment of fraud) &mdash; The ECB's pan-European fraud data sharing initiative. We help banks participate by structuring and exchanging fraud indicators across EU member institutions.</p>
+          <p>We also support MISP-based systems, STIX/TAXII-based exchanges, and custom API integrations. If your regulator has a specific platform requirement, we can adapt to it.</p>
+        </div>
       </details>
 
       <details>
@@ -1405,6 +1679,14 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">Absolutely. We have extensive experience designing and launching fraud sharing communities &mdash; including work on Australia's national threat sharing program. We help with governance design, infrastructure, member onboarding, and ongoing community operations. <a href="fraud-data-sharing.html#community">Learn more about starting a sharing community</a>.</div>
+      </details>
+
+      <details>
+        <summary>
+          Can you also help me share cyber threat intelligence?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">Yes. Many of our banking customers share both fraud data and cyber threat intelligence. We provide the same managed platform, integration, and workflow services for CTI sharing &mdash; including MISP-based, STIX/TAXII, and custom formats. <a href="cyber-threat-intelligence.html">Learn more about our cyber threat intelligence services</a>.</div>
       </details>
 
     </div>
