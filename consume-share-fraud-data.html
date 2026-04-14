@@ -116,8 +116,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1);
-    opacity: 0.4;
+    filter: grayscale(0.4);
+    opacity: 0.45;
   }
 
   .page-banner::after {
@@ -191,7 +191,7 @@
     gap: 8px;
     margin-bottom: 12px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .page-banner .breadcrumb a {
@@ -205,7 +205,7 @@
 
   .page-banner h1 {
     font-family: var(--font-heading);
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: -0.5px;
@@ -223,7 +223,7 @@
 
   .banner-description {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.45;
@@ -295,43 +295,16 @@
     margin-bottom: 16px;
   }
 
-  .outcome-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 8px;
+  .outcome-diagram {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--color-border);
   }
 
-  .outcome-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .outcome-item-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    color: var(--color-red);
-    background: rgba(229, 56, 52, 0.08);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px;
-  }
-
-  .outcome-item-icon svg {
+  .outcome-diagram svg {
     width: 100%;
-    height: 100%;
-  }
-
-  .outcome-item-text {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.5;
-    padding-top: 6px;
+    height: auto;
   }
 
   /* ── 2a-ii. Scenario Cards ── */
@@ -341,7 +314,7 @@
 
   .scenarios-title {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--color-text);
     line-height: 1.35;
@@ -350,39 +323,27 @@
   .scenarios-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 48px;
     margin-bottom: 56px;
   }
 
   .scenario-card {
     position: relative;
-    background: var(--color-surface);
-    border: 1.5px solid #d0d3d8;
-    border-radius: 10px;
-    padding: 32px 28px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    cursor: pointer;
+    border: 2px solid #c0c3c8;
+    border-radius: 12px;
   }
+
 
   .scenario-card-img {
     display: block;
-    width: calc(100% + 56px);
+    width: 100%;
     height: 180px;
     object-fit: cover;
-    margin: -32px -28px 16px;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .scenario-card:hover {
-    border-color: #d0d3d8;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
-  }
-
-  .scenario-card--primary {
+    border-radius: 10px;
   }
 
   .scenario-card-number {
@@ -395,7 +356,7 @@
 
   .scenario-card-title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-text);
     line-height: 1.35;
@@ -439,22 +400,20 @@
     background: var(--color-red);
   }
 
-  .scenario-card a {
-    font-size: 0.92rem;
+  .scenario-card .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--color-red);
-    transition: color 0.2s;
+    margin-top: auto;
   }
 
-  .scenario-card a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 10px;
-  }
-
-  .scenario-card:hover a {
-    color: var(--color-red-dark);
+  .scenario-card .card-cta svg {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
   }
 
   /* ── 2a-iii. Capabilities Bar ── */
@@ -545,10 +504,57 @@
     color: var(--color-text);
   }
 
+  .outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 8px;
+  }
+
+  .outcome-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .outcome-item-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    color: var(--color-red);
+    background: rgba(229, 56, 52, 0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .outcome-item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .outcome-item h4 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .outcome-item p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
   .engagement-left p {
     font-size: 1.05rem;
     color: var(--color-text-secondary);
     line-height: 1.7;
+    margin-bottom: 8px;
   }
 
   .team-badges {
@@ -571,15 +577,14 @@
   }
 
   .team-badge {
-    display: block;
+    display: flex;
     padding: 14px 18px;
-    background: #eef2fb;
-    border: 1px solid #d0daf0;
+    background: rgba(42, 182, 246, 0.08);
+    border: 1px solid rgba(42, 182, 246, 0.25);
     border-radius: 6px;
     font-size: 0.93rem;
     font-weight: 600;
     color: var(--color-text);
-    display: flex;
     align-items: center;
     gap: 12px;
   }
@@ -588,7 +593,7 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: #4a7fd4;
+    color: #2ab6f6;
   }
 
   .engagement-right {
@@ -623,7 +628,7 @@
     border-top: 1px solid var(--color-border);
     display: flex;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .timeline-step:first-of-type {
@@ -736,7 +741,6 @@
   /* ── Who We Work With ── */
   .who-section {
     padding: 96px 0 0;
-    background: var(--color-dark, #1a1f2e);
   }
 
   .who-section .container {
@@ -751,7 +755,7 @@
   }
 
   .who-section .section-heading {
-    color: var(--color-white);
+    color: var(--color-text);
   }
 
   .who-text {
@@ -760,7 +764,7 @@
 
   .who-text p {
     font-size: 1.05rem;
-    color: rgba(255,255,255,0.7);
+    color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 16px;
   }
@@ -781,7 +785,7 @@
   .fw-panel {
     position: relative;
     width: 100%;
-    min-height: 130px;
+    min-height: 156px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1302,8 +1306,7 @@
     .fw-panel-content { flex-direction: column; gap: 16px; padding: 24px 24px; align-items: flex-start; }
     .fw-panel-header { width: auto; }
     .timeline-panel { padding: 32px 24px; }
-    .scenario-card { padding: 24px 20px; }
-    .scenario-card-img { height: 140px; margin: -24px -20px 12px; width: calc(100% + 40px); }
+    .scenario-card { padding: 0; padding-top: 20px; }
     .capabilities-grid { grid-template-columns: 1fr; }
     .engagement-layout {
       padding: 0 0 0 20px;
@@ -1333,7 +1336,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="mockup10.html" class="header-logo">
+    <a href="index.html" class="header-logo">
       <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -1355,11 +1358,11 @@
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="">
+  <img src="https://images.unsplash.com/photo-1733503747506-773e56e4078f?w=1600&q=80" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="mockup10.html">Home</a>
+        <a href="index.html">Home</a>
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html">Fraud Data Sharing</a>
         <span class="separator">/</span>
@@ -1397,7 +1400,7 @@
               <label for="banner-message">Message</label>
               <textarea id="banner-message" name="message" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn-primary">Contact Us</button>
+            <button type="submit" class="btn-primary">Send</button>
           </form>
         </div>
       </div>
@@ -1411,38 +1414,134 @@
 
     <!-- 2a-i. Outcomes & Value Intro -->
     <div class="section-label">What we do</div>
-    <h2 class="section-heading">How we help you connect to your regulator</h2>
-
     <div class="infra-intro-grid">
       <div class="infra-intro">
+        <h2 class="section-heading" style="margin-bottom: 24px;">How we help you connect to your regulator</h2>
         <p>We work alongside your fraud team to design and manage the connection to your regulator's fraud data exchange. We handle the platform, integration, data mapping, and ongoing management &mdash; so your fraud analysts can focus on prevention, not infrastructure.</p>
         <p>Whether you need to share fraud typology data, consume fraud indicators from your regulator, or do both &mdash; we take the complexity off your plate and make sure your bank meets its regulatory obligations without tying up your fraud team.</p>
       </div>
-      <div class="outcome-list">
-        <div class="outcome-item">
-          <div class="outcome-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <div class="outcome-item-text">Meet your regulatory fraud data sharing obligations</div>
-        </div>
-        <div class="outcome-item">
-          <div class="outcome-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-          </div>
-          <div class="outcome-item-text">Share fraud indicators with your regulator and other banks</div>
-        </div>
-        <div class="outcome-item">
-          <div class="outcome-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-          <div class="outcome-item-text">Consume fraud intelligence to strengthen your defences</div>
-        </div>
-        <div class="outcome-item">
-          <div class="outcome-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="outcome-item-text">Free your fraud team to focus on prevention, not plumbing</div>
-        </div>
+      <div class="outcome-diagram">
+        <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <defs>
+            <marker id="arrowhead-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
+            </marker>
+            <marker id="arrowhead-hub-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 10 1 L 1 5 L 10 9 z" fill="#e53834"/>
+            </marker>
+          </defs>
+
+          <!-- Fraud Data Platform (top center) -->
+          <rect x="152" y="8" width="176" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
+          <!-- Shield icon -->
+          <g transform="translate(228, 16)" fill="none" stroke="#e53834" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.4C17.25 21.15 21 16.25 21 11V6L12 2z" transform="scale(0.75)"/>
+            <path d="M9 12l2 2 4-4" transform="scale(0.75)"/>
+          </g>
+          <text x="240" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Fraud Data Platform</text>
+
+          <!-- Your Bank (bottom left) -->
+          <rect x="16" y="112" width="150" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(79, 120)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="91" y="152" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Your Bank</text>
+
+          <!-- Regulator (bottom right) -->
+          <rect x="314" y="112" width="150" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Scales of justice icon -->
+          <g transform="translate(377, 120)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
+          </g>
+          <text x="389" y="152" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Regulator</text>
+
+          <!-- Bidirectional line: Platform ↔ Bank -->
+          <line x1="197" y1="64" x2="115" y2="112" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+
+          <!-- Bidirectional line: Platform ↔ Regulator -->
+          <line x1="283" y1="64" x2="365" y2="112" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 2a-b. How we help you connect to other banks -->
+    <div class="infra-intro-grid" style="margin-top: 64px;">
+      <div class="infra-intro">
+        <h2 class="section-heading" style="margin-bottom: 24px;">How we help you connect to other banks</h2>
+        <p>Fraudsters target multiple banks simultaneously, but each bank typically detects fraud in isolation. Your regulator operates a fraud data exchange that connects participating banks &mdash; so a mule account blocked at one institution is flagged across the network in near real-time.</p>
+        <p>We help you connect to the regulator's exchange alongside peer banks, handling the platform, data mapping, access controls, and workflows &mdash; so your fraud team gets actionable intelligence through a trusted, regulator-mediated channel.</p>
+      </div>
+      <div class="outcome-diagram">
+        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <defs>
+            <marker id="arrowhead-peer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
+            </marker>
+            <marker id="arrowhead-peer-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 10 1 L 1 5 L 10 9 z" fill="#e53834"/>
+            </marker>
+            <marker id="arrowhead-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a1a1a"/>
+            </marker>
+            <marker id="arrowhead-grey-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 10 1 L 1 5 L 10 9 z" fill="#1a1a1a"/>
+            </marker>
+          </defs>
+
+          <!-- Regulator (top center — the hub) -->
+          <rect x="175" y="8" width="150" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Scales of justice icon -->
+          <g transform="translate(238, 16)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
+          </g>
+          <text x="250" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Regulator</text>
+
+          <!-- Fraud Data Platform (middle left — between Your Bank and Regulator) -->
+          <rect x="10" y="92" width="166" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
+          <!-- Shield icon -->
+          <g transform="translate(81, 100)" fill="none" stroke="#e53834" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.4C17.25 21.15 21 16.25 21 11V6L12 2z" transform="scale(0.75)"/>
+            <path d="M9 12l2 2 4-4" transform="scale(0.75)"/>
+          </g>
+          <text x="93" y="134" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Fraud Data Platform</text>
+
+          <!-- Your Bank (bottom left) -->
+          <rect x="28" y="176" width="130" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(81, 184)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="93" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Your Bank</text>
+
+          <!-- Peer Bank (bottom center) -->
+          <rect x="185" y="176" width="130" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(238, 184)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="250" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+
+          <!-- Peer Bank (bottom right) -->
+          <rect x="342" y="176" width="130" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(395, 184)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="407" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+
+          <!-- Bidirectional line: Your Bank ↔ Fraud Data Platform (red) -->
+          <line x1="93" y1="176" x2="93" y2="148" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
+
+          <!-- Bidirectional line: Fraud Data Platform ↔ Regulator (red) -->
+          <line x1="130" y1="92" x2="210" y2="64" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
+
+          <!-- Bidirectional line: Regulator ↔ Peer Bank center -->
+          <line x1="250" y1="64" x2="250" y2="176" stroke="#1a1a1a" stroke-width="1.5" marker-start="url(#arrowhead-grey-start)" marker-end="url(#arrowhead-grey)"/>
+
+          <!-- Bidirectional line: Regulator ↔ Peer Bank right -->
+          <line x1="290" y1="64" x2="380" y2="176" stroke="#1a1a1a" stroke-width="1.5" marker-start="url(#arrowhead-grey-start)" marker-end="url(#arrowhead-grey)"/>
+        </svg>
       </div>
     </div>
 
@@ -1452,83 +1551,43 @@
     </div>
 
     <div class="scenarios-grid">
-      <div class="scenario-card scenario-card--primary">
+      <div class="scenario-card">
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1642780360716-2061e05fa333?w=800&q=80" alt="Clouds in a blue sky" loading="lazy">
         <div class="scenario-card-number">Scenario 1</div>
-        <div class="scenario-card-title">You don't have a fraud data platform</div>
-        <div class="scenario-card-subtitle">We provide one</div>
+        <div class="scenario-card-title">If you don't have a fraud data platform <span style="color: #e53834;">we provide one</span></div>
+        <div class="scenario-card-body">You get a production-ready fraud data platform, fully managed and deployed in your region, so you can start sharing with your regulator in weeks rather than months.</div>
         <ul class="scenario-list">
           <li>We provide CloudMISP as your fully managed fraud data platform</li>
           <li>Handle all data mapping, integration, and ongoing management</li>
           <li>Deploy in your preferred AWS region &mdash; or the EU Sovereign Cloud for European banks</li>
         </ul>
-        <a href="cloudmisp.html">Learn about CloudMISP &rarr;</a>
+        <a href="cloudmisp.html" class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
 
       <div class="scenario-card">
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1653549893012-b8b4fbe97630?w=800&q=80" alt="Abstract integration connections" loading="lazy">
         <div class="scenario-card-number">Scenario 2</div>
-        <div class="scenario-card-title">You have a MISP-based fraud data platform</div>
-        <div class="scenario-card-subtitle">We connect it</div>
+        <div class="scenario-card-title">If you have a MISP-based fraud data platform <span style="color: #e53834;">we help you use it successfully</span></div>
+        <div class="scenario-card-body">You get a properly configured MISP instance with working integrations and workflows, so your team can consume and share fraud data with confidence.</div>
         <ul class="scenario-list">
           <li>Connect your existing MISP instance to your regulator's exchange</li>
           <li>Develop workflows for consuming and sharing fraud data</li>
           <li>Build integrations between your fraud systems and MISP</li>
         </ul>
-        <a href="#engagement">See our typical engagement process &rarr;</a>
+        <a href="#engagement" class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
 
       <div class="scenario-card">
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&q=80" alt="Light trails on a rooftop at night" loading="lazy">
         <div class="scenario-card-number">Scenario 3</div>
-        <div class="scenario-card-title">You have a platform from another vendor</div>
-        <div class="scenario-card-subtitle">We make it work</div>
+        <div class="scenario-card-title">If you have a platform from another vendor <span style="color: #e53834;">we help you use it successfully</span></div>
+        <div class="scenario-card-body">You get your existing platform connected to your regulator's exchange with automated workflows, regardless of vendor or data format.</div>
         <ul class="scenario-list">
           <li>Connect your existing platform to your regulator's exchange</li>
           <li>Develop workflows and build integrations regardless of vendor</li>
           <li>Support STIX/TAXII, custom APIs, and proprietary formats</li>
         </ul>
-        <a href="#engagement">See our typical engagement process &rarr;</a>
-      </div>
-    </div>
-
-    <!-- 2a-iii. Outcomes We Deliver -->
-    <div class="capabilities-section">
-      <div class="capabilities-heading">Outcomes we deliver</div>
-      <div class="capabilities-grid">
-
-        <div class="capability-item">
-          <div class="capability-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h4>Quickly deploy a platform to share data with your regulator and other banks</h4>
-          <p>We provide CloudMISP as a fully managed fraud data platform, hosted in your preferred AWS region, so you can start sharing without building infrastructure.</p>
-        </div>
-
-        <div class="capability-item">
-          <div class="capability-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </div>
-          <h4>Configure your MISP instance to consume and share fraud data</h4>
-          <p>We tune your existing MISP for regulatory fraud data sharing &mdash; taxonomies, sharing groups, feeds, and access controls &mdash; so it works the way your regulator expects.</p>
-        </div>
-
-        <div class="capability-item">
-          <div class="capability-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          </div>
-          <h4>Automate the flow of fraud data between your systems and your regulator</h4>
-          <p>We design workflows for consuming, enriching, and sharing fraud indicators so data moves without manual effort &mdash; from your fraud tools to the regulator and back.</p>
-        </div>
-
-        <div class="capability-item">
-          <div class="capability-item-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </div>
-          <h4>Connect your fraud systems directly to your regulator's platform</h4>
-          <p>We build integrations between your case management, transaction monitoring, and reporting tools and the regulator's sharing platform &mdash; so nothing falls through the cracks.</p>
-        </div>
-
+        <a href="#engagement" class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
     </div>
 
@@ -1539,9 +1598,10 @@
 <section class="engagement-section" id="engagement">
   <div class="engagement-layout">
     <div class="engagement-left">
-      <div class="section-label">How it works</div>
-      <h2 class="section-heading">A typical engagement</h2>
-      <p>Every engagement starts with understanding your organisation — your regulatory obligations, existing fraud systems, and reporting requirements. We then design the right solution, connect your systems, and provide ongoing management and expert support.</p>
+      <div class="section-label">Outcomes</div>
+      <h2 class="section-heading">Outcomes we deliver</h2>
+      <p>Every engagement starts with understanding your organisation &mdash; your regulatory obligations, existing fraud systems, and reporting requirements. We then design the right solution, connect your systems, and provide ongoing management and expert support.</p>
+      <p>Whether you need a fully managed platform or help integrating what you already have, the result is the same: your fraud data flows where it needs to, without manual effort or infrastructure overhead.</p>
       <div class="team-badges">
         <div class="team-badges-label">Our team</div>
         <div class="team-badges-list">
@@ -1553,33 +1613,37 @@
     </div>
     <div class="engagement-right">
       <div class="timeline-panel">
-        <div class="timeline-panel-label">Our process</div>
+        <div class="timeline-panel-label">What you get</div>
         <div class="timeline-step">
-          <span class="timeline-step-number">01</span>
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
           <div class="timeline-step-body">
-            <span class="timeline-step-title">Scoping</span>
-            <span class="timeline-step-desc">Understand your regulatory obligations, existing fraud workflows, and reporting requirements</span>
+            <span class="timeline-step-title">Quickly deploy a platform to share data with your regulator and other banks</span>
           </div>
         </div>
         <div class="timeline-step">
-          <span class="timeline-step-number">02</span>
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
           <div class="timeline-step-body">
-            <span class="timeline-step-title">Platform setup</span>
-            <span class="timeline-step-desc">Deploy a managed platform in your preferred AWS region, configured to meet your specific regulatory and data format requirements</span>
+            <span class="timeline-step-title">Configure your MISP instance to consume and share fraud data</span>
           </div>
         </div>
         <div class="timeline-step">
-          <span class="timeline-step-number">03</span>
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </div>
           <div class="timeline-step-body">
-            <span class="timeline-step-title">Integration</span>
-            <span class="timeline-step-desc">Connect your fraud systems and configure automated reporting workflows</span>
+            <span class="timeline-step-title">Automate the flow of fraud data between your systems and your regulator</span>
           </div>
         </div>
         <div class="timeline-step">
-          <span class="timeline-step-number">04</span>
+          <div class="outcome-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
           <div class="timeline-step-body">
-            <span class="timeline-step-title">Your team focuses on fraud, not infrastructure</span>
-            <span class="timeline-step-desc">We manage the platform, handle upgrades, and adapt to regulatory changes &mdash; so your fraud analysts stay focused on prevention, not plumbing</span>
+            <span class="timeline-step-title">Connect your fraud systems directly to your regulator's platform</span>
           </div>
         </div>
       </div>
@@ -1704,7 +1768,7 @@
 
     </div>
     <div class="faq-image">
-      <img src="https://images.unsplash.com/photo-1678845536613-5cf0ec5245cd?w=800&q=80" alt="Abstract network of dots">
+      <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="Person holding a credit card at a laptop">
     </div>
     </div>
   </div>
@@ -1744,7 +1808,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5"></textarea>
         </div>
-        <button type="submit" class="btn-primary">Contact Us</button>
+        <button type="submit" class="btn-primary">Send</button>
       </form>
     </div>
   </div>
@@ -1752,7 +1816,7 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <a href="mockup10.html" class="footer-logo">
+    <a href="index.html" class="footer-logo">
       <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
     </a>
     <div class="footer-links">
