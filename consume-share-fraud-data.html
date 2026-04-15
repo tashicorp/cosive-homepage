@@ -1340,7 +1340,7 @@
         <p style="border: 1.5px solid #e53834; border-radius: 8px; padding: 16px; margin-top: 24px;">Don't have a fraud data platform? <a href="cloudmisp.html" style="color: #e53834; font-weight: 600;">CloudMISP</a> is our fully managed platform purpose-built for regulatory fraud data exchange.</p>
       </div>
       <div class="outcome-diagram">
-        <svg viewBox="0 0 480 80" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" fill="none">
           <defs>
             <marker id="arrowhead-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
@@ -1350,25 +1350,53 @@
             </marker>
           </defs>
 
-          <!-- Your Fraud Data Platform (left) -->
-          <rect x="16" y="12" width="210" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
+          <!-- Hub: Regulator (top centre, grey) -->
+          <rect x="175" y="8" width="150" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Scales of justice icon -->
+          <g transform="translate(238, 16)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
+          </g>
+          <text x="250" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Regulator</text>
+
+          <!-- Leaf 1: Your Fraud Data Platform (bottom row, red stroke) -->
+          <rect x="14" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
           <!-- Shield icon -->
-          <g transform="translate(109, 20)" fill="none" stroke="#e53834" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(56, 178)" fill="none" stroke="#e53834" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.4C17.25 21.15 21 16.25 21 11V6L12 2z" transform="scale(0.75)"/>
             <path d="M9 12l2 2 4-4" transform="scale(0.75)"/>
           </g>
-          <text x="121" y="54" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Your Fraud Data Platform</text>
+          <text x="68" y="204" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="700" fill="#e53834">Your Fraud Data</text>
+          <text x="68" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="700" fill="#e53834">Platform</text>
 
-          <!-- Regulator (right) -->
-          <rect x="278" y="12" width="186" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Scales of justice icon -->
-          <g transform="translate(359, 20)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
+          <!-- Leaf 2: Peer Bank (bottom row, grey) -->
+          <rect x="136" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(178, 178)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
           </g>
-          <text x="371" y="54" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Regulator</text>
+          <text x="190" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
 
-          <!-- Bidirectional arrow: Platform ↔ Regulator -->
-          <line x1="226" y1="40" x2="278" y2="40" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+          <!-- Leaf 3: Peer Bank (bottom row, grey) -->
+          <rect x="258" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(300, 178)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="312" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+
+          <!-- Leaf 4: Peer Bank (bottom row, grey) -->
+          <rect x="380" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <!-- Bank icon -->
+          <g transform="translate(422, 178)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="434" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+
+          <!-- Bidirectional arrows: Hub ↔ each leaf (all red) -->
+          <line x1="200" y1="64" x2="68" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+          <line x1="225" y1="64" x2="190" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+          <line x1="275" y1="64" x2="312" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
+          <line x1="300" y1="64" x2="434" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
         </svg>
       </div>
     </div>
@@ -1407,13 +1435,13 @@
           </g>
           <text x="250" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Your Fraud Data Platform</text>
 
-          <!-- Leaf: Your Bank (bottom row, grey) -->
+          <!-- Leaf: Peer Bank (bottom row, grey) -->
           <rect x="14" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
           <!-- Bank icon -->
           <g transform="translate(56, 178)" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
           </g>
-          <text x="68" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Your Bank</text>
+          <text x="68" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
 
           <!-- Leaf: Peer Bank (bottom row, grey) -->
           <rect x="136" y="170" width="108" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
@@ -1485,7 +1513,7 @@
           <li>Develop workflows for consuming and sharing fraud data</li>
           <li>Build integrations between your fraud systems and MISP</li>
         </ul>
-        <a href="#engagement" class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
 
       <div class="scenario-card">
@@ -1498,10 +1526,50 @@
           <li>Develop workflows and build integrations regardless of vendor</li>
           <li>Support STIX/TAXII, custom APIs, and proprietary formats</li>
         </ul>
-        <a href="#engagement" class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- Social proof / credentials -->
+<section class="credentials-section" id="engagement">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+        <div class="credentials-label">Why work with us</div>
+        <h2>Fraud data sharing expertise you can trust</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
+          </div>
+        </div>
+      </div>
+      <div class="credentials-photo">
+        <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+      </div>
   </div>
 </section>
 
@@ -1625,46 +1693,6 @@
       <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="Person holding a credit card at a laptop">
     </div>
     </div>
-  </div>
-</section>
-
-<!-- Social proof / credentials -->
-<section class="credentials-section" id="engagement">
-  <div class="credentials-inner">
-    <div class="credentials-box">
-        <div class="credentials-label">Why work with us</div>
-        <h2>Fraud data sharing expertise you can trust</h2>
-        <div class="icon-credentials">
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
-          </div>
-        </div>
-      </div>
-      <div class="credentials-photo">
-        <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
-        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
-      </div>
   </div>
 </section>
 
