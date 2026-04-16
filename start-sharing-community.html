@@ -281,38 +281,21 @@
   }
 
   .infra-section--alt {
-    background: #e8e8e8;
+    background: #fafefa;
+    position: relative;
+  }
+
+  .infra-section--alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #2e7d32;
   }
 
   /* ── 2a-i. Outcomes & Value Intro ── */
-  .infra-intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-    margin-bottom: 72px;
-  }
-
-  .infra-intro-grid:last-child {
-    margin-bottom: 0;
-  }
-
-  .infra-intro p {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .outcome-diagram {
-    padding: 0;
-    align-self: start;
-  }
-
-  .outcome-diagram svg {
-    width: 100%;
-    height: auto;
-  }
 
   /* ── 2a-ii. Scenario Cards ── */
   .scenarios-heading {
@@ -1098,7 +1081,7 @@
 
   /* ── Challenge Section: Danger Treatment ── */
   .infra-section--danger {
-    background: #ffffff;
+    background: #fefafa;
     position: relative;
   }
 
@@ -1141,16 +1124,120 @@
     font-size: 1.05rem;
     color: #8b1a1a;
     line-height: 1.7;
-    border-left: 3px solid var(--color-red);
-    padding: 12px 16px 12px 20px;
+    padding: 12px 16px 12px 48px;
     margin-bottom: 6px;
     background: rgba(229, 56, 52, 0.06);
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .infra-section--danger .challenge-list li::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-red);
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  /* ── Vision List ── */
+  .vision-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 32px 0 0 0;
+  }
+
+  .vision-list li {
+    font-size: 1.05rem;
+    color: #1b5e20;
+    line-height: 1.7;
+    padding: 12px 16px 12px 48px;
+    margin-bottom: 6px;
+    background: #e8f5e9;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .vision-list li::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #2e7d32;
+    border-radius: 3px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5.5' fill='none' stroke='%232e7d32' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+  }
+
+  /* ── Staircase wrapper ── */
+  .staircase-wrap {
+    margin-top: 48px;
+    padding: 32px;
+    border: 2px solid #c8e6c9;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* ── Staircase (maturity progression) ── */
+  .staircase {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .staircase-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 18px;
+    background: rgba(34, 139, 34, 0.06);
+    border-radius: 10px;
+    border-left: 3px solid #c8e6c9;
+  }
+
+  .staircase-step--1 { min-height: 160px; background: #c8e6c9; border-left-color: #2e7d32; }
+  .staircase-step--2 { min-height: 210px; background: #d5edd6; border-left-color: #4caf50; }
+  .staircase-step--3 { min-height: 260px; background: #dff1e0; border-left-color: #81c784; }
+  .staircase-step--4 { min-height: 310px; background: #e8f5e9; border-left: 3px solid #a5d6a7; }
+
+  .staircase-step-num {
+    width: 28px;
+    height: 28px;
+    background: #2e7d32;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
+  .staircase-step-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a5c3a;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .staircase-step-desc {
+    font-size: 0.92rem;
+    color: #2d5a3a;
+    line-height: 1.6;
   }
 
   /* ── Responsive ── */
   @media (max-width: 1200px) {
-    .infra-intro-grid { grid-template-columns: 1fr; gap: 40px; }
     .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
@@ -1178,7 +1265,6 @@
       gap: 32px;
     }
 
-    .infra-intro-grid { grid-template-columns: 1fr; gap: 32px; }
     .scenarios-grid { grid-template-columns: 1fr; }
     .platforms-grid { grid-template-columns: 1fr; }
     .platform-card::after { display: none; }
@@ -1209,6 +1295,28 @@
 
     .people-cta-separator { padding-top: 48px; }
     .contact-section { padding: 48px 0 64px; }
+  }
+
+  @media (max-width: 768px) {
+    .vision-heading-wrap { max-width: 100% !important; }
+
+    .staircase {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .staircase-step,
+    .staircase-step--1,
+    .staircase-step--2,
+    .staircase-step--3,
+    .staircase-step--4 {
+      min-height: auto;
+    }
+
+    .staircase-step--1 { margin-left: 0; }
+    .staircase-step--2 { margin-left: 16px; }
+    .staircase-step--3 { margin-left: 32px; }
+    .staircase-step--4 { margin-left: 48px; }
   }
 
   @media (max-width: 600px) {
@@ -1351,7 +1459,7 @@
       <li>Running the <b>social side</b> &mdash; member meetings, onboarding, community engagement</li>
     </ul>
 
-    <h3 class="section-heading" style="font-size: 1.5rem; margin-top: 48px; margin-bottom: 0;">You don&rsquo;t have to figure all of this out yourself. That&rsquo;s what we do.</h3>
+    <h3 class="section-heading" style="font-size: 1.75rem; margin-top: 48px; margin-bottom: 0; padding-left: 48px; display: flex; align-items: center; gap: 14px;"><svg width="28" height="28" viewBox="0 0 22 22" fill="none" style="flex-shrink: 0; margin-left: -48px;"><rect x="1" y="1" width="20" height="20" rx="3" fill="#fff" stroke="var(--color-red)" stroke-width="2"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="var(--color-red)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You don&rsquo;t have to figure all of this out yourself. That&rsquo;s what we do.</h3>
 
   </div>
 </section>
@@ -1360,70 +1468,46 @@
 <section class="infra-section infra-section--alt">
   <div class="container">
 
-    <div class="section-label">The Vision</div>
-    <div class="infra-intro-grid">
-      <div class="infra-intro">
-        <h2 class="section-heading" style="margin-bottom: 24px;">What a successful fraud data sharing community looks like</h2>
-        <p>In a mature sharing community, members share actionable fraud indicators in near real-time &mdash; mule account identifiers, suspicious transaction patterns, and emerging fraud typologies flow between participants as soon as they're detected. Triage processes ensure data quality, and governance frameworks give every member confidence in how their data is handled.</p>
-        <p style="margin-top: 16px;">Members at different maturity levels can access shared data through the channels that suit them &mdash; IOC lists for teams starting out, scripts and REST APIs for quick automation, MISP endpoints for integrated workflows, STIX/TAXII endpoints for standards-based exchanges, and orchestration plugins for fully automated response. The community grows stronger as each member contributes, creating a collective defence that no single organisation could achieve alone.</p>
+    <div class="vision-heading-wrap">
+      <div class="section-label">The Vision</div>
+      <h2 class="section-heading" style="margin-bottom: 24px;">What your fraud data sharing community will look like with our help</h2>
+      <p style="font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 66%;">Imagine your community is up and running. Members trust each other, intelligence flows in near real-time, and every participant &mdash; from the smallest institution to the largest &mdash; is getting value. Here&rsquo;s what that looks like day to day.</p>
+
+      <ul class="vision-list">
+        <li><b>Clear focus</b> &mdash; The community has a well-defined niche. Every member knows exactly what types of fraud data are shared, what is in scope, and what is not.</li>
+        <li><b>Trusted membership</b> &mdash; Members are vetted and onboarded with clear expectations. Every participant has confidence in who they are sharing with.</li>
+        <li><b>Data you can act on</b> &mdash; Shared indicators are triaged before they reach members. False positives are low, context is rich, and members act on what they receive because they trust it.</li>
+        <li><b>Governance that works</b> &mdash; Data-handling policies, sharing agreements, and escalation procedures are documented, understood, and followed. Legal and compliance teams are on board.</li>
+        <li><b>Sustainable operations</b> &mdash; The community has a funding model, a team keeping the platform running, and processes that don&rsquo;t depend on a single champion.</li>
+        <li><b>A community that shows up</b> &mdash; Members attend regular meetings, share back what they learn, onboard their teams, and advocate internally for continued participation.</li>
+      </ul>
+    </div>
+
+    <div class="staircase-wrap">
+    <h3 class="section-heading" style="font-size: 1.75rem; margin: 0 0 24px 0;">Members can engage at every maturity level</h3>
+
+    <div class="staircase">
+      <div class="staircase-step staircase-step--1">
+        <div class="staircase-step-num">1</div>
+        <div class="staircase-step-title">Getting started</div>
+        <div class="staircase-step-desc">Members at the earliest stage of maturity consume PDFs and reports over email</div>
       </div>
-      <div class="outcome-diagram">
-        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <defs>
-            <marker id="arrowhead-vision" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
-            </marker>
-            <marker id="arrowhead-vision-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M 10 1 L 1 5 L 10 9 z" fill="#e53834"/>
-            </marker>
-          </defs>
-
-          <!-- Hub: Your Fraud Data Platform (centre) -->
-          <rect x="145" y="97" width="210" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
-          <!-- Cosive logomark -->
-          <svg x="227" y="107" width="46" height="16" viewBox="0 35.8 302.3 104.4">
-            <g transform="translate(-79.724508,-588.43081)">
-              <path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
-              <path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
-            </g>
-          </svg>
-          <text x="250" y="139" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Your Fraud Data Platform</text>
-
-          <!-- Top-left: Peer Bank -->
-          <rect x="14" y="8" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <g transform="translate(56, 16)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="68" y="48" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Top-right: Peer Bank -->
-          <rect x="378" y="8" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <g transform="translate(420, 16)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="432" y="48" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Bottom-left: Regulator -->
-          <rect x="14" y="186" width="108" height="56" rx="8" fill="#edf6f4" stroke="#9aa0a6" stroke-width="1.5"/>
-          <g transform="translate(56, 194)" fill="none" stroke="#1a8a7a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
-          </g>
-          <text x="68" y="226" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Regulator</text>
-
-          <!-- Bottom-right: Peer Bank -->
-          <rect x="378" y="186" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <g transform="translate(420, 194)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="432" y="226" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Bidirectional arrows: Hub ↔ each spoke -->
-          <line x1="193" y1="97" x2="122" y2="62" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
-          <line x1="307" y1="97" x2="378" y2="62" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
-          <line x1="193" y1="153" x2="122" y2="188" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
-          <line x1="307" y1="153" x2="378" y2="188" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
-        </svg>
+      <div class="staircase-step staircase-step--2">
+        <div class="staircase-step-num">2</div>
+        <div class="staircase-step-title">Basic automation</div>
+        <div class="staircase-step-desc">Members at the next level of maturity grab files from an SFTP server or download from a webpage</div>
       </div>
+      <div class="staircase-step staircase-step--3">
+        <div class="staircase-step-num">3</div>
+        <div class="staircase-step-title">Platform integration</div>
+        <div class="staircase-step-desc">More mature members pull structured indicators directly from the MISP platform</div>
+      </div>
+      <div class="staircase-step staircase-step--4">
+        <div class="staircase-step-num">4</div>
+        <div class="staircase-step-title">Full participation</div>
+        <div class="staircase-step-desc">The highest maturity members do bidirectional sync: consuming shared data and contributing back to the community</div>
+      </div>
+    </div>
     </div>
 
   </div>
@@ -1484,11 +1568,11 @@
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1752864365480-178d35c15724?w=800&q=80" alt="Fluffy white clouds against a dark blue sky" loading="lazy">
         <div class="scenario-card-number">Platform</div>
         <div class="scenario-card-title">CloudMISP as your <span style="color: #e53834;">sharing hub</span></div>
-        <div class="scenario-card-body">A fully managed platform purpose-built for sharing communities, deployed in your preferred region and configured for multi-party data exchange.</div>
+        <div class="scenario-card-body">A fully managed MISP instance deployed in your preferred AWS region, with enterprise-grade reliability and support.</div>
         <ul class="scenario-list">
-          <li>Fully managed MISP with enterprise-grade reliability and support</li>
-          <li>Member isolation and sharing groups for controlled data exchange</li>
-          <li>Deploy in your preferred AWS region close to your members</li>
+          <li>Automated backups, patching, and 24/7 monitoring</li>
+          <li>Member isolation and sharing groups configured for your community</li>
+          <li>Custom taxonomies and tagging to match your fraud data model</li>
         </ul>
         <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
@@ -1497,11 +1581,11 @@
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
         <div class="scenario-card-number">Governance</div>
         <div class="scenario-card-title">Community design and <span style="color: #e53834;">member onboarding</span></div>
-        <div class="scenario-card-body">We help you design governance, onboarding processes, and sharing workflows that build trust and drive participation from day one.</div>
+        <div class="scenario-card-body">Hands-on consulting to stand up your community and get members sharing.</div>
         <ul class="scenario-list">
-          <li>Configure internal MISP instances for each member organisation</li>
-          <li>Develop sharing workflows for ingestion, triage, and dissemination</li>
-          <li>Design membership tiers for members at different maturity stages</li>
+          <li>Draft governance charters, data-handling policies, and membership agreements</li>
+          <li>Configure MISP instances and sharing workflows for each member</li>
+          <li>Run onboarding workshops so new members contribute from week one</li>
         </ul>
         <a href="#contact" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
@@ -1510,13 +1594,13 @@
         <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
         <div class="scenario-card-number">Integrations</div>
         <div class="scenario-card-title">Integrations and <span style="color: #e53834;">ongoing support</span></div>
-        <div class="scenario-card-body">Members and regulators use different standards and systems. We bridge them all — connecting fraud systems to regulators and peers, across every format in use.</div>
+        <div class="scenario-card-body">Custom connectors between member fraud systems, regulators, and the sharing platform.</div>
         <ul class="scenario-list">
-          <li>Build integrations to connect member fraud systems to regulators and peers</li>
-          <li>Whether your regulator uses STIX/TAXII or your members run MISP, we support both — plus REST APIs and IOC list formats</li>
+          <li>Build and maintain STIX/TAXII, REST API, and MISP feed integrations</li>
+          <li>Automate ingestion, enrichment, and dissemination pipelines</li>
           <li>The same platform supports <a href="cyber-threat-intelligence.html" style="color: var(--color-accent); text-decoration: underline;">cyber threat intelligence</a> sharing alongside fraud data</li>
         </ul>
-        <a href="cyber-threat-intelligence.html" class="card-cta">Learn more about CTI sharing <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+        <a href="cyber-threat-intelligence.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
     </div>
 
