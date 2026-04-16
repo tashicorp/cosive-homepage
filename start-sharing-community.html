@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consume & Share Fraud Data - Cosive</title>
+<title>Start a Sharing Community - Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -305,7 +305,7 @@
 
   .outcome-diagram {
     padding: 0;
-    align-self: center;
+    align-self: start;
   }
 
   .outcome-diagram svg {
@@ -422,64 +422,6 @@
     height: 1.2em;
     vertical-align: middle;
   }
-
-  /* ── 2a-iii. Capabilities Bar ── */
-  .capabilities-section {
-    margin-bottom: 56px;
-  }
-
-  .capabilities-heading {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.35;
-    margin-bottom: 32px;
-  }
-
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 56px;
-  }
-
-  .capability-item {
-    border-left: 3px solid var(--color-red);
-    padding-left: 24px;
-  }
-
-  .capability-item-icon {
-    width: 40px;
-    height: 40px;
-    color: var(--color-red);
-    background: rgba(229, 56, 52, 0.08);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .capability-item-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .capability-item h4 {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.4;
-    margin-bottom: 10px;
-  }
-
-  .capability-item p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-  }
-
 
 
 
@@ -1153,6 +1095,43 @@
 
   .footer-links a:hover { color: var(--color-red); }
 
+  /* ── Component Tag Grid ── */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .component-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff5f5;
+    border: 1px solid #e5a0a0;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .component-tag-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--color-red);
+  }
+
+  .component-tag-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .component-tag-text {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 1200px) {
     .infra-intro-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1231,7 +1210,7 @@
     .fw-panel-content { flex-direction: column; gap: 16px; padding: 24px 24px; align-items: flex-start; }
     .fw-panel-header { width: auto; }
     .scenario-card { padding: 20px; }
-    .capabilities-grid { grid-template-columns: 1fr; }
+    .component-grid { grid-template-columns: 1fr; }
 
     /* Credentials */
     .credentials-box { padding: 32px 24px; }
@@ -1278,7 +1257,7 @@
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="https://images.unsplash.com/photo-1733503747506-773e56e4078f?w=1600&q=80" alt="">
+  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
@@ -1286,16 +1265,16 @@
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html">Fraud Data Sharing</a>
         <span class="separator">/</span>
-        <span class="current">Consume &amp; share fraud data</span>
+        <span class="current">Start a sharing community</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1>Consume &amp; share fraud data</h1>
+          <h1>Start a sharing community</h1>
 
-          <p class="banner-description">We help banks connect securely to their banking regulators for fraud data sharing &mdash; handling the integration, data mapping, and ongoing management so your fraud team can focus on prevention, not infrastructure.</p>
+          <p class="banner-description">We help organisations plan, launch, and operate banking fraud data sharing communities &mdash; from governance design and platform deployment to member onboarding and ongoing community operations.</p>
         </div>
         <div class="banner-form-card">
-          <h3>Talk to us about your fraud data goals</h3>
+          <h3>Talk to us about starting a community</h3>
           <form class="contact-form" action="#" method="post">
             <input type="hidden" name="category" value="CloudMISP">
             <div class="form-row">
@@ -1328,192 +1307,162 @@
   </div>
 </div>
 
-<!-- 2a. How we help you connect to your regulator -->
+<!-- 2a. Value Proposition -->
 <section class="infra-section">
   <div class="container">
 
-    <!-- 2a-i. Outcomes & Value Intro -->
+    <div class="section-label">The Challenge</div>
+
     <div class="infra-intro-grid">
       <div class="infra-intro">
-        <div class="section-label">Regulators</div>
-        <h2 class="section-heading" style="margin-bottom: 24px;">How we help you connect to your regulator</h2>
-        <p>We work alongside your fraud team to design and manage the connection to your regulator's fraud data exchange. We handle the platform, integration, data mapping, and ongoing management &mdash; so your fraud analysts can focus on prevention, not infrastructure.</p>
-        <p style="margin-top: 16px;">Don't have a fraud data platform? CloudMISP is our fully managed platform purpose-built for regulatory fraud data exchange. <a href="cloudmisp.html" style="color: #e53834; font-weight: 600;">Learn more about CloudMISP</a>.</p>
+        <h2 class="section-heading" style="margin-bottom: 24px;">Why starting a sharing community is harder than it looks</h2>
+        <p>The benefits of a fraud data sharing community are clear: collective defence against fraud, faster detection of mule accounts, shared indicators that strengthen every member, regulatory goodwill, and stronger peer relationships across the sector.</p>
+        <p style="margin-top: 16px;">But standing up a community isn't as simple as deploying a threat intelligence platform. You need to build trust between members, design governance that everyone commits to, create engagement that keeps the community active, and manage members at very different levels of technical maturity.</p>
+        <p style="margin-top: 16px;"><strong>The technology is the foundation &mdash; but the community is what makes it work.</strong></p>
       </div>
-      <div class="outcome-diagram">
-        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <defs>
-            <marker id="arrowhead-hub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
-            </marker>
-            <marker id="arrowhead-hub-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M 10 1 L 1 5 L 10 9 z" fill="#e53834"/>
-            </marker>
-          </defs>
-
-          <!-- Hub: Regulator (top centre, grey) -->
-          <rect x="175" y="8" width="150" height="56" rx="8" fill="#f8f9fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Scales of justice icon -->
-          <g transform="translate(238, 16)" fill="none" stroke="#1a8a7a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
-          </g>
-          <text x="250" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">Regulator</text>
-
-          <!-- Leaf 1: Your Fraud Data Platform (bottom row, red stroke) -->
-          <rect x="14" y="170" width="108" height="56" rx="8" fill="#fef2f2" stroke="#e53834" stroke-width="1.5"/>
-          <!-- Cosive logomark -->
-          <svg x="51" y="179" width="35" height="12" viewBox="0 35.8 302.3 104.4">
-            <g transform="translate(-79.724508,-588.43081)">
-              <path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
-              <path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
-            </g>
-          </svg>
-          <text x="68" y="204" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="700" fill="#e53834">Your Fraud Data</text>
-          <text x="68" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="700" fill="#e53834">Platform</text>
-
-          <!-- Leaf 2: Peer Bank (bottom row, grey) -->
-          <rect x="136" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(178, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="190" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Leaf 3: Peer Bank (bottom row, grey) -->
-          <rect x="258" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(300, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="312" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Leaf 4: Peer Bank (bottom row, grey) -->
-          <rect x="380" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(422, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="434" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Bidirectional arrows: Hub ↔ each leaf (all red) -->
-          <line x1="200" y1="64" x2="68" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
-          <line x1="225" y1="64" x2="190" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
-          <line x1="275" y1="64" x2="312" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
-          <line x1="300" y1="64" x2="434" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-hub-start)" marker-end="url(#arrowhead-hub)"/>
-        </svg>
+      <div class="component-grid">
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+          <div class="component-tag-text">Identify Community Niche</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="component-tag-text">Membership Requirements</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="component-tag-text">Triage &amp; Quality Control</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div>
+          <div class="component-tag-text">Sharing Workflows</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <div class="component-tag-text">STIX/TAXII &amp; MISP Support</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-5 7 5v10"/><path d="M10 20v-6h4v6"/></svg></div>
+          <div class="component-tag-text">Member Maturity Levels</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="component-tag-text">Access Mechanisms</div>
+        </div>
+        <div class="component-tag">
+          <div class="component-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="component-tag-text">Governance &amp; Funding</div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- 2a-b. How we help you connect to other banks -->
+<!-- 2b. What a successful sharing community looks like -->
 <section class="infra-section infra-section--alt">
   <div class="container">
 
+    <div class="section-label">The Vision</div>
     <div class="infra-intro-grid">
       <div class="infra-intro">
-        <div class="section-label">Inter-Bank Sharing</div>
-        <h2 class="section-heading" style="margin-bottom: 24px;">How we help you connect to other banks</h2>
-        <p>Fraudsters target multiple banks simultaneously, but each bank typically detects fraud in isolation. Your regulator operates a fraud data exchange that connects participating banks &mdash; so a mule account blocked at one institution is flagged across the network in near real-time.</p>
-        <p style="margin-top: 16px;">Don't have a fraud data platform? CloudMISP is our fully managed platform with built-in access controls and sharing workflows for multi-party fraud data exchange. <a href="cloudmisp.html" style="color: #e53834; font-weight: 600;">Learn more about CloudMISP</a>.</p>
+        <h2 class="section-heading" style="margin-bottom: 24px;">What a successful sharing community looks like</h2>
+        <p>In a mature sharing community, members share actionable fraud indicators in near real-time &mdash; mule account identifiers, suspicious transaction patterns, and emerging fraud typologies flow between participants as soon as they're detected. Triage processes ensure data quality, and governance frameworks give every member confidence in how their data is handled.</p>
+        <p style="margin-top: 16px;">Members at different maturity levels can access shared data through the channels that suit them &mdash; IOC lists for teams starting out, scripts and REST APIs for quick automation, MISP endpoints for integrated workflows, STIX/TAXII endpoints for standards-based exchanges, and orchestration plugins for fully automated response. The community grows stronger as each member contributes, creating a collective defence that no single organisation could achieve alone.</p>
       </div>
       <div class="outcome-diagram">
         <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" fill="none">
           <defs>
-            <marker id="arrowhead-peer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <marker id="arrowhead-vision" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53834"/>
             </marker>
-            <marker id="arrowhead-peer-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <marker id="arrowhead-vision-start" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 10 1 L 1 5 L 10 9 z" fill="#e53834"/>
             </marker>
           </defs>
 
-          <!-- Hub: Your Fraud Data Platform (top centre, red) -->
-          <rect x="145" y="8" width="210" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
+          <!-- Hub: Your Fraud Data Platform (centre) -->
+          <rect x="145" y="97" width="210" height="56" rx="8" fill="#f8f9fa" stroke="#e53834" stroke-width="1.5"/>
           <!-- Cosive logomark -->
-          <svg x="227" y="18" width="46" height="16" viewBox="0 35.8 302.3 104.4">
+          <svg x="227" y="107" width="46" height="16" viewBox="0 35.8 302.3 104.4">
             <g transform="translate(-79.724508,-588.43081)">
               <path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
               <path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/>
             </g>
           </svg>
-          <text x="250" y="50" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Your Fraud Data Platform</text>
+          <text x="250" y="139" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#e53834">Your Fraud Data Platform</text>
 
-          <!-- Leaf: Peer Bank (bottom row, grey) -->
-          <rect x="14" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(56, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Top-left: Peer Bank -->
+          <rect x="14" y="8" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <g transform="translate(56, 16)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
           </g>
-          <text x="68" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+          <text x="68" y="48" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
 
-          <!-- Leaf: Peer Bank (bottom row, grey) -->
-          <rect x="136" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(178, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Top-right: Peer Bank -->
+          <rect x="378" y="8" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <g transform="translate(420, 16)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
           </g>
-          <text x="190" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+          <text x="432" y="48" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
 
-          <!-- Leaf: Peer Bank (bottom row, grey) -->
-          <rect x="258" y="170" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Bank icon -->
-          <g transform="translate(300, 178)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
-          </g>
-          <text x="312" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
-
-          <!-- Leaf: Regulator (bottom row, grey) -->
-          <rect x="380" y="170" width="108" height="56" rx="8" fill="#edf6f4" stroke="#9aa0a6" stroke-width="1.5"/>
-          <!-- Scales of justice icon -->
-          <g transform="translate(422, 178)" fill="none" stroke="#1a8a7a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Bottom-left: Regulator -->
+          <rect x="14" y="186" width="108" height="56" rx="8" fill="#edf6f4" stroke="#9aa0a6" stroke-width="1.5"/>
+          <g transform="translate(56, 194)" fill="none" stroke="#1a8a7a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v18M8 21h8M4 7h16M4 7L2 13c0 1.1 1.8 2 4 2s4-.9 4-2L8 7M16 7l-2 6c0 1.1 1.8 2 4 2s4-.9 4-2L20 7" transform="scale(0.75)"/>
           </g>
-          <text x="434" y="210" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Regulator</text>
+          <text x="68" y="226" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Regulator</text>
 
-          <!-- Bidirectional arrows: Hub ↔ each leaf (all red) -->
-          <line x1="200" y1="64" x2="68" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
-          <line x1="225" y1="64" x2="190" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
-          <line x1="275" y1="64" x2="312" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
-          <line x1="300" y1="64" x2="434" y2="170" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-peer-start)" marker-end="url(#arrowhead-peer)"/>
+          <!-- Bottom-right: Peer Bank -->
+          <rect x="378" y="186" width="108" height="56" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
+          <g transform="translate(420, 194)" fill="none" stroke="#2d6da3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" transform="scale(0.75)"/>
+          </g>
+          <text x="432" y="226" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Peer Bank</text>
+
+          <!-- Bidirectional arrows: Hub ↔ each spoke -->
+          <line x1="193" y1="97" x2="122" y2="62" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
+          <line x1="307" y1="97" x2="378" y2="62" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
+          <line x1="193" y1="153" x2="122" y2="188" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
+          <line x1="307" y1="153" x2="378" y2="188" stroke="#e53834" stroke-width="1.5" marker-start="url(#arrowhead-vision-start)" marker-end="url(#arrowhead-vision)"/>
         </svg>
       </div>
     </div>
 
   </div>
 </section>
+
 
 <!-- Social proof / credentials -->
 <section class="credentials-section" id="engagement">
   <div class="credentials-inner">
     <div class="credentials-box">
         <div class="credentials-label">Why work with us</div>
-        <h2>Fraud data sharing expertise you can trust</h2>
+        <h2>Sharing community experience you can trust</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
+            <div class="icon-item-text"><strong>Designed and launched sharing communities</strong> for central banks and government agencies</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
+            <div class="icon-item-text"><strong>Operated national-scale sharing platforms</strong> including Australia's national threat sharing program</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
+            <div class="icon-item-text"><strong>Built CloudMISP</strong> as a purpose-built managed platform for multi-party fraud data sharing</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
+            <div class="icon-item-text"><strong>Deep understanding</strong> of the governance, funding, and social dynamics that make communities succeed</div>
           </div>
         </div>
       </div>
@@ -1524,137 +1473,145 @@
   </div>
 </section>
 
-<!-- 2a-ii. Scenario Cards -->
+<!-- Scenario Cards + Capabilities -->
 <section class="infra-section">
   <div class="container">
 
-    <!-- 2a-ii. Three Scenario Cards -->
     <div class="scenarios-heading">
-      <div class="section-label">What you get</div>
-      <div class="scenarios-title">How we work with you depends on where you are today</div>
+      <div class="section-label">Our Services</div>
+      <div class="scenarios-title">What we can help you with</div>
     </div>
 
     <div class="scenarios-grid">
       <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1642780360716-2061e05fa333?w=800&q=80" alt="Clouds in a blue sky" loading="lazy">
-        <div class="scenario-card-number">Scenario 1</div>
-        <div class="scenario-card-title">If you don't have a fraud data platform, <span style="color: #e53834;">we provide one</span></div>
-        <div class="scenario-card-body">You get a production-ready fraud data platform, fully managed and deployed in your region, so you can start sharing with your regulator in days rather than months.</div>
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1752864365480-178d35c15724?w=800&q=80" alt="Fluffy white clouds against a dark blue sky" loading="lazy">
+        <div class="scenario-card-number">Platform</div>
+        <div class="scenario-card-title">CloudMISP as your <span style="color: #e53834;">sharing hub</span></div>
+        <div class="scenario-card-body">A fully managed platform purpose-built for sharing communities, deployed in your preferred region and configured for multi-party data exchange.</div>
         <ul class="scenario-list">
-          <li>We provide CloudMISP as your fully managed fraud data platform</li>
-          <li>Handle all data mapping, integration, and ongoing management</li>
-          <li>Deploy in your preferred AWS region &mdash; or the EU Sovereign Cloud for European banks</li>
+          <li>Fully managed MISP with enterprise-grade reliability and support</li>
+          <li>Member isolation and sharing groups for controlled data exchange</li>
+          <li>Deploy in your preferred AWS region close to your members</li>
         </ul>
         <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
 
       <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1653549893012-b8b4fbe97630?w=800&q=80" alt="Abstract integration connections" loading="lazy">
-        <div class="scenario-card-number">Scenario 2</div>
-        <div class="scenario-card-title">If you have a MISP-based fraud data platform, <span style="color: #e53834;">we help you use it successfully</span></div>
-        <div class="scenario-card-body">You get a properly configured MISP instance with working integrations and workflows, so your team can consume and share fraud data with confidence.</div>
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
+        <div class="scenario-card-number">Governance</div>
+        <div class="scenario-card-title">Community design and <span style="color: #e53834;">member onboarding</span></div>
+        <div class="scenario-card-body">We help you design governance, onboarding processes, and sharing workflows that build trust and drive participation from day one.</div>
         <ul class="scenario-list">
-          <li>Connect your existing MISP instance to your regulator's exchange</li>
-          <li>Develop workflows for consuming and sharing fraud data</li>
-          <li>Build integrations between your fraud systems and MISP</li>
+          <li>Configure internal MISP instances for each member organisation</li>
+          <li>Develop sharing workflows for ingestion, triage, and dissemination</li>
+          <li>Design membership tiers for members at different maturity stages</li>
         </ul>
-        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+        <a href="#contact" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
 
       <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&q=80" alt="Light trails on a rooftop at night" loading="lazy">
-        <div class="scenario-card-number">Scenario 3</div>
-        <div class="scenario-card-title">If you have a platform from another vendor, <span style="color: #e53834;">we help you use it successfully</span></div>
-        <div class="scenario-card-body">You get your existing platform connected to your regulator's exchange with automated workflows, regardless of vendor or data format.</div>
+        <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
+        <div class="scenario-card-number">Integrations</div>
+        <div class="scenario-card-title">Integrations and <span style="color: #e53834;">ongoing support</span></div>
+        <div class="scenario-card-body">Members and regulators use different standards and systems. We bridge them all — connecting fraud systems to regulators and peers, across every format in use.</div>
         <ul class="scenario-list">
-          <li>Connect your existing platform to your regulator's exchange</li>
-          <li>Develop workflows and build integrations regardless of vendor</li>
-          <li>Support STIX/TAXII, custom APIs, and proprietary formats</li>
+          <li>Build integrations to connect member fraud systems to regulators and peers</li>
+          <li>Whether your regulator uses STIX/TAXII or your members run MISP, we support both — plus REST APIs and IOC list formats</li>
+          <li>The same platform supports <a href="cyber-threat-intelligence.html" style="color: var(--color-accent); text-decoration: underline;">cyber threat intelligence</a> sharing alongside fraud data</li>
         </ul>
-        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+        <a href="cyber-threat-intelligence.html" class="card-cta">Learn more about CTI sharing <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- 3. Regulatory Frameworks -->
+
+<!-- Who We Work With -->
 <section class="who-section">
   <div class="container">
     <div class="section-label">Who we work with</div>
-    <h2 class="section-heading">We support regulated banks around the world</h2>
+    <h2 class="section-heading">We help launch every type of fraud sharing community</h2>
   </div>
   <div class="fw-panels">
     <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80')"></div>
+      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&q=80')"></div>
       <div class="fw-panel-overlay"></div>
       <div class="fw-panel-content">
         <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">FNC-RF</span></div>
-          <div class="fw-panel-title">French Regulated Banks</div>
+          <div class="fw-panel-tags"><span class="tag">REGULATORY</span></div>
+          <div class="fw-panel-title">Regulator-Mandated Communities</div>
         </div>
-        <div class="fw-panel-desc">Share fraud typology data, mule account indicators, and suspicious account information with the Banque de France.</div>
+        <div class="fw-panel-desc">Central banks and financial regulators requiring structured fraud data reporting from supervised institutions.</div>
       </div>
     </div>
     <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1491557345352-5929e343eb89?w=800&q=80')"></div>
+      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80')"></div>
       <div class="fw-panel-overlay"></div>
       <div class="fw-panel-content">
         <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">FRIDA</span></div>
-          <div class="fw-panel-title">European Regulated Banks</div>
+          <div class="fw-panel-tags"><span class="tag">CONSORTIUM</span></div>
+          <div class="fw-panel-title">Bank-to-Bank Peer Networks</div>
         </div>
-        <div class="fw-panel-desc">Participate in the ECB's fraud data sharing initiative by structuring and exchanging fraud indicators across EU member institutions.</div>
+        <div class="fw-panel-desc">Groups of banks sharing fraud indicators, mule account data, and emerging typologies directly with each other.</div>
       </div>
     </div>
     <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80')"></div>
+      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80')"></div>
       <div class="fw-panel-overlay"></div>
       <div class="fw-panel-content">
         <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">FCA</span><span class="tag">OpRes</span></div>
-          <div class="fw-panel-title">UK Regulated Banks</div>
+          <div class="fw-panel-tags"><span class="tag">ISAC</span><span class="tag">ISAO</span></div>
+          <div class="fw-panel-title">Sector ISACs &amp; ISAOs</div>
         </div>
-        <div class="fw-panel-desc">Meet FCA and Bank of England operational resilience requirements by reporting APP fraud, account takeovers, and emerging threats.</div>
+        <div class="fw-panel-desc">Industry-specific Information Sharing and Analysis Centers coordinating fraud and threat intelligence across member organisations within a sector.</div>
       </div>
     </div>
     <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80')"></div>
+      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80')"></div>
       <div class="fw-panel-overlay"></div>
       <div class="fw-panel-content">
         <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">SAMA</span><span class="tag">CBUAE</span></div>
-          <div class="fw-panel-title">Middle Eastern Central Banks</div>
+          <div class="fw-panel-tags"><span class="tag">PAYMENTS</span><span class="tag">FINTECH</span></div>
+          <div class="fw-panel-title">Payment Ecosystem Sharing</div>
         </div>
-        <div class="fw-panel-desc">Share fraud intelligence with GCC central banks to support regulatory compliance and regional fraud prevention.</div>
+        <div class="fw-panel-desc">Payment processors, card networks, and fintechs exchanging fraud signals across the transaction lifecycle.</div>
       </div>
     </div>
     <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80')"></div>
+      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1577415124269-fc1140a69e91?w=800&q=80')"></div>
       <div class="fw-panel-overlay"></div>
       <div class="fw-panel-content">
         <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">APRA</span><span class="tag">RBNZ</span></div>
-          <div class="fw-panel-title">Australian &amp; New Zealand Banks</div>
+          <div class="fw-panel-tags"><span class="tag">PPP</span><span class="tag">GOV</span></div>
+          <div class="fw-panel-title">Public-Private Partnerships</div>
         </div>
-        <div class="fw-panel-desc">Meet CPS 234 and RBNZ guidance for information security and operational resilience obligations across AU and NZ.</div>
+        <div class="fw-panel-desc">Government agencies and financial institutions collaborating on national or sectoral fraud prevention programmes.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. Key Outcomes / Metrics — skip for now until we get fraud customers -->
 
-<!-- 6. Case Studies — skip for now until we get fraud customers -->
-
-<!-- 7. FAQ -->
+<!-- FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="section-heading">Common questions about regulatory fraud data sharing</h2>
+    <h2 class="section-heading">Common questions about starting a sharing community</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
+
+      <details>
+        <summary>
+          Can you help me plan a new sharing community?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We help with every stage of community planning &mdash; from identifying your community niche and defining membership requirements, to designing governance frameworks, funding models, and the technical infrastructure that underpins it all.</p>
+          <p>Whether you're a central bank, government agency, or industry body, we'll work with you to design a community that fits your sector's needs and regulatory context.</p>
+        </div>
+      </details>
 
       <details>
         <summary>
@@ -1662,10 +1619,9 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We currently support the following platforms:</p>
-          <p><strong>FNC-RF</strong> (Fichier National des Comptes &agrave; Risques et des Fraudes) &mdash; The Banque de France's national file for at-risk accounts and fraud. We help French regulated banks share fraud typology data, mule account indicators, and suspicious account information.</p>
-          <p><strong>EU FRIDA</strong> (Fraud Reporting and Information-sharing for the Detection and Assessment of fraud) &mdash; The ECB's pan-European fraud data sharing initiative. We help banks participate by structuring and exchanging fraud indicators across EU member institutions.</p>
-          <p>We also support MISP-based systems, STIX/TAXII-based exchanges, and custom API integrations. If your regulator has a specific platform requirement, we can adapt to it.</p>
+          <p>We support a range of platforms and standards for community-based sharing:</p>
+          <p><strong>CloudMISP</strong> &mdash; Our fully managed MISP platform, purpose-built for multi-party fraud data sharing with member isolation, sharing groups, and enterprise-grade operations.</p>
+          <p>We also support self-hosted MISP, STIX/TAXII-based exchanges, and custom API integrations. If your community has specific platform requirements, we can adapt to them.</p>
         </div>
       </details>
 
@@ -1682,7 +1638,7 @@
           Can you help me start a fraud data sharing community?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">Absolutely. We have extensive experience designing and launching fraud sharing communities &mdash; including work on Australia's national threat sharing program. We help with governance design, infrastructure, member onboarding, and ongoing community operations. <a href="start-sharing-community.html">Learn more about starting a sharing community</a>.</div>
+        <div class="faq-answer">Absolutely &mdash; that's exactly what this page is about. We have extensive experience designing and launching fraud sharing communities, including work on Australia's national threat sharing program. We help with governance design, infrastructure, member onboarding, and ongoing community operations. <a href="#contact">Talk to us about your plans</a>.</div>
       </details>
 
       <details>
@@ -1690,12 +1646,12 @@
           Can you also help me share cyber threat intelligence?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">Yes. Many of our banking customers share both fraud data and cyber threat intelligence. We provide the same managed platform, integration, and workflow services for CTI sharing &mdash; including MISP-based, STIX/TAXII, and custom formats. <a href="cyber-threat-intelligence.html">Learn more about our cyber threat intelligence services</a>.</div>
+        <div class="faq-answer">Yes. The same platform that supports fraud data sharing can also be used for cyber threat intelligence. Many communities share both. <a href="cyber-threat-intelligence.html">Learn more about our cyber threat intelligence services</a>.</div>
       </details>
 
     </div>
     <div class="faq-image">
-      <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="Person holding a credit card at a laptop">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Network globe visualization">
     </div>
     </div>
   </div>
@@ -1710,7 +1666,7 @@
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
       <h2 class="section-heading">How can we help?</h2>
-      <p class="contact-subtitle">Tell us about your fraud data sharing requirements and we'll get back to you as soon as possible.</p>
+      <p class="contact-subtitle">Tell us about your plans for a sharing community and we'll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
         <input type="hidden" name="category" value="CloudMISP">
         <div class="form-row">
@@ -1753,7 +1709,7 @@
       <a href="/contact-us">Contact</a>
       <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
     </div>
-    <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
+    <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
   </div>
 </footer>
 
