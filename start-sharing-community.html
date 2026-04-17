@@ -440,6 +440,15 @@
     margin-bottom: 16px;
   }
 
+  .credentials-separator {
+    margin-bottom: 20px;
+  }
+
+  .credentials-separator svg {
+    width: 80px;
+    height: auto;
+  }
+
   .credentials-box h2 {
     font-family: var(--font-heading);
     font-size: 2rem;
@@ -1184,32 +1193,84 @@
     background: rgba(255, 255, 255, 0.4);
   }
 
-  /* ── Staircase (maturity progression) ── */
-  .staircase {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
+  /* ── Gauge bars (maturity levels) ── */
+  .gauge-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 8px 24px;
     margin: 0;
   }
 
-  .staircase-step {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 18px;
-    background: rgba(0, 150, 136, 0.06);
-    border-radius: 10px;
-    border-left: 3px solid #b2dfdb;
+  .gauge-step {
+    display: grid;
+    grid-row: 1 / -1;
+    grid-template-rows: subgrid;
+    justify-items: center;
+    text-align: center;
   }
 
-  .staircase-step--1 { min-height: 160px; background: #b2dfdb; border-left-color: #00695c; }
-  .staircase-step--2 { min-height: 210px; background: #c3e6e3; border-left-color: #00897b; }
-  .staircase-step--3 { min-height: 260px; background: #d2edea; border-left-color: #4db6ac; }
-  .staircase-step--4 { min-height: 310px; background: #e0f2f1; border-left: 3px solid #80cbc4; }
+  .gauge-bar {
+    width: 56px;
+    height: 180px;
+    border: 2px solid #2a5e56;
+    border-radius: 28px 28px 8px 8px;
+    background: #f0faf9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
 
-  .staircase-step-num {
-    width: 28px;
-    height: 28px;
+  .gauge-fill {
+    width: 100%;
+    border-radius: 0 0 6px 6px;
+    position: relative;
+    transition: height 0.6s ease;
+  }
+
+  .gauge-fill--25 {
+    height: 25%;
+    background: linear-gradient(to top, #00695c, #00897b);
+  }
+  .gauge-fill--50 {
+    height: 50%;
+    background: linear-gradient(to top, #00695c, #26a69a);
+  }
+  .gauge-fill--75 {
+    height: 75%;
+    background: linear-gradient(to top, #00695c, #4db6ac);
+  }
+  .gauge-fill--100 {
+    height: 100%;
+    background: linear-gradient(to top, #00695c, #80cbc4);
+    border-radius: 26px 26px 6px 6px;
+  }
+
+  .gauge-tick-marks {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .gauge-tick-marks span {
+    position: absolute;
+    right: 6px;
+    width: 12px;
+    height: 2px;
+    background: #2a5e56;
+    border-radius: 1px;
+  }
+
+  .gauge-tick-marks span:nth-child(1) { bottom: 20%; }
+  .gauge-tick-marks span:nth-child(2) { bottom: 40%; }
+  .gauge-tick-marks span:nth-child(3) { bottom: 60%; }
+  .gauge-tick-marks span:nth-child(4) { bottom: 80%; }
+
+  .gauge-step-num {
+    width: 30px;
+    height: 30px;
     background: #00695c;
     color: #fff;
     border-radius: 50%;
@@ -1218,22 +1279,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 
-  .staircase-step-title {
+  .gauge-step-title {
     font-size: 1.05rem;
     font-weight: 700;
     color: #004d40;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
     line-height: 1.3;
   }
 
-  .staircase-step-desc {
+  .gauge-step-desc {
     font-size: 0.92rem;
     color: #1a5c50;
-    line-height: 1.6;
+    line-height: 1.55;
+  }
+
+  .vision-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2a5e56;
+    margin-top: 48px;
+    margin-bottom: 0;
+    text-align: center;
+    line-height: 1.5;
   }
 
   /* ── Responsive ── */
@@ -1300,23 +1370,14 @@
   @media (max-width: 768px) {
     .vision-heading-wrap { max-width: 100% !important; }
 
-    .staircase {
-      flex-direction: column;
-      align-items: stretch;
+    .gauge-row {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .staircase-step,
-    .staircase-step--1,
-    .staircase-step--2,
-    .staircase-step--3,
-    .staircase-step--4 {
-      min-height: auto;
+    .gauge-bar {
+      height: 140px;
+      width: 48px;
     }
-
-    .staircase-step--1 { margin-left: 0; }
-    .staircase-step--2 { margin-left: 16px; }
-    .staircase-step--3 { margin-left: 32px; }
-    .staircase-step--4 { margin-left: 48px; }
   }
 
   @media (max-width: 600px) {
@@ -1484,125 +1545,57 @@
     </div>
 
     <div class="staircase-wrap">
-    <h3 class="section-heading" style="font-size: 1.75rem; margin: 0 0 24px 0;">Members can engage at every maturity level</h3>
+    <h3 class="section-heading" style="font-size: 1.75rem; margin: 0 0 32px 0;">Share with community members of different maturity levels</h3>
 
-    <div class="staircase">
-      <div class="staircase-step staircase-step--1">
-        <div class="staircase-step-num">1</div>
-        <div class="staircase-step-title">Getting started</div>
-        <div class="staircase-step-desc">Members at the earliest stage of maturity consume PDFs and reports over email</div>
-      </div>
-      <div class="staircase-step staircase-step--2">
-        <div class="staircase-step-num">2</div>
-        <div class="staircase-step-title">Basic automation</div>
-        <div class="staircase-step-desc">Members at the next level of maturity grab files from an SFTP server or download from a webpage</div>
-      </div>
-      <div class="staircase-step staircase-step--3">
-        <div class="staircase-step-num">3</div>
-        <div class="staircase-step-title">Platform integration</div>
-        <div class="staircase-step-desc">More mature members pull structured indicators directly from the MISP platform</div>
-      </div>
-      <div class="staircase-step staircase-step--4">
-        <div class="staircase-step-num">4</div>
-        <div class="staircase-step-title">Full participation</div>
-        <div class="staircase-step-desc">The highest maturity members do bidirectional sync: consuming shared data and contributing back to the community</div>
-      </div>
-    </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Social proof / credentials -->
-<section class="credentials-section" id="engagement">
-  <div class="credentials-inner">
-    <div class="credentials-box">
-        <div class="credentials-label">Why work with us</div>
-        <h2>Fraud data sharing community experience you can trust</h2>
-        <div class="icon-credentials">
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Designed and launched sharing communities</strong> for central banks and government agencies</div>
+    <div class="gauge-row">
+      <div class="gauge-step">
+        <div class="gauge-bar">
+          <div class="gauge-tick-marks">
+            <span></span><span></span><span></span><span></span>
           </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Operated national-scale sharing platforms</strong> including Australia's national threat sharing program</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Built CloudMISP</strong> as a purpose-built managed platform for multi-party fraud data sharing</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of the governance, funding, and social dynamics that make communities succeed</div>
-          </div>
+          <div class="gauge-fill gauge-fill--25"></div>
         </div>
+        <div class="gauge-step-num">1</div>
+        <div class="gauge-step-title">Getting started</div>
+        <div class="gauge-step-desc">Members at the earliest stage of maturity consume PDFs and reports over email</div>
       </div>
-      <div class="credentials-photo">
-        <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
-        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+      <div class="gauge-step">
+        <div class="gauge-bar">
+          <div class="gauge-tick-marks">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="gauge-fill gauge-fill--50"></div>
+        </div>
+        <div class="gauge-step-num">2</div>
+        <div class="gauge-step-title">Basic automation</div>
+        <div class="gauge-step-desc">Members at the next level of maturity grab files from an SFTP server or download from a webpage</div>
       </div>
-  </div>
-</section>
-
-<!-- Scenario Cards + Capabilities -->
-<section class="infra-section">
-  <div class="container">
-
-    <div class="scenarios-heading">
-      <div class="section-label">Our Services</div>
-      <div class="scenarios-title">What we can help you with</div>
-    </div>
-
-    <div class="scenarios-grid">
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1752864365480-178d35c15724?w=800&q=80" alt="Fluffy white clouds against a dark blue sky" loading="lazy">
-        <div class="scenario-card-number">Platform</div>
-        <div class="scenario-card-title">CloudMISP as your <span style="color: #e53834;">sharing hub</span></div>
-        <div class="scenario-card-body">A fully managed MISP instance deployed in your preferred AWS region, with enterprise-grade reliability and support.</div>
-        <ul class="scenario-list">
-          <li>Automated backups, patching, and 24/7 monitoring</li>
-          <li>Member isolation and sharing groups configured for your community</li>
-          <li>Custom taxonomies and tagging to match your fraud data model</li>
-        </ul>
-        <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      <div class="gauge-step">
+        <div class="gauge-bar">
+          <div class="gauge-tick-marks">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="gauge-fill gauge-fill--75"></div>
+        </div>
+        <div class="gauge-step-num">3</div>
+        <div class="gauge-step-title">Platform integration</div>
+        <div class="gauge-step-desc">More mature members pull structured indicators directly from the MISP platform</div>
       </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
-        <div class="scenario-card-number">Governance</div>
-        <div class="scenario-card-title">Community design and <span style="color: #e53834;">member onboarding</span></div>
-        <div class="scenario-card-body">Hands-on consulting to stand up your community and get members sharing.</div>
-        <ul class="scenario-list">
-          <li>Draft governance charters, data-handling policies, and membership agreements</li>
-          <li>Configure MISP instances and sharing workflows for each member</li>
-          <li>Run onboarding workshops so new members contribute from week one</li>
-        </ul>
-        <a href="#contact" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
-        <div class="scenario-card-number">Integrations</div>
-        <div class="scenario-card-title">Integrations and <span style="color: #e53834;">ongoing support</span></div>
-        <div class="scenario-card-body">Custom connectors between member fraud systems, regulators, and the sharing platform.</div>
-        <ul class="scenario-list">
-          <li>Build and maintain STIX/TAXII, REST API, and MISP feed integrations</li>
-          <li>Automate ingestion, enrichment, and dissemination pipelines</li>
-          <li>The same platform supports <a href="cyber-threat-intelligence.html" style="color: var(--color-accent); text-decoration: underline;">cyber threat intelligence</a> sharing alongside fraud data</li>
-        </ul>
-        <a href="cyber-threat-intelligence.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      <div class="gauge-step">
+        <div class="gauge-bar">
+          <div class="gauge-tick-marks">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="gauge-fill gauge-fill--100"></div>
+        </div>
+        <div class="gauge-step-num">4</div>
+        <div class="gauge-step-title">Full participation</div>
+        <div class="gauge-step-desc">The highest maturity members do bidirectional sync: consuming shared data and contributing back to the community</div>
       </div>
     </div>
+    </div>
+
+    <p class="vision-tagline">We tailor our guidance to the specific needs of each community.</p>
 
   </div>
 </section>
@@ -1670,6 +1663,100 @@
         <div class="fw-panel-desc">Government agencies and financial institutions collaborating on national or sectoral fraud prevention programmes.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Scenario Cards + Capabilities -->
+<section class="infra-section">
+  <div class="container">
+
+    <div class="scenarios-heading">
+      <div class="section-label">Our Services</div>
+      <div class="scenarios-title">What we can help you with</div>
+    </div>
+
+    <div class="scenarios-grid">
+      <div class="scenario-card">
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1752864365480-178d35c15724?w=800&q=80" alt="Fluffy white clouds against a dark blue sky" loading="lazy">
+        <div class="scenario-card-number">Platform</div>
+        <div class="scenario-card-title">CloudMISP as your <span style="color: #e53834;">sharing hub</span></div>
+        <div class="scenario-card-body">A fully managed MISP instance deployed in your preferred AWS region, with enterprise-grade reliability and support.</div>
+        <ul class="scenario-list">
+          <li>Automated backups, patching, and 24/7 monitoring</li>
+          <li>Member isolation and sharing groups configured for your community</li>
+          <li>Custom taxonomies and tagging to match your fraud data model</li>
+        </ul>
+        <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      </div>
+
+      <div class="scenario-card">
+        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
+        <div class="scenario-card-number">Governance</div>
+        <div class="scenario-card-title">Community design and <span style="color: #e53834;">member onboarding</span></div>
+        <div class="scenario-card-body">Hands-on consulting to stand up your community and get members sharing.</div>
+        <ul class="scenario-list">
+          <li>Draft governance charters, data-handling policies, and membership agreements</li>
+          <li>Configure MISP instances and sharing workflows for each member</li>
+          <li>Run onboarding workshops so new members contribute from week one</li>
+        </ul>
+        <a href="#contact" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      </div>
+
+      <div class="scenario-card">
+        <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
+        <div class="scenario-card-number">Integrations</div>
+        <div class="scenario-card-title">Integrations and <span style="color: #e53834;">ongoing support</span></div>
+        <div class="scenario-card-body">Custom connectors between member fraud systems, regulators, and the sharing platform.</div>
+        <ul class="scenario-list">
+          <li>Build and maintain STIX/TAXII, REST API, and MISP feed integrations</li>
+          <li>Automate ingestion, enrichment, and dissemination pipelines</li>
+          <li>The same platform supports <a href="cyber-threat-intelligence.html" style="color: var(--color-accent); text-decoration: underline;">cyber threat intelligence</a> sharing alongside fraud data</li>
+        </ul>
+        <a href="cyber-threat-intelligence.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Social proof / credentials -->
+<section class="credentials-section" id="engagement">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+        <div class="credentials-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
+        <div class="credentials-label">Why work with us</div>
+        <h2>Fraud data sharing community experience you can trust</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Designed and launched sharing communities</strong> for central banks and government agencies</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Operated national-scale sharing platforms</strong> including Australia's national threat sharing program</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Built CloudMISP</strong> as a purpose-built managed platform for multi-party fraud data sharing</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Deep understanding</strong> of the governance, funding, and social dynamics that make communities succeed</div>
+          </div>
+        </div>
+      </div>
+      <div class="credentials-photo">
+        <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+      </div>
   </div>
 </section>
 
