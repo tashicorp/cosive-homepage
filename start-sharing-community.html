@@ -16,23 +16,108 @@
   :root {
     --color-dark: #0e141c;
     --color-white: #ffffff;
-    --color-bg: #ffffff;
-    --color-surface: #f8f9fa;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
     --color-border: #e8eaed;
-    --color-text: #1a1a1a;
+    --color-text-primary: #1a1a1a;
     --color-text-secondary: #5f6368;
-    --color-red: #e53834;
-    --color-red-dark: #c1121f;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
+  
+    /* ── Sizing Tokens ── */
+
+    /* Spacing (4px base grid) */
+    --space-2xs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 0.75rem;    /* 12px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 2.5rem;    /* 40px */
+    --space-3xl: 3rem;      /* 48px */
+    --space-4xl: 4rem;      /* 64px */
+    --space-5xl: 5rem;      /* 80px */
+    --space-6xl: 6rem;      /* 96px */
+    --space-7xl: 8rem;      /* 128px */
+    --space-8xl: 10rem;     /* 160px */
+
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.75rem;    /* 28px */
+    --text-4xl: 2rem;       /* 32px */
+    --text-5xl: 2.5rem;     /* 40px */
+    --text-6xl: 3rem;       /* 48px */
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
   }
 
   body {
     font-family: var(--font-body);
-    color: var(--color-text);
-    line-height: 1.6;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
     -webkit-font-smoothing: antialiased;
-    background: var(--color-bg);
+    background: var(--color-background);
   }
 
   a { text-decoration: none; color: inherit; }
@@ -41,7 +126,7 @@
   .container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 var(--space-3xl);
   }
 
   /* ── Header ── */
@@ -58,51 +143,51 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: var(--space-5xl);
   }
 
-  .header-logo img { height: 36px; }
+  .header-logo img { height: var(--space-xl); }
 
   .main-nav ul {
     display: flex;
-    gap: 8px;
+    gap: var(--space-xs);
     align-items: center;
   }
 
   .main-nav a {
     color: var(--color-text-secondary);
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 3px;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
     transition: color 0.2s;
   }
 
-  .main-nav a:hover { color: var(--color-text); }
+  .main-nav a:hover { color: var(--color-text-primary); }
 
   .nav-cta {
-    background: var(--color-red) !important;
+    background: var(--color-accent) !important;
     color: var(--color-white) !important;
     border: none !important;
-    padding: 8px 20px !important;
-    border-radius: 4px !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
     font-weight: 600 !important;
     transition: background 0.2s !important;
     white-space: nowrap;
   }
 
-  .nav-cta:hover { background: var(--color-red-dark) !important; }
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
 
   .nav-toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    color: var(--color-text);
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
   }
 
-  .nav-toggle svg { width: 24px; height: 24px; display: block; }
+  .nav-toggle svg { width: var(--space-lg); height: var(--space-lg); display: block; }
 
   /* ── Page Banner ── */
   .page-banner {
@@ -132,67 +217,63 @@
   .page-banner-inner {
     position: relative;
     z-index: 2;
-    padding: 48px 0 56px;
+    padding: var(--space-3xl) 0 var(--space-4xl);
   }
 
   .banner-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 48px;
+    gap: var(--space-3xl);
     align-items: center;
   }
 
   .banner-form-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 32px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
   }
 
   .banner-form-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 20px;
+    margin-bottom: var(--space-lg);
   }
 
   .banner-form-card .contact-form {
-    gap: 16px;
+    gap: var(--space-md);
   }
 
   .banner-form-card .form-group label {
-    font-size: 0.82rem;
+    font-size: var(--text-sm);
   }
 
   .banner-form-card .form-group input,
   .banner-form-card .form-group textarea {
-    padding: 10px 14px;
-    font-size: 0.92rem;
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-base);
     border-color: var(--color-border);
   }
 
   .banner-form-card .form-group textarea {
-    min-height: 80px;
+    min-height: var(--space-5xl);
   }
 
   .banner-form-card .form-row {
-    gap: 16px;
+    gap: var(--space-md);
   }
 
   .banner-form-card .btn-primary {
     width: 100%;
     text-align: center;
-    padding: 12px 24px;
+    padding: var(--space-sm) var(--space-lg);
   }
 
   .page-banner .breadcrumb {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .page-banner .breadcrumb a {
@@ -200,88 +281,79 @@
     transition: color 0.2s;
   }
 
-  .page-banner .breadcrumb a:hover { color: #fff; }
+  .page-banner .breadcrumb a:hover { color: var(--color-white); }
   .page-banner .breadcrumb .separator { color: rgba(255, 255, 255, 0.4); }
   .page-banner .breadcrumb .current { color: rgba(255, 255, 255, 0.9); }
 
   .page-banner h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: var(--text-6xl);
     font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
+    color: var(--color-white);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
   }
 
   .page-banner .banner-subtitle {
     font-family: var(--font-body);
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 8px;
-    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-xs);
+    letter-spacing: var(--tracking-wide);
   }
 
   .banner-description {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: var(--text-3xl);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.75);
-    line-height: 1.45;
-    margin-top: 20px;
-    letter-spacing: -0.2px;
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+    letter-spacing: var(--tracking-tight);
   }
 
   .banner-description strong {
-    color: #fff;
+    color: var(--color-white);
     font-weight: 700;
   }
 
   /* ── Shared section patterns ── */
   .section-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 20px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
   }
 
-  .section-heading {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.3;
-    margin-bottom: 48px;
-    letter-spacing: -0.3px;
-  }
 
   .btn-primary {
     display: inline-block;
-    padding: 14px 36px;
-    background: var(--color-red);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
     color: var(--color-white);
     font-family: var(--font-body);
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
     transition: background 0.2s;
   }
 
-  .btn-primary:hover { background: var(--color-red-dark); }
+  .btn-primary:hover { background: var(--color-accent-dark); }
 
   /* ── Section A: Value Proposition ── */
   .infra-section {
-    padding: 96px 0;
+    padding: var(--space-6xl) 0;
     background: var(--color-white);
   }
 
   .infra-section--alt {
-    background: #ffffff;
+    background: var(--color-white);
     position: relative;
   }
 
@@ -291,7 +363,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: var(--space-2xs);
     background: #25793a;
   }
 
@@ -299,31 +371,31 @@
 
   /* ── 2a-ii. Scenario Cards ── */
   .scenarios-heading {
-    margin-bottom: 40px;
+    margin-bottom: var(--space-2xl);
   }
 
   .scenarios-title {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: var(--text-3xl);
     font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.35;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
   }
 
   .scenarios-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    margin-bottom: 56px;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-4xl);
   }
 
   .scenario-card {
     position: relative;
-    padding: 32px;
+    padding: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    border-radius: 12px;
+    gap: var(--space-lg);
+    border-radius: var(--radius-lg);
     border: 1px solid #c0c3c8;
   }
 
@@ -333,50 +405,50 @@
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
   }
 
   .scenario-card-number {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     color: var(--color-text-secondary);
   }
 
   .scenario-card-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.35;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
   }
 
   .scenario-card-subtitle {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
     margin-top: -8px;
   }
 
   .scenario-card-body {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.65;
+    line-height: var(--leading-normal);
   }
 
   .scenario-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 4px;
+    gap: var(--space-sm);
+    margin-top: var(--space-2xs);
   }
 
   .scenario-list li {
-    font-size: 0.92rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.55;
-    padding-left: 16px;
+    line-height: var(--leading-normal);
+    padding-left: var(--space-md);
     position: relative;
   }
 
@@ -384,20 +456,20 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--color-red);
+    top: var(--space-xs);
+    width: var(--space-2xs);
+    height: var(--space-2xs);
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
   }
 
   .scenario-card .card-cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 1.125rem;
+    gap: var(--space-xs);
+    font-size: var(--text-lg);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
     margin-top: auto;
   }
 
@@ -424,7 +496,7 @@
   }
 
   .credentials-box {
-    padding: 80px 52px;
+    padding: var(--space-5xl) var(--space-3xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -432,29 +504,26 @@
 
   .credentials-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 16px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
   .credentials-separator {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-lg);
   }
 
   .credentials-separator svg {
-    width: 80px;
+    width: var(--space-5xl);
     height: auto;
   }
 
   .credentials-box h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 28px;
-    color: #fff;
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
   }
 
   .credentials-photo {
@@ -481,13 +550,13 @@
 
   .credentials-caption {
     position: absolute;
-    bottom: 12px;
-    right: 16px;
-    font-size: 0.85rem;
-    color: #fff;
+    bottom: var(--space-sm);
+    right: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-white);
     background: rgba(0, 0, 0, 0.6);
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
   }
 
   .icon-credentials {
@@ -499,8 +568,8 @@
   .icon-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px 0;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
@@ -514,11 +583,11 @@
   }
 
   .icon-item-icon {
-    width: 36px;
-    height: 36px;
+    width: var(--space-xl);
+    height: var(--space-xl);
     flex-shrink: 0;
-    color: var(--color-red);
-    padding-top: 1px;
+    color: var(--color-accent);
+    padding-top: var(--space-2xs);
   }
 
   .icon-item-icon svg {
@@ -529,36 +598,36 @@
   .icon-item-text {
     flex: 1;
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.55;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
     color: rgba(255, 255, 255, 0.7);
   }
 
   .icon-item-text strong {
-    color: #fff;
+    color: var(--color-white);
     font-weight: 700;
   }
 
   /* ── Section C: Platforms We Support ── */
   .platforms-section {
-    padding: 96px 0;
+    padding: var(--space-6xl) 0;
     background: var(--color-white);
   }
 
   .platforms-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px 0;
+    gap: var(--space-sm) 0;
   }
 
   .platform-card {
-    padding: 32px 40px;
-    border-radius: 0;
+    padding: var(--space-xl) var(--space-2xl);
+    border-radius: var(--radius-none);
     border: none;
     background: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
     position: relative;
   }
 
@@ -568,7 +637,7 @@
     right: 0;
     top: 25%;
     height: 50%;
-    width: 1px;
+    width: var(--space-2xs);
     background: var(--color-border);
   }
 
@@ -583,52 +652,52 @@
   .platform-card .fw-panel-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 4px;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-2xs);
   }
 
   .platform-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: 700;
-    line-height: 1.35;
+    line-height: var(--leading-normal);
   }
 
   .platform-card .platform-full-name {
-    font-size: 0.88rem;
+    font-size: var(--text-sm);
     color: var(--color-text-secondary);
     font-style: italic;
-    line-height: 1.4;
+    line-height: var(--leading-normal);
   }
 
   .platform-card p {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.55;
+    line-height: var(--leading-normal);
   }
 
   /* ── Who We Work With ── */
   .who-section {
-    padding: 96px 0 48px;
-    background: var(--color-dark, #1a1f2e);
+    padding: var(--space-6xl) 0 var(--space-3xl);
+    background: var(--color-dark, #0e141c);
   }
 
   .who-section .section-label {
-    color: var(--color-red);
+    color: var(--color-accent);
   }
 
   .who-section .container {
-    margin-bottom: 48px;
+    margin-bottom: var(--space-3xl);
   }
 
   .who-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    gap: var(--space-4xl);
     align-items: start;
   }
 
-  .who-section .section-heading {
+  .who-section .heading-style-h2 {
     color: var(--color-white);
   }
 
@@ -637,10 +706,10 @@
   }
 
   .who-text p {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 16px;
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-md);
   }
 
   .who-text p:last-child {
@@ -648,7 +717,7 @@
   }
 
   .who-text a {
-    color: var(--color-red);
+    color: var(--color-accent);
   }
 
   .fw-panels {
@@ -686,18 +755,18 @@
   .fw-panel-content {
     position: relative;
     z-index: 1;
-    padding: 32px 64px;
+    padding: var(--space-xl) var(--space-4xl);
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: var(--space-3xl);
   }
 
   .fw-panel-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: var(--space-xs);
     flex-shrink: 0;
     min-width: 320px;
   }
@@ -705,18 +774,18 @@
   .fw-panel-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: var(--space-xs);
     flex-shrink: 0;
   }
 
   .tag {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 3px;
-    letter-spacing: 0.3px;
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    color: #fff;
+    color: var(--color-white);
     background: #1a5276;
   }
 
@@ -727,35 +796,35 @@
 
   .fw-panel-title {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--color-white);
-    line-height: 1.3;
+    line-height: var(--leading-snug);
     white-space: nowrap;
   }
 
   .fw-panel-desc {
     flex: 1;
-    font-size: 1.125rem;
+    font-size: var(--text-lg);
     color: rgba(255,255,255,0.95);
-    line-height: 1.6;
+    line-height: var(--leading-normal);
   }
 
   /* ── Platform Standards Note ── */
   .standards-section {
-    padding: 64px 0;
-    background: var(--color-surface);
+    padding: var(--space-4xl) 0;
+    background: var(--color-light-grey);
   }
 
   .standards-inner {
-    max-width: 800px;
+    max-width: var(--container-standard);
   }
 
   .standards-inner p {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 12px;
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-sm);
   }
 
   .standards-inner p:last-child {
@@ -763,82 +832,82 @@
   }
 
   .standards-inner a {
-    color: var(--color-red);
+    color: var(--color-accent);
     font-weight: 600;
     transition: color 0.2s;
   }
 
   .standards-inner a:hover {
-    color: var(--color-red-dark);
+    color: var(--color-accent-dark);
   }
 
   /* ── Metrics ── */
   .metrics-section {
-    padding: 96px 0;
+    padding: var(--space-6xl) 0;
     background: var(--color-white);
   }
 
   .section-label--light {
-    color: var(--color-red);
+    color: var(--color-accent);
   }
 
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
+    gap: var(--space-lg);
   }
 
   .metric-card {
-    background: var(--color-surface);
+    background: var(--color-light-grey);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 32px 24px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
     text-align: center;
   }
 
   .metric-number {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
+    font-size: var(--text-5xl);
     font-weight: 800;
-    color: var(--color-text);
-    line-height: 1.1;
-    margin-bottom: 8px;
+    color: var(--color-text-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-xs);
   }
 
   .metric-label {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.4;
+    line-height: var(--leading-normal);
   }
 
   /* ── Case Studies ── */
   .cases-section {
-    padding: 96px 0;
-    background: var(--color-dark, #1a1f2e);
+    padding: var(--space-6xl) 0;
+    background: var(--color-dark, #0e141c);
   }
 
   .cases-section .section-label {
-    color: var(--color-red);
+    color: var(--color-accent);
   }
 
-  .cases-section .section-heading {
+  .cases-section .heading-style-h2 {
     color: var(--color-white);
   }
 
   .cases-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: var(--space-lg);
   }
 
   .case-card {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 32px 28px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
   }
 
@@ -850,23 +919,23 @@
 
   .case-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-white);
-    line-height: 1.35;
+    line-height: var(--leading-normal);
   }
 
   .case-card p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.55;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-normal);
   }
 
   .case-card-icon {
-    width: 40px;
-    height: 40px;
-    color: var(--color-red);
-    margin-bottom: 4px;
+    width: var(--space-2xl);
+    height: var(--space-2xl);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2xs);
   }
 
   .case-card-icon svg {
@@ -876,14 +945,14 @@
 
   /* ── FAQ ── */
   .faq-section {
-    padding: 96px 0;
+    padding: var(--space-6xl) 0;
     background: var(--color-white);
   }
 
   .faq-inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: 64px;
+    gap: var(--space-4xl);
     align-items: start;
   }
 
@@ -892,11 +961,11 @@
   }
 
   .faq-image {
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     aspect-ratio: 4 / 3;
     position: sticky;
-    top: 96px;
+    top: var(--space-6xl);
   }
 
   .faq-image img {
@@ -918,13 +987,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0;
+    padding: var(--space-lg) 0;
     cursor: pointer;
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     font-weight: 700;
-    color: var(--color-text);
-    line-height: 1.4;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
     list-style: none;
   }
 
@@ -938,10 +1007,10 @@
   }
 
   .faq-chevron {
-    width: 20px;
-    height: 20px;
+    width: var(--space-lg);
+    height: var(--space-lg);
     flex-shrink: 0;
-    margin-left: 16px;
+    margin-left: var(--space-md);
     transition: transform 0.2s;
     color: var(--color-text-secondary);
   }
@@ -951,98 +1020,98 @@
   }
 
   .faq-answer {
-    padding: 0 0 24px;
-    font-size: 1rem;
+    padding: 0 0 var(--space-lg);
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.7;
+    line-height: var(--leading-loose);
   }
 
-  .faq-answer p { margin-bottom: 12px; }
+  .faq-answer p { margin-bottom: var(--space-sm); }
   .faq-answer p:last-child { margin-bottom: 0; }
 
   .faq-answer a {
-    color: var(--color-red);
+    color: var(--color-accent);
     font-weight: 600;
   }
 
   .faq-answer a:hover {
-    color: var(--color-red-dark);
+    color: var(--color-accent-dark);
   }
 
   /* ── Wavy SVG separator ── */
   .people-cta-separator {
     display: flex;
     justify-content: center;
-    padding: 96px 0 0;
-    background: var(--color-surface);
+    padding: var(--space-6xl) 0 0;
+    background: var(--color-light-grey);
   }
 
   .people-cta-separator svg {
-    width: 80px;
+    width: var(--space-5xl);
     height: auto;
   }
 
   /* ── Contact section ── */
   .contact-section {
-    padding: 72px 0 96px;
-    background: var(--color-surface);
+    padding: var(--space-4xl) 0 var(--space-6xl);
+    background: var(--color-light-grey);
     text-align: center;
   }
 
   .contact-inner {
-    max-width: 640px;
+    max-width: var(--container-narrow);
     margin: 0 auto;
   }
 
   .contact-subtitle {
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 40px;
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--space-lg);
     text-align: left;
   }
 
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: var(--space-lg);
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-xs);
   }
 
   .form-group label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-primary);
   }
 
   .form-group input,
   .form-group textarea {
     font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 12px 16px;
-    border: 1px solid #1a1a1a;
-    border-radius: 6px;
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
     background: var(--color-white);
-    color: var(--color-text);
+    color: var(--color-text-primary);
     transition: border-color 0.2s;
     outline: none;
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: var(--color-red);
+    border-color: var(--color-accent);
   }
 
   .form-group textarea {
@@ -1058,7 +1127,7 @@
   /* ── Footer ── */
   .site-footer {
     border-top: 1px solid var(--color-border);
-    padding: 64px 0;
+    padding: var(--space-4xl) 0;
   }
 
   .footer-inner {
@@ -1067,26 +1136,26 @@
     justify-content: space-between;
   }
 
-  .footer-inner .footer-logo img { height: 30px; }
+  .footer-inner .footer-logo img { height: var(--space-xl); }
 
   .footer-copyright {
-    font-size: 1.05rem;
-    color: var(--color-text);
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
   }
 
   .footer-links {
     display: flex;
-    gap: 24px;
+    gap: var(--space-lg);
   }
 
   .footer-links a {
-    font-size: 1.05rem;
-    color: var(--color-text);
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
     font-weight: 500;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover { color: var(--color-red); }
+  .footer-links a:hover { color: var(--color-accent); }
 
   /* ── Challenge Section: Danger Treatment ── */
   .infra-section--danger {
@@ -1100,18 +1169,18 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: var(--space-2xs);
     background: repeating-linear-gradient(
       -45deg,
-      var(--color-red) 0px,
-      var(--color-red) 8px,
-      var(--color-red-dark) 8px,
-      var(--color-red-dark) 16px
+      var(--color-accent) 0px,
+      var(--color-accent) 8px,
+      var(--color-accent-dark) 8px,
+      var(--color-accent-dark) 16px
     );
   }
 
-  .infra-section--danger .section-heading {
-    color: var(--color-text);
+  .infra-section--danger .heading-style-h2 {
+    color: var(--color-text-primary);
   }
 
   .infra-section--danger p {
@@ -1119,77 +1188,77 @@
   }
 
   .infra-section--danger p strong {
-    color: var(--color-text);
+    color: var(--color-text-primary);
   }
 
   /* ── Challenge List ── */
   .infra-section--danger .challenge-list {
     list-style: none;
     padding-left: 0;
-    margin: 32px 0 0 0;
+    margin: var(--space-xl) 0 0 0;
   }
 
   .infra-section--danger .challenge-list li {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: #8b1a1a;
-    line-height: 1.7;
-    padding: 12px 16px 12px 48px;
-    margin-bottom: 6px;
-    background: rgba(229, 56, 52, 0.07);
-    border-radius: 4px;
+    line-height: var(--leading-loose);
+    padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-3xl);
+    margin-bottom: var(--space-xs);
+    background: rgba(229, 56, 52, 0.08);
+    border-radius: var(--radius-sm);
     position: relative;
   }
 
   .infra-section--danger .challenge-list li::before {
     content: '';
     position: absolute;
-    left: 16px;
+    left: var(--space-md);
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    border: 2px solid var(--color-red);
-    border-radius: 3px;
-    background: #fff;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
   }
 
   /* ── Vision List ── */
   .vision-list {
     list-style: none;
     padding-left: 0;
-    margin: 32px 0 0 0;
+    margin: var(--space-xl) 0 0 0;
   }
 
   .vision-list li {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: #165b26;
-    line-height: 1.7;
-    padding: 12px 16px 12px 48px;
-    margin-bottom: 6px;
+    line-height: var(--leading-loose);
+    padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-3xl);
+    margin-bottom: var(--space-xs);
     background: #e6f4eb;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     position: relative;
   }
 
   .vision-list li::before {
     content: '';
     position: absolute;
-    left: 16px;
+    left: var(--space-md);
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
     border: 2px solid #25793a;
-    border-radius: 3px;
-    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5.5' fill='none' stroke='%2325793a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+    border-radius: var(--radius-sm);
+    background: var(--color-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5.5' fill='none' stroke='%2325793a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
   }
 
   /* ── Staircase wrapper ── */
   .staircase-wrap {
-    margin-top: 48px;
-    padding: 32px;
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl);
     border: 2px solid #b2dfdb;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     background: rgba(255, 255, 255, 0.4);
   }
 
@@ -1198,7 +1267,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto auto auto;
-    gap: 8px 24px;
+    gap: var(--space-xs) var(--space-lg);
     margin: 0;
   }
 
@@ -1211,7 +1280,7 @@
   }
 
   .gauge-bar {
-    width: 56px;
+    width: var(--space-4xl);
     height: 180px;
     border: 2px solid #2a5e56;
     border-radius: 28px 28px 8px 8px;
@@ -1224,7 +1293,7 @@
 
   .gauge-fill {
     width: 100%;
-    border-radius: 0 0 6px 6px;
+    border-radius: var(--radius-none) var(--radius-none) var(--radius-md) var(--radius-md);
     position: relative;
     transition: height 0.6s ease;
   }
@@ -1244,7 +1313,7 @@
   .gauge-fill--100 {
     height: 100%;
     background: linear-gradient(to top, #00695c, #80cbc4);
-    border-radius: 26px 26px 6px 6px;
+    border-radius: 28px 28px 8px 8px;
   }
 
   .gauge-tick-marks {
@@ -1257,10 +1326,10 @@
   .gauge-tick-marks span {
     position: absolute;
     right: 6px;
-    width: 12px;
+    width: var(--space-sm);
     height: 2px;
     background: #2a5e56;
-    border-radius: 1px;
+    border-radius: var(--radius-sm);
   }
 
   .gauge-tick-marks span:nth-child(1) { bottom: 20%; }
@@ -1269,12 +1338,12 @@
   .gauge-tick-marks span:nth-child(4) { bottom: 80%; }
 
   .gauge-step-num {
-    width: 30px;
-    height: 30px;
+    width: var(--space-xl);
+    height: var(--space-xl);
     background: #00695c;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 0.8rem;
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -1283,38 +1352,38 @@
   }
 
   .gauge-step-title {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 700;
     color: #004d40;
     margin-bottom: 2px;
-    line-height: 1.3;
+    line-height: var(--leading-snug);
   }
 
   .gauge-step-desc {
-    font-size: 0.92rem;
+    font-size: var(--text-base);
     color: #1a5c50;
-    line-height: 1.55;
+    line-height: var(--leading-normal);
   }
 
   .vision-tagline {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     font-weight: 600;
-    color: #000;
-    margin-top: 48px;
+    color: var(--color-text-primary);
+    margin-top: var(--space-3xl);
     margin-bottom: 0;
     text-align: center;
-    line-height: 1.5;
+    line-height: var(--leading-normal);
   }
 
   .gauge-cta {
     text-align: center;
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     color: #2a5e56;
     margin: 38px -32px -32px;
-    line-height: 1.7;
+    line-height: var(--leading-loose);
     background: #f0f7f5;
-    padding: 14px 32px;
-    border-radius: 0 0 10px 10px;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-none) var(--radius-none) var(--radius-lg) var(--radius-lg);
   }
 
   .gauge-cta a {
@@ -1339,7 +1408,11 @@
   }
 
   @media (max-width: 900px) {
-    .container { padding: 0 24px; }
+    /* Heading system */
+    .heading-style-h1 { font-size: 1.8rem; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
+
+    .container { padding: 0 var(--space-lg); }
 
     .nav-toggle { display: block; }
     .main-nav { display: none; width: 100%; }
@@ -1347,14 +1420,14 @@
     .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
     .main-nav li + li { border-top: 1px solid var(--color-border); }
     .main-nav li:last-child { border-top: none; }
-    .main-nav a { display: block; font-size: 1.05rem; padding: 14px 0; border-radius: 0; }
-    .header-inner { flex-wrap: wrap; height: auto; padding: 16px 24px; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
 
-    .page-banner h1 { font-size: 2.2rem; }
+    .page-banner h1 { font-size: var(--text-4xl); }
 
     .banner-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: var(--space-xl);
     }
 
     .scenarios-grid { grid-template-columns: 1fr; }
@@ -1362,9 +1435,9 @@
     .platform-card::after { display: none; }
     .platform-card { padding-left: 0; }
 
-    .who-header { grid-template-columns: 1fr; gap: 32px; }
+    .who-header { grid-template-columns: 1fr; gap: var(--space-xl); }
 
-    .fw-panel-content { padding: 28px 32px; gap: 32px; }
+    .fw-panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
     .fw-panel-header { width: 280px; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1373,20 +1446,18 @@
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
 
-    .section-heading { font-size: 1.8rem; }
-
     /* Credentials */
-    .credentials-box h2 { font-size: 1.5rem; }
+    .credentials-box h2 { font-size: var(--text-2xl); }
 
     .infra-section,
     .platforms-section,
     .who-section,
     .metrics-section,
     .cases-section,
-    .faq-section { padding: 64px 0; }
+    .faq-section { padding: var(--space-4xl) 0; }
 
-    .people-cta-separator { padding-top: 48px; }
-    .contact-section { padding: 48px 0 64px; }
+    .people-cta-separator { padding-top: var(--space-3xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
   }
 
   @media (max-width: 768px) {
@@ -1398,35 +1469,37 @@
 
     .gauge-bar {
       height: 140px;
-      width: 48px;
+      width: var(--space-3xl);
     }
   }
 
   @media (max-width: 600px) {
-    .page-banner h1 { font-size: 1.8rem; }
-    .page-banner-inner { padding: 20px 0 32px; }
-    .page-banner .banner-subtitle { font-size: 1.1rem; }
+    /* Heading system */
+    .heading-style-h1 { font-size: var(--text-2xl); }
+    .heading-style-h2 { font-size: 1.3rem; }
 
-    .banner-form-card { padding: 24px; }
+    .page-banner h1 { font-size: var(--text-3xl); }
+    .page-banner-inner { padding: var(--space-lg) 0 var(--space-xl); }
+    .page-banner .banner-subtitle { font-size: var(--text-lg); }
+
+    .banner-form-card { padding: var(--space-lg); }
     .banner-form-card .form-row { grid-template-columns: 1fr; }
-
-    .section-heading { font-size: 1.5rem; }
 
     .metrics-grid { grid-template-columns: 1fr; }
 
-    .fw-panel-content { flex-direction: column; gap: 16px; padding: 24px 24px; align-items: flex-start; }
+    .fw-panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
     .fw-panel-header { width: auto; }
-    .scenario-card { padding: 20px; }
+    .scenario-card { padding: var(--space-lg); }
 
 
     /* Credentials */
-    .credentials-box { padding: 32px 24px; }
-    .credentials-box h2 { font-size: 1.5rem; }
+    .credentials-box { padding: var(--space-xl) var(--space-lg); }
+    .credentials-box h2 { font-size: var(--text-2xl); }
 
     .form-row { grid-template-columns: 1fr; }
 
-    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
 
     .infra-section,
     .platforms-section,
@@ -1434,7 +1507,7 @@
     .standards-section,
     .metrics-section,
     .cases-section,
-    .faq-section { padding: 40px 0; }
+    .faq-section { padding: var(--space-2xl) 0; }
   }
 </style>
 </head>
@@ -1452,7 +1525,7 @@
       <ul>
         <li><a href="cloudmisp.html">CloudMISP</a></li>
         <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
-        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
         <li><a href="/case-studies">Case Studies</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/about">About</a></li>
@@ -1476,12 +1549,12 @@
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1>Start a fraud data sharing community</h1>
+          <h1 class="heading-style-h1">Start a fraud data sharing community</h1>
 
           <p class="banner-description">We help organisations plan, launch, and operate banking fraud data sharing communities &mdash; from governance design and platform deployment to member onboarding and ongoing community operations.</p>
         </div>
         <div class="banner-form-card">
-          <h3>Talk to us about starting a fraud data sharing community</h3>
+          <h3 class="heading-style-h4">Talk to us about starting a fraud data sharing community</h3>
           <form class="contact-form" action="#" method="post">
             <input type="hidden" name="category" value="CloudMISP">
             <div class="form-row">
@@ -1519,15 +1592,15 @@
   <div class="container">
 
     <div class="section-label">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align: -2px; margin-right: 8px;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align: -2px; margin-right: var(--space-xs);">
         <path d="M8 1L15 14H1L8 1Z" stroke="#e53834" stroke-width="1.5" fill="none"/>
         <line x1="8" y1="6" x2="8" y2="10" stroke="#e53834" stroke-width="1.5" stroke-linecap="round"/>
         <circle cx="8" cy="12" r="0.75" fill="#e53834"/>
       </svg>The Challenge
     </div>
 
-    <h2 class="section-heading" style="margin-bottom: 24px;">Why starting a fraud data sharing community is harder than it looks</h2>
-    <p style="font-size: 1.05rem; line-height: 1.7;">The benefits are clear &mdash; collective defence, faster detection, regulatory goodwill. But standing one up means tackling a long list of hard problems:</p>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Why starting a fraud data sharing community is harder than it looks</h2>
+    <p style="font-size: var(--text-base); line-height: var(--leading-loose);">The benefits are clear &mdash; collective defence, faster detection, regulatory goodwill. But standing one up means tackling a long list of hard problems:</p>
 
     <ul class="challenge-list">
       <li>Identifying a sharing community <b>niche</b> and defining what gets shared</li>
@@ -1542,7 +1615,7 @@
       <li>Running the <b>social side</b> &mdash; member meetings, onboarding, community engagement</li>
     </ul>
 
-    <h3 class="section-heading" style="font-size: 1.75rem; margin-top: 48px; margin-bottom: 0; padding-left: 48px; display: flex; align-items: center; gap: 14px;"><svg width="28" height="28" viewBox="0 0 22 22" fill="none" style="flex-shrink: 0; margin-left: -48px;"><rect x="1" y="1" width="20" height="20" rx="3" fill="#fff" stroke="var(--color-red)" stroke-width="2"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="var(--color-red)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You don&rsquo;t have to figure all of this out yourself. That&rsquo;s what we do.</h3>
+    <h3 class="heading-style-h3" style="font-size: var(--text-3xl); margin-top: var(--space-3xl); margin-bottom: 0; padding-left: var(--space-3xl); display: flex; align-items: center; gap: 14px;"><svg width="28" height="28" viewBox="0 0 22 22" fill="none" style="flex-shrink: 0; margin-left: calc(var(--space-3xl) * -1);"><rect x="1" y="1" width="20" height="20" rx="3" fill="#fff" stroke="var(--color-accent)" stroke-width="2"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You don&rsquo;t have to figure all of this out yourself. That&rsquo;s what we do.</h3>
 
   </div>
 </section>
@@ -1553,8 +1626,8 @@
 
     <div class="vision-heading-wrap">
       <div class="section-label">The Vision</div>
-      <h2 class="section-heading" style="margin-bottom: 24px;">What your fraud data sharing community will look like with our help</h2>
-      <p style="font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 66%;">Imagine your community is up and running. Members trust each other, intelligence flows in near real-time, and every participant &mdash; from the smallest institution to the largest &mdash; is getting value. Here&rsquo;s what that looks like day to day.</p>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">What your fraud data sharing community will look like with our help</h2>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-loose); margin-bottom: var(--space-md); max-width: 66%;">Imagine your community is up and running. Members trust each other, intelligence flows in near real-time, and every participant &mdash; from the smallest institution to the largest &mdash; is getting value. Here&rsquo;s what that looks like day to day.</p>
 
       <ul class="vision-list">
         <li><b>Clear focus</b> &mdash; The community has a well-defined niche. Every member knows exactly what types of fraud data are shared, what is in scope, and what is not.</li>
@@ -1567,7 +1640,7 @@
     </div>
 
     <div class="staircase-wrap">
-    <h3 class="section-heading" style="font-size: 1.75rem; margin: 0 0 38px 0;">Share with community members of different maturity levels</h3>
+    <h3 class="heading-style-h3" style="font-size: var(--text-3xl); margin: 0 0 var(--space-2xl) 0;">Share with community members of different maturity levels</h3>
     <div class="gauge-row">
       <div class="gauge-step">
         <div class="gauge-bar">
@@ -1627,7 +1700,7 @@
 <section class="who-section">
   <div class="container">
     <div class="section-label">Who we work with</div>
-    <h2 class="section-heading">We help launch every type of fraud data sharing community</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">We help launch every type of fraud data sharing community</h2>
   </div>
   <div class="fw-panels">
     <div class="fw-panel">
@@ -1701,7 +1774,7 @@
       <div class="scenario-card">
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1752864365480-178d35c15724?w=800&q=80" alt="Fluffy white clouds against a dark blue sky" loading="lazy">
         <div class="scenario-card-number">Platform</div>
-        <div class="scenario-card-title">CloudMISP as your <span style="color: #e53834;">sharing hub</span></div>
+        <div class="scenario-card-title">CloudMISP as your <span style="color: var(--color-accent);">sharing hub</span></div>
         <div class="scenario-card-body">A fully managed MISP instance deployed in your preferred AWS region, with enterprise-grade reliability and support.</div>
         <ul class="scenario-list">
           <li>Automated backups, patching, and 24/7 monitoring</li>
@@ -1714,7 +1787,7 @@
       <div class="scenario-card">
         <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
         <div class="scenario-card-number">Governance</div>
-        <div class="scenario-card-title">Community design and <span style="color: #e53834;">member onboarding</span></div>
+        <div class="scenario-card-title">Community design and <span style="color: var(--color-accent);">member onboarding</span></div>
         <div class="scenario-card-body">Hands-on consulting to stand up your community and get members sharing.</div>
         <ul class="scenario-list">
           <li>Draft governance charters, data-handling policies, and membership agreements</li>
@@ -1727,7 +1800,7 @@
       <div class="scenario-card">
         <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
         <div class="scenario-card-number">Integrations</div>
-        <div class="scenario-card-title">Integrations and <span style="color: #e53834;">ongoing support</span></div>
+        <div class="scenario-card-title">Integrations and <span style="color: var(--color-accent);">ongoing support</span></div>
         <div class="scenario-card-body">Custom connectors between member fraud systems, regulators, and the sharing platform.</div>
         <ul class="scenario-list">
           <li>Build and maintain STIX/TAXII, REST API, and MISP feed integrations</li>
@@ -1747,7 +1820,7 @@
     <div class="credentials-box">
         <div class="credentials-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
         <div class="credentials-label">Why work with us</div>
-        <h2>Fraud data sharing community experience you can trust</h2>
+        <h2 class="heading-style-h2">Fraud data sharing community experience you can trust</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
@@ -1787,7 +1860,7 @@
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="section-heading">Common questions about starting a fraud data sharing community</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about starting a fraud data sharing community</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
@@ -1855,7 +1928,7 @@
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
-      <h2 class="section-heading">How can we help?</h2>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
       <p class="contact-subtitle">Tell us about your plans for a fraud data sharing community and we'll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
         <input type="hidden" name="category" value="CloudMISP">
@@ -1894,7 +1967,7 @@
     </a>
     <div class="footer-links">
       <a href="/about">About</a>
-      <a href="/security-consulting">Security Consulting</a>
+      <a href="security-operations.html">Security Operations</a>
       <a href="/resources">Resources</a>
       <a href="/contact-us">Contact</a>
       <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>

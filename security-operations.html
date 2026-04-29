@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fraud Data Sharing - Cosive</title>
+<title>Cyber Security Operations - Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
-  
+
     /* ── Sizing Tokens ── */
 
     /* Spacing (4px base grid) */
@@ -142,7 +142,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--space-4xl);
+    height: var(--space-5xl);
   }
 
   .header-logo img {
@@ -212,6 +212,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     filter: grayscale(1);
     opacity: 0.4;
   }
@@ -271,8 +272,6 @@
     padding: var(--space-6xl) 0 0;
   }
 
-
-
   .hero-label {
     font-family: var(--font-heading);
     font-size: var(--text-lg);
@@ -302,7 +301,6 @@
     text-decoration-thickness: 4px;
   }
 
-
   .chevron-circle {
     display: inline-flex;
     align-items: center;
@@ -328,7 +326,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2 / 1;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -426,7 +424,6 @@
     margin-bottom: var(--space-lg);
   }
 
-
   .btn-primary {
     display: inline-block;
     padding: var(--space-md) var(--space-xl);
@@ -506,7 +503,7 @@
     line-height: var(--leading-normal);
   }
 
-  /* ── Social proof / credentials section ── */
+  /* ── Credentials section ── */
   .credentials-section {
     background: #121212;
   }
@@ -628,9 +625,110 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
-  .icon-item-text strong {
-    color: var(--color-white);
+  /* ── Differentiators section ── */
+  .differentiators-section {
+    background: var(--color-mid-grey);
+  }
+
+  .differentiators-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    background: var(--color-mid-grey);
+  }
+
+  .differentiators-content {
+    padding: var(--space-5xl) var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .differentiators-separator {
+    margin-bottom: var(--space-lg);
+  }
+
+  .differentiators-separator svg {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  .differentiators-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .differentiators-section h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md) var(--space-md);
+  }
+
+  .diff-card {
+    background: var(--color-white);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .diff-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-sm);
+  }
+
+  .diff-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .diff-card p {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: #3a3a3a;
+    margin: 0;
+  }
+
+  .differentiators-photo {
+    position: relative;
+  }
+
+  .differentiators-photo::before {
+    display: none;
+  }
+
+  .differentiators-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(1) contrast(1.3);
+  }
+
+  .differentiators-caption {
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-lg);
+    font-size: var(--text-base);
+    color: var(--color-white);
+    z-index: 2;
+    font-weight: 500;
+    background: rgba(0,0,0,0.7);
+    padding: var(--space-2xs) var(--space-xs);
   }
 
   /* ── Services section ── */
@@ -877,6 +975,9 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
+    .differentiators-inner { grid-template-columns: 1fr; }
+    .differentiators-photo { min-height: 300px; }
+    .differentiators-grid { grid-template-columns: 1fr 1fr; }
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
   }
@@ -914,6 +1015,8 @@
     .faq-section { padding: var(--space-4xl) 0; }
     /* Credentials */
     .credentials-box h2 { font-size: var(--text-2xl); }
+    /* Differentiators */
+    .differentiators-section h2 { font-size: var(--text-2xl); }
 
     .customers-strip {
       flex-direction: column;
@@ -963,6 +1066,11 @@
     /* Credentials */
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
     .credentials-box h2 { font-size: var(--text-2xl); }
+    /* Differentiators */
+    .differentiators-content { padding: var(--space-xl) var(--space-lg); }
+    .differentiators-section h2 { font-size: var(--text-2xl); }
+    .differentiators-grid { grid-template-columns: 1fr; }
+    .diff-number { font-size: var(--text-3xl); }
 
     /* Form */
     .form-row { grid-template-columns: 1fr; }
@@ -997,39 +1105,29 @@
 </header>
 
 <div class="page-banner">
-  <img src="images/fraud-banner-bg.jpg" alt="">
+  <img src="images/hero/hero-security-operations.webp" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="separator">/</span>
-        <span class="current">Fraud Data Sharing</span>
+        <span class="current">Cyber Security Operations</span>
       </nav>
-      <h1 class="heading-style-h1">Fraud Data Sharing</h1>
+      <h1 class="heading-style-h1">Cyber Security Operations</h1>
     </div>
   </div>
 </div>
 
 <section class="hero">
   <div class="container">
-    <h1 class="heading-style-h1">We help banks and financial institutions <span class="highlight">share fraud data securely</span> to detect and prevent suspicious activity faster.</h1>
+    <h1 class="heading-style-h1">We help you <span class="highlight">build, run, and improve your security operations</span> to protect what matters most to your organisation.</h1>
     <h3 class="heading-style-h3" style="color: var(--color-text-secondary); margin-bottom: var(--space-xl);">Select your goal <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="industry-grid">
 
-      <a href="consume-share-fraud-data.html" class="industry-card">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Consume &amp; share fraud data">
+      <a href="#" class="industry-card">
+        <img src="images/hero/hero-improve-cti-team.webp" alt="Improve my cybersecurity ops team">
         <div class="industry-card-content">
-          <h2>Consume &amp; share fraud data</h2>
-          <div class="card-actions">
-            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
-          </div>
-        </div>
-      </a>
-
-      <a href="start-sharing-community.html" class="industry-card">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Start a sharing community">
-        <div class="industry-card-content">
-          <h2>Start a sharing community</h2>
+          <h2>Improve my cybersecurity ops team</h2>
           <div class="card-actions">
             <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
           </div>
@@ -1037,9 +1135,49 @@
       </a>
 
       <a href="#" class="industry-card">
-        <img src="images/fraud-tools-card.jpg" alt="Integrate with your tools">
+        <img src="images/hero/hero-secops-start-team.webp" alt="Start a new cybersecurity ops team">
         <div class="industry-card-content">
-          <h2>Integrate with your tools</h2>
+          <h2>Start a new cybersecurity ops team</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="industry-card">
+        <img src="images/hero/hero-secops-automate.jpg" alt="Automate our cybersecurity ops team">
+        <div class="industry-card-content">
+          <h2>Automate our cybersecurity ops team</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="industry-card">
+        <img src="images/hero/hero-attack-framework.webp" alt="Use the ATT&CK Framework">
+        <div class="industry-card-content">
+          <h2>Use the ATT&amp;CK Framework</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="industry-card">
+        <img src="images/fraud-tools-card.jpg" alt="Integrate my security tools">
+        <div class="industry-card-content">
+          <h2>Integrate my security tools</h2>
+          <div class="card-actions">
+            <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="industry-card">
+        <img src="images/hero/hero-secops-join-first.webp" alt="Help us join FIRST.org">
+        <div class="industry-card-content">
+          <h2>Help us join FIRST.org</h2>
           <div class="card-actions">
             <span class="card-cta">Learn More <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
           </div>
@@ -1059,74 +1197,162 @@
       <div class="customer-item">
         <div class="customer-item-tags">
           <span class="tag">APRA</span>
-          <span class="tag">RBNZ</span>
-        </div>
-        <h3>Australian &amp; New Zealand Banks</h3>
-        <p>Share fraud intelligence under APRA CPS 234 and RBNZ guidance to meet information security and operational resilience obligations across AU and NZ.</p>
-      </div>
-
-      <div class="customer-item">
-        <div class="customer-item-tags">
-          <span class="tag">FRIDA</span>
-          <span class="tag">FNC-RF</span>
-        </div>
-        <h3>European Regulated Banks</h3>
-        <p>Participate in the ECB's FRIDA initiative and share fraud data with the Banque de France using FNC-RF for fraud typology, mule account reporting, and anonymised fraud indicators across EU member banks.</p>
-      </div>
-
-      <div class="customer-item">
-        <div class="customer-item-tags">
           <span class="tag">FCA</span>
-          <span class="tag">OpRes</span>
         </div>
-        <h3>UK Regulated Banks</h3>
-        <p>Meet FCA operational resilience requirements by reporting APP fraud, account takeovers, and emerging threats.</p>
+        <h3>Banks &amp; Financial Services</h3>
+        <p>Banks and financial institutions building security operations capabilities to detect threats, respond to incidents, and meet regulatory obligations from APRA, FCA, and ECB.</p>
       </div>
 
       <div class="customer-item">
         <div class="customer-item-tags">
-          <span class="tag">SAMA</span>
-          <span class="tag">CBUAE</span>
+          <span class="tag">SOCI</span>
+          <span class="tag">NIS2</span>
         </div>
-        <h3>Middle Eastern Central Banks</h3>
-        <p>Share fraud intelligence with central banks across the GCC region to support regulatory compliance and regional fraud prevention.</p>
+        <h3>Critical Infrastructure &amp; OT</h3>
+        <p>Energy, transport, water, and utilities operators building security operations teams to protect operational technology and essential services.</p>
+      </div>
+
+      <div class="customer-item">
+        <div class="customer-item-tags">
+          <span class="tag">ISAC</span>
+          <span class="tag">MSSP</span>
+        </div>
+        <h3>Enterprise</h3>
+        <p>Large organisations and managed security providers building and improving security operations to strengthen detection, response, and resilience.</p>
+      </div>
+
+      <div class="customer-item">
+        <div class="customer-item-tags">
+          <span class="tag">ASD</span>
+          <span class="tag">CISA</span>
+        </div>
+        <h3>Government</h3>
+        <p>National cyber security agencies and defence organisations building security operations capabilities to protect government networks and critical assets.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- Social proof / credentials -->
+<!-- What makes us different -->
+<section class="differentiators-section">
+  <div class="differentiators-inner">
+    <div class="differentiators-content">
+      <div class="differentiators-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
+      <div class="differentiators-label">What makes us different</div>
+      <h2 class="heading-style-h2">Why organisations choose to work with us</h2>
+      <div class="differentiators-grid">
+        <div class="diff-card">
+          <div class="diff-number">01</div>
+          <h3 class="heading-style-h4">Verizon experience</h3>
+          <p>14 years working for Verizon in global security operations</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">02</div>
+          <h3 class="heading-style-h4">24x7 operations</h3>
+          <p>Worked in 24x7 security operations environments</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">03</div>
+          <h3 class="heading-style-h4">Built and improved SOCs</h3>
+          <p>Created new security operations teams and improved existing ones</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">04</div>
+          <h3 class="heading-style-h4">National CERT experience</h3>
+          <p>Worked in National CERTs protecting critical infrastructure</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">05</div>
+          <h3 class="heading-style-h4">Global CERT advisors</h3>
+          <p>Advised national CERTs globally on building and maturing their capabilities</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">06</div>
+          <h3 class="heading-style-h4">FIRST.org liaison members</h3>
+          <p>Liaison Members of FIRST, the international incident response organisation</p>
+        </div>
+      </div>
+    </div>
+    <div class="differentiators-photo">
+      <img src="images/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at NZITF">
+      <div class="differentiators-caption">Cosive co-founder Terry MacDonald presenting at NZITF.</div>
+    </div>
+  </div>
+</section>
+
+<!-- How we can help — services -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-label">How we can help</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Cyber security operations services</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>Improve your cybersecurity ops team</h3>
+        <p>Assess your current SOC maturity, identify gaps in people, processes, and technology, and build a roadmap to improve your security operations.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Start a new cybersecurity ops team</h3>
+        <p>Recruit, train, and stand up a new security operations team with the right structure, skills, and tooling from day one.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Automate your cybersecurity ops</h3>
+        <p>Automate detection, triage, and response workflows across your SIEM, SOAR, and EDR to increase speed and reduce analyst fatigue.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>ATT&amp;CK framework mapping</h3>
+        <p>Map your detection capabilities to the MITRE ATT&amp;CK framework and identify coverage gaps across tactics and techniques.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Security tool integration</h3>
+        <p>Connect your SIEM, SOAR, EDR, and other security tools into a cohesive operations workflow.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>FIRST.org membership</h3>
+        <p>Prepare and guide your organisation through the FIRST.org membership process and SIM3 assessment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Why work with us — credentials -->
 <section class="credentials-section">
   <div class="credentials-inner">
     <div class="credentials-box">
         <div class="credentials-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
         <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Fraud data sharing expertise you can trust</h2>
+        <h2 class="heading-style-h2">Security operations expertise you can trust</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
+            <div class="icon-item-text"><strong>Trusted by enterprise and government</strong> organisations to build and improve their security operations</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
+            <div class="icon-item-text"><strong>Decades of national CSIRT and SOC leadership</strong> across government, financial services, and critical infrastructure worldwide</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
+            <div class="icon-item-text"><strong>FIRST.org advisors and SIM3 assessment specialists</strong> helping teams achieve membership and accreditation</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
+            <div class="icon-item-text"><strong>Deep expertise in ATT&amp;CK, FIRST, and SIM3</strong> frameworks and standards</div>
           </div>
         </div>
       </div>
@@ -1137,138 +1363,97 @@
   </div>
 </section>
 
-<!-- How we can help — services -->
-<section class="services-section">
-  <div class="container">
-    <div class="section-label">How we can help</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Fraud data sharing services</h2>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <h3>Fraud sharing strategy</h3>
-        <p>Assess your current state and design a fraud data sharing roadmap aligned to your regulatory obligations.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Platform deployment</h3>
-        <p>Deploy and configure CloudMISP with sharing groups, taxonomies, and integrations tailored for fraud data.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Regulator compliance</h3>
-        <p>Meet APRA, FCA, ECB, and other regulatory fraud reporting requirements with automated, structured data exchange.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Peer-to-peer sharing</h3>
-        <p>Establish trusted bilateral sharing channels with partner banks for real-time fraud indicator exchange.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Community building</h3>
-        <p>Launch and operate a fraud intelligence sharing community for your region or sector.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Tool integration</h3>
-        <p>Connect MISP to your fraud management platforms, transaction monitoring, and case management systems.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">Frequently asked questions</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about fraud data sharing</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear from security leaders</h2>
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          What is Fraud Data Sharing?
+          How do you assess our current SOC maturity?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          Fraud data sharing is the structured exchange of fraud indicators, typologies, and intelligence between financial institutions, regulators, and industry groups. It enables banks to collectively detect and prevent fraud by sharing information about known fraudsters, mule accounts, emerging attack patterns, and suspicious transactions in a standardised, machine-readable format.
+          We evaluate your people, processes, and technology against industry benchmarks, then map detection capabilities to ATT&CK. This gives you a clear picture of where you stand, where the gaps are, and a prioritised roadmap you can take to the board.
         </div>
       </details>
 
       <details>
         <summary>
-          Why is Fraud Data Sharing important?
+          How do I prioritise which threats to focus on?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          Fraudsters target multiple banks simultaneously, but each bank typically detects fraud in isolation. Without shared intelligence, a fraudster blocked by one bank simply moves to the next. Sharing fraud data means banks can see threats detected by peers before they strike, block mule accounts across institutions in near real-time, meet growing regulatory requirements for fraud reporting, and reduce fraud losses collectively rather than individually.
+          We use threat modelling to identify the adversaries, techniques, and attack vectors most relevant to your sector and infrastructure. Combined with ATT&CK mapping, this shows exactly where your detection coverage is strong and where to invest next.
         </div>
       </details>
 
       <details>
         <summary>
-          What fraud data sharing platforms can you help connect us to?
+          We have multiple security tools that don't talk to each other — can you help?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          We specialise in MISP (Malware Information Sharing Platform), the world's leading open-source threat intelligence sharing platform. Through MISP, we can connect you to regulatory sharing frameworks (APRA, ECB FRIDA, FCA, SAMA), peer-to-peer sharing groups with other banks, industry sharing communities (ISACs, sector-specific groups), and commercial threat intelligence feeds. We also integrate MISP with your existing fraud tools — SAS, NICE Actimize, Featurespace, Splunk, and others.
+          We integrate SIEM, SOAR, EDR, threat intelligence platforms, and ticketing systems into a connected workflow. Our approach is vendor-neutral — we optimise what you already have rather than pushing replacements, so your team gets more value from existing investments.
         </div>
       </details>
 
       <details>
         <summary>
-          What is MISP?
+          Can you help us stand up a new CSIRT?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          MISP (Malware Information Sharing Platform) is the world's most widely used open-source platform for sharing, storing, and correlating threat intelligence and fraud indicators. Originally developed for cyber threat intelligence, MISP is now used extensively by central banks, financial regulators, and banking communities for fraud data sharing. Cosive is a contributor to MISP and operates CloudMISP, a fully managed MISP hosting service.
+          Yes. We've helped build CSIRTs at national, sector, and organisational levels across government and critical infrastructure. We cover everything from team structure and processes to tooling and training, and can guide you through SIM3 assessment and FIRST membership once the team is operational.
         </div>
       </details>
 
       <details>
         <summary>
-          What is CloudMISP?
+          What's the fastest path to FIRST membership?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          CloudMISP is Cosive's fully managed MISP hosting service. Instead of deploying and maintaining your own MISP instance, CloudMISP gives you a dedicated, production-ready platform with automated updates, backups, monitoring, and support. It's pre-configured with fraud-specific taxonomies, sharing groups, and integrations so you can start sharing fraud data immediately without the operational overhead of running the infrastructure yourself.
+          We guide you through the full process — from gap analysis against entry requirements to building the processes and documentation needed for acceptance. Our team includes FIRST.org advisors who understand exactly what the review committee looks for.
         </div>
       </details>
 
       <details>
         <summary>
-          How long does it take to get started?
+          What does a SIM3 assessment involve?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          Most organisations can be up and running with a CloudMISP instance within a few weeks. The initial platform deployment is fast — the majority of the time is spent on scoping your sharing requirements, configuring taxonomies and sharing groups to match your regulatory obligations, and connecting integrations to your existing fraud tools. For peer-to-peer or community sharing, timelines depend on the number of partner institutions being onboarded.
+          SIM3 measures your incident response maturity across four areas: organisation, human, tools, and processes. We benchmark your team against the model, identify gaps, and build a remediation plan aligned with FIRST membership or TF-CSIRT accreditation requirements.
         </div>
       </details>
 
       <details>
         <summary>
-          Is shared fraud data kept confidential?
+          How do you ensure improvements stick after you leave?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          Yes. MISP provides granular controls over who can see what through its distribution levels and sharing groups. You decide exactly which organisations receive your data, and can restrict sharing at the event, attribute, or object level. Data is encrypted in transit and at rest, and sharing agreements govern how recipients may use the intelligence. You retain full control over your contributions at all times.
+          We upskill your team throughout every engagement, not just at the end. Knowledge transfer, documented playbooks, and hands-on mentoring mean your people can sustain and build on improvements independently. We build your capability, not a dependency.
         </div>
       </details>
 
       <details>
         <summary>
-          What types of fraud indicators can be shared?
+          How do I make the case for security operations investment to the board?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          MISP supports a wide range of fraud-relevant indicator types including mule account details, suspicious transaction patterns, fraudster identifiers, device fingerprints, IP addresses, phishing URLs, and fraud typology descriptions. Cosive configures your instance with fraud-specific object templates and taxonomies so indicators are structured, searchable, and machine-readable — ready to feed directly into your detection and monitoring systems.
+          We help you frame security operations in terms the board understands: risk reduction, incident response times, detection coverage percentages, and benchmark comparisons against peers. A mature SOC isn't a cost centre — it's a measurable reduction in organisational risk.
         </div>
       </details>
 
     </div>
     <div class="faq-image">
-      <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80" alt="Credit cards and banking">
+      <img src="images/faq-secops.webp" alt="Orange observation tower against a clear blue sky">
     </div>
     </div>
   </div>
@@ -1282,10 +1467,10 @@
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start sharing fraud data</h2>
-      <p class="contact-subtitle">Tell us about your fraud data sharing goals and we'll get back to you.</p>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start improving your security operations</h2>
+      <p class="contact-subtitle">Tell us about your security operations goals and we'll get back to you.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="Fraud Data Sharing">
+        <input type="hidden" name="category" value="Cyber Security Operations">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>
@@ -1326,7 +1511,7 @@
       <a href="/contact-us">Contact</a>
       <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
     </div>
-    <div class="footer-copyright">&copy; Cosive Pty Ltd.</div>
+    <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
   </div>
 </footer>
 

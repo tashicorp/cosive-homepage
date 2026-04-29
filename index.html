@@ -14,23 +14,108 @@
   :root {
     --color-dark: #0e141c;
     --color-white: #ffffff;
-    --color-bg: #ffffff;
-    --color-surface: #f8f9fa;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
     --color-border: #e8eaed;
-    --color-text: #1a1a1a;
+    --color-text-primary: #1a1a1a;
     --color-text-secondary: #5f6368;
-    --color-red: #e53834;
-    --color-red-dark: #c1121f;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
+  
+    /* ── Sizing Tokens ── */
+
+    /* Spacing (4px base grid) */
+    --space-2xs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 0.75rem;    /* 12px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 2.5rem;    /* 40px */
+    --space-3xl: 3rem;      /* 48px */
+    --space-4xl: 4rem;      /* 64px */
+    --space-5xl: 5rem;      /* 80px */
+    --space-6xl: 6rem;      /* 96px */
+    --space-7xl: 8rem;      /* 128px */
+    --space-8xl: 10rem;     /* 160px */
+
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.75rem;    /* 28px */
+    --text-4xl: 2rem;       /* 32px */
+    --text-5xl: 2.5rem;     /* 40px */
+    --text-6xl: 3rem;       /* 48px */
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
   }
 
   body {
     font-family: var(--font-body);
-    color: var(--color-text);
-    line-height: 1.6;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
     -webkit-font-smoothing: antialiased;
-    background: var(--color-bg);
+    background: var(--color-background);
   }
 
   a { text-decoration: none; color: inherit; }
@@ -39,7 +124,7 @@
   .container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 var(--space-3xl);
   }
 
   /* ── Header ── */
@@ -56,38 +141,38 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: var(--space-5xl);
   }
 
   .header-logo img {
-    height: 36px;
+    height: var(--space-xl);
   }
 
   .main-nav ul {
     display: flex;
-    gap: 8px;
+    gap: var(--space-xs);
     align-items: center;
   }
 
   .main-nav a {
     color: var(--color-text-secondary);
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 3px;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
     transition: color 0.2s;
   }
 
   .main-nav a:hover {
-    color: var(--color-text);
+    color: var(--color-text-primary);
   }
 
   .nav-cta {
-    background: var(--color-red) !important;
+    background: var(--color-accent) !important;
     color: var(--color-white) !important;
     border: none !important;
-    padding: 8px 20px !important;
-    border-radius: 4px !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
     font-weight: 600 !important;
     transition: background 0.2s !important;
     white-space: nowrap;
@@ -99,18 +184,18 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    color: var(--color-text);
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
   }
 
   .nav-toggle svg {
-    width: 24px;
-    height: 24px;
+    width: var(--space-lg);
+    height: var(--space-lg);
     display: block;
   }
 
   .nav-cta:hover {
-    background: var(--color-red-dark) !important;
+    background: var(--color-accent-dark) !important;
   }
 
   /* ── Hero ── */
@@ -121,54 +206,46 @@
   .hero h1 .highlight {
     font-weight: 800;
     text-decoration: underline;
-    text-decoration-color: var(--color-red);
+    text-decoration-color: var(--color-accent);
     text-underline-offset: 6px;
     text-decoration-thickness: 4px;
   }
 
   .hero {
-    padding: 144px 0 0;
+    padding: var(--space-7xl) 0 0;
   }
 
   .hero h1 {
     font-family: var(--font-heading);
-    font-size: 2.6rem;
+    font-size: var(--text-5xl);
     font-weight: 500;
-    line-height: 1.15;
-    color: var(--color-text);
-    letter-spacing: -0.5px;
-    margin-bottom: 96px;
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-6xl);
     max-width: 66.66%;
   }
 
   .hero-subtitle-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 96px;
+    gap: var(--space-md);
+    margin-bottom: var(--space-6xl);
   }
 
   .hero-subtitle {
     grid-column: 1 / 3;
-    font-size: 1.35rem;
+    font-size: var(--text-2xl);
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: var(--leading-normal);
   }
 
-  .industry-heading {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    letter-spacing: -0.3px;
-    margin-bottom: 32px;
-  }
 
   .chevron-circle {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
-    margin-left: 6px;
+    margin-left: var(--space-xs);
   }
 
   .chevron-circle svg {
@@ -180,11 +257,11 @@
   .industry-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: var(--space-xl);
   }
 
   .industry-card {
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -216,7 +293,7 @@
   }
 
   .industry-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     transform: translateY(-4px);
   }
 
@@ -231,27 +308,27 @@
   .industry-card-content {
     position: relative;
     z-index: 2;
-    padding: 28px 28px 26px;
+    padding: var(--space-xl) var(--space-xl) var(--space-lg);
   }
 
   .industry-card h2 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: var(--text-4xl);
     font-weight: 700;
-    line-height: 1.2;
-    color: #fff;
-    margin-bottom: 6px;
-    letter-spacing: -0.3px;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+    letter-spacing: var(--tracking-tight);
   }
 
   .industry-card .card-actions {
     display: flex;
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   .industry-card .card-cta {
     color: rgba(255,255,255,0.85);
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
   }
 
   .industry-card .card-cta svg {
@@ -261,45 +338,41 @@
   /* Hero testimonial (full width below nav cards) */
   .hero-testimonial {
     background: var(--color-white);
-    padding: 144px 0 96px;
+    padding: var(--space-7xl) 0 var(--space-6xl);
   }
 
   .hero-testimonial .testimonial-inner {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 var(--space-3xl);
     text-align: center;
   }
 
   .testimonial-sinewave {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 26px;
-  }
-
-  .testimonial-sinewave svg {
-    width: 80px;
+    display: block;
+    width: var(--space-5xl);
     height: auto;
+    margin: 0 auto var(--space-lg);
   }
 
   .hero-testimonial .testimonial-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 20px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
   }
 
   .hero-testimonial blockquote {
     font-family: var(--font-heading);
-    font-size: 1.875rem;
+    font-size: var(--text-4xl);
     font-weight: 500;
     font-style: normal;
-    color: var(--color-text);
-    line-height: 1.45;
-    margin-bottom: 24px;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-lg);
     min-height: 5.5em;
     display: flex;
     align-items: center;
@@ -307,7 +380,7 @@
   }
 
   .hero-testimonial cite {
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     color: var(--color-text-secondary);
     font-style: normal;
     font-weight: 400;
@@ -315,15 +388,15 @@
 
   .hero-testimonial .hero-dots {
     display: flex;
-    gap: 10px;
-    margin-top: 24px;
+    gap: var(--space-xs);
+    margin-top: var(--space-lg);
     justify-content: center;
   }
 
   .hero-testimonial .hero-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: var(--space-xs);
+    height: var(--space-xs);
+    border-radius: var(--radius-full);
     background: var(--color-border);
     border: none;
     padding: 0;
@@ -332,20 +405,20 @@
   }
 
   .hero-testimonial .hero-dot.active {
-    background: var(--color-red);
+    background: var(--color-accent);
   }
 
   .card-cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 1.1rem;
+    gap: var(--space-xs);
+    font-size: var(--text-lg);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
     transition: gap 0.2s;
   }
 
-  .card-cta:hover { gap: 10px; }
+  .card-cta:hover { gap: var(--space-xs); }
 
   .card-cta svg {
     width: 1.1em;
@@ -355,36 +428,36 @@
 
   /* ── Services section ── */
   .services-section {
-    padding: 96px 0 160px;
+    padding: var(--space-6xl) 0 var(--space-8xl);
     border-top: 1px solid var(--color-border);
   }
 
   .services-section .section-label {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: var(--text-3xl);
     font-weight: 700;
     color: var(--color-text-secondary);
-    letter-spacing: -0.3px;
-    margin-bottom: 32px;
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-xl);
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    gap: var(--space-3xl);
   }
 
   .service-card {
-    padding: 32px 28px;
-    border-radius: 10px;
+    padding: var(--space-xl) var(--space-xl);
+    border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    background: var(--color-surface);
+    background: var(--color-light-grey);
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--color-text-primary);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
   }
 
@@ -395,21 +468,18 @@
   }
 
   .service-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1.35;
+    line-height: var(--leading-normal);
   }
 
   .service-card p {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: var(--leading-normal);
   }
 
   .service-card .card-cta {
     margin-top: auto;
-    padding-top: 12px;
+    padding-top: var(--space-sm);
   }
 
   /* ── Credentials section ── */
@@ -419,7 +489,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 48px;
+    margin-bottom: var(--space-3xl);
   }
 
   .credentials-bg {
@@ -451,35 +521,31 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 80px 0;
+    padding: var(--space-5xl) 0;
   }
 
   .credentials-box {
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--color-white);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 14px;
-    padding: 56px 52px;
-    max-width: 720px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4xl) var(--space-3xl);
+    max-width: var(--container-standard);
     margin-left: calc(25vw - 360px);
   }
 
   .credentials-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 16px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
   .credentials-box h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 28px;
-    color: var(--color-text);
+    margin-bottom: var(--space-xl);
   }
 
   .icon-credentials {
@@ -491,8 +557,8 @@
   .icon-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px 0;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
@@ -506,11 +572,11 @@
   }
 
   .icon-item-icon {
-    width: 36px;
-    height: 36px;
+    width: var(--space-xl);
+    height: var(--space-xl);
     flex-shrink: 0;
-    color: var(--color-red);
-    padding-top: 1px;
+    color: var(--color-accent);
+    padding-top: var(--space-2xs);
   }
 
   .icon-item-icon svg {
@@ -521,30 +587,30 @@
   .icon-item-text {
     flex: 1;
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.55;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
     color: var(--color-text-secondary);
   }
 
   .icon-item-text strong {
-    color: var(--color-text);
+    color: var(--color-text-primary);
     font-weight: 700;
   }
 
   .credentials-caption {
     position: absolute;
-    bottom: 16px;
-    right: 24px;
+    bottom: var(--space-md);
+    right: var(--space-lg);
     z-index: 2;
-    font-size: 1.05rem;
-    color: #fff;
+    font-size: var(--text-base);
+    color: var(--color-white);
     background: rgba(0,0,0,0.7);
-    padding: 4px 10px;
+    padding: var(--space-2xs) var(--space-xs);
   }
 
   /* ── Differentiators section ── */
   .differentiators-section {
-    background: #f0f0f0;
+    background: var(--color-mid-grey);
   }
 
   .differentiators-inner {
@@ -553,76 +619,68 @@
     gap: 0;
     align-items: stretch;
     overflow: hidden;
-    background: #f0f0f0;
+    background: var(--color-mid-grey);
   }
 
   .differentiators-content {
-    padding: 80px 52px;
+    padding: var(--space-5xl) var(--space-3xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   .differentiators-separator {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-lg);
   }
 
   .differentiators-separator svg {
-    width: 80px;
+    width: var(--space-5xl);
     height: auto;
   }
 
   .differentiators-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 16px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
   .differentiators-section h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 28px;
-    color: #1a1a1a;
+    margin-bottom: var(--space-xl);
   }
 
   .differentiators-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px 16px;
+    gap: var(--space-md) var(--space-md);
   }
 
   .diff-card {
-    background: #fff;
+    background: var(--color-white);
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 28px 24px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
   }
 
   .diff-number {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: var(--text-4xl);
     font-weight: 800;
-    color: var(--color-red);
-    line-height: 1;
-    margin-bottom: 12px;
+    color: var(--color-accent);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-sm);
   }
 
   .diff-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #1a1a1a;
+    margin-bottom: var(--space-xs);
   }
 
   .diff-card p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
     color: #3a3a3a;
     margin: 0;
   }
@@ -640,44 +698,38 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 80% center;
+    object-position: center;
     filter: grayscale(1) contrast(1.3);
   }
 
   .differentiators-caption {
     position: absolute;
-    bottom: 16px;
-    right: 24px;
-    font-size: 1.05rem;
-    color: #fff;
+    bottom: var(--space-md);
+    right: var(--space-lg);
+    font-size: var(--text-base);
+    color: var(--color-white);
     z-index: 2;
     font-weight: 500;
     background: rgba(0,0,0,0.7);
-    padding: 4px 10px;
+    padding: var(--space-2xs) var(--space-xs);
   }
 
   /* ── Customers section ── */
   .customers-section {
-    padding: 144px 0;
+    padding: var(--space-7xl) 0;
     background: var(--color-white);
   }
 
   .customers-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 20px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
   }
 
-  .customers-heading {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 48px;
-  }
 
   .customers-panels {
     display: flex;
@@ -714,19 +766,19 @@
   .panel-content {
     position: relative;
     z-index: 1;
-    padding: 32px 64px;
+    padding: var(--space-xl) var(--space-4xl);
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--container-page);
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: var(--space-3xl);
   }
 
   .panel-header {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-md);
     flex-shrink: 0;
     width: 340px;
   }
@@ -734,7 +786,7 @@
   .panel-icon {
     width: 44px;
     height: 44px;
-    color: var(--color-red);
+    color: var(--color-accent);
     flex-shrink: 0;
   }
 
@@ -745,30 +797,30 @@
 
   .panel-title {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: var(--text-3xl);
     font-weight: 700;
     color: var(--color-white);
-    line-height: 1.3;
+    line-height: var(--leading-snug);
   }
 
   .panel-right {
     flex: 1;
-    padding-top: 4px;
+    padding-top: var(--space-2xs);
   }
 
   .panel-customers-label {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-red);
-    margin-bottom: 10px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
   }
 
   .panel-customers {
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     color: var(--color-white);
-    line-height: 1.8;
+    line-height: var(--leading-loose);
   }
 
   .panel-customers span {
@@ -777,57 +829,51 @@
 
   .panel-customers .dot {
     display: inline-block;
-    width: 4px;
-    height: 4px;
-    margin: 0 4px 0 10px;
+    width: var(--space-2xs);
+    height: var(--space-2xs);
+    margin: 0 var(--space-2xs) 0 var(--space-xs);
     vertical-align: middle;
   }
 
   /* ── Case Studies section ── */
   .case-studies-section {
-    padding: 0 0 144px;
+    padding: 0 0 var(--space-7xl);
     background: var(--color-white);
   }
 
   .case-studies-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 20px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
   }
 
-  .case-studies-heading {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
 
   .case-studies-intro {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 40px;
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
   }
 
   .case-studies-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-bottom: 40px;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
   }
 
   .case-study-card {
     background: var(--color-white);
     border: 1px solid var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
@@ -839,10 +885,10 @@
   }
 
   .case-study-card-body {
-    padding: 24px 24px 28px;
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   .case-study-card {
@@ -856,82 +902,76 @@
 
   .case-study-tag {
     font-family: var(--font-heading);
-    font-size: 0.78rem;
+    font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--color-red);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
   }
 
   .case-study-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: var(--leading-normal);
   }
 
   .case-study-card p {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.55;
+    line-height: var(--leading-normal);
   }
 
   .case-studies-cta {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-xs);
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
     text-decoration: none;
     transition: gap 0.2s;
   }
 
   .case-studies-cta:hover {
-    gap: 14px;
+    gap: var(--space-md);
   }
 
   .case-studies-cta svg {
-    width: 24px;
-    height: 24px;
+    width: var(--space-lg);
+    height: var(--space-lg);
   }
 
   /* ── Approach section ── */
   /* ── People section ── */
   .people-section {
-    padding: 96px 0 0;
+    padding: var(--space-6xl) 0 0;
     background: var(--color-white);
   }
 
   .people-label {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-red);
-    margin-bottom: 20px;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
   }
 
-  .people-heading {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 48px;
-  }
 
   .people-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    gap: var(--space-xl);
   }
 
   .person-card {
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    background: var(--color-surface);
+    background: var(--color-light-grey);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -945,57 +985,57 @@
   }
 
   .person-card-body {
-    padding: 24px 24px 28px;
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--space-2xs);
   }
 
   .person-card-body h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: 700;
-    line-height: 1.35;
+    line-height: var(--leading-normal);
   }
 
   .person-card-body .person-title {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
   }
 
   .person-card-body p {
-    font-size: 0.92rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.55;
-    margin-top: 4px;
+    line-height: var(--leading-normal);
+    margin-top: var(--space-2xs);
   }
 
   .team-card {
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    background: var(--color-surface);
+    background: var(--color-light-grey);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 12px;
-    padding: 28px 24px;
+    gap: var(--space-sm);
+    padding: var(--space-xl) var(--space-lg);
   }
 
   .team-avatars {
     display: flex;
     gap: 0;
-    margin-bottom: 4px;
+    margin-bottom: var(--space-2xs);
   }
 
   .team-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 3px solid var(--color-surface);
+    width: var(--space-4xl);
+    height: var(--space-4xl);
+    border-radius: var(--radius-full);
+    border: 3px solid var(--color-light-grey);
     overflow: hidden;
     margin-right: -14px;
   }
@@ -1012,89 +1052,86 @@
 
   .team-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: 700;
-    line-height: 1.35;
+    line-height: var(--leading-normal);
   }
 
   .team-card p {
-    font-size: 0.92rem;
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
-    line-height: 1.55;
+    line-height: var(--leading-normal);
   }
 
   .team-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 8px;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
     font-weight: 600;
-    color: var(--color-red);
+    color: var(--color-accent);
     text-decoration: none;
     transition: gap 0.2s;
   }
 
   .team-cta:hover {
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   .team-cta svg {
-    width: 24px;
-    height: 24px;
+    width: var(--space-lg);
+    height: var(--space-lg);
   }
 
   /* ── People-CTA separator ── */
   .people-cta-separator {
     display: flex;
     justify-content: center;
-    padding: 96px 0 0;
+    padding: var(--space-6xl) 0 0;
     background: var(--color-white);
   }
 
   .people-cta-separator svg {
-    width: 80px;
+    width: var(--space-5xl);
     height: auto;
   }
 
   /* ── Final CTA ── */
   .final-cta {
     background: var(--color-white);
-    padding: 72px 0 96px;
+    padding: var(--space-4xl) 0 var(--space-6xl);
     text-align: center;
   }
 
   .final-cta h2 {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 16px;
+    font-size: var(--text-6xl);
+    margin-bottom: var(--space-md);
   }
 
   .final-cta p {
-    font-size: 1.4rem;
+    font-size: var(--text-2xl);
     color: var(--color-text-secondary);
-    margin-bottom: 36px;
+    margin-bottom: var(--space-xl);
   }
 
   .final-cta-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 14px 32px;
-    background: var(--color-red);
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
     color: var(--color-white);
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     transition: background 0.2s;
   }
 
   .final-cta-btn:hover {
-    background: var(--color-red-dark);
+    background: var(--color-accent-dark);
   }
 
   .final-cta-btn svg {
@@ -1106,7 +1143,7 @@
   /* ── Light Footer ── */
   .site-footer {
     border-top: 1px solid var(--color-border);
-    padding: 64px 0;
+    padding: var(--space-4xl) 0;
   }
 
   .footer-inner {
@@ -1116,33 +1153,33 @@
   }
 
   .footer-inner .footer-logo img {
-    height: 30px;
+    height: var(--space-xl);
   }
 
   .footer-copyright {
-    font-size: 1.05rem;
-    color: var(--color-text);
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
   }
 
   .footer-links {
     display: flex;
-    gap: 24px;
+    gap: var(--space-lg);
   }
 
   .footer-links a {
-    font-size: 1.05rem;
-    color: var(--color-text);
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
     font-weight: 500;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover { color: var(--color-red); }
+  .footer-links a:hover { color: var(--color-accent); }
 
   /* ── Responsive ── */
   @media (max-width: 1200px) {
     .industry-grid { grid-template-columns: 1fr; }
     .industry-card { aspect-ratio: 3 / 1; }
-    .panel-content { padding: 28px 32px; gap: 32px; }
+    .panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
     .panel-header { width: 280px; }
 
     /* Credentials — stack image on top, box below */
@@ -1168,9 +1205,9 @@
     .credentials-box {
       max-width: 100%;
       margin-left: 0;
-      padding: 32px 24px;
-      border-radius: 0;
-      background: var(--color-surface);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-none);
+      background: var(--color-light-grey);
       backdrop-filter: none;
     }
     .credentials-bg { order: 1; }
@@ -1181,7 +1218,7 @@
       right: auto;
       left: auto;
       top: auto;
-      padding: 10px 24px;
+      padding: var(--space-xs) var(--space-lg);
       background: #121212;
     }
     .credentials-inner { order: 3; }
@@ -1193,7 +1230,7 @@
   }
 
   @media (max-width: 900px) {
-    .container { padding: 0 24px; }
+    .container { padding: 0 var(--space-lg); }
 
     /* Header nav — accordion on tablet/mobile */
     .nav-toggle { display: block; }
@@ -1202,23 +1239,27 @@
     .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
     .main-nav li + li { border-top: 1px solid var(--color-border); }
     .main-nav li:last-child { border-top: none; }
-    .main-nav a { display: block; font-size: 1.05rem; padding: 14px 0; border-radius: 0; }
-    .header-inner { flex-wrap: wrap; height: auto; padding: 16px 24px; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
+
+    /* Heading system */
+    .heading-style-h1 { font-size: 1.8rem; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
 
     /* Hero */
-    .hero { padding-top: 48px; }
-    .hero h1 { font-size: 1.8rem; max-width: 100%; margin-bottom: 48px; }
-    .hero-subtitle-row { grid-template-columns: 1fr; margin-bottom: 48px; }
+    .hero { padding-top: var(--space-3xl); }
+    .hero h1 { font-size: var(--text-3xl); max-width: 100%; margin-bottom: var(--space-3xl); }
+    .hero-subtitle-row { grid-template-columns: 1fr; margin-bottom: var(--space-3xl); }
     .hero-subtitle { grid-column: 1; }
 
     /* Industry cards */
     .industry-grid { grid-template-columns: 1fr; }
 
     /* Hero testimonial */
-    .hero-testimonial { padding-top: 64px; padding-bottom: 64px; }
+    .hero-testimonial { padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); }
 
     /* Services */
-    .services-section { padding: 64px 0 80px; }
+    .services-section { padding: var(--space-4xl) 0 var(--space-5xl); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
 
     /* Differentiators */
@@ -1227,79 +1268,80 @@
     .differentiators-grid { grid-template-columns: 1fr 1fr; }
 
     /* Customers */
-    .customers-section { padding: 64px 0; }
+    .customers-section { padding: var(--space-4xl) 0; }
     .panel { min-height: 107px; }
-    .panel-content { flex-direction: column; gap: 16px; padding: 24px 24px; align-items: flex-start; }
+    .panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
     .panel-header { width: auto; }
 
     /* Case studies */
-    .case-studies-section { padding-bottom: 64px; }
+    .case-studies-section { padding-bottom: var(--space-4xl); }
     .case-studies-grid { grid-template-columns: 1fr; }
 
     /* People */
-    .people-section { padding-top: 48px; }
+    .people-section { padding-top: var(--space-3xl); }
     .people-grid { grid-template-columns: repeat(2, 1fr); }
 
     /* People-CTA separator */
-    .people-cta-separator { padding-top: 48px; }
+    .people-cta-separator { padding-top: var(--space-3xl); }
 
     /* Final CTA */
-    .final-cta { padding: 48px 0 64px; }
+    .final-cta { padding: var(--space-3xl) 0 var(--space-4xl); }
   }
 
   @media (max-width: 600px) {
+    /* Heading system */
+    .heading-style-h1 { font-size: var(--text-2xl); }
+    .heading-style-h2 { font-size: 1.3rem; }
+
     /* Hero */
-    .hero { padding-top: 32px; }
-    .hero h1 { font-size: 1.5rem; margin-bottom: 32px; }
-    .hero-subtitle-row { margin-bottom: 32px; }
-    .hero-subtitle { font-size: 1.1rem; }
+    .hero { padding-top: var(--space-xl); }
+    .hero h1 { font-size: var(--text-2xl); margin-bottom: var(--space-xl); }
+    .hero-subtitle-row { margin-bottom: var(--space-xl); }
+    .hero-subtitle { font-size: var(--text-lg); }
 
     /* Industry cards */
-    .industry-grid { gap: 16px; }
-    .industry-card h2 { font-size: 1.4rem; }
+    .industry-grid { gap: var(--space-md); }
+    .industry-card h2 { font-size: var(--text-2xl); }
 
     /* Hero testimonial */
-    .hero-testimonial { padding-top: 48px; padding-bottom: 48px; }
-    .hero-testimonial blockquote { font-size: 1.3rem; min-height: auto; }
-    .hero-testimonial cite { font-size: 1rem; }
+    .hero-testimonial { padding-top: var(--space-3xl); padding-bottom: var(--space-3xl); }
+    .hero-testimonial blockquote { font-size: var(--text-xl); min-height: auto; }
+    .hero-testimonial cite { font-size: var(--text-base); }
 
     /* Services */
     .services-grid { grid-template-columns: 1fr; }
 
     /* Credentials */
-    .credentials-box h2 { font-size: 1.5rem; }
+    .credentials-box h2 { font-size: var(--text-2xl); }
 
     /* Differentiators */
-    .differentiators-content { padding: 32px 24px; }
-    .differentiators-section h2 { font-size: 1.5rem; }
+    .differentiators-content { padding: var(--space-xl) var(--space-lg); }
+    .differentiators-section h2 { font-size: var(--text-2xl); }
     .differentiators-grid { grid-template-columns: 1fr; }
-    .diff-number { font-size: 1.8rem; }
+    .diff-number { font-size: var(--text-3xl); }
 
     /* Customers */
-    .customers-heading { font-size: 1.6rem; }
     .panel { min-height: 93px; }
-    .panel-content { padding: 20px 16px; }
-    .panel-icon { width: 32px; height: 32px; }
-    .panel-title { font-size: 1.2rem; }
-    .panel-customers { font-size: 1.05rem; }
+    .panel-content { padding: var(--space-lg) var(--space-md); }
+    .panel-icon { width: var(--space-xl); height: var(--space-xl); }
+    .panel-title { font-size: var(--text-xl); }
+    .panel-customers { font-size: var(--text-base); }
 
     /* Case studies */
-    .case-studies-heading { font-size: 1.6rem; }
     .case-studies-grid { grid-template-columns: 1fr; }
-    .case-study-card img { height: 160px; }
+    .case-study-card img { height: var(--space-8xl); }
 
     /* People */
-    .people-heading { font-size: 1.6rem; }
     .people-grid { grid-template-columns: 1fr; }
     .person-card img { aspect-ratio: 3 / 2; }
 
     /* Final CTA */
-    .final-cta h2 { font-size: 1.8rem; }
-    .final-cta p { font-size: 1.1rem; }
+    .final-cta h2 { font-size: var(--text-3xl); }
+    .final-cta p { font-size: var(--text-lg); }
 
     /* Footer */
-    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
   }
 </style>
 </head>
@@ -1317,7 +1359,7 @@
       <ul>
         <li><a href="cloudmisp.html">CloudMISP</a></li>
         <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
-        <li><a href="/security-consulting">Security Consulting</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
         <li><a href="/case-studies">Case Studies</a></li>
         <li><a href="/resources">Resources</a></li>
         <li><a href="/about">About</a></li>
@@ -1329,12 +1371,12 @@
 
 <section class="hero">
   <div class="container">
-    <h1>We are a <span class="highlight">cyber threat intelligence and fraud data sharing consultancy</span> that helps you start, improve, and run intel and data sharing programmes.</h1>
-    <h3 class="industry-heading">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
+    <h1 class="heading-style-h1">We are a <span class="highlight">cyber threat intelligence and fraud data sharing consultancy</span> that helps you start, improve, and run intel and data sharing programmes.</h1>
+    <h3 class="heading-style-h3" style="color: var(--color-text-secondary); margin-bottom: var(--space-xl);">Select your interest <span class="chevron-circle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span></h3>
     <div class="industry-grid">
 
       <a href="cyber-threat-intelligence.html" class="industry-card" data-cluster="0">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Cyber threat intelligence">
+        <img src="images/hero/hero-cyber-threat-intelligence.webp" alt="Cyber threat intelligence">
         <div class="industry-card-content">
           <h2>Cyber Threat Intelligence</h2>
           <div class="card-actions">
@@ -1344,7 +1386,7 @@
       </a>
 
       <a href="fraud-data-sharing.html" class="industry-card" data-cluster="1">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Fraud data sharing">
+        <img src="images/hero/hero-fraud-data-sharing.webp" alt="Fraud data sharing">
         <div class="industry-card-content">
           <h2>Fraud Data Sharing</h2>
           <div class="card-actions">
@@ -1353,8 +1395,8 @@
         </div>
       </a>
 
-      <a href="/solutions/security-operations" class="industry-card" data-cluster="2">
-        <img src="https://unsplash.com/photos/PSpf_XgOM5w/download?w=800" alt="Security operations">
+      <a href="security-operations.html" class="industry-card" data-cluster="2">
+        <img src="images/hero/hero-security-operations.webp" alt="Security operations">
         <div class="industry-card-content">
           <h2>Security Operations</h2>
           <div class="card-actions">
@@ -1369,7 +1411,7 @@
 
 <section class="hero-testimonial" id="heroTestimonial">
   <div class="testimonial-inner">
-    <div class="testimonial-sinewave"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
+    <img src="icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
     <div class="testimonial-label">What our customers say about us</div>
     <blockquote id="heroQuote">&ldquo;Cosive helped us go from zero to a fully operational CTI function in under six months.&rdquo;</blockquote>
     <cite id="heroCite">&mdash; Financial services CISO</cite>
@@ -1386,42 +1428,42 @@
     <div class="differentiators-content">
       <div class="differentiators-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
       <div class="differentiators-label">What makes us different</div>
-      <h2>Why organisations choose to work with us</h2>
+      <h2 class="heading-style-h2">Why organisations choose to work with us</h2>
       <div class="differentiators-grid">
         <div class="diff-card">
           <div class="diff-number">01</div>
-          <h3>We know what we're doing</h3>
+          <h3 class="heading-style-h4">We know what we're doing</h3>
           <p>10–25 years of IT security experience across the team</p>
         </div>
         <div class="diff-card">
           <div class="diff-number">02</div>
-          <h3>We've been in your shoes</h3>
+          <h3 class="heading-style-h4">We've been in your shoes</h3>
           <p>Former CTI analysts and SecOps engineers who've worked 24x7 and handled 2am incident response crises</p>
         </div>
         <div class="diff-card">
           <div class="diff-number">03</div>
-          <h3>We give real-world advice</h3>
+          <h3 class="heading-style-h4">We give real-world advice</h3>
           <p>Guidance that's been tested by real organisations, not theoretical frameworks</p>
         </div>
         <div class="diff-card">
           <div class="diff-number">04</div>
-          <h3>We're your long-term partner</h3>
+          <h3 class="heading-style-h4">We're your long-term partner</h3>
           <p>We don't treat you as the next number in line — we build multi-year relationships and learn your business</p>
         </div>
         <div class="diff-card">
           <div class="diff-number">05</div>
-          <h3>We tailor advice for you</h3>
+          <h3 class="heading-style-h4">We tailor advice for you</h3>
           <p>We get to know your unique situation so we can give you the best advice for your specific needs</p>
         </div>
         <div class="diff-card">
           <div class="diff-number">06</div>
-          <h3>We're committed to your goals</h3>
+          <h3 class="heading-style-h4">We're committed to your goals</h3>
           <p>We work with organisations for years to guide them to their end goal — one customer for 8 years continuously</p>
         </div>
       </div>
     </div>
     <div class="differentiators-photo">
-      <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+      <img src="images/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at NZITF">
       <div class="differentiators-caption">Cosive co-founder Terry MacDonald presenting at NZITF.</div>
     </div>
   </div>
@@ -1430,11 +1472,11 @@
 <section class="customers-section">
   <div class="container">
     <div class="customers-label">Our customers</div>
-    <h2 class="customers-heading">Who we work with</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Who we work with</h2>
   </div>
   <div class="customers-panels">
     <div class="panel">
-      <div class="panel-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80')"></div>
+      <div class="panel-bg" style="background-image: url('images/panel-bg-financial-services.webp')"></div>
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-header">
@@ -1452,7 +1494,7 @@
       </div>
     </div>
     <div class="panel">
-      <div class="panel-bg" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+      <div class="panel-bg" style="background-image: url('images/panel-bg-critical-infrastructure.webp')"></div>
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-header">
@@ -1470,7 +1512,7 @@
       </div>
     </div>
     <div class="panel">
-      <div class="panel-bg" style="background-image: url('https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=800&q=80')"></div>
+      <div class="panel-bg" style="background-image: url('images/panel-bg-operational-technology.webp')"></div>
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-header">
@@ -1489,7 +1531,7 @@
       </div>
     </div>
     <div class="panel">
-      <div class="panel-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+      <div class="panel-bg" style="background-image: url('images/panel-bg-enterprises.webp')"></div>
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-header">
@@ -1507,7 +1549,7 @@
       </div>
     </div>
     <div class="panel">
-      <div class="panel-bg" style="background-image: url('https://images.unsplash.com/photo-1672264694074-d59397c511d0?w=800&q=80')"></div>
+      <div class="panel-bg" style="background-image: url('images/panel-bg-government.webp')"></div>
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-header">
@@ -1530,7 +1572,7 @@
 <section class="case-studies-section">
   <div class="container">
     <div class="case-studies-label">Case studies</div>
-    <h2 class="case-studies-heading">See how we've helped organisations like yours</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-md);">See how we've helped organisations like yours</h2>
     <p class="case-studies-intro">Real results from real engagements across threat intelligence, fraud data sharing, and security operations.</p>
     <div class="case-studies-grid">
       <div class="case-study-card">
@@ -1570,7 +1612,7 @@
     <div class="container">
       <div class="credentials-box">
         <div class="credentials-label">Our experience</div>
-        <h2>Why you should work with Cosive</h2>
+        <h2 class="heading-style-h2">Why you should work with Cosive</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
@@ -1612,7 +1654,7 @@
 <section class="people-section">
   <div class="container">
     <div class="people-label">Our people</div>
-    <h2 class="people-heading">Work directly with leading experts in the field</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Work directly with leading experts in the field</h2>
     <div class="people-grid">
       <div class="person-card">
         <img src="terry-macdonald.jpg" alt="Terry MacDonald">
@@ -1702,7 +1744,7 @@
 
 <section class="final-cta">
   <div class="container">
-    <h2>Talk to us about your goals</h2>
+    <h2 class="heading-style-h1">Talk to us about your goals</h2>
     <p>Let's talk about how Cosive can help you.</p>
     <a href="/contact-us" class="final-cta-btn">Contact Us <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
   </div>
@@ -1715,7 +1757,7 @@
     </a>
     <div class="footer-links">
       <a href="/about">About</a>
-      <a href="/security-consulting">Security Consulting</a>
+      <a href="security-operations.html">Security Operations</a>
       <a href="/resources">Resources</a>
       <a href="/contact-us">Contact</a>
       <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
