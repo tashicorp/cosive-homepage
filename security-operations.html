@@ -23,6 +23,7 @@
     --color-accent: #e53834;
     --color-accent-dark: #c1121f;
     --color-mid-grey: #f0f0f0;
+    --color-blue: #2ab6f6;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
 
@@ -440,7 +441,7 @@
 
   .btn-primary:hover { background: var(--color-accent-dark); }
 
-  /* ── Who we work with section ── */
+  /* ── Teams we work with section ── */
   .customers-section {
     padding: var(--space-6xl) 0;
     background: var(--color-white);
@@ -479,9 +480,11 @@
   }
 
   .customer-item-tags .tag {
-    color: var(--color-text-secondary);
-    background: var(--color-border);
-    font-size: var(--text-sm);
+    color: #0e4f6b;
+    background: rgba(42, 182, 246, 0.05);
+    opacity: 1;
+    border: 1px solid rgba(14, 79, 107, 0.5);
+    font-size: var(--text-xs);
     padding: var(--space-2xs) var(--space-xs);
     border-radius: var(--radius-sm);
     font-weight: 600;
@@ -622,37 +625,47 @@
     font-family: var(--font-body);
     font-size: var(--text-base);
     line-height: var(--leading-normal);
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-white);
   }
 
   /* ── Differentiators section ── */
   .differentiators-section {
-    background: var(--color-mid-grey);
-  }
-
-  .differentiators-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 0;
+    grid-template-columns: 1fr 2fr;
     align-items: stretch;
     overflow: hidden;
-    background: var(--color-mid-grey);
+  }
+
+  .differentiators-photo {
+    position: relative;
+  }
+
+  .differentiators-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(1) contrast(1.2);
+  }
+
+  .differentiators-caption {
+    position: absolute;
+    bottom: var(--space-sm);
+    left: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
   }
 
   .differentiators-content {
-    padding: var(--space-5xl) var(--space-3xl);
+    background: var(--color-light-grey);
+    padding: var(--space-5xl) var(--space-3xl) var(--space-5xl) var(--space-6xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .differentiators-separator {
-    margin-bottom: var(--space-lg);
-  }
-
-  .differentiators-separator svg {
-    width: var(--space-5xl);
-    height: auto;
   }
 
   .differentiators-label {
@@ -666,69 +679,58 @@
   }
 
   .differentiators-section h2 {
-    margin-bottom: var(--space-xl);
+    color: rgba(0,0,0,1);
+    margin-bottom: var(--space-md);
   }
 
-  .differentiators-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md) var(--space-md);
+  .diff-item {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .diff-card {
-    background: var(--color-white);
-    border: 1px solid #e0e0e0;
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl) var(--space-lg);
+  .diff-item:first-child {
+    padding-top: 0;
+  }
+
+  .diff-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .diff-item-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
   }
 
   .diff-number {
     font-family: var(--font-heading);
-    font-size: var(--text-4xl);
+    font-size: var(--text-xl);
     font-weight: 800;
-    color: var(--color-accent);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-sm);
-  }
-
-  .diff-card h3 {
-    margin-bottom: var(--space-xs);
-  }
-
-  .diff-card p {
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    color: #3a3a3a;
-    margin: 0;
-  }
-
-  .differentiators-photo {
-    position: relative;
-  }
-
-  .differentiators-photo::before {
-    display: none;
-  }
-
-  .differentiators-photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: grayscale(1) contrast(1.3);
-  }
-
-  .differentiators-caption {
-    position: absolute;
-    bottom: var(--space-md);
-    right: var(--space-lg);
-    font-size: var(--text-base);
     color: var(--color-white);
-    z-index: 2;
-    font-weight: 500;
-    background: rgba(0,0,0,0.7);
-    padding: var(--space-2xs) var(--space-xs);
+    background: var(--color-accent);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .diff-item h3 {
+    color: rgba(0,0,0,1);
+    margin: 0;
+    font-size: var(--text-2xl);
+  }
+
+  .diff-item p {
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin: 0;
   }
 
   /* ── Services section ── */
@@ -975,9 +977,8 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .differentiators-inner { grid-template-columns: 1fr; }
-    .differentiators-photo { min-height: 300px; }
-    .differentiators-grid { grid-template-columns: 1fr 1fr; }
+    .differentiators-section { grid-template-columns: 1fr; }
+    .differentiators-photo { max-height: 350px; }
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
   }
@@ -1067,10 +1068,9 @@
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
     .credentials-box h2 { font-size: var(--text-2xl); }
     /* Differentiators */
-    .differentiators-content { padding: var(--space-xl) var(--space-lg); }
+    .differentiators-content { padding: var(--space-3xl) var(--space-lg); }
+    .differentiators-photo { max-height: 250px; }
     .differentiators-section h2 { font-size: var(--text-2xl); }
-    .differentiators-grid { grid-template-columns: 1fr; }
-    .diff-number { font-size: var(--text-3xl); }
 
     /* Form */
     .form-row { grid-template-columns: 1fr; }
@@ -1188,46 +1188,54 @@
   </div>
 </section>
 
-<!-- Who we work with -->
+<!-- Teams we work with -->
 <section class="customers-section">
   <div class="container">
-    <div class="section-label">Who we work with</div>
+    <div class="section-label">Teams we work with</div>
     <div class="customers-strip">
 
       <div class="customer-item">
+        <h3>SOCs</h3>
+        <p>We assess your maturity against established frameworks, identify detection gaps, and build a prioritised roadmap focused on reducing response times through automation and tooling integration.</p>
         <div class="customer-item-tags">
-          <span class="tag">APRA</span>
-          <span class="tag">FCA</span>
+          <span class="tag">Maturity Assessment</span>
+          <span class="tag">Detection Engineering</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Playbook Development</span>
         </div>
-        <h3>Banks &amp; Financial Services</h3>
-        <p>Banks and financial institutions building security operations capabilities to detect threats, respond to incidents, and meet regulatory obligations from APRA, FCA, and ECB.</p>
       </div>
 
       <div class="customer-item">
+        <h3>National CSIRTs</h3>
+        <p>We help sovereign teams strengthen national-scale incident coordination, automate threat intelligence sharing, and mature critical infrastructure protection capabilities.</p>
         <div class="customer-item-tags">
-          <span class="tag">SOCI</span>
-          <span class="tag">NIS2</span>
+          <span class="tag">SIM3 Maturity</span>
+          <span class="tag">Threat Sharing Platforms</span>
+          <span class="tag">Capacity Building</span>
+          <span class="tag">Incident Playbooks</span>
         </div>
-        <h3>Critical Infrastructure &amp; OT</h3>
-        <p>Energy, transport, water, and utilities operators building security operations teams to protect operational technology and essential services.</p>
       </div>
 
       <div class="customer-item">
+        <h3>Industry ISACs</h3>
+        <p>We support industry-specific security teams with sector-wide benchmarking, coordinated exercise planning, and building the information-sharing communities that connect national and enterprise levels.</p>
         <div class="customer-item-tags">
-          <span class="tag">ISAC</span>
-          <span class="tag">MSSP</span>
+          <span class="tag">Sharing Communities</span>
+          <span class="tag">Platform Deployment</span>
+          <span class="tag">Exercises</span>
+          <span class="tag">Governance</span>
         </div>
-        <h3>Enterprise</h3>
-        <p>Large organisations and managed security providers building and improving security operations to strengthen detection, response, and resilience.</p>
       </div>
 
       <div class="customer-item">
+        <h3>PSIRTs</h3>
+        <p>We help product security teams establish structured vulnerability handling — automating triage, coordinating disclosure, and integrating advisories into your development lifecycle.</p>
         <div class="customer-item-tags">
-          <span class="tag">ASD</span>
-          <span class="tag">CISA</span>
+          <span class="tag">Disclosure Process</span>
+          <span class="tag">Advisory Automation</span>
+          <span class="tag">Triage Workflows</span>
+          <span class="tag">SBOM</span>
         </div>
-        <h3>Government</h3>
-        <p>National cyber security agencies and defence organisations building security operations capabilities to protect government networks and critical assets.</p>
       </div>
 
     </div>
@@ -1236,47 +1244,54 @@
 
 <!-- What makes us different -->
 <section class="differentiators-section">
-  <div class="differentiators-inner">
-    <div class="differentiators-content">
-      <div class="differentiators-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
-      <div class="differentiators-label">What makes us different</div>
-      <h2 class="heading-style-h2">Why organisations choose to work with us</h2>
-      <div class="differentiators-grid">
-        <div class="diff-card">
-          <div class="diff-number">01</div>
-          <h3 class="heading-style-h4">Extensive SecOps experience</h3>
-          <p>International CERTs, managed security providers including Verizon, and national telecommunications providers</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-number">02</div>
-          <h3 class="heading-style-h4">24x7 operations</h3>
-          <p>Worked in 24x7 security operations environments</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-number">03</div>
-          <h3 class="heading-style-h4">Built and improved SOCs</h3>
-          <p>Created new security operations teams and improved existing ones</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-number">04</div>
-          <h3 class="heading-style-h4">National CERT experience</h3>
-          <p>Worked in National CERTs protecting critical infrastructure</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-number">05</div>
-          <h3 class="heading-style-h4">Global CERT advisors</h3>
-          <p>Advised national CERTs globally on building and maturing their capabilities</p>
-        </div>
-        <div class="diff-card">
-          <div class="diff-number">06</div>
-          <h3 class="heading-style-h4">FIRST.org liaison members</h3>
-          <p>Liaison Members of FIRST, the international incident response organisation</p>
-        </div>
+  <div class="differentiators-photo">
+    <img src="images/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at NZITF">
+    <div class="differentiators-caption">Cosive co-founder Terry MacDonald presenting at NZITF.</div>
+  </div>
+  <div class="differentiators-content">
+    <div class="differentiators-label">What makes us different</div>
+    <h2 class="heading-style-h2">Why organisations choose to work with us</h2>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">01</div>
+        <h3 class="heading-style-h4">Extensive SecOps experience</h3>
       </div>
+      <p>International CERTs, managed security providers including Verizon, and national telecommunications providers</p>
     </div>
-    <div class="differentiators-photo">
-      <img src="images/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at NZITF">
-      <div class="differentiators-caption">Cosive co-founder Terry MacDonald presenting at NZITF.</div>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">02</div>
+        <h3 class="heading-style-h4">24x7 operations</h3>
+      </div>
+      <p>Worked in 24x7 security operations environments</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">03</div>
+        <h3 class="heading-style-h4">Built and improved SOCs</h3>
+      </div>
+      <p>Created new security operations teams and improved existing ones</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">04</div>
+        <h3 class="heading-style-h4">National CERT experience</h3>
+      </div>
+      <p>Worked in National CERTs protecting critical infrastructure</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">05</div>
+        <h3 class="heading-style-h4">Global CERT advisors</h3>
+      </div>
+      <p>Advised national CERTs globally on building and maturing their capabilities</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-item-header">
+        <div class="diff-number">06</div>
+        <h3 class="heading-style-h4">FIRST.org liaison members</h3>
+      </div>
+      <p>Liaison Members of FIRST, the international incident response organisation</p>
     </div>
   </div>
 </section>
@@ -1327,32 +1342,32 @@
   <div class="credentials-inner">
     <div class="credentials-box">
         <div class="credentials-separator"><svg viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg></div>
-        <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Security operations expertise you can trust</h2>
+        <div class="credentials-label">How we work</div>
+        <h2 class="heading-style-h2">What working with us looks like</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Trusted by enterprise and government</strong> organisations to build and improve their security operations</div>
+            <div class="icon-item-text"><strong>We're independent and unbiased.</strong> We're not your MSSP or one of your usual vendors, so we can honestly assess what's working, what isn't, and where your investment should go next.</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Decades of national CSIRT and SOC leadership</strong> across government, financial services, and critical infrastructure worldwide</div>
+            <div class="icon-item-text"><strong>Every recommendation is actionable.</strong> Instead of bloated reports that gather dust, we deliver prioritised, realistic steps your team can execute on immediately.</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
             </div>
-            <div class="icon-item-text"><strong>FIRST.org advisors and SIM3 assessment specialists</strong> helping teams achieve membership and accreditation</div>
+            <div class="icon-item-text"><strong>We adapt to your situation.</strong> Your team size, budget, threat landscape, and regulatory context shape every engagement.</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep expertise in ATT&amp;CK, FIRST, and SIM3</strong> frameworks and standards</div>
+            <div class="icon-item-text"><strong>We build your capability, not a dependency.</strong> Upskilling your people throughout so improvements stick after we leave.</div>
           </div>
         </div>
       </div>
@@ -1377,7 +1392,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          We use the SIM3 maturity model to assess your security operations across four dimensions: organisation, human resources, tools, and processes. We complement this with ATT&CK mapping to evaluate detection coverage. Together, these give you a clear picture of where you stand, where the gaps are, and a prioritised roadmap you can take to the board.
+          We use the SIM3 maturity model to assess your security operations across four dimensions: organisation, human resources, tools, and processes. This gives you a clear picture of where you stand, where the gaps are, and a prioritised roadmap you can take to the board.
         </div>
       </details>
 
