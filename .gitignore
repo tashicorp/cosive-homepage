@@ -2,3 +2,19 @@
 .playwright-mcp/
 node_modules/
 previews/
+
+# Development screenshots
+verify-*.png
+differentiators-*.png
+live-site-*.png
+contact-*.png
+cti-banner-new.png
+cti-nav-*.png
+fraud-why-*.png
+chris-caption-*.png
+terry-caption-*.png
+testimonial-to-*.png
+sizing-system-review.md
+webflow-migration-guide.md
+webflow-variables.md
+live-site-snapshot.md

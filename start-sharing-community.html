@@ -649,7 +649,7 @@
     padding-left: 0;
   }
 
-  .platform-card .fw-panel-tags {
+  .platform-card .panel-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
@@ -720,39 +720,34 @@
     color: var(--color-accent);
   }
 
-  .fw-panels {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .fw-panel {
+  .panel {
     position: relative;
     width: 100%;
-    min-height: 156px;
+    min-height: 147px;
     overflow: hidden;
     display: flex;
     align-items: center;
   }
 
-  .fw-panel-bg {
+  .panel-bg {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
   }
 
-  .fw-panel-overlay {
+  .panel-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to right,
-      rgba(14,20,28,0.95) 0%,
-      rgba(14,20,28,0.92) 45%,
-      rgba(14,20,28,0.55) 100%
+      rgba(14,20,28,0.92) 0%,
+      rgba(14,20,28,0.85) 45%,
+      rgba(14,20,28,0.3) 100%
     );
   }
 
-  .fw-panel-content {
+  .panel-content {
     position: relative;
     z-index: 1;
     padding: var(--space-xl) var(--space-4xl);
@@ -762,16 +757,50 @@
     gap: var(--space-3xl);
   }
 
-  .fw-panel-header {
+  .panel-header {
     display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-shrink: 0;
+    width: 340px;
+  }
+
+  .panel-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: var(--leading-snug);
+  }
+
+  /* ── Panel combo: .is-narrative ── */
+  .panel.is-narrative {
+    min-height: 156px;
+  }
+
+  .is-narrative .panel-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(14,20,28,0.95) 0%,
+      rgba(14,20,28,0.92) 45%,
+      rgba(14,20,28,0.55) 100%
+    );
+  }
+
+  .is-narrative .panel-content {
+    max-width: none;
+    margin: 0;
+  }
+
+  .is-narrative .panel-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xs);
-    flex-shrink: 0;
+    width: auto;
     min-width: 320px;
   }
 
-  .fw-panel-tags {
+  .panel-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
@@ -789,21 +818,17 @@
     background: #1a5276;
   }
 
-  .fw-panel .tag {
+  .is-narrative .tag {
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.25);
   }
 
-  .fw-panel-title {
-    font-family: var(--font-heading);
+  .is-narrative .panel-title {
     font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-white);
-    line-height: var(--leading-snug);
     white-space: nowrap;
   }
 
-  .fw-panel-desc {
+  .panel-desc {
     flex: 1;
     font-size: var(--text-lg);
     color: rgba(255,255,255,0.95);
@@ -1163,6 +1188,7 @@
     position: relative;
   }
 
+  /* ORIGINAL — CSS gradient version
   .infra-section--danger::before {
     content: '';
     position: absolute;
@@ -1178,6 +1204,7 @@
       var(--color-accent-dark) 16px
     );
   }
+  */
 
   .infra-section--danger .heading-style-h2 {
     color: var(--color-text-primary);
@@ -1250,7 +1277,7 @@
     height: 18px;
     border: 2px solid #25793a;
     border-radius: var(--radius-sm);
-    background: var(--color-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5.5' fill='none' stroke='%2325793a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+    background: var(--color-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.5 2.5 5.5-6' fill='none' stroke='%2325793a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
   }
 
   /* ── Staircase wrapper ── */
@@ -1293,7 +1320,7 @@
 
   .gauge-fill {
     width: 100%;
-    border-radius: var(--radius-none) var(--radius-none) var(--radius-md) var(--radius-md);
+    border-radius: 0 0 6px 6px;
     position: relative;
     transition: height 0.6s ease;
   }
@@ -1313,7 +1340,7 @@
   .gauge-fill--100 {
     height: 100%;
     background: linear-gradient(to top, #00695c, #80cbc4);
-    border-radius: 28px 28px 8px 8px;
+    border-radius: 26px 26px 6px 6px;
   }
 
   .gauge-tick-marks {
@@ -1437,8 +1464,8 @@
 
     .who-header { grid-template-columns: 1fr; gap: var(--space-xl); }
 
-    .fw-panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
-    .fw-panel-header { width: 280px; }
+    .panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
+    .is-narrative .panel-header { width: 280px; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
     .cases-grid { grid-template-columns: 1fr; }
@@ -1487,8 +1514,8 @@
 
     .metrics-grid { grid-template-columns: 1fr; }
 
-    .fw-panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
-    .fw-panel-header { width: auto; }
+    .panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
+    .is-narrative .panel-header { width: auto; }
     .scenario-card { padding: var(--space-lg); }
 
 
@@ -1556,7 +1583,7 @@
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Talk to us about starting a fraud data sharing community</h3>
           <form class="contact-form" action="#" method="post">
-            <input type="hidden" name="category" value="CloudMISP">
+            <input type="hidden" name="category" value="Fraud Data Sharing">
             <div class="form-row">
               <div class="form-group">
                 <label for="banner-first-name">First name</label>
@@ -1589,6 +1616,17 @@
 
 <!-- 2a. Value Proposition -->
 <section class="infra-section infra-section--danger">
+  <!-- Stripe comparison: CSS gradient (top) vs SVG (8px gap below) -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; height: var(--space-2xs); background: repeating-linear-gradient(-45deg, var(--color-accent) 0px, var(--color-accent) 8px, var(--color-accent-dark) 8px, var(--color-accent-dark) 16px);"></div>
+  <svg style="position: absolute; top: calc(var(--space-2xs) + 8px); left: 0; width: 100%; height: calc(var(--space-2xs) + 2px);" preserveAspectRatio="none">
+    <defs>
+      <pattern id="challenge-stripe" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)">
+        <rect width="8" height="16" fill="#e53834"/>
+        <rect x="8" width="8" height="16" fill="#c1121f"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#challenge-stripe)"/>
+  </svg>
   <div class="container">
 
     <div class="section-label">
@@ -1702,60 +1740,60 @@
     <div class="section-label">Who we work with</div>
     <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">We help launch every type of fraud data sharing community</h2>
   </div>
-  <div class="fw-panels">
-    <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1642714883398-dc313be9c4c6?w=800&q=80')"></div>
-      <div class="fw-panel-overlay"></div>
-      <div class="fw-panel-content">
-        <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">REGULATORY</span></div>
-          <div class="fw-panel-title">Regulator-Mandated Communities</div>
+  <div class="panels">
+    <div class="panel is-narrative">
+      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-regulatory.webp')"></div>
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <div class="panel-tags"><span class="tag">REGULATORY</span></div>
+          <div class="panel-title">Regulator-Mandated Communities</div>
         </div>
-        <div class="fw-panel-desc">Central banks and financial regulators requiring structured fraud data reporting from supervised institutions.</div>
+        <div class="panel-desc">Central banks and financial regulators requiring structured fraud data reporting from supervised institutions.</div>
       </div>
     </div>
-    <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80')"></div>
-      <div class="fw-panel-overlay"></div>
-      <div class="fw-panel-content">
-        <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">CONSORTIUM</span></div>
-          <div class="fw-panel-title">Bank-to-Bank Peer Networks</div>
+    <div class="panel is-narrative">
+      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-consortium.webp')"></div>
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <div class="panel-tags"><span class="tag">CONSORTIUM</span></div>
+          <div class="panel-title">Bank-to-Bank Peer Networks</div>
         </div>
-        <div class="fw-panel-desc">Groups of banks sharing fraud indicators, mule account data, and emerging typologies directly with each other.</div>
+        <div class="panel-desc">Groups of banks sharing fraud indicators, mule account data, and emerging typologies directly with each other.</div>
       </div>
     </div>
-    <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1664526936959-84bdea9f37fa?w=800&q=80')"></div>
-      <div class="fw-panel-overlay"></div>
-      <div class="fw-panel-content">
-        <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">ISAC</span><span class="tag">ISAO</span></div>
-          <div class="fw-panel-title">Sector ISACs &amp; ISAOs</div>
+    <div class="panel is-narrative">
+      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-isac.webp')"></div>
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <div class="panel-tags"><span class="tag">ISAC</span><span class="tag">ISAO</span></div>
+          <div class="panel-title">Sector ISACs &amp; ISAOs</div>
         </div>
-        <div class="fw-panel-desc">Industry-specific Information Sharing and Analysis Centers coordinating fraud and threat intelligence across member organisations within a sector.</div>
+        <div class="panel-desc">Industry-specific Information Sharing and Analysis Centers coordinating fraud and threat intelligence across member organisations within a sector.</div>
       </div>
     </div>
-    <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1609429019995-8c40f49535a5?w=800&q=80')"></div>
-      <div class="fw-panel-overlay"></div>
-      <div class="fw-panel-content">
-        <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">PAYMENTS</span><span class="tag">FINTECH</span></div>
-          <div class="fw-panel-title">Payment Ecosystem Sharing</div>
+    <div class="panel is-narrative">
+      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-payment.webp')"></div>
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <div class="panel-tags"><span class="tag">PAYMENTS</span><span class="tag">FINTECH</span></div>
+          <div class="panel-title">Payment Ecosystem Sharing</div>
         </div>
-        <div class="fw-panel-desc">Payment processors, card networks, and fintechs exchanging fraud signals across the transaction lifecycle.</div>
+        <div class="panel-desc">Payment processors, card networks, and fintechs exchanging fraud signals across the transaction lifecycle.</div>
       </div>
     </div>
-    <div class="fw-panel">
-      <div class="fw-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1510546020578-a35ae9fcfb0f?w=800&q=80')"></div>
-      <div class="fw-panel-overlay"></div>
-      <div class="fw-panel-content">
-        <div class="fw-panel-header">
-          <div class="fw-panel-tags"><span class="tag">PPP</span><span class="tag">GOV</span></div>
-          <div class="fw-panel-title">Public-Private Partnerships</div>
+    <div class="panel is-narrative">
+      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-ppp.webp')"></div>
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-header">
+          <div class="panel-tags"><span class="tag">PPP</span><span class="tag">GOV</span></div>
+          <div class="panel-title">Public-Private Partnerships</div>
         </div>
-        <div class="fw-panel-desc">Government agencies and financial institutions collaborating on national or sectoral fraud prevention programmes.</div>
+        <div class="panel-desc">Government agencies and financial institutions collaborating on national or sectoral fraud prevention programmes.</div>
       </div>
     </div>
   </div>
@@ -1785,7 +1823,7 @@
       </div>
 
       <div class="scenario-card">
-        <img class="scenario-card-img" src="https://images.unsplash.com/photo-1636484227625-c659d25dc1b1?w=800&q=80" alt="A person using a laptop computer on a desk" loading="lazy">
+        <img class="scenario-card-img" src="images/fraud/scenario-community-design.webp" alt="A person using a laptop computer on a desk" loading="lazy">
         <div class="scenario-card-number">Governance</div>
         <div class="scenario-card-title">Community design and <span style="color: var(--color-accent);">member onboarding</span></div>
         <div class="scenario-card-body">Hands-on consulting to stand up your community and get members sharing.</div>
@@ -1798,7 +1836,7 @@
       </div>
 
       <div class="scenario-card">
-        <img class="scenario-card-img" src="https://plus.unsplash.com/premium_photo-1764510469133-dde92a0c9d1f?w=800&q=80" alt="Abstract network of threads and nodes on pins" loading="lazy">
+        <img class="scenario-card-img" src="images/fraud/scenario-integrations.webp" alt="Abstract network of threads and nodes on pins" loading="lazy">
         <div class="scenario-card-number">Integrations</div>
         <div class="scenario-card-title">Integrations and <span style="color: var(--color-accent);">ongoing support</span></div>
         <div class="scenario-card-body">Custom connectors between member fraud systems, regulators, and the sharing platform.</div>
@@ -1849,7 +1887,7 @@
         </div>
       </div>
       <div class="credentials-photo">
-        <img src="terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+        <img src="images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
         <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
       </div>
   </div>
@@ -1898,10 +1936,10 @@
 
       <details>
         <summary>
-          Can you help me start a fraud data sharing community?
+          How do you help onboard new members into a sharing community?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">Absolutely &mdash; that's exactly what this page is about. We have extensive experience designing and launching fraud sharing communities, including work on Australia's national threat sharing program. We help with governance design, infrastructure, member onboarding, and ongoing community operations. <a href="#contact">Talk to us about your plans</a>.</div>
+        <div class="faq-answer">Getting member organisations from &ldquo;interested&rdquo; to &ldquo;actively sharing&rdquo; is the hardest part of running a community. We make onboarding frictionless by handling the technical setup &mdash; provisioning accounts, configuring sharing groups and access controls, and integrating the platform with each member's existing fraud or security tools via API. We also run analyst workshops that cover what to share, how to structure indicators, and how to get value from community data. New members can start by consuming shared intelligence before they're ready to contribute, which lowers the barrier to entry. After go-live we help community operators spot inactive members and re-engage them so the community keeps growing. We've done this at national scale with Australia's threat sharing program. <a href="#contact">Talk to us about member onboarding</a>.</div>
       </details>
 
       <details>
@@ -1910,6 +1948,30 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">Yes. The same platform that supports fraud data sharing can also be used for cyber threat intelligence. Many communities share both. <a href="cyber-threat-intelligence.html">Learn more about our cyber threat intelligence services</a>.</div>
+      </details>
+
+      <details>
+        <summary>
+          Why would my bank share fraud data with competitors?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Fraud rings don't target one bank at a time — they hit multiple institutions simultaneously. No single bank sees the full picture, which is exactly what the attackers rely on. Sharing mule account indicators, fraud typologies, and emerging scheme patterns across banks means every member detects attacks faster and with more confidence.</p>
+          <p>The key concern we hear from CISOs is loss of control over sensitive data. MISP's sharing groups and granular access controls address this directly: each bank decides exactly what it shares, with whom, and under what terms. Proprietary customer data never leaves your organisation — what gets shared are anonymised indicators and tactical patterns that help the whole community defend better.</p>
+          <p>This isn't theoretical. Communities like the UK's CIFAS and Australia's AFP-led fraud intelligence program have proven the model at scale. The net effect is straightforward: your own detection rates improve as other members contribute their observations, and you gain early warning of schemes before they reach your customers.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          How does a sharing community help us meet regulatory expectations?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Regulators increasingly expect financial institutions to actively participate in fraud intelligence sharing — not just file compliance reports after the fact. Running or joining a structured sharing community demonstrates proactive risk management to your supervisors and positions your institution as a responsible actor in the financial ecosystem.</p>
+          <p>Emerging regulations are making this expectation explicit. The EU's PSD3/PSR framework, the UK's APP fraud measures, and similar obligations in Australia all point toward mandatory participation in fraud data sharing. A community built on a platform like CloudMISP means you're already ahead of these requirements rather than scrambling to comply after they take effect.</p>
+          <p>From a practical standpoint, the platform's logging and reporting capabilities produce audit-ready evidence of your sharing activity. When a supervisor asks what your institution is doing to combat fraud collaboratively, you have a clear, documented answer — complete with participation metrics, sharing volumes, and contribution history.</p>
+        </div>
       </details>
 
     </div>
@@ -1931,7 +1993,7 @@
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
       <p class="contact-subtitle">Tell us about your plans for a fraud data sharing community and we'll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="CloudMISP">
+        <input type="hidden" name="category" value="Fraud Data Sharing">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>

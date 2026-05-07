@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consume & Share Fraud Data - Cosive</title>
+<title>Integrate with Your Security Tools - Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
-  
+
     /* ── Sizing Tokens ── */
 
     /* Spacing (4px base grid) */
@@ -345,17 +345,12 @@
 
   .btn-primary:hover { background: var(--color-accent-dark); }
 
-  /* ── Section A: Value Proposition ── */
+  /* ── Integration diagram section ── */
   .infra-section {
     padding: var(--space-6xl) 0;
     background: var(--color-white);
   }
 
-  .infra-section--alt {
-    background: #e8e8e8;
-  }
-
-  /* ── 2a-i. Outcomes & Value Intro ── */
   .infra-intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -380,172 +375,10 @@
     align-self: center;
   }
 
-  .outcome-diagram svg {
+  .outcome-diagram img {
     width: 100%;
     height: auto;
   }
-
-  /* ── 2a-ii. Scenario Cards ── */
-  .scenarios-heading {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .scenarios-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-  }
-
-  .scenarios-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3xl);
-    margin-bottom: var(--space-4xl);
-  }
-
-  .scenario-card {
-    position: relative;
-    padding: var(--space-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid #c0c3c8;
-  }
-
-
-  .scenario-card-img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-  }
-
-  .scenario-card-number {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-  }
-
-  .scenario-card-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-  }
-
-  .scenario-card-subtitle {
-    font-size: var(--text-base);
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-top: -8px;
-  }
-
-  .scenario-card-body {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-normal);
-  }
-
-  .scenario-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-2xs);
-  }
-
-  .scenario-list li {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-normal);
-    padding-left: var(--space-md);
-    position: relative;
-  }
-
-  .scenario-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: var(--space-xs);
-    width: var(--space-2xs);
-    height: var(--space-2xs);
-    border-radius: var(--radius-full);
-    background: var(--color-accent);
-  }
-
-  .scenario-card .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-top: auto;
-  }
-
-  .scenario-card .card-cta svg {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: middle;
-  }
-
-  /* ── 2a-iii. Capabilities Bar ── */
-  .capabilities-section {
-    margin-bottom: var(--space-4xl);
-  }
-
-
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2xl) var(--space-4xl);
-  }
-
-  .capability-item {
-    border-left: 3px solid var(--color-accent);
-    padding-left: var(--space-lg);
-  }
-
-  .capability-item-icon {
-    width: var(--space-2xl);
-    height: var(--space-2xl);
-    color: var(--color-accent);
-    background: rgba(229, 56, 52, 0.08);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-md);
-  }
-
-  .capability-item-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .capability-item h4 {
-    font-family: var(--font-heading);
-    font-size: var(--text-base);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-    margin-bottom: var(--space-xs);
-  }
-
-  .capability-item p {
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    color: var(--color-text-secondary);
-  }
-
-
-
 
   /* ── Social proof / credentials section ── */
   .credentials-section {
@@ -674,74 +507,6 @@
     font-weight: 700;
   }
 
-  /* ── Section C: Platforms We Support ── */
-  .platforms-section {
-    padding: var(--space-6xl) 0;
-    background: var(--color-white);
-  }
-
-  .platforms-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm) 0;
-  }
-
-  .platform-card {
-    padding: var(--space-xl) var(--space-2xl);
-    border-radius: var(--radius-none);
-    border: none;
-    background: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    position: relative;
-  }
-
-  .platform-card::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 25%;
-    height: 50%;
-    width: var(--space-2xs);
-    background: var(--color-border);
-  }
-
-  .platform-card:last-child::after {
-    display: none;
-  }
-
-  .platform-card:first-child {
-    padding-left: 0;
-  }
-
-  .platform-card .panel-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-2xs);
-  }
-
-  .platform-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    line-height: var(--leading-normal);
-  }
-
-  .platform-card .platform-full-name {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    font-style: italic;
-    line-height: var(--leading-normal);
-  }
-
-  .platform-card p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-normal);
-  }
-
   /* ── Who We Work With ── */
   .who-section {
     padding: var(--space-6xl) 0 var(--space-3xl);
@@ -756,37 +521,11 @@
     margin-bottom: var(--space-3xl);
   }
 
-  .who-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4xl);
-    align-items: start;
-  }
-
   .who-section .heading-style-h2 {
     color: var(--color-white);
   }
 
-  .who-text {
-    max-width: none;
-  }
-
-  .who-text p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-loose);
-    margin-bottom: var(--space-md);
-  }
-
-  .who-text p:last-child {
-    margin-bottom: 0;
-  }
-
-  .who-text a {
-    color: var(--color-accent);
-  }
-
-  /* ── Panel base (shared with homepage) ── */
+  /* ── Panel base ── */
   .customers-panels {
     display: flex;
     flex-direction: column;
@@ -907,139 +646,6 @@
     font-size: var(--text-lg);
     color: rgba(255,255,255,0.95);
     line-height: var(--leading-normal);
-  }
-
-  /* ── Platform Standards Note ── */
-  .standards-section {
-    padding: var(--space-4xl) 0;
-    background: var(--color-light-grey);
-  }
-
-  .standards-inner {
-    max-width: var(--container-standard);
-  }
-
-  .standards-inner p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-loose);
-    margin-bottom: var(--space-sm);
-  }
-
-  .standards-inner p:last-child {
-    margin-bottom: 0;
-  }
-
-  .standards-inner a {
-    color: var(--color-accent);
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-
-  .standards-inner a:hover {
-    color: var(--color-accent-dark);
-  }
-
-  /* ── Metrics ── */
-  .metrics-section {
-    padding: var(--space-6xl) 0;
-    background: var(--color-white);
-  }
-
-  .section-label--light {
-    color: var(--color-accent);
-  }
-
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-lg);
-  }
-
-  .metric-card {
-    background: var(--color-light-grey);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl) var(--space-lg);
-    text-align: center;
-  }
-
-  .metric-number {
-    font-family: var(--font-heading);
-    font-size: var(--text-5xl);
-    font-weight: 800;
-    color: var(--color-text-primary);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-xs);
-  }
-
-  .metric-label {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-normal);
-  }
-
-  /* ── Case Studies ── */
-  .cases-section {
-    padding: var(--space-6xl) 0;
-    background: var(--color-dark, #0e141c);
-  }
-
-  .cases-section .section-label {
-    color: var(--color-accent);
-  }
-
-  .cases-section .heading-style-h2 {
-    color: var(--color-white);
-  }
-
-  .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-  }
-
-  .case-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl) var(--space-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.3s;
-  }
-
-  .case-card:hover {
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-  }
-
-  .case-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--color-white);
-    line-height: var(--leading-normal);
-  }
-
-  .case-card p {
-    font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.7);
-    line-height: var(--leading-normal);
-  }
-
-  .case-card-icon {
-    width: var(--space-2xl);
-    height: var(--space-2xl);
-    color: var(--color-accent);
-    margin-bottom: var(--space-2xs);
-  }
-
-  .case-card-icon svg {
-    width: 100%;
-    height: 100%;
   }
 
   /* ── FAQ ── */
@@ -1273,12 +879,10 @@
   /* ── Responsive ── */
   @media (max-width: 1200px) {
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
-    .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .who-grid { grid-template-columns: 1fr; }
-    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
-    .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-image { display: none; }
   }
 
   @media (max-width: 900px) {
@@ -1304,19 +908,10 @@
       gap: var(--space-xl);
     }
 
-    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
-    .scenarios-grid { grid-template-columns: 1fr; }
-    .platforms-grid { grid-template-columns: 1fr; }
-    .platform-card::after { display: none; }
-    .platform-card { padding-left: 0; }
-
     .who-header { grid-template-columns: 1fr; gap: var(--space-xl); }
 
     .panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
     .is-narrative .panel-header { width: 280px; }
-
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-    .cases-grid { grid-template-columns: 1fr; }
 
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
@@ -1325,11 +920,10 @@
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .infra-section,
-    .platforms-section,
     .who-section,
-    .metrics-section,
-    .cases-section,
     .faq-section { padding: var(--space-4xl) 0; }
+
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
 
     .people-cta-separator { padding-top: var(--space-3xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
@@ -1347,12 +941,8 @@
     .banner-form-card { padding: var(--space-lg); }
     .banner-form-card .form-row { grid-template-columns: 1fr; }
 
-    .metrics-grid { grid-template-columns: 1fr; }
-
     .panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
     .is-narrative .panel-header { width: auto; }
-    .scenario-card { padding: var(--space-lg); }
-    .capabilities-grid { grid-template-columns: 1fr; }
 
     /* Credentials */
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
@@ -1364,11 +954,7 @@
     .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
 
     .infra-section,
-    .platforms-section,
     .who-section,
-    .standards-section,
-    .metrics-section,
-    .cases-section,
     .faq-section { padding: var(--space-2xl) 0; }
   }
 </style>
@@ -1399,7 +985,7 @@
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="images/fraud/banner-bg-consume-share.jpg" alt="">
+  <img src="images/shared/fraud-tools-card.jpg" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
@@ -1407,18 +993,18 @@
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html">Fraud Data Sharing</a>
         <span class="separator">/</span>
-        <span class="current">Consume &amp; share fraud data</span>
+        <span class="current">Integrate with your security tools</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Consume &amp; share fraud data</h1>
+          <h1 class="heading-style-h1">Integrate with your security tools</h1>
 
-          <p class="banner-description">We help banks connect securely to their banking regulators for fraud data sharing &mdash; handling the integration, data mapping, and ongoing management so your fraud team can focus on prevention, not infrastructure.</p>
+          <p class="banner-description">Your fraud data sharing platform is only as useful as the tools it connects to. We handle the integrations between your MISP instance and your fraud management, transaction monitoring, and security operations tools &mdash; so shared intelligence flows directly into the workflows your team already uses.</p>
         </div>
         <div class="banner-form-card">
-          <h3 class="heading-style-h4">Talk to us about your fraud data goals</h3>
+          <h3 class="heading-style-h4">Talk to us about your integration needs</h3>
           <form class="contact-form" action="#" method="post">
-            <input type="hidden" name="category" value="CloudMISP">
+            <input type="hidden" name="category" value="Fraud Data Sharing">
             <div class="form-row">
               <div class="form-group">
                 <label for="banner-first-name">First name</label>
@@ -1449,46 +1035,24 @@
   </div>
 </div>
 
-<!-- 2a. How we help you connect to your regulator -->
+<!-- 2. How it works -->
 <section class="infra-section">
   <div class="container">
-
-    <!-- 2a-i. Outcomes & Value Intro -->
     <div class="infra-intro-grid">
       <div class="infra-intro">
-        <div class="section-label">Regulators</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you connect to your regulator</h2>
-        <p>We work alongside your fraud team to design and manage the connection to your regulator's fraud data exchange. We handle the platform, integration, data mapping, and ongoing management &mdash; so your fraud analysts can focus on prevention, not infrastructure.</p>
-        <p style="margin-top: var(--space-md);">Don't have a fraud data platform? CloudMISP is our fully managed platform purpose-built for regulatory fraud data exchange. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
+        <div class="section-label">How it works</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">We connect your fraud data platform to the tools your team already uses</h2>
+        <p>Most banks have fraud detection and monitoring tools that work well on their own but aren&rsquo;t connected to the intelligence coming in from regulators and peer banks. We bridge that gap &mdash; connecting your MISP instance to your existing systems so fraud indicators flow automatically into your detection and response workflows.</p>
+        <p>This isn&rsquo;t a rip-and-replace. We work with what you have and start with the integrations that make the biggest difference to your team.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="images/fraud/diagram-regulator-hub.svg" alt="Hub-spoke diagram showing your fraud data platform connected to the regulator and peer banks" style="width: 100%; height: auto;">
+        <img src="images/fraud/diagram-integration-hub.svg" alt="Hub-spoke diagram showing your fraud data platform connected to fraud management, transaction monitoring, SIEM, case management, and custom systems" style="width: 100%; height: auto;">
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- 2a-b. How we help you connect to other banks -->
-<section class="infra-section infra-section--alt">
-  <div class="container">
-
-    <div class="infra-intro-grid">
-      <div class="infra-intro">
-        <div class="section-label">Inter-Bank Sharing</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you connect to other banks</h2>
-        <p>Fraudsters target multiple banks simultaneously, but each bank typically detects fraud in isolation. Your regulator operates a fraud data exchange that connects participating banks &mdash; so a mule account blocked at one institution is flagged across the network in near real-time.</p>
-        <p style="margin-top: var(--space-md);">Don't have a fraud data platform? CloudMISP is our fully managed platform with built-in access controls and sharing workflows for multi-party fraud data exchange. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
-      </div>
-      <div class="outcome-diagram">
-        <img src="images/fraud/diagram-interbank-hub.svg" alt="Hub-spoke diagram showing your fraud data platform connected to peer banks and the regulator" style="width: 100%; height: auto;">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Social proof / credentials -->
+<!-- 3. Credentials -->
 <section class="credentials-section" id="engagement">
   <div class="credentials-inner">
     <div class="credentials-box">
@@ -1529,61 +1093,7 @@
   </div>
 </section>
 
-<!-- 2a-ii. Scenario Cards -->
-<section class="infra-section">
-  <div class="container">
-
-    <!-- 2a-ii. Three Scenario Cards -->
-    <div class="scenarios-heading">
-      <div class="section-label">What you get</div>
-      <div class="scenarios-title">How we work with you depends on where you are today</div>
-    </div>
-
-    <div class="scenarios-grid">
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/fraud/scenario-provide-platform.webp" alt="Clouds in a blue sky" loading="lazy">
-        <div class="scenario-card-number">Scenario 1</div>
-        <div class="scenario-card-title">If you don't have a fraud data platform, <span style="color: var(--color-accent);">we provide one</span></div>
-        <div class="scenario-card-body">You get a production-ready fraud data platform, fully managed and deployed in your region, so you can start sharing with your regulator in days rather than months.</div>
-        <ul class="scenario-list">
-          <li>We provide CloudMISP as your fully managed fraud data platform</li>
-          <li>Handle all data mapping, integration, and ongoing management</li>
-          <li>Deploy in your preferred AWS region &mdash; or the EU Sovereign Cloud for European banks</li>
-        </ul>
-        <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/fraud/scenario-misp-integration.webp" alt="Abstract integration connections" loading="lazy">
-        <div class="scenario-card-number">Scenario 2</div>
-        <div class="scenario-card-title">If you have a MISP-based fraud data platform, <span style="color: var(--color-accent);">we help you use it successfully</span></div>
-        <div class="scenario-card-body">You get a properly configured MISP instance with working integrations and workflows, so your team can consume and share fraud data with confidence.</div>
-        <ul class="scenario-list">
-          <li>Connect your existing MISP instance to your regulator's exchange</li>
-          <li>Develop workflows for consuming and sharing fraud data</li>
-          <li>Build integrations between your fraud systems and MISP</li>
-        </ul>
-        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/fraud/scenario-other-vendor.webp" alt="Light trails on a rooftop at night" loading="lazy">
-        <div class="scenario-card-number">Scenario 3</div>
-        <div class="scenario-card-title">If you have a platform from another vendor, <span style="color: var(--color-accent);">we help you use it successfully</span></div>
-        <div class="scenario-card-body">You get your existing platform connected to your regulator's exchange with automated workflows, regardless of vendor or data format.</div>
-        <ul class="scenario-list">
-          <li>Connect your existing platform to your regulator's exchange</li>
-          <li>Develop workflows and build integrations regardless of vendor</li>
-          <li>Support STIX/TAXII, custom APIs, and proprietary formats</li>
-        </ul>
-        <a href="#engagement" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 3. Regulatory Frameworks -->
+<!-- 4. Regulatory Frameworks -->
 <section class="who-section">
   <div class="container">
     <div class="section-label">Who we work with</div>
@@ -1648,101 +1158,62 @@
   </div>
 </section>
 
-<!-- 5. Key Outcomes / Metrics — skip for now until we get fraud customers -->
-
-<!-- 6. Case Studies — skip for now until we get fraud customers -->
-
-<!-- 7. FAQ -->
+<!-- 5. FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear from central bank CISOs</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear about tool integration</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          What regulatory fraud data sharing frameworks do you support?
+          What tools and platforms do you integrate with?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We work with banks connected to the major regulatory sharing frameworks, including:</p>
-          <p><strong>ECB FRIDA</strong> (Fraud Reporting and Information-sharing for the Detection and Assessment of fraud) &mdash; the ECB&rsquo;s pan-European fraud data sharing initiative under PSD2 and the upcoming PSR. We help banks structure and exchange fraud indicators across EU member institutions.</p>
-          <p><strong>FNC-RF</strong> (Fichier National des Comptes &agrave; Risques et des Fraudes) &mdash; the Banque de France&rsquo;s national file for at-risk accounts and fraud. We help French regulated banks share fraud typology data, mule account indicators, and suspicious account information.</p>
-          <p>We also support APRA-regulated banks in Australia, FCA-regulated institutions in the UK, and banks supervised by SAMA and CBUAE in the Middle East. If your regulator has a specific platform or format requirement, we can adapt to it.</p>
+          <p>We integrate with the major fraud management platforms &mdash; SAS, NICE Actimize, Featurespace &mdash; as well as SIEMs like Splunk and Microsoft Sentinel, case management systems, and SOAR platforms. We also work with custom and in-house systems via REST APIs, STIX/TAXII, SFTP, and other protocols. If your system has a way to receive or send data, we can work with it.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          How do you handle data sovereignty and residency requirements?
+          Do we need to change our existing tools or workflows?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>CloudMISP is deployed in your preferred AWS region, so your fraud data stays within the jurisdiction you choose. For European banks subject to DORA and GDPR, we offer deployment on the AWS EU Sovereign Cloud &mdash; purpose-built infrastructure that keeps data and metadata within the EU, operated by EU-resident staff.</p>
-          <p>You retain full ownership and control of your data at all times. MISP&rsquo;s granular sharing controls let you define exactly which institutions see which data, down to individual indicators. Data is encrypted in transit and at rest.</p>
+          <p>No. The goal is to make your current tools more effective, not replace them. We connect your fraud data sharing platform to the systems your team already uses, so shared intelligence flows into existing workflows. Your analysts keep working in the tools they know &mdash; they just get better data.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          We already have fraud detection tools in place. How does this integrate?
+          How long does a typical integration take?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We integrate with the fraud management platforms banks already use &mdash; SAS, NICE Actimize, Featurespace, Splunk, and others. We connect them to your MISP instance via REST APIs, STIX/TAXII endpoints, or orchestration plugins, so shared fraud indicators flow directly into your existing detection and monitoring workflows.</p>
-          <p>This isn&rsquo;t a rip-and-replace. The goal is to make your current tools more effective by feeding them intelligence from your regulatory exchange and peer banks.</p>
+          <p>It depends on the systems involved, but most integrations are operational within a few weeks. Simple API connections can be up and running in days. More complex integrations &mdash; like bidirectional sync with a fraud management platform or custom data mapping &mdash; take longer, but we scope and prioritise so you see value early.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What experience does Cosive have with central banks and regulators?
+          What if we&rsquo;re using an in-house or custom fraud system?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We&rsquo;ve worked with central banks and financial regulators across multiple jurisdictions. Our team designed and built the infrastructure for Australia&rsquo;s national threat sharing program, and we&rsquo;ve helped banks connect to regulatory exchanges in Europe, the UK, the Middle East, and Asia-Pacific.</p>
-          <p>We&rsquo;re also contributors to MISP &mdash; the open-source platform that underpins most regulatory fraud data sharing frameworks &mdash; and Liaison Members of FIRST.org, the international incident response organisation. This gives us direct relationships with the teams building the frameworks your institution needs to connect to.</p>
+          <p>We work with custom systems regularly. As long as your system can send or receive data through an API, file transfer, or database connection, we can build the integration. We&rsquo;ll work with your development team to understand the data model and design a connection that fits your architecture.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          How does fraud data sharing support our DORA obligations?
+          What ongoing support do you provide after integration?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>DORA (the Digital Operational Resilience Act) requires financial entities in the EU to establish capabilities for sharing cyber threat and fraud intelligence with trusted communities. Articles 45 and 49 specifically encourage voluntary sharing arrangements between financial entities, provided appropriate confidentiality protections are in place.</p>
-          <p>We help you meet these requirements by deploying a managed sharing platform with the access controls, audit logging, and data governance DORA expects &mdash; then connecting you to the relevant regulatory and peer-to-peer sharing communities. The same platform supports both fraud data and cyber threat intelligence sharing, so you can address both obligations with a single infrastructure.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          How quickly can we be operational?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Most banks are sharing fraud data within a few weeks. The CloudMISP platform itself deploys in days &mdash; the majority of time goes into scoping your sharing requirements, configuring taxonomies and sharing groups to match your regulator&rsquo;s data model, and connecting integrations to your fraud systems.</p>
-          <p>If you&rsquo;re joining an existing regulatory exchange like FRIDA or FNC-RF, we handle the data mapping and connectivity so your team can focus on operationalising the intelligence rather than building infrastructure.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          What makes CloudMISP the right platform for fraud data sharing?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>CloudMISP is built on MISP, the open-source platform designed for structured threat intelligence sharing. Its core capabilities translate directly to fraud data exchange:</p>
-          <ul>
-            <li><strong>Granular sharing controls</strong> define exactly which organisations see which data.</li>
-            <li><strong>Taxonomies and galaxies</strong> provide standardised vocabularies for classifying fraud events across institutions.</li>
-            <li><strong>Correlation engine</strong> links related indicators automatically, surfacing patterns like coordinated mule networks.</li>
-            <li><strong>API-first design</strong> means every capability is accessible programmatically for integration with your fraud management platform.</li>
-          </ul>
-          <p>CloudMISP also includes the <strong>MITRE Fight Fraud Framework (F3)</strong> galaxy out of the box &mdash; a behaviour-based framework purpose-built for financial fraud that gives participating banks a consistent schema for exchanging fraud TTPs at scale. Because CloudMISP is fully managed, your team gets new frameworks and platform updates automatically.</p>
+          <p>Integrations need monitoring and maintenance &mdash; APIs change, data formats evolve, and new tools get added. We provide ongoing support to keep your integrations healthy and help you add new connections as your fraud data sharing programme matures.</p>
         </div>
       </details>
 
@@ -1757,15 +1228,15 @@
 <!-- Wavy SVG separator -->
 <div class="people-cta-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
 
-<!-- 8. Contact Form -->
+<!-- 6. Contact Form -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
-      <p class="contact-subtitle">Tell us about your fraud data sharing requirements and we'll get back to you as soon as possible.</p>
+      <p class="contact-subtitle">Tell us about the tools you need to integrate and we'll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="CloudMISP">
+        <input type="hidden" name="category" value="Fraud Data Sharing">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>
