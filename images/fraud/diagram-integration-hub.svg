@@ -17,8 +17,8 @@
   <path d="M3 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0 40-65 62 0" fill="none" stroke="#bdbdbd" stroke-width="6.55" stroke-linecap="round"/>
   <path d="M33 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0" fill="none" stroke="#e53834" stroke-width="6.55" stroke-linecap="round"/>
 </g>
-<text x="280" y="240" fill="#e53834" font-family="Manrope, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Your Fraud</text>
-<text x="280" y="254" fill="#e53834" font-family="Manrope, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Data Platform</text>
+<text x="280" y="240" fill="#e53834" font-family="Manrope, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Your MISP</text>
+<text x="280" y="254" fill="#e53834" font-family="Manrope, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Instance</text>
 
 <!-- Spoke: Transaction Monitoring (upper-right) -->
 <rect width="120" height="52" x="345" y="66" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
