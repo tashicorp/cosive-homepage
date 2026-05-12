@@ -1,0 +1,210 @@
+﻿cosive_mail_signature.png 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ cosive_logo_large.png 
+
+Tone of Voice
+2026.03.12
+─
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cosive Pty Ltd
+ABN: 24608265345
+Table of Contents
+Introduction
+Cosive Tone of Voice
+1. Expert & Authoritative
+Do
+Avoid
+Example
+2. Pragmatic & Problem-Solving
+Do
+Avoid
+Example
+3. Approachable & Supportive
+Do
+Avoid
+Example
+4. Community-Minded & Collaborative
+Do
+Avoid
+Example
+Cosive Key Messages
+Cyber Threat Intelligence (CTI)
+CTI is foundational and accessible
+Sharing strengthens the ecosystem
+Analysts remain central to good CTI
+CTI goes beyond indicators - it supports decision-making at every level
+Security Operations (SecOps)
+Independent perspective improves outcomes
+Engineering and automation are force multipliers
+Security Maturity and Process Improvement
+Key Messaging Examples
+Less Aligned Example: Generic Cybersecurity Commentary
+
+
+
+
+________________
+
+
+Introduction
+This document describes the tone of voice that Cosive uses in all of its messaging. It helps marketers and social media communicators use a common voice across all of the marketing and communication channels that we use. 
+
+
+Cosive Tone of Voice[a][b][c]
+We use Australian English. We may selectively use US English when addressing a US audience.
+Cosive’s tone is expert, pragmatic, approachable, and community-minded.
+1. Expert & Authoritative
+Do
+* Speak to the reader directly (“you”)
+* Explain the why and so what
+* Speak from experience
+Avoid
+* Distancing or passive language
+* Buzzwords and inflated claims
+* Alarmist or fear-driven framing
+Example
+Less aligned
+Cyber threat intelligence is critical in today’s rapidly evolving threat landscape, where organisations face unprecedented levels of risk.
+More aligned
+Cyber threat intelligence helps you understand which threats matter and why, enabling more informed security decisions.
+________________
+2. Pragmatic & Problem-Solving
+Do
+* Offer realistic starting points and next steps
+* Break complexity into clear actions
+* Prioritise people and process
+* Acknowledge time, budget, and skill constraints
+* Emphasise incremental improvement
+Avoid
+* Idealised “perfect-state” advice
+* One-size-fits-all recommendations
+* Tool-led thinking without context
+* Expensive big-bang changes
+Example
+Less aligned
+Organisations should implement a comprehensive threat intelligence platform and suite of commercial feeds to effectively address modern cyber threats.
+More aligned
+You can start a useful threat intelligence function with a spreadsheet, a few trusted sources, and one analyst dedicating one hour per week.
+________________
+3. Approachable & Supportive
+Do
+* Use plain, accessible language
+* Encourage progress over perfection (e.g. “good enough is good enough”)
+* Meet organisations where they are
+Avoid
+* Shaming, gatekeeping, or elitism
+* Implying failure or incompetence
+* Unnecessary jargon or technical language
+Example
+Less aligned
+Many SOC teams fail to improve processes due to a critical lack of expertise.
+More aligned
+Many teams know what works for them, but they don’t always have the visibility to compare their operations to other SOC teams in their industry.
+________________
+4. Community-Minded & Collaborative
+Do
+* Promote intelligence sharing and collaboration
+* Advocate working together to achieve more than as individuals
+* Support and educate the analyst community
+* Acknowledge and contribute to the open-source tools and frameworks we use and recommend
+Avoid
+* Competitive or “us vs them” positioning between security teams
+* Overemphasising intelligence sharing risks while ignoring benefits
+* Disparaging others
+Example
+Less aligned
+We help you stay ahead of threats while your competitors fall behind.
+More aligned
+Threat intelligence sharing strengthens your collective defence and helps the broader security community respond more effectively to real threats.
+________________
+Cosive Key Messages
+These key messages reflect Cosive’s core beliefs about effective security practice. They guide what we talk about, how we position ourselves, and what we choose to comment on.
+To preserve brand differentiation, we prioritise our key messages on CTI, SecOps and security maturity, and avoid generic cybersecurity commentary that doesn’t clearly reinforce our positioning.
+Cyber Threat Intelligence (CTI)
+CTI is foundational and accessible
+* Valuable programs can start small with limited time, people, and simple tools.
+* Most security teams are already doing some form of CTI, even if they don’t realise it yet.
+* Early CTI maturity depends more on people and processes than tooling.
+Sharing strengthens the ecosystem
+* While not always feasible, security teams should aim to progress from consuming intelligence to sharing it when ready.
+* Sharing intelligence strengthens our collective resilience.
+Analysts remain central to good CTI
+* Threat intelligence platforms may deliver limited value without skilled analysts to interpret and apply the intelligence.
+* Tooling should support analysts, not attempt to substitute for them.
+* AI reduces manual effort and cognitive load when applied to well-defined tasks. Effective use keeps analysts in the loop for context, judgement, and accountability.
+CTI goes beyond indicators - it supports decision-making at every level
+* CTI extends beyond IoCs to strategic, operational, and executive intelligence that informs prioritisation, controls, risk posture, and budget decisions across your organisation.
+________________
+
+
+Security Operations (SecOps)
+Independent perspective improves outcomes
+* External assessments reveal blind spots difficult to see within day-to-day operations.
+Engineering and automation are force multipliers
+* Engineering enables integration, automation, and sustainable scaling.
+* Automation reduces repetitive workload and frees analysts for higher-value tasks.
+* Integration between security tools is essential to realise the full value of investments in both technology and people.
+* Disconnected tools increase workload and reduce effectiveness across the security function.
+Security Maturity and Process Improvement
+* Measurement is the foundation of improvement
+* Frameworks such as CTI-CMM and SIM3, supported by independent gap analyses, help teams benchmark maturity, establish baselines, and prioritise improvement.
+
+
+Key Messaging Examples
+Less Aligned Example: Generic Cybersecurity Commentary
+“Cybersecurity threats continue to evolve at an unprecedented pace. Organisations must adopt a Zero Trust architecture to remain secure in today’s digital landscape. Insider threats, ransomware, and nation-state attacks are increasing, making it critical for businesses to invest in advanced security technologies.
+A robust defence requires comprehensive tooling, AI-driven detection, and strict access controls. Companies that fail to modernise their security posture risk severe financial and reputational damage.”
+
+
+
+
+  
+
+         
+[a]I think we need to add in the following:
+- We are customer-centric and talk to our customers directly using active rather than passive voice (you, we, us)
+- We are action-oriented and provide guidance that can result in change happening
+- We should speak to an ideal customer profile in our messaging, so that our Ideal customers feel like we are speaking just to them.
+[b]_Marked as resolved_
+[c]_Re-opened_
