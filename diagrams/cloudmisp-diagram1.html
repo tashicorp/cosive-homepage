@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudMISP Diagram 1</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+    }
+    #diagram {
+      width: 100%;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+  <div id="diagram">
+    <pre class="mermaid">
+flowchart TD
+    analysts["👥 Your Threat Analysts"]
+    okta["Okta /\nAzure Entra ID"]
+    cloudmisp(["☁️ CloudMISP"])
+    misp["MISP Community"]
+    sentinel["Microsoft Sentinel\n& Other SIEMs"]
+    infra["🖥️ Infrastructure"]
+    feed["Threat Intel Feed"]
+
+    analysts <-->|"Intel creation\nand mgmt"| cloudmisp
+    okta <-->|"Authentication"| cloudmisp
+    cloudmisp <-->|"CTI Sharing"| misp
+    sentinel <-->|"IOCs and Aging"| cloudmisp
+    cloudmisp -->|"IOCs"| infra
+    feed -->|"Feed Ingestion"| cloudmisp
+    </pre>
+  </div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      flowchart: {
+        curve: 'linear',
+        nodeSpacing: 60,
+        rankSpacing: 80,
+      },
+      themeVariables: {
+        primaryColor: '#1a1a1a',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#e53834',
+        lineColor: '#e53834',
+        secondaryColor: '#2a2a2a',
+        tertiaryColor: '#1a1a1a',
+        edgeLabelBackground: '#1a1a1a',
+        fontSize: '14px',
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+...@cosive.d2
+
+direction: right
+
+analyst: Fraud Analyst {shape: person}
+
+tm: Transaction\nMonitoring
+cm: Case\nManagement
+fdb: Fraud\nDatabase {shape: cylinder}
+kyc: Identity\n& KYC
+siem: SIEM
+
+# Manual, fragile connections — analyst bridges everything
+analyst -> tm: Check alerts {style.stroke-dash: 5}
+analyst -> cm: Update cases {style.stroke-dash: 5}
+analyst -> fdb: Look up records {style.stroke-dash: 5}
+analyst -> kyc: Verify identity {style.stroke-dash: 5}
+analyst -> siem: Cross-reference logs {style.stroke-dash: 5}
+
+# Tools don't talk to each other — manual workarounds
+tm -> cm: Copy-paste alerts {style.stroke-dash: 5}
+fdb -> cm: Manual lookup {style.stroke-dash: 5}
+kyc -> cm: Re-key results {style.stroke-dash: 5}
+siem -> tm: Export & import {style.stroke-dash: 5}

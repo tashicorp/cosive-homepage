@@ -1,0 +1,27 @@
+...@cosive.d2
+
+direction: right
+
+tm: Transaction\nMonitoring
+cm: Case\nManagement
+fdb: Fraud\nDatabase {shape: cylinder}
+kyc: Identity\n& KYC
+siem: SIEM
+
+hub: Cosive\nIntegration {
+  style.fill: "#e53834"
+  style.font-color: "#ffffff"
+  style.bold: true
+}
+
+# Automated connections — data flows without manual effort
+tm -> hub: Real-time alerts
+cm -> hub: Case updates
+fdb -> hub: Automated lookup
+kyc -> hub: Identity checks
+siem -> hub: Log correlation
+
+# Use cases the integration enables
+hub -> analyst: Enriched, unified view
+
+analyst: Fraud Analyst {shape: person}

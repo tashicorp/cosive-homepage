@@ -2,6 +2,7 @@
 .playwright-mcp/
 node_modules/
 previews/
+diagrams/fonts/
 
 # Development screenshots
 verify-*.png

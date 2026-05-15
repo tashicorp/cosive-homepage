@@ -1,0 +1,51 @@
+...@cosive.d2
+
+direction: down
+
+cloudmisp: CloudMISP {
+  style.font-size: 24
+  style.bold: true
+  icon: https://icons.terrastruct.com/essentials%2F092-network.svg
+}
+
+analysts: Your Threat\nAnalysts {
+  shape: person
+  style.multiple: true
+}
+okta: Okta /\nAzure Entra ID {
+  style.fill: "#0e141c"
+  style.font-color: "#ffffff"
+  style.bold: true
+  icon: https://icons.terrastruct.com/azure%2FIdentity%20Service%20Color%2FActive%20Directory.svg
+}
+misp: MISP\nCommunity {
+  style.fill: "#0e141c"
+  style.font-color: "#ffffff"
+  style.bold: true
+  icon: https://icons.terrastruct.com/essentials%2F091-share.svg
+}
+siem: Microsoft Sentinel\n& Other SIEMs {
+  style.fill: "#0e141c"
+  style.font-color: "#ffffff"
+  style.bold: true
+  icon: https://icons.terrastruct.com/azure%2FSecurity%20Service%20Color%2FAzure%20Sentinel.svg
+}
+feeds: Threat\nIntel Feed {
+  style.fill: "#0e141c"
+  style.font-color: "#ffffff"
+  style.bold: true
+  icon: https://icons.terrastruct.com/social%2F023-rss.svg
+}
+infra: Your\nInfrastructure {
+  style.fill: "#0e141c"
+  style.font-color: "#ffffff"
+  style.bold: true
+  icon: https://icons.terrastruct.com/essentials%2F112-server.svg
+}
+
+analysts <-> cloudmisp: Intel creation\nand mgmt
+okta <-> cloudmisp: Authentication
+cloudmisp <-> misp: CTI Sharing
+siem <-> cloudmisp: IOCs and Aging
+feeds -> cloudmisp: Feed Ingestion
+cloudmisp -> infra: IOCs

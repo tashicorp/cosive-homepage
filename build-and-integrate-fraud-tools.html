@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integrate your fraud tools - Cosive</title>
+<title>Build and integrate tools - Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -386,9 +386,9 @@
 
   /* ── What we build: luxury grid ── */
   .what-we-build-header {
-    text-align: center;
+    text-align: left;
     max-width: 720px;
-    margin: 0 auto var(--space-5xl);
+    margin: 0 0 var(--space-5xl);
   }
 
   .what-we-build-header .heading-style-h2 {
@@ -402,7 +402,7 @@
     line-height: var(--leading-normal);
     color: var(--color-text-secondary);
     max-width: 640px;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .build-grid {
@@ -1131,16 +1131,16 @@
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html">Fraud Data Sharing</a>
         <span class="separator">/</span>
-        <span class="current">Integrate your fraud tools</span>
+        <span class="current">Build and integrate tools</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Integrate your fraud tools</h1>
+          <h1 class="heading-style-h1">Build and integrate tools</h1>
 
-          <p class="banner-description">Connecting fraud systems together is how you turn intelligence into action. We help you link your fraud management tools, sharing platforms, and regulatory connections &mdash; so your team spends less time on manual work and more time stopping fraud.</p>
+          <p class="banner-description">Your fraud tools are more valuable when they work together. We <strong>connect your existing platforms</strong>, <strong>integrate them with MISP</strong> sharing communities, and <strong>build bespoke tooling</strong> when off-the-shelf solutions fall short.</p>
         </div>
         <div class="banner-form-card">
-          <h3 class="heading-style-h4">Talk to us about fraud tool integration</h3>
+          <h3 class="heading-style-h4">Talk to us about integration and tooling</h3>
           <form class="contact-form" action="#" method="post">
             <input type="hidden" name="category" value="Fraud Data Sharing">
             <div class="form-row">
@@ -1173,99 +1173,85 @@
   </div>
 </div>
 
-<!-- 2. How it works -->
-<section class="infra-section">
+<!-- 2. Connect your tools -->
+<section class="infra-section help-section">
   <div class="container">
-    <div class="infra-intro-grid">
+    <div class="infra-intro">
+      <div class="section-label">Connect your tools</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Your tools are more powerful when they work together</h2>
+      <p>Disconnected tools create manual work, data silos, and gaps in detection. Integration is how you get the full value from your technology and your people.</p>
+      <p>We work with what you have &mdash; your transaction monitoring, case management, SIEM, and other platforms &mdash; and connect them so fraud data flows automatically between systems.</p>
+    </div>
+    <div class="infra-intro-grid" style="margin-top: var(--space-3xl);">
       <div class="infra-intro">
-        <div class="section-label">How it works</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">MISP is at the heart of fraud sharing &mdash; we help you connect to it</h2>
-        <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you develop integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
-        <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can connect it to your MISP instance and the communities you belong to.</p>
+        <div class="section-label">Before</div>
+        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Disconnected tools, manual workarounds</h3>
+        <p>Your analyst is the glue &mdash; copying data between systems, re-keying results, and cross-referencing logs by hand. Every connection is fragile and manual.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="images/fraud/diagram-integration-hub.svg" alt="Hub-spoke diagram showing your fraud data platform connected to fraud management, transaction monitoring, SIEM, case management, and custom systems" style="width: 100%; height: auto;">
+        <img src="diagrams/out/tools-disconnected.png" alt="Diagram showing fraud tools connected only through manual effort by the analyst — dashed lines represent fragile, manual processes">
+      </div>
+    </div>
+    <div class="infra-intro-grid" style="margin-top: var(--space-3xl);">
+      <div class="infra-intro">
+        <div class="section-label">After</div>
+        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Connected tools, automated data flow</h3>
+        <p>The same tools, now connected through a central integration layer. Data flows automatically between systems, and your analyst gets an enriched, unified view instead of juggling five tabs.</p>
+      </div>
+      <div class="outcome-diagram">
+        <img src="diagrams/out/tools-connected.png" alt="Diagram showing fraud tools connected through a central Cosive integration hub — solid lines represent automated data flow">
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2a. What we build -->
+<!-- 3. Integrate with MISP -->
 <section class="infra-section infra-section--alt">
   <div class="container">
+    <div class="infra-intro">
+      <div class="section-label">MISP integration</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Connect your fraud platforms to MISP</h2>
+      <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you create new integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
+      <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can connect it to your MISP instance and the communities you belong to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Build bespoke tooling -->
+<section class="infra-section">
+  <div class="container">
     <div class="what-we-build-header">
-      <div class="section-label">What we build</div>
-      <h2 class="heading-style-h2">If it has an API, we can connect your fraud tools to it</h2>
-      <p>We learn your platform, understand its extension model, and build plugins and integrations that work within its ecosystem &mdash; not clunky workarounds bolted on from the outside.</p>
+      <div class="section-label">Bespoke tooling</div>
+      <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
+      <p>Sometimes the right tool doesn&rsquo;t exist yet. We create new custom integrations, plugins, and standalone tools tailored to your specific fraud operations &mdash; built to production standards and designed to last.</p>
     </div>
     <div class="build-grid">
       <div class="build-feature">
         <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">EclecticIQ MISP plugin</h3>
-        <p class="build-feature-desc">EclecticIQ asked us to write their official MISP integration plugin, connecting their threat intelligence platform directly to MISP communities.</p>
+        <h3 class="build-feature-title">Platform plugins</h3>
+        <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">SIEM connectors</h3>
-        <p class="build-feature-desc">Connecting MISP fraud data feeds to SIEM platforms so fraud indicators appear in your security monitoring alongside other alerts.</p>
+        <h3 class="build-feature-title">Data connectors</h3>
+        <p class="build-feature-desc">Connecting data feeds to the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Swimlane integration</h3>
-        <p class="build-feature-desc">Building connectors for the Swimlane SOAR platform so fraud response playbooks can pull indicators directly from MISP.</p>
+        <h3 class="build-feature-title">Workflow automation</h3>
+        <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">04</div>
         <h3 class="build-feature-title">Custom API integrations</h3>
-        <p class="build-feature-desc">If your platform exposes an API, we can build the connection. We've integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
+        <p class="build-feature-desc">If your platform exposes an API, we can build the connection. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2b. Credentials -->
-<section class="credentials-section" id="engagement">
-  <div class="credentials-inner">
-    <div class="credentials-box">
-        <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
-        <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Fraud data sharing expertise you can trust</h2>
-        <div class="icon-credentials">
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
-          </div>
-        </div>
-      </div>
-      <div class="credentials-photo">
-        <img src="images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
-        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
-      </div>
-  </div>
-</section>
-
-<!-- 3. How we build -->
-<section class="infra-section help-section">
+<!-- 4b. How we build -->
+<section class="infra-section infra-section--alt help-section">
   <div class="container">
     <div class="section-label">How we build</div>
     <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">Professional software engineering, not just scripts and glue</h2>
@@ -1310,123 +1296,44 @@
   </div>
 </section>
 
-<!-- 4. Integrations -->
-<section class="who-section">
-  <div class="container">
-    <div class="section-label">Integrations</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Connect MISP with your fraud operations stack</h2>
-  </div>
-  <div class="customers-panels">
-    <!-- Transaction Monitoring -->
-    <div class="panel">
-      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-txn-monitoring.webp')"></div>
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-header">
-          <div class="panel-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg></div>
-          <div class="panel-title">Transaction Monitoring</div>
-        </div>
-        <div class="panel-right">
-          <div class="panel-customers-label">Products we integrate with</div>
-          <div class="panel-customers">
-            <span>NICE Actimize<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Featurespace<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>SAS Fraud Management<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Feedzai<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>NetGuardians<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Bottomline</span>
+<!-- 5. Credentials -->
+<section class="credentials-section" id="engagement">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+        <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
+        <div class="credentials-label">Why work with us</div>
+        <h2 class="heading-style-h2">Fraud data sharing expertise you can trust</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Identity Verification & KYC -->
-    <div class="panel">
-      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-identity-kyc.webp')"></div>
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-header">
-          <div class="panel-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" /></svg></div>
-          <div class="panel-title">Identity Verification &amp; KYC</div>
-        </div>
-        <div class="panel-right">
-          <div class="panel-customers-label">Products we integrate with</div>
-          <div class="panel-customers">
-            <span>Jumio<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Onfido<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>LexisNexis Risk Solutions<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Refinitiv World-Check<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>ComplyAdvantage<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Trulioo</span>
-          </div>
-        </div>
+      <div class="credentials-photo">
+        <img src="images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
       </div>
-    </div>
-    <!-- Case Management & Investigation -->
-    <div class="panel">
-      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-case-management.webp')"></div>
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-header">
-          <div class="panel-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg></div>
-          <div class="panel-title">Case Management &amp; Investigation</div>
-        </div>
-        <div class="panel-right">
-          <div class="panel-customers-label">Products we integrate with</div>
-          <div class="panel-customers">
-            <span>Pega Financial Crime<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Memento<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Hyland OnBase<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>i-Sight<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>ServiceNow<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Relativity</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Threat Intelligence Platforms -->
-    <div class="panel">
-      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-threat-intel.webp')"></div>
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-header">
-          <div class="panel-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div>
-          <div class="panel-title">Threat Intelligence Platforms</div>
-        </div>
-        <div class="panel-right">
-          <div class="panel-customers-label">Products we integrate with</div>
-          <div class="panel-customers">
-            <span>EclecticIQ<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Anomali<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>ThreatConnect<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Recorded Future<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>OpenCTI<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>ThreatQuotient</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Payments & Messaging -->
-    <div class="panel">
-      <div class="panel-bg" style="background-image: url('images/fraud/panel-bg-payments.webp')"></div>
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-header">
-          <div class="panel-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"/></svg></div>
-          <div class="panel-title">Payments &amp; Messaging</div>
-        </div>
-        <div class="panel-right">
-          <div class="panel-customers-label">Products we integrate with</div>
-          <div class="panel-customers">
-            <span>SWIFT<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Mastercard Decision Intelligence<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Visa Advanced Authorization<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>Temenos<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>FIS Global<svg class="dot" viewBox="0 0 4 4"><circle cx="2" cy="2" r="2" fill="currentColor"/></svg></span>
-            <span>ACI Worldwide</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1434,58 +1341,68 @@
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear about fraud tool integration</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions about integration and tooling</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          Can you help me get MISP fraud data into my fraud platform?
+          What kinds of tools can you integrate?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes &mdash; we build integrations that pull fraud indicators from MISP into your existing fraud management tools. Whether that&rsquo;s a direct API connection, a scheduled sync, or a custom plugin, we connect the platforms so your fraud team gets actionable data without manual steps.</p>
+          <p>If it has an API, we can connect it. We&rsquo;ve integrated transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms, compliance tools, and more. We work with what you have rather than asking you to replace it.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What fraud data sharing platforms do you support?
+          Do you only work with MISP?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We work with MISP-based platforms (including our own <a href="cloudmisp.html">CloudMISP</a>), STIX/TAXII platforms, custom APIs, and proprietary formats. If your regulator or peers use a specific platform, we can connect to it &mdash; or help you stand up your own.</p>
+          <p>No. MISP is the platform most fraud sharing communities use, so we have deep expertise there. But we also integrate with STIX/TAXII platforms, proprietary systems, and custom APIs. If your community or regulator uses a different platform, we can connect to it.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          My regulator&rsquo;s platform isn&rsquo;t listed. Can you help me connect to my regulator?
+          How long does a typical integration take?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes. We adapt to whatever platform or format your regulator requires. We&rsquo;ve built integrations for regulators across Europe, the Middle East, and Asia-Pacific, and we&rsquo;re used to working with new systems and specifications. If you can share the technical requirements, we can build the connection.</p>
+          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API connection might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or regulatory requirements typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Can you help me start a fraud data sharing community?
+          What if our platform doesn&rsquo;t have an API?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes. We help with community design, membership rules, workflows, and the technical platform. We&rsquo;ve done this for central banks and industry groups. See our <a href="start-sharing-community.html">sharing community page</a> for more detail.</p>
+          <p>We can often find other ways to connect. Some platforms support file-based imports, database access, webhook triggers, or extension plugins. We evaluate your specific setup and recommend the most reliable approach &mdash; including building bespoke tooling if that&rsquo;s what it takes.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Can you also help me share cyber threat intelligence?
+          How do you handle ongoing maintenance?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes. The same platform that supports fraud data sharing also handles cyber threat intelligence. If you need to share both fraud indicators and CTI, we can set that up on a single platform rather than running two separate programmes. <a href="cyber-threat-intelligence.html">Learn more about our CTI work</a>.</p>
+          <p>We create new integrations with automated testing and CI/CD pipelines, so they&rsquo;re designed to be maintainable from day one. We can provide ongoing support, or hand the integration over to your team with full documentation. Either way, you&rsquo;re not left with a fragile script that breaks when an API changes.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you work with our existing development team?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We regularly work alongside in-house teams, whether that means creating new integrations collaboratively, upskilling your developers on MISP and its APIs, or handling the specialist work while your team focuses on what they know best. We adapt to your preferred ways of working.</p>
         </div>
       </details>
 

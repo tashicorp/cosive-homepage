@@ -539,6 +539,63 @@
     margin-top: auto;
   }
 
+  /* ── Hero testimonial (full width below nav cards) ── */
+  .hero-testimonial {
+    background: var(--color-white);
+    padding: 0 0 var(--space-7xl);
+  }
+
+  .hero-testimonial .testimonial-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+    text-align: center;
+  }
+
+  .testimonial-sinewave {
+    display: block;
+    width: var(--space-5xl);
+    height: auto;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .hero-testimonial .testimonial-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-testimonial blockquote {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-testimonial cite {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .hero-testimonial .testimonial-logo {
+    display: block;
+    height: 3rem;
+    width: auto;
+    margin: var(--space-lg) auto 0;
+  }
+
   /* ── Social proof / credentials section ── */
   .credentials-section {
     background: var(--color-dark);
@@ -1404,6 +1461,9 @@
     .tiers-section { padding: var(--space-4xl) 0; }
     .people-cta-separator { padding-top: var(--space-3xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 0; padding-bottom: var(--space-4xl); }
   }
 
   @media (max-width: 600px) {
@@ -1422,6 +1482,11 @@
 
 
     .scenario-card { padding: var(--space-lg); }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 0; padding-bottom: var(--space-3xl); }
+    .hero-testimonial blockquote { font-size: var(--text-xl); }
+    .hero-testimonial cite { font-size: var(--text-base); }
 
     /* Credentials */
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
@@ -1600,7 +1665,7 @@
 
 
 <!-- Navigation Cards -->
-<section class="infra-section" style="padding-bottom: 0;">
+<section class="infra-section">
   <div class="container">
 
     <div class="nav-cards-heading">
@@ -1617,7 +1682,7 @@
         <div class="nav-card-title">Share threat intelligence</div>
         <span class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
-      <a href="cloudmisp.html" class="nav-card">
+      <a href="#cloudmisp" class="nav-card">
         <div class="nav-card-title">Implement a threat intel platform</div>
         <span class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
       </a>
@@ -1626,62 +1691,14 @@
   </div>
 </section>
 
-<!-- 2a. How we help you consume threat intelligence -->
-<section class="infra-section" id="consume">
-  <div class="container">
-
-    <div class="infra-intro-grid infra-intro-grid--stacked">
-      <div class="infra-intro">
-        <div class="section-label">Consume</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you consume threat intelligence</h2>
-        <p>If you're standing up a threat intelligence capability for the first time — or formalising one that's been ad hoc — you're probably feeling the pressure from multiple directions:</p>
-        <ul>
-          <li>Regulations like NIS2, DORA, and Australia's SOCI Act are raising the bar on how you identify, assess, and respond to threats</li>
-          <li>Boards and executives want regular threat briefings</li>
-          <li>Your team is already stretched</li>
-        </ul>
-        <p style="margin-top: var(--space-md);">You don't need to solve all of this at once. We help you start consuming threat intelligence in a structured way — connecting your feeds, analysts, and security tools through a platform that:</p>
-        <ul>
-          <li>Ingests indicators from commercial feeds, open-source intelligence, and sharing communities</li>
-          <li>Distributes enriched IOCs to your SIEMs, firewalls, and infrastructure automatically</li>
-        </ul>
-        <p style="margin-top: var(--space-md);">Don't have a threat intelligence platform yet? <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">CloudMISP</a> is our fully managed platform purpose-built for consuming and sharing threat intelligence.</p>
-      </div>
-      <div class="outcome-diagram">
-        <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP overview diagram showing CloudMISP at the centre connected to analysts, Okta, MISP community, SIEMs, threat intel feeds, and infrastructure" style="width: 100%; height: auto;">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 2b. How we help you share threat intelligence -->
-<section class="infra-section infra-section--alt" id="share">
-  <div class="container">
-
-    <div class="infra-intro-grid infra-intro-grid--stacked">
-      <div class="infra-intro">
-        <div class="section-label">Share</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you share threat intelligence</h2>
-        <p>Effective sharing starts with separating what you triage from what you publish. We configure a pipeline where:</p>
-        <ul>
-          <li>Your Triage instance ingests feeds and your analysts curate intelligence</li>
-          <li>Your Sharing instance publishes vetted indicators to partner organisations</li>
-          <li>You control exactly what leaves your environment</li>
-        </ul>
-        <p style="margin-top: var(--space-md);">Partners connect the way that suits them:</p>
-        <ul>
-          <li>Push-only delivery for organisations that just need your indicators</li>
-          <li>Push/pull for bidirectional sharing with peers</li>
-          <li>Direct login for close collaborators</li>
-        </ul>
-        <p style="margin-top: var(--space-md);">This flexibility lets you share with ISACs, sector peers, and government partners on their terms. CloudMISP includes built-in sharing workflows, granular access controls, and multi-community support out of the box. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
-      </div>
-      <div class="outcome-diagram">
-        <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="Pipeline diagram showing threat intel feeds ingested into Triage CloudMISP, published to Sharing CloudMISP, and distributed to partner organisations" style="width: 100%; height: auto;">
-      </div>
-    </div>
-
+<!-- Customer testimonial -->
+<section class="hero-testimonial">
+  <div class="testimonial-inner">
+    <img src="icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
+    <div class="testimonial-label">What our customers say about us</div>
+    <blockquote>&ldquo;Cosive brought a high level of expertise and depth of knowledge to our engagement, and from the outset they were collaborative in developing the engagement methodology and deliverables.&rdquo;</blockquote>
+    <cite>&mdash; Sasenka Abeysooriya, Program Director</cite>
+    <img src="logos/uq.svg" alt="The University of Queensland" class="testimonial-logo">
   </div>
 </section>
 
@@ -1725,8 +1742,138 @@
       </div>
   </div>
 </section>
+
+<!-- Key Outcomes / Metrics -->
+<section class="metrics-section">
+  <div class="container">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: var(--space-sm);">
+      <rect x="2" y="2" width="20" height="20" rx="4" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+      <path d="M7 12.5l3 3 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="section-label">Key Outcomes</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Results from our threat intelligence engagements</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">50+</div>
+        <div class="metric-label">Threat intelligence platform deployments worldwide</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">12</div>
+        <div class="metric-label">Countries with active deployments</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">1M+</div>
+        <div class="metric-label">Indicators processed daily</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">99.9%</div>
+        <div class="metric-label">CloudMISP platform uptime</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">24/7</div>
+        <div class="metric-label">Monitoring and support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="cases-section">
+  <div class="container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-md);">How organisations are sharing threat intelligence</h2>
+    <p class="cases-intro">Real results from real engagements across threat intelligence sharing, national programmes, and threat intelligence platform migrations.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <img src="https://unsplash.com/photos/P-t9yap_20M/download?w=800" alt="Australian government building">
+        <div class="case-card-body">
+          <span class="case-card-tag">Government</span>
+          <h3>Australian Cyber Threat Intelligence Sharing (CTIS)</h3>
+          <p>How Cosive designed and built the infrastructure for Australia's national cyber threat intelligence sharing program, connecting government agencies and critical infrastructure operators.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="European infrastructure">
+        <div class="case-card-body">
+          <span class="case-card-tag">Critical Infrastructure</span>
+          <h3>European ISAC Threat Intelligence Sharing Platform</h3>
+          <p>Deploying a managed threat intelligence sharing platform for a European sector ISAC, enabling cross-border threat intelligence exchange between member organisations.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://unsplash.com/photos/UwnH5jSrdr4/download?w=800" alt="Government security operations">
+        <div class="case-card-body">
+          <span class="case-card-tag">Government</span>
+          <h3>Government Agency TIP Migration</h3>
+          <p>Migrating a government security agency from a legacy TIP to CloudMISP, improving feed management, correlation, and sharing workflows.</p>
+        </div>
+      </div>
+    </div>
+    <a href="/case-studies" class="cases-cta">View all case studies <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
+</section>
+
+<!-- 2a. How we help you consume threat intelligence -->
+<section class="infra-section infra-section--alt" id="consume">
+  <div class="container">
+
+    <div class="infra-intro-grid infra-intro-grid--stacked">
+      <div class="infra-intro">
+        <div class="section-label">Consume</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you consume threat intelligence</h2>
+        <p>If you're standing up a threat intelligence capability for the first time — or formalising one that's been ad hoc — you're probably feeling the pressure from multiple directions:</p>
+        <ul>
+          <li>Regulations like NIS2, DORA, and Australia's SOCI Act are raising the bar on how you identify, assess, and respond to threats</li>
+          <li>Boards and executives want regular threat briefings</li>
+          <li>Your team is already stretched</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">You don't need to solve all of this at once. We help you start consuming threat intelligence in a structured way — connecting your feeds, analysts, and security tools through a platform that:</p>
+        <ul>
+          <li>Ingests indicators from commercial feeds, open-source intelligence, and sharing communities</li>
+          <li>Distributes enriched IOCs to your SIEMs, firewalls, and infrastructure automatically</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Don't have a threat intelligence platform yet? <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">CloudMISP</a> is our fully managed platform purpose-built for consuming and sharing threat intelligence.</p>
+      </div>
+      <div class="outcome-diagram">
+        <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP overview diagram showing CloudMISP at the centre connected to analysts, Okta, MISP community, SIEMs, threat intel feeds, and infrastructure" style="width: 100%; height: auto;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2b. How we help you share threat intelligence -->
+<section class="infra-section" id="share">
+  <div class="container">
+
+    <div class="infra-intro-grid infra-intro-grid--stacked">
+      <div class="infra-intro">
+        <div class="section-label">Share</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you share threat intelligence</h2>
+        <p>Effective sharing starts with separating what you triage from what you publish. We configure a pipeline where:</p>
+        <ul>
+          <li>Your Triage instance ingests feeds and your analysts curate intelligence</li>
+          <li>Your Sharing instance publishes vetted indicators to partner organisations</li>
+          <li>You control exactly what leaves your environment</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Partners connect the way that suits them:</p>
+        <ul>
+          <li>Push-only delivery for organisations that just need your indicators</li>
+          <li>Push/pull for bidirectional sharing with peers</li>
+          <li>Direct login for close collaborators</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">This flexibility lets you share with ISACs, sector peers, and government partners on their terms. CloudMISP includes built-in sharing workflows, granular access controls, and multi-community support out of the box. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
+      </div>
+      <div class="outcome-diagram">
+        <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="Pipeline diagram showing threat intel feeds ingested into Triage CloudMISP, published to Sharing CloudMISP, and distributed to partner organisations" style="width: 100%; height: auto;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CloudMISP Tiers -->
-<section class="tiers-section">
+<section class="tiers-section" id="cloudmisp">
   <div class="container">
     <div class="section-label">CloudMISP</div>
     <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">CloudMISP: more than MISP in the cloud</h2>
@@ -1821,76 +1968,6 @@
     <div style="margin-top: var(--space-2xl); text-align: center;">
       <a href="cloudmisp.html" class="btn-primary">Learn more about CloudMISP</a>
     </div>
-  </div>
-</section>
-
-<!-- Key Outcomes / Metrics -->
-<section class="metrics-section">
-  <div class="container">
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: var(--space-sm);">
-      <rect x="2" y="2" width="20" height="20" rx="4" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
-      <path d="M7 12.5l3 3 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <div class="section-label">Key Outcomes</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Results from our threat intelligence engagements</h2>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-number">50+</div>
-        <div class="metric-label">Threat intelligence platform deployments worldwide</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">12</div>
-        <div class="metric-label">Countries with active deployments</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">1M+</div>
-        <div class="metric-label">Indicators processed daily</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">99.9%</div>
-        <div class="metric-label">CloudMISP platform uptime</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-number">24/7</div>
-        <div class="metric-label">Monitoring and support</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Case Studies -->
-<section class="cases-section">
-  <div class="container">
-    <div class="section-label">Case Studies</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-md);">How organisations are sharing threat intelligence</h2>
-    <p class="cases-intro">Real results from real engagements across threat intelligence sharing, national programmes, and threat intelligence platform migrations.</p>
-    <div class="cases-grid">
-      <div class="case-card">
-        <img src="https://unsplash.com/photos/P-t9yap_20M/download?w=800" alt="Australian government building">
-        <div class="case-card-body">
-          <span class="case-card-tag">Government</span>
-          <h3>Australian Cyber Threat Intelligence Sharing (CTIS)</h3>
-          <p>How Cosive designed and built the infrastructure for Australia's national cyber threat intelligence sharing program, connecting government agencies and critical infrastructure operators.</p>
-        </div>
-      </div>
-      <div class="case-card">
-        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="European infrastructure">
-        <div class="case-card-body">
-          <span class="case-card-tag">Critical Infrastructure</span>
-          <h3>European ISAC Threat Intelligence Sharing Platform</h3>
-          <p>Deploying a managed threat intelligence sharing platform for a European sector ISAC, enabling cross-border threat intelligence exchange between member organisations.</p>
-        </div>
-      </div>
-      <div class="case-card">
-        <img src="https://unsplash.com/photos/UwnH5jSrdr4/download?w=800" alt="Government security operations">
-        <div class="case-card-body">
-          <span class="case-card-tag">Government</span>
-          <h3>Government Agency TIP Migration</h3>
-          <p>Migrating a government security agency from a legacy TIP to CloudMISP, improving feed management, correlation, and sharing workflows.</p>
-        </div>
-      </div>
-    </div>
-    <a href="/case-studies" class="cases-cta">View all case studies <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
   </div>
 </section>
 
