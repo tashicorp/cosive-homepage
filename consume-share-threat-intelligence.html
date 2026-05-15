@@ -365,6 +365,11 @@
     margin-bottom: var(--space-4xl);
   }
 
+  .infra-intro-grid--stacked {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
   .infra-intro-grid:last-child {
     margin-bottom: 0;
   }
@@ -376,6 +381,23 @@
     margin-bottom: var(--space-md);
   }
 
+  .infra-intro ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-lg);
+    list-style: disc;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .infra-intro li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .infra-intro li:last-child {
+    margin-bottom: 0;
+  }
+
   .outcome-diagram {
     padding: 0;
     align-self: center;
@@ -384,6 +406,10 @@
   .outcome-diagram svg {
     width: 100%;
     height: auto;
+  }
+
+  .infra-intro-grid--stacked .outcome-diagram {
+    width: 100%;
   }
 
   /* ── 2a-ii. Scenario Cards ── */
@@ -679,8 +705,11 @@
   }
 
   .tier-card.is-featured {
-    border-top: 2px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     position: relative;
+    box-shadow: 0 4px 24px rgba(229, 56, 52, 0.10);
+    transform: scale(1.03);
+    z-index: 1;
   }
 
   .tier-card.is-featured::before {
@@ -690,6 +719,28 @@
     right: var(--space-lg);
     transform: translateY(-50%);
     background: var(--color-accent);
+    color: var(--color-white);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    line-height: 1;
+  }
+
+  .tier-card.is-gold {
+    border: 1px solid #d4a843;
+    position: relative;
+  }
+
+  .tier-card.is-gold::before {
+    content: "Most comprehensive";
+    position: absolute;
+    top: 0;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #d4a843, #b8922e);
     color: var(--color-white);
     font-size: var(--text-xs);
     font-weight: 700;
@@ -755,6 +806,15 @@
     background: var(--color-accent);
   }
 
+  .tier-features a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .tier-features a:hover {
+    text-decoration: underline;
+  }
+
   .tier-best-for {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
@@ -766,6 +826,74 @@
 
   .tier-best-for strong {
     color: var(--color-text-primary);
+  }
+
+  /* ── Tier Add-ons ── */
+  .tiers-addons {
+    margin-top: var(--space-xl);
+  }
+
+  .tiers-addons-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .tiers-addons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .addon-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .addon-card-icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-mid-grey);
+    border-radius: var(--radius-md);
+    color: var(--color-accent);
+  }
+
+  .addon-card-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .addon-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .addon-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+  }
+
+  .addon-card-desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
   }
 
   /* ── Platforms section ── */
@@ -1266,6 +1394,7 @@
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .tiers-grid { grid-template-columns: 1fr; }
+    .tiers-addons-grid { grid-template-columns: 1fr; }
 
     .infra-section,
     .platforms-section,
@@ -1309,6 +1438,87 @@
     .cases-section,
     .faq-section,
     .tiers-section { padding: var(--space-2xl) 0; }
+  }
+
+  /* ── Navigation Cards ── */
+
+  #consume, #share {
+    scroll-margin-top: 8rem; /* Space/7XL */
+  }
+
+  .nav-cards-heading {
+    text-align: center;
+    margin-bottom: 2rem; /* Space/XL */
+  }
+
+  .nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; /* Space/XL */
+  }
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 12px; /* Radius/LG */
+    min-height: 180px;
+    padding: 3rem 2rem 2rem; /* Space/3XL top, Space/XL sides+bottom */
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1a2030;
+  }
+
+  .nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem; /* Text/2XL */
+    font-weight: 700;
+    line-height: 1.3em; /* Leading/Snug */
+  }
+
+  .nav-card .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Space/XS */
+    color: rgba(255,255,255,0.7);
+    font-size: 1.125rem; /* Text/LG */
+    font-weight: 600;
+    transition: color 0.25s ease;
+  }
+
+  .nav-card:hover .card-cta {
+    color: var(--color-accent);
+  }
+
+  .nav-card .card-cta svg {
+    width: 1.2em;
+    height: 1.2em;
+    stroke: currentColor;
+  }
+
+  @media (max-width: 900px) {
+    .nav-cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav-card {
+      padding: 2rem 1.5rem; /* Space/XL / Space/LG */
+    }
+    .nav-card-title {
+      font-size: 1.25rem; /* Text/XL */
+    }
   }
 </style>
 </head>
@@ -1388,19 +1598,57 @@
   </div>
 </div>
 
-<!-- 2a. How we help you consume threat intelligence -->
-<section class="infra-section">
+
+<!-- Navigation Cards -->
+<section class="infra-section" style="padding-bottom: 0;">
   <div class="container">
 
-    <div class="infra-intro-grid">
+    <div class="nav-cards-heading">
+      <div class="section-label" style="text-align: center;">Jump to</div>
+      <h3 class="heading-style-h3">What would you like to do?</h3>
+    </div>
+
+    <div class="nav-cards-grid">
+      <a href="#consume" class="nav-card">
+        <div class="nav-card-title">Consume threat intelligence</div>
+        <span class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+      </a>
+      <a href="#share" class="nav-card">
+        <div class="nav-card-title">Share threat intelligence</div>
+        <span class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+      </a>
+      <a href="cloudmisp.html" class="nav-card">
+        <div class="nav-card-title">Implement a threat intel platform</div>
+        <span class="card-cta">Learn more <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2a. How we help you consume threat intelligence -->
+<section class="infra-section" id="consume">
+  <div class="container">
+
+    <div class="infra-intro-grid infra-intro-grid--stacked">
       <div class="infra-intro">
-        <div class="section-label">National CERTs</div>
+        <div class="section-label">Consume</div>
         <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you consume threat intelligence</h2>
-        <p>We work alongside your security team to connect to national CERTs and NCSCs, consume threat intelligence feeds, and ingest and correlate indicators from multiple sources. We enrich raw indicators with context so your analysts can prioritise and act on the intelligence that matters most.</p>
-        <p style="margin-top: var(--space-md);">Don't have a threat intelligence platform? CloudMISP is our fully managed platform purpose-built for consuming and sharing threat intelligence. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
+        <p>If you're standing up a threat intelligence capability for the first time — or formalising one that's been ad hoc — you're probably feeling the pressure from multiple directions:</p>
+        <ul>
+          <li>Regulations like NIS2, DORA, and Australia's SOCI Act are raising the bar on how you identify, assess, and respond to threats</li>
+          <li>Boards and executives want regular threat briefings</li>
+          <li>Your team is already stretched</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">You don't need to solve all of this at once. We help you start consuming threat intelligence in a structured way — connecting your feeds, analysts, and security tools through a platform that:</p>
+        <ul>
+          <li>Ingests indicators from commercial feeds, open-source intelligence, and sharing communities</li>
+          <li>Distributes enriched IOCs to your SIEMs, firewalls, and infrastructure automatically</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Don't have a threat intelligence platform yet? <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">CloudMISP</a> is our fully managed platform purpose-built for consuming and sharing threat intelligence.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="images/cti/diagram-ncsc-consume.svg" alt="Hub-spoke diagram showing your threat intelligence platform consuming feeds from multiple NCSCs and CERTs" style="width: 100%; height: auto;">
+        <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP overview diagram showing CloudMISP at the centre connected to analysts, Okta, MISP community, SIEMs, threat intel feeds, and infrastructure" style="width: 100%; height: auto;">
       </div>
     </div>
 
@@ -1408,19 +1656,29 @@
 </section>
 
 <!-- 2b. How we help you share threat intelligence -->
-<section class="infra-section infra-section--alt">
+<section class="infra-section infra-section--alt" id="share">
   <div class="container">
 
-    <div class="infra-intro-grid">
+    <div class="infra-intro-grid infra-intro-grid--stacked">
       <div class="infra-intro">
-        <div class="section-label">Peer Sharing</div>
+        <div class="section-label">Share</div>
         <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you share threat intelligence</h2>
-        <p>Sharing threat intelligence with ISACs, sector peers, and government partners strengthens your collective defence. We configure sharing workflows, access controls, TLP handling, and STIX/TAXII connectivity so your organisation can share indicators and sightings with the right communities automatically.</p>
-        <p style="margin-top: var(--space-md);">CloudMISP includes built-in sharing workflows, granular access controls, and multi-community support out of the box. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
-        <p style="margin-top: var(--space-md);">We can also help you use the same platform for <a href="fraud-data-sharing.html" style="color: var(--color-accent); font-weight: 600;">consuming and sharing fraud data</a>.</p>
+        <p>Effective sharing starts with separating what you triage from what you publish. We configure a pipeline where:</p>
+        <ul>
+          <li>Your Triage instance ingests feeds and your analysts curate intelligence</li>
+          <li>Your Sharing instance publishes vetted indicators to partner organisations</li>
+          <li>You control exactly what leaves your environment</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Partners connect the way that suits them:</p>
+        <ul>
+          <li>Push-only delivery for organisations that just need your indicators</li>
+          <li>Push/pull for bidirectional sharing with peers</li>
+          <li>Direct login for close collaborators</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">This flexibility lets you share with ISACs, sector peers, and government partners on their terms. CloudMISP includes built-in sharing workflows, granular access controls, and multi-community support out of the box. <a href="cloudmisp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="images/cti/diagram-peer-sharing.svg" alt="Hub-spoke diagram showing your threat intelligence platform sharing with ISACs, peers, government, and national CERTs" style="width: 100%; height: auto;">
+        <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="Pipeline diagram showing threat intel feeds ingested into Triage CloudMISP, published to Sharing CloudMISP, and distributed to partner organisations" style="width: 100%; height: auto;">
       </div>
     </div>
 
@@ -1467,93 +1725,6 @@
       </div>
   </div>
 </section>
-
-<!-- Scenario Cards -->
-<section class="infra-section">
-  <div class="container">
-
-    <div class="scenarios-heading">
-      <div class="section-label">What you get</div>
-      <div class="scenarios-title">How we work with you depends on where you are today</div>
-    </div>
-
-    <div class="scenarios-grid">
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/secops/hero-start-team.webp" alt="Start a new threat intelligence team" loading="lazy">
-        <div class="scenario-card-number">Scenario 1</div>
-        <div class="scenario-card-title">If you have no threat intelligence team, <span style="color: var(--color-accent);">we help you build one</span></div>
-        <div class="scenario-card-body">We help you figure out what you need to get started with threat intelligence.</div>
-        <div class="scenario-card-body">Whether you're responding to a regulatory requirement or building capability ahead of a growing threat landscape, we'll work with you to stand up a threat intelligence function that fits your organisation's size, sector, and maturity.</div>
-        <ul class="scenario-list">
-          <li>Threat intelligence gap analysis and roadmap so you know what to do next</li>
-          <li>Help interview and recruit threat intelligence staff</li>
-          <li>Develop priority intelligence requirements (PIRs) to define data needs</li>
-          <li>Find quality threat intelligence feeds that match your requirements</li>
-        </ul>
-        <div class="card-ctas">
-          <a href="consulting.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="cti-feeds.html" class="card-cta">Explore our threat intelligence feeds <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/cti/scenario-no-tip.webp" alt="Deploying a threat intelligence platform" loading="lazy">
-        <div class="scenario-card-number">Scenario 2</div>
-        <div class="scenario-card-title">If you have a threat intelligence team but no TIP, <span style="color: var(--color-accent);">we deploy one for you</span></div>
-        <div class="scenario-card-body">We help you select and deploy the right threat intelligence platform for your organisation.</div>
-        <ul class="scenario-list">
-          <li>Build the best TIP using CloudMISP, OpenCTI, or EclecticIQ Intelligence Center</li>
-          <li>Leverage SOAR or AI-based orchestration to process threat intel</li>
-          <li>Find quality threat intelligence feeds</li>
-          <li>Connect your TIP to your SIEM and security tools</li>
-        </ul>
-        <div class="card-ctas">
-          <a href="cloudmisp.html" class="card-cta">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="opencti.html" class="card-cta">Learn more about OpenCTI <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="eclecticiq.html" class="card-cta">Learn more about EclecticIQ <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="cti-feeds.html" class="card-cta">Explore our threat intelligence feeds <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/cti/scenario-existing-misp.webp" alt="Optimising an existing MISP deployment" loading="lazy">
-        <div class="scenario-card-number">Scenario 3</div>
-        <div class="scenario-card-title">If you already run MISP, <span style="color: var(--color-accent);">we help you get more from it</span></div>
-        <div class="scenario-card-body">We help you improve, optimise, and get the most from your MISP deployment.</div>
-        <ul class="scenario-list">
-          <li>Review MISP configuration for reliability and performance</li>
-          <li>Improve workflows for sharing and consuming intel</li>
-          <li>Develop integrations to your SIEM and security tools</li>
-          <li>Migrate to CloudMISP so you focus on using the platform, not running it</li>
-          <li>Find quality threat intelligence feeds</li>
-        </ul>
-        <div class="card-ctas">
-          <a href="consulting.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="cti-feeds.html" class="card-cta">Explore our threat intelligence feeds <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="scenario-card">
-        <img class="scenario-card-img" src="images/secops/hero-automate.jpg" alt="Automate and integrate your existing TIP" loading="lazy">
-        <div class="scenario-card-number">Scenario 4</div>
-        <div class="scenario-card-title">If you have a TIP from another vendor, <span style="color: var(--color-accent);">we help you use it better</span></div>
-        <div class="scenario-card-body">We help you get more value from your existing platform regardless of vendor.</div>
-        <ul class="scenario-list">
-          <li>Develop and improve workflows for sharing intel</li>
-          <li>Build integrations to connect your TIP to your SIEM and security tools</li>
-          <li>Find quality threat intelligence feeds</li>
-          <li>Can also use the platform for <a href="fraud-data-sharing.html">consuming and sharing fraud data</a></li>
-        </ul>
-        <div class="card-ctas">
-          <a href="consulting.html" class="card-cta">Learn more about our Consulting <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-          <a href="cti-feeds.html" class="card-cta">Explore our threat intelligence feeds <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- CloudMISP Tiers -->
 <section class="tiers-section">
   <div class="container">
@@ -1564,40 +1735,87 @@
     </div>
     <div class="tiers-grid">
       <div class="tier-card">
-        <div class="tier-card-label">Core</div>
         <h3>Core</h3>
-        <div class="tier-card-subtitle">Entry-level managed MISP</div>
+        <div class="tier-card-subtitle">For teams already experienced with MISP</div>
         <ul class="tier-features">
+          <li>1 production MISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
           <li>Monitoring and alerting</li>
-          <li>Dedicated VPC deployment</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
         </ul>
-        <div class="tier-best-for"><strong>Best for:</strong> Organisations that want a reliable, managed TIP without consulting overhead.</div>
       </div>
       <div class="tier-card is-featured">
-        <div class="tier-card-label">Accelerator</div>
         <h3>Accelerator</h3>
-        <div class="tier-card-subtitle">Core + training + consulting</div>
+        <div class="tier-card-subtitle">For orgs who want to use MISP for threat intel, but need help using it</div>
         <ul class="tier-features">
-          <li>Everything in Core</li>
-          <li>Free training for the first year</li>
-          <li>10-day annual threat intelligence consultancy allocation</li>
-          <li>Help building workflows and integrations</li>
+          <li>10 days of Cosive Professional Services each year</li>
+          <li>1 production MISP instance</li>
+          <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
+          <li>Automatic updates and security patches</li>
+          <li>Monitoring and alerting</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
         </ul>
-        <div class="tier-best-for"><strong>Best for:</strong> Organisations building or growing their threat intelligence capability.</div>
       </div>
-      <div class="tier-card">
-        <div class="tier-card-label">Insight</div>
+      <div class="tier-card is-gold">
         <h3>Insight</h3>
-        <div class="tier-card-subtitle">Full-service threat intelligence platform</div>
+        <div class="tier-card-subtitle">Core + Consulting + Training + Built-in threat feed</div>
         <ul class="tier-features">
-          <li>Everything in Accelerator</li>
+          <li><a href="https://feedly.com/ti" target="_blank">Feedly for Threat Intelligence</a> license</li>
+          <li>10 days of Cosive Professional Services each year</li>
+          <li>1 production MISP instance</li>
+          <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
+          <li>Automatic updates and security patches</li>
+          <li>Monitoring and alerting</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
           <li>Advanced integrations with your security stack</li>
           <li>Priority support and dedicated account management</li>
           <li>Custom feed configuration and optimisation</li>
         </ul>
-        <div class="tier-best-for"><strong>Best for:</strong> Organisations with mature threat intelligence programs needing enterprise-grade service.</div>
+      </div>
+    </div>
+    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* Fair use policy applies.</p>
+    <div class="tiers-addons">
+      <div class="tiers-addons-label">Optional add-ons</div>
+      <div class="tiers-addons-grid">
+        <div class="addon-card">
+          <div class="addon-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="addon-card-content">
+            <div class="addon-card-title">Sharing</div>
+            <div class="addon-card-desc">An additional MISP instance for use as a dedicated sharing hub.</div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="addon-card-content">
+            <div class="addon-card-title">STIX TAXII API</div>
+            <div class="addon-card-desc">Consume and share STIX/TAXII threat intelligence with your existing security tools.</div>
+          </div>
+        </div>
       </div>
     </div>
     <div style="margin-top: var(--space-2xl); text-align: center;">
