@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 850 340">
+<defs>
+  <marker id="a" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+</defs>
+
+<!-- ===== LAYER 1: CONNECTIONS (dashed, left→right only) ===== -->
+
+<!-- Tools → Analyst -->
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)" d="M135 56 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)" d="M135 132 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)" d="M135 208 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)" d="M135 284 L365 170"/>
+
+<!-- Analyst → Case Management -->
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a)" d="M485 170 L715 170"/>
+
+<!-- ===== LAYER 2: NODES ===== -->
+
+<!-- Transaction Monitoring (left, top) -->
+<rect width="120" height="52" x="15" y="30" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M69 49h13m-11 0v-5m4 5v-10m4 10v-7"/>
+<text x="75" y="64" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Transaction</text>
+<text x="75" y="76" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Monitoring</text>
+
+<!-- Fraud Database (left, second) -->
+<rect width="120" height="52" x="15" y="106" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<ellipse cx="75" cy="118" rx="6" ry="2.5" stroke="#2d6da3" stroke-width=".9" fill="none"/>
+<path stroke="#2d6da3" stroke-width=".9" fill="none" d="M69 118v8c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5v-8"/>
+<text x="75" y="140" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Fraud</text>
+<text x="75" y="152" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Database</text>
+
+<!-- Identity & KYC (left, third) -->
+<rect width="120" height="52" x="15" y="182" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M75 191l-5 2v5c0 3 5 5 5 5s5-2 5-5v-5z"/>
+<text x="75" y="216" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Identity</text>
+<text x="75" y="228" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">&amp; KYC</text>
+
+<!-- SIEM (left, bottom) -->
+<rect width="120" height="52" x="15" y="258" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M70 270h10v7h-10zm3-3a2 2 0 014 0v3"/>
+<text x="75" y="293" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">SIEM</text>
+
+<!-- Fraud Analyst (middle, centred) -->
+<rect width="120" height="52" x="365" y="144" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<circle cx="425" cy="155" r="3.5" stroke="#2d6da3" stroke-width=".9" fill="none"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-width=".9" fill="none" d="M419 163a6 4.5 0 0112 0"/>
+<text x="425" y="178" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Fraud</text>
+<text x="425" y="190" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Analyst</text>
+
+<!-- Case Management (right, centred) -->
+<rect width="120" height="52" x="715" y="144" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M769 154h12v12h-12zm3 4h6m-6 3h4"/>
+<text x="775" y="184" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Case Management</text>
+
+<!-- ===== LAYER 3: CONNECTION LABELS ===== -->
+
+<!-- Left half: Tools → Analyst -->
+
+<!-- Check alerts (TM → Analyst) -->
+<rect x="214" y="101" width="72" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="113" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Check alerts</text>
+
+<!-- Look up records (FDB → Analyst) -->
+<rect x="205" y="139" width="90" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="151" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Look up records</text>
+
+<!-- Verify identity (KYC → Analyst) -->
+<rect x="209" y="177" width="82" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="189" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Verify identity</text>
+
+<!-- Check logs (SIEM → Analyst) -->
+<rect x="217" y="215" width="66" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="227" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Check logs</text>
+
+<!-- Right half: Analyst → CM -->
+
+<!-- Update cases (Analyst → CM) -->
+<rect x="567" y="158" width="66" height="16" rx="2" fill="#ffffff"/>
+<text x="600" y="170" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Update cases</text>
+</svg>

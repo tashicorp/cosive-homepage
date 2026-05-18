@@ -328,6 +328,16 @@
     margin-bottom: var(--space-lg);
   }
 
+  .subsection-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
 
   .btn-primary {
     display: inline-block;
@@ -363,6 +373,15 @@
     margin-bottom: 0;
   }
 
+  .infra-intro-grid--stacked {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .infra-intro-grid--stacked .outcome-diagram {
+    width: calc(100% + 2 * var(--space-3xl));
+  }
+
   .infra-intro p {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
@@ -373,11 +392,32 @@
   .outcome-diagram {
     padding: 0;
     align-self: center;
+    margin-left: calc(-1 * var(--space-3xl));
+    margin-right: calc(-1 * var(--space-3xl));
   }
 
   .outcome-diagram img {
     width: 100%;
     height: auto;
+  }
+
+  .subsection-box {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    overflow: hidden;
+    background: var(--color-light-grey);
+  }
+
+  .subsection-box--white {
+    background: var(--color-white);
+  }
+
+  .subsection-box .outcome-diagram {
+    margin-left: calc(-1 * var(--space-xl));
+    margin-right: calc(-1 * var(--space-xl));
+    margin-bottom: calc(-1 * var(--space-xl));
+    width: calc(100% + 2 * var(--space-xl));
   }
 
   .infra-section--alt {
@@ -1046,6 +1086,14 @@
 
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
 
+    .outcome-diagram {
+      margin-left: calc(-1 * var(--space-lg));
+      margin-right: calc(-1 * var(--space-lg));
+    }
+    .infra-intro-grid--stacked .outcome-diagram {
+      width: calc(100% + 2 * var(--space-lg));
+    }
+
     .considerations-grid { grid-template-columns: 1fr; }
 
     /* What we build */
@@ -1137,7 +1185,7 @@
         <div class="banner-text">
           <h1 class="heading-style-h1">Build and integrate tools</h1>
 
-          <p class="banner-description">Your fraud tools are more valuable when they work together. We <strong>connect your existing platforms</strong>, <strong>integrate them with MISP</strong> sharing communities, and <strong>build bespoke tooling</strong> when off-the-shelf solutions fall short.</p>
+          <p class="banner-description">Your fraud tools are more valuable when they work together. We <strong>integrate your existing platforms</strong>, <strong>integrate them with MISP</strong> sharing communities, and <strong>build bespoke tooling</strong> when off-the-shelf solutions fall short.</p>
         </div>
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Talk to us about integration and tooling</h3>
@@ -1173,33 +1221,33 @@
   </div>
 </div>
 
-<!-- 2. Connect your tools -->
+<!-- 2. Integrate your tools -->
 <section class="infra-section help-section">
   <div class="container">
     <div class="infra-intro">
-      <div class="section-label">Connect your tools</div>
+      <div class="section-label">Integrate your tools</div>
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Your tools are more powerful when they work together</h2>
       <p>Disconnected tools create manual work, data silos, and gaps in detection. Integration is how you get the full value from your technology and your people.</p>
-      <p>We work with what you have &mdash; your transaction monitoring, case management, SIEM, and other platforms &mdash; and connect them so fraud data flows automatically between systems.</p>
+      <p>We work with what you have &mdash; your transaction monitoring, case management, SIEM, and other platforms &mdash; and integrate them so fraud data flows automatically between systems.</p>
     </div>
-    <div class="infra-intro-grid" style="margin-top: var(--space-3xl);">
+    <div class="infra-intro-grid infra-intro-grid--stacked subsection-box" style="margin-top: var(--space-3xl);">
       <div class="infra-intro">
-        <div class="section-label">Before</div>
+        <div class="subsection-label">Before</div>
         <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Disconnected tools, manual workarounds</h3>
         <p>Your analyst is the glue &mdash; copying data between systems, re-keying results, and cross-referencing logs by hand. Every connection is fragile and manual.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="diagrams/out/tools-disconnected.png" alt="Diagram showing fraud tools connected only through manual effort by the analyst — dashed lines represent fragile, manual processes">
+        <img src="images/fraud/diagram-tools-disconnected.svg" alt="Diagram showing fraud tools connected only through manual effort by the analyst — dashed lines represent fragile, manual processes">
       </div>
     </div>
-    <div class="infra-intro-grid" style="margin-top: var(--space-3xl);">
+    <div class="infra-intro-grid infra-intro-grid--stacked subsection-box" style="margin-top: var(--space-3xl);">
       <div class="infra-intro">
-        <div class="section-label">After</div>
-        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Connected tools, automated data flow</h3>
-        <p>The same tools, now connected through a central integration layer. Data flows automatically between systems, and your analyst gets an enriched, unified view instead of juggling five tabs.</p>
+        <div class="subsection-label">After</div>
+        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrated tools, automated data flow</h3>
+        <p>The same tools, now integrated directly with your case management system. Data flows automatically in both directions &mdash; alerts and intelligence feed into case management, while case outcomes and confirmed indicators flow back to refine detection rules and keep your fraud database current.</p>
       </div>
       <div class="outcome-diagram">
-        <img src="diagrams/out/tools-connected.png" alt="Diagram showing fraud tools connected through a central Cosive integration hub — solid lines represent automated data flow">
+        <img src="images/fraud/diagram-tools-connected.svg" alt="After diagram: four fraud tools and case management exchange data bidirectionally — tools feed alerts and intelligence in, case outcomes and indicators flow back, and case management serves as the analyst's single pane of glass">
       </div>
     </div>
   </div>
@@ -1210,9 +1258,14 @@
   <div class="container">
     <div class="infra-intro">
       <div class="section-label">MISP integration</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Connect your fraud platforms to MISP</h2>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate your fraud platforms with MISP</h2>
       <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you create new integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
-      <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can connect it to your MISP instance and the communities you belong to.</p>
+      <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can integrate it with your MISP instance and the communities you belong to.</p>
+    </div>
+    <div class="subsection-box subsection-box--white" style="margin-top: var(--space-3xl);">
+      <div class="outcome-diagram">
+        <img src="images/fraud/diagram-misp-integration.svg" alt="Diagram showing four fraud platforms integrated bidirectionally with a central MISP instance, which in turn feeds sharing communities, peer banks, and regulators">
+      </div>
     </div>
   </div>
 </section>
@@ -1233,8 +1286,8 @@
       </div>
       <div class="build-feature">
         <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Data connectors</h3>
-        <p class="build-feature-desc">Connecting data feeds to the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
+        <h3 class="build-feature-title">Data integrations</h3>
+        <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
@@ -1244,7 +1297,7 @@
       <div class="build-feature">
         <div class="build-feature-number">04</div>
         <h3 class="build-feature-title">Custom API integrations</h3>
-        <p class="build-feature-desc">If your platform exposes an API, we can build the connection. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
+        <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
       </div>
     </div>
   </div>
@@ -1290,7 +1343,7 @@
         <div class="icon-item-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
         </div>
-        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the connection. We&rsquo;ve integrated with platforms across fraud, security, and compliance &mdash; and we can learn new ones quickly.</div>
+        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the integration. We&rsquo;ve integrated with platforms across fraud, security, and compliance &mdash; and we can learn new ones quickly.</div>
       </div>
     </div>
   </div>
@@ -1352,7 +1405,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>If it has an API, we can connect it. We&rsquo;ve integrated transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms, compliance tools, and more. We work with what you have rather than asking you to replace it.</p>
+          <p>If it has an API, we can integrate it. We&rsquo;ve integrated transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms, compliance tools, and more. We work with what you have rather than asking you to replace it.</p>
         </div>
       </details>
 
@@ -1362,7 +1415,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>No. MISP is the platform most fraud sharing communities use, so we have deep expertise there. But we also integrate with STIX/TAXII platforms, proprietary systems, and custom APIs. If your community or regulator uses a different platform, we can connect to it.</p>
+          <p>No. MISP is the platform most fraud sharing communities use, so we have deep expertise there. But we also integrate with STIX/TAXII platforms, proprietary systems, and custom APIs. If your community or regulator uses a different platform, we can integrate with it.</p>
         </div>
       </details>
 
@@ -1372,7 +1425,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API connection might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or regulatory requirements typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
+          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API integration might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or regulatory requirements typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
         </div>
       </details>
 
@@ -1382,7 +1435,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We can often find other ways to connect. Some platforms support file-based imports, database access, webhook triggers, or extension plugins. We evaluate your specific setup and recommend the most reliable approach &mdash; including building bespoke tooling if that&rsquo;s what it takes.</p>
+          <p>We can often find other ways to integrate. Some platforms support file-based imports, database access, webhook triggers, or extension plugins. We evaluate your specific setup and recommend the most reliable approach &mdash; including building bespoke tooling if that&rsquo;s what it takes.</p>
         </div>
       </details>
 

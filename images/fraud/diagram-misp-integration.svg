@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 850 340">
+<defs>
+  <marker id="a" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+</defs>
+
+<!-- ===== LAYER 1: CONNECTIONS ===== -->
+
+<!-- Left: Tools ↔ MISP -->
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M135 56 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M135 132 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M135 208 L365 170"/>
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M135 284 L365 170"/>
+
+<!-- Right: MISP ↔ Communities -->
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M485 170 L715 94"/>
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M485 170 L715 170"/>
+<path stroke="#e53834" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)" d="M485 170 L715 246"/>
+
+<!-- ===== LAYER 2: NODES ===== -->
+
+<!-- Transaction Monitoring (left, top) -->
+<rect width="120" height="52" x="15" y="30" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M69 49h13m-11 0v-5m4 5v-10m4 10v-7"/>
+<text x="75" y="64" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Transaction</text>
+<text x="75" y="76" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Monitoring</text>
+
+<!-- Fraud Database (left, second) -->
+<rect width="120" height="52" x="15" y="106" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<ellipse cx="75" cy="118" rx="6" ry="2.5" stroke="#2d6da3" stroke-width=".9" fill="none"/>
+<path stroke="#2d6da3" stroke-width=".9" fill="none" d="M69 118v8c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5v-8"/>
+<text x="75" y="140" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Fraud</text>
+<text x="75" y="152" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Database</text>
+
+<!-- Identity & KYC (left, third) -->
+<rect width="120" height="52" x="15" y="182" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M75 191l-5 2v5c0 3 5 5 5 5s5-2 5-5v-5z"/>
+<text x="75" y="216" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Identity</text>
+<text x="75" y="228" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">&amp; KYC</text>
+
+<!-- SIEM (left, bottom) -->
+<rect width="120" height="52" x="15" y="258" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M70 270h10v7h-10zm3-3a2 2 0 014 0v3"/>
+<text x="75" y="293" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">SIEM</text>
+
+<!-- Your MISP Instance (center, hub-styled) -->
+<rect width="120" height="52" x="365" y="144" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<g transform="translate(407,149) scale(0.11290,0.11268)">
+  <path d="M3 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0 40-65 62 0" fill="none" stroke="#bdbdbd" stroke-width="6.55" stroke-linecap="round"/>
+  <path d="M33 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0" fill="none" stroke="#e53834" stroke-width="6.55" stroke-linecap="round"/>
+</g>
+<text x="425" y="174" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Your MISP</text>
+<text x="425" y="186" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Instance</text>
+
+<!-- Sharing Community (right, top) -->
+<rect width="120" height="52" x="715" y="68" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<circle cx="770" cy="78" r="3" stroke="#2d6da3" stroke-width=".9" fill="none"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-width=".9" fill="none" d="M765 85a5 3.5 0 0110 0"/>
+<circle cx="780" cy="78" r="3" stroke="#2d6da3" stroke-width=".9" fill="none"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-width=".9" fill="none" d="M775 85a5 3.5 0 0110 0"/>
+<text x="775" y="100" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Sharing</text>
+<text x="775" y="112" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Community</text>
+
+<!-- Peer Banks (right, middle) -->
+<rect width="120" height="52" x="715" y="144" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M768.25 163.75h13.5m-13.5-8.25h13.5m-12-3 5.25-2.25 5.25 2.25m-11.25 3v8.25m12-8.25v8.25m-9-5.25v3m3-3v3m3-3v3"/>
+<text x="775" y="178" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Peer</text>
+<text x="775" y="190" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Banks</text>
+
+<!-- Regulator (right, bottom) -->
+<rect width="120" height="52" x="715" y="220" fill="#edf6f4" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#1a8a7a" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M775 226.25v13.5m-3 0h6m-9-10.5h12m-12 0-1.5 4.5c0 .825 1.35 1.5 3 1.5s3-.675 3-1.5l-1.5-4.5m6 0-1.5 4.5c0 .825 1.35 1.5 3 1.5s3-.675 3-1.5l-1.5-4.5"/>
+<text x="775" y="254" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Regulator</text>
+
+<!-- ===== LAYER 3: CONNECTION LABELS ===== -->
+
+<!-- Left: Tools → MISP -->
+<rect x="197" y="101" width="106" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="113" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Transaction alerts</text>
+
+<rect x="202" y="139" width="96" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="151" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Fraud indicators</text>
+
+<rect x="208" y="177" width="84" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="189" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Identity flags</text>
+
+<rect x="205" y="215" width="90" height="16" rx="2" fill="#ffffff"/>
+<text x="250" y="227" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Security events</text>
+
+<!-- Right: MISP → Communities -->
+<rect x="550" y="124" width="100" height="16" rx="2" fill="#ffffff"/>
+<text x="600" y="136" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Shared indicators</text>
+
+<rect x="550" y="162" width="100" height="16" rx="2" fill="#ffffff"/>
+<text x="600" y="174" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Cross-bank alerts</text>
+
+<rect x="555" y="200" width="90" height="16" rx="2" fill="#ffffff"/>
+<text x="600" y="212" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Regulatory data</text>
+</svg>
