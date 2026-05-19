@@ -382,6 +382,46 @@
     width: calc(100% + 2 * var(--space-3xl));
   }
 
+  .before-after-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .before-after-grid .subsection-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .before-after-grid .outcome-diagram {
+    margin: 0;
+    padding: var(--space-md);
+  }
+
+  /* MISP section two-column layout */
+  .misp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  @media (min-width: 1400px) {
+    .misp-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+  }
+
+  .misp-grid .subsection-box {
+    padding: var(--space-md);
+  }
+
+  .misp-grid .subsection-box .outcome-diagram {
+    width: 100%;
+    margin: 0;
+  }
+
   .infra-intro p {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
@@ -1094,6 +1134,8 @@
       width: calc(100% + 2 * var(--space-lg));
     }
 
+    .before-after-grid { grid-template-columns: 1fr; }
+
     .considerations-grid { grid-template-columns: 1fr; }
 
     /* What we build */
@@ -1185,7 +1227,7 @@
         <div class="banner-text">
           <h1 class="heading-style-h1">Build and integrate tools</h1>
 
-          <p class="banner-description">Your fraud tools are more valuable when they work together. We <strong>integrate your existing platforms</strong>, <strong>integrate them with MISP</strong> sharing communities, and <strong>build bespoke tooling</strong> when off-the-shelf solutions fall short.</p>
+          <p class="banner-description">We <strong>build custom fraud tools</strong> when off-the-shelf solutions fall short, <strong>integrate your existing platforms</strong> so they work together, and <strong>connect them with MISP</strong> sharing communities.</p>
         </div>
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Talk to us about integration and tooling</h3>
@@ -1221,8 +1263,53 @@
   </div>
 </div>
 
-<!-- 2. Integrate your tools -->
-<section class="infra-section help-section">
+<!-- 2. Build new tools -->
+<section class="infra-section">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div>
+        <div class="what-we-build-header">
+          <div class="section-label">Build new tools</div>
+          <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
+          <p>Sometimes the right tool doesn&rsquo;t exist yet. We create new custom integrations, plugins, and standalone tools tailored to your specific fraud operations &mdash; built to production standards and designed to last.</p>
+        </div>
+        <div class="build-grid">
+          <div class="build-feature">
+            <div class="build-feature-number">01</div>
+            <h3 class="build-feature-title">Platform plugins</h3>
+            <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
+          </div>
+          <div class="build-feature">
+            <div class="build-feature-number">02</div>
+            <h3 class="build-feature-title">Data integrations</h3>
+            <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
+          </div>
+          <div class="build-feature">
+            <div class="build-feature-number">03</div>
+            <h3 class="build-feature-title">Workflow automation</h3>
+            <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
+          </div>
+          <div class="build-feature">
+            <div class="build-feature-number">04</div>
+            <h3 class="build-feature-title">Custom API integrations</h3>
+            <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1581091870598-36ce9bad5c77?w=800&q=80" alt="Engineer working at a computer" style="width: 100%; border-radius: var(--radius-lg); display: block;">
+        <div style="margin-top: var(--space-6xl); text-align: center;">
+          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Purpose-built tools for your fraud operations</h3>
+          <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Tell us what your team needs and we'll scope a solution — whether it's a plugin, a data integration, or a standalone tool built from scratch.</p>
+          <a href="#contact" class="btn-primary">Tell us what you need built</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Integrate your tools -->
+<section class="infra-section infra-section--alt help-section">
   <div class="container">
     <div class="infra-intro">
       <div class="section-label">Integrate your tools</div>
@@ -1230,27 +1317,29 @@
       <p>Disconnected tools create manual work, data silos, and gaps in detection. Integration is how you get the full value from your technology and your people.</p>
       <p>We work with what you have &mdash; your transaction monitoring, case management, SIEM, and other platforms &mdash; and integrate them so fraud data flows automatically between systems.</p>
     </div>
-    <div class="infra-intro-grid infra-intro-grid--stacked subsection-box" style="margin-top: var(--space-3xl);">
-      <div class="infra-intro">
-        <div class="subsection-label">Before</div>
-        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Disconnected tools, manual workarounds</h3>
-        <p>Your analyst is the glue &mdash; copying data between systems, re-keying results, and cross-referencing logs by hand. Every connection is fragile and manual.</p>
+    <div class="before-after-grid" style="margin-top: var(--space-3xl);">
+      <div class="subsection-box subsection-box--white">
+        <div class="infra-intro">
+          <div class="subsection-label">Before</div>
+          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Disconnected tools, manual work</h3>
+          <p>Your analyst is the glue &mdash; copying data between systems and cross-referencing logs by hand.</p>
+        </div>
+        <div class="outcome-diagram">
+          <img src="images/fraud/diagram-tools-disconnected.svg" alt="Diagram showing fraud tools disconnected from the analyst and case management — no automated connections">
+        </div>
       </div>
-      <div class="outcome-diagram">
-        <img src="images/fraud/diagram-tools-disconnected.svg" alt="Diagram showing fraud tools connected only through manual effort by the analyst — dashed lines represent fragile, manual processes">
+      <div class="subsection-box subsection-box--white">
+        <div class="infra-intro">
+          <div class="subsection-label">After</div>
+          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrated tools, automated data flow</h3>
+          <p>The same tools, now integrated. Data flows automatically in both directions &mdash; alerts feed in, outcomes flow back.</p>
+        </div>
+        <div class="outcome-diagram">
+          <img src="images/fraud/diagram-tools-connected.svg" alt="After diagram: four fraud tools and case management exchange data bidirectionally through automated integrations">
+        </div>
       </div>
     </div>
-    <div class="infra-intro-grid infra-intro-grid--stacked subsection-box" style="margin-top: var(--space-3xl);">
-      <div class="infra-intro">
-        <div class="subsection-label">After</div>
-        <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrated tools, automated data flow</h3>
-        <p>The same tools, now integrated directly with your case management system. Data flows automatically in both directions &mdash; alerts and intelligence feed into case management, while case outcomes and confirmed indicators flow back to refine detection rules and keep your fraud database current.</p>
-      </div>
-      <div class="outcome-diagram">
-        <img src="images/fraud/diagram-tools-connected.svg" alt="After diagram: four fraud tools and case management exchange data bidirectionally — tools feed alerts and intelligence in, case outcomes and indicators flow back, and case management serves as the analyst's single pane of glass">
-      </div>
-    </div>
-    <div style="margin-top: var(--space-3xl); text-align: center;">
+    <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Move from siloed tools to a unified system</h3>
       <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems — your analysts spend their time on decisions, not copying and pasting between tabs.</p>
       <a href="#contact" class="btn-primary">Talk to us about integration</a>
@@ -1258,21 +1347,23 @@
   </div>
 </section>
 
-<!-- 3. Integrate with MISP -->
-<section class="infra-section infra-section--alt">
+<!-- 4. Integrate with MISP -->
+<section class="infra-section">
   <div class="container">
-    <div class="infra-intro">
-      <div class="section-label">MISP integration</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate your fraud platforms with MISP</h2>
-      <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you create new integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
-      <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can integrate it with your MISP instance and the communities you belong to.</p>
-    </div>
-    <div class="subsection-box subsection-box--white" style="margin-top: var(--space-3xl);">
-      <div class="outcome-diagram">
-        <img src="images/fraud/diagram-misp-integration.svg" alt="Diagram showing four fraud platforms integrated bidirectionally with a central MISP instance, which in turn feeds sharing communities, peer banks, and regulators">
+    <div class="misp-grid">
+      <div class="infra-intro">
+        <div class="section-label">MISP integration</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate your fraud platforms with MISP</h2>
+        <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you create new integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
+        <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can integrate it with your MISP instance and the communities you belong to.</p>
+      </div>
+      <div class="subsection-box" style="margin-top: 0; max-width: none;">
+        <div class="outcome-diagram">
+          <img src="images/fraud/diagram-misp-integration.svg" alt="Diagram showing four fraud platforms integrated bidirectionally with a central MISP instance, which in turn feeds sharing communities, peer banks, and regulators">
+        </div>
       </div>
     </div>
-    <div style="margin-top: var(--space-3xl); text-align: center;">
+    <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Your fraud platforms, connected through MISP</h3>
       <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using MISP, or planning to? We can help you get your platforms connected and your fraud data flowing to the communities that need it.</p>
       <a href="#contact" class="btn-primary">Discuss MISP integration</a>
@@ -1280,45 +1371,7 @@
   </div>
 </section>
 
-<!-- 4. Build bespoke tooling -->
-<section class="infra-section">
-  <div class="container">
-    <div class="what-we-build-header">
-      <div class="section-label">Bespoke tooling</div>
-      <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
-      <p>Sometimes the right tool doesn&rsquo;t exist yet. We create new custom integrations, plugins, and standalone tools tailored to your specific fraud operations &mdash; built to production standards and designed to last.</p>
-    </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">Platform plugins</h3>
-        <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Data integrations</h3>
-        <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Workflow automation</h3>
-        <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Custom API integrations</h3>
-        <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
-      </div>
-    </div>
-    <div style="margin-top: var(--space-4xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Purpose-built tools for your fraud operations</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Tell us what your team needs and we'll scope a solution — whether it's a plugin, a data integration, or a standalone tool built from scratch.</p>
-      <a href="#contact" class="btn-primary">Tell us what you need built</a>
-    </div>
-  </div>
-</section>
-
-<!-- 4b. How we build -->
+<!-- 5. How we build -->
 <section class="infra-section infra-section--alt help-section">
   <div class="container">
     <div class="section-label">How we build</div>
@@ -1361,7 +1414,7 @@
         <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the integration. We&rsquo;ve integrated with platforms across fraud, security, and compliance &mdash; and we can learn new ones quickly.</div>
       </div>
     </div>
-    <div style="margin-top: var(--space-3xl); text-align: center;">
+    <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Production-grade software, not throwaway scripts</h3>
       <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Whether it&rsquo;s an integration or a custom tool, we build it the same way — tested, version-controlled, and designed to run reliably without hand-holding.</p>
       <a href="#contact" class="btn-primary">Discuss your project</a>

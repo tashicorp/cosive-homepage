@@ -74,25 +74,25 @@
 <!-- ===== LAYER 3: CONNECTION LABELS ===== -->
 
 <!-- Left: Tools → MISP -->
-<rect x="197" y="101" width="106" height="16" rx="2" fill="#ffffff"/>
+<rect x="197" y="101" width="106" height="16" rx="2" fill="#f8f9fa"/>
 <text x="250" y="113" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Transaction alerts</text>
 
-<rect x="202" y="139" width="96" height="16" rx="2" fill="#ffffff"/>
+<rect x="202" y="139" width="96" height="16" rx="2" fill="#f8f9fa"/>
 <text x="250" y="151" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Fraud indicators</text>
 
-<rect x="208" y="177" width="84" height="16" rx="2" fill="#ffffff"/>
+<rect x="208" y="177" width="84" height="16" rx="2" fill="#f8f9fa"/>
 <text x="250" y="189" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Identity flags</text>
 
-<rect x="205" y="215" width="90" height="16" rx="2" fill="#ffffff"/>
+<rect x="205" y="215" width="90" height="16" rx="2" fill="#f8f9fa"/>
 <text x="250" y="227" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Security events</text>
 
 <!-- Right: MISP → Communities -->
-<rect x="550" y="124" width="100" height="16" rx="2" fill="#ffffff"/>
+<rect x="550" y="124" width="100" height="16" rx="2" fill="#f8f9fa"/>
 <text x="600" y="136" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Shared indicators</text>
 
-<rect x="550" y="162" width="100" height="16" rx="2" fill="#ffffff"/>
+<rect x="550" y="162" width="100" height="16" rx="2" fill="#f8f9fa"/>
 <text x="600" y="174" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Cross-bank alerts</text>
 
-<rect x="555" y="200" width="90" height="16" rx="2" fill="#ffffff"/>
+<rect x="555" y="200" width="90" height="16" rx="2" fill="#f8f9fa"/>
 <text x="600" y="212" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Regulatory data</text>
 </svg>
