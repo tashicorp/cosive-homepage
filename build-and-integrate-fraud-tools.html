@@ -395,7 +395,7 @@
 
   .before-after-grid .outcome-diagram {
     margin: 0;
-    padding: var(--space-md);
+    padding: var(--space-xl);
   }
 
   /* MISP section two-column layout */
@@ -414,7 +414,7 @@
   }
 
   .misp-grid .subsection-box {
-    padding: var(--space-md);
+    padding: var(--space-xl);
   }
 
   .misp-grid .subsection-box .outcome-diagram {
@@ -462,6 +462,27 @@
 
   .infra-section--alt {
     background: var(--color-light-grey);
+  }
+
+  .infra-section--dark {
+    background: var(--color-dark);
+  }
+
+  .infra-section--dark .section-label {
+    color: var(--color-accent);
+  }
+
+  .infra-section--dark .heading-style-h2,
+  .infra-section--dark .heading-style-h3 {
+    color: var(--color-white);
+  }
+
+  .infra-section--dark .infra-intro p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-section--dark p:not(.infra-intro p) {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   /* ── What we build: luxury grid ── */
@@ -1342,14 +1363,14 @@
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Move from siloed tools to a unified system</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems — your analysts spend their time on decisions, not copying and pasting between tabs.</p>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems &mdash; your analysts spend their time on decisions, not copying and pasting between tabs.</p>
       <a href="#contact" class="btn-primary">Talk to us about integration</a>
     </div>
   </div>
 </section>
 
 <!-- 4. Integrate with MISP -->
-<section class="infra-section">
+<section class="infra-section infra-section--dark">
   <div class="container">
     <div class="misp-grid">
       <div class="infra-intro">
@@ -1366,7 +1387,7 @@
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Your fraud platforms, connected through MISP</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using MISP, or planning to? We can help you get your platforms connected and your fraud data flowing to the communities that need it.</p>
+      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using MISP, or planning to? We can help you get your platforms connected and your fraud data flowing to the communities that need it.</p>
       <a href="#contact" class="btn-primary">Discuss MISP integration</a>
     </div>
   </div>
