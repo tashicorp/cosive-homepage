@@ -468,7 +468,7 @@
   .what-we-build-header {
     text-align: left;
     max-width: 720px;
-    margin: 0 0 var(--space-5xl);
+    margin: 0;
   }
 
   .what-we-build-header .heading-style-h2 {
@@ -487,8 +487,9 @@
 
   .build-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4xl);
+    margin-top: var(--space-4xl);
   }
 
   .build-feature {
@@ -1139,9 +1140,8 @@
     .considerations-grid { grid-template-columns: 1fr; }
 
     /* What we build */
-    .what-we-build-header { margin-bottom: var(--space-4xl); }
     .what-we-build-header .heading-style-h2 { font-size: var(--text-4xl); }
-    .build-grid { gap: var(--space-3xl); }
+    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
 
     .people-cta-separator { padding-top: var(--space-3xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
@@ -1179,10 +1179,10 @@
     .faq-section { padding: var(--space-2xl) 0; }
 
     /* What we build */
-    .what-we-build-header { text-align: left; margin-bottom: var(--space-3xl); }
+    .what-we-build-header { text-align: left; }
     .what-we-build-header .heading-style-h2 { font-size: var(--text-3xl); }
     .what-we-build-header p { font-size: var(--text-base); }
-    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); }
+    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
     .build-feature-title { font-size: var(--text-lg); }
   }
 </style>
@@ -1271,38 +1271,39 @@
         <div class="what-we-build-header">
           <div class="section-label">Build new tools</div>
           <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
-          <p>Sometimes the right tool doesn&rsquo;t exist yet. We create new custom integrations, plugins, and standalone tools tailored to your specific fraud operations &mdash; built to production standards and designed to last.</p>
-        </div>
-        <div class="build-grid">
-          <div class="build-feature">
-            <div class="build-feature-number">01</div>
-            <h3 class="build-feature-title">Platform plugins</h3>
-            <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
-          </div>
-          <div class="build-feature">
-            <div class="build-feature-number">02</div>
-            <h3 class="build-feature-title">Data integrations</h3>
-            <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
-          </div>
-          <div class="build-feature">
-            <div class="build-feature-number">03</div>
-            <h3 class="build-feature-title">Workflow automation</h3>
-            <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
-          </div>
-          <div class="build-feature">
-            <div class="build-feature-number">04</div>
-            <h3 class="build-feature-title">Custom API integrations</h3>
-            <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
-          </div>
+          <p>Sometimes the right tool doesn&rsquo;t exist yet. We create custom integrations, plugins, and standalone tools &mdash; and when the situation calls for it, we build entirely new platforms from scratch. Everything is built to production standards and designed to last.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Tell us what you need built</a>
         </div>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1581091870598-36ce9bad5c77?w=800&q=80" alt="Engineer working at a computer" style="width: 100%; border-radius: var(--radius-lg); display: block;">
-        <div style="margin-top: var(--space-6xl); text-align: center;">
-          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Purpose-built tools for your fraud operations</h3>
-          <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Tell us what your team needs and we'll scope a solution — whether it's a plugin, a data integration, or a standalone tool built from scratch.</p>
-          <a href="#contact" class="btn-primary">Tell us what you need built</a>
-        </div>
+        <img src="https://images.unsplash.com/photo-1581091870598-36ce9bad5c77?w=800&q=80" alt="Engineer working at a computer" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center 21%; border-radius: var(--radius-lg); display: block;">
+      </div>
+    </div>
+    <div class="build-grid">
+      <div class="build-feature">
+        <div class="build-feature-number">01</div>
+        <h3 class="build-feature-title">Full platform builds</h3>
+        <p class="build-feature-desc">When no existing tool fits, we build the whole thing. We built an international fraud data sharing platform for Atraxium that is used across the APAC region &mdash; from architecture through to production deployment.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">02</div>
+        <h3 class="build-feature-title">Platform plugins</h3>
+        <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">03</div>
+        <h3 class="build-feature-title">Data integrations</h3>
+        <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">04</div>
+        <h3 class="build-feature-title">Workflow automation</h3>
+        <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">05</div>
+        <h3 class="build-feature-title">Custom API integrations</h3>
+        <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
       </div>
     </div>
   </div>
@@ -1379,6 +1380,12 @@
     <div class="icon-credentials">
       <div class="icon-item">
         <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Multiple languages</strong> &mdash; Python, Go, JavaScript, whatever your platform needs. We pick the right tool for the job rather than forcing everything into one language.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
         </div>
         <div class="icon-item-text"><strong>CI/CD pipelines</strong> &mdash; everything we build is deployed through automated pipelines. No manual steps, no &ldquo;it works on my machine&rdquo; surprises.</div>
@@ -1400,12 +1407,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9z"/></svg>
         </div>
         <div class="icon-item-text"><strong>Full SDLC</strong> &mdash; from requirements gathering through to production support. Every project gets proper documentation, code review, and release management — whether it&rsquo;s a data integration or a standalone tool.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Multiple languages</strong> &mdash; Python, Go, JavaScript, whatever your platform needs. We pick the right tool for the job rather than forcing everything into one language.</div>
       </div>
       <div class="icon-item">
         <div class="icon-item-icon">
@@ -1474,6 +1475,46 @@
 
       <details>
         <summary>
+          What languages do you develop in?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We write production-grade Python, TypeScript, C#, and Rust. Which language we use depends on the job &mdash; Python for data pipelines and integrations, TypeScript for web applications and APIs, C# for .NET environments, and Rust where performance and reliability are critical. If your team already works in one of these languages, we can write code that fits naturally into your existing codebase.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What CI/CD platforms can you work with?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We build CI/CD pipelines for all major platforms, including GitHub Actions, GitLab CI/CD, Azure DevOps, Bitbucket Pipelines, and Jenkins. We set up automated testing, builds, and deployments so that the tools and integrations we create for you are reliable and easy to maintain from day one.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Where can you deploy our tools?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We deploy to Azure, AWS, Google Cloud, Hetzner, and on-premises infrastructure. For cloud deployments, we can deploy to your preferred region on any of those providers. We work with your existing infrastructure rather than prescribing a specific platform, and we configure deployments to meet your security, compliance, and data residency requirements.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What development practices do you follow?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We follow secure development practices throughout the software lifecycle. That includes secrets scanning, dependency vulnerability scanning, static analysis, automated testing, and code review. Everything we build comes with CI/CD pipelines, so you get repeatable builds and deployments &mdash; not a manual process that only works on one person&rsquo;s laptop.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
           What kinds of tools can you integrate?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
@@ -1531,6 +1572,7 @@
           <p>Yes. We regularly work alongside in-house teams, whether that means creating new integrations collaboratively, upskilling your developers on MISP and its APIs, or handling the specialist work while your team focuses on what they know best. We adapt to your preferred ways of working.</p>
         </div>
       </details>
+
 
     </div>
     <div class="faq-image">
