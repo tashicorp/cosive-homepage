@@ -20,8 +20,8 @@
     --color-border: #e8eaed;
     --color-text-primary: #1a1a1a;
     --color-text-secondary: #5f6368;
-    --color-accent: #e53834;
-    --color-accent-dark: #c1121f;
+    --color-accent: #2ab6f6; /* Color/Blue — SecOps brand colour */
+    --color-accent-dark: #1a94c9;
     --color-mid-grey: #f0f0f0;
     --color-blue: #2ab6f6;
     --font-heading: 'Manrope', sans-serif;
@@ -170,7 +170,7 @@
   }
 
   .nav-cta {
-    background: var(--color-accent) !important;
+    background: #e53834 !important;
     color: var(--color-white) !important;
     border: none !important;
     padding: var(--space-xs) var(--space-lg) !important;
@@ -181,7 +181,7 @@
   }
 
   .nav-cta:hover {
-    background: var(--color-accent-dark) !important;
+    background: #c1121f !important;
   }
 
   /* Hamburger toggle (hidden on desktop) */
@@ -222,7 +222,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(14, 20, 28, 0.78);
+    background: rgba(14, 20, 28, 0.4);
     z-index: 1;
   }
 
@@ -256,6 +256,17 @@
 
   .page-banner .breadcrumb .current {
     color: rgba(255, 255, 255, 0.9);
+  }
+  .page-banner .breadcrumb .badge-secops {
+    display: inline-block;
+    padding: 0.15em 0.6em;
+    border-radius: 4px; /* Radius/SM */
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+    background: rgba(42, 182, 246, 0.6);
+    border: 1px solid #2ab6f6;
   }
 
   .page-banner h1 {
@@ -1112,7 +1123,7 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="separator">/</span>
-        <span class="current">Cyber Security Operations</span>
+        <span class="current badge-secops">Cyber Security Operations</span>
       </nav>
       <h1 class="heading-style-h1">Cyber Security Operations</h1>
     </div>

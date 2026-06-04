@@ -213,15 +213,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center 100%;
-    filter: grayscale(1);
-    opacity: 0.4;
+    filter: grayscale(0.4);
+    opacity: 0.45;
   }
 
   .page-banner::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(14, 20, 28, 0.78);
+    background: rgba(14, 20, 28, 0.4);
     z-index: 1;
   }
 
@@ -255,6 +255,17 @@
 
   .page-banner .breadcrumb .current {
     color: rgba(255, 255, 255, 0.9);
+  }
+  .page-banner .breadcrumb .badge-cti {
+    display: inline-block;
+    padding: 0.15em 0.6em;
+    border-radius: 4px; /* Radius/SM */
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+    background: rgba(229, 56, 52, 0.6);
+    border: 1px solid #e53834;
   }
 
   .page-banner h1 {
@@ -1005,7 +1016,7 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="separator">/</span>
-        <span class="current">Cyber Threat Intelligence</span>
+        <span class="current badge-cti">Cyber Threat Intelligence</span>
       </nav>
       <h1 class="heading-style-h1">Cyber Threat Intelligence</h1>
     </div>
@@ -1140,13 +1151,13 @@
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Trusted by enterprise and government</strong> security teams worldwide</div>
+            <div class="icon-item-text"><strong>Extensive experience in CTI triaging and workflow development</strong> &mdash; helping teams build repeatable processes for handling, prioritising, and acting on intelligence</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Contributors to MISP</strong>, the world's most popular open-source threat intelligence platform</div>
+            <div class="icon-item-text"><strong>We help you set your intel gathering requirements</strong> &mdash; defining what intelligence you actually need, from which sources, and in what formats</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
