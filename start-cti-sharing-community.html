@@ -217,7 +217,7 @@
   .page-banner-inner {
     position: relative;
     z-index: 2;
-    padding: var(--space-3xl) 0 var(--space-4xl);
+    padding: var(--space-4xl) 0 var(--space-4xl);
   }
 
   .banner-grid {
@@ -282,6 +282,7 @@
   }
 
   .page-banner .breadcrumb a:hover { color: var(--color-white); }
+  .page-banner .breadcrumb .breadcrumb-home { display: inline-flex; align-items: center; gap: 0.3em; }
   .page-banner .breadcrumb .separator { color: rgba(255, 255, 255, 0.4); }
   .page-banner .breadcrumb .current { color: rgba(255, 255, 255, 0.9); }
 
@@ -329,6 +330,10 @@
   .banner-description strong {
     color: var(--color-white);
     font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
   }
 
   /* ── Shared section patterns ── */
@@ -1542,7 +1547,7 @@
     .heading-style-h2 { font-size: 1.3rem; }
 
     .page-banner h1 { font-size: var(--text-3xl); }
-    .page-banner-inner { padding: var(--space-lg) 0 var(--space-xl); }
+    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
     .page-banner .banner-subtitle { font-size: var(--text-lg); }
 
     .banner-form-card { padding: var(--space-lg); }
@@ -1604,7 +1609,7 @@
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
         <span class="separator">/</span>
         <a href="cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
         <span class="separator">/</span>
@@ -1614,7 +1619,7 @@
         <div class="banner-text">
           <h1 class="heading-style-h1">Build a threat intelligence sharing community</h1>
 
-          <p class="banner-description">Sharing threat intelligence is how organisations move from defending alone to defending together. We help you design the governance, deploy the platform, onboard the members, and run the operations that turn a good idea into a working community.</p>
+          <p class="banner-description">Sharing threat intelligence is how organisations move from <strong>defending alone to defending together</strong>. We help you design the governance, deploy the platform, onboard the members, and <strong>run the operations</strong> that turn a good idea into a working community.</p>
         </div>
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Let&rsquo;s talk about building your threat intelligence community</h3>

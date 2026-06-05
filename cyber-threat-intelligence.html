@@ -228,7 +228,7 @@
   .page-banner-inner {
     position: relative;
     z-index: 2;
-    padding: var(--space-xl) 0 var(--space-3xl);
+    padding: var(--space-3xl) 0 var(--space-3xl);
   }
 
   .page-banner .breadcrumb {
@@ -247,6 +247,12 @@
 
   .page-banner .breadcrumb a:hover {
     color: var(--color-white);
+  }
+
+  .page-banner .breadcrumb .breadcrumb-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
   }
 
   .page-banner .breadcrumb .separator {
@@ -520,7 +526,7 @@
 
   /* ── Social proof / credentials section ── */
   .credentials-section {
-    background: #121212;
+    background: var(--color-dark);
   }
 
   .credentials-inner {
@@ -529,7 +535,7 @@
     gap: 0;
     align-items: stretch;
     overflow: hidden;
-    background: #121212;
+    background: var(--color-dark);
   }
 
   .credentials-box {
@@ -571,7 +577,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, #121212 0%, transparent 40%);
+    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
     z-index: 1;
     pointer-events: none;
   }
@@ -582,7 +588,7 @@
     height: 100%;
     object-fit: cover;
     object-position: 80% center;
-    filter: grayscale(1);
+    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
   }
 
   .credentials-caption {
@@ -958,7 +964,7 @@
 
     /* Page banner */
     .page-banner h1 { font-size: var(--text-3xl); }
-    .page-banner-inner { padding: var(--space-lg) 0 var(--space-xl); }
+    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
 
     /* Hero */
     .hero { padding-top: var(--space-xl); }
@@ -1014,7 +1020,7 @@
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
         <span class="separator">/</span>
         <span class="current badge-cti">Cyber Threat Intelligence</span>
       </nav>
@@ -1169,7 +1175,7 @@
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep expertise in CTI frameworks</strong> including MITRE ATT&amp;CK and CTI-CMM</div>
+            <div class="icon-item-text"><strong>Deep expertise in CTI standards and methodologies</strong> including MITRE ATT&amp;CK and CTI-CMM</div>
           </div>
         </div>
       </div>
