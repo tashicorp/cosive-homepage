@@ -21,8 +21,8 @@
     --color-border: #e8eaed;
     --color-text-primary: #1a1a1a;
     --color-text-secondary: #5f6368;
-    --color-accent: #0d9488;
-    --color-accent-dark: #0b7d73;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
     --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
@@ -277,14 +277,14 @@
   }
 
   .page-banner .breadcrumb a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-border);
     transition: color 0.2s;
   }
 
   .page-banner .breadcrumb a:hover { color: var(--color-white); }
   .page-banner .breadcrumb .breadcrumb-home { display: inline-flex; align-items: center; gap: 0.3em; }
-  .page-banner .breadcrumb .separator { color: rgba(255, 255, 255, 0.4); }
-  .page-banner .breadcrumb .current { color: rgba(255, 255, 255, 0.9); }
+  .page-banner .breadcrumb .separator { color: var(--color-border); }
+  .page-banner .breadcrumb .current { color: var(--color-white); }
 
   .page-banner .breadcrumb .badge-fraud {
     display: inline-block;
@@ -294,10 +294,10 @@
     font-weight: 600;
     color: var(--color-white);
     text-decoration: none;
-    background: rgba(13, 148, 136, 0.6);
-    border: 1px solid rgba(13, 148, 136, 0.8);
+    background: rgba(229, 56, 52, 0.6);
+    border: 1px solid #e53834;
   }
-  .page-banner .breadcrumb a.badge-fraud:hover { background: rgba(11, 125, 115, 0.7); color: var(--color-white); }
+  .page-banner .breadcrumb a.badge-fraud:hover { background: rgba(193, 18, 31, 0.7); color: var(--color-white); }
 
   .page-banner h1 {
     font-family: var(--font-heading);

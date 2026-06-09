@@ -277,14 +277,14 @@
   }
 
   .page-banner .breadcrumb a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-border);
     transition: color 0.2s;
   }
 
   .page-banner .breadcrumb a:hover { color: var(--color-white); }
   .page-banner .breadcrumb .breadcrumb-home { display: inline-flex; align-items: center; gap: 0.3em; }
-  .page-banner .breadcrumb .separator { color: rgba(255, 255, 255, 0.4); }
-  .page-banner .breadcrumb .current { color: rgba(255, 255, 255, 0.9); }
+  .page-banner .breadcrumb .separator { color: var(--color-border); }
+  .page-banner .breadcrumb .current { color: var(--color-white); }
 
   .page-banner .breadcrumb .badge-cti {
     display: inline-block;
@@ -609,13 +609,15 @@
   .nav-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 0.75rem; /* Space/SM */
     background: var(--color-dark);
     color: var(--color-white);
     border-radius: 12px; /* Radius/LG */
-    min-height: 180px;
-    padding: 2rem 2rem 2rem; /* Space/XL all around */
+    min-height: 140px;
+    padding: 1.25rem 2rem 1.25rem;
     text-decoration: none;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   }
@@ -631,15 +633,17 @@
     font-size: 1.5rem; /* Text/2XL */
     font-weight: 700;
     line-height: 1.3em; /* Leading/Snug */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-card .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem; /* Space/XS */
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
     color: rgba(255,255,255,0.7);
-    font-size: 1.125rem; /* Text/LG */
-    font-weight: 600;
     transition: color 0.25s ease;
   }
 
@@ -648,9 +652,8 @@
   }
 
   .nav-card .card-cta svg {
-    width: 1.2em;
-    height: 1.2em;
-    stroke: currentColor;
+    width: 2.4em;
+    height: 2.4em;
   }
 
 
@@ -1616,22 +1619,21 @@
   <div class="container">
 
     <div class="nav-cards-heading">
-      <div class="section-label" style="text-align: center;">Jump to</div>
       <h3 class="heading-style-h3">What would you like to do?</h3>
     </div>
 
     <div class="nav-cards-grid">
       <a href="#create-team" class="nav-card">
         <div class="nav-card-title">I need to create a new CTI team</div>
-        <span class="card-cta">Jump here <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
       <a href="#improve-team" class="nav-card">
         <div class="nav-card-title">I want to improve my existing team</div>
-        <span class="card-cta">Jump here <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
       <a href="#unlock-skills" class="nav-card">
         <div class="nav-card-title">Help me unlock new CTI skills for my team</div>
-        <span class="card-cta">Jump here <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg></span>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
     </div>
   </div>
