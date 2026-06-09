@@ -20,8 +20,8 @@
     --color-border: #e8eaed;
     --color-text-primary: #1a1a1a;
     --color-text-secondary: #5f6368;
-    --color-accent: #0d9488;
-    --color-accent-dark: #0b7d73;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
     --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
@@ -166,7 +166,7 @@
 
   /* ── Top-nav CTA: always Cosive red, not affected by page-level accent overrides ── */
   .nav-cta {
-    background: #e53834 !important;
+    background: var(--color-accent) !important;
     color: var(--color-white) !important;
     border: none !important;
     padding: var(--space-xs) var(--space-lg) !important;
@@ -176,7 +176,7 @@
     white-space: nowrap;
   }
 
-  .nav-cta:hover { background: #c1121f !important; }
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
 
   .nav-toggle {
     display: none;
@@ -294,10 +294,10 @@
     font-weight: 600;
     color: var(--color-white);
     text-decoration: none;
-    background: rgba(13, 148, 136, 0.6);
-    border: 1px solid rgba(13, 148, 136, 0.8);
+    background: rgba(229, 56, 52, 0.6);
+    border: 1px solid #e53834;
   }
-  .page-banner .breadcrumb a.badge-fraud:hover { background: rgba(11, 125, 115, 0.7); color: var(--color-white); }
+  .page-banner .breadcrumb a.badge-fraud:hover { background: rgba(193, 18, 31, 0.7); color: var(--color-white); }
 
   .page-banner h1 {
     font-family: var(--font-heading);
