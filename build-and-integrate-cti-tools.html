@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build and integrate tools - Cosive</title>
+<title>Build and integrate tools — Cosive</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,34 +26,32 @@
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
 
-    /* ── Sizing Tokens ── */
-
-    /* Spacing (4px base grid) */
-    --space-2xs: 0.25rem;   /* 4px */
-    --space-xs: 0.5rem;     /* 8px */
-    --space-sm: 0.75rem;    /* 12px */
-    --space-md: 1rem;       /* 16px */
-    --space-lg: 1.5rem;     /* 24px */
-    --space-xl: 2rem;       /* 32px */
-    --space-2xl: 2.5rem;    /* 40px */
-    --space-3xl: 3rem;      /* 48px */
-    --space-4xl: 4rem;      /* 64px */
-    --space-5xl: 5rem;      /* 80px */
-    --space-6xl: 6rem;      /* 96px */
-    --space-7xl: 8rem;      /* 128px */
-    --space-8xl: 10rem;     /* 160px */
+    /* Spacing */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+    --space-7xl: 8rem;
+    --space-8xl: 10rem;
 
     /* Font sizes */
-    --text-xs: 0.75rem;     /* 12px */
-    --text-sm: 0.875rem;    /* 14px */
-    --text-base: 1rem;      /* 16px */
-    --text-lg: 1.125rem;    /* 18px */
-    --text-xl: 1.25rem;     /* 20px */
-    --text-2xl: 1.5rem;     /* 24px */
-    --text-3xl: 1.75rem;    /* 28px */
-    --text-4xl: 2rem;       /* 32px */
-    --text-5xl: 2.5rem;     /* 40px */
-    --text-6xl: 3rem;       /* 48px */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
 
     /* Line height */
     --leading-tight: 1.1;
@@ -80,7 +78,7 @@
     --container-page: 1400px;
   }
 
-  /* ── Heading Style System ── */
+  /* Heading Style System */
   .heading-style-h1 {
     font-family: var(--font-heading);
     font-size: var(--text-5xl);
@@ -128,7 +126,7 @@
     padding: 0 var(--space-3xl);
   }
 
-  /* ── Header ── */
+  /* Header */
   .site-header {
     background: var(--color-white);
     border-bottom: 1px solid var(--color-border);
@@ -164,7 +162,6 @@
 
   .main-nav a:hover { color: var(--color-text-primary); }
 
-  /* ── Top-nav CTA: always Cosive red, not affected by page-level accent overrides ── */
   .nav-cta {
     background: var(--color-accent) !important;
     color: var(--color-white) !important;
@@ -189,7 +186,7 @@
 
   .nav-toggle svg { width: var(--space-lg); height: var(--space-lg); display: block; }
 
-  /* ── Page Banner ── */
+  /* Page Banner */
   .page-banner {
     position: relative;
     overflow: hidden;
@@ -286,7 +283,7 @@
   .page-banner .breadcrumb .separator { color: var(--color-border); }
   .page-banner .breadcrumb .current { color: var(--color-white); }
 
-  .page-banner .breadcrumb .badge-fraud {
+  .page-banner .breadcrumb .badge-cti {
     font-weight: 600;
   }
 
@@ -327,7 +324,7 @@
     text-decoration-thickness: 4px;
   }
 
-  /* ── Shared section patterns ── */
+  /* Shared section patterns */
   .section-label {
     font-family: var(--font-heading);
     font-size: var(--text-sm);
@@ -348,7 +345,6 @@
     margin-bottom: var(--space-md);
   }
 
-
   .btn-primary {
     display: inline-block;
     padding: var(--space-md) var(--space-xl);
@@ -365,8 +361,7 @@
 
   .btn-primary:hover { background: var(--color-accent-dark); }
 
-
-  /* ── Integration diagram section ── */
+  /* Integration diagram section */
   .infra-section {
     padding: var(--space-6xl) 0;
     background: var(--color-white);
@@ -409,7 +404,7 @@
     padding: var(--space-xl);
   }
 
-  /* MISP section two-column layout */
+  /* TIP section two-column layout */
   .misp-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -496,7 +491,7 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* ── What we build: luxury grid ── */
+  /* What we build: grid */
   .what-we-build-header {
     text-align: left;
     max-width: 720px;
@@ -578,34 +573,7 @@
     color: var(--color-text-primary);
   }
 
-  /* ── Considerations grid ── */
-  .considerations-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md) var(--space-3xl);
-    margin-top: var(--space-2xl);
-  }
-
-  .consideration-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-  }
-
-  .consideration-item img {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .consideration-item span {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-  }
-
-  /* ── Help section (light-bg icon items) ── */
+  /* Help section (light-bg icon items) */
   .help-section .icon-credentials {
     gap: 0;
   }
@@ -631,7 +599,7 @@
     color: var(--color-accent-dark);
   }
 
-  /* ── Social proof / credentials section ── */
+  /* Credentials section */
   .credentials-section {
     background: var(--color-dark);
   }
@@ -758,131 +726,7 @@
     font-weight: 700;
   }
 
-  /* ── Who We Work With ── */
-  .who-section {
-    padding: var(--space-6xl) 0 var(--space-3xl);
-    background: var(--color-dark, #0e141c);
-  }
-
-  .who-section .section-label {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .who-section .container {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .who-section .heading-style-h2 {
-    color: var(--color-white);
-  }
-
-  /* ── Panel base ── */
-  .customers-panels {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .panel {
-    position: relative;
-    width: 100%;
-    min-height: 147px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-
-  .panel-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .panel-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(14,20,28,0.92) 0%,
-      rgba(14,20,28,0.85) 45%,
-      rgba(14,20,28,0.3) 100%
-    );
-  }
-
-  .panel-content {
-    position: relative;
-    z-index: 1;
-    padding: var(--space-xl) var(--space-4xl);
-    width: 100%;
-    max-width: var(--container-page);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3xl);
-  }
-
-  .panel-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    flex-shrink: 0;
-    width: 340px;
-  }
-
-  .panel-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    color: var(--color-white);
-    line-height: var(--leading-snug);
-  }
-
-  /* ── Panel: product-list variant ── */
-  .panel-icon {
-    width: 44px;
-    height: 44px;
-    color: rgba(255, 255, 255, 0.8);
-    flex-shrink: 0;
-  }
-
-  .panel-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .panel-right {
-    flex: 1;
-    padding-top: var(--space-2xs);
-  }
-
-  .panel-customers-label {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: var(--space-xs);
-  }
-
-  .panel-customers {
-    font-size: var(--text-lg);
-    color: var(--color-white);
-    line-height: var(--leading-loose);
-  }
-
-  .panel-customers span {
-    white-space: nowrap;
-  }
-
-  .panel-customers .dot {
-    display: inline-block;
-    width: var(--space-2xs);
-    height: var(--space-2xs);
-    margin: 0 var(--space-2xs) 0 var(--space-xs);
-    vertical-align: middle;
-  }
-
-  /* ── FAQ ── */
+  /* FAQ */
   .faq-section {
     padding: var(--space-6xl) 0;
     background: var(--color-white);
@@ -991,7 +835,7 @@
     margin-bottom: 0;
   }
 
-  /* ── Wavy SVG separator ── */
+  /* Wavy SVG separator */
   .people-cta-separator {
     display: flex;
     justify-content: center;
@@ -1004,7 +848,7 @@
     height: auto;
   }
 
-  /* ── Contact section ── */
+  /* Contact section */
   .contact-section {
     padding: var(--space-4xl) 0 var(--space-6xl);
     background: var(--color-light-grey);
@@ -1077,7 +921,7 @@
     text-align: center;
   }
 
-  /* ── Footer ── */
+  /* Footer */
   .site-footer {
     border-top: 1px solid var(--color-border);
     padding: var(--space-4xl) 0;
@@ -1110,7 +954,7 @@
 
   .footer-links a:hover { color: var(--color-accent); }
 
-  /* ── Responsive ── */
+  /* Responsive */
   @media (max-width: 1200px) {
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .credentials-inner { grid-template-columns: 1fr; }
@@ -1120,7 +964,6 @@
   }
 
   @media (max-width: 900px) {
-    /* Heading system */
     .heading-style-h1 { font-size: 1.8rem; }
     .heading-style-h2 { font-size: var(--text-2xl); }
 
@@ -1142,19 +985,12 @@
       gap: var(--space-xl);
     }
 
-    .who-header { grid-template-columns: 1fr; gap: var(--space-xl); }
-
-    .panel-content { padding: var(--space-xl) var(--space-xl); gap: var(--space-xl); }
-    .panel-header { width: 280px; }
-
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
 
-    /* Credentials */
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .infra-section,
-    .who-section,
     .faq-section { padding: var(--space-4xl) 0; }
 
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
@@ -1169,8 +1005,6 @@
 
     .before-after-grid { grid-template-columns: 1fr; }
 
-    .considerations-grid { grid-template-columns: 1fr; }
-
     /* What we build */
     .what-we-build-header .heading-style-h2 { font-size: var(--text-4xl); }
     .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
@@ -1180,7 +1014,6 @@
   }
 
   @media (max-width: 600px) {
-    /* Heading system */
     .heading-style-h1 { font-size: var(--text-2xl); }
     .heading-style-h2 { font-size: 1.3rem; }
 
@@ -1190,12 +1023,6 @@
 
     .banner-form-card { padding: var(--space-lg); }
     .banner-form-card .form-row { grid-template-columns: 1fr; }
-
-    .panel-content { flex-direction: column; gap: var(--space-md); padding: var(--space-lg) var(--space-lg); align-items: flex-start; }
-    .panel-header { width: auto; }
-    .panel-icon { width: var(--space-xl); height: var(--space-xl); }
-    .panel-title { font-size: var(--text-xl); }
-    .panel-customers { font-size: var(--text-base); }
 
     /* Credentials */
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
@@ -1207,7 +1034,6 @@
     .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
 
     .infra-section,
-    .who-section,
     .faq-section { padding: var(--space-2xl) 0; }
 
     /* What we build */
@@ -1245,13 +1071,13 @@
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="images/shared/fraud-tools-card.jpg" alt="">
+  <img src="images/cti/banner-bg-build-integrate.webp" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
         <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
         <span class="separator">/</span>
-        <a href="fraud-data-sharing.html" class="badge-fraud">Fraud Data Sharing</a>
+        <a href="cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
         <span class="separator">/</span>
         <span class="current">Build and integrate tools</span>
       </nav>
@@ -1259,12 +1085,12 @@
         <div class="banner-text">
           <h1 class="heading-style-h1">Build and integrate tools</h1>
 
-          <p class="banner-description">We <strong>build custom fraud tools</strong> when off-the-shelf solutions fall short, <strong>integrate your existing platforms</strong> so they work together, and <strong>connect your tools</strong> to your fraud data sharing platform.</p>
+          <p class="banner-description">We <strong>build custom CTI tools</strong> when off-the-shelf solutions fall short, integrate your existing security platforms so they work together, and connect your tools to your threat intelligence platform.</p>
         </div>
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Talk to us about integration and tooling</h3>
           <form class="contact-form" action="#" method="post">
-            <input type="hidden" name="category" value="Fraud Data Sharing">
+            <input type="hidden" name="category" value="Cyber Threat Intelligence">
             <div class="form-row">
               <div class="form-group">
                 <label for="banner-first-name">First name</label>
@@ -1303,52 +1129,51 @@
         <div class="what-we-build-header">
           <div class="section-label">Build new tools</div>
           <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
-          <p>Sometimes the right tool doesn&rsquo;t exist yet. We create custom integrations, plugins, and standalone tools &mdash; and when the situation calls for it, we build entirely new platforms from scratch. Everything is built to production standards and designed to last.</p>
+          <p>Our developers are seasoned security engineers who understand CTI analysts&rsquo; needs. They build tools that save your team time &mdash; from feed processors to analyst dashboards. If you have an idea for a tool, we can make it happen.</p>
           <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Tell us what you need built</a>
         </div>
       </div>
       <div>
-        <img src="images/fraud/build-new-tools.webp" alt="Engineer working at a computer" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+        <img src="images/cti/build-capabilities.webp" alt="Tools hanging on a workshop wall" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
       </div>
     </div>
     <div class="build-grid">
       <div class="build-feature">
         <div class="build-feature-number">01</div>
         <h3 class="build-feature-title">Full platform builds</h3>
-        <p class="build-feature-desc">When no existing tool fits, we build the whole thing. We built an international fraud data sharing platform for Atraxium that is used across the APAC region &mdash; from architecture through to production deployment.</p>
+        <p class="build-feature-desc">We build entire platforms from scratch &mdash; e.g. Atraxium, a fraud data sharing platform used across APAC. If you can describe what you need, we can build it.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Platform plugins</h3>
-        <p class="build-feature-desc">We learn your platform, understand its extension model, and build plugins that work within its ecosystem. We built EclecticIQ&rsquo;s official MISP integration plugin this way.</p>
+        <h3 class="build-feature-title">Custom CTI tools</h3>
+        <p class="build-feature-desc">Purpose-built tools for CTI workflows &mdash; from feed processors to analyst dashboards. Our developers understand security and the needs of CTI analysts.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
         <h3 class="build-feature-title">Data integrations</h3>
-        <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
+        <p class="build-feature-desc">Get CTI data into the platforms that need it. We help you deploy existing connectors or create new custom integrations.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">04</div>
         <h3 class="build-feature-title">Workflow automation</h3>
-        <p class="build-feature-desc">Building automated workflows that replace manual processes. If your team is copying data between systems or running the same steps repeatedly, we can automate it.</p>
+        <p class="build-feature-desc">Automate repetitive CTI tasks &mdash; triage, enrichment, dissemination. Natively within your tool if supported, or as a plugin that adds automation.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">05</div>
         <h3 class="build-feature-title">Custom API integrations</h3>
-        <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
+        <p class="build-feature-desc">If it has an API, we can connect to it. We&rsquo;ve been building security integrations for the last 8 years.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. Integrate your tools -->
+<!-- 3. Integrate your tools (temporarily commented out)
 <section class="infra-section infra-section--alt help-section">
   <div class="container">
     <div class="infra-intro">
       <div class="section-label">Integrate your tools</div>
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Your tools are more powerful when they work together</h2>
-      <p>Disconnected tools create manual work, data silos, and gaps in detection. Integration is how you get the full value from your technology and your people.</p>
-      <p>We work with what you have &mdash; your transaction monitoring, case management, SIEM, and other platforms &mdash; and integrate them so fraud data flows automatically between systems.</p>
+      <p>Disconnected tools create manual work, data silos, and gaps in detection. We integrate what you have &mdash; your SIEM, TIP, SOAR, and other security platforms &mdash; so CTI data flows automatically between systems.</p>
     </div>
     <div class="before-after-grid" style="margin-top: var(--space-3xl);">
       <div class="subsection-box subsection-box--white">
@@ -1358,53 +1183,105 @@
           <p>Your analyst is the glue &mdash; copying data between systems and cross-referencing logs by hand.</p>
         </div>
         <div class="outcome-diagram">
-          <img src="images/fraud/diagram-tools-disconnected.svg" alt="Diagram showing fraud tools disconnected from the analyst and case management — no automated connections">
+          <img src="images/cti/diagram-tools-disconnected.svg" alt="Diagram showing CTI tools disconnected from the analyst — no automated connections">
         </div>
       </div>
       <div class="subsection-box subsection-box--white">
         <div class="infra-intro">
           <div class="subsection-label">After</div>
           <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrated tools, automated data flow</h3>
-          <p>The same tools, now integrated. Data flows automatically in both directions &mdash; alerts feed in, outcomes flow back.</p>
+          <p>The same tools, now integrated. Data flows automatically in both directions &mdash; threat indicators feed in, enriched intelligence flows back.</p>
         </div>
         <div class="outcome-diagram">
-          <img src="images/fraud/diagram-tools-connected.svg" alt="After diagram: four fraud tools and case management exchange data bidirectionally through automated integrations">
+          <img src="images/cti/diagram-tools-connected.svg" alt="After diagram: CTI tools exchange data bidirectionally through Cosive integrations">
         </div>
       </div>
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Move from siloed tools to a unified system</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems &mdash; your analysts spend their time on decisions, not copying and pasting between tabs.</p>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems &mdash; your analysts spend their time on analysis, not copying and pasting between tabs.</p>
       <a href="#contact" class="btn-primary">Talk to us about integration</a>
     </div>
   </div>
 </section>
+end of integrate your tools section -->
 
-<!-- 4. Integrate with MISP -->
+<!-- 4. TIP integration -->
 <section class="infra-section infra-section--dark">
   <div class="container">
     <div class="misp-grid">
       <div class="infra-intro">
-        <div class="section-label">MISP integration</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate your fraud platforms with MISP</h2>
-        <p>Most fraud data sharing communities use MISP as their core platform. We&rsquo;re MISP experts &mdash; we help you create new integrations between your fraud management platforms and MISP so fraud indicators flow automatically into your detection and response workflows.</p>
-        <p>We work with what you have. Whether it&rsquo;s your transaction monitoring system, fraud case management tool, or SIEM &mdash; if it has an API, we can integrate it with your MISP instance and the communities you belong to.</p>
+        <div class="section-label">Platform integration</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Connect your security tools through your threat intelligence platform</h2>
+        <p>Many CTI teams use a TIP at the core of their operations &mdash; whether that&rsquo;s MISP, OpenCTI, EclecticIQ, or another platform. We help you create integrations between your security tools and your TIP so threat intelligence flows automatically into your detection and response workflows.</p>
+        <p>Examples of platforms we integrate: MISP, Microsoft Sentinel, EclecticIQ Intelligence Center, Swimlane SOAR, AssemblyLine, Microsoft SharePoint.</p>
       </div>
       <div class="subsection-box" style="margin-top: 0; max-width: none;">
         <div class="outcome-diagram">
-          <img src="images/fraud/diagram-misp-integration.svg" alt="Diagram showing four fraud platforms integrated bidirectionally with a central MISP instance, which in turn feeds sharing communities, peer banks, and regulators">
+          <img src="images/cti/diagram-tip-integration.svg" alt="Diagram showing security tools integrated bidirectionally with a central TIP, which feeds detection rules, dashboards, and sharing communities">
         </div>
       </div>
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Your fraud platforms, connected through MISP</h3>
-      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using MISP, or planning to? We can help you get your platforms connected and your fraud data flowing to the communities that need it.</p>
-      <a href="#contact" class="btn-primary">Discuss MISP integration</a>
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Your security platforms, connected through your TIP</h3>
+      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using a TIP, or planning to? We can help you get your platforms connected and your threat intelligence flowing to the systems that need it.</p>
+      <a href="#contact" class="btn-primary">Discuss platform integration</a>
     </div>
   </div>
 </section>
 
-<!-- 5. How we build -->
+<!-- 5. Build new plugins -->
+<section class="infra-section">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div>
+        <div class="what-we-build-header">
+          <div class="section-label">Build new plugins</div>
+          <h2 class="heading-style-h2">Add new capabilities to your existing security tools</h2>
+          <p>If there&rsquo;s functionality you want to add to your existing security tools, we can build that too. We&rsquo;re threat intelligence platform experts, but we can make plugins for any technology &mdash; as long as it has an API, we can build a plugin that adds the functionality you need.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Discuss your plugin needs</a>
+        </div>
+      </div>
+      <div>
+        <img src="images/cti/build-new-plugins.webp" alt="Electrical plugs connected together" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+      </div>
+    </div>
+    <div class="build-grid">
+      <div class="build-feature">
+        <div class="build-feature-number">01</div>
+        <h3 class="build-feature-title">Custom plugin development</h3>
+        <p class="build-feature-desc">We build plugins that extend your existing platforms with new functionality &mdash; whether it&rsquo;s a MISP module, an OpenCTI connector, or an extension for your SOAR.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">02</div>
+        <h3 class="build-feature-title">Workflow automation</h3>
+        <p class="build-feature-desc">Automate workflows within your favourite security tool, either natively or as a plugin. Reduce manual effort and let your analysts focus on analysis.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">03</div>
+        <h3 class="build-feature-title">AI and machine learning</h3>
+        <p class="build-feature-desc">Add AI-powered analytics to your existing platform &mdash; from automated triage to pattern detection. We build ML capabilities that work inside your existing tools.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">04</div>
+        <h3 class="build-feature-title">Cross-platform connectors</h3>
+        <p class="build-feature-desc">Connect any two platforms that expose an API. We&rsquo;ve been doing this for 8 years and can learn new platforms quickly.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">05</div>
+        <h3 class="build-feature-title">Data enrichment plugins</h3>
+        <p class="build-feature-desc">Automatically enrich indicators with context from external sources. We build enrichment modules that plug directly into your TIP workflow.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">06</div>
+        <h3 class="build-feature-title">Actionable intelligence</h3>
+        <p class="build-feature-desc">It&rsquo;s all about connecting your security tools into a unified system. Make sure that the information you have is usable in the places it needs to be. Make CTI actionable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. How we build -->
 <section class="infra-section infra-section--alt help-section">
   <div class="container">
     <div class="section-label">How we build</div>
@@ -1438,54 +1315,54 @@
         <div class="icon-item-icon">
           <svg viewBox="3.75 1.5 16.5 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9z"/></svg>
         </div>
-        <div class="icon-item-text"><strong>Full SDLC</strong> &mdash; from requirements gathering through to production support. Every project gets proper documentation, code review, and release management — whether it&rsquo;s a data integration or a standalone tool.</div>
+        <div class="icon-item-text"><strong>Full SDLC</strong> &mdash; from requirements gathering through to production support. Every project gets proper documentation, code review, and release management &mdash; whether it&rsquo;s a data integration or a standalone tool.</div>
       </div>
       <div class="icon-item">
         <div class="icon-item-icon">
           <svg viewBox="1.5 1.5 21 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
         </div>
-        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the integration. We&rsquo;ve integrated with platforms across fraud, security, and compliance &mdash; and we can learn new ones quickly.</div>
+        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the integration. We&rsquo;ve integrated with platforms across CTI, security operations, and compliance &mdash; and we can learn new ones quickly.</div>
       </div>
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
       <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Production-grade software, not throwaway scripts</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Whether it&rsquo;s an integration or a custom tool, we build it the same way — tested, version-controlled, and designed to run reliably without hand-holding.</p>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Whether it&rsquo;s an integration or a custom tool, we build it the same way &mdash; tested, version-controlled, and designed to run reliably without hand-holding.</p>
       <a href="#contact" class="btn-primary">Discuss your project</a>
     </div>
   </div>
 </section>
 
-<!-- 5. Credentials -->
+<!-- 7. Credentials -->
 <section class="credentials-section" id="engagement">
   <div class="credentials-inner">
     <div class="credentials-box">
         <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
         <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Fraud data sharing expertise you can trust</h2>
+        <h2 class="heading-style-h2">CTI integration expertise you can trust</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Trusted by central banks</strong> around the world</div>
+            <div class="icon-item-text"><strong>Deep expertise in CTI tools and standards</strong> &mdash; STIX/TAXII, MISP, OpenCTI, and structured intelligence standards</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Operated sharing communities</strong> for central banks and financial institutions</div>
+            <div class="icon-item-text"><strong>8 years of integration experience</strong> &mdash; connecting security tools across CTI, SecOps, and fraud</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Protecting financial institutions</strong> against attacks since 2016 with Antifraud</div>
+            <div class="icon-item-text"><strong>Built integrations used across APAC</strong> &mdash; including national-scale threat intelligence sharing platforms</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep understanding</strong> of banking environments and regulations</div>
+            <div class="icon-item-text"><strong>Contributors to open-source CTI tools</strong> &mdash; we understand the platforms because we help build them</div>
           </div>
         </div>
       </div>
@@ -1496,14 +1373,34 @@
   </div>
 </section>
 
-<!-- 5. FAQ -->
+<!-- 8. FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions about integration and tooling</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions about CTI integration and tooling</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
+
+      <details>
+        <summary>
+          Can you help me get threat intelligence into my MISP platform?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We build custom integrations that connect your existing security tools to MISP. Whether you need to ingest threat feeds, push indicators from your SIEM, or automate the flow of intelligence from your SOAR &mdash; we can build the integration that makes it happen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What TIP platforms do you support?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We work with MISP, OpenCTI, EclecticIQ Intelligence Center, and other STIX/TAXII-compatible platforms. We&rsquo;re TIP experts &mdash; MISP is our strongest area, but we can integrate with any platform that exposes an API or supports standard protocols.</p>
+        </div>
+      </details>
 
       <details>
         <summary>
@@ -1511,7 +1408,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We write production-grade Python, TypeScript/JavaScript, C#, and Rust &mdash; plus Bash and shell scripts where they're the right tool for the job. Python for data pipelines and integrations, TypeScript and JavaScript for web applications and APIs, C# for .NET environments, Rust where performance and reliability are critical, and Bash for automation, deployment scripts, and gluing systems together. If your team already works in one of these languages, we can write code that fits naturally into your existing codebase.</p>
+          <p>We write production-grade Python, TypeScript/JavaScript, C#, and Rust &mdash; plus Bash and shell scripts where they&rsquo;re the right tool for the job. Python for data pipelines and integrations, TypeScript and JavaScript for web applications and APIs, C# for .NET environments, Rust where performance and reliability are critical, and Bash for automation, deployment scripts, and gluing systems together. If your team already works in one of these languages, we can write code that fits naturally into your existing codebase.</p>
         </div>
       </details>
 
@@ -1527,16 +1424,6 @@
 
       <details>
         <summary>
-          Where can you deploy our tools?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>We deploy to Azure, AWS, Google Cloud, Hetzner, and on-premises infrastructure. For cloud deployments, we can deploy to your preferred region on any of those providers. We work with your existing infrastructure rather than prescribing a specific platform, and we configure deployments to meet your security, compliance, and data residency requirements.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
           What development practices do you follow?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
@@ -1547,21 +1434,21 @@
 
       <details>
         <summary>
-          What kinds of tools can you integrate?
+          Can you build plugins for my security tool?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>If it has an API, we can integrate it. We&rsquo;ve integrated transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms, compliance tools, and more. We work with what you have rather than asking you to replace it.</p>
+          <p>If it has an API, yes. We&rsquo;re TIP experts &mdash; we&rsquo;ve built MISP modules, OpenCTI connectors, and EclecticIQ extensions &mdash; but we can also build plugins for any technology that exposes an extension point or API.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Do you only work with MISP?
+          Can you help automate our CTI workflows?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>No. MISP is the platform most fraud sharing communities use, so we have deep expertise there. But we also integrate with STIX/TAXII platforms, proprietary systems, and custom APIs. If your community or regulator uses a different platform, we can integrate with it.</p>
+          <p>Yes &mdash; either natively within your tool or as a plugin. We build automated workflows for triage, enrichment, dissemination, and more. We also build AI/ML-powered analytics that can be embedded directly into your existing platforms.</p>
         </div>
       </details>
 
@@ -1571,44 +1458,13 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API integration might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or regulatory requirements typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
+          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API integration might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or specific intelligence standards typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
         </div>
       </details>
-
-      <details>
-        <summary>
-          What if our platform doesn&rsquo;t have an API?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>We can often find other ways to integrate. Some platforms support file-based imports, database access, webhook triggers, or extension plugins. We evaluate your specific setup and recommend the most reliable approach &mdash; including building bespoke tooling if that&rsquo;s what it takes.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          How do you handle ongoing maintenance?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>We create new integrations with automated testing and CI/CD pipelines, so they&rsquo;re designed to be maintainable from day one. We can provide ongoing support, or hand the integration over to your team with full documentation. Either way, you&rsquo;re not left with a fragile script that breaks when an API changes.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Can you work with our existing development team?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Yes. We regularly work alongside in-house teams, whether that means creating new integrations collaboratively, upskilling your developers on MISP and its APIs, or handling the specialist work while your team focuses on what they know best. We adapt to your preferred ways of working.</p>
-        </div>
-      </details>
-
 
     </div>
     <div class="faq-image">
-      <img src="images/fraud/faq.webp" alt="Laptop on a desk displaying code in an editor">
+      <img src="images/cti/faq.webp" alt="Laptop on a desk displaying code in an editor">
     </div>
     </div>
   </div>
@@ -1617,15 +1473,15 @@
 <!-- Wavy SVG separator -->
 <div class="people-cta-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
 
-<!-- 6. Contact Form -->
+<!-- 9. Contact Form -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
-      <p class="contact-subtitle">Tell us about your fraud tool integration needs and we'll get back to you as soon as possible.</p>
+      <p class="contact-subtitle">Tell us about your CTI tool integration needs and we&rsquo;ll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="Fraud Data Sharing">
+        <input type="hidden" name="category" value="Cyber Threat Intelligence">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>
@@ -1680,7 +1536,6 @@
       ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
       : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
   });
-
 </script>
 
 </body>

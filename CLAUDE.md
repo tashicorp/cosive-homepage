@@ -35,3 +35,17 @@ Full reference: `webflow-variables.md`
 ## Tone of Voice
 
 Before writing or editing any copy (headings, body text, CTAs, meta descriptions, etc.), read the tone-of-voice and key messages guide in `tov/` for instructions on the Cosive tone of voice.
+
+## SVG Icons
+
+When saving an SVG file to `icons/`, use the **actual color the icon renders as in the full design** — not `currentColor` or CSS custom properties. Standalone SVG assets uploaded to Webflow don't inherit CSS color, so they need hardcoded values.
+
+Look at the HTML/CSS where the icon is used to determine the rendered color, then use that value in the SVG `stroke` or `fill` attribute.
+
+**Tight viewBox:** The saved SVG's `viewBox` must be cropped to the icon's visible bounds (path geometry + half `stroke-width` on each side) so the content fills the viewport with no outer whitespace. The viewBox must always be **square** (equal width and height) to maintain a 1:1 aspect ratio — use the larger dimension for both and center the icon on the shorter axis. Do not use the source icon's default `viewBox` (e.g. `0 0 24 24`) if it leaves padding around the artwork.
+
+**Existing examples:**
+- `icons/home.svg` → `stroke="#e8eaed"` (`Color/Border`)
+- `icons/circle-chevron-right.svg` → `stroke="#e53834"` (`Color/Accent`)
+- `icons/chevron-circle-down.svg` → `stroke="#5f6368"` (`Color/Text Secondary`)
+- `icons/circle-arrow-right.svg` → `stroke="rgba(255,255,255,0.85)"`
