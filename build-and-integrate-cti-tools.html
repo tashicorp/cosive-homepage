@@ -954,6 +954,93 @@
 
   .footer-links a:hover { color: var(--color-accent); }
 
+  /* Nav cards */
+  .nav-cards-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 12px;
+    min-height: 140px;
+    padding: 1.25rem 2rem 1.25rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1a2332;
+  }
+
+  .nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-card .card-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.25s ease;
+  }
+
+  .nav-card:hover .card-cta {
+    color: var(--color-white);
+  }
+
+  .nav-card .card-cta svg {
+    width: 2.4em;
+    height: 2.4em;
+  }
+
+  /* Dark section build-feature overrides */
+  .infra-section--dark .build-feature-number {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .infra-section--dark .build-feature-title {
+    color: var(--color-white);
+  }
+
+  .infra-section--dark .build-feature-desc {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-section--dark .build-feature:hover .build-feature-desc {
+    color: var(--color-white);
+  }
+
+  .infra-section--dark .build-feature::before {
+    background: var(--color-accent);
+  }
+
+  .build-grid--4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   /* Responsive */
   @media (max-width: 1200px) {
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
@@ -1005,9 +1092,13 @@
 
     .before-after-grid { grid-template-columns: 1fr; }
 
+    .nav-cards-grid { grid-template-columns: 1fr; }
+    .nav-card { min-height: auto; }
+
     /* What we build */
     .what-we-build-header .heading-style-h2 { font-size: var(--text-4xl); }
     .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
+    .build-grid--4col { grid-template-columns: 1fr 1fr; }
 
     .people-cta-separator { padding-top: var(--space-3xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
@@ -1041,7 +1132,15 @@
     .what-we-build-header .heading-style-h2 { font-size: var(--text-3xl); }
     .what-we-build-header p { font-size: var(--text-base); }
     .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
+    .build-grid--4col { grid-template-columns: 1fr; }
     .build-feature-title { font-size: var(--text-lg); }
+
+    .nav-card {
+      padding: 2rem 1.5rem;
+    }
+    .nav-card-title {
+      font-size: 1.25rem;
+    }
   }
 </style>
 </head>
@@ -1121,8 +1220,27 @@
   </div>
 </div>
 
-<!-- 2. Build new tools -->
+<!-- 2. Navigation Cards -->
 <section class="infra-section">
+  <div class="container">
+    <div class="nav-cards-heading">
+      <h3 class="heading-style-h3">What describes your situation?</h3>
+    </div>
+    <div class="nav-cards-grid">
+      <a href="#build-new" class="nav-card">
+        <div class="nav-card-title">I need you to build me a new solution</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#platform-integration" class="nav-card">
+        <div class="nav-card-title">I need an integration for my current threat intel platform</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Build new tools -->
+<section class="infra-section infra-section--alt" id="build-new">
   <div class="container">
     <div class="infra-intro-grid">
       <div>
@@ -1207,75 +1325,45 @@
 end of integrate your tools section -->
 
 <!-- 4. TIP integration -->
-<section class="infra-section infra-section--dark">
+<section class="infra-section infra-section--dark" id="platform-integration">
   <div class="container">
     <div class="misp-grid">
       <div class="infra-intro">
         <div class="section-label">Platform integration</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Connect your security tools through your threat intelligence platform</h2>
-        <p>Many CTI teams use a TIP at the core of their operations &mdash; whether that&rsquo;s MISP, OpenCTI, EclecticIQ, or another platform. We help you create integrations between your security tools and your TIP so threat intelligence flows automatically into your detection and response workflows.</p>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate with your existing threat intelligence platform</h2>
+        <p>Already running a TIP like MISP, OpenCTI, or EclecticIQ? We build the integrations that connect your security tools to your platform &mdash; so threat intelligence flows automatically into your detection and response workflows. We don&rsquo;t build or replace your TIP. We make it work harder by connecting it to everything else.</p>
         <p>Examples of platforms we integrate: MISP, Microsoft Sentinel, EclecticIQ Intelligence Center, Swimlane SOAR, AssemblyLine, Microsoft SharePoint.</p>
+        <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Discuss platform integration</a>
       </div>
       <div class="subsection-box" style="margin-top: 0; max-width: none;">
         <div class="outcome-diagram">
-          <img src="images/cti/diagram-tip-integration.svg" alt="Diagram showing security tools integrated bidirectionally with a central TIP, which feeds detection rules, dashboards, and sharing communities">
+          <img src="images/cti/diagram-cosive-integration.svg" alt="Diagram showing Your TIP connected to a Cosive Integration layer, with arrows to SIEM, SOAR, SharePoint, and AssemblyLine">
         </div>
       </div>
     </div>
-    <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Your security platforms, connected through your TIP</h3>
-      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Already using a TIP, or planning to? We can help you get your platforms connected and your threat intelligence flowing to the systems that need it.</p>
-      <a href="#contact" class="btn-primary">Discuss platform integration</a>
-    </div>
-  </div>
-</section>
-
-<!-- 5. Build new plugins -->
-<section class="infra-section">
-  <div class="container">
-    <div class="infra-intro-grid">
-      <div>
-        <div class="what-we-build-header">
-          <div class="section-label">Build new plugins</div>
-          <h2 class="heading-style-h2">Add new capabilities to your existing security tools</h2>
-          <p>If there&rsquo;s functionality you want to add to your existing security tools, we can build that too. We&rsquo;re threat intelligence platform experts, but we can make plugins for any technology &mdash; as long as it has an API, we can build a plugin that adds the functionality you need.</p>
-          <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Discuss your plugin needs</a>
+    <div style="margin-top: var(--space-6xl);">
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-md);">We also build plugins and extensions</h3>
+      <div class="build-grid build-grid--4col">
+        <div class="build-feature">
+          <div class="build-feature-number">01</div>
+          <h3 class="build-feature-title">Custom plugin development</h3>
+          <p class="build-feature-desc">MISP modules, OpenCTI connectors, SOAR extensions &mdash; we build plugins that extend your existing platforms with new functionality.</p>
         </div>
-      </div>
-      <div>
-        <img src="images/cti/build-new-plugins.webp" alt="Electrical plugs connected together" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
-      </div>
-    </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">Custom plugin development</h3>
-        <p class="build-feature-desc">We build plugins that extend your existing platforms with new functionality &mdash; whether it&rsquo;s a MISP module, an OpenCTI connector, or an extension for your SOAR.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Workflow automation</h3>
-        <p class="build-feature-desc">Automate workflows within your favourite security tool, either natively or as a plugin. Reduce manual effort and let your analysts focus on analysis.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">AI and machine learning</h3>
-        <p class="build-feature-desc">Add AI-powered analytics to your existing platform &mdash; from automated triage to pattern detection. We build ML capabilities that work inside your existing tools.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Cross-platform connectors</h3>
-        <p class="build-feature-desc">Connect any two platforms that expose an API. We&rsquo;ve been doing this for 8 years and can learn new platforms quickly.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">05</div>
-        <h3 class="build-feature-title">Data enrichment plugins</h3>
-        <p class="build-feature-desc">Automatically enrich indicators with context from external sources. We build enrichment modules that plug directly into your TIP workflow.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">06</div>
-        <h3 class="build-feature-title">Actionable intelligence</h3>
-        <p class="build-feature-desc">It&rsquo;s all about connecting your security tools into a unified system. Make sure that the information you have is usable in the places it needs to be. Make CTI actionable.</p>
+        <div class="build-feature">
+          <div class="build-feature-number">02</div>
+          <h3 class="build-feature-title">Cross-platform connectors</h3>
+          <p class="build-feature-desc">Connect any two platforms that expose an API. We&rsquo;ve been doing this for 8 years and can learn new platforms quickly.</p>
+        </div>
+        <div class="build-feature">
+          <div class="build-feature-number">03</div>
+          <h3 class="build-feature-title">Data enrichment plugins</h3>
+          <p class="build-feature-desc">Automatically enrich indicators with context from external sources. We build enrichment modules that plug directly into your TIP workflow.</p>
+        </div>
+        <div class="build-feature">
+          <div class="build-feature-number">04</div>
+          <h3 class="build-feature-title">Workflow automation</h3>
+          <p class="build-feature-desc">Automate triage, enrichment, and dissemination within your tools &mdash; either natively or as a plugin.</p>
+        </div>
       </div>
     </div>
   </div>
