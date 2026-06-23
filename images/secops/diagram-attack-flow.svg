@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 840 340">
+<defs>
+  <marker id="arrow" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+  <marker id="arrow-grey" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#9aa0a6" d="m0 1 9 4-9 4z"/></marker>
+</defs>
+
+<!-- ===== LAYER 1: CONNECTIONS ===== -->
+
+<!-- Entry vectors to Initial Access -->
+<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 50 L255 130"/>
+<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 130 L255 145"/>
+<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 210 L255 160"/>
+
+<!-- Attack flow chain -->
+<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M375 150 L445 150"/>
+<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M565 150 L635 150"/>
+
+<!-- Choke point indicators (vertical lines from chain to detection) -->
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M310 185 L310 250"/>
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M505 185 L505 250"/>
+<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M700 185 L700 250"/>
+
+<!-- ===== LAYER 2: NODES ===== -->
+
+<!-- ENTRY VECTORS (left column) -->
+
+<!-- Phishing -->
+<rect width="120" height="48" x="15" y="26" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M65 38h20l-10 10z M65 38v14h20v-14"/>
+<text x="75" y="62" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Phishing</text>
+
+<!-- Vulnerability Exploit -->
+<rect width="120" height="48" x="15" y="106" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M69 116l6 6m-6 0l6-6"/>
+<text x="75" y="138" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Vulnerability</text>
+<text x="75" y="150" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Exploit</text>
+
+<!-- Supply Chain -->
+<rect width="120" height="48" x="15" y="186" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M64 199h6l3-3 3 6 3-6 3 3h6"/>
+<text x="75" y="222" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Supply Chain</text>
+
+<!-- ATTACK STAGES (center) -->
+
+<!-- Initial Access -->
+<rect width="120" height="72" x="255" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<text x="315" y="146" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Initial</text>
+<text x="315" y="160" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Access</text>
+<text x="315" y="176" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0001)</text>
+
+<!-- Execution + Persistence -->
+<rect width="120" height="72" x="445" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<text x="505" y="140" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Execution &amp;</text>
+<text x="505" y="154" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Lateral</text>
+<text x="505" y="168" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Movement</text>
+<text x="505" y="180" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0002/8)</text>
+
+<!-- Exfiltration / Impact -->
+<rect width="120" height="72" x="635" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<text x="695" y="140" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Exfiltration</text>
+<text x="695" y="154" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">&amp; Impact</text>
+<text x="695" y="170" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0010/40)</text>
+
+<!-- CHOKE POINTS (detection) -->
+
+<!-- Choke Point 1 -->
+<rect width="130" height="60" x="245" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<circle cx="275" cy="278" r="6" fill="#e53834" opacity="0.15"/>
+<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M272 278l2 2 4-4"/>
+<text x="315" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Email &amp; perimeter</text>
+<text x="315" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">detection</text>
+<text x="315" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 1</text>
+
+<!-- Choke Point 2 -->
+<rect width="130" height="60" x="440" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<circle cx="470" cy="278" r="6" fill="#e53834" opacity="0.15"/>
+<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M467 278l2 2 4-4"/>
+<text x="510" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Endpoint &amp; SIEM</text>
+<text x="510" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">alerting</text>
+<text x="510" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 2</text>
+
+<!-- Choke Point 3 -->
+<rect width="130" height="60" x="635" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
+<circle cx="665" cy="278" r="6" fill="#e53834" opacity="0.15"/>
+<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M662 278l2 2 4-4"/>
+<text x="705" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Network &amp; data</text>
+<text x="705" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">loss prevention</text>
+<text x="705" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 3</text>
+
+<!-- LABELS -->
+<text x="75" y="16" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">ENTRY VECTORS</text>
+<text x="505" y="104" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">ATTACK FLOW (ATT&amp;CK MAPPED)</text>
+<text x="505" y="248" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">DETECTION CHOKE POINTS</text>
+</svg>

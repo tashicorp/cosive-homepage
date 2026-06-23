@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Useful Threat Intelligence Feeds - Cosive</title>
+<meta name="description" content="Cosive helps you find, source, and get value from threat intelligence feeds. We match you with the right providers, wrap feeds under a single contract, and build workflows that make your CTI actionable.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    /* Spacing */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+    --space-7xl: 8rem;
+    --space-8xl: 10rem;
+
+    /* Font sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg { width: var(--space-lg); height: var(--space-lg); display: block; }
+
+  /* ── Page Banner ── */
+  .page-banner {
+    position: relative;
+    overflow: hidden;
+    background: #121212;
+  }
+
+  .page-banner > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.4);
+    opacity: 0.45;
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 20, 28, 0.4);
+    z-index: 1;
+  }
+
+  .page-banner-inner {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-4xl) 0 var(--space-4xl);
+  }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .banner-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .banner-form-card h3 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .banner-form-card .contact-form {
+    gap: var(--space-md);
+  }
+
+  .banner-form-card .form-group label {
+    font-size: var(--text-sm);
+  }
+
+  .banner-form-card .form-group input,
+  .banner-form-card .form-group textarea {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-base);
+    border-color: var(--color-border);
+  }
+
+  .banner-form-card .form-group textarea {
+    min-height: var(--space-5xl);
+  }
+
+  .banner-form-card .form-row {
+    gap: var(--space-md);
+  }
+
+  .banner-form-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .page-banner .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+  }
+
+  .page-banner .breadcrumb a {
+    color: var(--color-border);
+    transition: color 0.2s;
+  }
+
+  .page-banner .breadcrumb a:hover { color: var(--color-white); }
+  .page-banner .breadcrumb .breadcrumb-home { display: inline-flex; align-items: center; gap: 0.3em; }
+  .page-banner .breadcrumb .separator { color: var(--color-border); }
+  .page-banner .breadcrumb .current { color: var(--color-white); }
+  .page-banner .breadcrumb .badge-cti {
+    font-weight: 600;
+  }
+
+  .page-banner h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+  }
+
+  .page-banner .banner-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-xs);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .banner-description {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--color-light-grey);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .banner-description strong {
+    color: var(--color-white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
+  }
+
+  /* ── Shared section patterns ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--color-accent-dark); }
+
+  /* ── Infra sections ── */
+  .infra-section {
+    padding: var(--space-6xl) 0;
+    background: var(--color-white);
+  }
+
+  .infra-section--alt {
+    background: var(--color-light-grey);
+  }
+
+  .infra-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+    margin-bottom: var(--space-4xl);
+  }
+
+  .infra-intro-grid:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-md);
+  }
+
+  .infra-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro-image {
+    align-self: center;
+  }
+
+  .infra-intro-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  /* ── Navigation Cards ── */
+  #dont-know, #know-feeds, #feeds-not-working, #need-tip {
+    scroll-margin-top: 8rem;
+  }
+
+  .nav-cards-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 12px;
+    min-height: 140px;
+    padding: 1.25rem 2rem 1.25rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1a2332;
+  }
+
+  .nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-card .card-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.25s ease;
+  }
+
+  .nav-card:hover .card-cta {
+    color: var(--color-white);
+  }
+
+  .nav-card .card-cta svg {
+    width: 2.4em;
+    height: 2.4em;
+  }
+
+  .accent {
+    color: var(--color-accent);
+  }
+
+  .infra-intro ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-lg);
+    list-style: disc;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .infra-intro li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .infra-intro li:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro-image img {
+    border: 1px solid var(--color-border);
+  }
+
+  #platform-eclecticiq .infra-intro-image img {
+    border: none;
+  }
+
+  #platform-cloudmisp, #platform-opencti, #platform-eclecticiq {
+    scroll-margin-top: 8rem;
+  }
+
+  /* ── Social proof / credentials section ── */
+  .credentials-section {
+    background: var(--color-dark);
+  }
+
+  .credentials-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    background: var(--color-dark);
+  }
+
+  .credentials-box {
+    padding: var(--space-5xl) var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .credentials-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .credentials-separator {
+    margin-bottom: var(--space-lg);
+  }
+
+  .credentials-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  .credentials-box h2 {
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
+  }
+
+  .credentials-photo {
+    position: relative;
+  }
+
+  .credentials-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .credentials-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center;
+    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+  }
+
+  .credentials-caption {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  .icon-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .icon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .icon-item:first-child {
+    padding-top: 0;
+  }
+
+  .icon-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .icon-item-icon {
+    width: var(--space-xl);
+    height: var(--space-xl);
+    flex-shrink: 0;
+    color: var(--color-accent);
+    padding-top: var(--space-2xs);
+  }
+
+  .icon-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon-item-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .icon-item-text strong {
+    color: var(--color-white);
+    font-weight: 700;
+  }
+
+  /* Light-background icon items (inside infra-intro sections) */
+  .infra-intro .icon-item {
+    border-bottom-color: var(--color-border);
+  }
+
+  .infra-intro .icon-item-text {
+    color: var(--color-text-secondary);
+  }
+
+  .infra-intro .icon-item-text strong {
+    color: var(--color-text-primary);
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: var(--space-6xl) 0;
+    background: var(--color-white);
+  }
+
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .faq-list {
+    max-width: none;
+  }
+
+  .faq-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    position: sticky;
+    top: var(--space-6xl);
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .faq-list details {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-list details:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) 0;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    list-style: none;
+  }
+
+  .faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .faq-chevron {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+    transition: transform 0.2s;
+    color: var(--color-text-secondary);
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 0 var(--space-lg);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+  }
+
+  .faq-answer p { margin-bottom: var(--space-sm); }
+  .faq-answer p:last-child { margin-bottom: 0; }
+
+  .faq-answer a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .faq-answer a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  /* ── Wavy SVG separator ── */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-6xl) 0 0;
+    background: var(--color-light-grey);
+  }
+
+  .people-cta-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  /* ── Contact section ── */
+  .contact-section {
+    padding: var(--space-4xl) 0 var(--space-6xl);
+    background: var(--color-light-grey);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .contact-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4xl) 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-inner .footer-logo img { height: var(--space-xl); }
+
+  .footer-copyright {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .footer-links a {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--color-accent); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .credentials-inner { grid-template-columns: 1fr; }
+    .credentials-photo { min-height: 300px; }
+  }
+
+  @media (max-width: 900px) {
+    .heading-style-h1 { font-size: 1.8rem; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
+
+    .container { padding: 0 var(--space-lg); }
+
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
+
+    .page-banner h1 { font-size: var(--text-4xl); }
+
+    .banner-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .nav-cards-grid { grid-template-columns: 1fr; }
+    .nav-card { min-height: auto; }
+
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-image { display: none; }
+
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .infra-section,
+    .faq-section { padding: var(--space-4xl) 0; }
+    .people-cta-separator { padding-top: var(--space-3xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
+  }
+
+  @media (max-width: 600px) {
+    .heading-style-h1 { font-size: var(--text-2xl); }
+    .heading-style-h2 { font-size: 1.3rem; }
+
+    .page-banner h1 { font-size: var(--text-3xl); }
+    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
+    .page-banner .banner-subtitle { font-size: var(--text-lg); }
+
+    .banner-form-card { padding: var(--space-lg); }
+    .banner-form-card .form-row { grid-template-columns: 1fr; }
+
+    .nav-card {
+      padding: 2rem 1.5rem;
+    }
+    .nav-card-title {
+      font-size: 1.25rem;
+    }
+
+    .credentials-box { padding: var(--space-xl) var(--space-lg); }
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
+
+    .infra-section,
+    .platforms-section,
+    .faq-section { padding: var(--space-2xl) 0; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. Page Banner -->
+<div class="page-banner">
+  <img src="images/cti/hero-find-feeds.webp" alt="Data centre corridor with rows of illuminated server racks">
+  <div class="page-banner-inner">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
+        <span class="separator">/</span>
+        <a href="cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
+        <span class="separator">/</span>
+        <span class="current">Find useful threat intelligence feeds</span>
+      </nav>
+      <div class="banner-grid">
+        <div class="banner-text">
+          <h1 class="heading-style-h1">Find useful threat intelligence feeds</h1>
+          <p class="banner-description">Getting a threat intelligence platform is only part of the story. You also need <strong>high-quality threat intel feeds</strong> that deliver real value. We help you find, source, and get the most from your feeds &mdash; so your investment in CTI actually pays off.</p>
+        </div>
+        <div class="banner-form-card">
+          <h3 class="heading-style-h4">Talk to us about your threat intelligence feeds</h3>
+          <form class="contact-form" action="#" method="post">
+            <input type="hidden" name="category" value="Cyber Threat Intelligence">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="banner-first-name">First name</label>
+                <input type="text" id="banner-first-name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="banner-last-name">Last name</label>
+                <input type="text" id="banner-last-name" name="last_name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="banner-email">Email</label>
+              <input type="email" id="banner-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="banner-company">Company</label>
+              <input type="text" id="banner-company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="banner-message">Message</label>
+              <textarea id="banner-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Navigation Cards -->
+<section class="infra-section">
+  <div class="container">
+    <div class="nav-cards-heading">
+      <h3 class="heading-style-h3">What describes your situation?</h3>
+    </div>
+    <div class="nav-cards-grid">
+      <a href="#dont-know" class="nav-card">
+        <div class="nav-card-title">I don&rsquo;t know what feeds I need</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#know-feeds" class="nav-card">
+        <div class="nav-card-title">I know what feeds I want</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#feeds-not-working" class="nav-card">
+        <div class="nav-card-title">My feeds aren&rsquo;t giving me what I need</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#need-tip" class="nav-card">
+        <div class="nav-card-title">I have feeds but no way to combine them</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. If you don't know what feeds you need -->
+<section class="infra-section infra-section--alt" id="dont-know">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">Getting started</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">We&rsquo;ll help you find the right feeds for your organisation</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Priority intelligence requirements.</strong> We help you develop PIRs so you know what threat intel you actually need &mdash; and spend money on feeds that deliver results.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 0-4-10 15.3 15.3 0 0 0 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Feed sourcing.</strong> We&rsquo;re connected to specialist threat intelligence feed providers globally. We&rsquo;ve sought out the best, and we use that knowledge to match you with the feeds that meet your PIRs.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Coverage.</strong> We help you select a range of providers that cover your PIRs, giving you the best opportunity to make your CTI actionable.</div>
+          </div>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="https://images.unsplash.com/photo-1496096265110-f83ad7f96608?w=800&q=80" alt="Abstract black and white digital pattern representing data and threat intelligence feeds">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. If you know what feeds you want -->
+<section class="infra-section" id="know-feeds">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro-image">
+        <img src="https://images.unsplash.com/photo-1727434032792-c7ef921ae086?w=800&q=80" alt="Close-up of a blue eyeball in the dark representing threat intelligence visibility">
+      </div>
+      <div class="infra-intro">
+        <div class="section-label">Sourcing feeds</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Source all the feeds you need in one place</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 0-4-10 15.3 15.3 0 0 0 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Global network.</strong> We&rsquo;ve partnered with threat intelligence feed providers around the world &mdash; we can source the feeds you need to make your project successful.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Single contract.</strong> Rather than negotiating with many different providers, we wrap all your feeds under a single annual contract. One deal through procurement.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Connected to your environment.</strong> We don&rsquo;t just source feeds &mdash; we help you get them integrated into your TIP, SIEM, or existing workflows so your analysts can act on intelligence from day one.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. If your feeds aren't delivering -->
+<section class="infra-section infra-section--alt" id="feeds-not-working">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">Getting more value</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Get more from your threat intelligence investment</h2>
+        <p style="margin-bottom: var(--space-lg);">Already have a TIP and feeds but not seeing the results you expected? We help teams close the gap between having intelligence and acting on it.</p>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Finding better sources.</strong> If your current feeds don&rsquo;t deliver what you need, we help you find alternative providers that match your requirements and deliver the outcomes you&rsquo;re looking for.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Making feeds work harder.</strong> We help you set up automated workflows, triaging processes, and distribution mechanisms so the right CTI gets to the right places within your organisation.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Demonstrating value.</strong> We help you show value to senior leadership, providing them a clear return on their investment in threat intelligence.</div>
+          </div>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="https://images.unsplash.com/photo-1488229297570-58520851e868?w=800&q=80" alt="Worm's-eye view of a ceiling with warm light representing upward growth and value">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Platform intro -->
+<section class="infra-section" id="need-tip">
+  <div class="container" style="text-align: center; max-width: 48em;">
+    <div class="section-label">Platforms</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Turn your feeds into actionable intelligence</h2>
+    <p style="font-size: var(--text-lg); color: var(--color-text-secondary); line-height: var(--leading-loose);">Feeds deliver raw data — a threat intelligence platform turns it into something your team can act on. A TIP ingests your feeds, normalises the data across formats, correlates indicators from different sources, and pushes enriched intelligence to your SIEM, SOAR, and analyst workflows. We deploy and support three platforms, each suited to different team sizes and integration needs.</p>
+  </div>
+</section>
+
+<!-- 6a. CloudMISP Platform -->
+<section class="infra-section infra-section--alt" id="platform-cloudmisp">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">CloudMISP</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Cosive <span class="accent">CloudMISP</span></h2>
+        <p>If your team is spending time on platform maintenance instead of analysis, a managed service frees them up. CloudMISP is our rearchitected, containerised MISP SaaS &mdash; deployed in a dedicated VPC in your preferred AWS region so your analysts can focus on intelligence, not infrastructure.</p>
+        <p>We handle hosting, monitoring, updates, and security patches. You get a production-ready MISP instance with built-in sharing workflows, multi-community support, and the confidence that your platform is being looked after by the team that built it.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="cloudmisp.html" class="btn-primary">Learn more about CloudMISP</a>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="images/cti/scenario-cloudmisp.webp" alt="MISP Beta UI showing the redesigned Event Index with tags, clusters, and streamlined navigation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b. OpenCTI Platform -->
+<section class="infra-section" id="platform-opencti">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro-image">
+        <img src="images/cti/scenario-opencti.webp" alt="OpenCTI platform dashboard showing threat intelligence data">
+      </div>
+      <div class="infra-intro">
+        <div class="section-label">OpenCTI</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Filigran <span class="accent">OpenCTI</span></h2>
+        <p>For teams that need flexible knowledge graph modelling and strong STIX support, OpenCTI gives you control and extensibility. Its STIX-native data model means your intelligence relationships are first-class objects &mdash; not afterthoughts bolted onto a flat database.</p>
+        <p>We help you plan, deploy, and tune OpenCTI so it fits your team&rsquo;s workflows &mdash; whether you self-host or use Filigran&rsquo;s SaaS offering. From connector configuration to dashboard design, we make sure you get value from the platform quickly.</p>
+        <ul>
+          <li>STIX-native data model with full relationship mapping</li>
+          <li>Connector ecosystem for feed ingestion and enrichment</li>
+          <li>Flexible dashboards and reporting</li>
+          <li>Self-hosted or SaaS deployment options</li>
+        </ul>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss OpenCTI deployment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6c. EclecticIQ Platform -->
+<section class="infra-section infra-section--alt" id="platform-eclecticiq">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">EclecticIQ</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">EclecticIQ <span class="accent">Intelligence Center</span></h2>
+        <p>For enterprise security teams that need deep integration with their existing stack and analyst-centric workflows, EclecticIQ Intelligence Center provides a structured environment for creating, managing, and disseminating intelligence.</p>
+        <p>We help you get the most from EclecticIQ &mdash; configuring analyst workbenches, building bi-directional integrations with your SIEM and SOAR, and setting up outgoing feeds so your intelligence reaches the teams and tools that need it.</p>
+        <ul>
+          <li>Analyst workbench with structured analysis tools</li>
+          <li>Bi-directional SIEM and SOAR integrations</li>
+          <li>Outgoing feed management for sharing with partners</li>
+          <li>Enterprise support and SLA guarantees</li>
+        </ul>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss EclecticIQ</a>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="images/cti/scenario-eclecticiq.webp" alt="EclecticIQ Intelligence Center platform interface">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Credentials -->
+<section class="credentials-section">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+      <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
+      <div class="credentials-label">Why work with us</div>
+      <h2 class="heading-style-h2">Threat intelligence feed expertise you can trust</h2>
+      <div class="icon-credentials">
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Connected to specialist feed providers globally</strong> &mdash; sourcing the best intelligence from around the world</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Deep PIR development expertise</strong> &mdash; helping teams define what intelligence they actually need</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Built CTI workflows for major international organisations</strong> &mdash; automating triage, enrichment, and distribution</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Platform-agnostic</strong> &mdash; we work with MISP, OpenCTI, EclecticIQ, and other STIX/TAXII platforms</div>
+        </div>
+      </div>
+    </div>
+    <div class="credentials-photo">
+      <img src="images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+      <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear about threat intelligence feeds</h2>
+
+    <div class="faq-inner">
+    <div class="faq-list">
+
+      <details>
+        <summary>
+          What threat intelligence feed providers do you have a relationship with?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We work with a range of commercial and open-source feed providers globally. Rather than being tied to one vendor, we match you with the providers that best cover your PIRs and operational context.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help me get threat intelligence into my MISP platform?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We configure feed ingestion, build custom connectors, and set up automated workflows to get intelligence flowing into your MISP instance.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What are PIRs?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Priority Intelligence Requirements. They define what your organisation actually needs to know about the threat landscape &mdash; guiding your feed selection, analyst focus, and reporting.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What TIP platforms do you support?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We offer CloudMISP (our managed MISP platform), OpenCTI Enterprise, and EclecticIQ Intelligence Center. We also integrate with other STIX/TAXII-compatible platforms.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is a CTI workflow and why does it matter?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>A CTI workflow is the process for ingesting, triaging, enriching, and distributing threat intelligence. Without one, feeds become noise. A good workflow ensures the right intelligence reaches the right people at the right time.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Why do you need to triage?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Not all intelligence is relevant to your organisation. Triaging lets your analysts focus on what matters &mdash; filtering out noise and prioritising indicators that match your threat profile and PIRs.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Should I get as many intelligence feeds as possible?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>More feeds doesn&rsquo;t mean better intelligence. What matters is coverage of your PIRs. A few well-chosen, high-quality feeds will outperform a large number of overlapping or irrelevant ones.</p>
+        </div>
+      </details>
+
+    </div>
+    <div class="faq-image">
+      <img src="https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?w=800&q=80" alt="Blue and white light streaks">
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Sinewave divider -->
+<div class="people-cta-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
+
+<!-- 10. Contact CTA -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Get in touch</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
+      <p class="contact-subtitle">Tell us about your threat intelligence feed needs and we&rsquo;ll get back to you as soon as possible.</p>
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="Cyber Threat Intelligence">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Footer -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="security-operations.html">Security Operations</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+</script>
+
+</body>
+</html>

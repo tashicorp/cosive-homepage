@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Improve My Cybersecurity Ops Team - Cosive</title>
+<meta name="description" content="We help you assess your SecOps capabilities, improve incident response, adopt security frameworks, and build a more effective cybersecurity operations team.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    /* ── Sizing Tokens ── */
+
+    /* Spacing (4px base grid) */
+    --space-2xs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 0.75rem;    /* 12px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 2.5rem;    /* 40px */
+    --space-3xl: 3rem;      /* 48px */
+    --space-4xl: 4rem;      /* 64px */
+    --space-5xl: 5rem;      /* 80px */
+    --space-6xl: 6rem;      /* 96px */
+    --space-7xl: 8rem;      /* 128px */
+    --space-8xl: 10rem;     /* 160px */
+
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.75rem;    /* 28px */
+    --text-4xl: 2rem;       /* 32px */
+    --text-5xl: 2.5rem;     /* 40px */
+    --text-6xl: 3rem;       /* 48px */
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg { width: var(--space-lg); height: var(--space-lg); display: block; }
+
+  /* ── Page Banner ── */
+  .page-banner {
+    position: relative;
+    overflow: hidden;
+    background: #1e2d3d;
+  }
+
+  .page-banner > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.4);
+    opacity: 0.45;
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 20, 28, 0.4);
+    z-index: 1;
+  }
+
+  .page-banner-inner {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-4xl) 0 var(--space-4xl);
+  }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .banner-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .banner-form-card h3 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .banner-form-card .contact-form {
+    gap: var(--space-md);
+  }
+
+  .banner-form-card .form-group label {
+    font-size: var(--text-sm);
+  }
+
+  .banner-form-card .form-group input,
+  .banner-form-card .form-group textarea {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-base);
+    border-color: var(--color-border);
+  }
+
+  .banner-form-card .form-group textarea {
+    min-height: var(--space-5xl);
+  }
+
+  .banner-form-card .form-row {
+    gap: var(--space-md);
+  }
+
+  .banner-form-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .page-banner .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+  }
+
+  .page-banner .breadcrumb a {
+    color: var(--color-border);
+    transition: color 0.2s;
+  }
+
+  .page-banner .breadcrumb a:hover { color: var(--color-white); }
+  .page-banner .breadcrumb .breadcrumb-home { display: inline-flex; align-items: center; gap: 0.3em; }
+  .page-banner .breadcrumb .separator { color: var(--color-border); }
+  .page-banner .breadcrumb .current { color: var(--color-white); }
+
+  .page-banner .breadcrumb .badge-secops {
+    font-weight: 600;
+  }
+
+  .page-banner h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+  }
+
+  .banner-description {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--color-light-grey);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .banner-description strong {
+    color: var(--color-white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
+  }
+
+  /* ── Shared section patterns ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--color-accent-dark); }
+
+  /* ── Section patterns ── */
+  .infra-section {
+    padding: var(--space-6xl) 0;
+    background: var(--color-white);
+  }
+
+  .infra-section--alt {
+    background: var(--color-light-grey);
+  }
+
+  .infra-section--dark {
+    background: var(--color-dark);
+  }
+
+  .infra-section--dark .section-label {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .infra-section--dark .heading-style-h2,
+  .infra-section--dark .heading-style-h3 {
+    color: var(--color-white);
+  }
+
+  .infra-section--dark .infra-intro p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-section--dark .infra-intro ul {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-section--dark .infra-intro li {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-section--dark p:not(.infra-intro p) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .infra-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+    margin-bottom: var(--space-4xl);
+  }
+
+  .infra-intro-grid:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-md);
+  }
+
+  .infra-intro ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-lg);
+    list-style: disc;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .infra-intro li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .infra-intro li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Build Grid (numbered feature cards) ── */
+  .build-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4xl);
+    margin-top: var(--space-4xl);
+  }
+
+  .build-feature {
+    padding-top: var(--space-xl);
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .build-feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .build-feature:hover::before {
+    width: 64px;
+  }
+
+  .build-feature:hover {
+    transform: translateY(-2px);
+  }
+
+  .build-feature-number {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin: var(--space-lg) 0 var(--space-sm);
+  }
+
+  .build-feature-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-sm);
+  }
+
+  .build-feature-desc {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .build-feature:hover .build-feature-desc {
+    color: var(--color-text-primary);
+  }
+
+  .infra-intro-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .accent {
+    color: var(--color-accent);
+  }
+
+  /* ── Navigation Cards ── */
+  .nav-cards-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  #assess, #staff, #incident-response, #frameworks {
+    scroll-margin-top: 8rem;
+  }
+
+  .nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* 2x2 nav cards grid for 4 cards */
+  .nav-cards-grid--2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 12px;
+    min-height: 140px;
+    padding: 1.25rem 2rem 1.25rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1a2332;
+  }
+
+  .nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-card .card-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.25s ease;
+  }
+
+  .nav-card:hover .card-cta {
+    color: var(--color-white);
+  }
+
+  .nav-card .card-cta svg {
+    width: 2.4em;
+    height: 2.4em;
+  }
+
+  /* ── Social proof / credentials section ── */
+  .credentials-section {
+    background: var(--color-dark);
+  }
+
+  .credentials-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    background: var(--color-dark);
+  }
+
+  .credentials-box {
+    padding: var(--space-5xl) var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .credentials-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .credentials-separator {
+    margin-bottom: var(--space-lg);
+  }
+
+  .credentials-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  .credentials-box h2 {
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
+  }
+
+  .credentials-photo {
+    position: relative;
+  }
+
+  .credentials-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .credentials-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center;
+    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+  }
+
+  .credentials-caption {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  .icon-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .icon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .icon-item:first-child {
+    padding-top: 0;
+  }
+
+  .icon-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .icon-item-icon {
+    width: var(--space-xl);
+    height: var(--space-xl);
+    flex-shrink: 0;
+    color: var(--color-accent);
+    padding-top: var(--space-2xs);
+  }
+
+  .icon-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon-item-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .icon-item-text strong {
+    color: var(--color-white);
+    font-weight: 700;
+  }
+
+  /* ── Help section (light-bg icon items) ── */
+  .help-section .icon-credentials {
+    gap: 0;
+  }
+
+  .help-section .icon-item {
+    border-bottom-color: var(--color-border);
+  }
+
+  .help-section .icon-item-text {
+    color: var(--color-text-secondary);
+  }
+
+  .help-section .icon-item-text strong {
+    color: var(--color-text-primary);
+  }
+
+  .help-section .icon-item-text a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .help-section .icon-item-text a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  /* ── TIP / misp-grid layout (2-col with diagram) ── */
+  .misp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  @media (min-width: 1400px) {
+    .misp-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+  }
+
+  .misp-grid .subsection-box {
+    padding: var(--space-xl);
+  }
+
+  .misp-grid .subsection-box .outcome-diagram {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* ── Subsection box (bordered diagram container) ── */
+  .subsection-box {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    overflow: hidden;
+    background: var(--color-light-grey);
+  }
+
+  .outcome-diagram {
+    padding: 0;
+    align-self: center;
+  }
+
+  .outcome-diagram img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: var(--space-6xl) 0;
+    background: var(--color-white);
+  }
+
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .faq-list {
+    max-width: none;
+  }
+
+  .faq-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    position: sticky;
+    top: var(--space-6xl);
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .faq-list details {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-list details:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) 0;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    list-style: none;
+  }
+
+  .faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .faq-chevron {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+    transition: transform 0.2s;
+    color: var(--color-text-secondary);
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 0 var(--space-lg);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+  }
+
+  .faq-answer p { margin-bottom: var(--space-sm); }
+  .faq-answer p:last-child { margin-bottom: 0; }
+
+  .faq-answer a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .faq-answer a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .faq-answer ul {
+    margin: 0 0 var(--space-sm);
+    padding-left: var(--space-lg);
+    list-style: disc;
+  }
+
+  .faq-answer li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .faq-answer li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Wavy SVG separator ── */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-6xl) 0 0;
+    background: var(--color-white);
+  }
+
+  .people-cta-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  /* ── Contact section ── */
+  .contact-section {
+    padding: var(--space-4xl) 0 var(--space-6xl);
+    background: var(--color-white);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .contact-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4xl) 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-inner .footer-logo img { height: var(--space-xl); }
+
+  .footer-copyright {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .footer-links a {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--color-accent); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .credentials-inner { grid-template-columns: 1fr; }
+    .credentials-photo { min-height: 300px; }
+    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-image { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    /* Heading system */
+    .heading-style-h1 { font-size: 1.8rem; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
+
+    .container { padding: 0 var(--space-lg); }
+
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
+
+    .page-banner h1 { font-size: var(--text-4xl); }
+
+    .banner-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .nav-cards-grid,
+    .nav-cards-grid--2x2 {
+      grid-template-columns: 1fr;
+    }
+    .nav-card {
+      min-height: auto;
+    }
+
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-image { display: none; }
+
+    /* Credentials */
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .infra-section,
+    .faq-section { padding: var(--space-4xl) 0; }
+    .people-cta-separator { padding-top: var(--space-3xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
+  }
+
+  @media (max-width: 600px) {
+    /* Heading system */
+    .heading-style-h1 { font-size: var(--text-2xl); }
+    .heading-style-h2 { font-size: 1.3rem; }
+
+    .page-banner h1 { font-size: var(--text-3xl); }
+    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
+
+    .banner-form-card { padding: var(--space-lg); }
+    .banner-form-card .form-row { grid-template-columns: 1fr; }
+
+    .nav-card {
+      padding: 2rem 1.5rem;
+    }
+    .nav-card-title {
+      font-size: 1.25rem;
+    }
+
+    /* Credentials */
+    .credentials-box { padding: var(--space-xl) var(--space-lg); }
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
+    .build-feature-title { font-size: var(--text-lg); }
+
+    .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
+
+    .infra-section,
+    .faq-section { padding: var(--space-2xl) 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. Page Banner -->
+<div class="page-banner">
+  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="">
+  <div class="page-banner-inner">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
+        <span class="separator">/</span>
+        <a href="security-operations.html" class="badge-secops">Security Operations</a>
+        <span class="separator">/</span>
+        <span class="current">Improve my cybersecurity ops team</span>
+      </nav>
+      <div class="banner-grid">
+        <div class="banner-text">
+          <h1 class="heading-style-h1">Improve my cybersecurity ops team</h1>
+          <p class="banner-description">Whether you need to <strong>assess your current capabilities</strong>, improve your incident response, or adopt security frameworks &mdash; we help you build a more effective SecOps team with practical advice and hands-on support.</p>
+        </div>
+        <div class="banner-form-card">
+          <h3 class="heading-style-h4">Talk to us about your SecOps goals</h3>
+          <form class="contact-form" action="#" method="post">
+            <input type="hidden" name="category" value="Cybersecurity Operations">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="banner-first-name">First name</label>
+                <input type="text" id="banner-first-name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="banner-last-name">Last name</label>
+                <input type="text" id="banner-last-name" name="last_name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="banner-email">Email</label>
+              <input type="email" id="banner-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="banner-company">Company</label>
+              <input type="text" id="banner-company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="banner-message">Message</label>
+              <textarea id="banner-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Navigation Cards -->
+<section class="infra-section">
+  <div class="container">
+
+    <div class="nav-cards-heading">
+      <h3 class="heading-style-h3">What would you like to do?</h3>
+    </div>
+
+    <div class="nav-cards-grid nav-cards-grid--2x2">
+      <a href="#assess" class="nav-card">
+        <div class="nav-card-title">Assess my team and build a roadmap</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#staff" class="nav-card">
+        <div class="nav-card-title">Get experienced staff to help</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#incident-response" class="nav-card">
+        <div class="nav-card-title">Improve our incident response</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#frameworks" class="nav-card">
+        <div class="nav-card-title">Adopt security frameworks</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Credentials / Why Work With Us -->
+<section class="credentials-section">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+        <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
+        <div class="credentials-label">Why work with us</div>
+        <h2 class="heading-style-h2">Security operations expertise you can trust</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Deep SecOps experience across international CERTs and managed security providers</strong> &mdash; our team has worked in and with security operations centres around the world</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>SIM3 assessors with experience assessing security teams globally</strong> &mdash; we use the Security Incident Management Maturity Model to provide objective, structured assessments</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Incident response process development at national and enterprise scale</strong> &mdash; we&rsquo;ve built and improved IR processes for government agencies and critical infrastructure operators</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>ATT&amp;CK and VERIS framework specialists</strong> &mdash; we help teams classify threats, map detections, and build structured security incident vocabularies</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Staff with 10&ndash;26 years of cybersecurity experience</strong> &mdash; our people bring the depth of experience needed to make meaningful improvements quickly</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Built, improved, and assessed SOCs across government and critical infrastructure</strong> &mdash; from national CERTs to enterprise security teams, we know what works at every scale</div>
+          </div>
+        </div>
+      </div>
+      <div class="credentials-photo">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Team presenting at a security conference">
+        <div class="credentials-caption">Cosive team presenting at a security conference.</div>
+      </div>
+  </div>
+</section>
+
+<!-- 4. Assess & Plan -->
+<section class="infra-section infra-section--alt help-section" id="assess">
+  <div class="container">
+    <div class="section-label">Assess &amp; Plan</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">We help you understand where you are and plan where to go</h2>
+    <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-loose); margin-bottom: var(--space-2xl); max-width: 50em;">Most security teams know they need to improve, but they don&rsquo;t always have the visibility to understand how they compare to their peers or what &ldquo;great&rdquo; looks like for their organisation. We help you measure where you are, figure out where to focus, and build a practical plan to get there.</p>
+    <div class="icon-credentials">
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>SIM3 gap assessment</strong> &mdash; assess your SecOps team across four dimensions: organisation, human, tools, and processes. SIM3 gives you a structured, repeatable way to measure maturity and track progress.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Multi-year improvement roadmap</strong> &mdash; a prioritised plan to improve your security team and build an efficient, effective capability. We account for your budget, team size, and organisational context.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Industry benchmarking</strong> &mdash; understand how your security operations compare to others in your sector so you know where to focus your efforts and investment.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>SOC-CMM assessment</strong> &mdash; an alternative maturity model assessment for SOC-focused teams. SOC-CMM evaluates your operations centre&rsquo;s capabilities and helps identify specific improvements.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Board-ready reporting</strong> &mdash; clear, actionable outputs that communicate your security posture to leadership. We help you translate technical findings into language that supports executive decision-making.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Defining &ldquo;what great looks like&rdquo;</strong> &mdash; we help you set realistic, organisation-specific targets rather than chasing generic maturity levels. Good enough is good enough &mdash; we help you find where that line is for your team.</div>
+      </div>
+    </div>
+    <div style="margin-top: var(--space-6xl); text-align: center;">
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-md);">Ready to assess your team?</h3>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); max-width: 36em; margin: 0 auto var(--space-xl);">Tell us about your security operations and we&rsquo;ll help you understand where you stand and what to focus on next.</p>
+      <a href="#contact" class="btn-primary">Discuss a SecOps assessment</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Staff & Execute -->
+<section class="infra-section" id="staff">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">Staff &amp; Execute</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Experienced people to help you get it done</h2>
+        <p>Adding experienced cybersecurity headcount is expensive and slow. Our people can embed in your team to help you complete difficult projects, set up new capabilities, and level up your staff&rsquo;s skills &mdash; without the overhead of a permanent hire.</p>
+        <p>We also help you connect to the global incident response community through FIRST membership, giving your team access to trusted intelligence sharing, conferences, and peer networks.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Talk to us about staffing</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team collaborating on a project"
+             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
+      </div>
+    </div>
+    <div class="build-grid">
+      <div class="build-feature">
+        <div class="build-feature-number">01</div>
+        <h3 class="build-feature-title">Staff augmentation</h3>
+        <p class="build-feature-desc">Experienced cybersecurity professionals with 10&ndash;26 years of experience embedded in your team. We work alongside your staff, not in a separate silo.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">02</div>
+        <h3 class="build-feature-title">Complete difficult projects</h3>
+        <p class="build-feature-desc">Tackle the initiatives you never get around to doing &mdash; the ones that keep slipping because day-to-day operations consume all your capacity.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">03</div>
+        <h3 class="build-feature-title">Join FIRST</h3>
+        <p class="build-feature-desc">Guidance through the application process for the world&rsquo;s largest incident response community. We help you prepare your team and documentation for membership.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">04</div>
+        <h3 class="build-feature-title">Access CTI community</h3>
+        <p class="build-feature-desc">Connect to cyber threat intelligence sharing communities you can use to protect your organisation. We help you find and join the right groups for your sector.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">05</div>
+        <h3 class="build-feature-title">Conference access</h3>
+        <p class="build-feature-desc">Access to the FIRST Annual Conference &mdash; one of the best defender-oriented conferences in the world. Connect with peers and learn from the global security community.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">06</div>
+        <h3 class="build-feature-title">Knowledge transfer</h3>
+        <p class="build-feature-desc">Our people level up your team&rsquo;s skills throughout every engagement. We don&rsquo;t just deliver outcomes &mdash; we make sure your team can sustain them after we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Incident Response -->
+<section class="infra-section infra-section--alt" id="incident-response">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">Incident Response</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Build incident response processes that work under pressure</h2>
+        <p>We have extensive experience helping organisations create and improve their incident response processes. Whether you&rsquo;re building from scratch or refining what you have, we focus on making IR processes that work reliably when it matters most.</p>
+        <p>We also act as a resource multiplier &mdash; helping your team do more with less by tuning alerts, automating repetitive tasks, and aligning your detection rules with your actual threat landscape.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss IR improvement</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80" alt="Security operations monitoring environment"
+             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
+      </div>
+    </div>
+    <div class="build-grid">
+      <div class="build-feature">
+        <div class="build-feature-number">01</div>
+        <h3 class="build-feature-title">IR process design</h3>
+        <p class="build-feature-desc">Create and improve incident response processes so they work reliably and effectively. We design processes that match your team&rsquo;s size and operating environment.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">02</div>
+        <h3 class="build-feature-title">Triage &amp; investigation</h3>
+        <p class="build-feature-desc">Work out the best way to triage and investigate new potential security incidents. We help you build consistent, repeatable approaches to handling alerts.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">03</div>
+        <h3 class="build-feature-title">Alert tuning &amp; automation</h3>
+        <p class="build-feature-desc">Reduce alert fatigue so staff can focus on what matters. We help you tune detection rules and automate repetitive tasks &mdash; a force multiplier for lean teams.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">04</div>
+        <h3 class="build-feature-title">Table-top exercises (TTX)</h3>
+        <p class="build-feature-desc">Scenario-based exercises to make sure people know what to do when an incident occurs. We design and facilitate exercises tailored to your threat landscape.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">05</div>
+        <h3 class="build-feature-title">Detection engineering</h3>
+        <p class="build-feature-desc">Align detection rules with your threat landscape for meaningful alerting. We help you focus detection effort where it delivers the most value for your organisation.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">06</div>
+        <h3 class="build-feature-title">Post-incident review</h3>
+        <p class="build-feature-desc">Structured lessons-learned processes to continuously improve your response. We help you build a culture of improvement, not blame.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Frameworks & Threat Modelling -->
+<section class="infra-section infra-section--dark" id="frameworks">
+  <div class="container">
+    <div class="misp-grid">
+      <div class="infra-intro">
+        <div class="section-label">Frameworks &amp; Threat Modelling</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Classify threats and understand how they reach you</h2>
+        <p>Security frameworks give your team a common language for describing threats, classifying incidents, and identifying where your defences are strongest and weakest. We help you adopt and operationalise frameworks like ATT&amp;CK and VERIS so they become useful tools, not shelf documents.</p>
+        <p>Combined with attack flow diagrams and logging standards, frameworks help you understand how threats enter your organisation and where the best detection opportunities exist.</p>
+        <ul>
+          <li>Classify security incidents using ATT&amp;CK or VERIS frameworks</li>
+          <li>Define logging standards so staff have the information they need</li>
+          <li>Develop attack flow diagrams to understand threat entry paths</li>
+          <li>Identify detection choke points for your most likely threats</li>
+        </ul>
+      </div>
+      <div class="subsection-box" style="margin-top: 0; max-width: none;">
+        <div class="outcome-diagram">
+          <img src="images/secops/diagram-attack-flow.svg" alt="Diagram showing threat entry vectors flowing through ATT&amp;CK-mapped attack stages with detection choke points at key stages">
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: var(--space-6xl); text-align: center;">
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Want to adopt a security framework?</h3>
+      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We help you choose the right framework for your organisation and operationalise it so your team actually uses it day-to-day.</p>
+      <a href="#contact" class="btn-primary">Discuss framework adoption</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-label">Frequently asked questions</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about improving your security operations</h2>
+
+    <div class="faq-inner">
+    <div class="faq-list">
+
+      <details>
+        <summary>
+          What is SecOps?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Security Operations (SecOps) is the practice of combining security and IT operations to protect an organisation&rsquo;s systems, data, and people. It covers everything from monitoring and detection to incident response and recovery. A strong SecOps function helps you identify threats early, respond effectively, and continuously improve your defences.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What does a SecOps team do?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>A SecOps team monitors, detects, investigates, and responds to cybersecurity threats across your organisation. Day-to-day activities typically include triaging security alerts, investigating potential incidents, maintaining detection rules, coordinating incident response, and working to continuously improve the organisation&rsquo;s security posture.</p>
+          <p>The scope varies by organisation &mdash; some SecOps teams also manage vulnerability assessments, threat intelligence, and security tool administration.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is the ATT&amp;CK Framework?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>MITRE ATT&amp;CK is a knowledge base of adversary tactics, techniques, and procedures (TTPs) observed in real-world attacks. It provides a common language for describing what threat actors do and how they do it. Security teams use ATT&amp;CK to map their detections, assess coverage gaps, track adversary behaviour during incidents, and communicate threats consistently across the organisation.</p>
+          <p>We help teams adopt ATT&amp;CK practically &mdash; mapping your existing detections, identifying gaps, and integrating ATT&amp;CK into your incident response and SecOps workflows.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is the VERIS Framework?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>VERIS (Vocabulary for Event Recording and Incident Sharing) is a framework for describing security incidents in a structured and repeatable manner. It was developed by the team behind the Verizon Data Breach Investigations Report (DBIR) and provides a common taxonomy for recording who did what to which assets, and what the impact was.</p>
+          <p>VERIS helps organisations build a consistent incident database that supports trend analysis, benchmarking, and evidence-based decision-making about security investments.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is the SIM3 capability maturity model?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>SIM3 (Security Incident Management Maturity Model) is a framework for assessing the maturity of security incident management teams across four dimensions: organisation, human, tools, and processes. It was developed by the Open CSIRT Foundation and is widely used to evaluate and certify CSIRTs and SOCs internationally.</p>
+          <p>SIM3 provides a structured way to identify strengths and weaknesses, benchmark against peers, and build a prioritised improvement plan. We use SIM3 in our gap assessments because it gives teams a clear, objective baseline to work from.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is the SOC-CMM capability maturity model?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>SOC-CMM (Security Operations Centre Capability Maturity Model) is a framework specifically designed for assessing and improving your SOC&rsquo;s maturity. It evaluates capabilities across domains including business alignment, people, process, technology, and services.</p>
+          <p>SOC-CMM is a good fit for teams that are primarily SOC-focused rather than broader CSIRT or incident response teams. We help organisations choose between SIM3 and SOC-CMM based on their team structure and goals.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What is a TTX?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>A TTX (Table-Top Exercise) is a discussion-based exercise where team members walk through their roles and responses during a simulated security incident. Unlike a full drill, a TTX doesn&rsquo;t involve live systems &mdash; it&rsquo;s a structured conversation that helps teams identify gaps in their processes, communication, and decision-making before a real incident forces them to find out the hard way.</p>
+          <p>We design and facilitate TTXs tailored to your organisation&rsquo;s threat landscape, ensuring the scenarios are relevant and the outcomes are actionable.</p>
+        </div>
+      </details>
+
+    </div>
+    <div class="faq-image">
+      <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80" alt="Security analyst working at a computer">
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wavy SVG separator -->
+<div class="people-cta-separator"><img src="icons/wavy-separator.svg" alt=""></div>
+
+<!-- Contact Form -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Get in touch</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start improving your security operations</h2>
+      <p class="contact-subtitle">Tell us about your SecOps goals and we&rsquo;ll get back to you with practical next steps.</p>
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="Cybersecurity Operations">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="security-operations.html">Security Operations</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+</script>
+
+</body>
+</html>
