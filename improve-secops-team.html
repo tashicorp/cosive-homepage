@@ -217,7 +217,7 @@
   .page-banner-inner {
     position: relative;
     z-index: 2;
-    padding: var(--space-4xl) 0 var(--space-4xl);
+    padding: var(--space-6xl) 0 var(--space-6xl);
   }
 
   .banner-grid {
@@ -315,7 +315,7 @@
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
     text-underline-offset: 6px;
-    text-decoration-thickness: 4px;
+    text-decoration-thickness: 2px;
   }
 
   /* ── Shared section patterns ── */
@@ -326,7 +326,7 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     color: var(--color-accent);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-2xl);
   }
 
   .btn-primary {
@@ -347,7 +347,7 @@
 
   /* ── Section patterns ── */
   .infra-section {
-    padding: var(--space-6xl) 0;
+    padding: var(--space-8xl) 0;
     background: var(--color-white);
   }
 
@@ -389,7 +389,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4xl);
     align-items: start;
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-7xl);
   }
 
   .infra-intro-grid:last-child {
@@ -400,7 +400,7 @@
     font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-loose);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .infra-intro ul {
@@ -424,12 +424,12 @@
   .build-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4xl);
-    margin-top: var(--space-4xl);
+    gap: var(--space-6xl);
+    margin-top: var(--space-7xl);
   }
 
   .build-feature {
-    padding-top: var(--space-xl);
+    padding-top: var(--space-2xl);
     position: relative;
     transition: transform 0.3s ease;
   }
@@ -458,7 +458,7 @@
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-secondary);
-    margin: var(--space-lg) 0 var(--space-sm);
+    margin: var(--space-lg) 0 var(--space-md);
   }
 
   .build-feature-title {
@@ -467,7 +467,7 @@
     font-weight: 700;
     color: var(--color-text-primary);
     line-height: var(--leading-snug);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
   .build-feature-desc {
@@ -521,6 +521,73 @@
 
   .accent {
     color: var(--color-accent);
+  }
+
+  /* ── Numbered List Variant ── */
+  .numbered-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .numbered-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5xl);
+  }
+
+  .numbered-item {
+    position: relative;
+    padding-left: var(--space-xl);
+  }
+
+  .numbered-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .numbered-item-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-sm);
+  }
+
+  .numbered-item-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-sm);
+  }
+
+  .numbered-item-desc {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+  }
+
+  .numbered-list-image {
+    position: sticky;
+    top: 108px;
+    align-self: start;
+  }
+
+  .numbered-list-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    display: block;
   }
 
   /* ── Navigation Cards ── */
@@ -596,7 +663,7 @@
 
   /* ── Social proof / credentials section ── */
   .credentials-section {
-    background: var(--color-dark);
+    background: #000000;
   }
 
   .credentials-inner {
@@ -605,11 +672,11 @@
     gap: 0;
     align-items: stretch;
     overflow: hidden;
-    background: var(--color-dark);
+    background: #000000;
   }
 
   .credentials-box {
-    padding: var(--space-5xl) var(--space-3xl);
+    padding: var(--space-8xl) var(--space-3xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -622,7 +689,7 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .credentials-separator {
@@ -635,7 +702,7 @@
   }
 
   .credentials-box h2 {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
     color: var(--color-white);
   }
 
@@ -647,7 +714,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
+    background: linear-gradient(to right, #000000 0%, transparent 40%);
     z-index: 1;
     pointer-events: none;
   }
@@ -682,7 +749,7 @@
     display: flex;
     align-items: flex-start;
     gap: var(--space-lg);
-    padding: var(--space-lg) 0;
+    padding: var(--space-xl) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
@@ -792,14 +859,14 @@
 
   /* ── FAQ ── */
   .faq-section {
-    padding: var(--space-6xl) 0;
+    padding: var(--space-8xl) 0;
     background: var(--color-white);
   }
 
   .faq-inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: var(--space-4xl);
+    gap: var(--space-6xl);
     align-items: start;
   }
 
@@ -903,8 +970,8 @@
   .people-cta-separator {
     display: flex;
     justify-content: center;
-    padding: var(--space-6xl) 0 0;
-    background: var(--color-white);
+    padding: var(--space-8xl) 0 0;
+    background: var(--color-light-grey);
   }
 
   .people-cta-separator img {
@@ -914,8 +981,8 @@
 
   /* ── Contact section ── */
   .contact-section {
-    padding: var(--space-4xl) 0 var(--space-6xl);
-    background: var(--color-white);
+    padding: var(--space-4xl) 0 var(--space-8xl);
+    background: var(--color-light-grey);
     text-align: center;
   }
 
@@ -1020,10 +1087,12 @@
 
   /* ── Responsive ── */
   @media (max-width: 1200px) {
-    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-4xl); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
+    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-5xl); margin-top: var(--space-5xl); }
+    .numbered-list-grid { grid-template-columns: 1fr; }
+    .numbered-list-image { position: static; }
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
   }
@@ -1068,9 +1137,9 @@
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .infra-section,
-    .faq-section { padding: var(--space-4xl) 0; }
-    .people-cta-separator { padding-top: var(--space-3xl); }
-    .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
+    .faq-section { padding: var(--space-7xl) 0; }
+    .people-cta-separator { padding-top: var(--space-7xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-7xl); }
   }
 
   @media (max-width: 600px) {
@@ -1079,7 +1148,7 @@
     .heading-style-h2 { font-size: 1.3rem; }
 
     .page-banner h1 { font-size: var(--text-3xl); }
-    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
+    .page-banner-inner { padding: var(--space-3xl) 0 var(--space-3xl); }
 
     .banner-form-card { padding: var(--space-lg); }
     .banner-form-card .form-row { grid-template-columns: 1fr; }
@@ -1097,14 +1166,17 @@
 
     .form-row { grid-template-columns: 1fr; }
 
-    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
+    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-4xl); }
     .build-feature-title { font-size: var(--text-lg); }
 
     .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
 
     .infra-section,
-    .faq-section { padding: var(--space-2xl) 0; }
+    .faq-section { padding: var(--space-5xl) 0; }
+
+    .people-cta-separator { padding-top: var(--space-5xl); }
+    .contact-section { padding-bottom: var(--space-5xl); }
   }
 </style>
 </head>
@@ -1257,17 +1329,17 @@
 <section class="infra-section infra-section--alt" id="improve">
   <div class="container">
     <div class="infra-intro-grid">
-      <div class="infra-intro">
-        <div class="section-label">Assess &amp; Improve</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Benchmark your security operations and build on what works</h2>
-        <p>We help you assess your current security operations maturity and build a practical improvement plan tailored to your organisation. Hiring senior cybersecurity staff is expensive and slow &mdash; our consultants have up to 25 years of experience and can embed in your team to deliver difficult projects and develop your people&rsquo;s capabilities.</p>
-        <div style="margin-top: var(--space-xl);">
-          <a href="#contact" class="btn-primary">Discuss improving your team</a>
-        </div>
-      </div>
       <div>
         <img src="https://images.unsplash.com/photo-1436918671239-a2b72ace4880?w=800&q=80" alt="Person pointing at a map while planning a route"
              style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center bottom; border-radius: var(--radius-lg); display: block;">
+      </div>
+      <div class="infra-intro">
+        <div class="section-label">Assess &amp; Improve</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Benchmark your security operations and build on what works</h2>
+        <p>We help you assess your current security operations maturity and build a practical improvement plan tailored to your organisation. We use frameworks like <strong>SIM3</strong> to give you an objective, repeatable baseline so you can measure where you are and track real progress over time. Hiring senior cybersecurity staff is expensive and slow &mdash; our consultants have up to 25 years of experience and can embed in your team to deliver difficult projects and develop your people&rsquo;s capabilities.</p>
+        <div style="margin-top: var(--space-3xl);">
+          <a href="#contact" class="btn-primary">Discuss improving your team</a>
+        </div>
       </div>
     </div>
     <div class="build-grid">
@@ -1298,42 +1370,41 @@
 <!-- 5. Incident Response -->
 <section class="infra-section" id="incident-response">
   <div class="container">
-    <div class="infra-intro-grid">
-      <div class="infra-intro">
-        <div class="section-label">Incident Response</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Build incident response processes that work under pressure</h2>
-        <p>We have extensive experience helping organisations create and improve their incident response processes. Whether you&rsquo;re building from scratch or refining what you have, we focus on making IR processes that work reliably when it matters most.</p>
-        <p>We act as a resource multiplier for your team &mdash; helping you do more with less by tuning alerts, automating repetitive tasks, and aligning your detection rules with your actual threat landscape.</p>
-        <div style="margin-top: var(--space-xl);">
-          <a href="#contact" class="btn-primary">Discuss IR improvement</a>
+    <div class="infra-intro" style="margin-bottom: var(--space-5xl);">
+      <div class="section-label">Incident Response</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Build incident response processes that work under pressure</h2>
+      <p>We have extensive experience helping organisations create and improve their incident response processes. Whether you&rsquo;re building from scratch or refining what you have, we focus on making IR processes that work reliably when it matters most.</p>
+      <p>We act as a resource multiplier for your team &mdash; helping you do more with less by tuning alerts, automating repetitive tasks, and aligning your detection rules with your actual threat landscape.</p>
+    </div>
+    <div class="numbered-list-grid">
+      <div class="numbered-list">
+        <div class="numbered-item">
+          <div class="numbered-item-number">01</div>
+          <h3 class="numbered-item-title">IR process design</h3>
+          <p class="numbered-item-desc">Create and improve incident response processes so they work reliably and effectively. We design processes that match your team&rsquo;s size and operating environment.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">02</div>
+          <h3 class="numbered-item-title">Triage &amp; investigation</h3>
+          <p class="numbered-item-desc">Work out the best way to triage and investigate new potential security incidents. We help you build consistent, repeatable approaches to handling alerts.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">03</div>
+          <h3 class="numbered-item-title">Alert tuning &amp; automation</h3>
+          <p class="numbered-item-desc">Reduce alert fatigue so that your staff get an opportunity to work on other things. We tune detection rules and automate repetitive tasks &mdash; a resource multiplier for lean teams.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">04</div>
+          <h3 class="numbered-item-title">Table-top exercises (TTX)</h3>
+          <p class="numbered-item-desc">Scenario-based exercises to make sure that people know what to do when an incident occurs. We design and facilitate exercises tailored to your threat landscape.</p>
         </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1652698821982-62278b4bba1c?w=800&q=80" alt="Close-up of red and green indicator lights"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
+      <div class="numbered-list-image">
+        <img src="https://images.unsplash.com/photo-1652698821982-62278b4bba1c?w=800&q=80" alt="Close-up of red and green indicator lights">
       </div>
     </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">IR process design</h3>
-        <p class="build-feature-desc">Create and improve incident response processes so they work reliably and effectively. We design processes that match your team&rsquo;s size and operating environment.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Triage &amp; investigation</h3>
-        <p class="build-feature-desc">Work out the best way to triage and investigate new potential security incidents. We help you build consistent, repeatable approaches to handling alerts.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Alert tuning &amp; automation</h3>
-        <p class="build-feature-desc">Reduce alert fatigue so that your staff get an opportunity to work on other things. We tune detection rules and automate repetitive tasks &mdash; a resource multiplier for lean teams.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Table-top exercises (TTX)</h3>
-        <p class="build-feature-desc">Scenario-based exercises to make sure that people know what to do when an incident occurs. We design and facilitate exercises tailored to your threat landscape.</p>
-      </div>
+    <div style="margin-top: var(--space-5xl);">
+      <a href="#contact" class="btn-primary">Discuss IR improvement</a>
     </div>
   </div>
 </section>
@@ -1342,9 +1413,16 @@
 <section class="infra-section infra-section--alt" id="first">
   <div class="container">
     <div class="misp-grid">
+      <div style="margin-top: 0; max-width: none; position: relative;">
+        <img src="images/homepage/chris-horsley-speaker.png" alt="Chris Horsley speaking at FIRST Conference"
+             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center 30%; border-radius: var(--radius-lg); display: block;">
+        <div style="position: absolute; bottom: var(--space-sm); right: var(--space-md); font-size: var(--text-sm); color: var(--color-white); background: rgba(0, 0, 0, 0.6); padding: var(--space-2xs) var(--space-xs); border-radius: var(--radius-sm);">
+          Cosive co-founder Chris Horsley presenting at the annual FIRST Conference in Copenhagen.
+        </div>
+      </div>
       <div class="infra-intro">
         <div class="section-label">Join FIRST</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Join FIRST, the world&rsquo;s largest incident response community</h2>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Join FIRST, the world&rsquo;s largest incident response community</h2>
         <p>FIRST (Forum of Incident Response and Security Teams) connects your team to a global network of security professionals. We can guide you through the application process and help you get the most out of your membership.</p>
         <ul>
           <li>Learn from the world&rsquo;s best incident response teams</li>
@@ -1352,15 +1430,8 @@
           <li>Access Cyber Threat Intelligence to protect your organisation</li>
           <li>Cheap tickets to the FIRST Annual Conference, one of the best defender-oriented conferences in the world</li>
         </ul>
-        <div style="margin-top: var(--space-xl);">
+        <div style="margin-top: var(--space-3xl);">
           <a href="#contact" class="btn-primary">Talk to us about joining FIRST</a>
-        </div>
-      </div>
-      <div style="margin-top: 0; max-width: none; position: relative;">
-        <img src="images/homepage/chris-horsley-speaker.png" alt="Chris Horsley speaking at FIRST Conference"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center 30%; border-radius: var(--radius-lg); display: block;">
-        <div style="position: absolute; bottom: var(--space-sm); right: var(--space-md); font-size: var(--text-sm); color: var(--color-white); background: rgba(0, 0, 0, 0.6); padding: var(--space-2xs) var(--space-xs); border-radius: var(--radius-sm);">
-          Cosive co-founder Chris Horsley presenting at the annual FIRST Conference in Copenhagen.
         </div>
       </div>
     </div>
@@ -1373,10 +1444,10 @@
     <div class="misp-grid">
       <div class="infra-intro">
         <div class="section-label">Frameworks &amp; Threat Modelling</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Map threats with ATT&amp;CK and VERIS to see how they reach you</h2>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Map threats with ATT&amp;CK and VERIS to see how they reach you</h2>
         <p>ATT&amp;CK mapping gives your team a <strong>structured way to describe adversary behaviour</strong>, classify incidents, and pinpoint where your defences are strongest and weakest. We help you operationalise ATT&amp;CK and VERIS so they become <strong>practical tools your analysts actually use</strong>, not shelf documents.</p>
         <p>Once threats are mapped to techniques and tactics, you can overlay your logging and detection coverage to find the gaps — and focus effort where it matters most.</p>
-        <div class="icon-credentials" style="margin-top: var(--space-2xl);">
+        <div class="icon-credentials" style="margin-top: var(--space-4xl);">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1408,17 +1479,15 @@
             </div>
           </div>
         </div>
+        <div style="margin-top: var(--space-4xl);">
+          <a href="#contact" class="btn-primary">Discuss framework adoption</a>
+        </div>
       </div>
       <div class="subsection-box" style="margin-top: 0; max-width: none;">
         <div class="outcome-diagram">
           <img src="images/secops/attack-navigator.png" alt="MITRE ATT&CK Navigator showing Enterprise matrix with highlighted threat technique mappings across tactics">
         </div>
       </div>
-    </div>
-    <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Want to adopt a security framework?</h3>
-      <p style="font-size: var(--text-base); color: rgba(255, 255, 255, 0.7); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We help you choose the right framework for your organisation and operationalise it so your team actually uses it day-to-day.</p>
-      <a href="#contact" class="btn-primary">Discuss framework adoption</a>
     </div>
   </div>
 </section>
@@ -1427,7 +1496,7 @@
 <section class="faq-section">
   <div class="container">
     <div class="section-label">Frequently asked questions</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about improving your security operations</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-4xl);">Common questions about improving your security operations</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
@@ -1524,7 +1593,7 @@
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start improving your security operations</h2>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-4xl);">Start improving your security operations</h2>
       <p class="contact-subtitle">Tell us about your SecOps goals and we&rsquo;ll get back to you with practical next steps.</p>
       <form class="contact-form" action="#" method="post">
         <input type="hidden" name="category" value="Cybersecurity Operations">

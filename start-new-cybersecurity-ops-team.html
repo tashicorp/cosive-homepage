@@ -202,6 +202,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 35%;
     filter: grayscale(0.4);
     opacity: 0.45;
   }
@@ -315,7 +316,7 @@
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
     text-underline-offset: 6px;
-    text-decoration-thickness: 4px;
+    text-decoration-thickness: 2px;
   }
 
   /* ── Shared section patterns ── */
@@ -347,7 +348,7 @@
 
   /* ── Section patterns ── */
   .infra-section {
-    padding: var(--space-6xl) 0;
+    padding: var(--space-7xl) 0;
     background: var(--color-white);
   }
 
@@ -389,7 +390,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4xl);
     align-items: start;
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-5xl);
   }
 
   .infra-intro-grid:last-child {
@@ -425,7 +426,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4xl);
-    margin-top: var(--space-4xl);
+    margin-top: var(--space-5xl);
   }
 
   .build-feature {
@@ -522,6 +523,77 @@
   .accent {
     color: var(--color-accent);
   }
+
+  /* ── Numbered List Variant ── */
+  .numbered-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .numbered-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  .numbered-item {
+    position: relative;
+    padding-left: var(--space-xl);
+  }
+
+  .numbered-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .numbered-item-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-xs);
+  }
+
+  .numbered-item-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-xs);
+  }
+
+  .numbered-item-desc {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+  }
+
+  .numbered-list-image {
+    position: sticky;
+    top: 108px;
+    align-self: start;
+  }
+
+  .numbered-list-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    display: block;
+  }
+
+  /* ── Reversed Intro Grid ── */
+  .infra-intro-grid--reversed .infra-intro { order: 2; }
+  .infra-intro-grid--reversed > :last-child { order: 1; }
 
   /* ── Navigation Cards ── */
   .nav-cards-heading {
@@ -658,7 +730,7 @@
     height: 100%;
     object-fit: cover;
     object-position: 80% center;
-    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+    filter: grayscale(1);
   }
 
   .credentials-caption {
@@ -1024,6 +1096,10 @@
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
     .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
+    .numbered-list-grid { grid-template-columns: 1fr; }
+    .numbered-list-image { position: static; }
+    .infra-intro-grid--reversed .infra-intro,
+    .infra-intro-grid--reversed > :last-child { order: unset; }
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
   }
@@ -1068,7 +1144,7 @@
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .infra-section,
-    .faq-section { padding: var(--space-4xl) 0; }
+    .faq-section { padding: var(--space-5xl) 0; }
     .people-cta-separator { padding-top: var(--space-3xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
   }
@@ -1243,8 +1319,8 @@
         </div>
       </div>
       <div class="credentials-photo">
-        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Team presenting at a security conference">
-        <div class="credentials-caption">Cosive are frequent presenters at FIRST, AUSCERT and NZITF.</div>
+        <img src="images/shared/prescott-pym-speaker" alt="Cosive's Prescott Pym speaking at AUSCERT">
+        <div class="credentials-caption">Cosive's Prescott Pym speaking at AUSCERT.</div>
       </div>
   </div>
 </section>
@@ -1295,42 +1371,41 @@
 <!-- 5. Plan the Build Out -->
 <section class="infra-section" id="plan">
   <div class="container">
-    <div class="infra-intro-grid">
-      <div class="infra-intro">
-        <div class="section-label">Plan the build out</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Plan your cybersecurity operations team build out</h2>
-        <p>We can perform a SecOps assessment to figure out exactly what shape your team needs to be in order to be effective. From there, we build you a phased implementation roadmap &mdash; so you know what to do first, what can wait, and how to measure progress along the way.</p>
-        <p>This isn&rsquo;t an abstract strategy document. It&rsquo;s a practical plan you can start executing immediately, with clear milestones and realistic timelines.</p>
-        <div style="margin-top: var(--space-xl);">
-          <a href="#contact" class="btn-primary">Discuss your build plan</a>
+    <div class="infra-intro" style="margin-bottom: var(--space-3xl);">
+      <div class="section-label">Plan the build out</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Plan your cybersecurity operations team build out</h2>
+      <p>We can perform a SecOps assessment to figure out exactly what shape your team needs to be in order to be effective. From there, we build you a phased implementation roadmap &mdash; so you know what to do first, what can wait, and how to measure progress along the way.</p>
+      <p>This isn&rsquo;t an abstract strategy document. It&rsquo;s a practical plan you can start executing immediately, with clear milestones and realistic timelines.</p>
+    </div>
+    <div class="numbered-list-grid">
+      <div class="numbered-list">
+        <div class="numbered-item">
+          <div class="numbered-item-number">01</div>
+          <h3 class="numbered-item-title">SIM3 baseline assessment</h3>
+          <p class="numbered-item-desc">A structured assessment of what your organisation needs from a security operations team. We use frameworks like SIM3 to give you an objective baseline and clear targets to build towards.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">02</div>
+          <h3 class="numbered-item-title">Implementation roadmap</h3>
+          <p class="numbered-item-desc">A phased plan for standing up your team over time. We break the build into manageable stages so you can show progress early and adjust as you learn what works.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">03</div>
+          <h3 class="numbered-item-title">Process design</h3>
+          <p class="numbered-item-desc">Design your core operational processes &mdash; incident response, triage, escalation, and handover. We help you get the fundamentals right so your team can hit the ground running.</p>
+        </div>
+        <div class="numbered-item">
+          <div class="numbered-item-number">04</div>
+          <h3 class="numbered-item-title">Framework adoption</h3>
+          <p class="numbered-item-desc">Help choosing and operationalising the right frameworks for your team. Whether it&rsquo;s SIM3, SOC-CMM, ATT&amp;CK, or a combination &mdash; we help you adopt what&rsquo;s useful without drowning in process.</p>
         </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1777559542650-f2b84a66d30f?w=800&q=80" alt="People working on laptops with notebooks"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
+      <div class="numbered-list-image">
+        <img src="https://images.unsplash.com/photo-1777559542650-f2b84a66d30f?w=800&q=80" alt="People working on laptops with notebooks">
       </div>
     </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">SecOps assessment</h3>
-        <p class="build-feature-desc">A structured assessment of what your organisation needs from a security operations team. We use frameworks like SIM3 to give you an objective baseline and clear targets to build towards.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Implementation roadmap</h3>
-        <p class="build-feature-desc">A phased plan for standing up your team over time. We break the build into manageable stages so you can show progress early and adjust as you learn what works.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Process design</h3>
-        <p class="build-feature-desc">Design your core operational processes &mdash; incident response, triage, escalation, and handover. We help you get the fundamentals right so your team can hit the ground running.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Framework adoption</h3>
-        <p class="build-feature-desc">Help choosing and operationalising the right frameworks for your team. Whether it&rsquo;s SIM3, SOC-CMM, ATT&amp;CK, or a combination &mdash; we help you adopt what&rsquo;s useful without drowning in process.</p>
-      </div>
+    <div style="margin-top: var(--space-3xl);">
+      <a href="#contact" class="btn-primary">Discuss your build plan</a>
     </div>
   </div>
 </section>
@@ -1338,7 +1413,7 @@
 <!-- 6. Help With Hiring -->
 <section class="infra-section infra-section--alt" id="hiring">
   <div class="container">
-    <div class="infra-intro-grid">
+    <div class="infra-intro-grid infra-intro-grid--reversed">
       <div class="infra-intro">
         <div class="section-label">Help with hiring</div>
         <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Hire the right people for your cybersecurity operations team</h2>
