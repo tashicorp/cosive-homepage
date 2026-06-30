@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build and integrate tools - Cosive</title>
+<title>Build and integrate fraud tools — Cosive</title>
+<meta name="description" content="Cosive builds custom fraud tools, integrates your transaction monitoring and case management platforms, and automates fraud operations workflows for financial institutions and central banks.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +26,14 @@
     --color-mid-grey: #f0f0f0;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
+
+    /* Page colour personality: Regulated Dual (red + blue) */
+    --page-accent: var(--color-accent);
+    --page-accent-dark: var(--color-accent-dark);
+    --page-accent-tint: rgba(229, 56, 52, 0.08);
+    --page-secondary: #2ab6f6;
+    --page-secondary-dark: #1a8fd4;
+    --page-secondary-tint: rgba(42, 182, 246, 0.08);
 
     /* ── Sizing Tokens ── */
 
@@ -368,7 +377,7 @@
 
   /* ── Integration diagram section ── */
   .infra-section {
-    padding: var(--space-6xl) 0;
+    padding: var(--space-8xl) 0;
     background: var(--color-white);
   }
 
@@ -531,22 +540,19 @@
   }
 
   .build-feature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: var(--color-accent);
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: none;
   }
 
-  .build-feature:hover::before {
-    width: 64px;
+  .build-feature {
+    border-left: 3px solid var(--page-accent);
+    padding-left: var(--space-lg);
+    padding-top: 0;
+    transition: transform 0.3s ease, border-left-color 0.3s ease;
   }
 
   .build-feature:hover {
     transform: translateY(-2px);
+    border-left-color: var(--page-secondary);
   }
 
   .build-feature-number {
@@ -646,7 +652,7 @@
   }
 
   .credentials-box {
-    padding: var(--space-5xl) var(--space-3xl);
+    padding: var(--space-8xl) var(--space-3xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -760,7 +766,7 @@
 
   /* ── Who We Work With ── */
   .who-section {
-    padding: var(--space-6xl) 0 var(--space-3xl);
+    padding: var(--space-8xl) 0 var(--space-3xl);
     background: var(--color-dark, #0e141c);
   }
 
@@ -884,7 +890,7 @@
 
   /* ── FAQ ── */
   .faq-section {
-    padding: var(--space-6xl) 0;
+    padding: var(--space-8xl) 0;
     background: var(--color-white);
   }
 
@@ -995,7 +1001,7 @@
   .people-cta-separator {
     display: flex;
     justify-content: center;
-    padding: var(--space-6xl) 0 0;
+    padding: var(--space-8xl) 0 0;
     background: var(--color-light-grey);
   }
 
@@ -1006,7 +1012,7 @@
 
   /* ── Contact section ── */
   .contact-section {
-    padding: var(--space-4xl) 0 var(--space-6xl);
+    padding: var(--space-4xl) 0 var(--space-8xl);
     background: var(--color-light-grey);
     text-align: center;
   }
@@ -1110,13 +1116,45 @@
 
   .footer-links a:hover { color: var(--color-accent); }
 
+  /* ── Fraud Layout Personality ── */
+
+  /* Help section: stacked white cards on grey (formal panels) */
+  .help-section .icon-credentials { gap: var(--space-md); }
+  .help-section .icon-item {
+    border-bottom: none;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+  }
+  .help-section .icon-item:first-child { padding-top: var(--space-lg); }
+  .help-section .icon-item:last-child { padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+
+  /* Dark section: accent top border, larger diagram padding */
+  .infra-section--dark { border-top: 3px solid var(--color-accent); }
+  .misp-grid .subsection-box {
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+  }
+
+  /* Contact: left-aligned formal form */
+  .contact-section { text-align: left; }
+  .contact-inner { margin: 0; max-width: 720px; }
+  .contact-section .section-label,
+  .contact-section .heading-style-h2 { text-align: left; }
+  .contact-subtitle { text-align: left; }
+
+  /* Before/After cards: card-style framing */
+  .before-after-grid .subsection-box {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
   /* ── Responsive ── */
   @media (max-width: 1200px) {
-    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .faq-inner { grid-template-columns: 1fr; }
-    .faq-image { display: none; }
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
 
   @media (max-width: 900px) {
@@ -1155,7 +1193,7 @@
 
     .infra-section,
     .who-section,
-    .faq-section { padding: var(--space-4xl) 0; }
+    .faq-section { padding: var(--space-7xl) 0; }
 
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
 
@@ -1175,8 +1213,8 @@
     .what-we-build-header .heading-style-h2 { font-size: var(--text-4xl); }
     .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
 
-    .people-cta-separator { padding-top: var(--space-3xl); }
-    .contact-section { padding: var(--space-3xl) 0 var(--space-4xl); }
+    .people-cta-separator { padding-top: var(--space-7xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-7xl); }
   }
 
   @media (max-width: 600px) {
@@ -1208,7 +1246,10 @@
 
     .infra-section,
     .who-section,
-    .faq-section { padding: var(--space-2xl) 0; }
+    .faq-section { padding: var(--space-5xl) 0; }
+
+    .people-cta-separator { padding-top: var(--space-5xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-5xl); }
 
     /* What we build */
     .what-we-build-header { text-align: left; }
@@ -1253,11 +1294,11 @@
         <span class="separator">/</span>
         <a href="fraud-data-sharing.html" class="badge-fraud">Fraud Data Sharing</a>
         <span class="separator">/</span>
-        <span class="current">Build and integrate tools</span>
+        <span class="current">Build and integrate fraud tools</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Build and integrate tools</h1>
+          <h1 class="heading-style-h1">Build and integrate fraud tools</h1>
 
           <p class="banner-description">We <strong>build custom fraud tools</strong> when off-the-shelf solutions fall short, <strong>integrate your existing platforms</strong> so they work together, and <strong>connect your tools</strong> to your fraud data sharing platform.</p>
         </div>
@@ -1302,8 +1343,8 @@
       <div>
         <div class="what-we-build-header">
           <div class="section-label">Build new tools</div>
-          <h2 class="heading-style-h2">When off-the-shelf doesn&rsquo;t fit, we build what you need</h2>
-          <p>Sometimes the right tool doesn&rsquo;t exist yet. We create custom integrations, plugins, and standalone tools &mdash; and when the situation calls for it, we build entirely new platforms from scratch. Everything is built to production standards and designed to last.</p>
+          <h2 class="heading-style-h2">Tools built for regulated environments, from day one</h2>
+          <p>Fraud teams in banks and central banks operate under constraints that most software vendors don&rsquo;t understand. We build tools that meet those requirements from the start &mdash; audit trails, data residency, access controls &mdash; so your compliance team is not an afterthought. From custom integrations to full platforms, everything is built to production standards.</p>
           <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Tell us what you need built</a>
         </div>
       </div>
@@ -1324,7 +1365,7 @@
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Data integrations</h3>
+        <h3 class="build-feature-title">Fraud data integrations</h3>
         <p class="build-feature-desc">Integrating data feeds with the platforms that need them &mdash; fraud indicators into your SIEM, threat data into your case management, regulatory reports into your compliance tools.</p>
       </div>
       <div class="build-feature">
@@ -1335,7 +1376,7 @@
       <div class="build-feature">
         <div class="build-feature-number">05</div>
         <h3 class="build-feature-title">Custom API integrations</h3>
-        <p class="build-feature-desc">If your platform exposes an API, we can build the integration. We&rsquo;ve integrated with fraud management systems, transaction monitoring tools, case management platforms, and more.</p>
+        <p class="build-feature-desc">If it has an API, we can connect to it. We have been building integrations across fraud, banking, and compliance environments for 8 years.</p>
       </div>
     </div>
   </div>
@@ -1404,53 +1445,41 @@
   </div>
 </section>
 
-<!-- 5. How we build -->
+<!-- 5. Engineering standards -->
 <section class="infra-section infra-section--alt help-section">
   <div class="container">
-    <div class="section-label">How we build</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">Professional software engineering, not just scripts and glue</h2>
+    <div class="section-label">Engineering standards</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">Built for regulated environments</h2>
     <div class="icon-credentials">
       <div class="icon-item">
         <div class="icon-item-icon">
-          <svg viewBox="0.75 3 22.5 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+          <svg viewBox="1.25 1.25 21.5 21.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
         </div>
-        <div class="icon-item-text"><strong>Multiple languages</strong> &mdash; Python, TypeScript/JavaScript, C#, Rust, and Bash &mdash; whatever your platform needs. We pick the right tool for the job rather than forcing everything into one language.</div>
+        <div class="icon-item-text"><strong>Automated testing</strong> &mdash; every integration we build includes comprehensive test coverage. When your transaction monitoring vendor releases an update or a regulatory requirement changes, your integrations keep working.</div>
       </div>
       <div class="icon-item">
         <div class="icon-item-icon">
           <svg viewBox="3.75 4.5 16.5 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
         </div>
-        <div class="icon-item-text"><strong>CI/CD pipelines</strong> &mdash; everything we build is deployed through automated pipelines. No manual steps, no &ldquo;it works on my machine&rdquo; surprises.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="1.25 1.25 21.5 21.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Automated testing</strong> &mdash; comprehensive test coverage so nothing breaks when dependencies change, platforms update their APIs, or requirements evolve.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="2.65 2.25 18.7 19.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.431.992a6.759 6.759 0 0 1 0 .255c-.007.378.138.75.43.991l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Infrastructure as Code</strong> &mdash; repeatable, version-controlled deployment. Your infrastructure is defined in code, not configured by hand.</div>
+        <div class="icon-item-text"><strong>Auditable deployments</strong> &mdash; everything ships through automated CI/CD pipelines with full version history. Every change is traceable, every deployment is repeatable &mdash; the kind of audit trail your compliance team expects.</div>
       </div>
       <div class="icon-item">
         <div class="icon-item-icon">
           <svg viewBox="3.75 1.5 16.5 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9z"/></svg>
         </div>
-        <div class="icon-item-text"><strong>Full SDLC</strong> &mdash; from requirements gathering through to production support. Every project gets proper documentation, code review, and release management — whether it&rsquo;s a data integration or a standalone tool.</div>
+        <div class="icon-item-text"><strong>Structured delivery</strong> &mdash; from requirements through to production handover, every project follows a defined process with documentation, code review, and formal release management. We work the way regulated organisations expect.</div>
       </div>
       <div class="icon-item">
         <div class="icon-item-icon">
           <svg viewBox="1.5 1.5 21 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
         </div>
-        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if the platform exposes an API, we can build the integration. We&rsquo;ve integrated with platforms across fraud, security, and compliance &mdash; and we can learn new ones quickly.</div>
+        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if your fraud platform, case management system, or data sharing hub exposes an API, we can connect it. We have built integrations across fraud, banking, and compliance environments for central banks and financial institutions.</div>
       </div>
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Production-grade software, not throwaway scripts</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Whether it&rsquo;s an integration or a custom tool, we build it the same way — tested, version-controlled, and designed to run reliably without hand-holding.</p>
-      <a href="#contact" class="btn-primary">Discuss your project</a>
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Software your compliance team will approve</h3>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We have been building integrations for financial institutions and central banks for 8 years. Everything we deliver is tested, version-controlled, documented, and designed to meet the standards your organisation requires.</p>
+      <a href="#contact" class="btn-primary">Discuss your fraud integration project</a>
     </div>
   </div>
 </section>
@@ -1511,7 +1540,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We write production-grade Python, TypeScript/JavaScript, C#, and Rust &mdash; plus Bash and shell scripts where they're the right tool for the job. Python for data pipelines and integrations, TypeScript and JavaScript for web applications and APIs, C# for .NET environments, Rust where performance and reliability are critical, and Bash for automation, deployment scripts, and gluing systems together. If your team already works in one of these languages, we can write code that fits naturally into your existing codebase.</p>
+          <p>Python and C# are the most common in the fraud and banking environments we work in &mdash; Python for MISP integrations and data pipelines, C# for .NET platforms common in financial institutions. We also use TypeScript for web-based dashboards and Rust where transaction throughput or indicator matching demands high performance. We match the language to your existing technology stack so the code fits into your environment and your team can maintain it.</p>
         </div>
       </details>
 
@@ -1521,7 +1550,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We build CI/CD pipelines for all major platforms, including GitHub Actions, GitLab CI/CD, Azure DevOps, Bitbucket Pipelines, and Jenkins. We set up automated testing, builds, and deployments so that the tools and integrations we create for you are reliable and easy to maintain from day one.</p>
+          <p>Azure DevOps is the most common in the financial institutions we work with, but we also build on GitHub Actions, GitLab CI/CD, Bitbucket Pipelines, and Jenkins. For regulated environments, we configure pipelines with approval gates, audit logging, and deployment controls that satisfy compliance requirements &mdash; not just automated builds, but a deployment process your auditors can review.</p>
         </div>
       </details>
 
@@ -1541,7 +1570,7 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We follow secure development practices throughout the software lifecycle. That includes secrets scanning, dependency vulnerability scanning, static analysis, automated testing, and code review. Everything we build comes with CI/CD pipelines, so you get repeatable builds and deployments &mdash; not a manual process that only works on one person&rsquo;s laptop.</p>
+          <p>We build for environments where auditors review the code and regulators set the rules. That means secrets scanning, dependency vulnerability scanning, static analysis, automated testing, code review, and full version history on every change. For fraud data integrations specifically, we add data validation and integrity checks so that indicators flowing between your transaction monitoring system and MISP are reliable and traceable.</p>
         </div>
       </details>
 
@@ -1567,11 +1596,11 @@
 
       <details>
         <summary>
-          How long does a typical integration take?
+          How long does a typical fraud integration take?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>It depends on the platforms involved and the complexity of your data flows. A straightforward API-to-API integration might take a few weeks. More complex integrations involving custom data mapping, multiple systems, or regulatory requirements typically take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
+          <p>Connecting a single fraud platform to MISP typically takes a few weeks. Integrating multiple systems &mdash; transaction monitoring, case management, SIEM &mdash; with proper data mapping and compliance controls takes longer. In banking environments, the integration work itself is often faster than the change management and approval process. We scope each engagement individually, account for those realities, and give you a realistic timeline upfront.</p>
         </div>
       </details>
 

@@ -1,94 +1,185 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 840 340">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 840 380">
 <defs>
   <marker id="arrow" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
-  <marker id="arrow-grey" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#9aa0a6" d="m0 1 9 4-9 4z"/></marker>
 </defs>
 
-<!-- ===== LAYER 1: CONNECTIONS ===== -->
+<!-- ===== STAGE HEADERS ===== -->
+<text x="100" y="24" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.08em">IDENTIFY THREATS</text>
+<text x="310" y="24" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.08em">MAP TTPs</text>
+<text x="520" y="24" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.08em">ASSESS COVERAGE</text>
+<text x="730" y="24" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" letter-spacing="0.08em">CLOSE GAPS</text>
 
-<!-- Entry vectors to Initial Access -->
-<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 50 L255 130"/>
-<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 130 L255 145"/>
-<path stroke="#9aa0a6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-grey)" d="M135 210 L255 160"/>
+<!-- ===== CONNECTING ARROWS ===== -->
+<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M200 190 L220 190"/>
+<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M410 190 L430 190"/>
+<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M620 190 L640 190"/>
 
-<!-- Attack flow chain -->
-<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M375 150 L445 150"/>
-<path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" d="M565 150 L635 150"/>
+<!-- ===== STAGE 1: IDENTIFY THREATS ===== -->
+<rect x="10" y="40" width="180" height="300" rx="8" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5"/>
 
-<!-- Choke point indicators (vertical lines from chain to detection) -->
-<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M310 185 L310 250"/>
-<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M505 185 L505 250"/>
-<path stroke="#e53834" stroke-width="1.5" stroke-dasharray="4 3" d="M700 185 L700 250"/>
+<!-- Shield icon -->
+<g transform="translate(76, 70)">
+  <path d="M24 4L4 12v16c0 14 20 22 20 22s20-8 20-22V12z" stroke="#2d6da3" stroke-width="2" stroke-linejoin="round" fill="none"/>
+  <path d="M16 26l6 6 12-12" stroke="#2d6da3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
 
-<!-- ===== LAYER 2: NODES ===== -->
+<text x="100" y="140" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Threat groups</text>
+<text x="100" y="158" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">targeting your</text>
+<text x="100" y="176" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">sector</text>
 
-<!-- ENTRY VECTORS (left column) -->
+<line x1="35" y1="198" x2="165" y2="198" stroke="#9aa0a6" stroke-width="1" stroke-opacity="0.4"/>
 
-<!-- Phishing -->
-<rect width="120" height="48" x="15" y="26" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M65 38h20l-10 10z M65 38v14h20v-14"/>
-<text x="75" y="62" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Phishing</text>
+<text x="100" y="222" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">ATT&amp;CK Groups</text>
+<text x="100" y="236" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">knowledge base</text>
 
-<!-- Vulnerability Exploit -->
-<rect width="120" height="48" x="15" y="106" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M69 116l6 6m-6 0l6-6"/>
-<text x="75" y="138" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Vulnerability</text>
-<text x="75" y="150" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Exploit</text>
+<!-- Example group labels -->
+<rect x="36" y="258" width="56" height="22" rx="4" fill="#2d6da3" fill-opacity="0.12"/>
+<text x="64" y="273" fill="#2d6da3" font-family="Manrope, sans-serif" font-size="9" font-weight="600" text-anchor="middle">APT29</text>
+<rect x="100" y="258" width="64" height="22" rx="4" fill="#2d6da3" fill-opacity="0.12"/>
+<text x="132" y="273" fill="#2d6da3" font-family="Manrope, sans-serif" font-size="9" font-weight="600" text-anchor="middle">FIN7</text>
+<rect x="52" y="288" width="80" height="22" rx="4" fill="#2d6da3" fill-opacity="0.12"/>
+<text x="92" y="303" fill="#2d6da3" font-family="Manrope, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Lazarus</text>
 
-<!-- Supply Chain -->
-<rect width="120" height="48" x="15" y="186" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-<path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" fill="none" d="M64 199h6l3-3 3 6 3-6 3 3h6"/>
-<text x="75" y="222" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Supply Chain</text>
+<!-- ===== STAGE 2: MAP TTPs ===== -->
+<rect x="230" y="40" width="180" height="300" rx="8" fill="#fef2f2" stroke="#e53834" stroke-width="1.5"/>
 
-<!-- ATTACK STAGES (center) -->
+<!-- Mini matrix grid icon -->
+<g transform="translate(300, 62)">
+  <rect x="0" y="0" width="40" height="40" rx="4" fill="none" stroke="#e53834" stroke-width="1.2"/>
+  <line x1="0" y1="13" x2="40" y2="13" stroke="#e53834" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="0" y1="27" x2="40" y2="27" stroke="#e53834" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="13" y1="0" x2="13" y2="40" stroke="#e53834" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="27" y1="0" x2="27" y2="40" stroke="#e53834" stroke-width="0.8" stroke-opacity="0.5"/>
+  <!-- Filled cells to represent coverage -->
+  <rect x="1" y="1" width="12" height="12" rx="1" fill="#e53834" fill-opacity="0.2"/>
+  <rect x="14" y="14" width="12" height="12" rx="1" fill="#e53834" fill-opacity="0.2"/>
+  <rect x="28" y="1" width="11" height="12" rx="1" fill="#e53834" fill-opacity="0.2"/>
+  <rect x="1" y="28" width="12" height="11" rx="1" fill="#e53834" fill-opacity="0.2"/>
+</g>
 
-<!-- Initial Access -->
-<rect width="120" height="72" x="255" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<text x="315" y="146" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Initial</text>
-<text x="315" y="160" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Access</text>
-<text x="315" y="176" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0001)</text>
+<text x="320" y="126" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Tactics &amp;</text>
+<text x="320" y="144" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">techniques they use</text>
 
-<!-- Execution + Persistence -->
-<rect width="120" height="72" x="445" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<text x="505" y="140" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Execution &amp;</text>
-<text x="505" y="154" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Lateral</text>
-<text x="505" y="168" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Movement</text>
-<text x="505" y="180" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0002/8)</text>
+<line x1="255" y1="162" x2="385" y2="162" stroke="#e53834" stroke-width="1" stroke-opacity="0.2"/>
 
-<!-- Exfiltration / Impact -->
-<rect width="120" height="72" x="635" y="114" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<text x="695" y="140" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Exfiltration</text>
-<text x="695" y="154" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">&amp; Impact</text>
-<text x="695" y="170" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">(ATT&amp;CK TA0010/40)</text>
+<!-- Technique ID list -->
+<text x="260" y="186" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1566</text>
+<text x="310" y="186" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Phishing</text>
 
-<!-- CHOKE POINTS (detection) -->
+<text x="260" y="204" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1059</text>
+<text x="310" y="204" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Cmd &amp; Script</text>
 
-<!-- Choke Point 1 -->
-<rect width="130" height="60" x="245" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<circle cx="275" cy="278" r="6" fill="#e53834" opacity="0.15"/>
-<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M272 278l2 2 4-4"/>
-<text x="315" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Email &amp; perimeter</text>
-<text x="315" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">detection</text>
-<text x="315" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 1</text>
+<text x="260" y="222" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1078</text>
+<text x="310" y="222" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Valid Accounts</text>
 
-<!-- Choke Point 2 -->
-<rect width="130" height="60" x="440" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<circle cx="470" cy="278" r="6" fill="#e53834" opacity="0.15"/>
-<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M467 278l2 2 4-4"/>
-<text x="510" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Endpoint &amp; SIEM</text>
-<text x="510" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">alerting</text>
-<text x="510" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 2</text>
+<text x="260" y="240" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1053</text>
+<text x="310" y="240" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Sched. Task</text>
 
-<!-- Choke Point 3 -->
-<rect width="130" height="60" x="635" y="255" fill="#ffffff" stroke="#e53834" stroke-width="1.5" rx="8"/>
-<circle cx="665" cy="278" r="6" fill="#e53834" opacity="0.15"/>
-<path stroke="#e53834" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" fill="none" d="M662 278l2 2 4-4"/>
-<text x="705" y="278" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Network &amp; data</text>
-<text x="705" y="292" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">loss prevention</text>
-<text x="705" y="306" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500" text-anchor="middle">Choke point 3</text>
+<text x="260" y="258" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1021</text>
+<text x="310" y="258" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Remote Svc</text>
 
-<!-- LABELS -->
-<text x="75" y="16" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">ENTRY VECTORS</text>
-<text x="505" y="104" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">ATTACK FLOW (ATT&amp;CK MAPPED)</text>
-<text x="505" y="248" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" text-transform="uppercase" letter-spacing="0.08em">DETECTION CHOKE POINTS</text>
+<text x="260" y="276" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1486</text>
+<text x="310" y="276" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500">Ransomware</text>
+
+<text x="320" y="316" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">ATT&amp;CK matrix mapping</text>
+
+<!-- ===== STAGE 3: ASSESS COVERAGE ===== -->
+<!-- Outer box -->
+<rect x="440" y="40" width="180" height="300" rx="8" fill="#ffffff" stroke="#e8eaed" stroke-width="1.5"/>
+<!-- Left half: Covered (green tint) -->
+<rect x="441" y="41" width="89" height="298" rx="7" fill="#f0fdf4"/>
+<!-- Right half: Gaps (red tint) -->
+<rect x="530" y="41" width="89" height="298" rx="7" fill="#fef2f2"/>
+<!-- Divider line -->
+<line x1="530" y1="41" x2="530" y2="339" stroke="#e8eaed" stroke-width="1"/>
+
+<!-- Covered header -->
+<text x="486" y="72" fill="#16a34a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Covered</text>
+<!-- Gaps header -->
+<text x="575" y="72" fill="#e53834" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Gaps</text>
+
+<line x1="455" y1="82" x2="517" y2="82" stroke="#16a34a" stroke-width="0.8" stroke-opacity="0.3"/>
+<line x1="544" y1="82" x2="606" y2="82" stroke="#e53834" stroke-width="0.8" stroke-opacity="0.3"/>
+
+<!-- Covered items (checkmarks) -->
+<g fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M456 100l3 3 6-6"/>
+  <path d="M456 132l3 3 6-6"/>
+  <path d="M456 164l3 3 6-6"/>
+</g>
+<text x="474" y="103" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1566</text>
+<text x="474" y="135" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1078</text>
+<text x="474" y="167" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1021</text>
+
+<!-- Gap items (× marks) -->
+<g stroke="#e53834" stroke-width="1.5" stroke-linecap="round">
+  <path d="M546 96l6 6m0-6l-6 6"/>
+  <path d="M546 128l6 6m0-6l-6 6"/>
+  <path d="M546 160l6 6m0-6l-6 6"/>
+</g>
+<text x="562" y="103" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1059</text>
+<text x="562" y="135" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1053</text>
+<text x="562" y="167" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="600">T1486</text>
+
+<!-- Coverage bar visualisation -->
+<text x="530" y="210" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="600" text-anchor="middle">COVERAGE</text>
+<!-- Bar background -->
+<rect x="458" y="220" width="144" height="14" rx="7" fill="#e8eaed"/>
+<!-- Bar filled portion (50%) — rounded left, flat right -->
+<path d="M465 220h65v14h-65a7 7 0 0 1-7-7v0a7 7 0 0 1 7-7z" fill="#16a34a" fill-opacity="0.7"/>
+<!-- Bar gap portion (50%) — flat left, rounded right -->
+<path d="M530 220h65a7 7 0 0 1 7 7v0a7 7 0 0 1-7 7h-65z" fill="#e53834" fill-opacity="0.35"/>
+<text x="494" y="231" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="700" text-anchor="middle">50%</text>
+<text x="566" y="231" fill="#ffffff" font-family="Manrope, sans-serif" font-size="8" font-weight="700" text-anchor="middle">50%</text>
+
+<text x="530" y="262" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">Gap analysis</text>
+<text x="530" y="276" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">overlay</text>
+
+<!-- ===== STAGE 4: CLOSE GAPS ===== -->
+<rect x="650" y="40" width="180" height="300" rx="8" fill="#ffffff" stroke="#e53834" stroke-width="1.5"/>
+
+<!-- Checkmark icon -->
+<g transform="translate(716, 62)">
+  <circle cx="24" cy="20" r="16" stroke="#e53834" stroke-width="1.8" fill="none"/>
+  <path d="M16 20l5 5 11-11" stroke="#e53834" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+
+<text x="740" y="122" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Mitigations</text>
+
+<!-- Mitigation items -->
+<rect x="668" y="138" width="144" height="26" rx="4" fill="#e53834" fill-opacity="0.06"/>
+<text x="676" y="155" fill="#e53834" font-family="Manrope, sans-serif" font-size="9" font-weight="600">M1049</text>
+<text x="716" y="155" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Antivirus</text>
+
+<rect x="668" y="172" width="144" height="26" rx="4" fill="#e53834" fill-opacity="0.06"/>
+<text x="676" y="189" fill="#e53834" font-family="Manrope, sans-serif" font-size="9" font-weight="600">M1031</text>
+<text x="716" y="189" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Network IPS</text>
+
+<rect x="668" y="206" width="144" height="26" rx="4" fill="#e53834" fill-opacity="0.06"/>
+<text x="676" y="223" fill="#e53834" font-family="Manrope, sans-serif" font-size="9" font-weight="600">M1017</text>
+<text x="716" y="223" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">User Training</text>
+
+<rect x="668" y="240" width="144" height="26" rx="4" fill="#e53834" fill-opacity="0.06"/>
+<text x="676" y="257" fill="#e53834" font-family="Manrope, sans-serif" font-size="9" font-weight="600">M1032</text>
+<text x="716" y="257" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">MFA</text>
+
+<text x="740" y="288" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">Detection rules</text>
+<text x="740" y="302" fill="#5f6368" font-family="Manrope, sans-serif" font-size="10" font-weight="500" text-anchor="middle">Control updates</text>
+
+<!-- ===== STEP NUMBERS ===== -->
+<circle cx="26" cy="356" r="12" fill="#e53834" fill-opacity="0.1"/>
+<text x="26" y="360" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1</text>
+<text x="46" y="360" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Identify</text>
+
+<circle cx="236" cy="356" r="12" fill="#e53834" fill-opacity="0.1"/>
+<text x="236" y="360" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">2</text>
+<text x="256" y="360" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Map</text>
+
+<circle cx="446" cy="356" r="12" fill="#e53834" fill-opacity="0.1"/>
+<text x="446" y="360" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">3</text>
+<text x="466" y="360" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Assess</text>
+
+<circle cx="656" cy="356" r="12" fill="#e53834" fill-opacity="0.1"/>
+<text x="656" y="360" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">4</text>
+<text x="676" y="360" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="500">Close</text>
 </svg>

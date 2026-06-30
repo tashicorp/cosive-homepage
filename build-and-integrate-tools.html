@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build and integrate CTI tools — Cosive</title>
-<meta name="description" content="Cosive builds custom CTI tools, integrates your threat intelligence platforms, and extends your TIP with plugins and enrichment modules — backed by 8 years as MISP contributors and CTI engineers.">
+<title>Build and Integrate Security Operations Tools - Cosive</title>
+<meta name="description" content="Cosive builds custom security operations tools, integrates your SIEM, SOAR, and EDR platforms, and automates SOC workflows — backed by 8 years of security engineering experience.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,12 +27,10 @@
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
 
-    /* Page colour personality: Intelligence Red */
-    --page-accent: var(--color-accent);
-    --page-accent-dark: var(--color-accent-dark);
-    --page-accent-tint: rgba(229, 56, 52, 0.08);
-    --page-secondary: #2ab6f6;
-    --page-secondary-tint: rgba(42, 182, 246, 0.06);
+    /* Page colour personality: Operations Blue */
+    --page-accent: #2ab6f6;
+    --page-accent-dark: #1a8fd4;
+    --page-accent-tint: rgba(42, 182, 246, 0.08);
 
     /* Spacing */
     --space-2xs: 0.25rem;
@@ -291,7 +289,7 @@
   .page-banner .breadcrumb .separator { color: var(--color-border); }
   .page-banner .breadcrumb .current { color: var(--color-white); }
 
-  .page-banner .breadcrumb .badge-cti {
+  .page-banner .breadcrumb .badge-secops {
     font-weight: 600;
   }
 
@@ -475,7 +473,7 @@
   }
 
   .infra-section--alt {
-    background: var(--color-light-grey);
+    background: #f0f9ff;
   }
 
   .infra-section--dark {
@@ -542,6 +540,15 @@
     height: 2px;
     background: var(--page-accent);
     transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Build grid: blue numbered circles (alt section only) */
+  .infra-section--alt .build-feature::before { display: none; }
+  .infra-section--alt .build-feature-number {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: var(--page-accent); color: #ffffff;
+    font-weight: 700; font-size: var(--text-sm);
   }
 
   .build-feature:hover::before {
@@ -1049,29 +1056,40 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* ── CTI Layout Personality ── */
+  /* ── SecOps Layout Personality ── */
 
-  /* Help section: 2×2 card grid with left accent borders */
+  /* Help section: grey background (override blue tint) */
+  .help-section.infra-section--alt { background: var(--color-light-grey); }
+
+  /* Help section: 3-column card grid */
   .help-section .icon-credentials {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg) var(--space-3xl);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
   }
   .help-section .icon-item {
     border-bottom: none;
-    padding: var(--space-md) 0 var(--space-md) var(--space-lg);
-    border-left: 2px solid var(--color-border);
-  }
-  .help-section .icon-item:first-child { padding-top: var(--space-md); }
-  .help-section .icon-item:last-child { padding-bottom: var(--space-md); }
-
-  /* Contact: card-framed form */
-  .contact-inner {
+    padding: var(--space-lg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-3xl);
     background: var(--color-white);
   }
+  .help-section .icon-item:first-child { padding-top: var(--space-lg); }
+  .help-section .icon-item:last-child { padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+
+  /* Credentials: photo on the left (reversed) */
+  .credentials-photo { order: -1; }
+  .credentials-photo::before {
+    background: linear-gradient(to left, #000000 0%, transparent 40%);
+  }
+  .credentials-photo img { object-position: 20% center; }
+
+  /* Dark section: diagram above text */
+  .misp-grid .subsection-box { order: -1; }
+
+  /* Contact: wider form, tighter gaps, top border */
+  .contact-inner { max-width: 800px; }
+  .contact-form { gap: var(--space-md); }
 
   /* Responsive */
   @media (max-width: 1200px) {
@@ -1083,7 +1101,7 @@
   }
 
   @media (max-width: 900px) {
-    .help-section .icon-credentials { grid-template-columns: 1fr; }
+    .help-section .icon-credentials { grid-template-columns: 1fr 1fr; }
 
     .heading-style-h1 { font-size: 1.8rem; }
     .heading-style-h2 { font-size: var(--text-2xl); }
@@ -1139,7 +1157,7 @@
   }
 
   @media (max-width: 600px) {
-    .contact-inner { padding: var(--space-xl); }
+    .help-section .icon-credentials { grid-template-columns: 1fr; }
 
     .heading-style-h1 { font-size: var(--text-2xl); }
     .heading-style-h2 { font-size: 1.3rem; }
@@ -1209,26 +1227,26 @@
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="images/cti/banner-bg-build-integrate.webp" alt="">
+  <img src="images/secops/banner-tools-wall.jpg" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
         <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
         <span class="separator">/</span>
-        <a href="cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
+        <a href="security-operations.html" class="badge-secops">Security Operations</a>
         <span class="separator">/</span>
-        <span class="current">Build and integrate CTI tools</span>
+        <span class="current">Build and integrate security operations tools</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Build and integrate CTI tools</h1>
+          <h1 class="heading-style-h1">Build and integrate security operations tools</h1>
 
-          <p class="banner-description">We <strong>build custom CTI tools</strong> when off-the-shelf solutions fall short, integrate your existing security platforms so they work together, and connect your tools to your threat intelligence platform.</p>
+          <p class="banner-description">We <strong>build custom tools for security operations teams</strong> &mdash; from detection dashboards to incident response platforms. We <strong>integrate your SIEM, SOAR, and EDR</strong> so they share data automatically, and <strong>automate SOC workflows</strong> that your analysts currently do by hand.</p>
         </div>
         <div class="banner-form-card">
           <h3 class="heading-style-h4">Talk to us about integration and tooling</h3>
           <form class="contact-form" action="#" method="post">
-            <input type="hidden" name="category" value="Cyber Threat Intelligence">
+            <input type="hidden" name="category" value="Cybersecurity Operations">
             <div class="form-row">
               <div class="form-group">
                 <label for="banner-first-name">First name</label>
@@ -1267,11 +1285,11 @@
     </div>
     <div class="nav-cards-grid">
       <a href="#build-new" class="nav-card">
-        <div class="nav-card-title">I need you to build me a new solution</div>
+        <div class="nav-card-title">I need a custom security tool built</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
-      <a href="#platform-integration" class="nav-card">
-        <div class="nav-card-title">I need an integration for my current threat intel platform</div>
+      <a href="#integrations" class="nav-card">
+        <div class="nav-card-title">I need my security tools integrated or extended</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
     </div>
@@ -1285,98 +1303,59 @@
       <div>
         <div class="what-we-build-header">
           <div class="section-label">Build new tools</div>
-          <h2 class="heading-style-h2">Purpose-built tools from engineers who know STIX, TAXII, and MISP</h2>
-          <p>Most CTI teams end up maintaining a collection of scripts and workarounds because no vendor product does exactly what they need. We build the tools that fill those gaps &mdash; feed processors, enrichment pipelines, analyst dashboards &mdash; written by developers who already understand the standards and the daily work of CTI analysts.</p>
+          <h2 class="heading-style-h2">Custom tools built by engineers who run SOCs</h2>
+          <p>Your SOC has workflows that no off-the-shelf product quite fits. Our developers have spent years inside security operations teams, so they understand the difference between a tool that demos well and one that actually survives a 3am incident. If you can describe the problem, we can build the solution.</p>
           <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Tell us what you need built</a>
         </div>
       </div>
       <div>
-        <img src="images/cti/build-capabilities.webp" alt="Tools hanging on a workshop wall" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+        <img src="images/secops/speed-server-room.jpg" alt="Server room" style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; border-radius: var(--radius-lg); display: block;">
       </div>
     </div>
     <div class="build-grid">
       <div class="build-feature">
         <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">Full platform builds</h3>
-        <p class="build-feature-desc">We build entire platforms from scratch &mdash; e.g. Atraxium, a data sharing platform used across APAC. If you can describe what your CTI programme needs, we can build it.</p>
+        <h3 class="build-feature-title">SOC platforms and dashboards</h3>
+        <p class="build-feature-desc">We build complete security operations platforms &mdash; from analyst workbenches to detection engineering consoles. If your team has outgrown spreadsheets and shared drives, we can build what you actually need.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Custom CTI tools</h3>
-        <p class="build-feature-desc">Purpose-built tools for CTI workflows &mdash; from feed processors to analyst dashboards. Our developers understand STIX, TAXII, and the daily work of CTI analysts.</p>
+        <h3 class="build-feature-title">Incident response tools</h3>
+        <p class="build-feature-desc">Custom tools for incident tracking, evidence collection, and post-incident reporting. Built to fit your team&rsquo;s workflow rather than forcing you into someone else&rsquo;s process.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">TIP integrations</h3>
-        <p class="build-feature-desc">Connect your TIP to your SIEM, SOAR, ticketing system, or collaboration tools. We deploy existing connectors or build new ones &mdash; for MISP, OpenCTI, EclecticIQ, or any platform with an API.</p>
+        <h3 class="build-feature-title">SIEM and SOAR integrations</h3>
+        <p class="build-feature-desc">Connect your SIEM to your SOAR, your EDR to your SIEM, or your ticketing system to both. We build bidirectional integrations that keep your security data flowing between platforms.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Enrichment automation</h3>
-        <p class="build-feature-desc">Automate indicator enrichment, feed triage, and intelligence dissemination. We build enrichment pipelines that run inside your TIP or as standalone services.</p>
+        <h3 class="build-feature-title">Alert triage and escalation automation</h3>
+        <p class="build-feature-desc">Automate the repetitive parts of SOC work &mdash; alert scoring, enrichment, escalation routing, and shift handover reporting. Your analysts focus on real threats, not alert queue management.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">05</div>
-        <h3 class="build-feature-title">MISP modules and plugins</h3>
-        <p class="build-feature-desc">We are active MISP contributors. We build MISP modules, import/export plugins, and enrichment connectors that extend your platform with new data sources and workflows.</p>
+        <h3 class="build-feature-title">Detection-as-Code tooling</h3>
+        <p class="build-feature-desc">We build tooling that lets your team manage detection rules, SIEM queries, and response playbooks as version-controlled code &mdash; with CI/CD pipelines for testing and deployment.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. Integrate your tools (temporarily commented out)
-<section class="infra-section infra-section--alt help-section">
-  <div class="container">
-    <div class="infra-intro">
-      <div class="section-label">Integrate your tools</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Your tools are more powerful when they work together</h2>
-      <p>Disconnected tools create manual work, data silos, and gaps in detection. We integrate what you have &mdash; your SIEM, TIP, SOAR, and other security platforms &mdash; so CTI data flows automatically between systems.</p>
-    </div>
-    <div class="before-after-grid" style="margin-top: var(--space-3xl);">
-      <div class="subsection-box subsection-box--white">
-        <div class="infra-intro">
-          <div class="subsection-label">Before</div>
-          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Disconnected tools, manual work</h3>
-          <p>Your analyst is the glue &mdash; copying data between systems and cross-referencing logs by hand.</p>
-        </div>
-        <div class="outcome-diagram">
-          <img src="images/cti/diagram-tools-disconnected.svg" alt="Diagram showing CTI tools disconnected from the analyst — no automated connections">
-        </div>
-      </div>
-      <div class="subsection-box subsection-box--white">
-        <div class="infra-intro">
-          <div class="subsection-label">After</div>
-          <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrated tools, automated data flow</h3>
-          <p>The same tools, now integrated. Data flows automatically in both directions &mdash; threat indicators feed in, enriched intelligence flows back.</p>
-        </div>
-        <div class="outcome-diagram">
-          <img src="images/cti/diagram-tools-connected.svg" alt="After diagram: CTI tools exchange data bidirectionally through Cosive integrations">
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Move from siloed tools to a unified system</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We integrate what you already have so data flows automatically between systems &mdash; your analysts spend their time on analysis, not copying and pasting between tabs.</p>
-      <a href="#contact" class="btn-primary">Talk to us about integration</a>
-    </div>
-  </div>
-</section>
-end of integrate your tools section -->
-
-<!-- 4. TIP integration -->
-<section class="infra-section infra-section--dark" id="platform-integration">
+<!-- 4. Integrations + Plugins -->
+<section class="infra-section infra-section--dark" id="integrations">
   <div class="container">
     <div class="misp-grid">
       <div class="infra-intro">
-        <div class="section-label">Platform integration</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Integrate with your existing threat intelligence platform</h2>
-        <p>Already running a TIP like MISP, OpenCTI, or EclecticIQ? We build the integrations that connect your security tools to your platform &mdash; so threat intelligence flows automatically into your detection and response workflows. We don&rsquo;t build or replace your TIP. We make it work harder by connecting it to everything else.</p>
-        <p>Examples of platforms we integrate: MISP, Microsoft Sentinel, EclecticIQ Intelligence Center, Swimlane SOAR, AssemblyLine, Microsoft SharePoint.</p>
+        <div class="section-label">Build integrations</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Connect your security tools into a unified system</h2>
+        <p>Tool sprawl is the enemy of effective security operations. When your SIEM, SOAR, EDR, and ticketing system don&rsquo;t talk to each other, your analysts waste time switching between consoles and manually correlating data. We integrate what you have so data flows automatically &mdash; alerts from your EDR enrich your SIEM, your SIEM triggers playbooks in your SOAR, and your SOAR updates your ticketing system.</p>
+        <p>We can deploy existing integrations or build custom ones just for you. We have been connecting security operations tools for 8 years, including integrations between Microsoft Sentinel, Splunk, CrowdStrike, Swimlane SOAR, ServiceNow, and MISP. If it has an API, we can connect it.</p>
         <a href="#contact" class="btn-primary" style="margin-top: var(--space-lg);">Discuss platform integration</a>
       </div>
       <div class="subsection-box" style="margin-top: 0; max-width: none;">
         <div class="outcome-diagram">
-          <img src="images/cti/diagram-cosive-integration.svg" alt="Diagram showing Your TIP connected to a Cosive Integration layer, with arrows to SIEM, SOAR, SharePoint, and AssemblyLine">
+          <img src="images/cti/diagram-cosive-integration.svg" alt="Diagram showing security tools connected through a Cosive Integration layer, with arrows to SIEM, SOAR, SharePoint, and AssemblyLine">
         </div>
       </div>
     </div>
@@ -1385,64 +1364,58 @@ end of integrate your tools section -->
       <div class="build-grid build-grid--4col">
         <div class="build-feature">
           <div class="build-feature-number">01</div>
-          <h3 class="build-feature-title">Custom plugin development</h3>
-          <p class="build-feature-desc">MISP modules, OpenCTI connectors, SOAR extensions &mdash; we build plugins that extend your existing platforms with new functionality.</p>
+          <h3 class="build-feature-title">SOAR integrations</h3>
+          <p class="build-feature-desc">Need a SOAR integration to connect to a cybersecurity tool you have? We can do that. We build integrations for Swimlane, Splunk SOAR, and others so playbooks can pull from and push to every tool in your stack.</p>
         </div>
         <div class="build-feature">
           <div class="build-feature-number">02</div>
-          <h3 class="build-feature-title">Cross-platform connectors</h3>
-          <p class="build-feature-desc">Connect any two platforms that expose an API. We&rsquo;ve been doing this for 8 years and can learn new platforms quickly.</p>
+          <h3 class="build-feature-title">EDR-to-SIEM connectors</h3>
+          <p class="build-feature-desc">Need a way of getting your EDR alerts into your SIEM? We can do that. We create connectors that keep your SIEM enriched with EDR telemetry in real time.</p>
         </div>
         <div class="build-feature">
           <div class="build-feature-number">03</div>
-          <h3 class="build-feature-title">Data enrichment plugins</h3>
-          <p class="build-feature-desc">Automatically enrich indicators with context from external sources. We build enrichment modules that plug directly into your TIP workflow.</p>
+          <h3 class="build-feature-title">Workflow automation plugins</h3>
+          <p class="build-feature-desc">We can help automate workflows within your favourite security tool, either natively (if supported by your tool) or as a plugin that provides additional services.</p>
         </div>
         <div class="build-feature">
           <div class="build-feature-number">04</div>
-          <h3 class="build-feature-title">Workflow automation</h3>
-          <p class="build-feature-desc">Automate triage, enrichment, and dissemination within your tools &mdash; either natively or as a plugin.</p>
+          <h3 class="build-feature-title">AI and analytics</h3>
+          <p class="build-feature-desc">If you want to make use of AI and machine learning inside your favourite application, we can do that too. We build modules for anomaly detection, indicator scoring, and automated classification.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6. Our approach -->
+<!-- 6. How we work -->
 <section class="infra-section infra-section--alt help-section">
   <div class="container">
-    <div class="section-label">Our approach</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">Built by engineers who understand threat intelligence standards</h2>
+    <div class="section-label">How we work</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-xl);">Engineering that keeps pace with your SOC</h2>
     <div class="icon-credentials">
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="3.75 4.5 16.5 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>CI/CD automation</strong> &mdash; every integration, playbook connector, and detection rule we build ships through automated pipelines. Changes deploy reliably, rollbacks are instant, and nothing depends on one person&rsquo;s laptop.</div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-item-icon">
+          <svg viewBox="2.65 2.25 18.7 19.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.431.992a6.759 6.759 0 0 1 0 .255c-.007.378.138.75.43.991l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+        </div>
+        <div class="icon-item-text"><strong>Infrastructure as Code</strong> &mdash; your security infrastructure is defined in version-controlled code, not manually configured consoles. When you need to scale, replicate an environment, or recover from an incident, everything is reproducible.</div>
+      </div>
       <div class="icon-item">
         <div class="icon-item-icon">
           <svg viewBox="1.5 1.5 21 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></svg>
         </div>
-        <div class="icon-item-text"><strong>API-first integration</strong> &mdash; we connect your TIP to the rest of your stack through well-documented APIs. Whether it&rsquo;s MISP, OpenCTI, or a commercial platform, we build integrations that stay working when APIs version or schemas change.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="0.75 3 22.5 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Open-source contributors</strong> &mdash; we are active contributors to MISP and the broader CTI tooling ecosystem. When we build for you, we are not learning the platform for the first time &mdash; we already know the codebase.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="1.25 1.25 21.5 21.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Automated testing</strong> &mdash; threat intelligence formats evolve, APIs add fields, and feed sources change structure. Our test suites catch breakages before your analysts notice, so your data pipelines stay reliable.</div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-item-icon">
-          <svg viewBox="3.75 1.5 16.5 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9z"/></svg>
-        </div>
-        <div class="icon-item-text"><strong>Full software lifecycle</strong> &mdash; from scoping what your analysts actually need, through to production support and documentation. Every MISP module, enrichment pipeline, or data connector we build gets the same engineering rigour as a product release.</div>
+        <div class="icon-item-text"><strong>API-first approach</strong> &mdash; if your SIEM, SOAR, or EDR exposes an API, we can integrate it. We have connected platforms across security operations for 8 years and can learn new tools quickly.</div>
       </div>
     </div>
     <div style="margin-top: var(--space-6xl); text-align: center;">
-      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Integrations that outlast the project</h3>
-      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">We have been building CTI integrations for 8 years. Everything we deliver is tested, version-controlled, and documented &mdash; so your team can maintain it, or we can support it ongoing.</p>
-      <a href="#contact" class="btn-primary">Talk to us about your CTI stack</a>
+      <h3 class="heading-style-h3" style="margin-bottom: var(--space-sm);">Production-grade engineering, not one-off scripts</h3>
+      <p style="font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-normal); margin-bottom: var(--space-lg); max-width: 40em; margin-left: auto; margin-right: auto;">Your SOC runs around the clock. The integrations and tools we build are tested, automated, and designed to run without intervention &mdash; so your team can focus on threats, not troubleshooting.</p>
+      <a href="#contact" class="btn-primary">Discuss your security operations project</a>
     </div>
   </div>
 </section>
@@ -1453,31 +1426,31 @@ end of integrate your tools section -->
     <div class="credentials-box">
         <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
         <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Eight years building the tools CTI teams rely on</h2>
+        <h2 class="heading-style-h2">We have been inside the SOC. We know what works.</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep expertise in CTI tools and standards</strong> &mdash; STIX/TAXII, MISP, OpenCTI, and structured intelligence standards</div>
+            <div class="icon-item-text"><strong>Deep expertise in security operations tooling</strong> &mdash; SIEM, SOAR, EDR, TIP, and incident response platforms</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <div class="icon-item-text"><strong>8 years of integration experience</strong> &mdash; connecting security tools across CTI, SecOps, and fraud</div>
+            <div class="icon-item-text"><strong>8 years building integrations for SOC teams</strong> &mdash; from alert enrichment pipelines to full platform builds</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Built integrations used across APAC</strong> &mdash; including national-scale threat intelligence sharing platforms</div>
+            <div class="icon-item-text"><strong>Trusted by government and critical infrastructure</strong> &mdash; we have built security operations tooling for national-scale programmes</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Contributors to open-source CTI tools</strong> &mdash; we understand the platforms because we help build them</div>
+            <div class="icon-item-text"><strong>Contributors to open-source security tools</strong> &mdash; we understand the platforms because we help build them</div>
           </div>
         </div>
       </div>
@@ -1492,94 +1465,84 @@ end of integrate your tools section -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">FAQ</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions about CTI integration and tooling</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about security operations tooling</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          Can you help me get threat intelligence into my MISP platform?
+          What SIEM and SOAR platforms can you integrate with?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes. We build custom integrations that connect your existing security tools to MISP. Whether you need to ingest threat feeds, push indicators from your SIEM, or automate the flow of intelligence from your SOAR &mdash; we can build the integration that makes it happen.</p>
+          <p>We work with Microsoft Sentinel, Splunk, Elastic Security, CrowdStrike Falcon, Swimlane, Splunk SOAR, and others. If your platform exposes an API or supports standard integration protocols, we can connect it. We have been building security operations integrations for 8 years and can learn new platforms quickly.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What TIP platforms do you support?
+          Can you build a custom tool for our SOC?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We work with MISP, OpenCTI, EclecticIQ Intelligence Center, and other STIX/TAXII-compatible platforms. We&rsquo;re TIP experts &mdash; MISP is our strongest area, but we can integrate with any platform that exposes an API or supports standard protocols.</p>
+          <p>Yes. If your team needs a tool that doesn&rsquo;t exist &mdash; a custom analyst workbench, a detection engineering console, an evidence collection platform &mdash; we can build it. Our developers are security engineers who understand SOC workflows. We scope each project by understanding how your analysts actually work, then build something that fits.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What languages do you develop in?
+          Can you connect our EDR to our SIEM?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Most CTI tooling we build is in Python &mdash; it&rsquo;s the standard for MISP modules, STIX processing, and enrichment pipelines. We also use TypeScript for web-based analyst dashboards and APIs, and Rust where high-throughput feed processing or indicator matching demands it. If your TIP ecosystem uses a specific language, we write code that fits into your existing codebase and contribution guidelines.</p>
+          <p>Yes. We build connectors that push EDR telemetry into your SIEM in real time &mdash; alerts, endpoint events, and detection metadata. We have built EDR-to-SIEM integrations for CrowdStrike, Microsoft Defender, and SentinelOne, and can work with any EDR that exposes an API.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What CI/CD platforms can you work with?
+          Can you automate our alert triage?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>GitHub Actions and GitLab CI/CD are the most common in CTI teams we work with, but we also build on Azure DevOps, Bitbucket Pipelines, and Jenkins. For MISP modules and TIP connectors specifically, we set up pipelines that run integration tests against a staging MISP instance before deployment &mdash; so you know a new module works before it touches production data.</p>
+          <p>Yes. We build automated triage workflows that score and enrich alerts before your analysts see them. Low-confidence alerts get deprioritised automatically, high-confidence alerts get fast-tracked with context attached. We can build this into your SOAR, as a standalone service, or as a plugin for your existing tools.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What development practices do you follow?
+          What is Detection-as-Code and should we use it?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>CTI data formats evolve &mdash; STIX adds fields, MISP schemas change, feed sources restructure their output. Our development practices are designed around that reality: automated tests that validate against real data samples, version-controlled configurations, dependency scanning, and code review on every change. When we hand over a MISP module or enrichment pipeline, your team can maintain it with confidence.</p>
+          <p>Detection-as-Code means managing your SIEM detection rules, correlation queries, and response playbooks as version-controlled code &mdash; with pull requests, automated testing, and CI/CD deployment. It is useful when your team has outgrown manually editing rules in a web console. We build the tooling and pipelines that make Detection-as-Code practical for SOC teams.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Can you build plugins for my security tool?
+          Do you provide ongoing support after building an integration?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>If it has an API, yes. We&rsquo;re TIP experts &mdash; we&rsquo;ve built MISP modules, OpenCTI connectors, and EclecticIQ extensions &mdash; but we can also build plugins for any technology that exposes an extension point or API.</p>
+          <p>Yes. Every project includes documentation and handover so your team can maintain it independently. We also offer ongoing support arrangements &mdash; monitoring, updates when vendor APIs change, and enhancements as your requirements evolve.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Can you help automate our CTI workflows?
+          How long does a typical SOC integration project take?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes &mdash; either natively within your tool or as a plugin. We build automated workflows for triage, enrichment, dissemination, and more. We also build AI/ML-powered analytics that can be embedded directly into your existing platforms.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          How long does a typical CTI integration take?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>A single MISP module or TIP connector typically takes a few weeks. Connecting your TIP to multiple downstream systems &mdash; SIEM, SOAR, ticketing &mdash; with proper data mapping and STIX translation usually takes longer. Full platform builds like Atraxium are measured in months. We scope each engagement based on the specific platforms and data flows involved, and give you a realistic timeline before we start.</p>
+          <p>It depends on scope. A straightforward API-to-API connector might take a few weeks. More complex projects involving multiple platforms, custom data mapping, or automation workflows take longer. We scope each engagement individually and give you a realistic timeline upfront.</p>
         </div>
       </details>
 
     </div>
     <div class="faq-image">
-      <img src="https://images.unsplash.com/photo-1619472351888-f844a0b33f5b?w=800&q=80" alt="Blue and red light illustration">
+      <img src="images/secops/faq-tools-workshop.jpg" alt="Engineer working with tools">
     </div>
     </div>
   </div>
@@ -1594,9 +1557,9 @@ end of integrate your tools section -->
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
       <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">How can we help?</h2>
-      <p class="contact-subtitle">Tell us about your threat intelligence tooling and integration needs and we&rsquo;ll get back to you as soon as possible.</p>
+      <p class="contact-subtitle">Tell us about your security operations tooling needs &mdash; whether it&rsquo;s integrating existing platforms, automating workflows, or building something new.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="Cyber Threat Intelligence">
+        <input type="hidden" name="category" value="Cybersecurity Operations">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>
