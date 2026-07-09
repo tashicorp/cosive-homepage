@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 750 240">
+  <defs>
+    <marker id="a" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+    <marker id="b" markerHeight="7" markerWidth="7" orient="auto" refX="1" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="M10 1 1 5l9 4z"/></marker>
+  </defs>
+
+  <!-- ===== LAYER 1: ARROWS ===== -->
+
+  <!-- TAXII -> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M200 55 300 100"/>
+  <!-- MISP Sharing -> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M200 120 300 120"/>
+  <!-- Integration -> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M200 185 300 140"/>
+  <!-- Custom Dev -> CloudMISP (dashed) -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" stroke-dasharray="4 3" d="M375 210 375 148"/>
+
+  <!-- CloudMISP -> Partners (right side) -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 100 545 55"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-start="url(#b)" marker-end="url(#a)" d="M440 120 545 120"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 140 545 185"/>
+
+  <!-- ===== LAYER 2: NODES ===== -->
+
+  <!-- CloudMISP (hub, centre) -->
+  <rect width="140" height="56" x="300" y="92" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+  <g transform="translate(349,98) scale(0.11290,0.11268)">
+    <path d="M3 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0 40-65 62 0" fill="none" stroke="#bdbdbd" stroke-width="6.55" stroke-linecap="round"/>
+    <path d="M33 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0" fill="none" stroke="#e53834" stroke-width="6.55" stroke-linecap="round"/>
+  </g>
+  <text x="370" y="134" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">CloudMISP</text>
+
+  <!-- ADD-ON MODULES (left side) -->
+
+  <!-- TAXII Sharing Server -->
+  <rect width="130" height="42" x="35" y="34" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M85 43v6m-5-3h10m-8 6h6a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"/>
+  <text x="100" y="62" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">TAXII Sharing</text>
+
+  <!-- MISP Sharing Server -->
+  <rect width="130" height="42" x="35" y="99" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M85 108a4 4 0 1 0 8 0 4 4 0 0 0-8 0m4 4v6m-5-3h10"/>
+  <text x="100" y="128" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">MISP Sharing</text>
+
+  <!-- Integration Sharing Server -->
+  <rect width="130" height="42" x="35" y="164" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M82 175h7l3 4 3-4h7M85 183h12"/>
+  <text x="100" y="193" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Integration Sharing</text>
+
+  <!-- Custom Development -->
+  <rect width="130" height="42" x="310" y="192" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M365 201l-4 5 4 5m8-10l4 5-4 5"/>
+  <text x="375" y="227" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Custom Development</text>
+
+  <!-- PARTNER OUTPUTS (right side) -->
+
+  <!-- TAXII Consumers -->
+  <rect width="130" height="42" x="585" y="34" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="650" y="59" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">TAXII Consumers</text>
+
+  <!-- Partner Orgs -->
+  <rect width="130" height="42" x="585" y="99" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="650" y="124" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Partner Orgs</text>
+
+  <!-- Internal Tools -->
+  <rect width="130" height="42" x="585" y="164" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="650" y="189" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Internal Tools</text>
+
+  <!-- ===== LAYER 3: LABELS ===== -->
+
+  <!-- Left column heading -->
+  <text x="100" y="22" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#5f6368" letter-spacing="0.08em" text-anchor="middle">ADD-ON MODULES</text>
+
+  <!-- Right column heading -->
+  <text x="650" y="22" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#5f6368" letter-spacing="0.08em" text-anchor="middle">CONNECTED SYSTEMS</text>
+
+  <!-- Connection labels -->
+  <rect x="213" y="63" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="249" y="75" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">STIX / TAXII</text>
+
+  <rect x="220" y="112" width="58" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="249" y="124" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">MISP sync</text>
+
+  <rect x="213" y="162" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="249" y="174" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">API bridge</text>
+
+  <rect x="460" y="63" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="496" y="75" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">TAXII feed</text>
+
+  <rect x="460" y="112" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="496" y="124" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">CTI sharing</text>
+
+  <rect x="460" y="162" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="496" y="174" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Integrations</text>
+</svg>

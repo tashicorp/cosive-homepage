@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 750 240">
+  <defs>
+    <marker id="a" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+    <marker id="b" markerHeight="7" markerWidth="7" orient="auto" refX="1" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="M10 1 1 5l9 4z"/></marker>
+  </defs>
+
+  <!-- ===== LAYER 1: ARROWS ===== -->
+
+  <!-- CloudMISP -> SIEM -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 100 545 50"/>
+  <!-- CloudMISP -> SOAR -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 110 545 100"/>
+  <!-- CloudMISP -> EDR -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 120 545 150"/>
+  <!-- CloudMISP -> Firewalls -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M440 130 545 200"/>
+
+  <!-- Feeds -> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M200 50 300 100"/>
+  <!-- Analysts <-> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-start="url(#b)" marker-end="url(#a)" d="M200 120 300 115"/>
+  <!-- Partners -> CloudMISP -->
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M200 190 300 130"/>
+
+  <!-- ===== LAYER 2: NODES ===== -->
+
+  <!-- CloudMISP (hub, centre) -->
+  <rect width="140" height="56" x="300" y="87" fill="#fef2f2" stroke="#e53834" stroke-width="1.5" rx="8"/>
+  <g transform="translate(349,93) scale(0.11290,0.11268)">
+    <path d="M3 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0 40-65 62 0" fill="none" stroke="#bdbdbd" stroke-width="6.55" stroke-linecap="round"/>
+    <path d="M33 71c22-65 40-65 62 0s40 65 62 0 40-65 62 0 40 65 62 0" fill="none" stroke="#e53834" stroke-width="6.55" stroke-linecap="round"/>
+  </g>
+  <text x="370" y="129" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">CloudMISP</text>
+
+  <!-- INPUT SOURCES (left) -->
+
+  <!-- Threat Intel Feeds -->
+  <rect width="120" height="42" x="80" y="29" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M128 38h8l-4 8zM128 47v10"/>
+  <text x="140" y="63" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Threat Intel Feeds</text>
+
+  <!-- Your Analysts -->
+  <rect width="120" height="42" x="80" y="99" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M132.5 108a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M140.5 108a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M130.5 115a5.5 4 0 0 1 11 0M138.5 115a5.5 4 0 0 1 11 0"/>
+  <text x="140" y="132" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Your Analysts</text>
+
+  <!-- Sharing Partners -->
+  <rect width="120" height="42" x="80" y="169" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M132.5 178a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M140.5 178a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M130.5 185a5.5 4 0 0 1 11 0M138.5 185a5.5 4 0 0 1 11 0"/>
+  <text x="140" y="202" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Sharing Partners</text>
+
+  <!-- OUTPUT SYSTEMS (right) -->
+
+  <!-- SIEM -->
+  <rect width="120" height="42" x="585" y="29" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M638 42v16M642 47v11M646 39v19M650 44v14"/>
+  <text x="645" y="63" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">SIEM</text>
+  <text x="645" y="48" fill="#5f6368" font-family="Manrope, sans-serif" font-size="8" font-weight="500" text-anchor="middle">Microsoft Sentinel</text>
+
+  <!-- SOAR -->
+  <rect width="120" height="42" x="585" y="79" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M640 88l5 5-5 5M650 88l-5 5 5 5"/>
+  <text x="645" y="113" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">SOAR</text>
+
+  <!-- EDR / XDR -->
+  <rect width="120" height="42" x="585" y="129" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M638 140a7 7 0 1 0 14 0 7 7 0 0 0-14 0m7 7v4"/>
+  <text x="645" y="163" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">EDR / XDR</text>
+
+  <!-- Firewalls -->
+  <rect width="120" height="42" x="585" y="179" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M638 190h14M638 195h14M638 200h14"/>
+  <text x="645" y="213" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Firewalls / Proxies</text>
+
+  <!-- ===== LAYER 3: LABELS ===== -->
+
+  <!-- Column headings -->
+  <text x="140" y="18" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#5f6368" letter-spacing="0.08em" text-anchor="middle">INTEL SOURCES</text>
+  <text x="370" y="78" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#5f6368" letter-spacing="0.08em" text-anchor="middle">YOUR CTI PLATFORM</text>
+  <text x="645" y="18" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#5f6368" letter-spacing="0.08em" text-anchor="middle">SECURITY TOOLS</text>
+
+  <!-- Connection labels -->
+  <rect x="212" y="62" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="248" y="74" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Feed ingestion</text>
+
+  <rect x="212" y="112" width="62" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="243" y="124" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Curation</text>
+
+  <rect x="212" y="162" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="248" y="174" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">CTI sharing</text>
+
+  <rect x="460" y="62" width="58" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="489" y="74" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">IOCs</text>
+
+  <rect x="460" y="95" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="496" y="107" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Playbooks</text>
+
+  <rect x="460" y="142" width="58" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="489" y="154" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Alerts</text>
+
+  <rect x="460" y="192" width="72" height="16" rx="2" fill="#f8f9fa"/>
+  <text x="496" y="204" font-family="Manrope, sans-serif" font-size="9.5" fill="#1a1a1a" font-weight="600" text-anchor="middle">Block lists</text>
+</svg>

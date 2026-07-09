@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudMISP — Managed MISP Hosting for CTI Teams - Cosive</title>
+<meta name="description" content="CloudMISP is an enterprise-grade managed MISP platform. Three tiers — Core, Accelerator, and Share — give your team the threat intelligence platform it needs, without the infrastructure overhead.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+/* ===================================================================
+   CloudMISP Landing Page — all classes use cm- prefix
+   =================================================================== */
+
+/* --- Variables (Webflow-equivalent) --- */
+:root {
+  --color-dark: #0e141c;
+  --color-white: #ffffff;
+  --color-background: #ffffff;
+  --color-light-grey: #f8f9fa;
+  --color-border: #e8eaed;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #5f6368;
+  --color-accent: #e53834;
+  --color-accent-dark: #c1121f;
+  --color-mid-grey: #f0f0f0;
+  --color-blue: #2ab6f6;
+
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+  --space-5xl: 5rem;
+  --space-6xl: 6rem;
+  --space-7xl: 8rem;
+  --space-8xl: 10rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.5rem;
+  --text-6xl: 3rem;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.55;
+  --leading-loose: 1.75;
+
+  --tracking-uppercase: 0.08em;
+
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  --container-narrow: 640px;
+  --container-standard: 768px;
+  --container-page: 1400px;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+/* --- Shared utilities --- */
+.cm-wrap {
+  max-width: var(--container-page);
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+}
+.cm-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-uppercase);
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+.cm-h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-6xl);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.cm-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+}
+.cm-h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+}
+.cm-btn--primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cm-btn--primary:hover { background: var(--color-accent-dark); }
+
+/* ===================================================================
+   1. HEADER — cm-topbar
+   =================================================================== */
+.cm-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--space-5xl);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.cm-topbar__inner {
+  max-width: var(--container-page);
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cm-topbar__logo img { height: var(--space-xl); width: auto; }
+.cm-topbar__nav { display: flex; align-items: center; gap: var(--space-xl); }
+.cm-topbar__nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+.cm-topbar__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding: var(--space-xs) 0;
+  transition: color 0.2s;
+}
+.cm-topbar__link:hover { color: var(--color-accent); }
+.cm-topbar__link--active {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+}
+.cm-topbar__cta {
+  display: inline-flex;
+  padding: var(--space-xs) var(--space-lg);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: background 0.2s;
+}
+.cm-topbar__cta:hover { background: var(--color-accent-dark); }
+.cm-topbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+.cm-topbar__toggle svg { width: 24px; height: 24px; stroke: var(--color-text-primary); }
+
+/* ===================================================================
+   2. HERO — cm-hero
+   =================================================================== */
+.cm-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-dark);
+  background-image: radial-gradient(ellipse at 30% 50%, rgba(229,56,52,0.08) 0%, transparent 60%),
+                     radial-gradient(ellipse at 70% 80%, rgba(42,182,246,0.05) 0%, transparent 50%);
+  padding: var(--space-7xl) 0 var(--space-8xl);
+}
+.cm-hero::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  z-index: 0;
+  pointer-events: none;
+  background: url('images/cti/cloudmisp-clouds-bg.webp') center / cover no-repeat;
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+.cm-hero > .cm-wrap {
+  position: relative;
+  z-index: 1;
+}
+.cm-hero__grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+.cm-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.5);
+}
+.cm-hero__breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+.cm-hero__breadcrumb a:hover { color: var(--color-white); }
+.cm-hero__breadcrumb svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.5); flex-shrink: 0; }
+.cm-hero__breadcrumb .cm-hero__crumb-current { color: rgba(255,255,255,0.8); }
+.cm-hero__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-xl);
+}
+.cm-hero__subtitle {
+  font-size: var(--text-xl);
+  color: rgba(255,255,255,0.7);
+  line-height: var(--leading-normal);
+  max-width: 540px;
+}
+.cm-hero__subtitle + .cm-hero__subtitle { margin-top: var(--space-md); }
+.cm-hero__subtitle strong {
+  color: var(--color-white);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+.cm-hero__form-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.cm-hero__form-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Shared form styles --- */
+.cm-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.cm-form__group { margin-bottom: var(--space-md); }
+.cm-form__group label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-2xs);
+}
+.cm-form__group input,
+.cm-form__group textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: border-color 0.2s;
+}
+.cm-form__group input:focus,
+.cm-form__group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+.cm-form__group textarea { resize: vertical; }
+
+/* ===================================================================
+   3. INTRO — cm-intro
+   =================================================================== */
+.cm-intro {
+  padding: var(--space-8xl) 0;
+  background: var(--color-white);
+}
+.cm-intro__text {
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+  text-align: center;
+}
+.cm-intro__text .cm-label { margin-bottom: var(--space-md); }
+.cm-intro__text p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  margin-top: var(--space-lg);
+}
+.cm-intro__diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  background: var(--color-light-grey);
+}
+.cm-intro__diagram img { width: 100%; }
+
+/* ===================================================================
+   3b. ANALYST EXPERIENCE — cm-analyst
+   =================================================================== */
+.cm-analyst {
+  padding: var(--space-8xl) 0;
+  background: var(--color-white);
+}
+.cm-analyst__text {
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+  text-align: center;
+}
+.cm-analyst__text .cm-label { margin-bottom: var(--space-md); }
+.cm-analyst__text p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  margin-top: var(--space-lg);
+}
+.cm-analyst__screenshot {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.cm-analyst__screenshot img { width: 100%; }
+
+/* ===================================================================
+   4. CUSTOMER QUOTES — cm-quotes
+   =================================================================== */
+.cm-quotes {
+  padding: var(--space-8xl) 0;
+  background: var(--color-light-grey);
+}
+.cm-quotes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+.cm-quotes__header {
+  text-align: center;
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+}
+.cm-quotes__card {
+  background: var(--color-white);
+  border-radius: var(--radius-none);
+  padding: var(--space-xl);
+  border: none;
+  border-left: 3px solid var(--color-accent);
+}
+.cm-quotes__mark {
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+.cm-quotes__text {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+.cm-quotes__attribution {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+.cm-quotes__role {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.cm-quotes__org {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2xs);
+}
+
+/* ===================================================================
+   5. THREE VERSIONS — cm-tiers
+   =================================================================== */
+.cm-tiers {
+  padding: var(--space-8xl) 0;
+  background: var(--color-white);
+}
+.cm-tiers__head {
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+  text-align: center;
+}
+.cm-tiers__head p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-lg);
+}
+.cm-tiers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+}
+.cm-tiers__card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  position: relative;
+}
+.cm-tiers__card-name {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2xs);
+}
+.cm-tiers__card-tag {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+.cm-tiers__features li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+.cm-tiers__features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Featured tier */
+.cm-tiers__card--featured {
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 4px 20px rgba(229,56,52,0.1);
+}
+.cm-tiers__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-2xs) var(--space-md);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Share tier */
+.cm-tiers__card--share {
+  border: 1px solid var(--color-blue);
+}
+.cm-tiers__badge--blue {
+  background: var(--color-blue);
+}
+.cm-tiers__card--share .cm-tiers__features li::before { background: var(--color-blue); }
+
+.cm-tiers__diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+.cm-tiers__diagram img { width: 100%; }
+
+/* ===================================================================
+   6. ADD-ONS — cm-addons
+   =================================================================== */
+.cm-addons {
+  padding: var(--space-8xl) 0;
+  background: var(--color-light-grey);
+  border-top: 4px solid var(--color-blue);
+}
+.cm-addons__head {
+  max-width: var(--container-standard);
+  margin-bottom: var(--space-4xl);
+}
+.cm-addons__head p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-lg);
+}
+.cm-addons__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+}
+.cm-addons__card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+}
+.cm-addons__icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-mid-grey);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cm-addons__icon svg { width: 20px; height: 20px; stroke: var(--color-text-secondary); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-addons__card-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-2xs);
+}
+.cm-addons__card-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+.cm-addons__diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  background: var(--color-white);
+}
+.cm-addons__diagram img { width: 100%; }
+
+/* ===================================================================
+   7. CONSUME — cm-consume
+   =================================================================== */
+.cm-consume {
+  padding: var(--space-8xl) 0;
+  background: var(--color-white);
+}
+.cm-consume__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+.cm-consume__text p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  margin: var(--space-lg) 0;
+}
+.cm-consume__diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+.cm-consume__diagram img { width: 100%; }
+
+/* ===================================================================
+   8 & 10. CASE STUDIES — cm-case
+   =================================================================== */
+.cm-case {
+  padding: var(--space-8xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+.cm-case__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+.cm-case__text .cm-label { margin-bottom: var(--space-md); }
+.cm-case__text p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  margin-top: var(--space-lg);
+}
+.cm-case__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+.cm-case__metric-val {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+}
+.cm-case__metric-lbl {
+  font-size: var(--text-sm);
+  margin-top: var(--space-2xs);
+}
+.cm-case__image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.cm-case__image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* Dark variant */
+.cm-case--dark {
+  background: var(--color-dark);
+}
+.cm-case--dark .cm-case__text { color: var(--color-white); }
+.cm-case--dark .cm-case__text p { color: rgba(255,255,255,0.7); }
+.cm-case--dark .cm-case__metric-val { color: var(--color-accent); }
+.cm-case--dark .cm-case__metric-lbl { color: rgba(255,255,255,0.6); }
+.cm-case--dark .cm-case__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-dark) 0%, transparent 50%);
+}
+.cm-case--dark .cm-case__image img { filter: grayscale(0.5); }
+
+/* Light variant */
+.cm-case--light {
+  background: var(--color-white);
+}
+.cm-case--light .cm-case__metric-val { color: var(--color-accent); }
+.cm-case--light .cm-case__metric-lbl { color: var(--color-text-secondary); }
+.cm-case--light .cm-case__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, var(--color-white) 0%, transparent 50%);
+}
+.cm-case--light .cm-case__image img { filter: grayscale(0.3); }
+
+/* ===================================================================
+   9. SHARE — cm-share
+   =================================================================== */
+.cm-share {
+  padding: var(--space-8xl) 0;
+  background: var(--color-light-grey);
+}
+.cm-share__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+.cm-share__diagram {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: var(--color-white);
+}
+.cm-share__diagram img { width: 100%; }
+.cm-share__text p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  margin: var(--space-lg) 0;
+}
+
+/* --- Enterprise features (inside cm-intro) --- */
+.cm-intro__features {
+  margin-top: var(--space-7xl);
+}
+.cm-intro__features-head {
+  text-align: center;
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+}
+.cm-intro__features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4xl);
+}
+.cm-intro__features-item {
+  transition: transform 0.2s;
+}
+.cm-intro__features-item:hover { transform: translateY(-2px); }
+.cm-intro__features-icon {
+  display: inline-flex;
+  margin-bottom: var(--space-md);
+}
+.cm-intro__features-icon svg { width: 2rem; height: 2rem; stroke: var(--color-accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-intro__features-item h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+.cm-intro__features-item p {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ===================================================================
+   12. WHY COSIVE — cm-why
+   =================================================================== */
+.cm-why {
+  padding: var(--space-8xl) 0;
+  background: var(--color-dark);
+}
+.cm-why__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+.cm-why__sinewave { width: 5rem; margin-bottom: var(--space-xl); }
+.cm-why__text .cm-label { color: var(--color-accent); }
+.cm-why__text .cm-h2 { color: var(--color-white); margin-bottom: var(--space-xl); }
+.cm-why__list { display: flex; flex-direction: column; gap: var(--space-lg); }
+.cm-why__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.cm-why__list-item:last-child { border-bottom: none; padding-bottom: 0; }
+.cm-why__list-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cm-why__list-icon svg { width: 1.5rem; height: 1.5rem; stroke: var(--color-accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cm-why__list-text {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.7);
+  line-height: var(--leading-normal);
+}
+.cm-why__list-text strong { color: var(--color-white); }
+.cm-why__photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.cm-why__photo img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+.cm-why__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
+}
+
+/* ===================================================================
+   13. FAQ — cm-faq
+   =================================================================== */
+.cm-faq {
+  padding: var(--space-8xl) 0;
+  background: var(--color-white);
+}
+.cm-faq__head {
+  text-align: center;
+  max-width: var(--container-standard);
+  margin: 0 auto var(--space-4xl);
+}
+.cm-faq__inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+.cm-faq__list details {
+  border-bottom: 1px solid var(--color-border);
+}
+.cm-faq__list details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+.cm-faq__list details summary::-webkit-details-marker { display: none; }
+.cm-faq__list details summary::marker { display: none; content: ''; }
+.cm-faq__chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-text-secondary);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s;
+}
+.cm-faq__list details[open] .cm-faq__chevron { transform: rotate(180deg); }
+.cm-faq__answer {
+  padding-bottom: var(--space-lg);
+}
+.cm-faq__answer p {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+}
+.cm-faq__answer p + p { margin-top: var(--space-md); }
+.cm-faq__image {
+  position: sticky;
+  top: 6rem;
+}
+.cm-faq__image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* ===================================================================
+   14. CONTACT — cm-contact
+   =================================================================== */
+.cm-contact {
+  padding: var(--space-8xl) 0;
+  background: var(--color-light-grey);
+}
+.cm-contact__inner {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  text-align: center;
+}
+.cm-contact__inner .cm-h2 { margin-bottom: var(--space-md); }
+.cm-contact__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3xl);
+}
+.cm-contact__form { text-align: left; }
+.cm-contact__form .cm-btn--primary { width: 100%; padding: var(--space-md); }
+
+/* ===================================================================
+   15. FOOTER — cm-bottom-bar
+   =================================================================== */
+.cm-bottom-bar {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-xl) 0;
+}
+.cm-bottom-bar__inner {
+  max-width: var(--container-page);
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cm-bottom-bar__logo img { height: var(--space-xl); width: auto; }
+.cm-bottom-bar__links {
+  display: flex;
+  gap: var(--space-lg);
+}
+.cm-bottom-bar__links a {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+.cm-bottom-bar__links a:hover { color: var(--color-accent); }
+.cm-bottom-bar__copy {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ===================================================================
+   RESPONSIVE — 1200px
+   =================================================================== */
+@media (max-width: 1200px) {
+  .cm-hero__grid { grid-template-columns: 1fr; }
+  .cm-hero__subtitle { max-width: 100%; }
+  .cm-hero__form-card { max-width: 540px; }
+  .cm-quotes__grid { grid-template-columns: 1fr 1fr; }
+  .cm-tiers__grid { grid-template-columns: 1fr 1fr; }
+  .cm-intro__features-grid { grid-template-columns: 1fr 1fr; }
+  .cm-faq__image { display: none; }
+  .cm-faq__inner { grid-template-columns: 1fr; }
+}
+
+/* ===================================================================
+   RESPONSIVE — 900px
+   =================================================================== */
+@media (max-width: 900px) {
+  .cm-wrap { padding: 0 var(--space-lg); }
+  .cm-topbar__inner { padding: 0 var(--space-lg); }
+  .cm-topbar__nav {
+    display: none;
+    position: absolute;
+    top: var(--space-5xl);
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: var(--space-lg);
+  }
+  .cm-topbar__nav.cm-topbar__nav--open { display: block; }
+  .cm-topbar__nav ul { flex-direction: column; gap: var(--space-md); align-items: stretch; }
+  .cm-topbar__nav li { text-align: center; }
+  .cm-topbar__toggle { display: block; }
+
+  .cm-h1 { font-size: var(--text-5xl); }
+  .cm-h2 { font-size: var(--text-3xl); }
+
+  .cm-hero { padding: var(--space-5xl) 0 var(--space-7xl); }
+  .cm-intro,
+  .cm-analyst,
+  .cm-quotes,
+  .cm-tiers,
+  .cm-addons,
+  .cm-consume,
+  .cm-case,
+  .cm-share,
+  .cm-why,
+  .cm-faq,
+  .cm-contact { padding: var(--space-7xl) 0; }
+
+  .cm-quotes__grid,
+  .cm-tiers__grid,
+  .cm-addons__grid,
+  .cm-intro__features-grid { grid-template-columns: 1fr; }
+
+  .cm-consume__grid,
+  .cm-share__grid,
+  .cm-case__grid,
+  .cm-why__grid { grid-template-columns: 1fr; }
+
+  .cm-case__metrics { grid-template-columns: repeat(3, 1fr); }
+
+  .cm-bottom-bar__inner { padding: 0 var(--space-lg); }
+}
+
+/* ===================================================================
+   RESPONSIVE — 600px
+   =================================================================== */
+@media (max-width: 600px) {
+  .cm-h1 { font-size: var(--text-4xl); }
+  .cm-h2 { font-size: var(--text-2xl); }
+  .cm-h3 { font-size: var(--text-xl); }
+
+  .cm-form__row { grid-template-columns: 1fr; }
+
+  .cm-hero { padding: var(--space-4xl) 0 var(--space-5xl); }
+  .cm-intro,
+  .cm-analyst,
+  .cm-quotes,
+  .cm-tiers,
+  .cm-addons,
+  .cm-consume,
+  .cm-case,
+  .cm-share,
+  .cm-why,
+  .cm-faq,
+  .cm-contact { padding: var(--space-5xl) 0; }
+
+  .cm-case__metrics { grid-template-columns: 1fr 1fr; }
+
+  .cm-bottom-bar__inner {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+  .cm-bottom-bar__links { flex-wrap: wrap; justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     1. HEADER
+     ============================================================ -->
+<header class="cm-topbar">
+  <div class="cm-topbar__inner">
+    <a href="index.html" class="cm-topbar__logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="cm-topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="cm-topbar__nav">
+      <ul>
+        <li><a href="cloudmisp.html" class="cm-topbar__link cm-topbar__link--active">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html" class="cm-topbar__link">CTI</a></li>
+        <li><a href="security-operations.html" class="cm-topbar__link">SecOps</a></li>
+        <li><a href="fraud-data-sharing.html" class="cm-topbar__link">Fraud</a></li>
+        <li><a href="/resources" class="cm-topbar__link">Resources</a></li>
+        <li><a href="/about" class="cm-topbar__link">About</a></li>
+        <li><a href="/contact-us" class="cm-topbar__cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section class="cm-hero">
+  <div class="cm-wrap">
+    <div class="cm-hero__grid">
+      <div class="cm-hero__content">
+        <nav class="cm-hero__breadcrumb">
+          <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+          <span>/</span>
+          <span class="cm-hero__crumb-current">CloudMISP</span>
+        </nav>
+        <h1 class="cm-h1 cm-hero__title">Managed & Hosted MISP Service - CloudMISP</h1>
+        <p class="cm-hero__subtitle">CloudMISP gives your analysts a production-grade MISP instance — fully managed, always current, and ready to connect to the tools and communities you already work with.</p>
+        <p class="cm-hero__subtitle">Whether you are building your first CTI capability or running a national sharing community, <strong>we handle the infrastructure so your team can focus on the intelligence.</strong></p>
+      </div>
+      <div class="cm-hero__form-card">
+        <div class="cm-hero__form-title">Talk to us about CloudMISP</div>
+        <form class="cm-form" action="#" method="post">
+          <input type="hidden" name="category" value="CloudMISP">
+          <div class="cm-form__row">
+            <div class="cm-form__group">
+              <label for="banner-first-name">First name</label>
+              <input type="text" id="banner-first-name" name="first_name" required>
+            </div>
+            <div class="cm-form__group">
+              <label for="banner-last-name">Last name</label>
+              <input type="text" id="banner-last-name" name="last_name" required>
+            </div>
+          </div>
+          <div class="cm-form__group">
+            <label for="banner-email">Email</label>
+            <input type="email" id="banner-email" name="email" required>
+          </div>
+          <div class="cm-form__group">
+            <label for="banner-company">Company</label>
+            <input type="text" id="banner-company" name="company">
+          </div>
+          <div class="cm-form__group">
+            <label for="banner-message">Message</label>
+            <textarea id="banner-message" name="message" rows="4"></textarea>
+          </div>
+          <button type="submit" class="cm-btn--primary" style="width:100%">Talk to us</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. WHAT IS CLOUDMISP
+     ============================================================ -->
+<section class="cm-intro" id="what-is-cloudmisp">
+  <div class="cm-wrap">
+    <div class="cm-intro__text">
+      <div class="cm-label">CloudMISP</div>
+      <h2 class="cm-h2">Enterprise-grade MISP, managed by the people who know it best</h2>
+      <p>CloudMISP is an enterprise-grade managed MISP platform built and operated by Cosive. We handle the infrastructure, upgrades, backups, and monitoring so your analysts can focus on what matters — creating, curating, and sharing threat intelligence.</p>
+      <p>Whether you are a single team getting started with CTI or a national sharing community connecting dozens of organisations, CloudMISP scales to meet you where you are.</p>
+    </div>
+    <div class="cm-intro__diagram">
+      <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP architecture overview — showing connections to analysts, identity providers, SIEMs, sharing communities, infrastructure, and threat intel feeds">
+    </div>
+    <div class="cm-intro__features" id="enterprise">
+      <div class="cm-intro__features-head">
+        <div class="cm-label">Enterprise features</div>
+        <h2 class="cm-h2">What we handle so your team doesn't have to</h2>
+      </div>
+      <div class="cm-intro__features-grid">
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Unique features your team needs</h3>
+          <p>SSO, built-in TAXII server, custom SIEM integrations, and workflow automation that goes beyond what open-source MISP offers out of the box.</p>
+        </div>
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Any AWS region globally</h3>
+          <p>Deploy in the AWS region that meets your data residency requirements — including EU Sovereign Cloud for organisations with strict data localisation mandates.</p>
+        </div>
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Highly available</h3>
+          <p>Self-healing architecture with watchdog services that detect and recover from failures automatically. Your analysts should not notice infrastructure issues — and they will not.</p>
+        </div>
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Comprehensive upgrade testing</h3>
+          <p>Every MISP upgrade goes through code review, unit tests, system tests, synthetic user testing, and manual QA before it reaches your instance. We catch problems so you do not have to.</p>
+        </div>
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Minimal maintenance windows</h3>
+          <p>Blue/green deployments mean upgrades typically cause less than four seconds of disruption. No extended outage windows, no weekend maintenance emails.</p>
+        </div>
+        <div class="cm-intro__features-item">
+          <div class="cm-intro__features-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <h3>Automated backups</h3>
+          <p>Encrypted, cross-region backups ensure your data survives even regional infrastructure failures. Recovery is tested regularly — not just documented.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3b. THE ANALYST EXPERIENCE
+     ============================================================ -->
+<section class="cm-analyst">
+  <div class="cm-wrap">
+    <div class="cm-analyst__text">
+      <div class="cm-label">The analyst experience</div>
+      <h2 class="cm-h2">See threats clearly — correlate, prioritise, and act</h2>
+      <p>MISP gives your analysts a single view across every feed, every source, and every sharing community your organisation participates in. Events, attributes, and correlations surface together so your team can spot patterns, prioritise what matters, and move from alert to action without switching tools.</p>
+      <p>CloudMISP's Insight UI is purpose-built for this workflow — designed to make threat intelligence operational, not just stored.</p>
+    </div>
+    <div class="cm-analyst__screenshot">
+      <img src="images/cti/cloudmisp-insight-ui-events-index.png" alt="CloudMISP Insight UI — events index showing threat intelligence events, attributes, and correlations">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. CUSTOMER QUOTES
+     ============================================================ -->
+<section class="cm-quotes">
+  <div class="cm-wrap">
+    <div class="cm-quotes__header">
+      <div class="cm-label">What our customers say</div>
+      <h2 class="cm-h2">Trusted by CTI teams worldwide</h2>
+    </div>
+    <div class="cm-quotes__grid">
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">We trialled self-hosting MISP for six months. Within a week of migrating to CloudMISP we had more feeds connected, better uptime, and our analysts actually started using it daily.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">CTI Manager</span>
+          <span class="cm-quotes__org">Energy sector &middot; Australia</span>
+        </div>
+      </div>
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">The Cosive team understands the operational reality of running a CTI programme. CloudMISP is not just hosting — it is a genuine partnership that has accelerated our sharing capability.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">Head of Cyber</span>
+          <span class="cm-quotes__org">Financial services &middot; Asia-Pacific</span>
+        </div>
+      </div>
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">We needed a platform our sector partners could trust. CloudMISP gave us enterprise-grade infrastructure and Cosive handled the onboarding for every member organisation.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">CISO</span>
+          <span class="cm-quotes__org">Infrastructure operator &middot; Europe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. THREE VERSIONS
+     ============================================================ -->
+<section class="cm-tiers" id="tiers">
+  <div class="cm-wrap">
+    <div class="cm-tiers__head">
+      <div class="cm-label">Three versions</div>
+      <h2 class="cm-h2">Choose the CloudMISP that fits your team</h2>
+      <p>Every CloudMISP instance runs on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. The tiers differ in the level of customisation, integration support, and sharing features you need.</p>
+    </div>
+    <div class="cm-tiers__grid">
+      <!-- Core -->
+      <div class="cm-tiers__card">
+        <h3 class="cm-tiers__card-name">Core</h3>
+        <div class="cm-tiers__card-tag">Production-grade managed MISP</div>
+        <ul class="cm-tiers__features">
+          <li>Production-grade MISP instance on dedicated infrastructure</li>
+          <li>Automatic upgrades with comprehensive testing</li>
+          <li>Encrypted, cross-region backups</li>
+          <li>SSO via Okta, Azure Entra ID, or SAML</li>
+          <li>Email support during business hours</li>
+          <li>Feed ingestion and basic correlation</li>
+          <li>Dedicated, isolated tenancy — your data never shares infrastructure</li>
+        </ul>
+      </div>
+      <!-- Accelerator -->
+      <div class="cm-tiers__card cm-tiers__card--featured">
+        <span class="cm-tiers__badge">Most popular</span>
+        <h3 class="cm-tiers__card-name">Accelerator</h3>
+        <div class="cm-tiers__card-tag">Custom integrations and priority support</div>
+        <ul class="cm-tiers__features">
+          <li>Everything in Core</li>
+          <li>Custom SIEM, SOAR, and EDR integrations</li>
+          <li>Advanced feed management and enrichment</li>
+          <li>Priority support with dedicated account manager</li>
+          <li>IOC ageing and lifecycle management</li>
+          <li>Quarterly platform reviews with Cosive engineers</li>
+        </ul>
+      </div>
+      <!-- Share -->
+      <div class="cm-tiers__card cm-tiers__card--share">
+        <span class="cm-tiers__badge cm-tiers__badge--blue">For sharing communities</span>
+        <h3 class="cm-tiers__card-name">Share</h3>
+        <div class="cm-tiers__card-tag">Built for ISACs and sector communities</div>
+        <ul class="cm-tiers__features">
+          <li>Designed for multi-organisation sharing communities</li>
+          <li>Granular access controls per member organisation</li>
+          <li>TAXII server integration ready</li>
+          <li>Community administration and member onboarding tools</li>
+          <li>Push, pull, and login-based sharing models</li>
+          <li>Dedicated instance per community with isolated tenancy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cm-tiers__diagram">
+      <img src="images/cti/diagram-cloudmisp-tiers.svg" alt="CloudMISP tier comparison — Core, Accelerator, and Share tiers with progressive feature sets">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. ADD-ONS
+     ============================================================ -->
+<section class="cm-addons" id="add-ons">
+  <div class="cm-wrap">
+    <div class="cm-addons__head">
+      <div class="cm-label">Add-ons</div>
+      <h2 class="cm-h2">Extend CloudMISP with purpose-built modules</h2>
+      <p>Each add-on connects directly to your CloudMISP instance to extend its capabilities. Mix and match based on your sharing, integration, and compliance requirements.</p>
+    </div>
+    <div class="cm-addons__grid">
+      <div class="cm-addons__card">
+        <div class="cm-addons__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <div class="cm-addons__card-title">TAXII Sharing Server</div>
+          <div class="cm-addons__card-desc">Publish and consume STIX/TAXII feeds with external partners, ISACs, and commercial threat intel providers using the industry-standard protocol.</div>
+        </div>
+      </div>
+      <div class="cm-addons__card">
+        <div class="cm-addons__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="5" y2="16"/><line x1="12" y1="8" x2="19" y2="16"/></svg>
+        </div>
+        <div>
+          <div class="cm-addons__card-title">MISP Sharing Server</div>
+          <div class="cm-addons__card-desc">A dedicated MISP instance configured as a sharing hub — ideal for curating what you publish to partners, separate from your internal triage instance.</div>
+        </div>
+      </div>
+      <div class="cm-addons__card">
+        <div class="cm-addons__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="cm-addons__card-title">Integration Sharing Server</div>
+          <div class="cm-addons__card-desc">Bridge CloudMISP to your SIEM, SOAR, ticketing, or custom tools via Cosive-built integrations — no scripting or middleware required on your side.</div>
+        </div>
+      </div>
+      <div class="cm-addons__card">
+        <div class="cm-addons__icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+          <div class="cm-addons__card-title">Custom Development</div>
+          <div class="cm-addons__card-desc">Need something specific? Our engineering team builds bespoke integrations, data pipelines, and workflow automation on top of your CloudMISP instance.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cm-addons__diagram">
+      <img src="images/cti/diagram-cloudmisp-addons.svg" alt="CloudMISP add-on modules connecting to the core platform and downstream systems">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. CONSUME THREAT INTELLIGENCE
+     ============================================================ -->
+<section class="cm-consume" id="consume">
+  <div class="cm-wrap">
+    <div class="cm-consume__grid">
+      <div class="cm-consume__text">
+        <div class="cm-label">Consume threat intelligence</div>
+        <h2 class="cm-h2">Connect CloudMISP to the tools your team already uses</h2>
+        <p>Threat intelligence is only valuable when it reaches the systems that can act on it. CloudMISP integrates with your SIEM, SOAR, EDR, firewalls, and ticketing platforms — pushing IOCs, alerts, and context where your analysts and automated playbooks need them. Every integration is built to enterprise standards — authenticated, encrypted in transit, and designed for reliability at scale.</p>
+        <p>With CloudMISP Accelerator, our engineers build and maintain these integrations for you, so your team stays focused on analysis rather than plumbing.</p>
+        <a href="consume-share-threat-intelligence.html" class="cm-btn--primary">How we help you consume CTI</a>
+      </div>
+      <div class="cm-consume__diagram">
+        <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. CASE STUDY — RESOURCE COMPANY (DARK)
+     ============================================================ -->
+<section class="cm-case cm-case--dark" id="case-resource">
+  <div class="cm-wrap">
+    <div class="cm-case__grid">
+      <div class="cm-case__text">
+        <div class="cm-label">Case study</div>
+        <h2 class="cm-h2">Multinational resource company unifies CTI across three regions</h2>
+        <p>A large resource company with operations across Australia, South America, and West Africa needed to consolidate fragmented threat intelligence workflows. Each regional team had its own ad-hoc processes, different feeds, and no shared view of threats affecting the wider organisation.</p>
+        <p>Cosive deployed CloudMISP Accelerator instances in each region, connected them with synchronised sharing, and integrated the output into their global Microsoft Sentinel deployment. Within six months, over 40 analysts were using the platform daily.</p>
+        <div class="cm-case__metrics">
+          <div>
+            <div class="cm-case__metric-val">40+</div>
+            <div class="cm-case__metric-lbl">MISP users across the organisation</div>
+          </div>
+          <div>
+            <div class="cm-case__metric-val">3</div>
+            <div class="cm-case__metric-lbl">Regions connected</div>
+          </div>
+          <div>
+            <div class="cm-case__metric-val">Zero</div>
+            <div class="cm-case__metric-lbl">Downtime during migration</div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-case__image">
+        <img src="images/secops/ir-indicator-lights.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. SHARE THREAT INTELLIGENCE
+     ============================================================ -->
+<section class="cm-share" id="share">
+  <div class="cm-wrap">
+    <div class="cm-share__grid">
+      <div class="cm-share__diagram">
+        <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="CloudMISP sharing pipeline — feeds, triage, curation, and distribution to partner organisations">
+      </div>
+      <div class="cm-share__text">
+        <div class="cm-label">Share threat intelligence</div>
+        <h2 class="cm-h2">Build and operate a sharing community your partners will actually use</h2>
+        <p>Effective sharing means more than setting up a server. It requires trust, clear governance, and enterprise-grade infrastructure that makes participation easy for every member — regardless of their technical maturity.</p>
+        <p>CloudMISP Share gives community operators the tools to manage members, control access, and offer multiple sharing models (push, pull, and direct login) so partners can participate in the way that works for them.</p>
+        <a href="start-cti-sharing-community.html" class="cm-btn--primary">Start a sharing community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. CASE STUDY — CENTRAL BANK (LIGHT)
+     ============================================================ -->
+<section class="cm-case cm-case--light" id="case-bank">
+  <div class="cm-wrap">
+    <div class="cm-case__grid">
+      <div class="cm-case__text">
+        <div class="cm-label">Case study</div>
+        <h2 class="cm-h2">Central bank builds a sector-wide financial sharing platform</h2>
+        <p>A central bank in the Middle East wanted to establish a national financial-sector sharing community. Member institutions ranged from large commercial banks with mature SOCs to smaller organisations with no dedicated security staff.</p>
+        <p>Cosive deployed CloudMISP Accelerator as the central hub with the TAXII Sharing Server add-on, enabling automated feed distribution to members who could consume STIX/TAXII, while others accessed the platform directly through a web interface. The community grew from a pilot with three banks to over twelve connected institutions within a year.</p>
+        <div class="cm-case__metrics">
+          <div>
+            <div class="cm-case__metric-val">12+</div>
+            <div class="cm-case__metric-lbl">Connected institutions</div>
+          </div>
+          <div>
+            <div class="cm-case__metric-val">3</div>
+            <div class="cm-case__metric-lbl">Sharing models in use</div>
+          </div>
+          <div>
+            <div class="cm-case__metric-val">1 year</div>
+            <div class="cm-case__metric-lbl">Pilot to full deployment</div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-case__image">
+        <img src="images/secops/plan-buildout-laptops.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12. WHY COSIVE
+     ============================================================ -->
+<section class="cm-why" id="why-cosive">
+  <div class="cm-wrap">
+    <div class="cm-why__grid">
+      <div class="cm-why__text">
+        <img src="icons/cosive-sinewave.svg" alt="" class="cm-why__sinewave">
+        <div class="cm-label">Why Cosive</div>
+        <h2 class="cm-h2">We have done this before — in places like yours</h2>
+        <div class="cm-why__list">
+          <div class="cm-why__list-item">
+            <div class="cm-why__list-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="cm-why__list-text"><strong>Global reach</strong> &mdash; We operate CloudMISP instances across Asia-Pacific, Europe, the Middle East, and North America. Our team understands the regulatory and operational nuances of each region.</div>
+          </div>
+          <div class="cm-why__list-item">
+            <div class="cm-why__list-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div class="cm-why__list-text"><strong>Industry diversity</strong> &mdash; Our customers span critical infrastructure, government, financial services, retail, and education. We bring cross-sector perspective to every engagement.</div>
+          </div>
+          <div class="cm-why__list-item">
+            <div class="cm-why__list-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="cm-why__list-text"><strong>Australian Government CTIS</strong> &mdash; Cosive builds and operates the Australian Government&rsquo;s Cyber Threat Intelligence Sharing platform, serving over 450 organisations nationwide.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-why__photo">
+        <img src="images/shared/prescott-pym-speaker.jpg" alt="Cosive team presenting at a security conference">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13. FAQ
+     ============================================================ -->
+<section class="cm-faq" id="faq">
+  <div class="cm-wrap">
+    <div class="cm-faq__head">
+      <div class="cm-label">FAQ</div>
+      <h2 class="cm-h2">Common questions about CloudMISP</h2>
+    </div>
+    <div class="cm-faq__inner">
+      <div class="cm-faq__list">
+        <details>
+          <summary>
+            What is MISP?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>MISP (Malware Information Sharing Platform) is an open-source threat intelligence platform used by security teams worldwide. It helps organisations collect, store, share, and correlate indicators of compromise (IOCs) and other threat data. MISP is maintained by an active global community and is used by national CERTs, ISACs, and private-sector security teams alike.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            How is CloudMISP different to open-source MISP?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>CloudMISP is built on MISP, but it is not just MISP on a server. We add managed infrastructure, automatic upgrades with comprehensive testing, SSO integration, encrypted backups, self-healing architecture, and enterprise features like TAXII serving and custom SIEM integrations. You get an enterprise-grade platform — with the reliability, security, and compliance posture your organisation expects — without needing a team to build and maintain the infrastructure around it.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            Does Cosive contribute to the open-source MISP project?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>Yes. Cosive actively contributes to the MISP open-source project. We submit bug fixes, feature enhancements, and documentation improvements. We also participate in the MISP community through conferences, working groups, and community discussions. Our experience operating MISP at scale directly informs the contributions we make upstream.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            What is MISP good for?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>MISP excels at collecting and correlating indicators of compromise, managing threat intelligence feeds, sharing intelligence with trusted partners, and distributing IOCs to security tools like SIEMs and firewalls. It is particularly strong for teams that need to collaborate — whether internally across departments or externally across organisations and sectors.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            What is MISP not good for?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>MISP is not a SIEM, a SOAR, or an endpoint detection tool. It does not replace your security monitoring stack — it complements it. If you need real-time alerting, automated response playbooks, or endpoint visibility, those are separate tools that MISP integrates with. MISP is best thought of as the connective tissue that makes your other security tools more effective.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            I&rsquo;m a security researcher — can I have a free CloudMISP?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>CloudMISP is a commercial managed service, so we do not offer free instances. However, MISP itself is free and open-source — you can download and run it yourself. If you are a researcher affiliated with a university or research institution, get in touch and we will see what we can do. We are always happy to support the security research community where we can.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            I could build this all myself!
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>You absolutely could — and some organisations do. The question is whether that is the best use of your team's time. Running MISP at enterprise scale means handling upgrades, monitoring, encrypted backups, SSO integration, high availability, compliance, and scaling — on top of the analyst workflow that MISP is actually for. CloudMISP lets your team focus on threat intelligence work instead of infrastructure maintenance. For most teams, that trade-off makes sense.</p>
+          </div>
+        </details>
+      </div>
+      <div class="cm-faq__image">
+        <img src="images/cti/faq-misp-services.webp" alt="Cosive team working on CloudMISP infrastructure">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14. CONTACT FORM
+     ============================================================ -->
+<section class="cm-contact" id="contact">
+  <div class="cm-wrap">
+    <div class="cm-contact__inner">
+      <div class="cm-label">Get in touch</div>
+      <h2 class="cm-h2">Talk to us about CloudMISP</h2>
+      <p class="cm-contact__subtitle">Tell us about your team and what you are trying to achieve. We will get back to you within one business day.</p>
+      <form class="cm-contact__form cm-form" action="#" method="post">
+        <input type="hidden" name="category" value="CloudMISP">
+        <div class="cm-form__row">
+          <div class="cm-form__group">
+            <label for="contact-first-name">First name</label>
+            <input type="text" id="contact-first-name" name="first_name" required>
+          </div>
+          <div class="cm-form__group">
+            <label for="contact-last-name">Last name</label>
+            <input type="text" id="contact-last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="cm-form__group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required>
+        </div>
+        <div class="cm-form__group">
+          <label for="contact-company">Company</label>
+          <input type="text" id="contact-company" name="company">
+        </div>
+        <div class="cm-form__group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="cm-btn--primary">Talk to us</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15. FOOTER
+     ============================================================ -->
+<footer class="cm-bottom-bar">
+  <div class="cm-bottom-bar__inner">
+    <a href="index.html" class="cm-bottom-bar__logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <div class="cm-bottom-bar__links">
+      <a href="/about">About</a>
+      <a href="security-operations.html">Security Operations</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact-us">Contact</a>
+      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    </div>
+    <div class="cm-bottom-bar__copy">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     NAV TOGGLE JS
+     ============================================================ -->
+<script>
+document.querySelector('.cm-topbar__toggle').addEventListener('click', function() {
+  const nav = document.querySelector('.cm-topbar__nav');
+  const open = nav.classList.toggle('cm-topbar__nav--open');
+  this.setAttribute('aria-expanded', open);
+  this.innerHTML = open
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+});
+</script>
+
+</body>
+</html>
