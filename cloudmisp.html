@@ -140,64 +140,84 @@ ul, ol { list-style: none; }
 .cm-btn--primary:hover { background: var(--color-accent-dark); }
 
 /* ===================================================================
-   1. HEADER — cm-topbar
+   1. HEADER
    =================================================================== */
-.cm-topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: var(--space-5xl);
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.cm-topbar__inner {
-  max-width: var(--container-page);
-  margin: 0 auto;
-  padding: 0 var(--space-3xl);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.cm-topbar__logo img { height: var(--space-xl); width: auto; }
-.cm-topbar__nav { display: flex; align-items: center; gap: var(--space-xl); }
-.cm-topbar__nav ul {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-}
-.cm-topbar__link {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text-primary);
-  padding: var(--space-xs) 0;
-  transition: color 0.2s;
-}
-.cm-topbar__link:hover { color: var(--color-accent); }
-.cm-topbar__link--active {
-  color: var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
-}
-.cm-topbar__cta {
-  display: inline-flex;
-  padding: var(--space-xs) var(--space-lg);
-  background: var(--color-accent);
-  color: var(--color-white);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  border-radius: var(--radius-full);
-  transition: background 0.2s;
-}
-.cm-topbar__cta:hover { background: var(--color-accent-dark); }
-.cm-topbar__toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-xs);
-}
-.cm-topbar__toggle svg { width: 24px; height: 24px; stroke: var(--color-text-primary); }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img {
+    height: var(--space-xl);
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  /* Hamburger toggle (hidden on desktop) */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    display: block;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-accent-dark) !important;
+  }
 
 /* ===================================================================
    2. HERO — cm-hero
@@ -1098,22 +1118,17 @@ ul, ol { list-style: none; }
    =================================================================== */
 @media (max-width: 900px) {
   .cm-wrap { padding: 0 var(--space-lg); }
-  .cm-topbar__inner { padding: 0 var(--space-lg); }
-  .cm-topbar__nav {
-    display: none;
-    position: absolute;
-    top: var(--space-5xl);
-    left: 0;
-    right: 0;
-    background: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: var(--space-lg);
-  }
-  .cm-topbar__nav.cm-topbar__nav--open { display: block; }
-  .cm-topbar__nav ul { flex-direction: column; gap: var(--space-md); align-items: stretch; }
-  .cm-topbar__nav li { text-align: center; }
-  .cm-topbar__toggle { display: block; }
+  .container { padding: 0 var(--space-lg); }
+
+  /* Header nav — accordion on tablet/mobile */
+  .nav-toggle { display: block; }
+  .main-nav { display: none; width: 100%; }
+  .main-nav.open { display: block; }
+  .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+  .main-nav li + li { border-top: 1px solid var(--color-border); }
+  .main-nav li:last-child { border-top: none; }
+  .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+  .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
 
   .cm-h1 { font-size: var(--text-5xl); }
   .cm-h2 { font-size: var(--text-3xl); }
@@ -1191,23 +1206,23 @@ ul, ol { list-style: none; }
 <!-- ============================================================
      1. HEADER
      ============================================================ -->
-<header class="cm-topbar">
-  <div class="cm-topbar__inner">
-    <a href="index.html" class="cm-topbar__logo">
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
       <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
     </a>
-    <button class="cm-topbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <nav class="cm-topbar__nav">
+    <nav class="main-nav">
       <ul>
-        <li><a href="cloudmisp.html" class="cm-topbar__link cm-topbar__link--active">CloudMISP</a></li>
-        <li><a href="cyber-threat-intelligence.html" class="cm-topbar__link">CTI</a></li>
-        <li><a href="security-operations.html" class="cm-topbar__link">SecOps</a></li>
-        <li><a href="fraud-data-sharing.html" class="cm-topbar__link">Fraud</a></li>
-        <li><a href="/resources" class="cm-topbar__link">Resources</a></li>
-        <li><a href="/about" class="cm-topbar__link">About</a></li>
-        <li><a href="/contact-us" class="cm-topbar__cta">Contact Us</a></li>
+        <li><a href="cloudmisp.html" class="nav-active">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
       </ul>
     </nav>
   </div>
@@ -1851,14 +1866,15 @@ ul, ol { list-style: none; }
      NAV TOGGLE JS
      ============================================================ -->
 <script>
-document.querySelector('.cm-topbar__toggle').addEventListener('click', function() {
-  const nav = document.querySelector('.cm-topbar__nav');
-  const open = nav.classList.toggle('cm-topbar__nav--open');
-  this.setAttribute('aria-expanded', open);
-  this.innerHTML = open
-    ? '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
-    : '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
-});
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    // Swap icon between hamburger and X
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
 </script>
 
 </body>
