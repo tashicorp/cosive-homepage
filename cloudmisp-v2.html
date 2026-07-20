@@ -1485,8 +1485,8 @@ ul, ol { list-style: none; }
     <ul class="cm-section-nav__list">
       <li><a href="#what-is-cloudmisp" class="cm-section-nav__link">Overview</a></li>
       <li><a href="#enterprise" class="cm-section-nav__link">Platform</a></li>
-      <li><a href="#tiers" class="cm-section-nav__link">Bundles</a></li>
       <li><a href="#consume" class="cm-section-nav__link">Integrations</a></li>
+      <li><a href="#tiers" class="cm-section-nav__link">Bundles</a></li>
       <li><a href="#case-studies" class="cm-section-nav__link">Case Studies</a></li>
       <li><a href="#why-cosive" class="cm-section-nav__link">Why Cosive</a></li>
       <li><a href="#faq" class="cm-section-nav__link">FAQ</a></li>
@@ -1679,7 +1679,52 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ============================================================
-     5. FLEXIBLE PLANS
+     5. CONSUME & SHARE THREAT INTELLIGENCE
+     ============================================================ -->
+<section class="cm-consume-share" id="consume">
+  <div class="cm-wrap">
+
+    <div class="cm-tabs__menu" role="tablist">
+      <button class="cm-tabs__tab cm-tabs__tab--active" role="tab"
+              aria-selected="true" aria-controls="panel-consume" id="tab-consume">
+        Consume threat intelligence
+      </button>
+      <button class="cm-tabs__tab" role="tab"
+              aria-selected="false" aria-controls="panel-share" id="tab-share">
+        Share threat intelligence
+      </button>
+    </div>
+
+    <div class="cm-tabs__content">
+      <div class="cm-tabs__pane cm-tabs__pane--active" role="tabpanel"
+           id="panel-consume" aria-labelledby="tab-consume">
+        <div class="cm-consume-share__text">
+          <h2 class="cm-h2">Connect CloudMISP to the tools your team already uses</h2>
+          <p>Threat intelligence is only valuable when it reaches the systems that can act on it. CloudMISP integrates with your SIEM, SOAR, EDR, firewalls, and ticketing platforms — pushing IOCs, alerts, and context where your analysts and automated playbooks need them. Every integration is built to enterprise standards — authenticated, encrypted in transit, and designed for reliability at scale.</p>
+          <p>With CloudMISP Accelerator, our engineers build and maintain these integrations for you, so your team stays focused on analysis rather than plumbing.</p>
+        </div>
+        <div class="cm-consume-share__diagram">
+          <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls">
+        </div>
+      </div>
+      <div class="cm-tabs__pane" role="tabpanel"
+           id="panel-share" aria-labelledby="tab-share" hidden>
+        <div class="cm-consume-share__text">
+          <h2 class="cm-h2">Build and operate a sharing community your partners will actually use</h2>
+          <p>Effective sharing means more than setting up a server. It requires trust, clear governance, and enterprise-grade infrastructure that makes participation easy for every member — regardless of their technical maturity.</p>
+          <p>CloudMISP Share gives community operators the tools to manage members, control access, and offer multiple sharing models (push, pull, and direct login) so partners can participate in the way that works for them.</p>
+        </div>
+        <div class="cm-consume-share__diagram">
+          <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="CloudMISP sharing pipeline — feeds, triage, curation, and distribution to partner organisations">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     6. FLEXIBLE PLANS
      ============================================================ -->
 <section class="tiers-section" id="tiers">
   <div class="cm-wrap">
@@ -1793,51 +1838,6 @@ ul, ol { list-style: none; }
       <p>Tell us about your requirements and we'll recommend the best fit.</p>
       <a href="#contact" class="cm-btn--primary">Request a CloudMISP demo</a>
     </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     6. CONSUME & SHARE THREAT INTELLIGENCE
-     ============================================================ -->
-<section class="cm-consume-share" id="consume">
-  <div class="cm-wrap">
-
-    <div class="cm-tabs__menu" role="tablist">
-      <button class="cm-tabs__tab cm-tabs__tab--active" role="tab"
-              aria-selected="true" aria-controls="panel-consume" id="tab-consume">
-        Consume threat intelligence
-      </button>
-      <button class="cm-tabs__tab" role="tab"
-              aria-selected="false" aria-controls="panel-share" id="tab-share">
-        Share threat intelligence
-      </button>
-    </div>
-
-    <div class="cm-tabs__content">
-      <div class="cm-tabs__pane cm-tabs__pane--active" role="tabpanel"
-           id="panel-consume" aria-labelledby="tab-consume">
-        <div class="cm-consume-share__text">
-          <h2 class="cm-h2">Connect CloudMISP to the tools your team already uses</h2>
-          <p>Threat intelligence is only valuable when it reaches the systems that can act on it. CloudMISP integrates with your SIEM, SOAR, EDR, firewalls, and ticketing platforms — pushing IOCs, alerts, and context where your analysts and automated playbooks need them. Every integration is built to enterprise standards — authenticated, encrypted in transit, and designed for reliability at scale.</p>
-          <p>With CloudMISP Accelerator, our engineers build and maintain these integrations for you, so your team stays focused on analysis rather than plumbing.</p>
-        </div>
-        <div class="cm-consume-share__diagram">
-          <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls">
-        </div>
-      </div>
-      <div class="cm-tabs__pane" role="tabpanel"
-           id="panel-share" aria-labelledby="tab-share" hidden>
-        <div class="cm-consume-share__text">
-          <h2 class="cm-h2">Build and operate a sharing community your partners will actually use</h2>
-          <p>Effective sharing means more than setting up a server. It requires trust, clear governance, and enterprise-grade infrastructure that makes participation easy for every member — regardless of their technical maturity.</p>
-          <p>CloudMISP Share gives community operators the tools to manage members, control access, and offer multiple sharing models (push, pull, and direct login) so partners can participate in the way that works for them.</p>
-        </div>
-        <div class="cm-consume-share__diagram">
-          <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="CloudMISP sharing pipeline — feeds, triage, curation, and distribution to partner organisations">
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -2191,7 +2191,7 @@ ul, ol { list-style: none; }
 (function() {
   var sectionNav = document.querySelector('.cm-section-nav');
   var links = document.querySelectorAll('.cm-section-nav__link');
-  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','tiers','consume','case-studies','why-cosive','faq'];
+  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','consume','tiers','case-studies','why-cosive','faq'];
   var navMapping = {
     'analyst-experience': 'enterprise',
     'customer-quotes': 'what-is-cloudmisp'
