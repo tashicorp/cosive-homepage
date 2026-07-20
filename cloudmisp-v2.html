@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CloudMISP — Managed MISP Hosting for CTI Teams - Cosive</title>
-<meta name="description" content="CloudMISP is an enterprise-grade managed MISP platform. Three tiers — Core, Accelerator, and Share — give your team the threat intelligence platform it needs, without the infrastructure overhead.">
+<meta name="description" content="CloudMISP is an enterprise-grade managed MISP platform. Three bundles — Core, Accelerator, and Sharing — give your team the threat intelligence platform it needs, without the infrastructure overhead.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -227,8 +227,8 @@ ul, ol { list-style: none; }
   position: sticky;
   top: var(--space-5xl);              /* below 80px site header */
   z-index: 99;
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-dark);
+  border-bottom: none;
 }
 .cm-section-nav__inner {
   display: flex;
@@ -251,7 +251,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-white);
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -260,7 +260,7 @@ ul, ol { list-style: none; }
   transition: color 0.2s, border-color 0.2s;
 }
 .cm-section-nav__link:hover {
-  color: var(--color-text-primary);
+  color: rgba(255,255,255,0.7);
 }
 .cm-section-nav__link--active {
   color: var(--color-accent);
@@ -426,11 +426,31 @@ ul, ol { list-style: none; }
 }
 .cm-analyst__screenshot img { width: 100%; }
 
+.cm-analyst__video {}
+.cm-analyst__video-placeholder {
+  aspect-ratio: 16 / 9;
+  background: rgba(255,255,255,0.05);
+  border: 2px dashed rgba(255,255,255,0.2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+.cm-analyst__video-placeholder span {
+  color: rgba(255,255,255,0.5);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-uppercase);
+  text-transform: uppercase;
+}
+
 /* ===================================================================
    4. CUSTOMER QUOTES — cm-quotes
    =================================================================== */
 .cm-quotes {
-  padding: var(--space-8xl) 0;
+  padding: var(--space-5xl) 0;
   background: var(--color-white);
 }
 .cm-quotes__grid {
@@ -481,6 +501,24 @@ ul, ol { list-style: none; }
   margin-top: var(--space-2xs);
 }
 
+/* --- Placeholder notice --- */
+.cm-placeholder-notice {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: var(--space-2xs) var(--space-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.cm-quotes--placeholder .cm-quotes__grid {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
 /* ===================================================================
    5. FLEXIBLE PLANS — tiers-section (shared with landing pages)
    =================================================================== */
@@ -496,7 +534,7 @@ ul, ol { list-style: none; }
 
 .tiers-intro {
   max-width: var(--container-standard);
-  margin-bottom: var(--space-3xl);
+  margin: 0 auto var(--space-3xl);
   text-align: center;
 }
 
@@ -668,7 +706,7 @@ ul, ol { list-style: none; }
 
 .tiers-addons-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
 
@@ -925,7 +963,7 @@ ul, ol { list-style: none; }
 
 /* --- Enterprise features (inside cm-intro) --- */
 .cm-intro__features {
-  margin-top: var(--space-7xl);
+  margin-top: 0;
 }
 .cm-intro__features-head {
   text-align: center;
@@ -1000,6 +1038,14 @@ ul, ol { list-style: none; }
   font-size: var(--text-base);
   font-weight: 700;
   line-height: var(--leading-snug);
+}
+.cm-intro__team-member-body h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cm-intro__team-member-body h3 a:hover {
+  color: var(--color-accent);
 }
 .cm-intro__team-member-body span {
   font-size: var(--text-sm);
@@ -1184,7 +1230,6 @@ ul, ol { list-style: none; }
   gap: var(--space-xl);
 }
 .cm-contact__right .cm-quotes__card {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1279,7 +1324,7 @@ ul, ol { list-style: none; }
     position: absolute;
     right: 0; top: 0; bottom: 0;
     width: var(--space-3xl);
-    background: linear-gradient(to right, transparent, var(--color-white));
+    background: linear-gradient(to right, transparent, var(--color-dark));
     pointer-events: none;
   }
   .cm-section-nav__list {
@@ -1398,7 +1443,7 @@ ul, ol { list-style: none; }
     </button>
     <nav class="main-nav">
       <ul>
-        <li><a href="cloudmisp.html" class="nav-active">CloudMISP</a></li>
+        <li><a href="cloudmisp-v2.html" class="nav-active">CloudMISP</a></li>
         <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
         <li><a href="security-operations.html">Security Operations</a></li>
         <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
@@ -1424,7 +1469,7 @@ ul, ol { list-style: none; }
         </nav>
         <h1 class="cm-h1 cm-hero__title">Focus on intelligence, not infrastructure</h1>
         <p class="cm-hero__subtitle">CloudMISP is a fully managed MISP platform — production-grade, always current, and ready to connect to the tools and communities your team already works with.</p>
-        <p class="cm-hero__subtitle"><strong>We handle the infrastructure so your analysts can focus on the intelligence.</strong></p>
+        <p class="cm-hero__subtitle"><strong>We handle the deployment, testing, and day-to-day operations so your analysts can focus on the intelligence.</strong></p>
         <a href="#contact" class="cm-btn--primary" style="margin-top: var(--space-xl)">Request a CloudMISP demo</a>
       </div>
       <div class="cm-analyst__screenshot">
@@ -1440,7 +1485,7 @@ ul, ol { list-style: none; }
     <ul class="cm-section-nav__list">
       <li><a href="#what-is-cloudmisp" class="cm-section-nav__link">Overview</a></li>
       <li><a href="#enterprise" class="cm-section-nav__link">Platform</a></li>
-      <li><a href="#tiers" class="cm-section-nav__link">Plans</a></li>
+      <li><a href="#tiers" class="cm-section-nav__link">Bundles</a></li>
       <li><a href="#consume" class="cm-section-nav__link">Integrations</a></li>
       <li><a href="#case-studies" class="cm-section-nav__link">Case Studies</a></li>
       <li><a href="#why-cosive" class="cm-section-nav__link">Why Cosive</a></li>
@@ -1463,7 +1508,56 @@ ul, ol { list-style: none; }
     <div class="cm-intro__diagram">
       <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP hub-and-spoke overview — CloudMISP connects your threat analysts, identity provider, MISP community, SIEMs, infrastructure, and threat intel feeds">
     </div>
-    <div class="cm-intro__features" id="enterprise">
+  </div>
+</section>
+
+<!-- ============================================================
+     4. CUSTOMER QUOTES
+     ============================================================ -->
+<!-- PLACEHOLDER: 2 of 3 quotes are placeholder — replace with real customer quotes -->
+<section class="cm-quotes" id="customer-quotes">
+  <div class="cm-wrap">
+    <div class="cm-quotes__header">
+      <div class="cm-label">What our customers say</div>
+      <h2 class="cm-h2">Trusted by CTI teams worldwide</h2>
+      <p class="cm-placeholder-notice">2 of 3 quotes are placeholder — replace with real customer quotes</p>
+    </div>
+    <div class="cm-quotes__grid">
+      <!-- REAL QUOTE -->
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">Cosive CloudMISP allowed us to deploy a secured MISP instance quickly and without the worry of finding specialist resources to deploy and maintain a new threat intelligence platform. Using CloudMISP supports our CTI capability without the overhead of another product to keep up to date in our patching cycle. The Cosive team are extremely knowledgeable in the area and their support is extraordinary.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">Principal Threat Analyst</span>
+          <span class="cm-quotes__org">Mining &middot; Australia</span>
+        </div>
+      </div>
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">The Cosive team understands the operational reality of running a CTI programme. CloudMISP is not just hosting — it is a genuine partnership that has accelerated our sharing capability.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">Head of Cyber</span>
+          <span class="cm-quotes__org">Financial services &middot; Asia-Pacific</span>
+        </div>
+      </div>
+      <div class="cm-quotes__card">
+        <div class="cm-quotes__mark">&ldquo;</div>
+        <p class="cm-quotes__text">We needed a platform our sector partners could trust. CloudMISP gave us enterprise-grade infrastructure and Cosive handled the onboarding for every member organisation.</p>
+        <div class="cm-quotes__attribution">
+          <span class="cm-quotes__role">CISO</span>
+          <span class="cm-quotes__org">Infrastructure operator &middot; Europe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3b. ENTERPRISE FEATURES & TEAM
+     ============================================================ -->
+<section class="cm-intro cm-intro--enterprise" id="enterprise">
+  <div class="cm-wrap">
+    <div class="cm-intro__features">
       <div class="cm-intro__features-head">
         <div class="cm-label">Enterprise features</div>
         <h2 class="cm-h2">What we handle so your team doesn't have to</h2>
@@ -1473,15 +1567,15 @@ ul, ol { list-style: none; }
           <div class="cm-intro__features-icon">
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3>Unique features your team needs</h3>
-          <p>SSO, built-in TAXII server, custom SIEM integrations, and workflow automation that goes beyond what open-source MISP offers out of the box.</p>
+          <h3>Enterprise features your team needs</h3>
+          <p>Assisted SSO configuration, an optional TAXII server for STIX publishing, custom SIEM integrations, and workflow automation that extends what open-source MISP provides out of the box.</p>
         </div>
         <div class="cm-intro__features-item">
           <div class="cm-intro__features-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <h3>Any AWS region globally</h3>
-          <p>Deploy in the AWS region that meets your data residency requirements — including EU Sovereign Cloud for organisations with strict data localisation mandates.</p>
+          <h3>Data sovereignty in any AWS region</h3>
+          <p>Keep your threat intelligence within your jurisdiction. Deploy CloudMISP in any AWS region to meet local data residency and sovereignty requirements — including <strong>AWS European Sovereign Cloud</strong> for organisations that need data to remain entirely within EU borders under EU-controlled infrastructure.</p>
         </div>
         <div class="cm-intro__features-item">
           <div class="cm-intro__features-icon">
@@ -1521,7 +1615,7 @@ ul, ol { list-style: none; }
           <div class="cm-intro__team-member">
             <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley">
             <div class="cm-intro__team-member-body">
-              <h3>Chris Horsley</h3>
+              <h3><a href="https://www.linkedin.com/in/chrishorsley/" target="_blank" rel="noopener">Chris Horsley</a></h3>
               <span>Co-founder &amp; Account Manager</span>
               <p>Chris is a MISP core contributor. He regularly trains and presents on MISP and threat intelligence sharing at conferences globally including hack.lu and AUSCERT.</p>
             </div>
@@ -1529,7 +1623,7 @@ ul, ol { list-style: none; }
           <div class="cm-intro__team-member">
             <img src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald">
             <div class="cm-intro__team-member-body">
-              <h3>Terry MacDonald</h3>
+              <h3><a href="https://www.linkedin.com/in/terrymacdonald/" target="_blank" rel="noopener">Terry MacDonald</a></h3>
               <span>Co-founder &amp; Account Manager</span>
               <p>Terry helped develop the STIX and TAXII standards as a founding member of the OASIS CTI Technical Committee. He holds leadership roles in FIRST and the New Zealand Internet Task Force.</p>
             </div>
@@ -1537,7 +1631,7 @@ ul, ol { list-style: none; }
           <div class="cm-intro__team-member">
             <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym">
             <div class="cm-intro__team-member-body">
-              <h3>Prescott Pym</h3>
+              <h3><a href="https://www.linkedin.com/in/prescottpym/" target="_blank" rel="noopener">Prescott Pym</a></h3>
               <span>Principal Consultant &amp; Account Manager</span>
               <p>Co-designed Australia's national threat sharing program, CTIS. Contributor to CTI-CMM, the leading CTI maturity framework.</p>
             </div>
@@ -1545,7 +1639,7 @@ ul, ol { list-style: none; }
           <div class="cm-intro__team-member">
             <img src="images/homepage/james-garratt.jpg" alt="James Garratt">
             <div class="cm-intro__team-member-body">
-              <h3>James Garratt</h3>
+              <h3><a href="https://www.linkedin.com/in/james-garratt/" target="_blank" rel="noopener">James Garratt</a></h3>
               <span>Infrastructure Lead</span>
               <p>James has more than 20 years of experience spanning IT operations, software engineering, and security. He specialises in cloud infrastructure and has delivered MISP training at hack.lu and AUSCERT.</p>
             </div>
@@ -1575,45 +1669,10 @@ ul, ol { list-style: none; }
       <p>MISP gives your analysts a single view across every feed, every source, and every sharing community your organisation participates in. Events, attributes, and correlations surface together so your team can spot patterns, prioritise what matters, and move from alert to action without switching tools.</p>
       <p>CloudMISP's Insight UI is purpose-built for this workflow — designed to make threat intelligence operational, not just stored.</p>
     </div>
-    <div class="cm-analyst__screenshot">
-      <img src="images/cti/cloudmisp-insight-ui-events-index.png" alt="CloudMISP Insight UI — events index showing threat intelligence events, attributes, and correlations">
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     4. CUSTOMER QUOTES
-     ============================================================ -->
-<section class="cm-quotes" id="customer-quotes">
-  <div class="cm-wrap">
-    <div class="cm-quotes__header">
-      <div class="cm-label">What our customers say</div>
-      <h2 class="cm-h2">Trusted by CTI teams worldwide</h2>
-    </div>
-    <div class="cm-quotes__grid">
-      <div class="cm-quotes__card">
-        <div class="cm-quotes__mark">&ldquo;</div>
-        <p class="cm-quotes__text">We trialled self-hosting MISP for six months. Within a week of migrating to CloudMISP we had more feeds connected, better uptime, and our analysts actually started using it daily.</p>
-        <div class="cm-quotes__attribution">
-          <span class="cm-quotes__role">CTI Manager</span>
-          <span class="cm-quotes__org">Energy sector &middot; Australia</span>
-        </div>
-      </div>
-      <div class="cm-quotes__card">
-        <div class="cm-quotes__mark">&ldquo;</div>
-        <p class="cm-quotes__text">The Cosive team understands the operational reality of running a CTI programme. CloudMISP is not just hosting — it is a genuine partnership that has accelerated our sharing capability.</p>
-        <div class="cm-quotes__attribution">
-          <span class="cm-quotes__role">Head of Cyber</span>
-          <span class="cm-quotes__org">Financial services &middot; Asia-Pacific</span>
-        </div>
-      </div>
-      <div class="cm-quotes__card">
-        <div class="cm-quotes__mark">&ldquo;</div>
-        <p class="cm-quotes__text">We needed a platform our sector partners could trust. CloudMISP gave us enterprise-grade infrastructure and Cosive handled the onboarding for every member organisation.</p>
-        <div class="cm-quotes__attribution">
-          <span class="cm-quotes__role">CISO</span>
-          <span class="cm-quotes__org">Infrastructure operator &middot; Europe</span>
-        </div>
+    <div class="cm-analyst__video">
+      <div class="cm-analyst__video-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.5)" stroke="none"/></svg>
+        <span>Insight UI demo video</span>
       </div>
     </div>
   </div>
@@ -1624,14 +1683,14 @@ ul, ol { list-style: none; }
      ============================================================ -->
 <section class="tiers-section" id="tiers">
   <div class="cm-wrap">
-    <div class="cm-label">Flexible plans</div>
-    <h2 class="cm-h2" style="margin-bottom: var(--space-lg);">Choose the CloudMISP that fits your team</h2>
+    <div class="cm-label">Flexible bundles</div>
+    <h2 class="cm-h2" style="margin-bottom: var(--space-lg);">Choose the CloudMISP <strong>bundle</strong> that fits your team</h2>
     <div class="tiers-intro">
-      <p>Every CloudMISP instance runs on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. The tiers differ in the level of customisation, integration support, and sharing features you need.</p>
+      <p>Every CloudMISP instance runs on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. The <strong>bundles</strong> differ in the level of customisation, integration support, and sharing features you need.</p>
     </div>
     <div class="tiers-grid">
       <div class="tier-card">
-        <h3>Core</h3>
+        <h3>Core Bundle</h3>
         <div class="tier-card-subtitle">For teams already experienced with MISP</div>
         <ul class="tier-features">
           <li>1 production MISP instance</li>
@@ -1645,7 +1704,7 @@ ul, ol { list-style: none; }
         </ul>
       </div>
       <div class="tier-card is-featured">
-        <h3>Accelerator</h3>
+        <h3>Accelerator Bundle</h3>
         <div class="tier-card-subtitle">For orgs who want to use MISP for threat intel, but need help using it</div>
         <ul class="tier-features">
           <li>10 days of Cosive Professional Services each year</li>
@@ -1661,7 +1720,7 @@ ul, ol { list-style: none; }
         </ul>
       </div>
       <div class="tier-card is-gold">
-        <h3>Insight</h3>
+        <h3>Sharing Bundle</h3>
         <div class="tier-card-subtitle">Core + Consulting + Training + Built-in threat feed</div>
         <ul class="tier-features">
           <li><a href="https://feedly.com/ti" target="_blank">Feedly for Threat Intelligence</a> license</li>
@@ -1689,33 +1748,48 @@ ul, ol { list-style: none; }
           <div class="addon-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                  stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-              <polyline points="16 6 12 2 8 6"/>
-              <line x1="12" y1="2" x2="12" y2="15"/>
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
             </svg>
           </div>
           <div class="addon-card-content">
-            <div class="addon-card-title">Sharing</div>
-            <div class="addon-card-desc">An additional MISP instance for use as a dedicated sharing hub.</div>
+            <div class="addon-card-title">TAXII Sharing Server</div>
+            <div class="addon-card-desc">A dedicated TAXII server for publishing STIX packages to partners and downstream consumers.</div>
           </div>
         </div>
         <div class="addon-card">
           <div class="addon-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                  stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
             </svg>
           </div>
           <div class="addon-card-content">
-            <div class="addon-card-title">STIX TAXII API</div>
-            <div class="addon-card-desc">Consume and share STIX/TAXII threat intelligence with your existing security tools.</div>
+            <div class="addon-card-title">MISP Sharing Server</div>
+            <div class="addon-card-desc">An additional MISP instance configured as a sharing hub for distributing threat intelligence across your community.</div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <div class="addon-card-content">
+            <div class="addon-card-title">Integration Server</div>
+            <div class="addon-card-desc">A dedicated integration layer connecting CloudMISP to your SIEM, SOAR, EDR, and other security tools.</div>
           </div>
         </div>
       </div>
     </div>
     <div class="cm-section-cta">
-      <h2 class="cm-h2">Not sure which tier is right for your team?</h2>
+      <h2 class="cm-h2">Not sure which bundle is right for your team?</h2>
       <p>Tell us about your requirements and we'll recommend the best fit.</p>
       <a href="#contact" class="cm-btn--primary">Request a CloudMISP demo</a>
     </div>
@@ -1770,11 +1844,13 @@ ul, ol { list-style: none; }
 <!-- ============================================================
      7. CASE STUDIES
      ============================================================ -->
+<!-- PLACEHOLDER: Replace with real case studies -->
 <section class="cm-cases" id="case-studies">
   <div class="cm-cases__header">
     <div class="cm-wrap">
       <div class="cm-label">Case studies</div>
       <h2 class="cm-h2">CloudMISP in action</h2>
+      <p class="cm-placeholder-notice" style="margin-top: var(--space-md); color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.25);">Placeholder content — replace with real case studies</p>
       <div class="cm-tabs__menu" role="tablist">
         <button class="cm-tabs__tab cm-tabs__tab--active" role="tab"
                 aria-selected="true" aria-controls="panel-resource" id="tab-resource">
@@ -1887,7 +1963,7 @@ ul, ol { list-style: none; }
             <div class="cm-why__list-icon">
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="cm-why__list-text"><strong>Australian Government CTIS</strong> &mdash; Cosive builds and operates the Australian Government&rsquo;s Cyber Threat Intelligence Sharing platform, serving over 450 organisations nationwide.</div>
+            <div class="cm-why__list-text"><strong>National-scale MISP operators</strong> &mdash; We build and run the Australian Government&rsquo;s Cyber Threat Intelligence Sharing (CTIS) platform &mdash; a multi-tenant MISP deployment serving 450+ organisations. The same team, tooling, and operational practices behind CTIS power every CloudMISP instance.</div>
           </div>
         </div>
       </div>
@@ -1978,6 +2054,7 @@ ul, ol { list-style: none; }
           </summary>
           <div class="cm-faq__answer">
             <p>You absolutely could — and some organisations do. The question is whether that is the best use of your team's time. Running MISP at enterprise scale means handling upgrades, monitoring, encrypted backups, SSO integration, high availability, compliance, and scaling — on top of the analyst workflow that MISP is actually for. CloudMISP lets your team focus on threat intelligence work instead of infrastructure maintenance. For most teams, that trade-off makes sense.</p>
+            <p>Plus, with CloudMISP you get direct access to the Cosive team — specialists who can help you operationalise MISP, connect it to your workflows, and get real value from your threat intelligence programme.</p>
           </div>
         </details>
       </div>
@@ -2027,20 +2104,12 @@ ul, ol { list-style: none; }
       </div>
       <!-- Right column: testimonial -->
       <div class="cm-contact__right">
+        <!-- REAL QUOTE -->
         <div class="cm-quotes__card">
           <div class="cm-quotes__mark">&ldquo;</div>
-          <p class="cm-quotes__text">We trialled self-hosting MISP for six months. Within a week of migrating to CloudMISP we had more feeds connected, better uptime, and our analysts actually started using it daily.</p>
+          <p class="cm-quotes__text">Cosive CloudMISP allowed us to deploy a secured MISP instance quickly and without the worry of finding specialist resources to deploy and maintain a new threat intelligence platform. Using CloudMISP supports our CTI capability without the overhead of another product to keep up to date in our patching cycle. The Cosive team are extremely knowledgeable in the area and their support is extraordinary.</p>
           <div class="cm-quotes__attribution">
-            <span class="cm-quotes__role">CTI Manager</span>
-            <span class="cm-quotes__org">Energy sector &middot; Australia</span>
-          </div>
-        </div>
-        <div class="cm-quotes__card">
-          <div class="cm-quotes__mark">&ldquo;</div>
-          <p class="cm-quotes__text">The Cosive team understands the operational reality of running a CTI programme. CloudMISP is not just hosting &mdash; it is a genuine partnership that has accelerated our sharing capability.</p>
-          <div class="cm-quotes__attribution">
-            <span class="cm-quotes__role">Head of Cyber</span>
-            <span class="cm-quotes__org">Financial services &middot; Asia-Pacific</span>
+            <span class="cm-quotes__role">Principal Threat Analyst</span>
           </div>
         </div>
       </div>
@@ -2125,7 +2194,7 @@ ul, ol { list-style: none; }
   var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','tiers','consume','case-studies','why-cosive','faq'];
   var navMapping = {
     'analyst-experience': 'enterprise',
-    'customer-quotes': 'enterprise'
+    'customer-quotes': 'what-is-cloudmisp'
   };
   var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
   var navList = document.querySelector('.cm-section-nav__list');
