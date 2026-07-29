@@ -1,0 +1,109 @@
+<script>
+(function () {
+  function init() {
+    var LINK_CLASS   = 'v2-product-nav-link';
+    var ACTIVE_CLASS = 'is-active';
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('.' + LINK_CLASS));
+    if (!links.length) { console.warn('[section-nav] no links match .' + LINK_CLASS); return; }
+    links.forEach(function (l) { l.classList.remove(ACTIVE_CLASS); });
+
+    var indicator = document.querySelector('.v2-product-nav-indicator');
+    if (!indicator) console.warn('[section-nav] no .v2-product-nav-indicator found');
+
+    var items = links.map(function (link) {
+      var id = (link.getAttribute('href') || '').replace('#', '');
+      return { id: id, section: document.getElementById(id), link: link };
+    }).filter(function (it) { return it.section; });
+    if (!items.length) { console.warn('[section-nav] no link hrefs match a section id'); return; }
+
+    var ids = items.map(function (it) { return it.id; });
+    var visible = {};
+    var current = null;
+
+    // --- Offset = sticky strip height = Space/4XL (4rem) ---
+    function getOffset() {
+      var rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      return 4 * rem;   // Space/4XL (4rem)
+    }
+
+    // --- Initialize indicator: place it (hidden, no animation) so the first
+    //     activation just fades in instead of sliding in from the left ---
+    if (indicator && items[0]) {
+      indicator.style.transition = 'none';
+      indicator.style.width = items[0].link.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + items[0].link.offsetLeft + 'px)';
+      indicator.style.opacity = '0';
+      requestAnimationFrame(function () { indicator.style.transition = ''; });  // re-enable CSS transition
+    }
+
+    // --- Sliding indicator ---
+    function moveIndicator(link) {
+      if (!indicator) return;
+      if (!link) { indicator.style.opacity = '0'; return; }
+      indicator.style.width = link.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + link.offsetLeft + 'px)';
+      indicator.style.opacity = '1';
+    }
+
+    function setActive(link) {
+      if (current === link) return;
+      if (current) current.classList.remove(ACTIVE_CLASS);
+      current = link;
+      if (link) link.classList.add(ACTIVE_CLASS);
+      moveIndicator(link);
+    }
+
+    // --- Scrollspy: highlight the section currently in view ---
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      var activeId = null;
+      for (var i = 0; i < ids.length; i++) { if (visible[ids[i]]) activeId = ids[i]; }
+      if (activeId) {
+        var match = items.filter(function (it) { return it.id === activeId; })[0];
+        setActive(match ? match.link : null);
+      }
+    }, { rootMargin: '-' + getOffset() + 'px 0px -40% 0px', threshold: 0 });
+
+    items.forEach(function (it) { observer.observe(it.section); });
+
+    // --- Offset anchor scrolling so sections clear the sticky strip ---
+    // Capture phase + stopImmediatePropagation so the event never reaches
+    // Webflow's delegated smooth-scroll handler on document (which ignores
+    // preventDefault and would otherwise re-scroll to the no-offset position).
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('.' + LINK_CLASS);
+      if (!link) return;
+      var hash = link.getAttribute('href') || '';
+      if (hash.charAt(0) !== '#') return;
+      var target = document.getElementById(hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      history.pushState(null, '', hash);                       // keep the URL hash in sync
+    }, true);                                                  // <-- capture phase
+
+    // Fix direct loads / refreshes with a #hash in the URL
+    function applyScrollMargin() {
+      var off = getOffset() + 'px';
+      items.forEach(function (it) { it.section.style.scrollMarginTop = off; });
+    }
+    applyScrollMargin();
+
+    // --- Keep things aligned when the layout changes ---
+    window.addEventListener('resize', function () {
+      moveIndicator(current);
+      applyScrollMargin();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

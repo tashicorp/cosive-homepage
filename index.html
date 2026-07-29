@@ -1143,39 +1143,90 @@
   /* ── Light Footer ── */
   .site-footer {
     border-top: 1px solid var(--color-border);
-    padding: var(--space-4xl) 0;
+    padding: var(--space-5xl) 0 var(--space-3xl);
   }
 
   .footer-inner {
     display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  /* Sitemap columns */
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3xl) var(--space-xl);
+  }
+
+  .footer-col { flex: 0 0 auto; }
+
+  .footer-col-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-col-title a { color: inherit; transition: color 0.2s; }
+  .footer-col-title a:hover { color: var(--color-accent); }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-col li a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--color-accent); }
+
+  /* Bottom bar: logo · utility links · copyright */
+  .footer-bottom {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .footer-inner .footer-logo img {
-    height: var(--space-xl);
-  }
-
-  .footer-copyright {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-  }
-
-  .footer-links {
-    display: flex;
     gap: var(--space-lg);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
   }
 
-  .footer-links a {
+  .footer-bottom .footer-logo img { height: var(--space-xl); }
+
+  .footer-bottom-links { display: flex; align-items: center; gap: var(--space-lg); }
+
+  .footer-bottom-links a {
     font-size: var(--text-base);
     color: var(--color-text-primary);
     font-weight: 500;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover { color: var(--color-accent); }
+  .footer-bottom-links a:hover { color: var(--color-accent); }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
 
   /* ── Responsive ── */
+  /* Footer: fit-content flex row only holds all 7 columns above ~1400px */
+  @media (max-width: 1400px) {
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
+  }
+
   @media (max-width: 1200px) {
     .industry-grid { grid-template-columns: 1fr; }
     .industry-card { aspect-ratio: 3 / 1; }
@@ -1289,6 +1340,7 @@
   }
 
   @media (max-width: 600px) {
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
     /* Heading system */
     .heading-style-h1 { font-size: var(--text-2xl); }
     .heading-style-h2 { font-size: 1.3rem; }
@@ -1343,8 +1395,7 @@
     .final-cta p { font-size: var(--text-lg); }
 
     /* Footer */
-    .footer-inner { flex-direction: column; gap: var(--space-lg); text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
   }
 </style>
 </head>
@@ -1360,7 +1411,7 @@
     </button>
     <nav class="main-nav">
       <ul>
-        <li><a href="cloudmisp-v2.html">CloudMISP</a></li>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
         <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
         <li><a href="security-operations.html">Security Operations</a></li>
         <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
@@ -1755,17 +1806,90 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <a href="/" class="footer-logo">
-      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
-    </a>
-    <div class="footer-links">
-      <a href="/about">About</a>
-      <a href="security-operations.html">Security Operations</a>
-      <a href="/resources">Resources</a>
-      <a href="/contact-us">Contact</a>
-      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
+    <div class="footer-columns">
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></h4>
+        <ul>
+          <li><a href="consume-share-threat-intelligence.html">Consume &amp; share threat intelligence</a></li>
+          <li><a href="start-cti-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="improve-cti-team.html">Improve your CTI team</a></li>
+          <li><a href="find-useful-threat-intel-feeds.html">Find useful threat intelligence feeds</a></li>
+          <li><a href="build-and-integrate-cti-tools.html">Integrate security tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="fraud-data-sharing.html">Fraud Data Sharing</a></h4>
+        <ul>
+          <li><a href="consume-share-fraud-data.html">Consume &amp; share fraud data</a></li>
+          <li><a href="start-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="build-and-integrate-fraud-tools.html">Integrate with your tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="security-operations.html">Security Operations</a></h4>
+        <ul>
+          <li><a href="improve-secops-team.html">Improve my cybersecurity ops team</a></li>
+          <li><a href="start-new-cybersecurity-ops-team.html">Start a new cybersecurity ops team</a></li>
+          <li><a href="automate-cybersecurity-ops-team.html">Automate your cybersecurity ops team</a></li>
+          <li><a href="use-attack-framework.html">Use the ATT&amp;CK Framework</a></li>
+          <li><a href="build-and-integrate-secops-tools.html">Integrate my security tools</a></li>
+          <li><a href="help-us-join-first.html">Help us join FIRST.org</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cloudmisp.html">Managed MISP</a></h4>
+        <ul>
+          <li><a href="cloudmisp.html">CloudMISP</a></li>
+          <li><a href="manage-my-misp.html">MISP consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact-us">Contact</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="https://www.linkedin.com/company/cosive">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Resources</h4>
+        <ul>
+          <li><a href="#">Support Portal</a></li>
+          <li><a href="https://cosive.com/blog">Blog</a></li>
+          <li><a href="https://cosive.com/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
+          <li><a href="https://cosive.com/presentations">Presentations</a></li>
+          <li><a href="#">Podcast</a></li>
+          <li><a href="https://cosive.com/misp-guide">MISP Guide</a></li>
+          <li><a href="https://cosive.com/categories/company-news">Newsroom</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Modern Slavery</a></li>
+          <li><a href="#">CloudMISP EULA</a></li>
+          <li><a href="#">Fair Use Policy</a></li>
+          <li><a href="#">Support Policy</a></li>
+        </ul>
+      </div>
+
     </div>
-    <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo">
+        <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+      </a>
+      <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+    </div>
   </div>
 </footer>
 
