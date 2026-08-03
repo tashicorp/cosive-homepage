@@ -1,73 +1,112 @@
-# Cosive — Structured data (JSON-LD) & social tags
+# Cosive — Structured data (JSON-LD)
 
-Three things live here:
-1. **Site-wide JSON-LD** → paste once in *Site settings → Custom Code → Head Code*.
-2. **Twitter/X card tags** → paste per page in *Page settings → Custom Code → Inside `<head>`*
-   (Webflow's Open Graph tab does **not** emit Twitter tags).
-3. **Per-page JSON-LD** (Service + Breadcrumb) → see `per-page-schema.md`. FAQ schema → `faqpage-schema.md`.
+Built as a single **`@graph`** with **`@id` entity linking** — the current best-practice pattern:
+define the Organization once, then reference it (by `@id`) from WebSite, per-page Service, and Person
+entities. This gives Google's Knowledge Graph and AI answer engines one coherent, connected entity.
 
-**Placeholders to replace before pasting:**
-- `{{LOGO_URL}}` → absolute URL of the Cosive logo (e.g. `https://cosive.com/…/cosive-logo.png`).
-- `{{OG_IMAGE_URL}}` → absolute URL of the 1200×630 share image (see README — you need to create one).
-- `{{TWITTER_HANDLE}}` → e.g. `@cosive` (delete the line if there's no handle).
+- **Site-wide graph** (this file, §1) → paste once in *Site settings → Custom Code → Head Code*.
+- **Per-page graph** (Service + Breadcrumb) → `per-page-schema.md`.
+- **FAQPage** → `faqpage-schema.md`.
 
-After pasting, validate at **Google Rich Results Test** and the **Schema Markup Validator**
-(validator.schema.org).
+All values are filled in (logo, GitHub, YouTube) — nothing left to edit. Just paste §1 as-is.
+
+After pasting, validate at **Google Rich Results Test** (search.google.com/test/rich-results) and the
+**Schema Markup Validator** (validator.schema.org).
 
 ---
 
-## 1. Site-wide JSON-LD (Site settings → Head Code)
+## 1. Site-wide graph (Site settings → Head Code)
 
-Paste both blocks. `Organization` establishes the brand entity (helps Google's Knowledge Graph and
-AI answer engines recognise Cosive); `WebSite` names the site. We deliberately omit the
-`SearchAction`/sitelinks-searchbox — Google deprecated that feature in 2024–2026.
+One block. Contains the enriched **Organization**, the **WebSite** (publisher → Organization), and the
+two **founders** as `Person` entities (reusable later as article authors). `SearchAction`/sitelinks
+searchbox is intentionally omitted (deprecated by Google in 2024–26).
 
 ```html
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Cosive",
-  "legalName": "Cosive Pty Ltd",
-  "url": "https://cosive.com",
-  "logo": "{{LOGO_URL}}",
-  "description": "Cosive helps organisations start, improve and run cyber threat intelligence, fraud data sharing and security operations programmes.",
-  "sameAs": [
-    "https://www.linkedin.com/company/cosive"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.cosive.com/#organization",
+      "name": "Cosive",
+      "legalName": "Cosive Pty Ltd",
+      "url": "https://www.cosive.com/",
+      "logo": { "@type": "ImageObject", "url": "https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6a6ffadadc811fd00ee91b91_cosive-logo-web.png" },
+      "description": "Cosive helps organisations start, improve and run cyber threat intelligence, fraud data sharing and security operations programmes.",
+      "slogan": "We make threat intelligence easy",
+      "foundingDate": "2015",
+      "founder": [
+        { "@id": "https://www.cosive.com/#chris-horsley" },
+        { "@id": "https://www.cosive.com/#terry-macdonald" }
+      ],
+      "areaServed": ["Australia", "New Zealand", "Asia-Pacific", "Europe", "Middle East", "North America"],
+      "knowsAbout": [
+        "Cyber threat intelligence", "MISP", "STIX/TAXII", "Threat intelligence sharing",
+        "Fraud data sharing", "Security operations", "Incident response", "CTI-CMM", "SIM3"
+      ],
+      "memberOf": { "@type": "Organization", "name": "FIRST.org", "url": "https://www.first.org/" },
+      "identifier": { "@type": "PropertyValue", "propertyID": "ABN", "value": "24608265345" },
+      "address": { "@type": "PostalAddress", "addressCountry": "AU" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://www.cosive.com/contact-us",
+        "areaServed": ["AU", "NZ", "Asia-Pacific", "Europe", "North America"],
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/cosive",
+        "https://github.com/cosive",
+        "https://www.youtube.com/@Cosive"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.cosive.com/#website",
+      "name": "Cosive",
+      "url": "https://www.cosive.com/",
+      "inLanguage": "en-AU",
+      "publisher": { "@id": "https://www.cosive.com/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#chris-horsley",
+      "name": "Chris Horsley",
+      "jobTitle": "Co-founder & Principal Consultant",
+      "worksFor": { "@id": "https://www.cosive.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/chrishorsley/"],
+      "knowsAbout": ["Cyber threat intelligence", "MISP", "CTI-CMM", "Incident response"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#terry-macdonald",
+      "name": "Terry MacDonald",
+      "jobTitle": "Co-founder & Principal Consultant",
+      "worksFor": { "@id": "https://www.cosive.com/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/terrymacdonald/"],
+      "knowsAbout": ["Cyber threat intelligence", "STIX/TAXII", "Threat intelligence sharing", "MISP"]
+    }
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Cosive",
-  "url": "https://cosive.com"
-}
-</script>
 ```
 
 ---
 
-## 2. Twitter/X card tags (per page → Page settings → Inside `<head>`)
+## 2. Twitter/X card (optional, one line, site-wide)
 
-Replace the title/description with that page's values from `page-metadata.md`. If every page uses
-the same share image, you can instead paste the `twitter:image` line once in *Site settings → Head*.
+You're setting Open Graph natively per page, and X/Twitter reads those OG tags as its fallback — so
+you only need this one line to upgrade the card to the large format. Paste in *Site settings → Head Code*:
 
 ```html
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PAGE TITLE HERE">
-<meta name="twitter:description" content="PAGE META DESCRIPTION HERE">
-<meta name="twitter:image" content="{{OG_IMAGE_URL}}">
-<!-- optional, delete if no handle: -->
-<meta name="twitter:site" content="{{TWITTER_HANDLE}}">
 ```
 
 ---
 
-## 3. Per-page JSON-LD
-- **Service + BreadcrumbList** for all 20 pages → `per-page-schema.md`.
-- **FAQPage** (generated from each page's existing FAQ accordion) → `faqpage-schema.md`.
-  ⚠️ Low priority: Google removed FAQ **rich results** in May 2026, so this no longer produces the
-  SERP dropdown. It still helps machines/AI parse your Q&A, and it's valid Schema.org — keep it if
-  you want the AEO/parsing benefit, skip it if you only cared about the rich result.
+## 3. Per-page graph
+- **Service + BreadcrumbList** for each page (one `@graph`, `provider`/breadcrumb referencing the
+  Organization `@id`) → `per-page-schema.md`.
+- **FAQPage** → `faqpage-schema.md` (valid Schema.org; ⚠️ Google removed FAQ *rich results* May 2026,
+  so it no longer shows a SERP dropdown — keep it for AI/machine parsing, or skip it).

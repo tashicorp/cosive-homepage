@@ -7,18 +7,28 @@ all 20 pages plus current (2025–2026) Webflow SEO and AEO best practice.
 | File | What it is | Where it goes in Webflow |
 |---|---|---|
 | `page-metadata.md` | Optimised **title + meta description** (+ OG title) for all 20 pages | Page settings → **SEO** tab (+ **Open Graph** tab) |
-| `structured-data.md` | Site-wide **Organization/WebSite** JSON-LD + **Twitter card** tags | Site settings → **Head Code**; Twitter tags per page → **Custom Code → Head** |
-| `per-page-schema.md` | **Service + BreadcrumbList** JSON-LD, one pair per page | Page settings → **Custom Code → Inside `<head>`** |
+| `structured-data.md` | Site-wide **`@graph`**: enriched Organization + WebSite + founder Persons | Site settings → **Head Code** |
+| `per-page-schema.md` | Per-page **`@graph`**: Service + BreadcrumbList (linked to Org by `@id`) | Page settings → **Custom Code → Inside `<head>`** |
 | `faqpage-schema.md` | **FAQPage** JSON-LD from each page's FAQ (⚠️ low priority — see note) | Page settings → **Custom Code → Inside `<head>`** |
 
 ## Do this in order (highest ROI first)
 1. **Titles + meta descriptions** — paste from `page-metadata.md`. Fixes the 5 pages that have **no meta description today** (Home, Cyber Threat Intelligence, Fraud Data Sharing, Security Operations, Consume & Share Fraud Data) and tightens the other 15.
-2. **Global canonical** — Site settings → SEO → turn on the self-referencing canonical (Webflow does **not** add canonicals by default). Uses `https://cosive.com/...` automatically.
+2. **Global canonical** — Site settings → SEO → turn on the self-referencing canonical (Webflow does **not** add canonicals by default). Uses `https://www.cosive.com/...` automatically.
 3. **Open Graph** — per page, set the OG image + (optionally) the OG title from `page-metadata.md`. Needs a share image — see below.
 4. **Twitter/X card tags** — paste the snippet from `structured-data.md` (Webflow's OG tab doesn't emit Twitter tags).
-5. **Site-wide JSON-LD** — paste Organization + WebSite once in Site settings → Head Code.
-6. **Per-page Service + Breadcrumb JSON-LD** — from `per-page-schema.md`.
+5. **Site-wide JSON-LD** — paste the single `@graph` (enriched Organization + WebSite + founders) once in Site settings → Head Code.
+6. **Per-page JSON-LD** — paste each page's `@graph` (Service + Breadcrumb) from `per-page-schema.md`.
 7. **FAQPage JSON-LD** — optional, from `faqpage-schema.md`.
+
+### How the schema is structured (`@graph` + `@id`)
+The structured data follows the current best-practice **"define once, reference everywhere"** model.
+The **Organization** is defined a single time (site-wide) with a stable `@id`
+(`https://www.cosive.com/#organization`). Everything else — the WebSite `publisher`, each page's
+Service `provider`, and each founder's `worksFor` — just **references that `@id`** instead of
+repeating the Organization. This gives search engines and AI answer engines one coherent, connected
+entity rather than many disconnected fragments. Multiple entities on a page are bundled into one
+`@graph` array. **Fill the placeholders** in `structured-data.md` first: `{{LOGO_URL}}` (standard
+**dark** logo, ≥112×112), `{{GITHUB_URL}}`, `{{YOUTUBE_URL}}`.
 
 ## Webflow settings checklist
 - [ ] **Global canonical** ON (Site settings → SEO).

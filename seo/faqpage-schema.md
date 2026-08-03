@@ -4,10 +4,12 @@
 
 Generated from each page's existing FAQ accordion — review the text, then use.
 
+*Optional:* you can fold a page's `FAQPage` into that page's `@graph` in `per-page-schema.md` (add it as another array item) instead of pasting a separate `<script>` block — either works.
+
 ---
 
 ## Automate Your Cybersecurity Ops Team  (4 Q&A)
-`https://cosive.com/automate-cybersecurity-ops-team`
+`https://www.cosive.com/automate-cybersecurity-ops-team`
 
 ```html
 <script type="application/ld+json">
@@ -53,7 +55,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Build & Integrate CTI Tools  (8 Q&A)
-`https://cosive.com/build-and-integrate-cti-tools`
+`https://www.cosive.com/build-and-integrate-cti-tools`
 
 ```html
 <script type="application/ld+json">
@@ -131,7 +133,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Build & Integrate Fraud Tools  (10 Q&A)
-`https://cosive.com/build-and-integrate-fraud-tools`
+`https://www.cosive.com/build-and-integrate-fraud-tools`
 
 ```html
 <script type="application/ld+json">
@@ -225,7 +227,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Build & Integrate SecOps Tools  (7 Q&A)
-`https://cosive.com/build-and-integrate-secops-tools`
+`https://www.cosive.com/build-and-integrate-secops-tools`
 
 ```html
 <script type="application/ld+json">
@@ -295,7 +297,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## CloudMISP  (7 Q&A)
-`https://cosive.com/cloudmisp`
+`https://www.cosive.com/cloudmisp`
 
 ```html
 <script type="application/ld+json">
@@ -365,7 +367,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Consume & Share Fraud Data  (7 Q&A)
-`https://cosive.com/consume-share-fraud-data`
+`https://www.cosive.com/consume-share-fraud-data`
 
 ```html
 <script type="application/ld+json">
@@ -435,7 +437,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Consume & Share Threat Intelligence  (9 Q&A)
-`https://cosive.com/consume-share-threat-intelligence`
+`https://www.cosive.com/consume-share-threat-intelligence`
 
 ```html
 <script type="application/ld+json">
@@ -521,7 +523,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Cyber Threat Intelligence  (7 Q&A)
-`https://cosive.com/cyber-threat-intelligence`
+`https://www.cosive.com/cyber-threat-intelligence`
 
 ```html
 <script type="application/ld+json">
@@ -591,7 +593,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Find Useful Threat Intelligence Feeds  (7 Q&A)
-`https://cosive.com/find-useful-threat-intel-feeds`
+`https://www.cosive.com/find-useful-threat-intel-feeds`
 
 ```html
 <script type="application/ld+json">
@@ -661,7 +663,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Fraud Data Sharing  (8 Q&A)
-`https://cosive.com/fraud-data-sharing`
+`https://www.cosive.com/fraud-data-sharing`
 
 ```html
 <script type="application/ld+json">
@@ -739,7 +741,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Help Us Join FIRST  (4 Q&A)
-`https://cosive.com/help-us-join-first`
+`https://www.cosive.com/help-us-join-first`
 
 ```html
 <script type="application/ld+json">
@@ -785,7 +787,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Improve Your Threat Intelligence Team  (5 Q&A)
-`https://cosive.com/improve-cti-team`
+`https://www.cosive.com/improve-cti-team`
 
 ```html
 <script type="application/ld+json">
@@ -839,7 +841,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Improve Your Cybersecurity Ops Team  (7 Q&A)
-`https://cosive.com/improve-secops-team`
+`https://www.cosive.com/improve-secops-team`
 
 ```html
 <script type="application/ld+json">
@@ -909,7 +911,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Managed MISP (Manage my MISP)  (5 Q&A)
-`https://cosive.com/manage-my-misp`
+`https://www.cosive.com/manage-my-misp`
 
 ```html
 <script type="application/ld+json">
@@ -963,7 +965,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Security Operations  (8 Q&A)
-`https://cosive.com/security-operations`
+`https://www.cosive.com/security-operations`
 
 ```html
 <script type="application/ld+json">
@@ -1041,7 +1043,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Start a CTI Sharing Community  (6 Q&A)
-`https://cosive.com/start-cti-sharing-community`
+`https://www.cosive.com/start-cti-sharing-community`
 
 ```html
 <script type="application/ld+json">
@@ -1103,7 +1105,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Start a New Cybersecurity Ops Team  (5 Q&A)
-`https://cosive.com/start-new-cybersecurity-ops-team`
+`https://www.cosive.com/start-new-cybersecurity-ops-team`
 
 ```html
 <script type="application/ld+json">
@@ -1157,7 +1159,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Start a Fraud Data Sharing Community  (7 Q&A)
-`https://cosive.com/start-sharing-community`
+`https://www.cosive.com/start-sharing-community`
 
 ```html
 <script type="application/ld+json">
@@ -1227,7 +1229,7 @@ Generated from each page's existing FAQ accordion — review the text, then use.
 ```
 
 ## Use the ATT&CK Framework  (5 Q&A)
-`https://cosive.com/use-attack-framework`
+`https://www.cosive.com/use-attack-framework`
 
 ```html
 <script type="application/ld+json">

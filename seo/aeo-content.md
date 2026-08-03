@@ -28,7 +28,7 @@ e.g. *"Written by [Name], [Role] at Cosive — [8 years as MISP contributors / f
   "@type": "Person",
   "name": "{{AUTHOR_NAME}}",
   "jobTitle": "{{ROLE e.g. Principal CTI Consultant}}",
-  "worksFor": { "@type": "Organization", "name": "Cosive", "url": "https://cosive.com" },
+  "worksFor": { "@type": "Organization", "name": "Cosive", "url": "https://www.cosive.com" },
   "sameAs": [ "{{LINKEDIN_PROFILE_URL}}" ],
   "knowsAbout": ["Cyber threat intelligence", "MISP", "Threat intelligence sharing", "Security operations"]
 }
