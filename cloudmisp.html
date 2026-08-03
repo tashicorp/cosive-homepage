@@ -843,31 +843,18 @@ ul, ol { list-style: none; }
   color: rgba(255,255,255,0.7);
   line-height: var(--leading-normal);
 }
-.cm-integrations__group {
-  margin-top: var(--space-4xl);
-}
-.cm-integrations__group-label {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-uppercase);
-  color: rgba(255,255,255,0.5);
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
 .cm-integrations__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--space-md);
-  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: var(--space-lg);
 }
 .cm-integration-card {
+  display: flex;
+  flex-direction: column;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius-lg);
-  padding: var(--space-md);
+  padding: var(--space-lg);
   transition: border-color 0.2s, background 0.2s;
 }
 .cm-integration-card:hover {
@@ -876,29 +863,53 @@ ul, ol { list-style: none; }
 }
 .cm-integration-card__name {
   font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+.cm-integration-card__desc {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.65);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-lg);
+}
+.cm-integration-card__tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.cm-tag {
+  color: #f5a8a4;
+  background: rgba(229, 56, 52, 0.12);
+  border: 1px solid rgba(229, 56, 52, 0.4);
+  font-size: var(--text-xs);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-uppercase);
+  text-transform: uppercase;
+}
+/* Red call-to-action card (last item in the grid) */
+.cm-integration-card--cta {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+.cm-integration-card--cta:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+.cm-integration-card--cta .cm-integration-card__desc {
+  color: rgba(255,255,255,0.9);
+}
+.cm-integration-card__cta-link {
+  margin-top: auto;
+  font-family: var(--font-heading);
   font-size: var(--text-base);
   font-weight: 700;
   color: var(--color-white);
-}
-.cm-integrations__note {
-  margin-top: var(--space-3xl);
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.45);
-  line-height: var(--leading-normal);
-}
-.cm-integrations__cta {
-  margin-top: var(--space-4xl);
-  text-align: center;
-}
-.cm-integrations__cta .cm-h3 {
-  color: var(--color-white);
-  margin-bottom: var(--space-md);
-}
-.cm-integrations__cta p {
-  font-size: var(--text-lg);
-  color: rgba(255,255,255,0.7);
-  line-height: var(--leading-normal);
-  margin-bottom: var(--space-xl);
 }
 
 /* ===================================================================
@@ -1899,141 +1910,73 @@ ul, ol { list-style: none; }
     <div class="cm-integrations__head">
       <div class="cm-label">Integrations</div>
       <h2 class="cm-h2">MISP connects to the tools you already run</h2>
-      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack — feeding indicators to your detection tools, enriching what you already have, and sharing intelligence in open, standard formats. Here is a representative selection of the integrations MISP supports.</p>
+      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack, and speaks the open standards your tools already understand — STIX/TAXII, OpenIOC, YARA and CSV. These are the main types of tools teams connect to CloudMISP.</p>
     </div>
 
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">SIEM &amp; log platforms</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Splunk</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Elastic Security</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Microsoft Sentinel</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">IBM QRadar</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Wazuh</div>
+    <div class="cm-integrations__grid">
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">SIEM &amp; log platforms</div>
+        <p class="cm-integration-card__desc">Push indicators into your SIEM to drive detection, correlation and alerting.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">Splunk</span>
+          <span class="cm-tag">Microsoft Sentinel</span>
+          <span class="cm-tag">Elastic</span>
+          <span class="cm-tag">QRadar</span>
+          <span class="cm-tag">Wazuh</span>
         </div>
       </div>
-    </div>
-
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">SOAR &amp; incident response</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">TheHive</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Cortex</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Cortex XSOAR</div>
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">Endpoint &amp; EDR</div>
+        <p class="cm-integration-card__desc">Feed indicators to your endpoint tools to detect and block threats on the host.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">CrowdStrike</span>
+          <span class="cm-tag">Microsoft Defender</span>
         </div>
       </div>
-    </div>
-
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">Enrichment modules</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">VirusTotal</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Shodan</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">urlscan.io</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">AbuseIPDB</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">GreyNoise</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">CIRCL Passive DNS</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">URLhaus &amp; MalwareBazaar</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">CrowdStrike Falcon</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Joe Sandbox</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">VMRay</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Cuckoo Sandbox</div>
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">SOAR &amp; automation</div>
+        <p class="cm-integration-card__desc">Trigger playbooks and automate enrichment and response.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">Cortex XSOAR</span>
+          <span class="cm-tag">TheHive</span>
+          <span class="cm-tag">Cortex</span>
         </div>
       </div>
-    </div>
-
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">Network IDS &amp; firewall</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Suricata &amp; Snort</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Zeek</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Palo Alto NGFW</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Fortinet FortiGate</div>
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">Network security</div>
+        <p class="cm-integration-card__desc">Turn indicators into detection rules and blocklists for your network defences.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">Suricata</span>
+          <span class="cm-tag">Snort</span>
+          <span class="cm-tag">Zeek</span>
+          <span class="cm-tag">Palo Alto</span>
+          <span class="cm-tag">Fortinet</span>
         </div>
       </div>
-    </div>
-
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">Export &amp; detection formats</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">STIX 1 &amp; 2</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">TAXII 2.1</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">YARA &amp; Sigma rules</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">OpenIOC &amp; CSV</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">Free-text import</div>
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">Enrichment &amp; threat feeds</div>
+        <p class="cm-integration-card__desc">Enrich indicators with third-party context and pull in external intelligence.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">VirusTotal</span>
+          <span class="cm-tag">Shodan</span>
+          <span class="cm-tag">GreyNoise</span>
+          <span class="cm-tag">Malware sandboxes</span>
+          <span class="cm-tag">OSINT feeds</span>
         </div>
       </div>
-    </div>
-
-    <div class="cm-integrations__group">
-      <div class="cm-integrations__group-label">Platforms &amp; sharing</div>
-      <div class="cm-integrations__grid">
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">OpenCTI</div>
-        </div>
-        <div class="cm-integration-card">
-          <div class="cm-integration-card__name">MISP-to-MISP sync</div>
+      <div class="cm-integration-card">
+        <div class="cm-integration-card__name">Threat intel platforms &amp; sharing</div>
+        <p class="cm-integration-card__desc">Connect to other platforms and share intelligence across your community.</p>
+        <div class="cm-integration-card__tags">
+          <span class="cm-tag">OpenCTI</span>
+          <span class="cm-tag">MISP-to-MISP sync</span>
         </div>
       </div>
-    </div>
-
-    <p class="cm-integrations__note">This list is representative, not exhaustive — MISP's integration ecosystem is large and always growing.</p>
-
-    <div class="cm-integrations__cta">
-      <h3 class="cm-h3">Need a specific integration?</h3>
-      <p>Tell us which tools your team runs and we'll help you connect them to CloudMISP.</p>
-      <a href="#contact" class="cm-btn--primary">Talk to us about integrations</a>
+      <a href="#contact" class="cm-integration-card cm-integration-card--cta">
+        <div class="cm-integration-card__name">Need a specific integration?</div>
+        <p class="cm-integration-card__desc">Tell us which tools your team runs and we'll help you connect them to CloudMISP.</p>
+        <span class="cm-integration-card__cta-link">Talk to us about integrations →</span>
+      </a>
     </div>
   </div>
 </section>
