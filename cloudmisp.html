@@ -823,6 +823,85 @@ ul, ol { list-style: none; }
 }
 
 /* ===================================================================
+   5b. INTEGRATIONS — cm-integrations (dark)
+   =================================================================== */
+.cm-integrations {
+  background: var(--color-dark);
+  border-top: 3px solid var(--color-accent);
+  padding: var(--space-8xl) 0;
+}
+.cm-integrations__head {
+  max-width: 46rem;
+  margin-bottom: var(--space-4xl);
+}
+.cm-integrations .cm-h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+.cm-integrations__intro {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.7);
+  line-height: var(--leading-normal);
+}
+.cm-integrations__group {
+  margin-top: var(--space-4xl);
+}
+.cm-integrations__group-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-uppercase);
+  color: rgba(255,255,255,0.5);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.cm-integrations__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-md);
+  align-items: start;
+}
+.cm-integration-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: border-color 0.2s, background 0.2s;
+}
+.cm-integration-card:hover {
+  border-color: rgba(229,56,52,0.6);
+  background: rgba(255,255,255,0.06);
+}
+.cm-integration-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-white);
+}
+.cm-integrations__note {
+  margin-top: var(--space-3xl);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.45);
+  line-height: var(--leading-normal);
+}
+.cm-integrations__cta {
+  margin-top: var(--space-4xl);
+  text-align: center;
+}
+.cm-integrations__cta .cm-h3 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+.cm-integrations__cta p {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.7);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-xl);
+}
+
+/* ===================================================================
    6. CONSUME & SHARE — cm-consume-share
    =================================================================== */
 .cm-consume-share {
@@ -1576,7 +1655,8 @@ ul, ol { list-style: none; }
     <ul class="cm-section-nav__list">
       <li><a href="#what-is-cloudmisp" class="cm-section-nav__link">Overview</a></li>
       <li><a href="#enterprise" class="cm-section-nav__link">Platform</a></li>
-      <li><a href="#consume" class="cm-section-nav__link">Integrations</a></li>
+      <li><a href="#consume" class="cm-section-nav__link">Use Cases</a></li>
+      <li><a href="#integrations" class="cm-section-nav__link">Integrations</a></li>
       <li><a href="#tiers" class="cm-section-nav__link">Bundles</a></li>
       <li><a href="#case-studies" class="cm-section-nav__link">Case Studies</a></li>
       <li><a href="#why-cosive" class="cm-section-nav__link">Why Cosive</a></li>
@@ -1812,6 +1892,153 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ============================================================
+     5b. INTEGRATIONS
+     ============================================================ -->
+<section class="cm-integrations" id="integrations">
+  <div class="cm-wrap">
+    <div class="cm-integrations__head">
+      <div class="cm-label">Integrations</div>
+      <h2 class="cm-h2">MISP connects to the tools you already run</h2>
+      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack — feeding indicators to your detection tools, enriching what you already have, and sharing intelligence in open, standard formats. Here is a representative selection of the integrations MISP supports.</p>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">SIEM &amp; log platforms</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Splunk</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Elastic Security</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Microsoft Sentinel</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">IBM QRadar</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Wazuh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">SOAR &amp; incident response</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">TheHive</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Cortex</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Cortex XSOAR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">Enrichment modules</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">VirusTotal</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Shodan</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">urlscan.io</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">AbuseIPDB</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">GreyNoise</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">CIRCL Passive DNS</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">URLhaus &amp; MalwareBazaar</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">CrowdStrike Falcon</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Joe Sandbox</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">VMRay</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Cuckoo Sandbox</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">Network IDS &amp; firewall</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Suricata &amp; Snort</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Zeek</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Palo Alto NGFW</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Fortinet FortiGate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">Export &amp; detection formats</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">STIX 1 &amp; 2</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">TAXII 2.1</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">YARA &amp; Sigma rules</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">OpenIOC &amp; CSV</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">Free-text import</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-integrations__group">
+      <div class="cm-integrations__group-label">Platforms &amp; sharing</div>
+      <div class="cm-integrations__grid">
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">OpenCTI</div>
+        </div>
+        <div class="cm-integration-card">
+          <div class="cm-integration-card__name">MISP-to-MISP sync</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cm-integrations__note">This list is representative, not exhaustive — MISP's integration ecosystem is large and always growing.</p>
+
+    <div class="cm-integrations__cta">
+      <h3 class="cm-h3">Need a specific integration?</h3>
+      <p>Tell us which tools your team runs and we'll help you connect them to CloudMISP.</p>
+      <a href="#contact" class="cm-btn--primary">Talk to us about integrations</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      6. FLEXIBLE PLANS
      ============================================================ -->
 <section class="tiers-section" id="tiers">
@@ -1819,14 +2046,14 @@ ul, ol { list-style: none; }
     <div class="cm-label">Flexible bundles</div>
     <h2 class="cm-h2" style="margin-bottom: var(--space-lg);">Choose the CloudMISP <strong>bundle</strong> that fits your team</h2>
     <div class="tiers-intro">
-      <p>Every CloudMISP instance runs on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. The <strong>bundles</strong> differ in the level of customisation, integration support, and sharing features you need.</p>
+      <p>Every CloudMISP bundle comes with at least one production-quality MISP instance running on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. Each <strong>bundle</strong> differs in the level of training, expert implementation guidance, and features so that you can choose the one that works best for you.</p>
     </div>
     <div class="tiers-grid">
       <div class="tier-card">
         <h3>Core Bundle</h3>
         <div class="tier-card-subtitle">For teams already experienced with MISP</div>
         <ul class="tier-features">
-          <li>1 production MISP instance</li>
+          <li>1 production-quality CloudMISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -1838,10 +2065,11 @@ ul, ol { list-style: none; }
       </div>
       <div class="tier-card is-featured">
         <h3>Accelerator Bundle</h3>
-        <div class="tier-card-subtitle">For orgs who want to use MISP for threat intel, but need help using it</div>
+        <div class="tier-card-subtitle">For teams who want to use MISP, but have never used it before</div>
         <ul class="tier-features">
+          <li>MISP Kickstart training for up to 5 users in the first year</li>
           <li>10 days of Cosive Professional Services each year</li>
-          <li>1 production MISP instance</li>
+          <li>1 production CloudMISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -1849,16 +2077,15 @@ ul, ol { list-style: none; }
           <li>Production support</li>
           <li>Unlimited users*</li>
           <li>100GB storage*</li>
-          <li>MISP Kickstarter training for up to 5 users in the first year</li>
         </ul>
       </div>
       <div class="tier-card is-gold">
-        <h3>Sharing Bundle</h3>
-        <div class="tier-card-subtitle">Core + Consulting + Training + Built-in threat feed</div>
+        <h3>Share Bundle</h3>
+        <div class="tier-card-subtitle">For teams who want to create a sharing community</div>
         <ul class="tier-features">
-          <li><a href="https://feedly.com/ti" target="_blank">Feedly for Threat Intelligence</a> license</li>
+          <li>2 CloudMISP instances (one for internal use and one for sharing)</li>
+          <li>MISP Kickstart training for up to 5 users in the first year</li>
           <li>10 days of Cosive Professional Services each year</li>
-          <li>1 production MISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -1866,14 +2093,10 @@ ul, ol { list-style: none; }
           <li>Production support</li>
           <li>Unlimited users*</li>
           <li>100GB storage*</li>
-          <li>MISP Kickstarter training for up to 5 users in the first year</li>
-          <li>Advanced integrations with your security stack</li>
-          <li>Priority support and dedicated account management</li>
-          <li>Custom feed configuration and optimisation</li>
         </ul>
       </div>
     </div>
-    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* Fair use policy applies.</p>
+    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* <a href="#" style="color: inherit; text-decoration: underline;">Fair use policy</a> applies.</p>
     <div class="tiers-addons">
       <div class="tiers-addons-label">Optional add-ons</div>
       <div class="tiers-addons-grid">
@@ -1887,7 +2110,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">TAXII Sharing Server</div>
-            <div class="addon-card-desc">A dedicated TAXII server for publishing STIX packages to partners and downstream consumers.</div>
+            <div class="addon-card-desc">Enables CloudMISP threat intelligence to be shared using STIX/TAXII.</div>
           </div>
         </div>
         <div class="addon-card">
@@ -1901,7 +2124,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">MISP Sharing Server</div>
-            <div class="addon-card-desc">An additional MISP instance configured as a sharing hub for distributing threat intelligence across your community.</div>
+            <div class="addon-card-desc">An additional CloudMISP instance for use as a dedicated sharing hub. Recommended when you want to add sharing to Core or Accelerator bundles.</div>
           </div>
         </div>
         <div class="addon-card">
@@ -1916,7 +2139,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">Integration Server</div>
-            <div class="addon-card-desc">A dedicated integration layer connecting CloudMISP to your SIEM, SOAR, EDR, and other security tools.</div>
+            <div class="addon-card-desc">A separate integration server is recommended to host more resource intensive integrations.</div>
           </div>
         </div>
       </div>
@@ -2033,7 +2256,7 @@ ul, ol { list-style: none; }
       <div class="cm-why__text">
         <img src="icons/cosive-sinewave.svg" alt="" class="cm-why__sinewave">
         <div class="cm-label">Why Cosive</div>
-        <h2 class="cm-h2">We have done this before — for organisations like yours</h2>
+        <h2 class="cm-h2">We've done this many times before — for organisations like yours</h2>
         <div class="cm-why__list">
           <div class="cm-why__list-item">
             <div class="cm-why__list-icon">
@@ -2279,7 +2502,7 @@ ul, ol { list-style: none; }
 (function() {
   var sectionNav = document.querySelector('.cm-section-nav');
   var links = document.querySelectorAll('.cm-section-nav__link');
-  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','consume','tiers','case-studies','why-cosive','faq'];
+  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','consume','integrations','tiers','case-studies','why-cosive','faq'];
   var navMapping = {
     'analyst-experience': 'enterprise',
     'customer-quotes': 'what-is-cloudmisp'
