@@ -1499,61 +1499,31 @@ end of integrate your tools section -->
 
       <details>
         <summary>
-          Can you help me get threat intelligence into my MISP platform?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Yes. We build custom integrations that connect your existing security tools to MISP. Whether you need to ingest threat feeds, push indicators from your SIEM, or automate the flow of intelligence from your SOAR &mdash; we can build the integration that makes it happen.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
           What TIP platforms do you support?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We work with MISP, OpenCTI, EclecticIQ Intelligence Center, and other STIX/TAXII-compatible platforms. We&rsquo;re TIP experts &mdash; MISP is our strongest area, but we can integrate with any platform that exposes an API or supports standard protocols.</p>
+          <p>We work with MISP, OpenCTI, EclecticIQ Intelligence Center and any other STIX/TAXII-compatible platform. MISP is our strongest area &mdash; we&rsquo;re core contributors and offer it managed as <a href="cloudmisp.html">CloudMISP</a> &mdash; but we can integrate with any TIP that exposes an API or supports standard protocols.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What languages do you develop in?
+          Can you get threat intelligence into our MISP platform?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Most CTI tooling we build is in Python &mdash; it&rsquo;s the standard for MISP modules, STIX processing, and enrichment pipelines. We also use TypeScript for web-based analyst dashboards and APIs, and Rust where high-throughput feed processing or indicator matching demands it. If your TIP ecosystem uses a specific language, we write code that fits into your existing codebase and contribution guidelines.</p>
+          <p>Yes. We build custom integrations that connect your existing tools to MISP &mdash; ingesting threat feeds, pushing indicators from your SIEM, or automating the flow of intelligence from your SOAR. Whatever the source, we build the connector that makes it happen.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What CI/CD platforms can you work with?
+          Can you build plugins and integrations for our security tools?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>GitHub Actions and GitLab CI/CD are the most common in CTI teams we work with, but we also build on Azure DevOps, Bitbucket Pipelines, and Jenkins. For MISP modules and TIP connectors specifically, we set up pipelines that run integration tests against a staging MISP instance before deployment &mdash; so you know a new module works before it touches production data.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          What development practices do you follow?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>CTI data formats evolve &mdash; STIX adds fields, MISP schemas change, feed sources restructure their output. Our development practices are designed around that reality: automated tests that validate against real data samples, version-controlled configurations, dependency scanning, and code review on every change. When we hand over a MISP module or enrichment pipeline, your team can maintain it with confidence.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Can you build plugins for my security tool?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>If it has an API, yes. We&rsquo;re TIP experts &mdash; we&rsquo;ve built MISP modules, OpenCTI connectors, and EclecticIQ extensions &mdash; but we can also build plugins for any technology that exposes an extension point or API.</p>
+          <p>If it exposes an API, yes. We&rsquo;ve built MISP modules, OpenCTI connectors and EclecticIQ extensions, and we can build plugins for any tool with an extension point or API &mdash; connecting your TIP to your SIEM, SOAR, ticketing and the rest of your stack.</p>
         </div>
       </details>
 
@@ -1563,7 +1533,27 @@ end of integrate your tools section -->
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes &mdash; either natively within your tool or as a plugin. We build automated workflows for triage, enrichment, dissemination, and more. We also build AI/ML-powered analytics that can be embedded directly into your existing platforms.</p>
+          <p>Yes &mdash; natively within your tool or as a plugin. We build automated workflows for triage, enrichment and dissemination, and can embed AI/ML-powered analytics directly into your existing platforms, so routine steps run without analyst effort.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What languages do you develop in?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Most CTI tooling we build is Python &mdash; the standard for MISP modules, STIX processing and enrichment pipelines. We use TypeScript for analyst dashboards and APIs, and Rust where high-throughput feed processing or indicator matching demands it. If your ecosystem uses a specific language, we write code that fits your codebase and contribution guidelines.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What development practices do you follow?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>CTI data formats keep evolving &mdash; STIX adds fields, MISP schemas change, feeds restructure &mdash; so we build around that: automated tests validated against real data samples, version-controlled configs, dependency scanning and code review on every change, with CI pipelines (GitHub Actions, GitLab CI) that run integration tests against a staging MISP instance before anything reaches production. You can maintain what we hand over with confidence.</p>
         </div>
       </details>
 
@@ -1573,7 +1563,7 @@ end of integrate your tools section -->
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>A single MISP module or TIP connector typically takes a few weeks. Connecting your TIP to multiple downstream systems &mdash; SIEM, SOAR, ticketing &mdash; with proper data mapping and STIX translation usually takes longer. Full platform builds like Atraxium are measured in months. We scope each engagement based on the specific platforms and data flows involved, and give you a realistic timeline before we start.</p>
+          <p>A single MISP module or TIP connector typically takes a few weeks. Connecting your TIP to multiple downstream systems &mdash; SIEM, SOAR, ticketing &mdash; with proper data mapping and STIX translation takes longer, and full platform builds like Atraxium run to months. We scope each engagement on the platforms and data flows involved and give you a realistic timeline before we start.</p>
         </div>
       </details>
 

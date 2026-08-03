@@ -832,7 +832,8 @@ ul, ol { list-style: none; }
 }
 .cm-integrations__head {
   max-width: 56rem;
-  margin-bottom: var(--space-4xl);
+  margin: 0 auto var(--space-4xl);
+  text-align: center;
 }
 .cm-integrations .cm-h2 {
   color: var(--color-white);
@@ -1910,7 +1911,7 @@ ul, ol { list-style: none; }
     <div class="cm-integrations__head">
       <div class="cm-label">Integrations</div>
       <h2 class="cm-h2">CloudMISP connects to the tools you already run</h2>
-      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack, and speaks the open standards your tools already understand — STIX/TAXII, OpenIOC, YARA and CSV. These are the main types of tools teams connect to CloudMISP.</p>
+      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack, and speaks the open standards your tools already understand — STIX/TAXII, OpenIOC, YARA and CSV. These are the main types of tools our customers connect to CloudMISP.</p>
     </div>
 
     <div class="cm-integrations__grid">
@@ -2249,20 +2250,52 @@ ul, ol { list-style: none; }
       <div class="cm-faq__list">
         <details>
           <summary>
-            What is MISP?
+            How is CloudMISP different from running MISP ourselves?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>MISP (Malware Information Sharing Platform) is an open-source threat intelligence platform used by security teams worldwide. It helps organisations collect, store, share, and correlate indicators of compromise (IOCs) and other threat data. MISP is maintained by an active global community and is used by national CERTs, ISACs, and private-sector security teams alike.</p>
+            <p>CloudMISP is a fully managed MISP platform: you get a production-quality instance on dedicated AWS infrastructure with tested automatic upgrades, encrypted cross-region backups, enterprise SSO and 24/7 monitoring — run by the team that operates Australia's national CTIS for 450+ organisations. Running MISP yourself means building and owning all of that.</p>
+            <p>You could self-host — some teams do. The real question is whether infrastructure is the best use of your analysts' time. CloudMISP takes upgrades, patching, high availability, backups and scaling off their plate, so they focus on creating, curating and sharing intelligence — with direct access to Cosive's MISP specialists.</p>
           </div>
         </details>
         <details>
           <summary>
-            How is CloudMISP different to open-source MISP?
+            What's included in each CloudMISP bundle?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>CloudMISP is built on MISP, but it is not just MISP on a server. We add managed infrastructure, automatic upgrades with comprehensive testing, SSO integration, encrypted backups, self-healing architecture, and enterprise features like TAXII serving and custom SIEM integrations. You get an enterprise-grade platform — with the reliability, security, and compliance posture your organisation expects — without needing a team to build and maintain the infrastructure around it.</p>
+            <p>Every CloudMISP bundle comes with at least one production-quality MISP instance on dedicated infrastructure — managed hosting in your preferred AWS region, a dedicated VPC, automatic updates, encrypted backups, enterprise SSO, monitoring and production support. The bundles differ by how much training and hands-on help you need.</p>
+            <p>Core suits teams already comfortable with MISP. Accelerator adds MISP Kickstart training for up to five users and 10 days of Cosive professional services each year — built for teams new to MISP. Share adds a second instance, so you can run one internally and a separate sharing hub for your community.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            What can CloudMISP integrate with, and which standards does it support?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>CloudMISP connects to the tools your team already runs — SIEMs, EDR, SOAR, network security, enrichment services and other threat-intel platforms — and speaks the open standards MISP supports: STIX/TAXII, OpenIOC, YARA and CSV. Indicators flow into your detection stack without custom plumbing.</p>
+            <p>Our engineers can build and maintain those integrations for you. Optional add-ons include a TAXII Sharing Server for STIX/TAXII sharing and a dedicated Integration Server for heavier integrations.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            Where is our data hosted, and how is it kept secure?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>Your CloudMISP instance runs in its own dedicated VPC in the AWS region you choose, with encrypted cross-region backups and enterprise SSO controlling access — so your threat intelligence stays isolated to your environment and meets your data-residency requirements. Cosive monitors and patches it 24/7.</p>
+            <p>The platform uses a self-healing architecture with automatic security patching and tested upgrades applied for you.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            How do we get started, and how long does it take?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>Getting started begins with a CloudMISP demo and a short scoping conversation about your goals, communities and integrations. Most teams are live on a production instance within a few weeks — the main variable is scoping your sharing groups and connecting your tools.</p>
+            <p>If your team is new to MISP, the Accelerator bundle includes MISP Kickstart training and 10 days of Cosive professional services to get you productive quickly.</p>
           </div>
         </details>
         <details>
@@ -2271,44 +2304,18 @@ ul, ol { list-style: none; }
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>Yes. Cosive actively contributes to the MISP open-source project. We submit bug fixes, feature enhancements, and documentation improvements. We also participate in the MISP community through conferences, working groups, and community discussions. Our experience operating MISP at scale directly informs the contributions we make upstream.</p>
+            <p>Yes. Cosive actively contributes to open-source MISP — submitting bug fixes, feature enhancements and documentation — and we operate MISP at national scale, running Australia's Cyber Threat Intelligence Sharing platform (CTIS) for 450+ organisations. That first-hand experience directly shapes how we build, run and support CloudMISP.</p>
+            <p>We also take part in the MISP community through conferences and working groups.</p>
           </div>
         </details>
         <details>
           <summary>
-            What is MISP good for?
+            I&rsquo;m a security researcher — can I get a free CloudMISP?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>MISP excels at collecting and correlating indicators of compromise, managing threat intelligence feeds, sharing intelligence with trusted partners, and distributing IOCs to security tools like SIEMs and firewalls. It is particularly strong for teams that need to collaborate — whether internally across departments or externally across organisations and sectors.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            What is MISP not good for?
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>MISP is not a SIEM, a SOAR, or an endpoint detection tool. It does not replace your security monitoring stack — it complements it. If you need real-time alerting, automated response playbooks, or endpoint visibility, those are separate tools that MISP integrates with. MISP is best thought of as the connective tissue that makes your other security tools more effective.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            I&rsquo;m a security researcher — can I have a free CloudMISP?
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>CloudMISP is a commercial managed service, so we do not offer free instances. However, MISP itself is free and open-source — you can download and run it yourself. If you are a researcher affiliated with a university or research institution, get in touch and we will see what we can do. We are always happy to support the security research community where we can.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            I could build this all myself!
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>You absolutely could — and some organisations do. The question is whether that is the best use of your team's time. Running MISP at enterprise scale means handling upgrades, monitoring, encrypted backups, SSO integration, high availability, compliance, and scaling — on top of the analyst workflow that MISP is actually for. CloudMISP lets your team focus on threat intelligence work instead of infrastructure maintenance. For most teams, that trade-off makes sense.</p>
-            <p>Plus, with CloudMISP you get direct access to the Cosive team — specialists who can help you operationalise MISP, connect it to your workflows, and get real value from your threat intelligence programme.</p>
+            <p>CloudMISP is a commercial managed service, so we don't offer free instances — but MISP itself is free and open-source, and you can download and run it yourself. If you're affiliated with a university or research institution, get in touch and we'll see what we can do.</p>
+            <p>We're always glad to support the security research community where we can.</p>
           </div>
         </details>
       </div>

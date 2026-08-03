@@ -1536,71 +1536,11 @@
 
       <details>
         <summary>
-          What languages do you develop in?
+          What kinds of fraud tools can you integrate?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Python and C# are the most common in the fraud and banking environments we work in &mdash; Python for MISP integrations and data pipelines, C# for .NET platforms common in financial institutions. We also use TypeScript for web-based dashboards and Rust where transaction throughput or indicator matching demands high performance. We match the language to your existing technology stack so the code fits into your environment and your team can maintain it.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          What CI/CD platforms can you work with?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Azure DevOps is the most common in the financial institutions we work with, but we also build on GitHub Actions, GitLab CI/CD, Bitbucket Pipelines, and Jenkins. For regulated environments, we configure pipelines with approval gates, audit logging, and deployment controls that satisfy compliance requirements &mdash; not just automated builds, but a deployment process your auditors can review.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Where can you deploy our tools?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>We deploy to Azure, AWS, Google Cloud, Hetzner, and on-premises infrastructure. For cloud deployments, we can deploy to your preferred region on any of those providers. We work with your existing infrastructure rather than prescribing a specific platform, and we configure deployments to meet your security, compliance, and data residency requirements.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          What development practices do you follow?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>We build for environments where auditors review the code and regulators set the rules. That means secrets scanning, dependency vulnerability scanning, static analysis, automated testing, code review, and full version history on every change. For fraud data integrations specifically, we add data validation and integrity checks so that indicators flowing between your transaction monitoring system and MISP are reliable and traceable.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          What kinds of tools can you integrate?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>If it has an API, we can integrate it. We&rsquo;ve integrated transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms, compliance tools, and more. We work with what you have rather than asking you to replace it.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Do you only work with MISP?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>No. MISP is the platform most fraud sharing communities use, so we have deep expertise there. But we also integrate with STIX/TAXII platforms, proprietary systems, and custom APIs. If your community or regulator uses a different platform, we can integrate with it.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          How long does a typical fraud integration take?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="faq-answer">
-          <p>Connecting a single fraud platform to MISP typically takes a few weeks. Integrating multiple systems &mdash; transaction monitoring, case management, SIEM &mdash; with proper data mapping and compliance controls takes longer. In banking environments, the integration work itself is often faster than the change management and approval process. We scope each engagement individually, account for those realities, and give you a realistic timeline upfront.</p>
+          <p>If it exposes an API, we can integrate it &mdash; transaction monitoring systems, fraud case management platforms, SIEMs, threat intelligence platforms and compliance tools. MISP is the platform most fraud-sharing communities use, so we have deep expertise there, but we also integrate STIX/TAXII platforms, proprietary systems and custom APIs. We work with what you have rather than replacing it.</p>
         </div>
       </details>
 
@@ -1610,27 +1550,57 @@
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We can often find other ways to integrate. Some platforms support file-based imports, database access, webhook triggers, or extension plugins. We evaluate your specific setup and recommend the most reliable approach &mdash; including building bespoke tooling if that&rsquo;s what it takes.</p>
+          <p>We can usually find another way in. Many platforms support file-based imports, database access, webhook triggers or extension plugins &mdash; we evaluate your specific setup and recommend the most reliable approach, including building bespoke tooling if that&rsquo;s what it takes.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          How do you handle ongoing maintenance?
+          Where can you deploy our tools?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We create new integrations with automated testing and CI/CD pipelines, so they&rsquo;re designed to be maintainable from day one. We can provide ongoing support, or hand the integration over to your team with full documentation. Either way, you&rsquo;re not left with a fragile script that breaks when an API changes.</p>
+          <p>We deploy to Azure, AWS, Google Cloud, Hetzner and on-premises infrastructure, in your preferred region &mdash; working with your existing setup rather than prescribing a platform, and configuring each deployment to meet your security, compliance and data-residency requirements.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Can you work with our existing development team?
+          What languages do you develop in?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Yes. We regularly work alongside in-house teams, whether that means creating new integrations collaboratively, upskilling your developers on MISP and its APIs, or handling the specialist work while your team focuses on what they know best. We adapt to your preferred ways of working.</p>
+          <p>Python and C# are most common in the fraud and banking environments we work in &mdash; Python for MISP integrations and data pipelines, C# for the .NET platforms common in financial institutions. We also use TypeScript for dashboards and Rust where transaction throughput or indicator matching demands high performance, matching the language to your stack so your team can maintain it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          What development practices do you follow?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We build for environments where auditors review the code and regulators set the rules: secrets scanning, dependency vulnerability scanning, static analysis, automated testing, code review and full version history on every change, with CI/CD pipelines (Azure DevOps, GitHub Actions, GitLab) that add approval gates and audit logging for regulated deployments. For fraud integrations we add data validation and integrity checks so indicators flowing between your transaction-monitoring system and MISP stay reliable and traceable.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          How long does a typical fraud integration take?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Connecting a single fraud platform to MISP typically takes a few weeks. Integrating multiple systems &mdash; transaction monitoring, case management, SIEM &mdash; with proper data mapping and compliance controls takes longer, and in banking the change-management and approval process is often slower than the build itself. We scope each engagement individually and give you a realistic timeline upfront.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          How do you handle maintenance, and can you work with our team?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We build every integration with automated testing and CI/CD so it&rsquo;s maintainable from day one &mdash; then either provide ongoing support or hand it over with full documentation, so you&rsquo;re never left with a fragile script that breaks when an API changes. We regularly work alongside in-house teams too, whether that&rsquo;s building collaboratively, upskilling your developers on MISP, or handling the specialist work while they focus on what they know best.</p>
         </div>
       </details>
 
