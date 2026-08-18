@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Cosive - Threat intelligence and fraud data sharing since 2015</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    /* Spacing */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+    --space-7xl: 8rem;
+    --space-8xl: 10rem;
+
+    /* Font sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    display: block;
+  }
+
+  /* ── Section Label ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* ── Highlight (accent underline) ── */
+  .highlight {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── 1. White Editorial Hero ── */
+  .about-hero {
+    background: var(--color-white);
+    padding: var(--space-8xl) 0 var(--space-6xl);
+  }
+
+  .about-hero .section-label {
+    color: var(--color-accent);
+  }
+
+  .about-hero h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
+    margin-bottom: 0;
+  }
+
+  .about-hero-sub {
+    font-size: var(--text-2xl);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-left: auto;
+    max-width: 50%;
+    margin-top: var(--space-3xl);
+  }
+
+  /* ── 2. Photo Marquee (on white) ── */
+  .marquee-section {
+    background: var(--color-white);
+    padding: var(--space-2xl) 0 var(--space-4xl);
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: var(--space-lg);
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    width: 320px;
+    height: 220px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .marquee-item:hover img {
+    transform: scale(1.03);
+  }
+
+  /* ── 3. Dual Service Split ── */
+  .services-section {
+    background: var(--color-light-grey);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8xl) 0;
+  }
+
+  .services-section .section-header {
+    margin-bottom: var(--space-4xl);
+  }
+
+  .services-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .service-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3 / 4;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .service-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%);
+    z-index: 1;
+  }
+
+  .service-card-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-xl) var(--space-xl) var(--space-xl);
+  }
+
+  .service-card-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card-content p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-lg);
+  }
+
+  .service-card-link {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-white);
+    transition: color 0.2s;
+  }
+
+  .service-card-link:hover {
+    color: var(--color-accent);
+  }
+
+  /* ── 4. Pull Quote ── */
+  .pull-quote-section {
+    background: var(--color-white);
+    padding: var(--space-7xl) 0;
+    text-align: center;
+  }
+
+  .pull-quote-sinewave {
+    display: block;
+    width: 80px;
+    height: auto;
+    margin: 0 auto var(--space-3xl);
+  }
+
+  .pull-quote-text {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    max-width: var(--container-standard);
+    margin: 0 auto;
+  }
+
+  /* ── 5. Customers — Asymmetric Grid ── */
+  .customers-section {
+    background: var(--color-white);
+    padding: 0 0 var(--space-8xl);
+    text-align: center;
+  }
+
+  .customers-section .section-header {
+    max-width: var(--container-standard);
+    margin: 0 auto var(--space-4xl);
+  }
+
+  .customers-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+
+  .customers-grid-row-1 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .customers-grid-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-lg);
+  }
+
+  .about-industry-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .about-industry-card.wide {
+    aspect-ratio: 2 / 1;
+  }
+
+  .about-industry-card.square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-industry-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%);
+    z-index: 1;
+  }
+
+  .about-industry-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .about-industry-card-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-xl) var(--space-xl) var(--space-lg);
+  }
+
+  .about-industry-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+  }
+
+  .about-industry-card-content p {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── 6. Community Contributions ── */
+  .community-section {
+    background: var(--color-light-grey);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8xl) 0;
+  }
+
+  .community-section .section-header {
+    max-width: var(--container-standard);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .community-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .community-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .community-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .community-card.accent-border {
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .community-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-md);
+  }
+
+  .community-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .community-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── 7. Values & Culture ── */
+  .values-section {
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-8xl) 0;
+  }
+
+  .values-section > .container > h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .value-card {
+    padding: 0;
+  }
+
+  .value-card .value-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-md);
+  }
+
+  .value-card h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .value-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .culture-heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .culture-card {
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-light-grey);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .culture-card h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .culture-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── 8. Full-Bleed Image CTA ── */
+  .final-cta {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .final-cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.3);
+  }
+
+  .final-cta-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(14,20,28,0.92) 0%, rgba(14,20,28,0.85) 45%, rgba(14,20,28,0.3) 100%);
+  }
+
+  .final-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-standard);
+  }
+
+  .final-cta-sinewave {
+    display: block;
+    width: 80px;
+    height: auto;
+    margin-bottom: var(--space-xl);
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .final-cta p {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: var(--space-xl);
+  }
+
+  .final-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+  }
+
+  .final-cta-btn:hover { background: var(--color-accent-dark); }
+
+  .final-cta-btn svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke: var(--color-white);
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-5xl) 0 var(--space-3xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3xl) var(--space-xl);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-col { flex: 0 0 auto; }
+
+  .footer-col-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-col-title a { color: inherit; transition: color 0.2s; }
+  .footer-col-title a:hover { color: var(--color-accent); }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-col li a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--color-accent); }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom .footer-logo img { height: var(--space-xl); }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1400px) {
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 1200px) {
+    .values-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 var(--space-lg); }
+
+    /* Header nav */
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
+
+    /* Hero */
+    .about-hero { padding: var(--space-7xl) 0 var(--space-3xl); }
+    .about-hero h1 { font-size: var(--text-4xl); }
+    .about-hero-sub { max-width: 70%; }
+
+    /* Marquee */
+    .marquee-item { width: 260px; height: 180px; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { aspect-ratio: 16 / 9; }
+
+    /* Customers */
+    .customers-grid-row-1,
+    .customers-grid-row-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .about-industry-card.wide,
+    .about-industry-card.square {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Community */
+    .community-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Values */
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .culture-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Final CTA */
+    .final-cta { min-height: 320px; }
+    .final-cta h2 { font-size: var(--text-4xl); }
+  }
+
+  @media (max-width: 600px) {
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
+
+    /* Hero */
+    .about-hero { padding: var(--space-5xl) 0 var(--space-xl); }
+    .about-hero h1 { font-size: var(--text-3xl); }
+    .about-hero-sub {
+      font-size: var(--text-xl);
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    /* Marquee */
+    .marquee-item { width: 200px; height: 140px; }
+
+    /* Services */
+    .service-card { min-height: 360px; }
+    .service-card-content h3 { font-size: var(--text-3xl); }
+
+    /* Pull quote */
+    .pull-quote-section { padding: var(--space-5xl) 0; }
+    .pull-quote-text { font-size: var(--text-2xl); }
+
+    /* Customers */
+    .customers-section { padding-bottom: var(--space-5xl); }
+    .customers-section h2 { font-size: var(--text-3xl); }
+    .customers-grid-row-1,
+    .customers-grid-row-2 {
+      grid-template-columns: 1fr;
+    }
+
+    /* Community */
+    .community-section { padding: var(--space-5xl) 0; }
+    .community-section h2 { font-size: var(--text-3xl); }
+    .community-grid { grid-template-columns: 1fr; }
+
+    /* Values */
+    .values-section { padding: var(--space-5xl) 0; }
+    .values-section > .container > h2 { font-size: var(--text-3xl); }
+    .values-grid { grid-template-columns: 1fr; }
+    .culture-grid { grid-template-columns: 1fr; }
+
+    /* Final CTA */
+    .final-cta h2 { font-size: var(--text-3xl); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. White Editorial Hero -->
+<section class="about-hero">
+  <div class="container">
+    <div class="section-label">About Cosive</div>
+    <h1>We help organisations share <span class="highlight">threat intelligence</span> and <span class="highlight">fraud data</span>. We have done it more than 100 times.</h1>
+    <p class="about-hero-sub">Since 2015, we have worked with financial services, government, critical infrastructure, and enterprise teams to start, improve, and run intelligence and data sharing programmes.</p>
+  </div>
+</section>
+
+<!-- 2. Photo Marquee -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- Set A -->
+    <div class="marquee-item"><img src="images/shared/terry-speaking-nzitf-2026.webp" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/chris-horsley-speaker.png" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/shared/prescott-pym-speaking-wide-nzitf-2026.webp" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/terry-macdonald.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/chris-horsley.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/prescott-pym.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/neethu-pushkaran.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/james-garratt.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/lilith-la-rose.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/ashley-sargeson-cosive.png" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/shared/prescott-pym-speaker.jpg" alt="" loading="lazy"></div>
+    <!-- Set B (duplicate for seamless loop) -->
+    <div class="marquee-item"><img src="images/shared/terry-speaking-nzitf-2026.webp" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/chris-horsley-speaker.png" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/shared/prescott-pym-speaking-wide-nzitf-2026.webp" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/terry-macdonald.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/chris-horsley.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/prescott-pym.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/neethu-pushkaran.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/james-garratt.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/lilith-la-rose.jpg" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/homepage/ashley-sargeson-cosive.png" alt="" loading="lazy"></div>
+    <div class="marquee-item"><img src="images/shared/prescott-pym-speaker.jpg" alt="" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- 3. Dual Service Split — "What We Do" -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What we do</div>
+      <h2>Two disciplines. One approach.</h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="images/homepage/hero-cyber-threat-intelligence.webp" alt="Cyber threat intelligence consulting">
+        <div class="service-card-content">
+          <div class="service-card-label">CTI</div>
+          <h3>Cyber Threat Intelligence</h3>
+          <p>We help security teams start, improve, and run threat intelligence programmes. From gap analysis and maturity benchmarking to building sharing communities and integrating platforms.</p>
+          <a href="cyber-threat-intelligence.html" class="service-card-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="images/homepage/hero-fraud-data-sharing.webp" alt="Fraud data sharing consulting">
+        <div class="service-card-content">
+          <div class="service-card-label">Fraud</div>
+          <h3>Fraud Data Sharing</h3>
+          <p>We help banks, payment providers, and regulators share fraud data across organisational boundaries. We design sharing communities, deploy platforms, and integrate with existing fraud tools.</p>
+          <a href="fraud-data-sharing.html" class="service-card-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. Pull Quote -->
+<section class="pull-quote-section">
+  <div class="container">
+    <svg class="pull-quote-sinewave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:#bdbdbd;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:#e53834;stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg>
+    <p class="pull-quote-text">Sharing intelligence strengthens collective defence. We have spent a decade <span class="highlight">proving</span> it.</p>
+  </div>
+</section>
+
+<!-- 5. 100+ Customers — Asymmetric Grid -->
+<section class="customers-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Our experience</div>
+      <h2>We have worked with more than 100 organisations since 2015</h2>
+    </div>
+
+    <div class="customers-grid-row-1">
+      <div class="about-industry-card wide">
+        <img src="images/homepage/panel-bg-financial-services.webp" alt="Financial services">
+        <div class="about-industry-card-content">
+          <h3>Financial Services</h3>
+          <p>Banks, insurers, and fintechs building threat intelligence and fraud data sharing programmes.</p>
+        </div>
+      </div>
+      <div class="about-industry-card square">
+        <img src="images/homepage/panel-bg-critical-infrastructure.webp" alt="Critical infrastructure">
+        <div class="about-industry-card-content">
+          <h3>Critical Infrastructure</h3>
+          <p>Energy, telecommunications, and transport organisations protecting essential services.</p>
+        </div>
+      </div>
+      <div class="about-industry-card square">
+        <img src="images/homepage/panel-bg-enterprises.webp" alt="Enterprises">
+        <div class="about-industry-card-content">
+          <h3>Enterprises</h3>
+          <p>Large organisations building internal CTI capability and improving security operations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="customers-grid-row-2">
+      <div class="about-industry-card square">
+        <img src="images/homepage/panel-bg-operational-technology.webp" alt="Operational technology">
+        <div class="about-industry-card-content">
+          <h3>Operational Technology</h3>
+          <p>OT and ICS environments integrating threat intelligence into operational security.</p>
+        </div>
+      </div>
+      <div class="about-industry-card wide">
+        <img src="images/homepage/panel-bg-government.webp" alt="Government">
+        <div class="about-industry-card-content">
+          <h3>Government</h3>
+          <p>National and state agencies building threat and fraud data sharing programmes and coordinating response.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. Community Contributions -->
+<section class="community-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Community</div>
+      <h2>We contribute to the security and fraud communities, not just consume from them</h2>
+    </div>
+    <div class="community-grid">
+
+      <div class="community-card">
+        <div class="community-number">01</div>
+        <h3>CTI-CMM contributors</h3>
+        <p>Co-authors of the Cyber Threat Intelligence Capability Maturity Model, the framework used by security teams globally to benchmark and improve their CTI programmes.</p>
+      </div>
+
+      <div class="community-card accent-border">
+        <div class="community-number">02</div>
+        <h3>Fraud data sharing programme designers</h3>
+        <p>Designers and builders of national and regional fraud data sharing programmes connecting banks, payment providers, and regulators.</p>
+      </div>
+
+      <div class="community-card">
+        <div class="community-number">03</div>
+        <h3>Open source contributors</h3>
+        <p>Active contributors to MISP, the open-source platform used for both threat intelligence and fraud data sharing, and participants in OASIS STIX and TAXII standardisation.</p>
+      </div>
+
+      <div class="community-card accent-border">
+        <div class="community-number">04</div>
+        <h3>FIRST committee members</h3>
+        <p>Members of FIRST.org committees and SIGs that shape how CSIRTs and security teams share intelligence across borders.</p>
+      </div>
+
+      <div class="community-card">
+        <div class="community-number">05</div>
+        <h3>Sharing community architects</h3>
+        <p>Designed and built sharing communities for NCSCs, financial sector ISACs, fraud consortiums, and public-private partnerships across four continents.</p>
+      </div>
+
+      <div class="community-card accent-border">
+        <div class="community-number">06</div>
+        <h3>International speakers and trainers</h3>
+        <p>Regular speakers at FIRST, NZITF, AusCERT, and conferences worldwide. Deliver hands-on training on threat intelligence and fraud data sharing to teams across multiple continents.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7. Values & Culture -->
+<section class="values-section">
+  <div class="container">
+    <h2>Our values and culture</h2>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-number">01</div>
+        <h4>Integrity</h4>
+        <p>We give honest advice, even when it means recommending less work for us. Our reputation depends on doing the right thing for our clients.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">02</div>
+        <h4>Transparency</h4>
+        <p>We share what we know openly. From quarterly financial updates with the whole team to publishing our frameworks and methodologies for the community.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">03</div>
+        <h4>Technical excellence</h4>
+        <p>We hire experienced practitioners who have built and run the programmes they advise on. Our team brings depth, not just frameworks.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">04</div>
+        <h4>Put clients first</h4>
+        <p>We start with your context, constraints, and goals. Good advice meets you where you are, not where a textbook says you should be.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">05</div>
+        <h4>Speak from experience</h4>
+        <p>Every recommendation we make comes from hands-on work with real security teams. We have done what we advise you to do.</p>
+      </div>
+    </div>
+
+    <h3 class="culture-heading">How we look after our team</h3>
+    <div class="culture-grid">
+      <div class="culture-card">
+        <h4>Fully remote</h4>
+        <p>Our team works across Australia and New Zealand. We hire the best people regardless of location and trust them to manage their own time.</p>
+      </div>
+      <div class="culture-card">
+        <h4>Me days</h4>
+        <p>One day per month for self-care, learning, or whatever helps you recharge. No questions asked, no approval needed.</p>
+      </div>
+      <div class="culture-card">
+        <h4>Transparent finances</h4>
+        <p>Quarterly financial updates shared with all staff. Everyone understands how the business is performing and how decisions get made.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Full-Bleed Image CTA -->
+<section class="final-cta">
+  <div class="final-cta-bg">
+    <img src="images/shared/prescott-pym-speaking-wide-nzitf-2026.webp" alt="">
+  </div>
+  <div class="container final-cta-content">
+    <svg class="final-cta-sinewave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 142" fill="none"><g transform="translate(-79.724508,-588.43081)"><path d="m 82.998863,676.41137 c 0.896697,-2.05927 1.793395,-4.11851 2.690076,-6.16139 0.896714,-2.04289 1.793395,-4.06932 2.690093,-6.0633 0.896698,-1.99399 1.793379,-3.95534 2.690093,-5.86869 0.896681,-1.91334 1.793395,-3.77836 2.690076,-5.5806 0.896682,-1.80223 1.793379,-3.54127 2.690077,-5.20369 0.896714,-1.66244 1.793379,-3.24777 2.690077,-4.74393 0.896715,-1.49618 1.793395,-2.90258 2.690105,-4.20864 0.89669,-1.30607 1.79336,-2.51116 2.69008,-3.60635 0.89668,-1.09518 1.79338,-2.07975 2.69008,-2.94663 0.8967,-0.86684 1.79337,-1.61527 2.69007,-2.23998 0.8967,-0.62475 1.79338,-1.12505 2.6901,-1.49771 0.89668,-0.37266 1.79336,-0.61691 2.69007,-0.73157 0.89668,-0.11463 1.79338,-0.0989 2.69008,0.0462 0.89668,0.14526 1.79339,0.42058 2.69007,0.82326 0.8967,0.4027 1.7934,0.93342 2.6901,1.58723 0.89669,0.65378 1.79337,1.43137 2.69007,2.32586 0.89669,0.89449 1.7934,1.90659 2.6901,3.02751 0.89667,1.12095 1.79337,2.35142 2.69006,3.68098 0.89671,1.32954 1.79341,2.75878 2.69008,4.27579 0.89671,1.51699 1.7934,3.12225 2.6901,4.80255 0.89669,1.68029 1.7934,3.43603 2.69008,5.25285 0.89668,1.81682 1.79339,3.69508 2.69008,5.61952 0.89669,1.92444 1.79339,3.8953 2.69008,5.89671 0.89669,2.00143 1.79339,4.03352 2.69008,6.08004 0.8967,2.04649 1.7934,4.1075 2.69009,6.16653 0.8967,2.05905 1.79338,4.11611 2.69007,6.15488 0.89671,2.0388 1.7934,4.05917 2.69007,6.04523 0.89671,1.98608 1.7934,3.9376 2.6901,5.83932 0.8967,1.90173 1.79338,3.75335 2.69009,5.54046 0.89668,1.78712 1.79338,3.50934 2.69008,5.15336 0.89671,1.64404 1.79339,3.20946 2.69008,4.68426 0.89671,1.47481 1.79339,2.85845 2.69009,4.14053 0.89668,1.28208 1.79338,2.46197 2.69008,3.5309 0.8967,1.06895 1.79339,2.02629 2.69007,2.86507 0.8967,0.83879 1.7934,1.55833 2.69007,2.15362 0.89673,0.59528 1.7934,1.06555 2.69011,1.40784 0.89669,0.3423 1.79337,0.55584 2.69009,0.63971 0.89667,0.0838 1.79337,0.0371 2.69007,-0.13864 0.89668,-0.17591 1.79338,-0.4819 2.69008,-0.91479 0.89669,-0.43289 1.79337,-0.9934 2.69009,-1.67636 0.89668,-0.68295 1.79337,-1.48909 2.69009,-2.41124 0.89666,-0.92215 1.79338,-1.96106 2.69006,-3.10773 0.8967,-1.14671 1.7934,-2.40181 2.69007,-3.75475 0.89673,-1.35297 1.7934,-2.80434 2.6901,-4.34201 0.89669,-1.53766 1.79338,-3.16218 2.6901,-4.8601 0.89667,-1.69793 1.79337,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.7934,-3.72199 2.69008,-5.65718 0.89669,-1.93519 1.79339,-3.91497 2.69007,-5.92341 0.8967,-2.00844 1.7934,-4.04569 2.6901,-6.0954 0.89668,-2.0497 1.79337,-4.11196 2.69007,-6.17031 0.89669,-2.05835 1.7934,-4.11275 2.69008,-6.14698 0.89669,-2.03421 1.79339,-4.04808 2.69008,-6.02577 0.89671,-1.97771 1.7934,-3.91897 2.69008,-5.80868 0.8967,-1.88969 1.79339,-3.72746 2.69009,-5.49905 0.8967,-1.77159 1.79339,-3.47658 2.69007,-5.10188 0.8967,-1.6253 1.79341,-3.1704 2.69008,-4.62351 0.89672,-1.45313 1.79341,-2.8137 2.69011,-4.07151 0.89668,-1.25783 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.79339,-1.97233 2.69007,-2.78285 0.8967,-0.81056 1.7934,-1.50105 2.69008,-2.06676 0.89671,-0.56569 1.7934,-1.00583 2.6901,-1.31768 0.89669,-0.31186 1.79337,-0.49465 2.69007,-0.54769 0.8967,-0.0531 1.7934,0.0243 2.69007,0.23103 0.8967,0.20661 1.7934,0.54312 2.6901,1.0061 0.8967,0.46298 1.79337,1.05317 2.69007,1.76513 0.8967,0.71197 1.79338,1.54645 2.6901,2.49606 0.89668,0.94964 1.79338,2.01511 2.69007,3.18728 0.89668,1.17217 1.7934,2.45166 2.69008,3.8277 0.8967,1.37604 1.7934,2.84922 2.69009,4.40722 0.89668,1.55801 1.79338,3.20138 2.69009,4.91654 0.89669,1.7152 1.79336,3.50259 2.69009,5.34763 0.89667,1.84504 1.79337,3.74803 2.69007,5.69354 0.8967,1.94554 1.79337,3.93381 2.69007,5.94883 0.8967,2.01503 1.79338,4.05693 2.6901,6.10937 0.89668,2.05246 1.79338,4.11549 2.69007,6.17269 0.89668,2.0572 1.7934,4.10852 2.69008,6.13769 0.89669,2.0292 1.7934,4.03612 2.69007,6.005 0.8967,1.96889 1.7934,3.89948 2.6901,5.7767 0.89669,1.87722 1.79337,3.70075 2.69007,5.45642 0.89669,1.7557 1.7934,3.44308 2.69009,5.04927 0.89667,1.60618 1.79341,3.13063 2.69008,4.56174 0.8967,1.43112 1.79339,2.76831 2.6901,4.00157 0.89668,1.23326 1.79336,2.36192 2.69007,3.37769 0.89669,1.01576 1.7934,1.91794 2.69008,2.70006 0.89669,0.78209 1.7934,1.4434 2.69008,1.97939 0.8967,0.53599 1.79339,0.94589 2.69008,1.22725 0.89671,0.28134 1.79339,0.43333 2.69009,0.45556 0.89669,0.0222 1.79339,-0.0861 2.69008,-0.32339 0.8967,-0.23726 1.79339,-0.60422 2.69007,-1.09719 0.89671,-0.49297 1.7934,-1.1127 2.69008,-1.85351 0.89672,-0.74082 1.79339,-1.60346 2.69009,-2.58034 0.8967,-0.97687 1.79338,-2.06869 2.6901,-3.26604 0.89667,-1.19741 1.79337,-2.501 2.69007,-3.89983 0.8967,-1.39882 1.79338,-2.89345 2.69008,-4.47144 0.89671,-1.57801 1.79337,-3.23989 2.69009,-4.97191 0.8967,-1.73207 1.79338,-3.53472 2.69008,-5.39323 0.8967,-1.85852 1.79339,-3.77322 2.69009,-5.72862 0.89668,-1.95542 1.79338,-3.95172 2.69008,-5.97288 0.8967,-2.02115 1.79337,-4.06729 2.69008,-6.12202" style="fill:none;stroke:rgba(255,255,255,0.3);stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/><path d="m 112.47967,676.41137 c 0.89669,-2.05927 1.7934,-4.11851 2.69007,-6.16139 0.89671,-2.04289 1.79341,-4.06932 2.6901,-6.0633 0.89669,-1.99399 1.79338,-3.95534 2.69008,-5.86869 0.89669,-1.91334 1.79339,-3.77836 2.69009,-5.5806 0.89668,-1.80223 1.79338,-3.54127 2.69007,-5.20369 0.8967,-1.66244 1.7934,-3.24777 2.69007,-4.74393 0.89671,-1.49618 1.7934,-2.90258 2.6901,-4.20864 0.8967,-1.30607 1.79338,-2.51116 2.69008,-3.60635 0.89669,-1.09518 1.79339,-2.07975 2.69007,-2.94663 0.8967,-0.86684 1.7934,-1.61527 2.6901,-2.23998 0.89669,-0.62475 1.79337,-1.12505 2.69007,-1.49771 0.89671,-0.37266 1.79337,-0.61691 2.6901,-0.73155 0.89669,-0.11464 1.79337,-0.0991 2.69007,0.0462 0.8967,0.14528 1.7934,0.42058 2.69007,0.82327 0.8967,0.40269 1.7934,0.9334 2.6901,1.58722 0.8967,0.65378 1.79338,1.43137 2.6901,2.32586 0.89667,0.8945 1.79337,1.90659 2.69007,3.02753 0.89668,1.12095 1.79338,2.35139 2.69008,3.68095 0.89669,1.32956 1.79337,2.75879 2.69007,4.27581 0.8967,1.51698 1.79339,3.12225 2.6901,4.80254 0.89667,1.68029 1.79336,3.43603 2.69007,5.25286 0.89669,1.81683 1.7934,3.69508 2.69007,5.6195 0.8967,1.92444 1.7934,3.89532 2.69009,5.89671 0.89669,2.00143 1.79339,4.03354 2.69008,6.08004 0.89669,2.04651 1.79339,4.10751 2.69008,6.16653 0.89669,2.05905 1.7934,4.11612 2.69008,6.1549 0.8967,2.03879 1.79341,4.05915 2.69009,6.04521 0.8967,1.98608 1.79339,3.93762 2.6901,5.83933 0.89667,1.90174 1.79337,3.75334 2.69007,5.54046 0.89669,1.78712 1.7934,3.50934 2.69007,5.15338 0.89669,1.64403 1.7934,3.20944 2.69009,4.68424 0.8967,1.47481 1.79339,2.85845 2.69007,4.14053 0.89671,1.28209 1.7934,2.46197 2.6901,3.53091 0.89669,1.06897 1.79339,2.02629 2.69007,2.86507 0.8967,0.8388 1.7934,1.55835 2.69008,2.15361 0.89671,0.59527 1.79339,1.06557 2.69007,1.40787 0.89672,0.34229 1.7934,0.55582 2.6901,0.63968 0.8967,0.0838 1.79341,0.0373 2.69009,-0.13862 0.89668,-0.1759 1.79339,-0.48191 2.69008,-0.91479 0.89671,-0.43289 1.7934,-0.99341 2.69007,-1.67636 0.89671,-0.68295 1.79338,-1.48908 2.6901,-2.41123 0.8967,-0.92217 1.79337,-1.96107 2.69007,-3.10776 0.8967,-1.14668 1.7934,-2.40179 2.69008,-3.75475 0.89672,-1.35295 1.79339,-2.80431 2.69009,-4.34201 0.8967,-1.53765 1.79338,-3.16217 2.6901,-4.86008 0.89668,-1.69792 1.79335,-3.46969 2.69007,-5.30082 0.89668,-1.83114 1.79338,-3.72198 2.69008,-5.65718 0.89667,-1.93518 1.79337,-3.91497 2.69007,-5.92343 0.8967,-2.00844 1.79339,-4.04566 2.6901,-6.09538 0.89667,-2.04972 1.79337,-4.11195 2.69007,-6.17031 0.89669,-2.05834 1.7934,-4.11276 2.6901,-6.14698 0.89668,-2.0342 1.79337,-4.04809 2.69007,-6.02577 0.89668,-1.97771 1.79338,-3.91897 2.69008,-5.80869 0.8967,-1.88967 1.79338,-3.72743 2.69007,-5.49903 0.8967,-1.77159 1.79342,-3.47661 2.6901,-5.10189 0.89669,-1.6253 1.7934,-3.1704 2.69007,-4.62351 0.8967,-1.45314 1.7934,-2.81371 2.69009,-4.07151 0.89668,-1.25782 1.79338,-2.41222 2.69008,-3.4547 0.89669,-1.04247 1.7934,-1.97232 2.69008,-2.78285 0.89668,-0.81055 1.79339,-1.50104 2.69008,-2.06676 0.8967,-0.56569 1.7934,-1.00584 2.69008,-1.31768 0.89671,-0.31185 1.79339,-0.49465 2.69009,-0.5477 0.8967,-0.0531 1.79338,0.0243 2.69009,0.23104 0.89668,0.20661 1.79338,0.54313 2.69006,1.0061 0.89671,0.46298 1.7934,1.05317 2.69007,1.76513 0.89673,0.71198 1.7934,1.54645 2.69011,2.49607 0.8967,0.94962 1.79339,2.0151 2.69009,3.18725 0.8967,1.17218 1.79338,2.45167 2.69007,3.82772 0.8967,1.37604 1.7934,2.84921 2.69008,4.40722 0.89671,1.55801 1.79339,3.20138 2.69009,4.91654 0.8967,1.7152 1.79338,3.5026 2.69008,5.34763 0.89669,1.84504 1.79339,3.74802 2.69009,5.69356 0.89668,1.94552 1.79338,3.93377 2.69008,5.94882 0.8967,2.01503 1.79337,4.05692 2.69007,6.10937 0.8967,2.05245 1.79338,4.11548 2.6901,6.17269 0.89667,2.05717 1.79337,4.1085 2.69007,6.13769 0.8967,2.02918 1.79338,4.03611 2.69007,6.005 0.89673,1.96889 1.7934,3.89948 2.69008,5.77669 0.89672,1.87723 1.7934,3.70075 2.69012,5.45642 0.89667,1.75568 1.79337,3.44309 2.69007,5.04928 0.89667,1.60616 1.79338,3.13062 2.69008,4.56171 0.89669,1.43114 1.79337,2.76833 2.69007,4.00159 0.8967,1.23326 1.79339,2.36193 2.6901,3.37768 0.89667,1.01577 1.79337,1.91795 2.69007,2.70005 0.89669,0.78212 1.7934,1.44341 2.69007,1.9794 0.8967,0.536 1.7934,0.94591 2.69009,1.22727 0.8967,0.28132 1.79339,0.43332 2.69009,0.45555 0.89668,0.0222 1.79338,-0.0861 2.69009,-0.3234 0.89667,-0.23725 1.79338,-0.6042 2.69006,-1.09718 0.8967,-0.49297 1.7934,-1.11269 2.69008,-1.8535 0.89671,-0.74083 1.79341,-1.60347 2.69011,-2.58034 0.89668,-0.97689 1.79337,-2.06869 2.69007,-3.26607 0.89669,-1.19739 1.7934,-2.50099 2.69009,-3.89981 0.89667,-1.39882 1.79337,-2.89345 2.69007,-4.47144 0.89671,-1.57801 1.7934,-3.23989 2.69007,-4.97191 0.89671,-1.73206 1.7934,-3.53471 2.6901,-5.39322 0.8967,-1.85853 1.79339,-3.77323 2.69007,-5.72864 0.8967,-1.95541 1.7934,-3.95172 2.69008,-5.97289 0.89671,-2.02115 1.7934,-4.06728 2.69007,-6.12199" style="fill:none;stroke:rgba(255,255,255,0.5);stroke-width:6.54871;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0.7"/></g></svg>
+    <h2>Talk to us about what you are trying to achieve</h2>
+    <p>Whether it is threat intelligence, fraud data sharing, or both — we have done this before.</p>
+    <a href="/contact-us" class="final-cta-btn">Contact Us <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-columns">
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></h4>
+        <ul>
+          <li><a href="consume-share-threat-intelligence.html">Consume &amp; share threat intelligence</a></li>
+          <li><a href="start-cti-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="improve-cti-team.html">Improve your CTI team</a></li>
+          <li><a href="find-useful-threat-intel-feeds.html">Find useful threat intelligence feeds</a></li>
+          <li><a href="build-and-integrate-cti-tools.html">Integrate security tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="fraud-data-sharing.html">Fraud Data Sharing</a></h4>
+        <ul>
+          <li><a href="consume-share-fraud-data.html">Consume &amp; share fraud data</a></li>
+          <li><a href="start-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="build-and-integrate-fraud-tools.html">Integrate with your tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="security-operations.html">Security Operations</a></h4>
+        <ul>
+          <li><a href="improve-secops-team.html">Improve my cybersecurity ops team</a></li>
+          <li><a href="start-new-cybersecurity-ops-team.html">Start a new cybersecurity ops team</a></li>
+          <li><a href="automate-cybersecurity-ops-team.html">Automate your cybersecurity ops team</a></li>
+          <li><a href="use-attack-framework.html">Use the ATT&amp;CK Framework</a></li>
+          <li><a href="build-and-integrate-secops-tools.html">Integrate my security tools</a></li>
+          <li><a href="help-us-join-first.html">Help us join FIRST.org</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cloudmisp.html">Managed MISP</a></h4>
+        <ul>
+          <li><a href="cloudmisp.html">CloudMISP</a></li>
+          <li><a href="manage-my-misp.html">MISP consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact-us">Contact</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="https://www.linkedin.com/company/cosive">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Resources</h4>
+        <ul>
+          <li><a href="#">Support Portal</a></li>
+          <li><a href="https://cosive.com/blog">Blog</a></li>
+          <li><a href="https://cosive.com/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
+          <li><a href="https://cosive.com/presentations">Presentations</a></li>
+          <li><a href="#">Podcast</a></li>
+          <li><a href="https://cosive.com/misp-guide">MISP Guide</a></li>
+          <li><a href="https://cosive.com/categories/company-news">Newsroom</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Modern Slavery</a></li>
+          <li><a href="#">CloudMISP EULA</a></li>
+          <li><a href="#">Fair Use Policy</a></li>
+          <li><a href="#">Support Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo">
+        <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+      </a>
+      <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+
+  // Pause marquee on hover
+  const marqueeTrack = document.querySelector('.marquee-track');
+  if (marqueeTrack) {
+    marqueeTrack.addEventListener('mouseenter', function() {
+      this.style.animationPlayState = 'paused';
+    });
+    marqueeTrack.addEventListener('mouseleave', function() {
+      this.style.animationPlayState = 'running';
+    });
+  }
+</script>
+
+</body>
+</html>
