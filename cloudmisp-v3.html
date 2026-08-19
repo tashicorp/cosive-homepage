@@ -1272,34 +1272,73 @@ ul, ol { list-style: none; }
 .cm-contact__form .cm-btn--primary { width: 100%; padding: var(--space-md); }
 
 /* ===================================================================
-   14. FOOTER — cm-bottom-bar
+   14. FOOTER — site-footer
    =================================================================== */
-.cm-bottom-bar {
+.site-footer {
   border-top: 1px solid var(--color-border);
-  padding: var(--space-xl) 0;
+  padding: var(--space-5xl) 0 var(--space-3xl);
 }
-.cm-bottom-bar__inner {
-  max-width: var(--container-page);
-  margin: 0 auto;
-  padding: 0 var(--space-3xl);
+
+.footer-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--space-4xl);
 }
-.cm-bottom-bar__logo img { height: var(--space-xl); width: auto; }
-.cm-bottom-bar__links {
+
+.footer-columns {
   display: flex;
-  gap: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4xl) var(--space-2xl);
 }
-.cm-bottom-bar__links a {
+
+.footer-col { flex: 0 0 auto; }
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.footer-col-title a { color: inherit; transition: color 0.2s; }
+.footer-col-title a:hover { color: var(--color-accent); }
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-col li a {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+  line-height: var(--leading-snug);
   transition: color 0.2s;
 }
-.cm-bottom-bar__links a:hover { color: var(--color-accent); }
-.cm-bottom-bar__copy {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+
+.footer-col li a:hover { color: var(--color-accent); }
+
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.footer-bottom .footer-logo img { height: var(--space-xl); }
+
+.footer-copyright {
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  text-align: right;
 }
 
 /* ===================================================================
@@ -1380,7 +1419,7 @@ ul, ol { list-style: none; }
   .cm-contact__inner { grid-template-columns: 1fr; }
   .cm-contact__right { position: static; }
 
-  .cm-bottom-bar__inner { padding: 0 var(--space-lg); }
+  .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
 }
 
 /* ===================================================================
@@ -1411,12 +1450,7 @@ ul, ol { list-style: none; }
   .cm-intro__team-grid { grid-template-columns: repeat(2, 1fr); }
   .cm-intro__team-member img { aspect-ratio: 3 / 2; }
 
-  .cm-bottom-bar__inner {
-    flex-direction: column;
-    gap: var(--space-lg);
-    text-align: center;
-  }
-  .cm-bottom-bar__links { flex-wrap: wrap; justify-content: center; }
+  .footer-columns { grid-template-columns: repeat(2, 1fr); }
 
   .cm-tabs__menu {
     flex-direction: column;
@@ -2127,21 +2161,8 @@ ul, ol { list-style: none; }
 <!-- ============================================================
      14. FOOTER
      ============================================================ -->
-<footer class="cm-bottom-bar">
-  <div class="cm-bottom-bar__inner">
-    <a href="index.html" class="cm-bottom-bar__logo">
-      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
-    </a>
-    <div class="cm-bottom-bar__links">
-      <a href="about.html">About</a>
-      <a href="security-operations.html">Security Operations</a>
-      <a href="/resources">Resources</a>
-      <a href="/contact-us">Contact</a>
-      <a href="https://www.linkedin.com/company/cosive">LinkedIn</a>
-    </div>
-    <div class="cm-bottom-bar__copy">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
-  </div>
-</footer>
+<div id="site-footer-placeholder"></div>
+<script src="footer-include.js"></script>
 
 <!-- ============================================================
      NAV TOGGLE JS
