@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team - Cosive</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+    --space-7xl: 8rem;
+    --space-8xl: 10rem;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    display: block;
+  }
+
+  /* ── Section Label ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* ── Highlight (accent underline) ── */
+  .highlight {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .breadcrumb a {
+    color: var(--color-accent);
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  /* ── 1. Hero ── */
+  .team-hero {
+    background: var(--color-white);
+    padding: var(--space-6xl) 0 var(--space-4xl);
+  }
+
+  .team-hero .section-label {
+    color: var(--color-accent);
+  }
+
+  .team-hero h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
+    max-width: 900px;
+    margin-bottom: 0;
+  }
+
+  .team-hero-sub {
+    font-size: var(--text-2xl);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-3xl);
+  }
+
+  /* ── 2. Team Grid ── */
+  .team-grid-section {
+    background: var(--color-white);
+    padding: 0 0 var(--space-8xl);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .team-member-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .team-member:hover .team-member-photo {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .team-member-initials {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    background: var(--color-mid-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .team-member:hover .team-member-initials {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .team-member-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .team-member-linkedin {
+    display: inline-flex;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .team-member-linkedin:hover {
+    color: #0a66c2;
+  }
+
+  .team-member-linkedin svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  .team-member-title {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* ── 3. Contact Section ── */
+  .contact-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-light-grey);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+
+  .contact-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--color-accent-dark); }
+
+  .contact-form .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-5xl) 0 var(--space-3xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3xl) var(--space-xl);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-col { flex: 0 0 auto; }
+
+  .footer-col-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-col-title a { color: inherit; transition: color 0.2s; }
+  .footer-col-title a:hover { color: var(--color-accent); }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-col li a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--color-accent); }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom .footer-logo img { height: var(--space-xl); }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1400px) {
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 0 var(--space-lg); }
+
+    /* Header nav */
+    .nav-toggle { display: block; }
+    .main-nav { display: none; width: 100%; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav li + li { border-top: 1px solid var(--color-border); }
+    .main-nav li:last-child { border-top: none; }
+    .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
+    .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
+
+    /* Hero */
+    .team-hero { padding: var(--space-5xl) 0 var(--space-3xl); }
+    .team-hero h1 { font-size: var(--text-4xl); }
+
+    /* Team grid */
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Contact */
+    .contact-section { padding: var(--space-7xl) 0; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
+  }
+
+  @media (max-width: 600px) {
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
+
+    /* Hero */
+    .team-hero { padding: var(--space-4xl) 0 var(--space-xl); }
+    .team-hero h1 { font-size: var(--text-3xl); }
+    .team-hero-sub { font-size: var(--text-xl); }
+
+    /* Team grid */
+    .team-grid-section { padding: 0 0 var(--space-5xl); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Contact */
+    .contact-section { padding: var(--space-5xl) 0; }
+    .heading-style-h2 { font-size: 1.3rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. Hero -->
+<section class="team-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="about.html">About</a>
+      <span>/</span>
+      <span>Our Team</span>
+    </nav>
+    <h1>The people behind our expertise</h1>
+    <p class="team-hero-sub">Proudly remote and distributed across Australia and New Zealand since 2015.</p>
+  </div>
+</section>
+
+<!-- 2. Team Grid -->
+<section class="team-grid-section">
+  <div class="container">
+    <div class="team-grid">
+      <div class="team-member">
+        <a href="team-terry-macdonald.html"><img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2c38a69f0c827232f4c0_terry-macdonald-cosive.jpg" alt="Terry MacDonald" loading="lazy"></a>
+        <div class="team-member-name">Terry MacDonald <a href="https://www.linkedin.com/in/terrymacdonald/" target="_blank" rel="noopener" class="team-member-linkedin" aria-label="Terry MacDonald on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Principal Security Consultant &amp; COO</div>
+      </div>
+      <div class="team-member">
+        <a href="team-chris-horsley.html"><img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2bf76588b83fdf149bc7_chris-horsley-cosive.jpg" alt="Chris Horsley" loading="lazy"></a>
+        <div class="team-member-name">Chris Horsley <a href="https://www.linkedin.com/in/chrishorsley/" target="_blank" rel="noopener" class="team-member-linkedin" aria-label="Chris Horsley on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Principal Security Consultant &amp; CTO</div>
+      </div>
+      <div class="team-member">
+        <a href="team-prescott-pym.html"><img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2aa83e24e3b979ecbc36_prescott-pym-cosive.jpg" alt="Prescott Pym" loading="lazy"></a>
+        <div class="team-member-name">Prescott Pym <a href="https://www.linkedin.com/in/prescottpym/" target="_blank" rel="noopener" class="team-member-linkedin" aria-label="Prescott Pym on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Principal Security Consultant</div>
+      </div>
+      <div class="team-member">
+        <img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/6a1fccb3adb366751a16c065_ashley.png" alt="Ashley Sargeson" loading="lazy">
+        <div class="team-member-name">Ashley Sargeson <a href="#" class="team-member-linkedin" aria-label="Ashley Sargeson on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Senior Security Consultant</div>
+      </div>
+      <div class="team-member">
+        <a href="team-neethu-pushkaran.html"><img class="team-member-photo" src="images/neethu-square.jpg" alt="Neethu Pushkaran" loading="lazy"></a>
+        <div class="team-member-name">Neethu Pushkaran <a href="#" class="team-member-linkedin" aria-label="Neethu Pushkaran on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Senior Security Consultant</div>
+      </div>
+      <div class="team-member">
+        <img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2b3af1de7b511d8c48d8_james-garratt-cosive.jpg" alt="James Garratt" loading="lazy">
+        <div class="team-member-name">James Garratt <a href="https://www.linkedin.com/in/james-garratt/" target="_blank" rel="noopener" class="team-member-linkedin" aria-label="James Garratt on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Infrastructure Lead</div>
+      </div>
+      <div class="team-member">
+        <img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f29155ad80d0a9d3a79c5_lilith-la-rose-cosive.jpg" alt="Lilith La Rose" loading="lazy">
+        <div class="team-member-name">Lilith La Rose <a href="#" class="team-member-linkedin" aria-label="Lilith La Rose on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Software Engineer</div>
+      </div>
+      <div class="team-member">
+        <img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2b07e7124d6e02c62e37_michelle-vui-cosive.jpg" alt="Michelle Vui" loading="lazy">
+        <div class="team-member-name">Michelle Vui <a href="#" class="team-member-linkedin" aria-label="Michelle Vui on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Office Manager</div>
+      </div>
+      <div class="team-member">
+        <img class="team-member-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
+        <div class="team-member-name">Tash Postolovski <a href="#" class="team-member-linkedin" aria-label="Tash Postolovski on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Technical Marketing Manager</div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-initials">PO</div>
+        <div class="team-member-name">Prue Owen <a href="#" class="team-member-linkedin" aria-label="Prue Owen on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+        <div class="team-member-title">Project Coordinator</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Contact -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Get in touch</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Talk to us about what you are trying to achieve</h2>
+      <p class="contact-subtitle">Whether it is threat intelligence, fraud data sharing, or both &mdash; we have done this before.</p>
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="General">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-columns">
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></h4>
+        <ul>
+          <li><a href="consume-share-threat-intelligence.html">Consume &amp; share threat intelligence</a></li>
+          <li><a href="start-cti-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="improve-cti-team.html">Improve your CTI team</a></li>
+          <li><a href="find-useful-threat-intel-feeds.html">Find useful threat intelligence feeds</a></li>
+          <li><a href="build-and-integrate-cti-tools.html">Integrate security tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="fraud-data-sharing.html">Fraud Data Sharing</a></h4>
+        <ul>
+          <li><a href="consume-share-fraud-data.html">Consume &amp; share fraud data</a></li>
+          <li><a href="start-sharing-community.html">Start a sharing community</a></li>
+          <li><a href="build-and-integrate-fraud-tools.html">Integrate with your tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="security-operations.html">Security Operations</a></h4>
+        <ul>
+          <li><a href="improve-secops-team.html">Improve my cybersecurity ops team</a></li>
+          <li><a href="start-new-cybersecurity-ops-team.html">Start a new cybersecurity ops team</a></li>
+          <li><a href="automate-cybersecurity-ops-team.html">Automate your cybersecurity ops team</a></li>
+          <li><a href="use-attack-framework.html">Use the ATT&amp;CK Framework</a></li>
+          <li><a href="build-and-integrate-secops-tools.html">Integrate my security tools</a></li>
+          <li><a href="help-us-join-first.html">Help us join FIRST.org</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title"><a href="cloudmisp.html">Managed MISP</a></h4>
+        <ul>
+          <li><a href="cloudmisp.html">CloudMISP</a></li>
+          <li><a href="manage-my-misp.html">MISP consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="/contact-us">Contact</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="https://www.linkedin.com/company/cosive">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Resources</h4>
+        <ul>
+          <li><a href="#">Support Portal</a></li>
+          <li><a href="https://cosive.com/blog">Blog</a></li>
+          <li><a href="https://cosive.com/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
+          <li><a href="https://cosive.com/presentations">Presentations</a></li>
+          <li><a href="#">Podcast</a></li>
+          <li><a href="https://cosive.com/misp-guide">MISP Guide</a></li>
+          <li><a href="https://cosive.com/categories/company-news">Newsroom</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Modern Slavery</a></li>
+          <li><a href="#">CloudMISP EULA</a></li>
+          <li><a href="#">Fair Use Policy</a></li>
+          <li><a href="#">Support Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo">
+        <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+      </a>
+      <div class="footer-copyright">&copy; 2026 Cosive Pty Ltd. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.main-nav');
+    const open = nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    this.innerHTML = open
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  });
+</script>
+
+</body>
+</html>

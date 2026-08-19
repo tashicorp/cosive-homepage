@@ -1,0 +1,47 @@
+# Cosive
+
+> Cosive helps security teams operationalise threat intelligence and fraud data sharing through managed platforms, integrations, and expert consulting.
+
+Cosive is a cybersecurity consultancy founded in 2015 that specialises in cyber threat intelligence (CTI), security operations (SecOps), and fraud data sharing. We help organisations consume, share, and act on threat intelligence and fraud data through our managed MISP platform (CloudMISP), custom tool development, and expert consulting.
+
+## Services
+
+### CloudMISP
+Managed MISP hosting for CTI teams. Three bundles — Core, Accelerator, and Sharing — give your team a threat intelligence platform without the infrastructure overhead.
+- URL: https://www.cosive.com/cloudmisp
+
+### Cyber Threat Intelligence
+CTI programme consulting, MISP deployment, sharing communities, and tool integration. We help organisations consume, share, and act on cyber threat intelligence.
+- URL: https://www.cosive.com/cyber-threat-intelligence
+
+### Security Operations
+SOC maturity assessments, CSIRT setup, SOAR automation, and FIRST membership guidance. We help you build, run, and improve security operations.
+- URL: https://www.cosive.com/security-operations
+
+### Fraud Data Sharing
+We help banks and financial institutions share fraud data securely using MISP. Platform deployment, community design, and fraud tool integration.
+- URL: https://www.cosive.com/fraud-data-sharing
+
+## Key Pages
+
+- [Consume & Share Threat Intelligence](https://www.cosive.com/consume-share-threat-intelligence): Consume, share, and act on intelligence from NCSCs, CERTs, and ISACs.
+- [Consume & Share Fraud Data](https://www.cosive.com/consume-share-fraud-data): Share fraud indicators with peer banks and regulators using CloudMISP.
+- [Build & Integrate CTI Tools](https://www.cosive.com/build-and-integrate-cti-tools): Custom CTI tools, platform integrations, and enrichment modules.
+- [Build & Integrate SecOps Tools](https://www.cosive.com/build-and-integrate-secops-tools): Custom security operations tools, SIEM/SOAR/EDR integration, SOC automation.
+- [Build & Integrate Fraud Tools](https://www.cosive.com/build-and-integrate-fraud-tools): Custom fraud tools, transaction monitoring, and case management integration.
+- [Find Useful Threat Intel Feeds](https://www.cosive.com/find-useful-threat-intel-feeds): Source and get value from threat intelligence feeds.
+- [Start a CTI Sharing Community](https://www.cosive.com/start-cti-sharing-community): Design, launch, and run CTI sharing communities.
+- [Start a Fraud Sharing Community](https://www.cosive.com/start-sharing-community): Plan, launch, and operate fraud data sharing communities.
+- [Improve Your CTI Team](https://www.cosive.com/improve-cti-team): Gap analysis, roadmaps, ATT&CK consulting, CTI-CMM benchmarking.
+- [Improve SecOps Team](https://www.cosive.com/improve-secops-team): Assess SecOps capabilities, improve incident response, adopt security frameworks.
+- [Help Us Join FIRST](https://www.cosive.com/help-us-join-first): FIRST.org membership guidance from SIM3 gap analysis to acceptance.
+- [Manage My MISP](https://www.cosive.com/manage-my-misp): Fully managed MISP hosting — updates, patches, and infrastructure handled.
+- [Use the ATT&CK Framework](https://www.cosive.com/use-attack-framework): ATT&CK mapping, gap analysis, and detection engineering.
+- [Automate Cybersecurity Ops](https://www.cosive.com/automate-cybersecurity-ops-team): SOAR platform adoption and automation for security teams.
+- [Start a New Cybersecurity Ops Team](https://www.cosive.com/start-new-cybersecurity-ops-team): Plan, staff, and launch a new cybersecurity operations team.
+
+## Contact
+
+- Website: https://www.cosive.com
+- LinkedIn: https://www.linkedin.com/company/cosive
+- GitHub: https://github.com/cosive

@@ -105,6 +105,11 @@ ul, ol { list-style: none; }
   letter-spacing: var(--tracking-uppercase);
   color: var(--color-accent);
   margin-bottom: var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2xs) var(--space-sm);
+  background: rgba(229, 56, 52, 0.08);
+  border-radius: var(--radius-sm);
 }
 .cm-h1 {
   font-family: var(--font-heading);
@@ -220,71 +225,6 @@ ul, ol { list-style: none; }
 
   .nav-cta:hover {
     background: var(--color-accent-dark) !important;
-  }
-
-  /* --- Resources dropdown --- */
-  .nav-dropdown { position: relative; }
-  .nav-dropdown__toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    color: var(--color-text-secondary);
-    font-size: var(--text-base);
-    font-weight: 500;
-    padding: var(--space-xs) var(--space-md);
-    border-radius: var(--radius-sm);
-    transition: color 0.2s;
-  }
-  .nav-dropdown__toggle:hover { color: var(--color-text-primary); }
-  .nav-dropdown__toggle svg {
-    width: 1em; height: 1em;
-    stroke: currentColor; fill: none; stroke-width: 2;
-    stroke-linecap: round; stroke-linejoin: round;
-    transition: transform 0.2s;
-  }
-  .nav-dropdown:hover .nav-dropdown__toggle svg,
-  .nav-dropdown:focus-within .nav-dropdown__toggle svg { transform: rotate(180deg); }
-
-  .main-nav .nav-dropdown__menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 240px;
-    flex-direction: column;
-    gap: 0;
-    background: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 30px rgba(14, 20, 28, 0.12);
-    padding: var(--space-xs);
-    margin-top: var(--space-xs);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-    z-index: 101;
-  }
-  .nav-dropdown:hover .nav-dropdown__menu,
-  .nav-dropdown:focus-within .nav-dropdown__menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .main-nav .nav-dropdown__menu a {
-    display: block;
-    white-space: nowrap;
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-secondary);
-    font-size: var(--text-base);
-  }
-  .main-nav .nav-dropdown__menu a:hover {
-    color: var(--color-text-primary);
-    background: var(--color-light-grey);
   }
 
 /* --- Section nav strip --- */
@@ -516,7 +456,7 @@ ul, ol { list-style: none; }
    =================================================================== */
 .cm-quotes {
   padding: var(--space-5xl) 0;
-  background: var(--color-white);
+  background: var(--color-light-grey);
 }
 .cm-quotes__grid {
   display: grid;
@@ -589,11 +529,10 @@ ul, ol { list-style: none; }
    =================================================================== */
 .tiers-section {
   padding: var(--space-8xl) 0;
-  background: var(--color-light-grey);
+  background: var(--color-white);
 }
 
-.tiers-section > .cm-wrap > .cm-label,
-.tiers-section > .cm-wrap > .cm-h2 {
+.tiers-section > .cm-wrap {
   text-align: center;
 }
 
@@ -823,102 +762,11 @@ ul, ol { list-style: none; }
 }
 
 /* ===================================================================
-   5b. INTEGRATIONS — cm-integrations (dark)
-   =================================================================== */
-.cm-integrations {
-  background: var(--color-dark);
-  border-top: 3px solid var(--color-accent);
-  padding: var(--space-8xl) 0;
-}
-.cm-integrations__head {
-  max-width: 56rem;
-  margin: 0 auto var(--space-4xl);
-  text-align: center;
-}
-.cm-integrations .cm-h2 {
-  color: var(--color-white);
-  margin-bottom: var(--space-lg);
-}
-.cm-integrations__intro {
-  font-size: var(--text-lg);
-  color: rgba(255,255,255,0.7);
-  line-height: var(--leading-normal);
-}
-.cm-integrations__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-  gap: var(--space-lg);
-}
-.cm-integration-card {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  transition: border-color 0.2s, background 0.2s;
-}
-.cm-integration-card:hover {
-  border-color: rgba(229,56,52,0.6);
-  background: rgba(255,255,255,0.06);
-}
-.cm-integration-card__name {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--color-white);
-  margin-bottom: var(--space-sm);
-}
-.cm-integration-card__desc {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.65);
-  line-height: var(--leading-normal);
-  margin-bottom: var(--space-lg);
-}
-.cm-integration-card__tags {
-  margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-.cm-tag {
-  color: #f5a8a4;
-  background: rgba(229, 56, 52, 0.12);
-  border: 1px solid rgba(229, 56, 52, 0.4);
-  font-size: var(--text-xs);
-  padding: var(--space-2xs) var(--space-xs);
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  letter-spacing: var(--tracking-uppercase);
-  text-transform: uppercase;
-}
-/* Red call-to-action card (last item in the grid) */
-.cm-integration-card--cta {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  text-decoration: none;
-}
-.cm-integration-card--cta:hover {
-  background: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
-}
-.cm-integration-card--cta .cm-integration-card__desc {
-  color: rgba(255,255,255,0.9);
-}
-.cm-integration-card__cta-link {
-  margin-top: auto;
-  font-family: var(--font-heading);
-  font-size: var(--text-base);
-  font-weight: 700;
-  color: var(--color-white);
-}
-
-/* ===================================================================
    6. CONSUME & SHARE — cm-consume-share
    =================================================================== */
 .cm-consume-share {
   padding: var(--space-8xl) 0;
-  background: var(--color-white);
+  background: var(--color-light-grey);
 }
 .cm-consume-share__text .cm-h2 {
   text-align: center;
@@ -1010,12 +858,13 @@ ul, ol { list-style: none; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
+  background: var(--color-white);
 }
 .cm-consume-share__diagram img { width: 100%; }
 /* --- Reusable section CTA --- */
 .cm-section-cta {
   text-align: center;
-  margin-top: var(--space-7xl);
+  margin-top: var(--space-4xl);
 }
 .cm-section-cta .cm-h2 {
   margin-bottom: var(--space-md);
@@ -1224,11 +1073,10 @@ ul, ol { list-style: none; }
 }
 .cm-why__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-4xl);
   align-items: center;
 }
-.cm-why__text, .cm-why__photos { min-width: 0; }
 .cm-why__sinewave { width: 5rem; margin-bottom: var(--space-xl); }
 .cm-why__text .cm-label { color: var(--color-accent); }
 .cm-why__text .cm-h2 { color: var(--color-text-primary); margin-bottom: var(--space-xl); }
@@ -1499,19 +1347,6 @@ ul, ol { list-style: none; }
   .main-nav a { display: block; font-size: var(--text-base); padding: var(--space-md) 0; border-radius: var(--radius-none); }
   .header-inner { flex-wrap: wrap; height: auto; padding: var(--space-md) var(--space-lg); }
 
-  /* Resources dropdown: expand inline within the stacked mobile menu */
-  .nav-dropdown__toggle { width: 100%; justify-content: space-between; padding: var(--space-md) 0; }
-  .main-nav .nav-dropdown__menu {
-    position: static;
-    opacity: 1; visibility: visible; transform: none;
-    min-width: 0;
-    border: none; border-radius: 0; box-shadow: none;
-    padding: 0 0 var(--space-sm) var(--space-md);
-    margin: 0;
-  }
-  .main-nav .nav-dropdown__menu a { padding: var(--space-sm) 0; }
-  .nav-dropdown__menu li + li { border-top: none; }
-
   .cm-h1 { font-size: var(--text-5xl); }
   .cm-h2 { font-size: var(--text-3xl); }
 
@@ -1613,23 +1448,11 @@ ul, ol { list-style: none; }
     </button>
     <nav class="main-nav">
       <ul>
-        <li><a href="cloudmisp.html" class="nav-active">CloudMISP</a></li>
+        <li><a href="cloudmisp-v3.html" class="nav-active">CloudMISP</a></li>
         <li><a href="cyber-threat-intelligence.html">Cyber Threat Intelligence</a></li>
         <li><a href="security-operations.html">Security Operations</a></li>
         <li><a href="fraud-data-sharing.html">Fraud Data Sharing</a></li>
-        <li class="nav-dropdown">
-          <button class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
-            Resources
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <ul class="nav-dropdown__menu">
-            <li><a href="/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
-            <li><a href="/presentations">Presentations</a></li>
-            <li><a href="/podcast">Podcast</a></li>
-            <li><a href="/misp-guide">MISP Guide</a></li>
-            <li><a href="/newsroom">Newsroom</a></li>
-          </ul>
-        </li>
+        <li><a href="/resources">Resources</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
       </ul>
@@ -1667,8 +1490,7 @@ ul, ol { list-style: none; }
     <ul class="cm-section-nav__list">
       <li><a href="#what-is-cloudmisp" class="cm-section-nav__link">Overview</a></li>
       <li><a href="#enterprise" class="cm-section-nav__link">Platform</a></li>
-      <li><a href="#consume" class="cm-section-nav__link">Use Cases</a></li>
-      <li><a href="#integrations" class="cm-section-nav__link">Integrations</a></li>
+      <li><a href="#consume" class="cm-section-nav__link">Integrations</a></li>
       <li><a href="#tiers" class="cm-section-nav__link">Bundles</a></li>
       <li><a href="#case-studies" class="cm-section-nav__link">Case Studies</a></li>
       <li><a href="#why-cosive" class="cm-section-nav__link">Why Cosive</a></li>
@@ -1685,6 +1507,7 @@ ul, ol { list-style: none; }
     <div class="cm-intro__text">
       <div class="cm-label">CloudMISP</div>
       <h2 class="cm-h2">Enterprise-grade MISP, managed by the people who know it best</h2>
+      <p>MISP is an open-source threat intelligence platform used by security teams worldwide to collect, correlate, and share indicators of compromise.</p>
       <p>CloudMISP is an enterprise-grade managed MISP platform built and operated by Cosive. We handle the infrastructure, upgrades, backups, and monitoring so your analysts can focus on what matters — creating, curating, and sharing threat intelligence.</p>
       <p>Whether you are a single team getting started with CTI or a national sharing community connecting dozens of organisations, CloudMISP scales to meet you where you are.</p>
     </div>
@@ -1850,10 +1673,13 @@ ul, ol { list-style: none; }
       <div class="cm-label">The analyst experience</div>
       <h2 class="cm-h2">See threats clearly — correlate, prioritise, and act</h2>
       <p>MISP gives your analysts a single view across every feed, every source, and every sharing community your organisation participates in. Events, attributes, and correlations surface together so your team can spot patterns, prioritise what matters, and move from alert to action without switching tools.</p>
-      <p>CloudMISP's Insight UI is purpose-built for this workflow — designed to make threat intelligence operational, not just stored.</p>
+      <p>Insight is a purpose-built analyst interface developed by Cosive and contributed back to the open-source MISP project. It gives analysts a clear, focused view of correlations and context — making threat intelligence operational, not just stored.</p>
     </div>
     <div class="cm-analyst__video">
-      <iframe title="vimeo-player" src="https://player.vimeo.com/video/1211916205?h=c2214ed936" width="100%" style="aspect-ratio: 16 / 9;" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+      <div class="cm-analyst__video-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.5)" stroke="none"/></svg>
+        <span>Insight UI demo video</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1882,6 +1708,7 @@ ul, ol { list-style: none; }
           <h2 class="cm-h2">Connect CloudMISP to the tools your team already uses</h2>
           <p>Threat intelligence is only valuable when it reaches the systems that can act on it. CloudMISP integrates with your SIEM, SOAR, EDR, firewalls, and ticketing platforms — pushing IOCs, alerts, and context where your analysts and automated playbooks need them. Every integration is built to enterprise standards — authenticated, encrypted in transit, and designed for reliability at scale.</p>
           <p>With CloudMISP Accelerator, our engineers build and maintain these integrations for you, so your team stays focused on analysis rather than plumbing.</p>
+          <p>Need an integration that's not listed here? Our engineering team builds custom connectors to fit CloudMISP into any security stack.</p>
         </div>
         <div class="cm-consume-share__diagram">
           <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls">
@@ -1904,85 +1731,6 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ============================================================
-     5b. INTEGRATIONS
-     ============================================================ -->
-<section class="cm-integrations" id="integrations">
-  <div class="cm-wrap">
-    <div class="cm-integrations__head">
-      <div class="cm-label">Integrations</div>
-      <h2 class="cm-h2">CloudMISP connects to the tools you already run</h2>
-      <p class="cm-integrations__intro">MISP is built to fit into your existing security stack, and speaks the open standards your tools already understand — STIX/TAXII, OpenIOC, YARA and CSV. These are the main types of tools our customers connect to CloudMISP.</p>
-    </div>
-
-    <div class="cm-integrations__grid">
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">SIEM &amp; log platforms</div>
-        <p class="cm-integration-card__desc">Push indicators into your SIEM to drive detection, correlation and alerting.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">Splunk</span>
-          <span class="cm-tag">Microsoft Sentinel</span>
-          <span class="cm-tag">Elastic</span>
-          <span class="cm-tag">QRadar</span>
-          <span class="cm-tag">Wazuh</span>
-        </div>
-      </div>
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">Endpoint &amp; EDR</div>
-        <p class="cm-integration-card__desc">Feed indicators to your endpoint tools to detect and block threats on the host.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">CrowdStrike</span>
-          <span class="cm-tag">Microsoft Defender</span>
-        </div>
-      </div>
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">SOAR &amp; automation</div>
-        <p class="cm-integration-card__desc">Trigger playbooks and automate enrichment and response.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">Palo Alto XSOAR</span>
-          <span class="cm-tag">Splunk SOAR</span>
-          <span class="cm-tag">Tines</span>
-        </div>
-      </div>
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">Network security</div>
-        <p class="cm-integration-card__desc">Turn indicators into detection rules and blocklists for your network defences.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">Suricata</span>
-          <span class="cm-tag">Snort</span>
-          <span class="cm-tag">Zeek</span>
-          <span class="cm-tag">Palo Alto</span>
-          <span class="cm-tag">Fortinet</span>
-        </div>
-      </div>
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">Enrichment &amp; threat feeds</div>
-        <p class="cm-integration-card__desc">Enrich indicators with third-party context and pull in external intelligence.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">VirusTotal</span>
-          <span class="cm-tag">Shodan</span>
-          <span class="cm-tag">GreyNoise</span>
-          <span class="cm-tag">Malware sandboxes</span>
-          <span class="cm-tag">OSINT feeds</span>
-        </div>
-      </div>
-      <div class="cm-integration-card">
-        <div class="cm-integration-card__name">Threat intel platforms &amp; sharing</div>
-        <p class="cm-integration-card__desc">Connect to other platforms and share intelligence across your community.</p>
-        <div class="cm-integration-card__tags">
-          <span class="cm-tag">OpenCTI</span>
-          <span class="cm-tag">MISP-to-MISP sync</span>
-        </div>
-      </div>
-      <a href="#contact" class="cm-integration-card cm-integration-card--cta">
-        <div class="cm-integration-card__name">Need a specific integration?</div>
-        <p class="cm-integration-card__desc">Tell us which tools your team runs and we'll help you connect them to CloudMISP.</p>
-        <span class="cm-integration-card__cta-link">Talk to us about integrations →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      6. FLEXIBLE PLANS
      ============================================================ -->
 <section class="tiers-section" id="tiers">
@@ -1990,14 +1738,14 @@ ul, ol { list-style: none; }
     <div class="cm-label">Flexible bundles</div>
     <h2 class="cm-h2" style="margin-bottom: var(--space-lg);">Choose the CloudMISP <strong>bundle</strong> that fits your team</h2>
     <div class="tiers-intro">
-      <p>Every CloudMISP bundle comes with at least one production-quality MISP instance running on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. Each <strong>bundle</strong> differs in the level of training, expert implementation guidance, and features so that you can choose the one that works best for you.</p>
+      <p>Every CloudMISP instance runs on dedicated infrastructure with automatic upgrades, encrypted cross-region backups, enterprise SSO, and 24/7 monitoring. The <strong>bundles</strong> differ in the level of customisation, integration support, and sharing features you need.</p>
     </div>
     <div class="tiers-grid">
       <div class="tier-card">
         <h3>Core Bundle</h3>
         <div class="tier-card-subtitle">For teams already experienced with MISP</div>
         <ul class="tier-features">
-          <li>1 production-quality CloudMISP instance</li>
+          <li>1 production MISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -2009,11 +1757,10 @@ ul, ol { list-style: none; }
       </div>
       <div class="tier-card is-featured">
         <h3>Accelerator Bundle</h3>
-        <div class="tier-card-subtitle">For teams who want to use MISP, but have never used it before</div>
+        <div class="tier-card-subtitle">For orgs who want to use MISP for threat intel, but need help using it</div>
         <ul class="tier-features">
-          <li>MISP Kickstart training for up to 5 users in the first year</li>
           <li>10 days of Cosive Professional Services each year</li>
-          <li>1 production CloudMISP instance</li>
+          <li>1 production MISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -2021,15 +1768,16 @@ ul, ol { list-style: none; }
           <li>Production support</li>
           <li>Unlimited users*</li>
           <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
         </ul>
       </div>
       <div class="tier-card is-gold">
-        <h3>Share Bundle</h3>
-        <div class="tier-card-subtitle">For teams who want to create a sharing community</div>
+        <h3>Sharing Bundle</h3>
+        <div class="tier-card-subtitle">Core + Consulting + Training + Built-in threat feed</div>
         <ul class="tier-features">
-          <li>2 CloudMISP instances (one for internal use and one for sharing)</li>
-          <li>MISP Kickstart training for up to 5 users in the first year</li>
+          <li><a href="https://feedly.com/ti" target="_blank">Feedly for Threat Intelligence</a> license</li>
           <li>10 days of Cosive Professional Services each year</li>
+          <li>1 production MISP instance</li>
           <li>Managed hosting in your preferred AWS region</li>
           <li>Dedicated VPC deployment</li>
           <li>Automatic updates and security patches</li>
@@ -2037,10 +1785,14 @@ ul, ol { list-style: none; }
           <li>Production support</li>
           <li>Unlimited users*</li>
           <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
+          <li>Advanced integrations with your security stack</li>
+          <li>Priority support and dedicated account management</li>
+          <li>Custom feed configuration and optimisation</li>
         </ul>
       </div>
     </div>
-    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* <a href="#" style="color: inherit; text-decoration: underline;">Fair use policy</a> applies.</p>
+    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* Fair use policy applies.</p>
     <div class="tiers-addons">
       <div class="tiers-addons-label">Optional add-ons</div>
       <div class="tiers-addons-grid">
@@ -2054,7 +1806,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">TAXII Sharing Server</div>
-            <div class="addon-card-desc">Enables CloudMISP threat intelligence to be shared using STIX/TAXII.</div>
+            <div class="addon-card-desc">A dedicated TAXII server for publishing STIX packages to partners and downstream consumers.</div>
           </div>
         </div>
         <div class="addon-card">
@@ -2068,7 +1820,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">MISP Sharing Server</div>
-            <div class="addon-card-desc">An additional CloudMISP instance for use as a dedicated sharing hub. Recommended when you want to add sharing to Core or Accelerator bundles.</div>
+            <div class="addon-card-desc">An additional MISP instance configured as a sharing hub for distributing threat intelligence across your community.</div>
           </div>
         </div>
         <div class="addon-card">
@@ -2083,7 +1835,7 @@ ul, ol { list-style: none; }
           </div>
           <div class="addon-card-content">
             <div class="addon-card-title">Integration Server</div>
-            <div class="addon-card-desc">A separate integration server is recommended to host more resource intensive integrations.</div>
+            <div class="addon-card-desc">A dedicated integration layer connecting CloudMISP to your SIEM, SOAR, EDR, and other security tools.</div>
           </div>
         </div>
       </div>
@@ -2170,8 +1922,8 @@ ul, ol { list-style: none; }
                 <div class="cm-case__metric-lbl">Sharing models in use</div>
               </div>
               <div>
-                <div class="cm-case__metric-val">1 year</div>
-                <div class="cm-case__metric-lbl">Pilot to full deployment</div>
+                <div class="cm-case__metric-val">&lt; 4 weeks</div>
+                <div class="cm-case__metric-lbl">Contract to live</div>
               </div>
             </div>
           </div>
@@ -2200,7 +1952,7 @@ ul, ol { list-style: none; }
       <div class="cm-why__text">
         <img src="icons/cosive-sinewave.svg" alt="" class="cm-why__sinewave">
         <div class="cm-label">Why Cosive</div>
-        <h2 class="cm-h2">We've done this many times before — for organisations like yours</h2>
+        <h2 class="cm-h2">We have done this before — for organisations like yours</h2>
         <div class="cm-why__list">
           <div class="cm-why__list-item">
             <div class="cm-why__list-icon">
@@ -2218,7 +1970,7 @@ ul, ol { list-style: none; }
             <div class="cm-why__list-icon">
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="cm-why__list-text"><strong>National-scale MISP operators</strong> &mdash; We build and run the Australian Government&rsquo;s Cyber Threat Intelligence Sharing (CTIS) platform &mdash; a multi-tenant MISP deployment serving 450+ organisations. The same team, tooling, and operational practices behind CTIS power every CloudMISP instance.</div>
+            <div class="cm-why__list-text"><strong>National-scale MISP operators</strong> &mdash; We built and operated the Australian Government&rsquo;s Cyber Threat Intelligence Sharing (CTIS) platform &mdash; a multi-tenant MISP deployment serving 450+ organisations. The same team, tooling, and operational practices behind CTIS power every CloudMISP instance.</div>
           </div>
         </div>
       </div>
@@ -2250,52 +2002,20 @@ ul, ol { list-style: none; }
       <div class="cm-faq__list">
         <details>
           <summary>
-            How is CloudMISP different from running MISP ourselves?
+            What is MISP?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>CloudMISP is a fully managed MISP platform: you get a production-quality instance on dedicated AWS infrastructure with tested automatic upgrades, encrypted cross-region backups, enterprise SSO and 24/7 monitoring — run by the team that operates Australia's national CTIS for 450+ organisations. Running MISP yourself means building and owning all of that.</p>
-            <p>You could self-host — some teams do. The real question is whether infrastructure is the best use of your analysts' time. CloudMISP takes upgrades, patching, high availability, backups and scaling off their plate, so they focus on creating, curating and sharing intelligence — with direct access to Cosive's MISP specialists.</p>
+            <p>MISP (Malware Information Sharing Platform) is an open-source threat intelligence platform used by security teams worldwide. It helps organisations collect, store, share, and correlate indicators of compromise (IOCs) and other threat data. MISP is maintained by an active global community and is used by national CERTs, ISACs, and private-sector security teams alike.</p>
           </div>
         </details>
         <details>
           <summary>
-            What's included in each CloudMISP bundle?
+            How is CloudMISP different to open-source MISP?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>Every CloudMISP bundle comes with at least one production-quality MISP instance on dedicated infrastructure — managed hosting in your preferred AWS region, a dedicated VPC, automatic updates, encrypted backups, enterprise SSO, monitoring and production support. The bundles differ by how much training and hands-on help you need.</p>
-            <p>Core suits teams already comfortable with MISP. Accelerator adds MISP Kickstart training for up to five users and 10 days of Cosive professional services each year — built for teams new to MISP. Share adds a second instance, so you can run one internally and a separate sharing hub for your community.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            What can CloudMISP integrate with, and which standards does it support?
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>CloudMISP connects to the tools your team already runs — SIEMs, EDR, SOAR, network security, enrichment services and other threat-intel platforms — and speaks the open standards MISP supports: STIX/TAXII, OpenIOC, YARA and CSV. Indicators flow into your detection stack without custom plumbing.</p>
-            <p>Our engineers can build and maintain those integrations for you. Optional add-ons include a TAXII Sharing Server for STIX/TAXII sharing and a dedicated Integration Server for heavier integrations.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            Where is our data hosted, and how is it kept secure?
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>Your CloudMISP instance runs in its own dedicated VPC in the AWS region you choose, with encrypted cross-region backups and enterprise SSO controlling access — so your threat intelligence stays isolated to your environment and meets your data-residency requirements. Cosive monitors and patches it 24/7.</p>
-            <p>The platform uses a self-healing architecture with automatic security patching and tested upgrades applied for you.</p>
-          </div>
-        </details>
-        <details>
-          <summary>
-            How do we get started, and how long does it take?
-            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="cm-faq__answer">
-            <p>Getting started begins with a CloudMISP demo and a short scoping conversation about your goals, communities and integrations. Most teams are live on a production instance within a few weeks — the main variable is scoping your sharing groups and connecting your tools.</p>
-            <p>If your team is new to MISP, the Accelerator bundle includes MISP Kickstart training and 10 days of Cosive professional services to get you productive quickly.</p>
+            <p>CloudMISP is built on MISP, but it is not just MISP on a server. We add managed infrastructure, automatic upgrades with comprehensive testing, SSO integration, encrypted backups, self-healing architecture, and enterprise features like TAXII serving and custom SIEM integrations. You get an enterprise-grade platform — with the reliability, security, and compliance posture your organisation expects — without needing a team to build and maintain the infrastructure around it.</p>
           </div>
         </details>
         <details>
@@ -2304,18 +2024,44 @@ ul, ol { list-style: none; }
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>Yes. Cosive actively contributes to open-source MISP — submitting bug fixes, feature enhancements and documentation — and we operate MISP at national scale, running Australia's Cyber Threat Intelligence Sharing platform (CTIS) for 450+ organisations. That first-hand experience directly shapes how we build, run and support CloudMISP.</p>
-            <p>We also take part in the MISP community through conferences and working groups.</p>
+            <p>Yes. Cosive actively contributes to the MISP open-source project. We submit bug fixes, feature enhancements, and documentation improvements. We also participate in the MISP community through conferences, working groups, and community discussions. Our experience operating MISP at scale directly informs the contributions we make upstream.</p>
           </div>
         </details>
         <details>
           <summary>
-            I&rsquo;m a security researcher — can I get a free CloudMISP?
+            What is MISP good for?
             <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <div class="cm-faq__answer">
-            <p>CloudMISP is a commercial managed service, so we don't offer free instances — but MISP itself is free and open-source, and you can download and run it yourself. If you're affiliated with a university or research institution, get in touch and we'll see what we can do.</p>
-            <p>We're always glad to support the security research community where we can.</p>
+            <p>MISP excels at collecting and correlating indicators of compromise, managing threat intelligence feeds, sharing intelligence with trusted partners, and distributing IOCs to security tools like SIEMs and firewalls. It is particularly strong for teams that need to collaborate — whether internally across departments or externally across organisations and sectors.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            What is MISP not good for?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>MISP is not a SIEM, a SOAR, or an endpoint detection tool. It does not replace your security monitoring stack — it complements it. If you need real-time alerting, automated response playbooks, or endpoint visibility, those are separate tools that MISP integrates with. MISP is best thought of as the connective tissue that makes your other security tools more effective.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            I&rsquo;m a security researcher — can I have a free CloudMISP?
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>CloudMISP is a commercial managed service, so we do not offer free instances. However, MISP itself is free and open-source — you can download and run it yourself. If you are a researcher affiliated with a university or research institution, get in touch and we will see what we can do. We are always happy to support the security research community where we can.</p>
+          </div>
+        </details>
+        <details>
+          <summary>
+            I could build this all myself!
+            <svg class="cm-faq__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="cm-faq__answer">
+            <p>You absolutely could — and some organisations do. The question is whether that is the best use of your team's time. Running MISP at enterprise scale means handling upgrades, monitoring, encrypted backups, SSO integration, high availability, compliance, and scaling — on top of the analyst workflow that MISP is actually for. CloudMISP lets your team focus on threat intelligence work instead of infrastructure maintenance. For most teams, that trade-off makes sense.</p>
+            <p>Plus, with CloudMISP you get direct access to the Cosive team — specialists who can help you operationalise MISP, connect it to your workflows, and get real value from your threat intelligence programme.</p>
           </div>
         </details>
       </div>
@@ -2353,11 +2099,11 @@ ul, ol { list-style: none; }
           </div>
           <div class="cm-form__group">
             <label for="contact-company">Company</label>
-            <input type="text" id="contact-company" name="company">
+            <input type="text" id="contact-company" name="company" required>
           </div>
           <div class="cm-form__group">
             <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="5"></textarea>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
           </div>
           <button type="submit" class="cm-btn--primary">Request a CloudMISP demo</button>
           <p style="font-size: var(--text-sm); color: var(--color-text-secondary); text-align: center; margin-top: var(--space-md);">We'll get back to you within one business day.</p>
@@ -2452,7 +2198,7 @@ ul, ol { list-style: none; }
 (function() {
   var sectionNav = document.querySelector('.cm-section-nav');
   var links = document.querySelectorAll('.cm-section-nav__link');
-  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','consume','integrations','tiers','case-studies','why-cosive','faq'];
+  var sectionIds = ['what-is-cloudmisp','enterprise','analyst-experience','customer-quotes','consume','tiers','case-studies','why-cosive','faq'];
   var navMapping = {
     'analyst-experience': 'enterprise',
     'customer-quotes': 'what-is-cloudmisp'
