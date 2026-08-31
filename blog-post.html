@@ -199,8 +199,21 @@
   .article-hero .container {
     position: relative;
     z-index: 2;
-    max-width: var(--container-article);
+    max-width: var(--container-page);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Column gap only — a row gap would push the hero's stacked children apart,
+       and they already carry their own margins. */
+    gap: 0 var(--space-4xl);
   }
+
+  /* Without this the hero's children auto-place across both columns —
+     breadcrumb left, badge right, title left. */
+  .article-hero .container > * { grid-column: 1; }
+
+  /* Grid items stretch by default, which blew the inline-block badge out to the
+     full column width. */
+  .article-hero .category-badge { justify-self: start; }
 
   /* Banner rhythm. The title-to-date gap stays tight (Space/SM) so the
      timestamp still reads as part of the headline; everything else opens up. */
@@ -329,10 +342,126 @@
   /* ── Article Body ── */
   /* Everything on the page shares one width, so figures and code sit at the
      reading measure alongside the text rather than breaking out past it. */
-  .article-body {
-    max-width: var(--container-article);
+  /* ── Two-column article layout ── */
+  .article-layout {
+    max-width: var(--container-page);
     margin: 0 auto;
-    padding: var(--space-4xl) var(--space-3xl);
+    padding: 0 var(--space-3xl);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0 var(--space-4xl);
+  }
+
+  /* Explicit placement — nothing here should depend on auto-flow. */
+  .article-body  { grid-column: 1; grid-row: 1; }
+  .article-aside { grid-column: 2; grid-row: 1; }
+
+  .article-body {
+    /* An fr track cannot shrink below its content's min-content width. The code
+       block's longest line is ~794px, which silently overrode the 2:1 split
+       below 1440 until this let the column shrink and `pre` scroll instead. */
+    min-width: 0;
+    padding: var(--space-4xl) 0;
+  }
+
+  .article-aside__card {
+    position: sticky;
+    /* Clears the sticky site header: Space/5XL tall, plus breathing room. */
+    top: calc(var(--space-5xl) + var(--space-xl));
+    background: var(--color-dark);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    margin-top: var(--space-4xl);
+  }
+
+  /* Same dot grid as the about page's world map (.world-map-section::before),
+     which sits on Color/Dark too, so the values copy across unchanged. */
+  .article-aside__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Square corners would poke out of the card's radius otherwise. */
+    border-radius: inherit;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  /* The ::before is positioned, so it would paint over in-flow content. */
+  .article-aside__card > * { position: relative; }
+
+  .article-aside__wave {
+    display: block;
+    width: var(--space-4xl);
+    height: auto;
+    margin-bottom: var(--space-lg);
+  }
+
+  .article-aside__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .article-aside__desc {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255,255,255,0.7);
+    margin-bottom: var(--space-xl);
+  }
+
+  .article-aside__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+  }
+
+  .article-aside__btn:hover { background: var(--color-accent-dark); }
+
+  /* Share row moves into the card, so it needs a dark-surface variant —
+     the base styles assume Color/Light Grey on white. */
+  .article-aside__card .article-share {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  /* Label on its own line: the column is too narrow to hold it inline with
+     both buttons once the sidebar drops to ~230px. */
+  .article-aside__card .share-label {
+    flex: 0 0 100%;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .article-aside__card .share-btn {
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.16);
+  }
+
+  .article-aside__card .share-btn:hover {
+    color: var(--color-white);
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .article-aside__btn svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke: var(--color-white);
   }
 
   /* Table of Contents */
@@ -702,13 +831,9 @@
 
   /* ── Share Links ── */
   .article-share {
-    max-width: var(--container-article);
-    margin: 0 auto;
-    padding: 0 var(--space-3xl) var(--space-3xl);
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    padding-bottom: var(--space-3xl);
   }
 
   .share-label {
@@ -746,62 +871,12 @@
     height: 16px;
   }
 
-  /* ── Work With Us CTA ── */
-  /* The site's closing-CTA idiom from index.html (.final-cta), brought onto the
-     blog. Full-bleed ground, content on the shared Container/Article width. */
-  .work-cta {
-    background: var(--color-white);
-    border-top: 1px solid var(--color-border);
-    padding: var(--space-6xl) 0;
-    text-align: center;
-  }
 
-  .work-cta .container {
-    max-width: var(--container-article);
-  }
 
-  .work-cta-heading {
-    font-family: var(--font-heading);
-    /* Same clamp as .article-body h2, so the CTA sits on the page's type scale. */
-    font-size: clamp(2.5rem, 1.6667rem + 1.1111vw, 3rem);
-    font-weight: 800;
-    line-height: var(--leading-tight);
-    letter-spacing: -0.01em;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-md);
-  }
 
-  .work-cta-desc {
-    font-size: var(--text-xl);
-    line-height: var(--leading-normal);
-    color: var(--color-text-secondary);
-    max-width: 42em;
-    margin: 0 auto var(--space-xl);
-  }
 
-  .work-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-md) var(--space-xl);
-    background: var(--color-accent);
-    color: var(--color-white);
-    font-family: var(--font-heading);
-    font-size: var(--text-base);
-    font-weight: 600;
-    border-radius: var(--radius-sm);
-    transition: background 0.2s;
-  }
 
-  .work-cta-btn:hover {
-    background: var(--color-accent-dark);
-  }
 
-  .work-cta-btn svg {
-    width: 1.1em;
-    height: 1.1em;
-    stroke: var(--color-white);
-  }
 
   /* ── Author Bio ── */
   .author-bio {
@@ -1246,10 +1321,30 @@
     .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
   }
 
+  /* Below this the sidebar is under ~310px and the reading column drops toward
+     45 characters, so both grids fold to a single column. */
+  @media (max-width: 1100px) {
+    .article-hero .container,
+    .article-layout {
+      max-width: var(--container-article);
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .article-body,
+    .article-aside { grid-column: 1; grid-row: auto; }
+
+    .article-aside__card {
+      position: static;
+      margin-top: 0;
+      margin-bottom: var(--space-4xl);
+    }
+  }
+
   @media (max-width: 900px) {
     .container { padding: 0 var(--space-lg); }
-    .article-body { padding-left: var(--space-lg); padding-right: var(--space-lg); }
-    .article-share { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+    /* The layout wrapper owns the gutters now; padding here would double up. */
+    .article-layout { padding-left: var(--space-lg); padding-right: var(--space-lg); }
     .author-bios-grid { padding-left: var(--space-lg); padding-right: var(--space-lg); }
     /* Gutters drop to Space/LG here, so the shared width has to budget for
        Space/LG too or every block runs 48px past its measure. */
@@ -1259,8 +1354,6 @@
     .article-body p,
     .article-body li { font-size: var(--text-xl); }
     .article-body h2 { font-size: var(--text-4xl); }
-    .work-cta { padding: var(--space-5xl) 0; }
-    .work-cta-heading { font-size: var(--text-4xl); }
     .article-body h3 { font-size: var(--text-3xl); }
     .article-body h4 { font-size: var(--text-2xl); }
     .article-body blockquote { font-size: var(--text-2xl); }
@@ -1300,14 +1393,11 @@
     .article-meta { gap: var(--space-sm); }
     .article-meta-separator { display: none; }
 
-    .article-body { padding: var(--space-3xl) var(--space-lg); }
+    .article-body { padding: var(--space-3xl) 0; }
     :root { --measure-article: 523px; }   /* 16px x 32.67 */
     .article-body p { font-size: var(--text-base); }
     .article-body li { font-size: var(--text-base); }
     .article-body h2 { font-size: var(--text-3xl); }
-    .work-cta { padding: var(--space-4xl) 0; }
-    .work-cta-heading { font-size: var(--text-3xl); }
-    .work-cta-desc { font-size: var(--text-lg); }
     .article-body h3 { font-size: var(--text-xl); }
     .article-body h4 { font-size: var(--text-lg); }
     .article-body blockquote { font-size: var(--text-lg); }
@@ -1316,7 +1406,6 @@
     .article-toc summary::after { font-size: var(--text-lg); }
     .toc-list { padding: 0 var(--space-lg) var(--space-lg); }
     .toc-list a { font-size: var(--text-sm); }
-    .article-share { padding: 0 var(--space-lg) var(--space-2xl); flex-wrap: wrap; }
 
     .related-grid { grid-template-columns: 1fr; }
 
@@ -1361,7 +1450,8 @@
   </div>
 </section>
 
-<!-- Article Body -->
+<!-- Article Body + sticky CTA sidebar -->
+<div class="article-layout">
 <article class="article-body">
 
   <details class="article-toc" open>
@@ -1535,26 +1625,29 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
 
 </article>
 
-<!-- Work With Us CTA -->
-<section class="work-cta">
-  <div class="container">
-    <h2 class="work-cta-heading">Work with us</h2>
-    <p class="work-cta-desc">We help security teams improve how they work with threat intelligence, security operations, and fraud data sharing, starting from wherever you are today. If you have something you&rsquo;re working through, we&rsquo;d like to hear about it.</p>
-    <a href="/contact-us" class="work-cta-btn">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
-  </div>
-</section>
 
-<!-- Share Links -->
-<div class="article-share">
-  <span class="share-label">Share</span>
-  <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    LinkedIn
-  </button>
-  <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!'})">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-    Copy link
-  </button>
+<aside class="article-aside">
+  <div class="article-aside__card">
+    <img src="icons/cosive-sinewave.svg" alt="" class="article-aside__wave">
+    <h2 class="article-aside__heading">Work with us</h2>
+    <p class="article-aside__desc">We work with security teams globally on threat intelligence, security operations, and fraud data sharing, starting from wherever you are today. If you have something you&rsquo;re working through, we&rsquo;d like to hear about it.</p>
+    <a href="/contact-us" class="article-aside__btn">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+
+    <div class="article-share">
+      <span class="share-label">Share with colleagues</span>
+      <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy link
+      </button>
+      <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </button>
+    </div>
+  </div>
+</aside>
+
+
 </div>
 
 <!-- Author Bios -->
