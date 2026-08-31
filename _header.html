@@ -1,0 +1,127 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="cloudmisp.html" data-nav="cloudmisp">CloudMISP</a></li>
+        <li><a href="cyber-threat-intelligence.html" data-nav="cti">Cyber Threat Intelligence</a></li>
+        <li><a href="security-operations.html" data-nav="secops">Security Operations</a></li>
+        <li><a href="fraud-data-sharing.html" data-nav="fraud">Fraud Data Sharing</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
+            Resources
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav-dropdown__menu">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
+            <li><a href="/presentations">Presentations</a></li>
+            <li><a href="/podcast">Podcast</a></li>
+            <li><a href="/misp-guide">MISP Guide</a></li>
+            <li><a href="category-company-news.html">Newsroom</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  /* Resources dropdown. Lifted from cloudmisp.html's implementation, with three
+     values brought to the live cosive.com spec: menu padding Space/XS 0, link
+     padding Space/XS Space/MD, link size Text/SM. CSS-only — no JS needed. */
+  .nav-dropdown { position: relative; }
+
+  .nav-dropdown__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .nav-dropdown__toggle:hover { color: var(--color-text-primary); }
+
+  .nav-dropdown__toggle svg {
+    width: 1em; height: 1em;
+    stroke: currentColor; fill: none; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+    transition: transform 0.2s;
+  }
+
+  .nav-dropdown:hover .nav-dropdown__toggle svg,
+  .nav-dropdown:focus-within .nav-dropdown__toggle svg { transform: rotate(180deg); }
+
+  .main-nav .nav-dropdown__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    flex-direction: column;
+    /* .main-nav ul sets align-items:center and also matches this nested ul; on a
+       column flex that centres each item horizontally instead of left-aligning. */
+    align-items: stretch;
+    gap: 0;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(14, 20, 28, 0.12);
+    padding: var(--space-xs) 0;
+    margin-top: var(--space-xs);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    z-index: 101;
+  }
+
+  .nav-dropdown:hover .nav-dropdown__menu,
+  .nav-dropdown:focus-within .nav-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .main-nav .nav-dropdown__menu a {
+    display: block;
+    white-space: nowrap;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .main-nav .nav-dropdown__menu a:hover {
+    color: var(--color-text-primary);
+    background: var(--color-light-grey);
+  }
+
+  @media (max-width: 900px) {
+    /* Expand inline within the stacked mobile menu — there is no hover on touch. */
+    .nav-dropdown__toggle { width: 100%; justify-content: space-between; padding: var(--space-md) 0; }
+    .main-nav .nav-dropdown__menu {
+      position: static;
+      opacity: 1; visibility: visible; transform: none;
+      min-width: 0;
+      border: none; border-radius: 0; box-shadow: none;
+      padding: 0 0 var(--space-sm) var(--space-md);
+      margin: 0;
+    }
+    .main-nav .nav-dropdown__menu a { padding: var(--space-sm) 0; }
+    .nav-dropdown__menu li + li { border-top: none; }
+  }
+</style>
