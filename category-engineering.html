@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog - Insights from the field | Cosive</title>
+<title>Engineering | Cosive Blog</title>
 <meta name="description" content="Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -999,6 +999,41 @@
     .newsletter-cta  { padding: var(--space-4xl) 0; }
     .newsletter-cta-heading { font-size: var(--text-2xl); }
   }
+
+  /* ── Empty state (a category with no posts yet) ── */
+  .blog-empty {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-light-grey);
+    padding: var(--space-5xl) var(--space-3xl);
+    text-align: center;
+  }
+
+  .blog-empty h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .blog-empty p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-sm);
+  }
+
+  .blog-empty a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-xl);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    transition: color 0.2s;
+  }
+
+  .blog-empty a:hover { color: var(--color-accent-dark); }
 </style>
 </head>
 <body>
@@ -1029,9 +1064,14 @@
 <section class="blog-hero">
   <div class="container">
     <div class="blog-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="blog.html">Blog</a>
+        <span class="separator">/</span>
+        <span class="current">Engineering</span>
+      </nav>
       <div class="section-label">Cosive Blog</div>
-      <h1>Insights from the field</h1>
-      <p class="blog-hero-sub">Security improves when knowledge is shared. So our specialists publish what they know about threat intelligence, security operations, and fraud data sharing.</p>
+      <h1>Engineering</h1>
+      <p class="blog-hero-sub">How we build and integrate the tools behind threat intelligence and fraud data sharing.</p>
     </div>
   </div>
 </section>
@@ -1039,7 +1079,7 @@
 <!-- 2. Category Filter Bar -->
 <div class="blog-filters">
   <div class="container">
-    <a href="blog.html" class="filter-chip active">All Posts</a>
+    <a href="blog.html" class="filter-chip">All Posts</a>
     <span class="filter-dot"><svg width="5" height="5" viewBox="0 0 5 5"><circle cx="2.5" cy="2.5" r="2.5" fill="rgba(255,255,255,0.4)"/></svg></span>
     <a href="category-threat-intelligence.html" class="filter-chip">Threat Intelligence</a>
     <span class="filter-dot"><svg width="5" height="5" viewBox="0 0 5 5"><circle cx="2.5" cy="2.5" r="2.5" fill="rgba(255,255,255,0.4)"/></svg></span>
@@ -1049,7 +1089,7 @@
     <span class="filter-dot"><svg width="5" height="5" viewBox="0 0 5 5"><circle cx="2.5" cy="2.5" r="2.5" fill="rgba(255,255,255,0.4)"/></svg></span>
     <a href="category-cybersecurity.html" class="filter-chip">Cybersecurity</a>
     <span class="filter-dot"><svg width="5" height="5" viewBox="0 0 5 5"><circle cx="2.5" cy="2.5" r="2.5" fill="rgba(255,255,255,0.4)"/></svg></span>
-    <a href="category-engineering.html" class="filter-chip">Engineering</a>
+    <a href="category-engineering.html" class="filter-chip active">Engineering</a>
     <span class="filter-dot"><svg width="5" height="5" viewBox="0 0 5 5"><circle cx="2.5" cy="2.5" r="2.5" fill="rgba(255,255,255,0.4)"/></svg></span>
     <a href="category-company-news.html" class="filter-chip">Company News</a>
   </div>
@@ -1058,160 +1098,26 @@
 <!-- 3. Post Grid -->
 <section class="blog-main">
   <div class="container">
-    <div class="blog-featured-grid">
-
-      <!-- Lead post: spans 8 of 12 columns, no image -->
-      <a href="blog-post.html" class="blog-card lead" data-category="security-operations">
-        <div class="blog-card-header">
-          <span class="category-badge">Security Operations</span>
-        </div>
-        <h2>How the ASD June 2026 ISM Uplifts CTI Programs</h2>
-        <p class="blog-card-excerpt">The ASD released an updated Information Security Manual in June 2026, and there’s more in it for threat intelligence teams than the changelog suggests. We’ve read through the CTI-relevant controls and pulled out what actually changes for Australian organisations, what you can safely defer, and where the new guidance gives you leverage to argue for resourcing you’ve been asking for.</p>
-        <div class="blog-card-footer">
-          <div class="blog-card-author">
-            <div class="blog-card-avatars">
-              <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2aa83e24e3b979ecbc36_prescott-pym-cosive.jpg" alt="Prescott Pym" loading="lazy">
-              <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
-            </div>
-            <div>
-              <div class="blog-card-author-name">Prescott Pym &amp; Chris Horsley</div>
-              <div class="blog-card-date">18 Aug 2026</div>
-            </div>
-          </div>
-          <span class="blog-card-cta">Read article <span class="cta-arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-        <!-- The one post on this page carrying an image -->
-        <div class="subscribe-card">
-          <div class="subscribe-card-label">Subscribe</div>
-          <h2>Stay in the loop</h2>
-          <p>Get occasional updates from Cosive about cyber threat intelligence, fraud data sharing, and security operations.</p>
-          <form class="subscribe-card-form">
-            <input type="email" placeholder="you@company.com" required>
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-
-    </div>
-
-    <div class="blog-section-divider">
-      <span class="label">More from the blog</span>
-      <span class="rule"></span>
-    </div>
-
-    <div class="blog-grid">
-
-        <a href="https://cosive.com/blog/misp-beta-ui-ux-mode-v2-5-32-a-walkthrough" class="blog-card" data-category="threat-intelligence">
-          <div class="blog-card-header">
-            <span class="category-badge">Threat Intelligence</span>
-          </div>
-          <h3>MISP Beta UI/UX Mode (v2.5.32): A Walkthrough</h3>
-          <p class="blog-card-excerpt">We’ve been doing some work at Cosive to modernise the MISP user interface and bring more responsive web design into the experience. The result is a new beta UI that you can enable today if you’re running a recent version of MISP (v2.5.32 or later). This update is driven by a simple goal: make MISP easier to use, especially for analysts working on smaller screens or remotely.</p>
-          <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
-                <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Chris Horsley &amp; Tash Postolovski</div>
-                <div class="blog-card-date">15 Aug 2026</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://cosive.com/blog/misp-2025-retrospective-monthly-highlights" class="blog-card" data-category="threat-intelligence">
-          <div class="blog-card-header">
-            <span class="category-badge">Threat Intelligence</span>
-          </div>
-          <h3>MISP 2025 Retrospective: Monthly Highlights</h3>
-          <p class="blog-card-excerpt">The MISP developer community shipped a steady stream of releases through 2025, and it’s easy to lose track of what landed when. We’ve gone back through the year month by month and pulled out the changes worth knowing about: new features, quality-of-life improvements, and a few smaller fixes that quietly make day-to-day analyst work easier.</p>
-          <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <span class="blog-card-monogram" aria-hidden="true">JC</span>
-              </div>
-              <div>
-                <div class="blog-card-author-name">Joe Cozzupoli</div>
-                <div class="blog-card-date">10 Aug 2026</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://cosive.com/blog/meet-joe-cozzupoli-field-ciso-and-principal-security-advisor-at-cosive" class="blog-card" data-category="company-news">
-          <div class="blog-card-header">
-            <span class="category-badge">Company News</span>
-          </div>
-          <h3>Meet Joe Cozzupoli, Field CISO at Cosive</h3>
-          <p class="blog-card-excerpt">Joe Cozzupoli has joined Cosive as Field CISO and Principal Security Advisor. He comes to us after years on the other side of the table, running security programs and making the same budget and resourcing calls our customers face every day. We sat down with Joe to talk about what he’s seen work, what he’d do differently, and how he plans to spend his first few months.</p>
-          <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Tash Postolovski</div>
-                <div class="blog-card-date">04 Aug 2026</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://cosive.com/blog/what-i-learned-about-logging-from-moving-house" class="blog-card" data-category="security-operations">
-          <div class="blog-card-header">
-            <span class="category-badge">Security Operations</span>
-          </div>
-          <h3>What I Learned About Logging From Moving House</h3>
-          <p class="blog-card-excerpt">Sometimes the best security analogies come from everyday life. I moved house recently, and somewhere between labelling boxes and losing track of the kettle I realised I was solving the same problem we solve with log management: what do you keep, what do you throw out, and how do you find the one thing you need six months later?</p>
-          <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Prescott Pym</div>
-                <div class="blog-card-date">28 Jul 2026</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://cosive.com/blog/cti-cmm-improving-cyber-threat-intel-maturity" class="blog-card" data-category="podcast">
-        <div class="blog-card-header">
-        <span class="category-badge">Podcast</span>
-        </div>
-        <h3>CTI-CMM: Improving Cyber Threat Intel Maturity</h3>
-        <p class="blog-card-excerpt">The Cyber Threat Intelligence Capability Maturity Model gives teams a way to benchmark where they are without turning it into a compliance exercise. In this episode we talk through how CTI-CMM is structured, where teams typically over-estimate their own maturity, and how to use it to have a more useful conversation with the people who fund your program.</p>
-        <div class="blog-card-footer">
-        <div class="blog-card-author">
-        <div class="blog-card-avatars">
-          <img src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
-        </div>
-        <div>
-        <div class="blog-card-author-name">Terry MacDonald</div>
-        <div class="blog-card-date">20 Jul 2026</div>
-        </div>
-        </div>
-        </div>
-        </a>
-
+    <div class="blog-empty">
+      <h2>Nothing here yet</h2>
+      <p>We haven’t published anything in Engineering yet. Browse everything we’ve written, or pick another category above.</p>
+      <a href="blog.html">All posts <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<!-- 5. Pagination -->
-<nav class="blog-pagination">
-  <a href="#" class="page-link">← Prev</a>
-  <button class="page-btn active">1</button>
-  <button class="page-btn">2</button>
-  <button class="page-btn">3</button>
-  <button class="page-btn">4</button>
-  <button class="page-btn">5</button>
-  <a href="#" class="page-link">Next →</a>
-</nav>
+<!-- 6. Newsletter (relocated out of the hero) -->
+<section class="newsletter-cta">
+  <div class="container">
+    <div class="newsletter-cta-label">Subscribe</div>
+    <h2 class="newsletter-cta-heading">Stay in the loop</h2>
+    <p class="newsletter-cta-desc">Get occasional updates from Cosive about cyber threat intelligence, fraud data sharing, and security operations.</p>
+    <form class="newsletter-cta-form">
+      <input type="email" placeholder="you@company.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
 
 <div id="site-footer-placeholder"></div>
 <script src="footer-include.js"></script>
