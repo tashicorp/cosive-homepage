@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 280">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 300">
   <defs>
-    <marker id="a" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
-    <marker id="b" markerHeight="7" markerWidth="7" orient="auto" refX="1" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="M10 1 1 5l9 4z"/></marker>
+    <marker id="arrow" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="0" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
+    <!-- Lucide "users" icon -->
+    <g id="users" fill="none" stroke="#2d6da3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </g>
   </defs>
 
   <!-- ASD / ACSC spoke box -->
@@ -22,31 +28,33 @@
 
   <!-- Bottom spoke: Government Agencies -->
   <rect width="130" height="52" x="35" y="220" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M92.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M100.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M90.5 240a5.5 4 0 0 1 11 0M98.5 240a5.5 4 0 0 1 11 0"/>
+  <use href="#users" transform="translate(91,227) scale(0.75)"/>
   <text x="100" y="255" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Government</text>
   <text x="100" y="267" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Agencies</text>
 
   <!-- Bottom spoke: Critical Infrastructure -->
   <rect width="130" height="52" x="185" y="220" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M242.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M250.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M240.5 240a5.5 4 0 0 1 11 0M248.5 240a5.5 4 0 0 1 11 0"/>
+  <use href="#users" transform="translate(241,227) scale(0.75)"/>
   <text x="250" y="255" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Critical</text>
   <text x="250" y="267" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Infrastructure</text>
 
   <!-- Bottom spoke: Private Sector -->
   <rect width="130" height="52" x="335" y="220" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <path stroke="#2d6da3" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M392.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M400.5 233a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0M390.5 240a5.5 4 0 0 1 11 0M398.5 240a5.5 4 0 0 1 11 0"/>
+  <use href="#users" transform="translate(391,227) scale(0.75)"/>
   <text x="400" y="261" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Private Sector</text>
 
   <!-- Bidirectional arrows -->
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M250 60 250 105"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M210 161 100 220"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M250 161 250 220"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M290 161 400 220"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)" d="M250 70 250 95"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)" d="M201.2 165.7 108.8 215.3"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)" d="M250 171 250 210"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)" d="M298.8 165.7 391.2 215.3"/>
 
   <!-- Connection labels -->
-  <rect x="256" y="74" width="72" height="16" rx="2" fill="#fff"/>
-  <text x="292" y="86" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">STIX / TAXII</text>
+  <rect x="204" y="182" width="40" height="16" rx="2" fill="#fff"/>
+  <text x="224" y="194" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">MISP</text>
 
-  <rect x="265" y="183" width="120" height="16" rx="2" fill="#fff"/>
-  <text x="325" y="195" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Bidirectional Sharing</text>
+  <rect x="256" y="182" width="72" height="16" rx="2" fill="#fff"/>
+  <text x="292" y="194" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">STIX / TAXII</text>
+
+  <text x="250" y="290" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Bidirectional Sharing</text>
 </svg>

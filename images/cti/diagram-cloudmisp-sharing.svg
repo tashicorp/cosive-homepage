@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 750 260">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-40 0 830 260">
   <defs>
     <marker id="a" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="m0 1 9 4-9 4z"/></marker>
     <marker id="b" markerHeight="7" markerWidth="7" orient="auto" refX="1" refY="5" viewBox="0 0 10 10"><path fill="#e53834" d="M10 1 1 5l9 4z"/></marker>
   </defs>
 
   <!-- Column headings -->
-  <text x="80" y="14" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" text-anchor="middle">YOUR INTEL FEEDS</text>
+  <text x="40" y="14" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" text-anchor="middle">YOUR INTEL FEEDS</text>
   <text x="375" y="14" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" text-anchor="middle">YOUR ORGANISATION</text>
-  <text x="670" y="14" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" text-anchor="middle">YOUR PARTNERS</text>
+  <text x="710" y="14" fill="#5f6368" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="0.08em" text-anchor="middle">YOUR PARTNERS</text>
 
   <!-- Feed spoke boxes -->
-  <rect width="110" height="46" x="25" y="55" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="80" y="74" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
-  <text x="80" y="85" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
+  <rect width="110" height="46" x="-15" y="55" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="40" y="74" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
+  <text x="40" y="85" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
 
-  <rect width="110" height="46" x="25" y="115" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="80" y="134" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
-  <text x="80" y="145" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
+  <rect width="110" height="46" x="-15" y="115" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="40" y="134" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
+  <text x="40" y="145" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
 
-  <rect width="110" height="46" x="25" y="175" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="80" y="194" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
-  <text x="80" y="205" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
+  <rect width="110" height="46" x="-15" y="175" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="40" y="194" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Threat Intel</text>
+  <text x="40" y="205" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Feed</text>
 
   <!-- Your Analysts spoke box -->
   <rect width="110" height="46" x="215" y="30" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
@@ -49,28 +49,28 @@
   <text x="480" y="163" fill="#e53834" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle">CloudMISP</text>
 
   <!-- Organisation spoke boxes -->
-  <rect width="110" height="46" x="615" y="55" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="670" y="82" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 1</text>
+  <rect width="110" height="46" x="655" y="55" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="710" y="82" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 1</text>
 
-  <rect width="110" height="46" x="615" y="115" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="670" y="142" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 2</text>
+  <rect width="110" height="46" x="655" y="115" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="710" y="142" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 2</text>
 
-  <rect width="110" height="46" x="615" y="175" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
-  <text x="670" y="202" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 3</text>
+  <rect width="110" height="46" x="655" y="175" fill="#eef4fa" stroke="#9aa0a6" stroke-width="1.5" rx="8"/>
+  <text x="710" y="202" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Organisation 3</text>
 
   <!-- Connection paths -->
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M135 78 205 132"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M135 138 205 146"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M135 198 205 160"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M95 78 205 132"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M95 138 205 146"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M95 198 205 160"/>
   <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M270 76 270 118"/>
   <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M335 146 415 146"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M545 132 615 78"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M545 146 615 138"/>
-  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M615 198 545 160"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M545 132 655 78"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" marker-start="url(#b)" d="M545 146 655 138"/>
+  <path stroke="#e53834" stroke-width="1.5" marker-end="url(#a)" d="M655 198 545 160"/>
 
   <!-- Connection labels -->
-  <rect x="151" y="134" width="38" height="16" rx="2" fill="#fff"/>
-  <text x="170" y="146" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Ingest</text>
+  <rect x="131" y="134" width="38" height="16" rx="2" fill="#fff"/>
+  <text x="150" y="146" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Ingest</text>
 
   <rect x="278" y="89" width="52" height="16" rx="2" fill="#fff"/>
   <text x="304" y="101" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Curation</text>
@@ -78,12 +78,12 @@
   <rect x="355" y="138" width="40" height="16" rx="2" fill="#fff"/>
   <text x="375" y="150" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Publish</text>
 
-  <rect x="553" y="97" width="54" height="16" rx="2" fill="#fff"/>
-  <text x="580" y="109" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Push only</text>
+  <rect x="573" y="97" width="54" height="16" rx="2" fill="#fff"/>
+  <text x="600" y="109" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Push only</text>
 
-  <rect x="549" y="134" width="62" height="16" rx="2" fill="#fff"/>
-  <text x="580" y="146" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Push / Pull</text>
+  <rect x="569" y="134" width="62" height="16" rx="2" fill="#fff"/>
+  <text x="600" y="146" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Push / Pull</text>
 
-  <rect x="563" y="171" width="34" height="16" rx="2" fill="#fff"/>
-  <text x="580" y="183" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Login</text>
+  <rect x="583" y="171" width="34" height="16" rx="2" fill="#fff"/>
+  <text x="600" y="183" fill="#1a1a1a" font-family="Manrope, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Login</text>
 </svg>

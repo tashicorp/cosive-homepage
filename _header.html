@@ -12,6 +12,25 @@
         <li><a href="cyber-threat-intelligence.html" data-nav="cti">Cyber Threat Intelligence</a></li>
         <li><a href="security-operations.html" data-nav="secops">Security Operations</a></li>
         <li><a href="fraud-data-sharing.html" data-nav="fraud">Fraud Data Sharing</a></li>
+        <li class="nav-dropdown nav-dropdown--mega">
+          <button class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
+            Capabilities
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav-dropdown__menu">
+            <li>
+              <a href="cti-cmm.html" data-nav="cti-cmm">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="m12 14 4-4"/><circle cx="12" cy="14" r="1.5"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">CTI-CMM</span>
+                  <span class="nav-mega__desc">Benchmark your CTI maturity and get a prioritised path to improve.</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-dropdown">
           <button class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
             Resources
@@ -110,6 +129,120 @@
     background: var(--color-light-grey);
   }
 
+  /* Active page. The rule used to live in about.html and was lost when that page
+     was redesigned, so .nav-active was being set on 20 pages with nothing to
+     match it. It belongs here now, alongside the markup that carries it. */
+  .main-nav a.nav-active,
+  .main-nav .nav-dropdown__toggle.nav-active {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  /* ── Capabilities mega-menu ──
+     A richer variant of .nav-dropdown whose items carry an icon, title and
+     description instead of a bare link. Reuses the same CSS-only
+     hover/:focus-within mechanism — only the panel's box and item layout differ.
+     One column for now; add `grid-template-columns: 1fr 1fr` and widen when
+     there is more than one capability to list. */
+  .main-nav .nav-dropdown--mega .nav-dropdown__menu {
+    /* Centred on the trigger rather than left-aligned: the panel is much wider
+       than the toggle and the nav sits hard against the right gutter, so
+       left:0 would push it past the viewport edge. */
+    left: 50%;
+    right: auto;
+    width: 340px;
+    max-width: calc(100vw - var(--space-3xl) * 2);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xs);
+    padding: var(--space-sm);
+    transform: translate(-50%, -4px);
+  }
+
+  .main-nav .nav-dropdown--mega:hover .nav-dropdown__menu,
+  .main-nav .nav-dropdown--mega:focus-within .nav-dropdown__menu {
+    transform: translate(-50%, 0);
+  }
+
+  .main-nav .nav-dropdown--mega .nav-dropdown__menu a {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    white-space: normal;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    height: 100%;
+  }
+
+  .nav-mega__icon {
+    flex-shrink: 0;
+    width: var(--space-lg);
+    height: var(--space-lg);
+    color: var(--color-accent);
+  }
+
+  .nav-mega__icon svg { width: 100%; height: 100%; display: block; }
+
+  .nav-mega__text { display: block; }
+
+  .nav-mega__title {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+  }
+
+  .nav-mega__desc {
+    display: block;
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+  }
+
+  /* The panel item is the active target, so it gets the highlight rather than
+     inheriting the flat .nav-active text treatment above. */
+  .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active {
+    background: var(--color-light-grey);
+    font-weight: 500;
+  }
+
+  .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active .nav-mega__title {
+    font-weight: 700;
+  }
+
+  /* The nav row wraps to a second line once it runs out of width — that is the
+     site's pre-existing behaviour (the seven-item nav already wrapped below
+     ~1400px and overflowed below ~978px). Capabilities makes the row ~150px
+     wider, so tighten spacing and type through the mid widths: that keeps the
+     row on one line down to ~1200px (better than before) and removes the
+     sub-978px overflow entirely. min-width:901px leaves each page's own mobile
+     block below that untouched. */
+  @media (max-width: 1500px) and (min-width: 901px) {
+    .main-nav ul { gap: 2px; }
+    .main-nav a,
+    .nav-dropdown__toggle {
+      padding-left: var(--space-xs);
+      padding-right: var(--space-xs);
+      font-size: var(--text-sm);
+    }
+    /* .nav-cta's base declarations are !important, so overrides must be too. */
+    .nav-cta {
+      padding-left: var(--space-md) !important;
+      padding-right: var(--space-md) !important;
+      font-size: var(--text-sm) !important;
+    }
+  }
+
+  @media (max-width: 980px) and (min-width: 901px) {
+    .main-nav ul { gap: 0; }
+    .main-nav a,
+    .nav-dropdown__toggle { padding-left: var(--space-2xs); padding-right: var(--space-2xs); }
+    .nav-cta { padding-left: var(--space-sm) !important; padding-right: var(--space-sm) !important; }
+  }
+
   @media (max-width: 900px) {
     /* Expand inline within the stacked mobile menu — there is no hover on touch. */
     .nav-dropdown__toggle { width: 100%; justify-content: space-between; padding: var(--space-md) 0; }
@@ -123,5 +256,27 @@
     }
     .main-nav .nav-dropdown__menu a { padding: var(--space-sm) 0; }
     .nav-dropdown__menu li + li { border-top: none; }
+
+    /* Mega panel collapses to the same stacked list as Resources. */
+    .main-nav .nav-dropdown--mega .nav-dropdown__menu {
+      position: static;
+      display: block;
+      width: auto;
+      max-width: none;
+      transform: none;
+      padding: 0 0 var(--space-sm) var(--space-md);
+    }
+    .main-nav .nav-dropdown--mega:hover .nav-dropdown__menu,
+    .main-nav .nav-dropdown--mega:focus-within .nav-dropdown__menu { transform: none; }
+    .main-nav .nav-dropdown--mega .nav-dropdown__menu a {
+      padding: var(--space-sm) 0;
+      align-items: center;
+      height: auto;
+    }
+    /* Four items with descriptions makes the stacked menu unusably tall on a
+       phone; the icon and title carry enough meaning on their own. */
+    .nav-mega__desc { display: none; }
+    .nav-mega__title { font-size: var(--text-sm); font-weight: 500; }
+    .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active { background: none; }
   }
 </style>

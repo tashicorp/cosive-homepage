@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; color: #1a1a1a; background: #ffffff; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #2d6da3; text-decoration: none; }
+    a:hover { color: #1f4f78; }
+    p { margin: 0; line-height: 1.55; }
+    h1, h2, h3 { margin: 0; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #ffffff; overflow: hidden;">
+
+  <!-- header: hamburger only -->
+  <div style="background: #ffffff; border-bottom: 1px solid #e8eaed; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px;">
+    <img src="./cosive-logo.png" alt="Cosive" style="height: 22px; width: auto;">
+    <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #1a1a1a; stroke-width: 2; stroke-linecap: round;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </div>
+
+  <!-- hero -->
+  <div style="position: relative; overflow: hidden; background: #0e141c; padding: 48px 24px 56px;">
+    <div style="position: absolute; inset: 0; background-image: url('./hero-field.svg'); background-size: cover; background-position: center; pointer-events: none;"></div>
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none;"></div>
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(ellipse at 30% 40%, rgba(42,182,246,0.14) 0%, transparent 60%); pointer-events: none;"></div>
+    <div style="position: relative;">
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #e8eaed; margin-bottom: 24px;">
+        <span>Home</span><span style="color: #5f6368;">/</span><span style="color: #ffffff; font-weight: 600;">CTI-CMM</span>
+      </div>
+      <h1 style="font-size: 42px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: #ffffff; margin-bottom: 16px;">CTI-CMM</h1>
+      <p style="font-size: 19px; font-weight: 400; line-height: 1.4; color: rgba(255,255,255,0.7); margin-bottom: 24px;">The capability maturity model for threat intelligence. We run independent assessments against it, and help you act on what they find.</p>
+      <span style="display: block; background: #2ab6f6; color: #0e141c; font-weight: 700; font-size: 16px; padding: 15px 24px; border-radius: 4px; text-align: center; margin-bottom: 28px;">Talk to us about an assessment</span>
+
+      <!-- Contributor callout — stacked full width below the subtitle -->
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2ab6f6; margin-bottom: 12px;">Our expertise</div>
+        <h2 style="font-size: 21px; font-weight: 700; line-height: 1.25; color: #ffffff; margin-bottom: 20px;">We help build CTI-CMM</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="./chris-horsley.jpg" alt="Chris Horsley" style="width: 46px; height: 46px; border-radius: 999px; object-fit: cover; flex-shrink: 0;">
+            <div>
+              <span style="display: block; font-size: 14px; font-weight: 600; color: #ffffff;">Chris Horsley</span>
+              <span style="display: block; font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4;">Principal Security Consultant &amp; CTO</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="./prescott-pym.jpg" alt="Prescott Pym" style="width: 46px; height: 46px; border-radius: 999px; object-fit: cover; flex-shrink: 0;">
+            <div>
+              <span style="display: block; font-size: 14px; font-weight: 600; color: #ffffff;">Prescott Pym</span>
+              <span style="display: block; font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4;">Principal Security Consultant</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px;">Both are among the volunteer contributors to the framework — so the model we assess you against is one we help shape.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- section nav: horizontal scroller with fade -->
+  <div style="background: #0e141c; border-top: 1px solid rgba(255,255,255,0.08); height: 52px; display: flex; align-items: center; padding-left: 24px; gap: 24px; position: relative; overflow: hidden;">
+    <span style="font-size: 14px; font-weight: 600; color: #2ab6f6; border-bottom: 2px solid #2ab6f6; padding-bottom: 2px; white-space: nowrap;">Why CTI-CMM</span>
+    <span style="font-size: 14px; font-weight: 500; color: #ffffff; white-space: nowrap;">Domains</span>
+    <span style="font-size: 14px; font-weight: 500; color: #ffffff; white-space: nowrap;">Levels</span>
+    <span style="font-size: 14px; font-weight: 500; color: #ffffff; white-space: nowrap;">Why it</span>
+    <div style="position: absolute; top: 0; right: 0; width: 56px; height: 100%; background: linear-gradient(to right, rgba(14,20,28,0), #0e141c);"></div>
+  </div>
+
+  <!-- what it is -->
+  <div style="padding: 56px 24px;">
+    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 16px;">The framework</div>
+    <h2 style="font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px;">Why CTI-CMM</h2>
+    <p style="font-size: 18px; line-height: 1.5; font-weight: 500; margin-bottom: 24px;">CTI-CMM is the Cyber Threat Intelligence Capability Maturity Model: a free, vendor-neutral framework for measuring how well your threat intelligence programme supports the people who depend on it.</p>
+    <div style="background: #eef4fa; border-left: 3px solid {{accent}}; border-radius: 0 8px 8px 0; padding: 22px 24px;">
+      <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 12px;">How we help</div>
+      <p style="font-size: 17px; line-height: 1.5; font-weight: 500; color: #1a1a1a;">We run independent CTI-CMM assessments — scoring all 11 domains with you and your stakeholders, then handing back a rating per domain and a prioritised roadmap.</p>
+    </div>
+  </div>
+
+  <!-- domain matrix: 1 column -->
+  <div style="padding: 48px 24px 56px; background: #f8f9fa; border-top: 1px solid #e8eaed;">
+    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 16px;">How the model works</div>
+    <h2 style="font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 28px;">Eleven domains</h2>
+    <div style="border-top: 1px solid #d8dce0;">
+      <sc-for list="{{domains}}" as="d" hint-placeholder-count="11">
+        <div style="border-bottom: 1px solid #d8dce0; padding: 16px 0; display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-size: 12px; font-weight: 700; color: {{accent}}; font-variant-numeric: tabular-nums;">{{d.n}}</span>
+          <span style="font-size: 16px; font-weight: 600; line-height: 1.35;">{{d.name}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- level ladder: stacked, horizontal bars -->
+  <div style="padding: 48px 24px 56px; background: #0e141c; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none;"></div>
+    <div style="position: relative;">
+      <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2ab6f6; margin-bottom: 16px;">Maturity</div>
+      <h2 style="font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #ffffff; margin-bottom: 28px;">Four levels</h2>
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <sc-for list="{{levels}}" as="lv" hint-placeholder-count="4">
+          <div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px;">
+              <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #2ab6f6;">{{lv.id}}</span>
+              <span style="font-size: 18px; font-weight: 700; color: #ffffff;">{{lv.title}}</span>
+            </div>
+            <div style="height: 8px; border-radius: 4px; background: rgba(255,255,255,0.10); overflow: hidden; margin-bottom: 10px;">
+              <div style="width: {{lv.w}}; height: 100%; background: {{lv.fill}}; border-radius: 4px;"></div>
+            </div>
+            <p style="font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.55;">{{lv.desc}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- tool band -->
+  <div style="padding: 48px 24px; background: #eef4fa; border-bottom: 1px solid #dbe6f0;">
+    <h3 style="font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 14px;">Want a baseline before you talk to us?</h3>
+    <p style="font-size: 16px; color: #5f6368; line-height: 1.7; margin-bottom: 24px;">Free, no sign-up, all 11 domains of CTI-CMM v1.3. Everything saves in your browser — your answers never leave your machine.</p>
+    <span style="display: block; background: {{accent}}; color: #ffffff; font-weight: 600; font-size: 16px; padding: 15px 28px; border-radius: 4px; text-align: center; margin-bottom: 24px;">Open the assessment tool</span>
+    <div style="background: #ffffff; border: 1px solid #e8eaed; border-radius: 12px; padding: 18px 18px 14px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 2px;">
+        <h4 style="font-size: 15px; font-weight: 700; color: #1a1a1a;">Domain Maturity Overview</h4>
+        <span style="font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #5f6368; white-space: nowrap;">Example</span>
+      </div>
+      <p style="font-size: 12px; color: #5f6368; line-height: 1.5; margin-bottom: 2px;">Illustrative scores — not real client data.</p>
+      <svg viewBox="-172.3 -123.7 325 243.1" style="width:100%;height:auto;display:block;" role="img" aria-label="Example CTI-CMM radar chart: maturity score per domain, highest on incident response, lowest on third-party risk"><polygon points="0.0,-18.8 10.2,-15.8 17.1,-7.8 18.6,2.7 14.2,12.3 5.3,18.0 -5.3,18.0 -14.2,12.3 -18.6,2.7 -17.1,-7.8 -10.2,-15.8" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-37.6 20.3,-31.6 34.2,-15.6 37.2,5.4 28.4,24.6 10.6,36.1 -10.6,36.1 -28.4,24.6 -37.2,5.4 -34.2,-15.6 -20.3,-31.6" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-56.4 30.5,-47.4 51.3,-23.4 55.8,8.0 42.6,36.9 15.9,54.1 -15.9,54.1 -42.6,36.9 -55.8,8.0 -51.3,-23.4 -30.5,-47.4" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-75.2 40.7,-63.3 68.4,-31.2 74.4,10.7 56.8,49.2 21.2,72.2 -21.2,72.2 -56.8,49.2 -74.4,10.7 -68.4,-31.2 -40.7,-63.3" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-94.0 50.8,-79.1 85.5,-39.0 93.0,13.4 71.0,61.6 26.5,90.2 -26.5,90.2 -71.0,61.6 -93.0,13.4 -85.5,-39.0 -50.8,-79.1" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="0.0" y2="-94.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="50.8" y2="-79.1" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="85.5" y2="-39.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="93.0" y2="13.4" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="71.0" y2="61.6" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="26.5" y2="90.2" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-26.5" y2="90.2" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-71.0" y2="61.6" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-93.0" y2="13.4" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-85.5" y2="-39.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-50.8" y2="-79.1" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-51.7 35.6,-55.4 38.5,-17.6 46.5,6.7 46.2,40.0 21.2,72.2 -6.6,22.5 -28.4,24.6 -27.9,4.0 -38.5,-17.6 -30.5,-47.4" fill="rgba(42,182,246,0.2)" stroke="#1a9fd8" stroke-width="2" stroke-linejoin="round"/><circle cx="0.0" cy="-51.7" r="2.5" fill="#1a9fd8"/><circle cx="35.6" cy="-55.4" r="2.5" fill="#1a9fd8"/><circle cx="38.5" cy="-17.6" r="2.5" fill="#1a9fd8"/><circle cx="46.5" cy="6.7" r="2.5" fill="#1a9fd8"/><circle cx="46.2" cy="40.0" r="2.5" fill="#1a9fd8"/><circle cx="21.2" cy="72.2" r="2.5" fill="#1a9fd8"/><circle cx="-6.6" cy="22.5" r="2.5" fill="#1a9fd8"/><circle cx="-28.4" cy="24.6" r="2.5" fill="#1a9fd8"/><circle cx="-27.9" cy="4.0" r="2.5" fill="#1a9fd8"/><circle cx="-38.5" cy="-17.6" r="2.5" fill="#1a9fd8"/><circle cx="-30.5" cy="-47.4" r="2.5" fill="#1a9fd8"/><text x="0.0" y="-108.5" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ASSET</text><text x="60.6" y="-90.7" text-anchor="start" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">THREAT</text><text x="101.9" y="-43.0" text-anchor="start" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">RISK</text><text x="110.9" y="19.4" text-anchor="start" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ACCESS</text><text x="84.6" y="76.8" text-anchor="start" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">SITUATION</text><text x="31.6" y="111.0" text-anchor="start" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">RESPONSE</text><text x="-31.6" y="111.0" text-anchor="end" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">3RD-PARTY</text><text x="-84.6" y="76.8" text-anchor="end" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">FRAUD</text><text x="-110.9" y="19.4" text-anchor="end" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">WORKFORCE</text><text x="-101.9" y="-43.0" text-anchor="end" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ARCH</text><text x="-60.6" y="-90.7" text-anchor="end" font-family="Manrope, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">PROGRAM</text></svg>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#2d6da3","options":["#2d6da3","#1a5276","#1f4f78","#e53834"],"section":"Theme"},"$preview":{"width":390,"height":3773}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#2d6da3',
+      domains: [
+        { n: '01', name: 'Asset, Change and Configuration Management' },
+        { n: '02', name: 'Threat and Vulnerability Management' },
+        { n: '03', name: 'Risk Management' },
+        { n: '04', name: 'Identity and Access Management' },
+        { n: '05', name: 'Situational Awareness' },
+        { n: '06', name: 'Event and Incident Response, Continuity of Operations' },
+        { n: '07', name: 'Third-Party Risk Management' },
+        { n: '08', name: 'Fraud and Abuse Management' },
+        { n: '09', name: 'Workforce Management' },
+        { n: '10', name: 'Cybersecurity Architecture' },
+        { n: '11', name: 'Cybersecurity Program Management' }
+      ],
+      levels: [
+        { id: 'CTI0', title: 'Pre-foundational', desc: "The practice isn't happening yet.", w: '12%',  fill: 'rgba(42,182,246,0.35)' },
+        { id: 'CTI1', title: 'Foundational',     desc: 'Ad hoc and reactive. Work happens case by case, largely undocumented.', w: '38%', fill: 'rgba(42,182,246,0.55)' },
+        { id: 'CTI2', title: 'Advanced',         desc: 'Standardised and proactive. Documented, repeatable, often automated.', w: '68%', fill: 'rgba(42,182,246,0.78)' },
+        { id: 'CTI3', title: 'Leading',          desc: 'Prescriptive and business-aligned. Metrics map to business outcomes.', w: '100%', fill: '#2ab6f6' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #05070b; }
+  .og {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
+    background: #05070b;
+  }
+  .og__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+  }
+  /* darken left + top for text legibility, matching the existing card set */
+  .og__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(5,7,11,0.92) 0%, rgba(5,7,11,0.78) 42%, rgba(5,7,11,0.30) 100%),
+      linear-gradient(180deg, rgba(5,7,11,0.85) 0%, rgba(5,7,11,0.15) 30%, rgba(5,7,11,0.15) 100%);
+  }
+  .og__logo {
+    position: absolute;
+    left: 50px;
+    top: 55px;
+    width: 460px;
+    height: 130px;
+  }
+  .og__content {
+    position: absolute;
+    left: 80px;
+    right: 90px;
+    top: 205px;
+  }
+  .og__title {
+    color: #ffffff;
+    font-size: 66px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+  .og__sub {
+    margin-top: 26px;
+    color: rgba(255,255,255,0.72);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.35;
+    max-width: 900px;
+  }
+  .og__url {
+    position: absolute;
+    left: 80px;
+    bottom: 66px;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+</style>
+</head>
+<body>
+  <div class="og">
+    <img class="og__bg" src="images/homepage/hero-cyber-threat-intelligence.webp" alt="">
+    <div class="og__overlay"></div>
+    <img class="og__logo" src="file:///private/tmp/claude-501/-Users-tashicorp-Documents-code-cosive-homepage/d9cf0d98-0251-4cd6-821a-6f6da7f96136/scratchpad/logo-trans.png" alt="Cosive">
+    <div class="og__content">
+      <div class="og__title">Privacy Policy</div>
+      <div class="og__sub">How we collect, use, store and protect your personal information — and the rights you have over your data.</div>
+    </div>
+    <div class="og__url">cosive.com</div>
+  </div>
+</body>
+</html>

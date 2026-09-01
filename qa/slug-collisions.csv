@@ -1,0 +1,27 @@
+new_page_file,target_slug,status,action
+automate-cybersecurity-ops-team.html,/automate-cybersecurity-ops-team,FREE,No collision — moves in cleanly.
+build-and-integrate-cti-tools.html,/build-and-integrate-cti-tools,FREE,No collision — moves in cleanly.
+build-and-integrate-fraud-tools.html,/build-and-integrate-fraud-tools,FREE,No collision — moves in cleanly.
+build-and-integrate-secops-tools.html,/build-and-integrate-secops-tools,FREE,No collision — moves in cleanly.
+cloudmisp.html,/cloudmisp,FREE,No collision — moves in cleanly.
+cloudmisp-fair-use-policy.html,/cloudmisp-fair-use-policy,FREE,No collision — moves in cleanly.
+cloudmisp-support-policy.html,/cloudmisp-support-policy,FREE,No collision — moves in cleanly.
+consume-share-fraud-data.html,/consume-share-fraud-data,FREE,No collision — moves in cleanly.
+consume-share-threat-intelligence.html,/consume-share-threat-intelligence,FREE,No collision — moves in cleanly.
+cyber-threat-intelligence.html,/cyber-threat-intelligence,FREE,No collision — moves in cleanly.
+find-useful-threat-intel-feeds.html,/find-useful-threat-intel-feeds,FREE,No collision — moves in cleanly.
+fraud-data-sharing.html,/fraud-data-sharing,FREE,No collision — moves in cleanly.
+help-us-join-first.html,/help-us-join-first,FREE,No collision — moves in cleanly.
+improve-cti-team.html,/improve-cti-team,FREE,No collision — moves in cleanly.
+improve-secops-team.html,/improve-secops-team,FREE,No collision — moves in cleanly.
+index.html,(homepage),HOMEPAGE,Set as Webflow homepage; old home becomes a normal page — keep-and-redirect or delete
+manage-my-misp.html,/manage-my-misp,FREE,No collision — moves in cleanly.
+modern-slavery.html,/modern-slavery,FREE,No collision — moves in cleanly.
+newsletter.html,/newsletter,FREE,No collision — moves in cleanly.
+privacy-policy.html,/privacy-policy,LEGACY PAGE,A live page already sits at /privacy-policy. New page replaces it → delete/unpublish or overwrite the old one.
+security-operations.html,/security-operations,REDIRECT RULE,A 301 rule /security-operations → /capabilities/security-operations-consulting occupies the slug. Delete that rule (it's in redirect-cleaned as DELETE/handled).
+start-cti-sharing-community.html,/start-cti-sharing-community,FREE,No collision — moves in cleanly.
+start-new-cybersecurity-ops-team.html,/start-new-cybersecurity-ops-team,FREE,No collision — moves in cleanly.
+start-sharing-community.html,/start-sharing-community,FREE,No collision — moves in cleanly.
+use-attack-framework.html,/use-attack-framework,FREE,No collision — moves in cleanly.
+website-terms-of-use.html,/website-terms-of-use,FREE,No collision — moves in cleanly.

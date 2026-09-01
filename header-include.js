@@ -22,7 +22,17 @@
     }
     if (!key) return;
     var link = document.querySelector('.main-nav a[data-nav="' + key + '"]');
-    if (link) link.classList.add('nav-active');
+    if (!link) return;
+    link.classList.add('nav-active');
+
+    // Links inside a dropdown (CTI-CMM under Capabilities) are hidden until the
+    // panel opens, so marking only the link leaves nothing visible in the top
+    // row. Light up the parent toggle as well.
+    var group = link.closest('.nav-dropdown');
+    if (group) {
+      var toggle = group.querySelector('.nav-dropdown__toggle');
+      if (toggle) toggle.classList.add('nav-active');
+    }
   }
 
   // Previously inline on every page. It has to run after injection, or the

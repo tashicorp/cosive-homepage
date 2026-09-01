@@ -368,10 +368,13 @@
     height: 100%;
   }
 
-  /* Base country styling — dim fill */
+  /* Base country styling — dim fill. Opaque, not rgba: at 6%/12% white the
+     section's dot grid showed through the landmasses. These are those same
+     tints flattened onto Color/Dark, so the map reads identically but hides
+     the dots behind it. */
   .world-map-container svg path {
-    fill: rgba(255, 255, 255, 0.06);
-    stroke: rgba(255, 255, 255, 0.12);
+    fill: #1c222a;
+    stroke: #2b3037;
     stroke-width: 0.5;
     transition: fill 0.3s;
   }

@@ -1,0 +1,228 @@
+source,current_target,recommendation,new_target,reason
+/software-agreement,https://uploads-ssl.webflow.com/64753857f50bbd0ca3a5fad6/65d3f454d1c2e3e7d9ecfabf_Cosive%20Software%20Agreement%20Signable%20Final%20v1.1.docx,KEEP,https://uploads-ssl.webflow.com/64753857f50bbd0ca3a5fad6/65d3f454d1c2e3e7d9ecfabf_Cosive%20Software%20Agreement%20Signable%20Final%20v1.1.docx,external asset (kept)
+/upcoming-events/2022/10/mapping-attack,/events/invite-only-workshop-mapping-incidents-to-att-ck,KEEP,/events/invite-only-workshop-mapping-incidents-to-att-ck,clean 1-hop to live page
+/upcoming-events/2019/4/15/auscert-2019-training,/events/auscert-2109-open-source-security-orchestration-automating-the-boring-stuff,KEEP,/events/auscert-2109-open-source-security-orchestration-automating-the-boring-stuff,clean 1-hop to live page
+/upcoming-events/2022/10/mapping-attack-awsn,/events/awsn-event-workshop-mapping-incidents-to-att-ck,KEEP,/events/awsn-event-workshop-mapping-incidents-to-att-ck,clean 1-hop to live page
+/blog/2022/8/17/building-production-worthy-software-in-secops-teams-an-impossible-challenge,/blog/building-production-worthy-software-in-secops-teams-an-impossible-challenge,KEEP,/blog/building-production-worthy-software-in-secops-teams-an-impossible-challenge,clean 1-hop to live page
+/blog/2019/12/17/dont-shoot-the-messenger-securitytxt-and-collaborating-effectively-with-security-researchers,/blog/dont-shoot-the-messenger-security-txt-and-collaborating-effectively-with-security-researchers,KEEP,/blog/dont-shoot-the-messenger-security-txt-and-collaborating-effectively-with-security-researchers,clean 1-hop to live page
+/upcoming-events/2019/4/15/auscert-2019-presentation,/events/keynote-running-your-soc-playbooks-as-code,KEEP,/events/keynote-running-your-soc-playbooks-as-code,clean 1-hop to live page
+/upcoming-events,/events,REVIEW,/presentations,"events index /events is 404; suggest /presentations, or delete"
+/blog/2020/3/19/cosives-tips-for-making-a-happy-and-productive-remote-team,/blog/cosives-tips-for-making-a-happy-and-productive-remote-team,KEEP,/blog/cosives-tips-for-making-a-happy-and-productive-remote-team,clean 1-hop to live page
+/blog/2020/3/27/how-to-communicate-remotely,/blog/how-to-communicate-remotely,KEEP,/blog/how-to-communicate-remotely,clean 1-hop to live page
+/blog/2022/8/2/what-goes-wrong-in-threat-intel-programs,/blog/what-goes-wrong-in-threat-intel-programs,KEEP,/blog/what-goes-wrong-in-threat-intel-programs,clean 1-hop to live page
+/blog/2019/12/3/watching-them-watching-you-opsec-for-security-investigators,/blog/watching-them-watching-you-opsec-for-security-investigators,KEEP,/blog/watching-them-watching-you-opsec-for-security-investigators,clean 1-hop to live page
+/blog/2020/7/27/automatingcanarycredentials,/blog/automating-anti-phishing-canary-credentials-at-scale,KEEP,/blog/automating-anti-phishing-canary-credentials-at-scale,clean 1-hop to live page
+/blog/2020/2/18/why-rust-is-worth-the-struggle,/blog/why-rust-is-worth-the-struggle,KEEP,/blog/why-rust-is-worth-the-struggle,clean 1-hop to live page
+/blog/2023/3/22/meet-david-zielezna-principal-consultant-at-cosive,/blog/meet-david-zielezna-principal-consultant-at-cosive,KEEP,/blog/meet-david-zielezna-principal-consultant-at-cosive,clean 1-hop to live page
+/blog/category/SecOps,/categories/security-operations,KEEP,/categories/security-operations,clean 1-hop to live page
+/blog/2022/12/21/how-chatgpt-could-transform-the-cti-analyst-role,/blog/how-chatgpt-could-transform-the-cti-analyst-role,KEEP,/blog/how-chatgpt-could-transform-the-cti-analyst-role,clean 1-hop to live page
+/blog/2022/12/5/mitre-attacking-with-openais-chatgpt,/blog/mitre-attacking-with-openais-chatgpt,KEEP,/blog/mitre-attacking-with-openais-chatgpt,clean 1-hop to live page
+/blog/2023/2/28/cyber-threat-intelligence-cti-crash-course,/blog/cyber-threat-intelligence-cti-crash-course,KEEP,/blog/cyber-threat-intelligence-cti-crash-course,clean 1-hop to live page
+/blog/category/Remote+Working,/categories/company-culture,KEEP,/categories/company-culture,clean 1-hop to live page
+/blog/2023/5/3/anti-phishing-strategies-to-defend-your-organisation,/blog/anti-phishing-strategies-to-defend-your-organisation,KEEP,/blog/anti-phishing-strategies-to-defend-your-organisation,clean 1-hop to live page
+/blog/category/Secure+Software+Developme,/categories/engineering,KEEP,/categories/engineering,clean 1-hop to live page
+/blog/2023/2/22/meet-chris-horsley-cto-at-cosive,/blog/meet-chris-horsley-cto-at-cosive,KEEP,/blog/meet-chris-horsley-cto-at-cosive,clean 1-hop to live page
+/blog/category/Threat+Intel,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/blog/tag/threat+intel,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/blog/category/Culture,/categories/company-culture,KEEP,/categories/company-culture,clean 1-hop to live page
+/blog/2022/10/4/what-is-misp-the-ultimate-introduction,/blog/what-is-misp-the-ultimate-introduction,KEEP,/blog/what-is-misp-the-ultimate-introduction,clean 1-hop to live page
+/blog/category/Current+Evenbts,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/blog/category/Interviews,/categories/company-culture,KEEP,/categories/company-culture,clean 1-hop to live page
+/blog/tag/tooling,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/blog/2022/10/11/securing-rest-api-endpoints-or-15-steps-to-avoid-another-optus,/blog/securing-rest-api-endpoints-or-15-steps-to-avoid-another-optus,KEEP,/blog/securing-rest-api-endpoints-or-15-steps-to-avoid-another-optus,clean 1-hop to live page
+/blog/2023/3/7/meet-emily-etchell-security-consultant-at-cosive,/blog/meet-emily-etchell-security-consultant-at-cosive,KEEP,/blog/meet-emily-etchell-security-consultant-at-cosive,clean 1-hop to live page
+/blog/tag/phishfeeder,/categories/anti-phishing,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/blog/tag/phishing,/categories/anti-phishing,KEEP,/categories/anti-phishing,clean 1-hop to live page
+/blog/tag/Data+Breach,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/blog/2022/12/13/7-misp-best-practices-lessons-from-effective-threat-intel-teams,/blog/7-misp-best-practices-lessons-from-effective-threat-intel-teams,KEEP,/blog/7-misp-best-practices-lessons-from-effective-threat-intel-teams,clean 1-hop to live page
+/blog/2022/8/23/what-cosives-me-day-means-to-me,/blog/what-cosives-me-day-means-to-me,KEEP,/blog/what-cosives-me-day-means-to-me,clean 1-hop to live page
+/blog/2023/2/14/establishing-a-threat-intel-program-principles-for-security-leaders,/blog/establishing-a-threat-intel-program-principles-for-security-leaders,KEEP,/blog/establishing-a-threat-intel-program-principles-for-security-leaders,clean 1-hop to live page
+/blog/category/Security+Operations,/categories/security-operations,KEEP,/categories/security-operations,clean 1-hop to live page
+/blog/tag/smokeproxy,/categories/cybersecurity,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/blog/category/Current+Events,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/blog/2023/4/19/docintel-amp-misp-threat-intelligence-without-boiling-the-ocean,/blog/docintel-misp-threat-intelligence-without-boiling-the-ocean,KEEP,/blog/docintel-misp-threat-intelligence-without-boiling-the-ocean,clean 1-hop to live page
+/blog/category/Anti-phishing,/categories/anti-phishing,KEEP,/categories/anti-phishing,clean 1-hop to live page
+/podcast/tag/Data,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/podcast/2022/8/16/episode-002-building-production-worthy-software-in-secops-teams-with-chris-horsley-cto-at-cosive,/blog/episode-002-building-production-worthy-software-in-secops-teams-with-chris-horsley-cto-at-cosive,KEEP,/blog/episode-002-building-production-worthy-software-in-secops-teams-with-chris-horsley-cto-at-cosive,clean 1-hop to live page
+/podcast/tag/Code+Review,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/podcast/category/Data+Breach,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/blog/tag/Anti-phishing,/categories/anti-phishing,KEEP,/categories/anti-phishing,clean 1-hop to live page
+/podcast/category/Threat+Intelligence,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/podcast/2022/12/21/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsley,/blog/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsley,KEEP,/blog/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsley,clean 1-hop to live page
+/podcast/tag/Endpoints,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/podcast/tag/Security,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/blog/tag/Digital+Forensics,/categories/security-operations,KEEP,/categories/security-operations,clean 1-hop to live page
+/software-development,/capabilities/bespoke-security-tooling-development,REPOINT,/secops/build-and-integrate-security-operations-tools,retiring capability -> successor
+/podcast/2022/10/27/episode-003-securing-rest-api-endpoints-or-how-to-avoid-another-optus-with-james-cooper,/blog/episode-003-securing-rest-api-endpoints-or-how-to-avoid-another-optus-with-james-cooper,KEEP,/blog/episode-003-securing-rest-api-endpoints-or-how-to-avoid-another-optus-with-james-cooper,clean 1-hop to live page
+/podcast/category/Data+Leak,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/code-review,/capabilities/code-security-review,REPOINT,/security-operations,retiring capability -> successor
+/blog/tag/ChatGPT,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/blog/tag/Interview,/categories/company-culture,KEEP,/categories/company-culture,clean 1-hop to live page
+/penetration-testing,/capabilities/network-penetration-testing,REPOINT,/security-operations,retiring capability -> successor
+/podcast/category/Software+Development,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/blog/tag/MISP,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/blog/tag/CTI,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/blog/tag/misp,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/podcast/2022/8/9/episode-001-what-goes-wrong-in-threat-intel-programs-with-kayne-naughton-md-amp-co-founder-at-cosive,/blog/episode-001-what-goes-wrong-in-threat-intel-programs-with-kayne-naughton-md-co-founder-at-cosive,KEEP,/blog/episode-001-what-goes-wrong-in-threat-intel-programs-with-kayne-naughton-md-co-founder-at-cosive,clean 1-hop to live page
+/podcast/category/SecOps,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/blog/tag/AI,/categories/cybersecurity,KEEP,/categories/cybersecurity,clean 1-hop to live page
+/podcast,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/podcast/tag/APIs,/categories/podcast,KEEP,/categories/podcast,clean 1-hop to live page
+/blog/tag/ATT%26CK,/categories/threat-intelligence,KEEP,/categories/threat-intelligence,clean 1-hop to live page
+/blog/tag/remote-working,/categories/company-culture,KEEP,/categories/company-culture,clean 1-hop to live page
+/blog/tag/canarycreds,/categories/anti-phishing,KEEP,/categories/anti-phishing,clean 1-hop to live page
+/blog/tag/Incident+Response,/categories/security-operations,KEEP,/categories/security-operations,clean 1-hop to live page
+/blog/2019/7/16/running-your-soc-playbooks-as-code-use-cases-part-2,/blog/running-your-soc-playbooks-as-code-use-cases,KEEP,/blog/running-your-soc-playbooks-as-code-use-cases,clean 1-hop to live page
+/endpoint-protection,/capabilities/crowdstrike-endpoint-protection,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/riskiq-ti,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-sandbox,/capabilities/crowdstrike-falcon-sandbox,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/riskiq,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/eclecticiq-platform,/capabilities/eclecticiq-intelligence-centre,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/cs-threat-intelligence,/capabilities/crowdstrike-threat-intelligence,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/not-found-404,/,DELETE,,404 page should not 301; drop rule
+/threat-intelligence-platforms,/threat-intelligence-providers,KEEP,/threat-intelligence-providers,clean 1-hop to live page
+/crowdstrike,/partners/crowdstrike,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/antifraud,/capabilities/antifraud,REPOINT,/fraud-data-sharing,retiring capability -> successor
+/intel471-ti,/capabilities/intel-471-threat-intelligence-feeds,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/phishfeeder,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/blog/2019/7/30/cosive-finishes-2nd-at-splunks-2019-au-amp-nz-boss-of-the-soc-day-for-the-second-year,/blog/2019-7-30-cosive-finishes-2nd-at-splunks-2019-au-amp-nz-boss-of-the-soc-day-for-the-second-year,KEEP,/blog/2019-7-30-cosive-finishes-2nd-at-splunks-2019-au-amp-nz-boss-of-the-soc-day-for-the-second-year,clean 1-hop to live page
+/cs-endpoint-protection,/capabilities/crowdstrike-endpoint-protection,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-sec-ops,/capabilities/crowdstrike-security-operations,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/phishing-defense,/capabilities/antifraud,REPOINT,/fraud-data-sharing,retiring capability -> successor
+/attack-simulation,/capabilities/adversary-emulation-red-team,REVIEW,/security-operations,retiring capability -> best-guess successor; confirm
+/team-cymru-pure-signal-recon,/capabilities/team-cymru-pure-signal-recon,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cybersecurity-tabletop-exercises,/capabilities/cybersecurity-tabletop-exercises,REPOINT,/security-operations,retiring capability -> successor
+/blog/2019/7/9/running-your-soc-playbooks-as-code,/blog/running-your-soc-playbooks-as-code,KEEP,/blog/running-your-soc-playbooks-as-code,clean 1-hop to live page
+/cloud-misp,/capabilities/cloud-misp,REPOINT,/cloudmisp,repoint to new page
+/cs-complete,/capabilities/crowdstrike-falcon-complete,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/eclecticiq,/partners/eclecticiq,REVIEW,,dead target (/partners/eclecticiq); pick successor or delete
+/intel-471,/partners/intel-471,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/vmray,/partners/vmray,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/attackiq-platform,/capabilities/attackiq-security-optimisation-platform,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/security-analyst/security-operations,/security-operations,REPOINT,/security-operations,retiring capability -> successor
+/executive/fraud-detection,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/cs-spotlight,capabilities/crowdstrike-falcon-spotlight,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-agent,/capabilities/crowdstrike-falcon-agent,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-device-control,/capabilities/crowdstrike-falcon-device-control,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-malquery,/capabilities/crowdstrike-falcon-malquery,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/augury,/capabilities/team-cymru-augury,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/home,/,KEEP,/,home alias -> root (valid)
+/team-cymru,/partners/team-cymru,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-insight,/capabilities/crowdstrike-falcon-insight-xdr,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/how-to-use-misp,/misp-how-to-use,KEEP,/misp-how-to-use,clean 1-hop to live page
+/cs-overwatch,/capabilities/crowdstrike-falcon-overwatch,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cs-prevent,/capabilities/crowdstrike-falcon-prevent,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/intel-471-adversary-intelligence,/capabilities/intel-471-adversary-intelligence,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/soc-manager/fraud-detection,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/riskiq-external-threats,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/riskiq-passive-total,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/fraud-manager,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/intel-471-malware-intelligence,/capabilities/intel-471-malware-intelligence,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/riskiq-digital-footprint,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/training,/cybersecurity-training,KEEP,/cybersecurity-training,clean 1-hop to live page
+/eclecticiq-fusion-center,/capabilities/eclecticiq-fusion-center,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/cs-discover,/capabilities/crowdstrike-falcon-discover,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/vmray-investigator,/capabilities/vmray-analyzer,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/cybersecurity-ttx,/capabilities/cybersecurity-tabletop-exercises,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/attackiq,/partners/attackiq,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/soc-manager/cybersecurity-ttx,/capabilities/cybersecurity-tabletop-exercises,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/executive/cybersecurity-training,/cybersecurity-training,KEEP,/cybersecurity-training,clean 1-hop to live page
+/cs-x,/capabilities/crowdstrike-falcon-x,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/threat-intel-program-manager/security-assurance,/security-assurance,KEEP,/security-assurance,clean 1-hop to live page
+/threat-intel-program-manager/fraud-detection,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/security-analyst/security-assurance,/security-assurance,KEEP,/security-assurance,clean 1-hop to live page
+/security-analyst/cybersecurity-training,/cybersecurity-training,KEEP,/cybersecurity-training,clean 1-hop to live page
+/fraud-manager/threat-intelligence,/threat-intelligence,KEEP,/threat-intelligence,clean 1-hop to live page
+/executive/cybersecurity-ttx,/capabilities/cybersecurity-tabletop-exercises,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/security-analyst/security-engineering,/security-engineering,KEEP,/security-engineering,clean 1-hop to live page
+/fraud-manager/cybersecurity-training,/cybersecurity-training,KEEP,/cybersecurity-training,clean 1-hop to live page
+/soc-manager/cybersecurity-training,/cybersecurity-training,KEEP,/cybersecurity-training,clean 1-hop to live page
+/threat-intel-program-manager/cybersecurity-ttx,/cybersecurity-ttx,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/threat-intel-program-manager/security-operations,/security-operations,REPOINT,/security-operations,retiring capability -> successor
+/fraud-manager/security-assurance,/security-assurance,KEEP,/security-assurance,clean 1-hop to live page
+/fraud-manager/cybersecurity-ttx,/cybersecurity-ttx,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/security-analyst/cybersecurity-ttx,/cybersecurity-ttx,REVIEW,/security-operations,tabletop -> secops; confirm or delete
+/security-analyst/fraud-detection,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/fraud-manager/fraud-detection,/fraud-detection,KEEP,/fraud-detection,clean 1-hop to live page
+/fraud-manager/security-operations,/security-operations,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/vmray-analyzer,/capabilities/vmray-deepresponse,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/team-cymru-controller-feed,/partners/team-cymru,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/pure-signal-scout,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/about-us,/about,KEEP,/about,clean 1-hop to live page
+/s/Autoseeder-Data-Sheet.pdf,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/malware-zoo,/capabilities/malware-zoo,REPOINT,/security-operations,retiring capability -> successor
+/podcast/2022/12/21/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsleyTranscript,/blog/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsley,KEEP,/blog/episode-004-how-chatgpt-could-transform-the-cti-analyst-role-with-chris-horsley,clean 1-hop to live page
+/team-cymru-reputation-feed,/partners/team-cymru,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/team-cymru-pure-signal-recon,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/groupib-threat-intelligence,/threat-intelligence,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/podcast/2023/4/26/episode-005-security-focused-code-review-for-software-developers-with-sid-odgers,/blog/episode-005-security-focused-code-review-for-software-developers-with-sid-odgers,KEEP,/blog/episode-005-security-focused-code-review-for-software-developers-with-sid-odgers,clean 1-hop to live page
+/recorded-future,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/open-position-reverse-engineer,/careers,KEEP,/careers,clean 1-hop to live page
+/partners/team-cymru,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/groupib,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/team-cymru-augury,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/vpn-for-investigators,/,REVIEW,,dead target (/); pick successor or delete
+/smokeproxy,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/vpn-for-investigators,/,REVIEW,,dead target (/); pick successor or delete
+/misp-kickstart,/capabilities/misp-kickstart-training,REPOINT,/cti/manage-my-misp-for-me,retiring capability -> successor
+/snakeoilers,/capabilities/cloud-misp?utm_source=snakeoilers,REPOINT,/cloudmisp,repoint to new page
+/capabilities/complimentary-cti-strategy-session,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/misp-engineering-consulting,/capabilities/threat-intelligence-engineering,REPOINT,/cti/build-and-integrate-threat-intelligence-tools,retiring capability -> successor
+/capabilities/fraud-analysis-workflows-consulting,/capabilities/antifraud,REPOINT,/fraud-data-sharing,retiring capability -> successor
+/capabilities/threat-intel-dashboards-analytics,/capabilities/threat-intelligence-engineering,REPOINT,/cti/build-and-integrate-threat-intelligence-tools,retiring capability -> successor
+/capabilities/post-incident-review,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/cydarm,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/cado-security,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-logscale,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/google-cloud-chronicle,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/secops-maturity-models-roadmaps-gap-analysis,/capabilities/security-operations-maturity-assessment,REPOINT,/secops/improve-my-secops-team,retiring capability -> successor
+/capabilities/use-case-development,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/security-operations-workflows-consulting,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/security-operations-tooling,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/incident-management-playbook-consulting,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/att-ck-mapping,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/logging-monitoring-and-alerting-uplift,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/virustotal-graph,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/virustotal-hunting,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/virustotal-intelligence,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/feedly-for-threat-intelligence,/blog/cosive-partners-with-feedly-for-threat-intelligence,KEEP,/blog/cosive-partners-with-feedly-for-threat-intelligence,clean 1-hop to live page
+/capabilities/threat-intel-platforms-tips-consulting,/capabilities/cti-consulting,DELETE,,/capabilities/threat-intel-platforms-tips-consulting is now a LIVE page — this rule would shadow it; remove
+/capabilities/threat-intel-program-establishment-consulting,/capabilities/cti-consulting,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/capabilities/threat-intelligence-maturity-and-roadmap-review,/capabilities/cti-maturity-assessment,REPOINT,/cti/improve-your-threat-intelligence-team,retiring capability -> successor
+/capabilities/practices-and-lifecycle-consulting,/capabilities/cti-consulting,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/capabilities/intelligence-collection-consulting-feeds-osint,/capabilities/cti-consulting,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/capabilities/threat-intel-tooling-tips-consulting,/capabilities/cti-consulting,REPOINT,/cyber-threat-intelligence,retiring capability -> successor
+/capabilities/secure-software-development-practices,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/application-security-testing,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/purple-team,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/pcidss-ism-environment-testing,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/custom-cybersecurity-dashboards-analysis,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/security-software-design-and-architecture,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/security-tool-integration-development,/capabilities/security-operations-consulting,REPOINT,/security-operations,retiring capability -> successor
+/capabilities/adversary-emulation-red-team,/,REVIEW,,dead target (/); pick successor or delete
+/capabilities/crowdstrike-security-operations,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-threat-intelligence,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-endpoint-protection,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/attackiq-security-optimisation-platform,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/intel-471-threat-intelligence-feeds,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-complete,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-sandbox,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-malquery,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-x,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-discover,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-spotlight,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-overwatch,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-prevent,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-device-control,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-insight-xdr,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/crowdstrike-falcon-agent,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/capabilities/vmray-deepresponse,/,DELETE,,"discontinued vendor/product - no successor, let it 404"
+/security-operations,/capabilities/security-operations-consulting,DELETE,,/security-operations is now a LIVE page — this rule would shadow it; remove
+/support,https://cosive.atlassian.net/servicedesk/,KEEP,https://cosive.atlassian.net/servicedesk/,external asset (kept)
+/supportportal,https://cosive.atlassian.net/servicedesk/,KEEP,https://cosive.atlassian.net/servicedesk/,external asset (kept)
+/misp-sso-login-a-basic-guide-2025,/misp-sso,KEEP,/misp-sso,clean 1-hop to live page
+/website-v2/cyber-security-operations,/website-v2/security-operations,REPOINT,/security-operations,repoint to new page
+/website-v2/secops/automate-my-cybersecurity-operations,/website-v2/secops/automate-my-security-operations,REPOINT,/secops/automate-my-security-operations-team,chain flattened -> new page
+/website-v2/secops/improve-my-cybersecurity-ops-team,/website-v2/secops/improve-my-secops-team,REPOINT,/secops/improve-my-secops-team,repoint to new page
+/website-v2/secops/start-a-new-cybersecurity-ops-team,/website-v2/secops/start-a-new-secops-team,REPOINT,/secops/start-a-new-secops-team,repoint to new page
+/website-v2/secops/automate-my-security-operations,/website-v2/secops/automate-my-security-operations-team,REPOINT,/secops/automate-my-security-operations-team,repoint to new page

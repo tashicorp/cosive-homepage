@@ -29,3 +29,10 @@ mono-font-comparison.png
 canvas-*.png
 prod-about-full.png
 gh-pages-about.png
+
+# macOS
+.DS_Store
+
+# Generated design-canvas bundle — rebuilt from design/*/.dc.html by the
+# seeder on every publish; ~2.4MB, so keep it out of the history.
+design/**/*-page-design.html

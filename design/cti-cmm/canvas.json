@@ -1,0 +1,84 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 8000,
+      "title": "Full page — 1 of 2 (hero → engagement)"
+    },
+    {
+      "file": "PageTwo.dc.html",
+      "x": 1600,
+      "y": 0,
+      "w": 1440,
+      "h": 2936,
+      "title": "Full page — 2 of 2 (credentials → footer)"
+    },
+    {
+      "file": "Components.dc.html",
+      "x": 3200,
+      "y": 0,
+      "w": 1200,
+      "h": 2005,
+      "title": "The three new components"
+    },
+    {
+      "file": "Mobile.dc.html",
+      "x": 3200,
+      "y": 2140,
+      "w": 390,
+      "h": 3773,
+      "title": "Mobile"
+    },
+    {
+      "file": "Credentials.dc.html",
+      "x": 4600,
+      "y": 0,
+      "w": 1440,
+      "h": 3595,
+      "title": "Why work with us — three options"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "placeholders",
+      "x": 0,
+      "y": -300,
+      "w": 460,
+      "text": "WHAT ISN'T REAL YET\n\nEverything dashed is a placeholder, not a design element.\n\n· One quote is real — Sasenka Abeysooriya, University of Queensland. The second is not written.\n· No CTI-CMM case study exists on the site; all three cards are empty.\n· FAQ 2 (engagement duration) is blocked on a real number from Cosive.\n· The credentials photo is an existing asset, not yet placed.\n\nNothing here invents a client outcome."
+    },
+    {
+      "id": "hero-note",
+      "x": 480,
+      "y": -300,
+      "w": 440,
+      "text": "THE HERO IS THE DIFFERENTIATOR\n\nNo photograph. All 18 existing page banners are the same grayscale stock photo at 45% under a navy scrim — that sameness is the tell.\n\nInstead: Color/Dark, the 24px dot grid from the about page, the sinewave line field from the blog (the Cosive mark's own equation as texture), and a blue radial tint.\n\nTry the heroTexture tweak above the artboard to see it with the field, dots only, or flat."
+    },
+    {
+      "id": "contrast-rule",
+      "x": 1600,
+      "y": -300,
+      "w": 460,
+      "text": "THE ONE RULE\n\nColor/Blue (#2ab6f6) is 2.30:1 on white — below even the 3:1 large-text floor. It never carries text, labels or icons on a light surface.\n\nOn Color/Dark it is 8.03:1, so every blue you see here sits on a dark ground.\n\nLight surfaces use Color/Blue Deep (#2d6da3) — 5.49:1, and 5.49:1 again for white text on it as a button fill. The current red button is 4.25:1 and fails AA, so this is an accessibility improvement."
+    },
+    {
+      "id": "reused-vs-new",
+      "x": 3200,
+      "y": -300,
+      "w": 460,
+      "text": "MOSTLY REUSE, NOT REDESIGN\n\nNew: the hero, the domain matrix, the level ladder, the engagement cycle, the tool band.\n\nRe-skinned from existing patterns: the quote card (cloudmisp), credentials split, case-study grid, FAQ accordion, contact form.\n\nUnchanged: the top nav, the sitemap footer, and the sinewave divider — which keeps its red stroke.\n\nRed now appears only in the chrome."
+    },
+    {
+      "id": "credentials-options",
+      "x": 4600,
+      "y": -300,
+      "w": 460,
+      "text": "WHY WORK WITH US — THREE OPTIONS\n\nThe blue checkmarks are kept exactly as they are, and all five claims are the existing copy, unchanged.\n\nA · full-bleed proof band, photo in colour\nB · pinned portrait, editorial claims\nC · textured, no photo\n\nThe live section on page 2 of 2 is untouched until one is picked."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

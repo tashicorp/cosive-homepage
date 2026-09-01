@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; color: #1a1a1a; background: #ffffff; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #2d6da3; text-decoration: none; }
+    a:hover { color: #1f4f78; }
+    p { margin: 0; line-height: 1.55; }
+    h1, h2, h3 { margin: 0; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #ffffff; padding: 56px 48px 72px;">
+
+  <div style="margin-bottom: 56px;">
+    <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 12px;">Capability template</div>
+    <h1 style="font-size: 34px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;">The three new components</h1>
+    <p style="font-size: 16px; color: #5f6368; line-height: 1.7; max-width: 760px;">Everything else on the page is an existing pattern re-skinned. These three are new, and they are what the family is really made of — each generalises to any framework page, not just CTI-CMM.</p>
+  </div>
+
+  <!-- ── 1. DOMAIN MATRIX ── -->
+  <div style="margin-bottom: 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px;">
+      <h2 style="font-size: 22px; font-weight: 700;">1 &middot; Domain matrix</h2>
+      <span style="font-size: 13px; color: #5f6368;">Tolerates 8&ndash;15 items &middot; hairline cells, no cards</span>
+    </div>
+    <p style="font-size: 15px; color: #5f6368; line-height: 1.65; max-width: 780px; margin-bottom: 28px;">Nothing on the site can display eleven of anything &mdash; every grid is 2- or 3-column and no table is styled outside the blog. Dense, ruled, tighter vertical padding than the rest of the page, because this is reference material and should feel like it.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid #d8dce0;">
+      <sc-for list="{{domains}}" as="d" hint-placeholder-count="11">
+        <div style="border-bottom: 1px solid #d8dce0; border-right: {{d.borderRight}}; padding: 20px 24px 24px {{d.padLeft}}; display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-size: 12px; font-weight: 700; color: {{accent}}; font-variant-numeric: tabular-nums; letter-spacing: 0.04em;">{{d.n}}</span>
+          <span style="font-size: 16px; font-weight: 600; line-height: 1.35;">{{d.name}}</span>
+        </div>
+      </sc-for>
+      <div style="border-bottom: 1px solid #d8dce0; padding: 20px 24px 24px 24px;"></div>
+    </div>
+  </div>
+
+  <!-- ── 2. LEVEL LADDER ── -->
+  <div style="margin-bottom: 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px;">
+      <h2 style="font-size: 22px; font-weight: 700;">2 &middot; Level ladder</h2>
+      <span style="font-size: 13px; color: #5f6368;">The family signature &middot; replaces the off-palette teal gauge</span>
+    </div>
+    <p style="font-size: 15px; color: #5f6368; line-height: 1.65; max-width: 780px; margin-bottom: 28px;">The existing gauge on the sharing-community pages is hardcoded Material teal that appears nowhere in the token set, and the exported SVGs carry it too. Rebuilt as a blue ramp on <strong style="font-weight:600;">Color/Dark</strong>, which is the one ground where Color/Blue reads at 8.03:1. Numerals are the level IDs, not 1&ndash;4.</p>
+
+    <div style="background: #0e141c; border-radius: 12px; padding: 48px 40px; position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none;"></div>
+      <div style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; align-items: end;">
+        <sc-for list="{{levels}}" as="lv" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="height: {{lv.h}}; background: {{lv.fill}}; border-radius: 6px 6px 0 0; border: 1px solid rgba(255,255,255,0.18); border-bottom: none;"></div>
+            <div style="border-top: 2px solid #2ab6f6; padding-top: 18px;">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #2ab6f6; margin-bottom: 6px;">{{lv.id}}</div>
+              <div style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">{{lv.title}}</div>
+              <p style="font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.55;">{{lv.desc}}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3. ENGAGEMENT CYCLE ── -->
+  <div>
+    <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px;">
+      <h2 style="font-size: 22px; font-weight: 700;">3 &middot; Engagement cycle</h2>
+      <span style="font-size: 13px; color: #5f6368;">Fixed at four steps &mdash; Cosive's method doesn't change per framework</span>
+    </div>
+    <p style="font-size: 15px; color: #5f6368; line-height: 1.65; max-width: 780px; margin-bottom: 28px;">Must read as a loop, not a list, because the copy's whole argument is that assessment is repeated. The return marker under the row carries that; the alternative is an arc drawn back from 04 to 01.</p>
+
+    <div style="background: #0e141c; border-radius: 12px; padding: 48px 40px;">
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: stretch;">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 26px 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <span style="width: 32px; height: 32px; border-radius: 999px; background: #2ab6f6; color: #0e141c; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center;">{{s.n}}</span>
+              <span style="font-size: 18px; font-weight: 700; color: #ffffff;">{{s.title}}</span>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.6;">{{s.desc}}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px; color: #2ab6f6; font-size: 13px; font-weight: 600;">
+        <svg viewBox="0 0 24 24" style="width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M3 12a9 9 0 1 0 3-6.7"></path><polyline points="3 3 3 9 9 9"></polyline></svg>
+        <span>Then the cycle starts again from a higher baseline</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#2d6da3","options":["#2d6da3","#1a5276","#1f4f78","#e53834"],"section":"Theme"},"$preview":{"width":1200,"height":2005}}'>
+class Component extends DCLogic {
+  // Column 1 flush (aligns with the heading); columns 2+ clear the preceding
+  // rule; last column drops its right border.
+  cols(n, pad, items) {
+    return items.map((it, i) => ({
+      ...it,
+      padLeft: (i % n === 0) ? '0' : pad,
+      borderRight: (i % n === n - 1) ? 'none' : '1px solid #d8dce0'
+    }));
+  }
+
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#2d6da3',
+      domains: this.cols(4, '24px', [
+        { n: '01', name: 'Asset, Change and Configuration Management' },
+        { n: '02', name: 'Threat and Vulnerability Management' },
+        { n: '03', name: 'Risk Management' },
+        { n: '04', name: 'Identity and Access Management' },
+        { n: '05', name: 'Situational Awareness' },
+        { n: '06', name: 'Event and Incident Response, Continuity of Operations' },
+        { n: '07', name: 'Third-Party Risk Management' },
+        { n: '08', name: 'Fraud and Abuse Management' },
+        { n: '09', name: 'Workforce Management' },
+        { n: '10', name: 'Cybersecurity Architecture' },
+        { n: '11', name: 'Cybersecurity Program Management' }
+      ]),
+      levels: [
+        { id: 'CTI0', title: 'Pre-foundational', desc: "The practice isn't happening yet.", h: '44px',  fill: 'rgba(42,182,246,0.18)' },
+        { id: 'CTI1', title: 'Foundational',     desc: 'Ad hoc and reactive. Work happens case by case, largely undocumented.', h: '100px', fill: 'rgba(42,182,246,0.38)' },
+        { id: 'CTI2', title: 'Advanced',         desc: 'Standardised and proactive. Documented, repeatable, often automated.', h: '156px', fill: 'rgba(42,182,246,0.62)' },
+        { id: 'CTI3', title: 'Leading',          desc: 'Prescriptive and business-aligned. Metrics map to business outcomes.', h: '212px', fill: '#2ab6f6' }
+      ],
+      steps: [
+        { n: '01', title: 'Assess',  desc: 'Work through the practices in all 11 domains with you and your stakeholders, and score where you actually are.' },
+        { n: '02', title: 'Plan',    desc: 'Turn the gaps into a roadmap, one maturity level at a time, sequenced by impact and effort.' },
+        { n: '03', title: 'Deploy',  desc: 'You execute. We stay involved for the parts needing specialist help, or step back.' },
+        { n: '04', title: 'Measure', desc: 'Are you delivering measurable value, can you demonstrate it, and what support do you need to finish.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

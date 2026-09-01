@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; color: #1a1a1a; background: #ffffff; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #2d6da3; text-decoration: none; }
+    a:hover { color: #1f4f78; }
+    p { margin: 0; line-height: 1.55; }
+    h1, h2, h3, h4 { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #ffffff;">
+
+  <!-- ══ 10. FAQ ══ -->
+  <div style="padding: 128px 48px; background: #ffffff;">
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 0 64px; align-items: start;">
+      <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 24px; grid-column: 1; grid-row: 1;">FAQ</div>
+      <h2 style="font-size: 40px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; grid-column: 1; grid-row: 2;">Frequently asked questions</h2>
+      <div style="max-width: 780px; grid-column: 2; grid-row: 2;">
+        <sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+          <div style="border-top: 1px solid #e8eaed; padding: 28px 0;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px;">
+              <h3 style="font-size: 19px; font-weight: 600; line-height: 1.4;">{{f.q}}</h3>
+              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: {{accent}}; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-top: 3px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <sc-if value="{{f.a}}" hint-placeholder-val="{{ true }}">
+              <p style="font-size: 16px; color: #5f6368; line-height: 1.7; margin-top: 14px; max-width: 700px;">{{f.a}}</p>
+            </sc-if>
+            <sc-if value="{{f.placeholder}}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top: 14px; border: 2px dashed #e8eaed; border-radius: 8px; padding: 16px 20px; max-width: 700px;">
+                <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #5f6368; margin-bottom: 6px;">Placeholder — needs a real number</div>
+                <p style="font-size: 15px; color: #5f6368; line-height: 1.6;">Cosive to confirm typical engagement duration and workshop count before this answer can ship.</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="border-top: 1px solid #e8eaed;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 11. SINEWAVE DIVIDER — unchanged, keeps its red stroke ══ -->
+  <div style="display: flex; justify-content: center; padding: 0 0 64px; background: #f8f9fa;">
+    <img src="./cosive-sinewave.svg" alt="Cosive" style="width: 80px; height: auto; margin-top: 96px;">
+  </div>
+
+  <!-- ══ 12. CONTACT ══ -->
+  <div style="padding: 0 48px 128px; background: #f8f9fa;">
+    <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: {{accent}}; margin-bottom: 24px;">Get in touch</div>
+      <h2 style="font-size: 40px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px;">Find out where your CTI programme stands</h2>
+      <p style="font-size: 17px; color: #5f6368; line-height: 1.7; margin-bottom: 40px;">Tell us about your programme and we'll come back with a realistic scope for an assessment. No obligation — a call is the quickest way to work out whether an assessment is the right move at all.</p>
+      <div style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 14px; font-weight: 600;">First name</span>
+            <div style="height: 46px; border: 1px solid #e8eaed; border-radius: 8px; background: #ffffff;"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 14px; font-weight: 600;">Last name</span>
+            <div style="height: 46px; border: 1px solid #e8eaed; border-radius: 8px; background: #ffffff;"></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 14px; font-weight: 600;">Email</span>
+          <div style="height: 46px; border: 1px solid {{accent}}; border-radius: 8px; background: #ffffff;"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 14px; font-weight: 600;">Company</span>
+          <div style="height: 46px; border: 1px solid #e8eaed; border-radius: 8px; background: #ffffff;"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 14px; font-weight: 600;">Message</span>
+          <div style="height: 120px; border: 1px solid #e8eaed; border-radius: 8px; background: #ffffff;"></div>
+        </div>
+        <span style="background: {{accent}}; color: #ffffff; font-weight: 600; font-size: 16px; padding: 14px 36px; border-radius: 4px; align-self: flex-start;">Request a scoping call</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SHARED FOOTER — recreated from _footer.html, unchanged ══ -->
+  <div style="border-top: 1px solid #e8eaed; padding: 80px 48px 48px; background: #ffffff;">
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 40px; margin-bottom: 64px;">
+      <sc-for list="{{footerCols}}" as="col" hint-placeholder-count="7">
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #1a1a1a; margin-bottom: 16px;">{{col.title}}</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <sc-for list="{{col.links}}" as="l" hint-placeholder-count="4">
+              <span style="font-size: 14px; color: #5f6368; line-height: 1.3;">{{l}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <img src="./cosive-logo.png" alt="Cosive" style="height: 26px; width: auto;">
+      <span style="font-size: 12px; color: #1a1a1a;">&copy; 2026 Cosive Pty Ltd. All rights reserved.</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#2d6da3","options":["#2d6da3","#1a5276","#1f4f78","#e53834"],"section":"Theme"},"$preview":{"width":1440,"height":2936}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#2d6da3',
+      accentOnDark: '#2ab6f6',
+
+      faqs: [
+        { q: 'Which organisations get the most out of a CTI-CMM assessment?', a: 'Any organisation that has a threat intelligence function, or is about to build one. CTI-CMM measures how well intelligence supports the people who use it, not how much tooling you own, so it works for a team of one as well as a team of thirty.', placeholder: false },
+        { q: 'How long does a CTI-CMM engagement take?', a: '', placeholder: true },
+        { q: 'Do you work with other CTI frameworks?', a: 'Yes. We assess against CTI-CMM for threat intelligence programmes, SIM3 for CSIRT and incident-response maturity, and SOC-CMM for SOC-focused teams, and we map detection coverage against MITRE ATT&CK.', placeholder: false },
+        { q: 'How often should we reassess?', a: 'Reassess once you have had time to act on the last set of recommendations — for most programmes that is about every 12 months. CTI maturity assessment works as a cycle, not a one-off audit.', placeholder: false },
+        { q: 'Can we run our own CTI-CMM assessment?', a: 'Yes, and for many teams it is the right place to start. Our assessment tool is free, needs no sign-up, and covers all 11 domains of CTI-CMM v1.3. Bring us in when you want an objective second read.', placeholder: false }
+      ],
+
+      footerCols: [
+        { title: 'Cyber Threat Intelligence', links: ['Consume & share threat intelligence','Start a sharing community','Improve your CTI team','Find useful threat intelligence feeds','Integrate security tools'] },
+        { title: 'Fraud Data Sharing', links: ['Consume & share fraud data','Start a sharing community','Integrate with your tools'] },
+        { title: 'Security Operations', links: ['Improve my cybersecurity ops team','Start a new cybersecurity ops team','Automate your cybersecurity ops team','Use the ATT&CK Framework','Integrate my security tools','Help us join FIRST.org'] },
+        { title: 'Managed MISP', links: ['CloudMISP','MISP consulting'] },
+        { title: 'Company', links: ['About','Contact','Team','Newsletter','LinkedIn'] },
+        { title: 'Resources', links: ['Support Portal','Blog','CTI-CMM Assessment Tool','Presentations','Podcast','MISP Guide','Newsroom'] },
+        { title: 'Legal', links: ['Privacy policy','Terms of Use','Modern Slavery','CloudMISP EULA','Fair Use Policy','Support Policy'] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
