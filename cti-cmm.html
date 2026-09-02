@@ -602,11 +602,6 @@
     text-underline-offset: 2px;
   }
   .cti-link:hover { color: #1f4f78; }
-  /* --page-accent-deep is only 3.37:1 on --color-dark, under the 4.5:1 floor
-     for this size. --page-accent is 8.03:1 there, and already the colour of the
-     checkmarks in that row. */
-  .cti-link--on-dark { color: var(--page-accent); }
-  .cti-link--on-dark:hover { color: var(--color-white); }
   .cti-lede + .cti-lede { margin-top: 20px; }
 
   /* Light-ground button. Uses --page-accent-deep, not --page-accent: the
@@ -1057,17 +1052,23 @@
   .cti-matrix__filler { padding: 24px 28px 28px 28px; }
 
   /* ── Level ladder ── */
+  /* The bars must share a baseline. As nested flex columns they could not:
+     `align-items: end` bottom-aligns each whole column, so CTI0 — whose
+     description is one line where the others run to three — was pushed down
+     and its bar with it. `display: contents` promotes the bars and bodies to
+     be grid items of the ladder itself, so the bars occupy one row and align
+     to each other rather than to their neighbours' text. */
   .cti-ladder {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-xl);
+    grid-template-rows: auto auto;
+    column-gap: var(--space-xl);
+    row-gap: 20px;
     align-items: end;
   }
-  .cti-level {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+  .cti-level { display: contents; }
+  .cti-level__bar { grid-row: 1; align-self: end; }
+  .cti-level__body { grid-row: 2; align-self: start; }
   .cti-level__bar {
     border-radius: 6px 6px 0 0;
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -1577,6 +1578,8 @@
     .cti-domain:nth-last-child(n + 1):nth-last-child(-n + 4) { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
     .cti-matrix__filler { display: none; }
     .cti-ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-2xl); }
+    .cti-level { display: flex; flex-direction: column; gap: 20px; }
+    .cti-level__bar, .cti-level__body { grid-row: auto; }
     .cti-levels__close { margin-top: var(--space-2xl); }
     /* Free tool — stack, chart below the copy */
     .cti-tool { padding: var(--space-5xl) 0; }
@@ -1877,7 +1880,7 @@
 
       <div>
         <div class="cti-eyebrow cti-case__label">The engagement</div>
-        <p class="cti-case__body">The University of Queensland engaged Cosive to assess its threat intelligence programme against CTI-CMM. We agreed the methodology and the deliverables with the university&rsquo;s team at the outset, and kept them involved throughout the assessment.</p>
+        <p class="cti-case__body">The University of Queensland engaged Cosive to assess its threat intelligence programme against CTI-CMM. We agreed on the methodology and the deliverables with the university&rsquo;s team at the outset, and kept them involved throughout the assessment.</p>
 
         <div class="cti-eyebrow cti-case__label">The outcome</div>
         <p class="cti-case__body cti-case__body--last">The report and its recommendations set out how the university could approach implementation in its own context, leaving the team with the confidence and clarity to progress its CTI roadmap.</p>
@@ -1897,7 +1900,7 @@
 <!-- ══ 6. Why Cosive — full-bleed proof band ══ -->
 <section class="cti-proof">
   <img class="cti-proof__photo" src="images/shared/misp-training-auscert.webp"
-       alt="Cosive running a MISP training session at the AUSCERT conference"
+       alt="Cosive running a cyber threat intelligence training session at the AUSCERT conference"
        width="1600" height="1200" loading="lazy" decoding="async">
   <div class="cti-proof__veil"></div>
 
@@ -1905,7 +1908,7 @@
     <div class="cti-eyebrow cti-proof__eyebrow">Why Cosive</div>
     <div class="cti-proof__row">
       <h2 class="cti-proof__title">We helped build the model we assess you against</h2>
-      <div class="cti-proof__credit">Cosive running MISP training at the AUSCERT conference.</div>
+      <div class="cti-proof__credit">Cosive running cyber threat intelligence training at the AUSCERT conference.</div>
     </div>
     <div class="cti-proof__cta">
       <a href="#contact" class="cti-btn">Talk to us about an assessment</a>
@@ -1923,7 +1926,7 @@
         </div>
         <div class="cti-claim">
           <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <div class="cti-claim__lead">We built the <a class="cti-link cti-link--on-dark" href="https://cosive.com/cti-cmm-assessment-tool">official online assessment tool</a></div>
+          <div class="cti-claim__lead">We built the official online assessment tool</div>
           <div class="cti-claim__plain">Open source, and tracking the current v1.3 model.</div>
         </div>
         <div class="cti-claim">
@@ -2021,7 +2024,7 @@
 
     <div class="cti-ladder">
         <div class="cti-level">
-          <div class="cti-level__bar" style="height: 48px; background: rgba(42,182,246,0.18);"></div>
+          <div class="cti-level__bar" style="height: 48px; background: #133143;"></div>
           <div class="cti-level__body">
             <div class="cti-level__id">CTI0</div>
             <div class="cti-level__title">Pre-foundational</div>
@@ -2029,7 +2032,7 @@
           </div>
         </div>
         <div class="cti-level">
-          <div class="cti-level__bar" style="height: 112px; background: rgba(42,182,246,0.38);"></div>
+          <div class="cti-level__bar" style="height: 112px; background: #19526f;"></div>
           <div class="cti-level__body">
             <div class="cti-level__id">CTI1</div>
             <div class="cti-level__title">Foundational</div>
@@ -2037,7 +2040,7 @@
           </div>
         </div>
         <div class="cti-level">
-          <div class="cti-level__bar" style="height: 176px; background: rgba(42,182,246,0.62);"></div>
+          <div class="cti-level__bar" style="height: 176px; background: #1f78a3;"></div>
           <div class="cti-level__body">
             <div class="cti-level__id">CTI2</div>
             <div class="cti-level__title">Advanced</div>
