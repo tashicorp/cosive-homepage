@@ -12,8 +12,7 @@
 <meta property="og:url" content="https://www.cosive.com/cti-cmm">
 <meta property="og:image" content="https://www.cosive.com/images/og/cosive-og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -22,21 +21,77 @@
       "url": "https://www.cosive.com/cti-cmm",
       "name": "CTI-CMM",
       "description": "CTI-CMM is the capability maturity model for cyber threat intelligence programmes. Cosive consultants help author it, and we run CTI-CMM assessments that give you a maturity baseline and a prioritised path to improve.",
-      "isPartOf": { "@id": "https://www.cosive.com/#website" },
-      "about": { "@id": "https://www.cosive.com/#organization" },
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
       "inLanguage": "en-AU"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.cosive.com/cti-cmm#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which organisations get the most out of a CTI-CMM assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any organisation that has a threat intelligence function, or is about to build one. CTI-CMM measures how well intelligence supports the people who use it, not how much tooling you own, so it works for a team of one as well as a team of thirty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with other CTI frameworks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We assess against CTI-CMM for threat intelligence programmes, SIM3 for CSIRT and incident-response maturity, and SOC-CMM for SOC-focused teams, and we map detection coverage against MITRE ATT&CK."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should we reassess?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend once you have had time to act on the last set of recommendations. For most programmes that is about every 12 months. CTI maturity assessment works best as a cycle, not a one-off audit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we run our own CTI-CMM assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and for many teams it is the right place to start. Our assessment tool is free, needs no sign-up, and covers all 11 domains of CTI-CMM v1.3. Bring us in when you want an objective second read."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.cosive.com/cti-cmm#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cosive.com/" },
-        { "@type": "ListItem", "position": 2, "name": "CTI-CMM", "item": "https://www.cosive.com/cti-cmm" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Capabilities"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CTI-CMM",
+          "item": "https://www.cosive.com/cti-cmm"
+        }
       ]
     }
   ]
-}
-</script>
+}</script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -56,6 +111,16 @@
     --color-accent: #e53834;
     --color-accent-dark: #c1121f;
     --color-mid-grey: #f0f0f0;
+
+    /* ── Page colour personality: CTI Blue ──
+       The two blues are NOT interchangeable. --page-accent (#2ab6f6) is 2.30:1
+       on white — below even the large-text floor — so it must never carry text,
+       labels or icons on a light surface; on --color-dark it is 8.03:1.
+       --page-accent-deep (#2d6da3) is 5.49:1 on white and is the light-ground
+       accent. See design/cti-cmm/canvas.json, annotation "contrast-rule". */
+    --page-accent: #2ab6f6;
+    --page-accent-deep: #2d6da3;
+    --page-accent-tint: #eef4fa;
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
 
@@ -232,78 +297,1109 @@
     display: block;
   }
 
-  /* ── Page Banner ── */
-  .page-banner {
+  /* ═══════════════════════════════════════════════════════════════
+     CTI-CMM page sections (.cti-*)
+     Built from design/cti-cmm/Main.dc.html. The design replaces the
+     site-standard .page-banner with a dark textured hero; the breadcrumb
+     moves inside it so the BreadcrumbList JSON-LD still has a counterpart
+     on the page.
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* ── 1. Hero ── */
+  .cti-hero {
     position: relative;
     overflow: hidden;
-    background: #121212;
+    background: var(--color-dark);
+    /* Equal top and bottom. The contributor card is the tallest thing in the
+       band, so these are the margins that read as the space around it. */
+    padding: var(--space-6xl) 0;
   }
 
-  .page-banner > img {
+  /* Three stacked texture layers, all non-interactive: the sinewave field,
+     a dot grid over it, then two blue glows to stop the dark reading flat. */
+  .cti-hero__dots,
+  .cti-hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .cti-hero__dots {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* Two offset blue washes rather than a flat tint — reads as a glow behind
+     the type instead of a coloured ground. */
+  .cti-hero__glow {
+    background-image:
+      radial-gradient(ellipse at 22% 40%, rgba(42,182,246,0.13) 0%, transparent 58%),
+      radial-gradient(ellipse at 78% 88%, rgba(42,182,246,0.07) 0%, transparent 52%);
+  }
+
+  .cti-hero__inner { position: relative; }
+
+  /* Matches .cm-hero__breadcrumb on cloudmisp.html */
+  .cti-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .cti-breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s;
+  }
+  .cti-breadcrumb a:hover { color: var(--color-white); }
+  .cti-breadcrumb svg { width: 14px; height: 14px; stroke: rgba(255, 255, 255, 0.5); flex-shrink: 0; }
+  .cti-breadcrumb .current { color: rgba(255, 255, 255, 0.8); }
+
+  .cti-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 678px) minmax(0, 438px);
+    justify-content: space-between;
+    gap: var(--space-4xl);
+    /* `end` bottom-aligned the CTA row with the card, but it also pushed the
+       whole left column down and opened a 110px gap under the breadcrumb.
+       `start` puts the heading directly beneath it, at the 32px cloudmisp uses. */
+    align-items: start;
+  }
+
+  /* Matches .cm-h1 + .cm-hero__title on cloudmisp.html */
+  .cti-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+  }
+  /* Matches .cm-hero__subtitle */
+  .cti-hero__sub {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    line-height: var(--leading-normal);
+    color: #c8cdd3;
+    margin-bottom: var(--space-2xl);
+  }
+  .cti-hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  /* inline-block is load-bearing: as an inline element the vertical padding
+     paints outside the line box, so the gap above the button collapses. */
+  /* Geometry and weight from .cm-btn--primary on cloudmisp.html. That button is
+     a solid fill with a white label; here the fill is --page-accent, where white
+     would be 2.30:1 — so the label stays --color-dark at 8.03:1. */
+  .cti-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--page-accent);
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-xl);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cti-btn:hover { background: var(--color-white); color: var(--color-dark); }
+
+  .cti-hero__alt {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+  }
+  .cti-hero__alt a {
+    color: var(--page-accent);
+    font-weight: 600;
+    border-bottom: 1px solid var(--page-accent);
+  }
+  .cti-hero__alt a:hover { color: var(--color-white); border-bottom-color: var(--color-white); }
+
+  /* ── Contributor callout — glass card on dark ── */
+  .cti-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .cti-card__label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent);
+    margin-bottom: 14px;
+  }
+  .cti-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-white);
+    margin-bottom: var(--space-lg);
+  }
+  .cti-people {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+  .cti-person {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cti-person img {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .cti-person__name {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+  .cti-person__role {
+    display: block;
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+  .cti-card__note strong { color: var(--color-white); font-weight: 600; }
+  .cti-card__note {
+    font-size: 15px;
+    color: rgba(255,255,255,0.62);
+    line-height: var(--leading-normal);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: var(--space-md);
+  }
+
+  /* ── 2. Sticky section nav — pattern lifted from cloudmisp.html ── */
+  .cti-section-nav {
+    position: sticky;
+    top: var(--space-5xl);              /* below the 80px site header */
+    z-index: 99;
+    background: var(--color-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cti-section-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--space-4xl);           /* 64px */
+  }
+  .cti-section-nav__list {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cti-section-nav__list::-webkit-scrollbar { display: none; }
+  .cti-section-nav__link {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-white);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cti-section-nav__link:hover { color: rgba(255,255,255,0.7); }
+  .cti-section-nav__link--active {
+    color: var(--page-accent);
+    border-bottom-color: var(--page-accent);
+    font-weight: 600;
+  }
+
+
+
+  /* ── 3. Section shell + shared section head ──
+     The head is a four-column grid: eyebrow and heading occupy columns 1-2,
+     with an aside spanning both rows in columns 3-4. grid-template-rows is
+     load-bearing — without an explicit `auto 1fr`, a tall aside distributes
+     its height across both auto rows and pushes the heading down away from
+     the eyebrow. */
+  .cti-section {
+    padding: var(--space-7xl) 0;
+    background: var(--color-white);
+  }
+  .cti-section-head {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto 1fr;
+    /* The canvas runs these columns flush; on the real page the longest line
+       of the lede came within 11px of the help card. A column gutter keeps the
+       two halves apart, and the gutter-rule variant then sits inside it with
+       air on both sides rather than hard against the text. */
+    column-gap: var(--space-3xl);
+    row-gap: 0;
+    align-items: start;
+  }
+  .cti-eyebrow {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent-deep);
+  }
+  .cti-section-head__eyebrow {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    margin-bottom: var(--space-lg);
+  }
+  .cti-section-head__main {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+  .cti-section-head__aside {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+    align-self: stretch;
+  }
+
+  .cti-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+  }
+  .cti-lede {
+    font-size: var(--text-2xl);
+    line-height: 1.45;
+    color: var(--color-text-primary);
+    margin-top: var(--space-xl);
+  }
+  .cti-lede--medium { font-weight: 500; }
+  /* Body links: the page's base rule is `color: inherit; text-decoration:
+     none`, so an inline link is invisible without this. */
+  .cti-link {
+    color: var(--page-accent-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .cti-link:hover { color: #1f4f78; }
+  /* --page-accent-deep is only 3.37:1 on --color-dark, under the 4.5:1 floor
+     for this size. --page-accent is 8.03:1 there, and already the colour of the
+     checkmarks in that row. */
+  .cti-link--on-dark { color: var(--page-accent); }
+  .cti-link--on-dark:hover { color: var(--color-white); }
+  .cti-lede + .cti-lede { margin-top: 20px; }
+
+  /* Light-ground button. Uses --page-accent-deep, not --page-accent: the
+     lighter blue is 2.30:1 on white and fails as a text-bearing surface. */
+  .cti-btn--deep {
+    display: inline-block;
+    background: var(--page-accent-deep);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: var(--text-base);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+  }
+  .cti-btn--deep:hover { background: #1f4f78; color: var(--color-white); }
+
+  /* ── How we help card ── */
+  .cti-help-card {
+    background: var(--page-accent-tint);
+    border-left: 3px solid var(--page-accent-deep);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 28px var(--space-xl);
+  }
+  .cti-help-card__label {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .cti-help-card__lead {
+    font-size: var(--text-xl);
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+  .cti-help-card__note {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-lg);
+  }
+
+
+  /* Gutter-rule aside — the section-head variant that carries a paragraph
+     instead of a card. The -5px lifts the first line onto the eyebrow's cap
+     height; the rule sits in the column gutter and ties the two halves
+     together. */
+  .cti-section-head__note {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: -5px;
+    padding-left: 28px;
+    border-left: 1px solid var(--color-border);
+  }
+  .cti-section-head--rows { margin-bottom: var(--space-3xl); }
+
+  /* ── 4. What you get — hairline rows with oversized numerals ── */
+  .cti-benefit {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-2xl);
+    padding: 36px 0;
+    border-top: 1px solid var(--color-border);
+    align-items: start;
+  }
+  .cti-benefit__n {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--page-accent-deep);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .cti-benefit__body { max-width: 820px; }
+  .cti-benefit__title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+  }
+  .cti-benefit__desc {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+
+  /* ── 5. Case study — at-a-glance panel beside the narrative ──
+     Follows the B2B case-study anatomy: the context panel sits near the top
+     where a metrics strip would normally go, since there are no numbers to
+     publish for this engagement. */
+  .cti-case {
+    padding: 0 0 112px;
+    background: var(--color-light-grey);
+    border-top: 1px solid var(--color-border);
+  }
+  /* Full-bleed strip: it sits outside .container so it runs edge to edge, and
+     the section's top padding moves onto the content below it. Height scales
+     with the viewport but floors at 220px so the building still reads on a
+     phone, where 30vw would be ~117px. */
+  .cti-case__strip {
+    display: block;
+    width: 100%;
+    /* Show the file whole rather than cropping it. Matching the box to the
+       image's own ratio means `cover` has nothing to trim, so the headroom
+       above the inscription and the full depth of the lawn are both kept —
+       the strip simply gets taller instead of the frame sliding up or down.
+       Below ~730px the natural height would drop under 200px, so there the
+       ratio is dropped for a floor and the crop comes off the sides. */
+    aspect-ratio: 1600 / 439;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  .cti-case__inner { padding-top: 80px; }
+
+  /* Caption over the strip — same treatment as the Why Cosive band's photo
+     credit. That band darkens its photo to near-black before the type lands
+     on it; this one doesn't, so ::before lays a small scrim into the corner
+     to give the 0.42-alpha white something to sit on. ::before rather than
+     ::after: as a positioned first child it paints above the static img but
+     below the figcaption, which is what puts the text on top of the scrim. */
+  .cti-case__figure {
+    position: relative;
+    margin: 0;
+  }
+  .cti-case__figure::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /* Wide enough that the gradient still has substance under the far end of
+       the caption: the text reaches 471px in from the right, and the stops
+       below keep meaningful density out to ~72% of this box. The percentage
+       is a ceiling for narrow viewports, not the usual driver — at 46% it
+       collapsed narrower than the caption itself. */
+    width: min(780px, 92%);
+    /* Kept just tall enough to cover the caption plus falloff: the text sits
+       16px off the bottom and stands ~20px, so the gradient still has to
+       reach ~36px before it starts fading out. */
+    height: 88px;
+    /* Radial, not linear: a linear gradient only fades along one axis, so the
+       two corners off that axis stay opaque and the box edge shows as a hard
+       line. This fades outward from the corner in every direction and reaches
+       full transparency well inside the box, so no edge is ever painted. */
+    /* `ellipse 100% 100%` pins the radii to the box. Without an explicit size
+       the default is farthest-corner, whose vertical radius overshoots the box
+       by ~41% — the colour stops are relative to that radius, so the gradient
+       was still ~0.2 opaque at the element's top edge and cut off there. */
+    background: radial-gradient(ellipse 100% 100% at 100% 100%,
+      rgba(14, 20, 28, 0.82) 0%,
+      rgba(14, 20, 28, 0.55) 55%,
+      rgba(14, 20, 28, 0.20) 72%,
+      transparent 88%);
+    pointer-events: none;
+  }
+  .cti-case__caption {
+    position: absolute;
+    right: var(--space-3xl);
+    bottom: var(--space-md);
+    font-size: 13px;
+    /* The Why Cosive band credits at 0.42, but that sits on a photo darkened
+       almost to --color-dark. Here the backdrop is sunlit lawn behind a
+       scrim — measured at its lightest as rgb(58,66,67) — where 0.42 gives
+       only 3.84:1. */
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+    text-align: right;
+  }
+  .cti-case__title { margin-bottom: 56px; }
+  .cti-case__grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 0 72px;
+    align-items: start;
+  }
+
+  .cti-case__panel {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .cti-case__logo {
+    display: block;
+    height: 40px;
+    width: auto;
+    margin-bottom: var(--space-lg);
+  }
+  .cti-case__facts {
+    border-top: 1px solid var(--color-border);
+    padding-top: 4px;
+  }
+  .cti-case__fact { margin-top: 20px; }
+  .cti-case__fact dt {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2xs);
+  }
+  .cti-case__fact dd {
+    font-size: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .cti-case__label {
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-sm);
+  }
+  .cti-case__body {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 720px;
+    margin-bottom: var(--space-xl);
+  }
+  .cti-case__body--last { margin-bottom: var(--space-2xl); }
+
+  .cti-quote {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--page-accent-deep);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: var(--space-xl) 36px;
+    max-width: 780px;
+    margin: 0;
+  }
+  .cti-quote p {
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+  }
+  .cti-quote footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 18px;
+  }
+  .cti-quote__name {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .cti-quote__role {
+    display: block;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2xs);
+  }
+
+
+  /* ── 6. Why Cosive — full-bleed proof band ──
+     The room is the credential. Photo edge to edge in colour, darkened only
+     where type lands; the five claims run across the foot of the band rather
+     than stacking down one half of it. */
+  .cti-proof {
+    position: relative;
+    background: var(--color-dark);
+    overflow: hidden;
+  }
+  .cti-proof__photo {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 100%;
-    filter: grayscale(0.4);
-    opacity: 0.45;
+    object-position: 50% 42%;
   }
-
-  .page-banner::after {
-    content: '';
+  /* Darkens only the top and foot, leaving the middle of the frame open so the
+     room stays legible as a photograph rather than a texture. */
+  .cti-proof__veil {
     position: absolute;
     inset: 0;
-    background: rgba(14, 20, 28, 0.4);
-    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+      #0e141c 0%,
+      rgba(14, 20, 28, 0.97) 8%,
+      rgba(14, 20, 28, 0.82) 16%,
+      rgba(14, 20, 28, 0.50) 26%,
+      rgba(14, 20, 28, 0.28) 36%,
+      rgba(14, 20, 28, 0.55) 50%,
+      rgba(14, 20, 28, 0.94) 62%,
+      #0e141c 72%);
   }
-
-  .page-banner-inner {
-    position: relative;
-    z-index: 2;
-    padding: var(--space-3xl) 0 var(--space-3xl);
+  .cti-proof__head { position: relative; padding-top: 46px; }
+  .cti-proof__eyebrow {
+    color: var(--page-accent);
+    margin-bottom: var(--space-lg);
   }
-
-  .page-banner .breadcrumb {
+  .cti-proof__row {
     display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3xl);
   }
-
-  .page-banner .breadcrumb a {
-    color: var(--color-border);
-    transition: color 0.2s;
-  }
-
-  .page-banner .breadcrumb a:hover {
+  .cti-proof__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
     color: var(--color-white);
+    max-width: 760px;
+  }
+  .cti-proof__credit {
+    flex-shrink: 0;
+    font-size: 13px;
+    /* Same treatment as the case-study strip's caption. */
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+    text-align: right;
+    padding-top: 6px;
+  }
+  .cti-proof__cta { margin-top: var(--space-2xl); }
+  /* The open middle of the photo — the reason the band is this tall at all. */
+  .cti-proof__gap { height: 300px; }
+
+  .cti-proof__claims {
+    position: relative;
+    padding-bottom: 72px;
+  }
+  .cti-proof__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.20);
+  }
+  .cti-claim {
+    padding: 28px 28px 8px 28px;
+    border-right: 1px solid rgba(255, 255, 255, 0.20);
+  }
+  /* First cell sits flush to the container edge; last drops its rule so none
+     runs down the band's own edge. */
+  .cti-claim:first-child { padding-left: 0; }
+  .cti-claim:last-child { border-right: none; }
+  .cti-claim__check {
+    display: block;
+    width: 22px;
+    height: 22px;
+    color: var(--page-accent);
+    margin-bottom: var(--space-md);
+  }
+  .cti-claim__check svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .cti-claim__lead {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-white);
+    line-height: 1.35;
+    margin-bottom: var(--space-xs);
+  }
+  .cti-claim__plain {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.66);
+    line-height: var(--leading-normal);
   }
 
-  .page-banner .breadcrumb .breadcrumb-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3em;
-  }
 
-  .page-banner .breadcrumb .separator {
-    color: var(--color-border);
+  /* ── 7. How the model works — domains + levels, both on dark ──
+     Two sections rather than one so each keeps its own head, but they read as a
+     single block: no rule between them and the padding across the seam is
+     halved. The dot grids are deliberately mirrored — the first fades IN from
+     the proof band above, the second fades OUT into the tint band below. */
+  .cti-dark {
+    background: var(--color-dark);
+    position: relative;
+    overflow: hidden;
   }
+  .cti-dark__dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .cti-domains { padding: 112px 0 56px; }
+  .cti-domains .cti-dark__dots {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 100%);
+  }
+  .cti-levels { padding: 56px 0 112px; }
+  .cti-levels .cti-dark__dots {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+  }
+  .cti-dark__inner { position: relative; }
 
-  .page-banner .breadcrumb .current {
+  /* Dark-ground variant of the shared section head. --page-accent is the
+     on-dark blue; --page-accent-deep would be the wrong one here. */
+  .cti-section-head--dark .cti-eyebrow { color: var(--page-accent); }
+  .cti-section-head--dark .cti-h2 { color: var(--color-white); }
+  .cti-section-head--dark .cti-section-head__note {
+    color: rgba(255, 255, 255, 0.7);
+    border-left-color: rgba(255, 255, 255, 0.16);
+  }
+  .cti-section-head--dark .cti-section-head__note strong {
     color: var(--color-white);
     font-weight: 600;
   }
 
-  .page-banner h1 {
+  /* ── Domain matrix ── */
+  .cti-matrix {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .cti-domain {
+    display: flex;
+    gap: var(--space-md);
+    align-items: baseline;
+    padding: 24px 28px 28px 28px;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  /* First cell of each row sits flush left; last of each row drops its rule. */
+  .cti-domain:nth-child(4n + 1) { padding-left: 0; }
+  .cti-domain:nth-child(4n) { border-right: none; }
+  /* The last row carries no bottom rule — it would read as a divider against
+     the level ladder below rather than as part of the table. */
+  .cti-domain:nth-last-child(n + 1):nth-last-child(-n + 4) { border-bottom: none; }
+  .cti-domain__n {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--page-accent);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  .cti-domain__name {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-white);
+  }
+  /* Squares off the twelfth slot so the last row does not read as unfinished. */
+  .cti-matrix__filler { padding: 24px 28px 28px 28px; }
+
+  /* ── Level ladder ── */
+  .cti-ladder {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-xl);
+    align-items: end;
+  }
+  .cti-level {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cti-level__bar {
+    border-radius: 6px 6px 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: none;
+  }
+  .cti-level__body {
+    border-top: 2px solid var(--page-accent);
+    padding-top: 20px;
+  }
+  .cti-level__id {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent);
+    margin-bottom: var(--space-xs);
+  }
+  .cti-level__title {
     font-family: var(--font-heading);
-    font-size: var(--text-6xl);
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--color-white);
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-snug);
+    margin-bottom: 10px;
+  }
+  .cti-level__desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.62);
+    line-height: var(--leading-normal);
+  }
+  .cti-levels__close {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 860px;
+    margin-top: var(--space-4xl);
+  }
+  .cti-levels__close strong { color: var(--color-white); font-weight: 600; }
+
+
+  /* ── 8. Free assessment tool — copy left, example output right ── */
+  .cti-tool {
+    padding: 88px 0;
+    background: var(--page-accent-tint);
+    /* A touch darker than --color-border so the rule still reads on the tint. */
+    border-top: 1px solid #dbe6f0;
+    border-bottom: 1px solid #dbe6f0;
+  }
+  .cti-tool__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .cti-tool__eyebrow { margin-bottom: 20px; }
+  .cti-tool__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+  }
+  .cti-tool__body {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .cti-tool__body--last { margin-bottom: var(--space-xl); }
+
+  /* Example output — styled after the tool's own chart config */
+  .cti-tool__card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 26px 28px 22px;
+  }
+  .cti-tool__cardhead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+  .cti-tool__cardtitle {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .cti-tool__tag {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+  }
+  .cti-tool__note {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-2xs);
+  }
+  .cti-radar { width: 100%; height: auto; display: block; }
+  .cti-tool__caption {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    border-top: 1px solid var(--color-border);
+    padding-top: 14px;
+    margin-top: 6px;
+  }
+
+
+  /* ── 9. Our approach — the engagement as a cycle, not a one-off audit ── */
+  .cti-approach { padding: 112px 0; background: var(--color-white); }
+  .cti-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: stretch;
+  }
+  .cti-step {
+    background: var(--color-light-grey);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) 28px;
+  }
+  .cti-step__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: 20px;
+  }
+  .cti-step__n {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    background: var(--page-accent-deep);
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cti-step__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .cti-step__desc {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+  /* Closes the loop — without it the four cards read as a finite sequence. */
+  .cti-cycle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    color: var(--page-accent-deep);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .cti-cycle svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .cti-approach__close {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 860px;
+    margin-top: 56px;
+  }
+  .cti-approach__close + .cti-approach__close { margin-top: var(--space-md); }
+  .cti-approach__cta { margin-top: 36px; }
+
+
+  /* ── 10. FAQ ──
+     The canvas draws a chevron beside each question, so the intent is an
+     accordion; it just renders every answer open as a static mock. Built here
+     on native <details>/<summary> — same behaviour as the rest of the site,
+     keyboard-operable and no JavaScript. */
+  .cti-faq { padding: var(--space-7xl) 0; background: var(--color-white); }
+  .cti-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0 var(--space-4xl);
+    align-items: start;
+  }
+  .cti-faq__eyebrow { grid-column: 1; grid-row: 1; margin-bottom: var(--space-lg); }
+  .cti-faq__title { grid-column: 1; grid-row: 2; }
+  .cti-faq__list { grid-column: 2; grid-row: 2; max-width: 780px; }
+  /* Caps the last item so the stack closes with a rule. */
+  .cti-faq__list::after {
+    content: "";
+    display: block;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cti-faq__item {
+    border-top: 1px solid var(--color-border);
+    padding: 28px 0;
+  }
+  .cti-faq__q {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+  .cti-faq__q::-webkit-details-marker { display: none; }
+  .cti-faq__q:hover { color: var(--page-accent-deep); }
+  .cti-faq__q:focus-visible {
+    outline: 2px solid var(--page-accent-deep);
+    outline-offset: 4px;
+  }
+  .cti-faq__chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    fill: none;
+    stroke: var(--page-accent-deep);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s;
+  }
+  .cti-faq__item[open] .cti-faq__chevron { transform: rotate(180deg); }
+  .cti-faq__a {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: 14px;
+    max-width: 700px;
+  }
+
+
+  /* ── 11. Sinewave divider ──
+     The Cosive mark keeps its red stroke here; it is brand, not page accent. */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: 96px 0 var(--space-4xl);
+    background: var(--color-light-grey);
+  }
+  .people-cta-separator img { width: 80px; height: auto; }
+
+  /* ── 12. Contact ──
+     Site-standard .contact-* / .form-* class names so this maps straight onto
+     the existing pattern; only the focus colour differs, following this page's
+     accent rather than the red used elsewhere. */
+  .contact-section {
+    padding: 0 0 var(--space-7xl);
+    background: var(--color-light-grey);
+    text-align: center;
+  }
+  .contact-inner {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+  .contact-subtitle {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-2xl);
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input { height: 46px; }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--page-accent-deep); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  /* Full width, matching every other contact form on the site. */
+  .contact-form button {
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    padding: 14px 36px;
   }
 
   /* ── Light Footer ──
@@ -415,8 +1511,98 @@
     .heading-style-h1 { font-size: 1.8rem; }
     .heading-style-h2 { font-size: var(--text-2xl); }
 
-    /* Page banner */
-    .page-banner h1 { font-size: var(--text-4xl); }
+    /* CTI-CMM hero */
+    .cti-hero { padding: var(--space-4xl) 0 var(--space-5xl); }
+    .cti-hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xl); align-items: start; }
+    .cti-hero__title { font-size: var(--text-6xl); }
+    .cti-hero__sub { font-size: var(--text-2xl); }
+
+    /* Section nav — horizontal scroll strip with a fade at the right edge */
+    .cti-section-nav__inner { position: relative; justify-content: flex-start; }
+    .cti-section-nav__inner::after {
+      content: "";
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: var(--space-3xl);
+      background: linear-gradient(to right, transparent, var(--color-dark));
+      pointer-events: none;
+    }
+    .cti-section-nav__list { gap: var(--space-lg); padding-right: var(--space-3xl); }
+
+    /* CTI-CMM sections — the four-column head collapses to one column */
+    .cti-section { padding: var(--space-5xl) 0; }
+    .cti-section-head {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+    .cti-section-head__eyebrow,
+    .cti-section-head__main,
+    .cti-section-head__aside {
+      grid-column: 1;
+      grid-row: auto;
+    }
+    .cti-section-head__aside { margin-top: var(--space-2xl); }
+    .cti-h2 { font-size: var(--text-4xl); }
+    .cti-lede { font-size: var(--text-xl); }
+    /* The gutter rule only makes sense while there are two columns */
+    .cti-section-head__note {
+      margin-top: var(--space-lg);
+      padding-left: 0;
+      border-left: none;
+    }
+    /* Case study — panel above the narrative */
+    .cti-case { padding: 0 0 var(--space-5xl); }
+    .cti-case__inner { padding-top: var(--space-4xl); }
+    .cti-case__caption { right: var(--space-lg); }
+    .cti-case__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl); }
+    .cti-case__title { margin-bottom: var(--space-2xl); }
+    /* Why Cosive — claims wrap to a shorter grid, credit drops below the head */
+    .cti-proof__row { flex-direction: column; gap: var(--space-lg); }
+    .cti-proof__credit { text-align: left; padding-top: 0; }
+    .cti-proof__title { font-size: var(--text-4xl); }
+    .cti-proof__gap { height: 180px; }
+    .cti-proof__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cti-claim { padding-left: var(--space-lg); }
+    .cti-claim:nth-child(odd) { padding-left: 0; }
+    .cti-claim:nth-child(even) { border-right: none; }
+    .cti-claim + .cti-claim { border-top: 1px solid rgba(255, 255, 255, 0.14); }
+    /* Domains and levels — two columns each */
+    .cti-domains { padding: var(--space-5xl) 0 var(--space-2xl); }
+    .cti-levels { padding: var(--space-2xl) 0 var(--space-5xl); }
+    .cti-matrix { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cti-domain:nth-child(4n + 1) { padding-left: 28px; }
+    .cti-domain:nth-child(4n) { border-right: 1px solid rgba(255, 255, 255, 0.14); }
+    .cti-domain:nth-child(odd) { padding-left: 0; }
+    .cti-domain:nth-child(even) { border-right: none; }
+    .cti-domain:nth-last-child(n + 1):nth-last-child(-n + 4) { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+    .cti-matrix__filler { display: none; }
+    .cti-ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-2xl); }
+    .cti-levels__close { margin-top: var(--space-2xl); }
+    /* Free tool — stack, chart below the copy */
+    .cti-tool { padding: var(--space-5xl) 0; }
+    .cti-tool__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xl); }
+    /* Our approach — two steps per row */
+    .cti-approach { padding: var(--space-5xl) 0; }
+    .cti-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cti-approach__close { margin-top: var(--space-2xl); }
+    /* FAQ — heading above the list */
+    .cti-faq { padding: var(--space-5xl) 0; }
+    .cti-faq__grid { grid-template-columns: minmax(0, 1fr); }
+    .cti-faq__eyebrow,
+    .cti-faq__title,
+    .cti-faq__list { grid-column: 1; grid-row: auto; }
+    .cti-faq__list { margin-top: var(--space-2xl); }
+    /* The veil is keyed to percentages of the band height, so once the claims
+       stack and the band grows they fall inside the photo's open window
+       (measured: 47% down at 900px, 38% at 390px, where the veil is only
+       ~0.3-0.45 opaque). This ground travels with the claims block instead. */
+    .cti-proof__claims {
+      padding-top: var(--space-3xl);
+      background: linear-gradient(to bottom,
+        transparent 0,
+        var(--color-dark) var(--space-3xl),
+        var(--color-dark) 100%);
+    }
   }
 
   @media (max-width: 600px) {
@@ -424,9 +1610,92 @@
     .heading-style-h1 { font-size: var(--text-2xl); }
     .heading-style-h2 { font-size: 1.3rem; }
 
-    /* Page banner */
-    .page-banner h1 { font-size: var(--text-3xl); }
-    .page-banner-inner { padding: var(--space-xl) 0 var(--space-xl); }
+    /* CTI-CMM hero — see design/cti-cmm/Mobile.dc.html */
+    .cti-hero { padding: var(--space-3xl) 0 var(--space-4xl); }
+    .cti-breadcrumb { font-size: var(--text-sm); margin-bottom: var(--space-lg); }
+    .cti-hero__title { font-size: 42px; letter-spacing: var(--tracking-tight); margin-bottom: var(--space-md); }
+    .cti-hero__sub { font-size: var(--text-xl); line-height: 1.4; margin-bottom: var(--space-lg); }
+    .cti-hero__actions { display: block; }
+    .cti-btn { display: block; text-align: center; font-size: var(--text-base); padding: 15px var(--space-lg); }
+    .cti-hero__alt { display: block; margin-top: var(--space-md); }
+    .cti-card { padding: var(--space-lg); margin-top: 28px; }
+    .cti-card__label { font-size: 11px; }
+    .cti-card__title { font-size: 21px; margin-bottom: var(--space-md); }
+    .cti-person img { width: 46px; height: 46px; }
+    .cti-person__name { font-size: var(--text-sm); }
+    .cti-person__role { font-size: var(--text-xs); }
+    .cti-card__note { font-size: var(--text-sm); }
+
+    /* Section nav */
+    .cti-section-nav__inner { height: 52px; }
+    .cti-section-nav__list { gap: var(--space-lg); }
+    .cti-section-nav__link { font-size: var(--text-sm); }
+
+    /* CTI-CMM sections */
+    .cti-section { padding: var(--space-4xl) 0; }
+    .cti-eyebrow { font-size: 13px; }
+    .cti-section-head__eyebrow { margin-bottom: var(--space-md); }
+    .cti-h2 { font-size: 28px; line-height: 1.2; }
+    .cti-lede { font-size: var(--text-lg); margin-top: var(--space-lg); }
+    .cti-lede + .cti-lede { margin-top: var(--space-md); }
+    .cti-help-card { padding: 22px var(--space-lg); }
+    .cti-help-card__label { font-size: var(--text-xs); margin-bottom: var(--space-sm); }
+    .cti-help-card__lead { font-size: var(--text-lg); }
+    .cti-btn--deep { display: block; text-align: center; }
+    /* Benefits stack, numeral above the title */
+    .cti-benefit {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-sm);
+      padding: var(--space-lg) 0;
+    }
+    .cti-benefit__n { font-size: var(--text-3xl); }
+    .cti-benefit__title { font-size: var(--text-xl); }
+    .cti-benefit__desc { font-size: var(--text-base); }
+    /* Case study */
+    .cti-case { padding: 0 0 var(--space-4xl); }
+    .cti-case__strip { aspect-ratio: auto; height: 200px; }
+    .cti-case__inner { padding-top: var(--space-3xl); }
+    .cti-case__panel { padding: var(--space-lg); }
+    .cti-case__body { font-size: var(--text-base); }
+    .cti-quote { padding: var(--space-lg); }
+    .cti-quote p { font-size: var(--text-lg); }
+    /* Why Cosive */
+    .cti-proof__head { padding-top: var(--space-2xl); }
+    .cti-proof__title { font-size: 28px; }
+    .cti-proof__gap { height: 120px; }
+    .cti-proof__claims { padding-bottom: var(--space-3xl); }
+    .cti-proof__grid { grid-template-columns: minmax(0, 1fr); }
+    .cti-claim { padding: var(--space-lg) 0 var(--space-xs); border-right: none; }
+    .cti-claim:first-child { padding-top: var(--space-lg); }
+    /* Domains and levels — single column; the bars lose their meaning stacked,
+       so they shrink to a consistent marker rather than a comparative ramp */
+    .cti-matrix { grid-template-columns: minmax(0, 1fr); }
+    .cti-domain,
+    .cti-domain:nth-child(4n + 1),
+    .cti-domain:nth-child(odd) { padding: var(--space-md) 0; border-right: none; }
+    .cti-domain__name { font-size: var(--text-base); }
+    .cti-ladder { grid-template-columns: minmax(0, 1fr); }
+    .cti-level__bar { height: 40px !important; }
+    .cti-levels__close { font-size: var(--text-base); }
+    /* Free tool */
+    .cti-tool { padding: var(--space-4xl) 0; }
+    .cti-tool__title { font-size: var(--text-2xl); }
+    .cti-tool__body { font-size: var(--text-base); }
+    .cti-tool__card { padding: var(--space-lg) var(--space-md) var(--space-md); }
+    /* Our approach */
+    .cti-approach { padding: var(--space-4xl) 0; }
+    .cti-steps { grid-template-columns: minmax(0, 1fr); }
+    .cti-step { padding: var(--space-lg); }
+    .cti-approach__close { font-size: var(--text-base); }
+    /* FAQ */
+    .cti-faq { padding: var(--space-4xl) 0; }
+    .cti-faq__item { padding: var(--space-lg) 0; }
+    .cti-faq__q { font-size: var(--text-lg); gap: var(--space-md); }
+    /* Contact */
+    .people-cta-separator { padding: var(--space-4xl) 0 var(--space-2xl); }
+    .contact-section { padding: 0 0 var(--space-5xl); }
+    .form-row { grid-template-columns: minmax(0, 1fr); }
+    .cti-btn--deep { display: block; text-align: center; }
 
     /* Footer */
     .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
@@ -439,24 +1708,576 @@
 <div id="site-header-placeholder" data-nav-active="cti-cmm" style="min-height:calc(var(--space-5xl) + 1px)"></div>
 <script src="header-include.js"></script>
 
-<div class="page-banner">
-  <img src="images/cti/banner-bg.jpg" alt="">
-  <div class="page-banner-inner">
-    <div class="container">
-      <nav class="breadcrumb">
-        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>Home</a>
-        <span class="separator">/</span>
-        <span class="current">CTI-CMM</span>
+<!-- ══ 1. Hero — dark, textured, typographic. No photograph. ══ -->
+<section class="cti-hero">
+  <div class="cti-hero__dots"></div>
+  <div class="cti-hero__glow"></div>
+
+  <div class="container cti-hero__inner">
+    <div class="cti-hero__grid">
+      <div>
+      <nav class="cti-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <span>/</span>
+        <span>Capabilities</span>
+        <span>/</span>
+        <span class="current" aria-current="page">CTI-CMM</span>
       </nav>
-      <h1 class="heading-style-h1">CTI-CMM</h1>
+        <h1 class="cti-hero__title">CTI-CMM</h1>
+        <p class="cti-hero__sub">The capability maturity model for threat intelligence. We run independent assessments against the model, and help you act on what they find.</p>
+        <div class="cti-hero__actions">
+          <a href="#contact" class="cti-btn">Talk to us about an assessment</a>
+          <span class="cti-hero__alt">Or <a href="https://cosive.com/cti-cmm-assessment-tool">score yourself with our free tool</a> first.</span>
+        </div>
+      </div>
+
+      <!-- Contributor callout — the credential that carries the whole page -->
+      <div class="cti-card">
+        <div class="cti-card__label">Our expertise</div>
+        <h2 class="cti-card__title">We help build CTI-CMM</h2>
+
+        <div class="cti-people">
+          <div class="cti-person">
+            <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" width="52" height="52" loading="lazy">
+            <div>
+              <span class="cti-person__name">Chris Horsley</span>
+              <span class="cti-person__role">Principal Security Consultant &amp; CTO</span>
+            </div>
+          </div>
+          <div class="cti-person">
+            <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" width="52" height="52" loading="lazy">
+            <div>
+              <span class="cti-person__name">Prescott Pym</span>
+              <span class="cti-person__role">Principal Security Consultant</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="cti-card__note">We are <strong>volunteer contributors</strong> to the framework, shaping it alongside a small group of leading CTI practitioners from around the world.</p>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- ══ 2. Sticky section nav ══ -->
+<nav class="cti-section-nav" aria-label="Page sections">
+  <div class="container cti-section-nav__inner">
+    <ul class="cti-section-nav__list">
+      <li><a href="#why-cti-cmm" class="cti-section-nav__link">Why CTI-CMM</a></li>
+      <li><a href="#what-you-get" class="cti-section-nav__link">What you get</a></li>
+      <li><a href="#case-study" class="cti-section-nav__link">Case studies</a></li>
+      <li><a href="#domains" class="cti-section-nav__link">How it works</a></li>
+      <li><a href="#how-it-works" class="cti-section-nav__link">Our approach</a></li>
+      <li><a href="#faq" class="cti-section-nav__link">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ 3. Why CTI-CMM — the framework, with the "how we help" card alongside ══ -->
+<section class="cti-section" id="why-cti-cmm">
+  <div class="container cti-section-head">
+    <div class="cti-eyebrow cti-section-head__eyebrow">The framework</div>
+
+    <div class="cti-section-head__main">
+      <h2 class="cti-h2">Why CTI-CMM</h2>
+      <p class="cti-lede cti-lede--medium">CTI-CMM is the <a class="cti-link" href="https://cti-cmm.org">Cyber Threat Intelligence Capability Maturity Model</a>: a free, vendor-neutral framework for measuring how well your threat intelligence programme supports the people who depend on it.</p>
+      <p class="cti-lede">It scores your practices across 11 business domains at four maturity levels, CTI0 to CTI3, and gives you a prioritised path to improve.</p>
+    </div>
+
+    <div class="cti-section-head__aside">
+      <div class="cti-help-card">
+        <div class="cti-eyebrow cti-help-card__label">How we help</div>
+        <p class="cti-help-card__lead">We run independent CTI-CMM assessments. We work through the practices in all 11 domains with you and the stakeholders your programme serves, score where you are, and hand back a rating per domain with a prioritised roadmap for closing the gaps.</p>
+        <p class="cti-help-card__note">Most teams come to us for a baseline they can take to their leadership that&rsquo;s more defensible than a self-score, and specific enough to act on the following quarter.</p>
+        <a href="#contact" class="cti-btn--deep">Talk to us about an assessment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. What you get — four numbered benefits ══ -->
+<section class="cti-section" id="what-you-get">
+  <div class="container">
+    <div class="cti-section-head cti-section-head--rows">
+      <div class="cti-eyebrow cti-section-head__eyebrow">What you get</div>
+      <div class="cti-section-head__main">
+        <h2 class="cti-h2">What an assessment gives you</h2>
+      </div>
+      <p class="cti-section-head__aside cti-section-head__note">An assessment is worth doing when it changes what you do next. Ours serves as the foundation of your CTI roadmap, handing a CTI lead four things they can act on the week it lands.</p>
+    </div>
+
+    <div>
+      <div class="cti-benefit">
+        <span class="cti-benefit__n">01</span>
+        <div class="cti-benefit__body">
+          <h3 class="cti-benefit__title">A language your stakeholders already speak</h3>
+          <p class="cti-benefit__desc">We run the scoring sessions with the stakeholders themselves, in their language &mdash; vulnerability management, third-party risk, incident response &mdash; not intelligence jargon. Most teams tell us that conversation is worth as much as the score.</p>
+        </div>
+      </div>
+      <div class="cti-benefit">
+        <span class="cti-benefit__n">02</span>
+        <div class="cti-benefit__body">
+          <h3 class="cti-benefit__title">A budget case that holds up</h3>
+          <p class="cti-benefit__desc">&ldquo;We need more feeds&rdquo; is a hard ask. We give you the other version: you are at CTI1 for incident response, here is where comparable organisations sit, and here are the three practices that close the gap. An independent score carries weight a self-assessment does not.</p>
+        </div>
+      </div>
+      <div class="cti-benefit">
+        <span class="cti-benefit__n">03</span>
+        <div class="cti-benefit__body">
+          <h3 class="cti-benefit__title">A prioritised roadmap, not a wish list</h3>
+          <p class="cti-benefit__desc">We hand back a rating per domain and recommendations ordered by impact and effort &mdash; one maturity level at a time, in the domains that matter most to you. Not a list of everything that is imperfect.</p>
+        </div>
+      </div>
+      <div class="cti-benefit">
+        <span class="cti-benefit__n">04</span>
+        <div class="cti-benefit__body">
+          <h3 class="cti-benefit__title">A baseline you can measure against</h3>
+          <p class="cti-benefit__desc">Your first assessment with us is the reference point. When we re-run it, you can show your leadership whether the work they funded actually shifted anything.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. Case study — The University of Queensland ══ -->
+<section class="cti-case" id="case-study">
+  <figure class="cti-case__figure">
+    <img class="cti-case__strip" src="images/cti/uq-walter-harrison-law-library.webp"
+         alt="The Walter Harrison Law Library at the University of Queensland's St Lucia campus"
+         width="1600" height="439" loading="lazy" decoding="async">
+    <figcaption class="cti-case__caption">The University of Queensland&rsquo;s Walter Harrison Law Library, St Lucia campus.</figcaption>
+  </figure>
+
+  <div class="container cti-case__inner">
+    <div class="cti-eyebrow" style="margin-bottom: var(--space-lg);">Case study</div>
+    <h2 class="cti-h2 cti-case__title">A CTI-CMM baseline the university could act on</h2>
+
+    <div class="cti-case__grid">
+      <div class="cti-case__panel">
+        <img class="cti-case__logo" src="logos/uq.svg" alt="The University of Queensland" width="152" height="40">
+        <dl class="cti-case__facts">
+          <div class="cti-case__fact">
+            <dt>Client</dt>
+            <dd>The University of Queensland</dd>
+          </div>
+          <div class="cti-case__fact">
+            <dt>Sector</dt>
+            <dd>Higher education</dd>
+          </div>
+          <div class="cti-case__fact">
+            <dt>Engagement</dt>
+            <dd>CTI-CMM maturity assessment</dd>
+          </div>
+          <div class="cti-case__fact">
+            <dt>Delivered</dt>
+            <dd>Assessment report and recommendations</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div>
+        <div class="cti-eyebrow cti-case__label">The engagement</div>
+        <p class="cti-case__body">The University of Queensland engaged Cosive to assess its threat intelligence programme against CTI-CMM. We agreed the methodology and the deliverables with the university&rsquo;s team at the outset, and kept them involved throughout the assessment.</p>
+
+        <div class="cti-eyebrow cti-case__label">The outcome</div>
+        <p class="cti-case__body cti-case__body--last">The report and its recommendations set out how the university could approach implementation in its own context, leaving the team with the confidence and clarity to progress its CTI roadmap.</p>
+
+        <figure class="cti-quote">
+          <p>&ldquo;The cyber threat intelligence maturity assessment report and subsequent recommendations were practical and thoughtfully developed, going well beyond high-level suggestions to clearly outline how we could approach implementation in our context. This has given us strong confidence and clarity as we progress our CTI roadmap. The Cosive team was extremely professional, and we would strongly recommend them to organisations looking to mature their CTI capability in a considered and pragmatic way.&rdquo;</p>
+          <footer>
+            <span class="cti-quote__name">Sasenka Abeysooriya</span>
+            <span class="cti-quote__role">Program Director, The University of Queensland</span>
+          </footer>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. Why Cosive — full-bleed proof band ══ -->
+<section class="cti-proof">
+  <img class="cti-proof__photo" src="images/shared/misp-training-auscert.webp"
+       alt="Cosive running a MISP training session at the AUSCERT conference"
+       width="1600" height="1200" loading="lazy" decoding="async">
+  <div class="cti-proof__veil"></div>
+
+  <div class="container cti-proof__head">
+    <div class="cti-eyebrow cti-proof__eyebrow">Why Cosive</div>
+    <div class="cti-proof__row">
+      <h2 class="cti-proof__title">We helped build the model we assess you against</h2>
+      <div class="cti-proof__credit">Cosive running MISP training at the AUSCERT conference.</div>
+    </div>
+    <div class="cti-proof__cta">
+      <a href="#contact" class="cti-btn">Talk to us about an assessment</a>
+    </div>
+  </div>
+
+  <div class="cti-proof__gap"></div>
+
+  <div class="container cti-proof__claims">
+    <div class="cti-proof__grid">
+        <div class="cti-claim">
+          <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div class="cti-claim__lead">We contribute to CTI-CMM</div>
+          <div class="cti-claim__plain">Chris Horsley and Prescott Pym are among the volunteer contributors to the framework.</div>
+        </div>
+        <div class="cti-claim">
+          <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div class="cti-claim__lead">We built the <a class="cti-link cti-link--on-dark" href="https://cosive.com/cti-cmm-assessment-tool">official online assessment tool</a></div>
+          <div class="cti-claim__plain">Open source, and tracking the current v1.3 model.</div>
+        </div>
+        <div class="cti-claim">
+          <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div class="cti-claim__lead">We run national-scale sharing</div>
+          <div class="cti-claim__plain">Cosive co-designed CTIS, Australia&rsquo;s national threat intelligence sharing programme, serving 450+ organisations.</div>
+        </div>
+        <div class="cti-claim">
+          <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div class="cti-claim__lead">We deploy threat intelligence platforms</div>
+          <div class="cti-claim__plain">Multiple deployments across APAC, Europe and the Middle East.</div>
+        </div>
+        <div class="cti-claim">
+          <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div class="cti-claim__lead">We are practitioners, not just auditors</div>
+          <div class="cti-claim__plain">Every engagement is staffed by senior consultants who have built and run CTI programmes themselves.</div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7a. Eleven domains ══ -->
+<section class="cti-dark cti-domains" id="domains">
+  <div class="cti-dark__dots"></div>
+  <div class="container cti-dark__inner">
+    <div class="cti-section-head cti-section-head--dark cti-section-head--rows">
+      <div class="cti-eyebrow cti-section-head__eyebrow">How the model works</div>
+      <div class="cti-section-head__main">
+        <h2 class="cti-h2">Eleven domains</h2>
+      </div>
+      <p class="cti-section-head__aside cti-section-head__note">CTI-CMM organises your programme around 11 domains &mdash; the business functions threat intelligence exists to support. Each has a purpose, the CTI mission that serves it, and the practices that mark each level of maturity.</p>
+    </div>
+
+    <div class="cti-matrix">
+        <div class="cti-domain">
+          <span class="cti-domain__n">01</span>
+          <span class="cti-domain__name">Asset, Change and Configuration Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">02</span>
+          <span class="cti-domain__name">Threat and Vulnerability Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">03</span>
+          <span class="cti-domain__name">Risk Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">04</span>
+          <span class="cti-domain__name">Identity and Access Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">05</span>
+          <span class="cti-domain__name">Situational Awareness</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">06</span>
+          <span class="cti-domain__name">Event and Incident Response, Continuity of Operations</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">07</span>
+          <span class="cti-domain__name">Third-Party Risk Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">08</span>
+          <span class="cti-domain__name">Fraud and Abuse Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">09</span>
+          <span class="cti-domain__name">Workforce Management</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">10</span>
+          <span class="cti-domain__name">Cybersecurity Architecture</span>
+        </div>
+        <div class="cti-domain">
+          <span class="cti-domain__n">11</span>
+          <span class="cti-domain__name">Cybersecurity Program Management</span>
+        </div>
+      <div class="cti-matrix__filler"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7b. Four levels ══ -->
+<section class="cti-dark cti-levels" id="levels">
+  <div class="cti-dark__dots"></div>
+  <div class="container cti-dark__inner">
+    <div class="cti-section-head cti-section-head--dark cti-section-head--rows">
+      <div class="cti-eyebrow cti-section-head__eyebrow">Maturity</div>
+      <div class="cti-section-head__main">
+        <h2 class="cti-h2">Four levels</h2>
+      </div>
+      <p class="cti-section-head__aside cti-section-head__note">We score each domain separately rather than handing you a single number. That shows you both halves of the picture: the domains where you are already strong and can prove it to your leadership, and the ones where the next level of maturity is within reach. Most programmes are uneven &mdash; that is normal, and it is what makes a roadmap specific to you rather than generic.</p>
+    </div>
+
+    <div class="cti-ladder">
+        <div class="cti-level">
+          <div class="cti-level__bar" style="height: 48px; background: rgba(42,182,246,0.18);"></div>
+          <div class="cti-level__body">
+            <div class="cti-level__id">CTI0</div>
+            <div class="cti-level__title">Pre-foundational</div>
+            <p class="cti-level__desc">The practice isn&rsquo;t happening yet.</p>
+          </div>
+        </div>
+        <div class="cti-level">
+          <div class="cti-level__bar" style="height: 112px; background: rgba(42,182,246,0.38);"></div>
+          <div class="cti-level__body">
+            <div class="cti-level__id">CTI1</div>
+            <div class="cti-level__title">Foundational</div>
+            <p class="cti-level__desc">Ad hoc and reactive. Work happens case by case, largely undocumented, delivering short-term value that is hard to measure.</p>
+          </div>
+        </div>
+        <div class="cti-level">
+          <div class="cti-level__bar" style="height: 176px; background: rgba(42,182,246,0.62);"></div>
+          <div class="cti-level__body">
+            <div class="cti-level__id">CTI2</div>
+            <div class="cti-level__title">Advanced</div>
+            <p class="cti-level__desc">Standardised and proactive. Practices are documented, repeatable and often automated, and you can show the impact they have.</p>
+          </div>
+        </div>
+        <div class="cti-level">
+          <div class="cti-level__bar" style="height: 240px; background: #2ab6f6;"></div>
+          <div class="cti-level__body">
+            <div class="cti-level__id">CTI3</div>
+            <div class="cti-level__title">Leading</div>
+            <p class="cti-level__desc">Prescriptive and business-aligned. Intelligence carries recommendations, and its metrics map to business outcomes.</p>
+          </div>
+        </div>
+    </div>
+
+    <p class="cti-levels__close">Four things change as a programme moves up: intelligence goes from <strong>ad hoc to programmatic</strong>, <strong>tactical to strategic</strong>, <strong>generic to contextual</strong>, and from <strong>neutral observation to prescriptive recommendation</strong>.</p>
+  </div>
+</section>
+
+<!-- ══ 8. Free assessment tool ══ -->
+<section class="cti-tool">
+  <div class="container cti-tool__grid">
+    <div>
+      <div class="cti-eyebrow cti-tool__eyebrow">Free assessment tool</div>
+      <h2 class="cti-tool__title">Want a baseline before you talk to us?</h2>
+      <p class="cti-tool__body">Our CTI-CMM assessment tool is free, needs no sign-up, and covers all 11 domains of CTI-CMM v1.3. Score each practice, mark the domains that don&rsquo;t apply, and it builds you a prioritised planning sheet.</p>
+      <p class="cti-tool__body cti-tool__body--last">Everything saves in your browser, so your answers never leave your machine.</p>
+      <a href="https://cosive.com/cti-cmm-assessment-tool" class="cti-btn--deep">Open the assessment tool</a>
+    </div>
+
+    <div class="cti-tool__card">
+      <div class="cti-tool__cardhead">
+        <h3 class="cti-tool__cardtitle">Domain Maturity Overview</h3>
+        <span class="cti-tool__tag">Example output</span>
+      </div>
+      <p class="cti-tool__note">Illustrative scores &mdash; not real client data.</p>
+      <svg viewBox="-225.5 -163.9 424.2 320.5" class="cti-radar" role="img" aria-label="Example CTI-CMM radar chart: maturity score per domain, highest on incident response, lowest on third-party risk"><polygon points="0.0,-26.4 14.3,-22.2 24.0,-11.0 26.1,3.8 20.0,17.3 7.4,25.3 -7.4,25.3 -20.0,17.3 -26.1,3.8 -24.0,-11.0 -14.3,-22.2" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-52.8 28.5,-44.4 48.0,-21.9 52.3,7.5 39.9,34.6 14.9,50.7 -14.9,50.7 -39.9,34.6 -52.3,7.5 -48.0,-21.9 -28.5,-44.4" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-79.2 42.8,-66.6 72.0,-32.9 78.4,11.3 59.9,51.9 22.3,76.0 -22.3,76.0 -59.9,51.9 -78.4,11.3 -72.0,-32.9 -42.8,-66.6" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-105.6 57.1,-88.8 96.1,-43.9 104.5,15.0 79.8,69.2 29.8,101.3 -29.8,101.3 -79.8,69.2 -104.5,15.0 -96.1,-43.9 -57.1,-88.8" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-132.0 71.4,-111.0 120.1,-54.8 130.7,18.8 99.8,86.4 37.2,126.7 -37.2,126.7 -99.8,86.4 -130.7,18.8 -120.1,-54.8 -71.4,-111.0" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="0.0" y2="-132.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="71.4" y2="-111.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="120.1" y2="-54.8" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="130.7" y2="18.8" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="99.8" y2="86.4" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="37.2" y2="126.7" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-37.2" y2="126.7" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-99.8" y2="86.4" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-130.7" y2="18.8" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-120.1" y2="-54.8" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="0" y1="0" x2="-71.4" y2="-111.0" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><polygon points="0.0,-72.6 50.0,-77.7 54.0,-24.7 65.3,9.4 64.8,56.2 29.8,101.3 -9.3,31.7 -39.9,34.6 -39.2,5.6 -54.0,-24.7 -42.8,-66.6" fill="rgba(42,182,246,0.2)" stroke="#1a9fd8" stroke-width="2" stroke-linejoin="round"/><circle cx="0.0" cy="-72.6" r="3" fill="#1a9fd8"/><circle cx="50.0" cy="-77.7" r="3" fill="#1a9fd8"/><circle cx="54.0" cy="-24.7" r="3" fill="#1a9fd8"/><circle cx="65.3" cy="9.4" r="3" fill="#1a9fd8"/><circle cx="64.8" cy="56.2" r="3" fill="#1a9fd8"/><circle cx="29.8" cy="101.3" r="3" fill="#1a9fd8"/><circle cx="-9.3" cy="31.7" r="3" fill="#1a9fd8"/><circle cx="-39.9" cy="34.6" r="3" fill="#1a9fd8"/><circle cx="-39.2" cy="5.6" r="3" fill="#1a9fd8"/><circle cx="-54.0" cy="-24.7" r="3" fill="#1a9fd8"/><circle cx="-42.8" cy="-66.6" r="3" fill="#1a9fd8"/><rect x="-13" y="-33.4" width="26" height="14" fill="#ffffff" rx="2"/><text x="0" y="-22.4" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#5f6368">20</text><rect x="-13" y="-59.8" width="26" height="14" fill="#ffffff" rx="2"/><text x="0" y="-48.8" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#5f6368">40</text><rect x="-13" y="-86.2" width="26" height="14" fill="#ffffff" rx="2"/><text x="0" y="-75.2" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#5f6368">60</text><rect x="-13" y="-112.6" width="26" height="14" fill="#ffffff" rx="2"/><text x="0" y="-101.6" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#5f6368">80</text><rect x="-13" y="-139.0" width="26" height="14" fill="#ffffff" rx="2"/><text x="0" y="-128.0" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#5f6368">100</text><text x="0.0" y="-146.5" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ASSET</text><text x="81.1" y="-122.7" text-anchor="start" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">THREAT</text><text x="136.4" y="-58.8" text-anchor="start" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">RISK</text><text x="148.5" y="24.8" text-anchor="start" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ACCESS</text><text x="113.4" y="101.7" text-anchor="start" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">SITUATION</text><text x="42.3" y="147.4" text-anchor="start" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">RESPONSE</text><text x="-42.3" y="147.4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">THIRD-PARTIES</text><text x="-113.4" y="101.7" text-anchor="end" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">FRAUD</text><text x="-148.5" y="24.8" text-anchor="end" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">WORKFORCE</text><text x="-136.4" y="-58.8" text-anchor="end" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">ARCHITECTURE</text><text x="-81.1" y="-122.7" text-anchor="end" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.04em" fill="#5f6368">PROGRAM</text></svg>
+      <p class="cti-tool__caption">A typical shape: strong on incident response, thin on third-party risk and workforce. Those are the gaps a roadmap starts with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. Our approach — four steps as a loop ══ -->
+<section class="cti-approach" id="how-it-works">
+  <div class="container">
+    <div class="cti-section-head cti-section-head--rows">
+      <div class="cti-eyebrow cti-section-head__eyebrow">Our approach</div>
+      <div class="cti-section-head__main">
+        <h2 class="cti-h2">How a CTI-CMM engagement works</h2>
+      </div>
+      <p class="cti-section-head__aside cti-section-head__note">We run assessment as a cycle rather than a one-off audit. The score is where the work starts, not where it ends &mdash; the value is in what you do with it, and in coming back to check whether it worked.</p>
+    </div>
+
+    <div class="cti-steps">
+      <div class="cti-step">
+        <div class="cti-step__head">
+          <span class="cti-step__n">01</span>
+          <span class="cti-step__title">Assess</span>
+        </div>
+        <p class="cti-step__desc">We work through the practices in all 11 domains with you and your stakeholders, and score where you are and why.</p>
+      </div>
+      <div class="cti-step">
+        <div class="cti-step__head">
+          <span class="cti-step__n">02</span>
+          <span class="cti-step__title">Plan</span>
+        </div>
+        <p class="cti-step__desc">We turn the gaps into a roadmap, built one maturity level at a time and sequenced by impact and effort. Your stakeholders help set the targets.</p>
+      </div>
+      <div class="cti-step">
+        <div class="cti-step__head">
+          <span class="cti-step__n">03</span>
+          <span class="cti-step__title">Deploy</span>
+        </div>
+        <p class="cti-step__desc">You execute the roadmap. We stay involved for the parts needing specialist help &mdash; requirements, tooling, integration, training &mdash; or step back.</p>
+      </div>
+      <div class="cti-step">
+        <div class="cti-step__head">
+          <span class="cti-step__n">04</span>
+          <span class="cti-step__title">Measure</span>
+        </div>
+        <p class="cti-step__desc">Are you delivering measurable value, can you demonstrate it, what did not get done, and what support do you need from leadership to finish it.</p>
+      </div>
+    </div>
+
+    <div class="cti-cycle">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><polyline points="3 3 3 9 9 9"></polyline></svg>
+      <span>Then the cycle starts again from a higher baseline</span>
+    </div>
+
+    <p class="cti-approach__close">You can run a CTI-CMM assessment yourself. The framework is free, and so is <a class="cti-link" href="https://cosive.com/cti-cmm-assessment-tool">our online assessment tool</a>.</p>
+    <p class="cti-approach__close">An independent assessment adds four things: people who have run this many times before, an objective view that isn&rsquo;t shaped by internal politics, a sense of how you compare to similar organisations, and an independent audit that carries more weight with your leadership than a self-score.</p>
+    <div class="cti-approach__cta">
+      <a href="#contact" class="cti-btn--deep">Find out more</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10. FAQ ══ -->
+<section class="cti-faq" id="faq">
+  <div class="container cti-faq__grid">
+    <div class="cti-eyebrow cti-faq__eyebrow">FAQ</div>
+    <h2 class="cti-h2 cti-faq__title">Frequently asked questions</h2>
+
+    <div class="cti-faq__list">
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Which organisations get the most out of a CTI-CMM assessment?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Any organisation that has a threat intelligence function, or is about to build one. CTI-CMM measures how well intelligence supports the people who use it, not how much tooling you own, so it works for a team of one as well as a team of thirty.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Do you work with other CTI frameworks?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Yes. We assess against CTI-CMM for threat intelligence programmes, SIM3 for CSIRT and incident-response maturity, and SOC-CMM for SOC-focused teams, and we map detection coverage against MITRE ATT&amp;CK.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">How often should we reassess?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">We recommend once you have had time to act on the last set of recommendations. For most programmes that is about every 12 months. CTI maturity assessment works best as a cycle, not a one-off audit.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Can we run our own CTI-CMM assessment?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Yes, and for many teams it is the right place to start. <a class="cti-link" href="https://cosive.com/cti-cmm-assessment-tool">Our assessment tool</a> is free, needs no sign-up, and covers all 11 domains of CTI-CMM v1.3. Bring us in when you want an objective second read.</p>
+        </details>
+      <!-- PENDING COSIVE: "How long does a CTI-CMM engagement take?" is in the
+           design but has no answer — it needs a typical engagement duration and
+           workshop count, which nobody has supplied. Deliberately omitted rather
+           than guessed. Add it here and to the FAQPage JSON-LD when confirmed. -->
+    </div>
+  </div>
+</section>
+
+<!-- ══ 11. Sinewave divider ══ -->
+<div class="people-cta-separator">
+  <img src="icons/cosive-sinewave.svg" alt="" width="80" height="24" loading="lazy">
 </div>
 
-<!-- Content sections go here. -->
+<!-- ══ 12. Get in touch ══ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="cti-eyebrow" style="margin-bottom: var(--space-lg);">Get in touch</div>
+      <h2 class="cti-h2" style="margin-bottom: var(--space-md);">Find out where your CTI programme stands</h2>
+      <p class="contact-subtitle">Tell us about your programme and we&rsquo;ll come back with a realistic scope for an assessment. A call is the quickest way to work out whether an assessment is the right move at all.</p>
+
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="CTI-CMM">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="cti-btn--deep">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer-placeholder"></div>
 <script src="footer-include.js"></script>
+
+<!-- ============================================================
+     SECTION NAV — active state + dynamic sticky offset
+     Same implementation as cloudmisp.html, scoped to .cti-section-nav.
+     ============================================================ -->
+<script>
+(function() {
+  var sectionNav = document.querySelector('.cti-section-nav');
+  if (!sectionNav) return;
+  var navList = sectionNav.querySelector('.cti-section-nav__list');
+  var sectionIds = ['why-cti-cmm','what-you-get','case-study','domains','levels','how-it-works','faq'];
+  // Sections still observed, but folded under another link in the bar. Without
+  // this, scrolling through #levels matches no link and the bar goes blank.
+  var navMapping = { 'levels': 'domains' };
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+
+  // The site header is injected by header-include.js, so its height is not
+  // known until that fetch resolves — measure rather than hardcode 80px.
+  function updateOffsets() {
+    var header = document.querySelector('.site-header');
+    var headerH = header ? header.offsetHeight : 80;
+    sectionNav.style.top = headerH + 'px';
+    document.documentElement.style.scrollPaddingTop = (headerH + sectionNav.offsetHeight + 4) + 'px';
+    return headerH;
+  }
+
+  var headerH = updateOffsets();
+  window.addEventListener('resize', function() { headerH = updateOffsets(); });
+  window.addEventListener('load', function() { headerH = updateOffsets(); });
+
+  var currentActive = null;
+  function setActive(link) {
+    if (currentActive === link) return;
+    if (currentActive) currentActive.classList.remove('cti-section-nav__link--active');
+    currentActive = link;
+    if (link) link.classList.add('cti-section-nav__link--active');
+  }
+
+  var visible = {};
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { visible[entry.target.id] = entry.isIntersecting; });
+    var activeId = null;
+    for (var i = 0; i < sectionIds.length; i++) {
+      if (visible[sectionIds[i]]) activeId = sectionIds[i];
+    }
+    var linkTarget = activeId ? (navMapping[activeId] || activeId) : null;
+    setActive(linkTarget ? sectionNav.querySelector('a[href="#' + linkTarget + '"]') : null);
+  }, {
+    rootMargin: -(headerH + sectionNav.offsetHeight + 1) + 'px 0px -40% 0px',
+    threshold: 0
+  });
+  sections.forEach(function(sec) { observer.observe(sec); });
+
+  // Mobile: centre the clicked link in the scroll strip.
+  navList.addEventListener('click', function(e) {
+    var link = e.target.closest('.cti-section-nav__link');
+    if (link && window.innerWidth <= 900) {
+      setTimeout(function() {
+        link.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  });
+})();
+</script>
+
 
 </body>
 </html>
