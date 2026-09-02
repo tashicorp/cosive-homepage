@@ -36,3 +36,6 @@ gh-pages-about.png
 # Generated design-canvas bundle — rebuilt from design/*/.dc.html by the
 # seeder on every publish; ~2.4MB, so keep it out of the history.
 design/**/*-page-design.html
+
+# Exported design PDFs — regenerated from the .dc.html artboards
+design/**/*.pdf
