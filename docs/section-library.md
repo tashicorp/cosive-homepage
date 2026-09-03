@@ -35,12 +35,19 @@ One component, two grounds. Structure, icon, size and spacing are identical; onl
 
 | Role | On dark | On light |
 |---|---|---|
-| Separator + icon | `rgba(255,255,255,0.5)` — 5.3:1 | `rgba(26,26,26,0.65)` — 5.4:1 |
-| Link | `rgba(255,255,255,0.6)` — 7.1:1 | `rgba(26,26,26,0.75)` — 7.7:1 |
+| Separator + icon | `rgba(255,255,255,0.75)` | `rgba(26,26,26,0.65)` |
+| Link | `rgba(255,255,255,0.85)` | `rgba(26,26,26,0.75)` |
 | Link hover | `Color/White` | `Color/Text Primary` |
-| Current | `rgba(255,255,255,0.8)` — 12.0:1 | `rgba(26,26,26,0.9)` — 13.0:1 |
+| Current | `Color/White` | `rgba(26,26,26,0.9)` |
 
-Ratios are composited against the ground, so the two versions read at matching weight.
+**Do not lighten the dark ramp.** Several banners sit on a photograph, not a flat fill, and the
+brightest patch of that photo is what governs. Measured against the actual painted pixels the
+tightest case on the site is the separator on `improve-secops-team.html` at **4.70:1** — AA with
+little margin. A flat-colour check would report 5.3:1 there and be wrong, because the photo shows
+through the overlay.
+
+When adding a page with a photographic banner, sample the painted backdrop behind the breadcrumb
+rather than trusting the section's declared `background-color`.
 
 Every page with a visible trail also carries a matching `BreadcrumbList` in `<head>`. A crumb with
 no page behind it gets a `name` and no `item`.

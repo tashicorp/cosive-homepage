@@ -203,15 +203,6 @@
     max-width: var(--container-standard);
   }
 
-  .blog-hero .section-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-base);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-accent);
-    margin-bottom: var(--space-lg);
-  }
 
   /* ── Breadcrumb — site standard. Hierarchy is carried by opacity, never
      colour; the home icon is always present; 32px to the H1. */
@@ -222,14 +213,14 @@
     margin-bottom: var(--space-xl);
     font-family: var(--font-body);
     font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .breadcrumb a {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.85);
     transition: color 0.2s;
   }
 
@@ -238,13 +229,13 @@
   .breadcrumb svg {
     width: 14px;
     height: 14px;
-    stroke: rgba(255, 255, 255, 0.5);
+    stroke: rgba(255, 255, 255, 0.75);
     flex-shrink: 0;
   }
 
-  .breadcrumb .separator { color: rgba(255, 255, 255, 0.5); }
+  .breadcrumb .separator { color: rgba(255, 255, 255, 0.75); }
 
-  .breadcrumb .current { color: rgba(255, 255, 255, 0.8); font-weight: 400; }
+  .breadcrumb .current { color: var(--color-white); font-weight: 400; }
 
   .blog-hero h1 {
     font-family: var(--font-heading);
@@ -1039,7 +1030,6 @@
         <span class="separator">/</span>
         <span class="current" aria-current="page">Blog</span>
       </nav>
-      <div class="section-label">Cosive Blog</div>
       <h1>Insights from the field</h1>
       <p class="blog-hero-sub">Security improves when knowledge is shared. So our specialists publish what they know about threat intelligence, security operations, and fraud data sharing.</p>
     </div>
