@@ -54,7 +54,7 @@ reference (the real build is in Webflow):
 
 <main class="legal">
   <div class="legal__inner">
-    <nav class="legal__breadcrumb"><a href="/">Home</a> <span>/</span> <span>Privacy Policy</span></nav>
+    <nav class="legal__breadcrumb" aria-label="Breadcrumb"><a href="/"><svg><!-- home icon --></svg>Home</a> <span class="separator">/</span> <span class="current" aria-current="page">Privacy Policy</span></nav>
     <h1 class="heading-style-h1">Privacy Policy</h1>
     <p class="legal__updated">Last updated: <!-- DD Month YYYY --></p>
 
@@ -80,7 +80,7 @@ reference (the real build is in Webflow):
   padding: var(--space-6xl) var(--space-lg) var(--space-8xl); }
 .legal__breadcrumb { font-size: var(--text-sm); color: var(--color-text-secondary);
   display: flex; gap: var(--space-xs); margin-bottom: var(--space-lg); }
-.legal__breadcrumb a { color: var(--color-accent); }
+.legal__breadcrumb a { color: rgba(26, 26, 26, 0.75); }   /* site breadcrumb standard — never accent */
 .legal__updated { color: var(--color-text-secondary); font-size: var(--text-sm);
   margin-top: var(--space-sm); }
 .legal__pdf { display: inline-flex; margin: var(--space-xl) 0; }

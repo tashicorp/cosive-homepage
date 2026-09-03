@@ -7,7 +7,53 @@ index.html, cyber-threat-intelligence.html, fraud-data-sharing.html, security-op
 
 ---
 
-## Universal sections (all pages)
+## Breadcrumb — site standard
+
+Used on every page that has a parent. The home page has none.
+
+One component, two grounds. Structure, icon, size and spacing are identical; only the ink changes.
+**Hierarchy is carried by opacity, never by colour — the breadcrumb is never red.**
+
+```html
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path
+     d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline
+     points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+  <span class="separator">/</span>
+  <a href="parent.html">Parent</a>
+  <span class="separator">/</span>
+  <span class="current" aria-current="page">This page</span>
+</nav>
+```
+
+- **Type** `Text/SM` (0.875rem), weight 400 throughout — the current crumb is **not** bolded.
+- **Icon** always present, one glyph (the path above), 14px, coloured by CSS not `currentColor`.
+- **Gap** `Space/XS` (0.5rem) between crumbs; `Space/XL` (2rem) below, to the next element.
+- **Position** first element in its section, nothing above it but the section's own padding.
+- **Trail** always starts at Home.
+
+| Role | On dark | On light |
+|---|---|---|
+| Separator + icon | `rgba(255,255,255,0.5)` — 5.3:1 | `rgba(26,26,26,0.65)` — 5.4:1 |
+| Link | `rgba(255,255,255,0.6)` — 7.1:1 | `rgba(26,26,26,0.75)` — 7.7:1 |
+| Link hover | `Color/White` | `Color/Text Primary` |
+| Current | `rgba(255,255,255,0.8)` — 12.0:1 | `rgba(26,26,26,0.9)` — 13.0:1 |
+
+Ratios are composited against the ground, so the two versions read at matching weight.
+
+Every page with a visible trail also carries a matching `BreadcrumbList` in `<head>`. A crumb with
+no page behind it gets a `name` and no `item`.
+
+**One documented exception:** the legal pages place the breadcrumb in a flex row beside the
+Download PDF button rather than stacked above the H1, so it carries no bottom margin. Everything
+else about it is the standard.
+
+---
+
+## Page banner sections
+
+*(Used by the hub and task pages — not by the blog, legal, team or capability pages, which have their own heroes. Only the breadcrumb above is genuinely universal.)*
 
 ### 1. Page Banner — Hub Variant
 
@@ -55,7 +101,7 @@ index.html, cyber-threat-intelligence.html, fraud-data-sharing.html, security-op
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="index.html" class="breadcrumb-home"><svg><!-- home --></svg>Home</a>
+        <a href="index.html" class="breadcrumb-home"><svg><!-- home icon: see Breadcrumb standard above --></svg>Home</a>
         <span class="separator">/</span>
         <a href="[hub].html" class="badge-cti">Hub Name</a>
         <span class="separator">/</span>

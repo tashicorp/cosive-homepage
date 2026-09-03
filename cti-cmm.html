@@ -323,9 +323,15 @@
     inset: 0;
     pointer-events: none;
   }
+  /* Soft wavy lines rather than the dot grid used further down the page — the
+     Cosive mark is itself a sinewave. One field spanning the whole banner, not
+     a repeating tile: the lines have to swoop the full width uninterrupted, and
+     any tile small enough to repeat would visibly restart. */
   .cti-hero__dots {
-    background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image: url('images/cti/hero-waves.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   /* Two offset blue washes rather than a flat tint — reads as a glow behind
      the type instead of a coloured ground. */
@@ -1722,7 +1728,7 @@
       <nav class="cti-breadcrumb" aria-label="Breadcrumb">
         <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
         <span>/</span>
-        <span>Capabilities</span>
+        <span class="crumb">Capabilities</span>
         <span>/</span>
         <span class="current" aria-current="page">CTI-CMM</span>
       </nav>

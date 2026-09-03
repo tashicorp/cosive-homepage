@@ -192,15 +192,46 @@
     gap: var(--space-lg);
     margin-bottom: var(--space-lg);
   }
+  /* ── Breadcrumb — site standard. Hierarchy is carried by opacity, never
+     colour; the home icon is always present. */
   .legal__breadcrumb {
     display: flex;
     align-items: center;
     gap: var(--space-xs);
+    margin-bottom: 0;
+    font-family: var(--font-body);
     font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    color: rgba(26, 26, 26, 0.65);
   }
-  .legal__breadcrumb a { color: var(--color-accent); }
-  .legal__breadcrumb a:hover { color: var(--color-accent-dark); }
+
+  .legal__breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(26, 26, 26, 0.75);
+    transition: color 0.2s;
+  }
+
+  .legal__breadcrumb a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .legal__breadcrumb svg {
+    width: 14px;
+    height: 14px;
+    stroke: rgba(26, 26, 26, 0.65);
+    flex-shrink: 0;
+  }
+
+  .legal__breadcrumb .separator {
+    color: rgba(26, 26, 26, 0.65);
+  }
+
+  .legal__breadcrumb .current {
+    color: rgba(26, 26, 26, 0.9);
+    font-weight: 400;
+  }
+
   .legal__updated {
     color: var(--color-text-secondary);
     font-size: var(--text-sm);
@@ -339,7 +370,7 @@
   <div class="legal__inner">
     <div class="legal__top">
       <nav class="legal__breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a> <span>/</span> <span>Website Terms of Use</span>
+        <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a> <span class="separator">/</span> <span class="current" aria-current="page">Website Terms of Use</span>
       </nav>
       <a class="legal__pdf" href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6a740f7ab8fb342e82a17fa8_Cosive%20Website%20Terms%20of%20Use.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>

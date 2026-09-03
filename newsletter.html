@@ -199,6 +199,40 @@
     width: 100%;
     text-align: center;
   }
+  /* ── Breadcrumb — site standard. Hierarchy is carried by opacity, never
+     colour; the home icon is always present; 32px to the H1. */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(26, 26, 26, 0.65);
+  }
+
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(26, 26, 26, 0.75);
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover { color: var(--color-text-primary); }
+
+  .breadcrumb svg {
+    width: 14px;
+    height: 14px;
+    stroke: rgba(26, 26, 26, 0.65);
+    flex-shrink: 0;
+  }
+
+  .breadcrumb .separator { color: rgba(26, 26, 26, 0.65); }
+
+  .breadcrumb .current { color: rgba(26, 26, 26, 0.9); font-weight: 400; }
+
   .newsletter__label {
     font-family: var(--font-heading);
     font-size: var(--text-sm);
@@ -318,6 +352,11 @@
      ============================================================ -->
 <main class="newsletter">
   <div class="newsletter__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+      <span class="separator">/</span>
+      <span class="current" aria-current="page">Newsletter</span>
+    </nav>
     <p class="newsletter__label">Newsletter</p>
     <h1 class="heading-style-h1">Stay in the loop</h1>
     <p class="newsletter__sub">Occasional, practical updates on threat intelligence, MISP and fraud data sharing — from the team that runs Australia's national CTIS. No noise, no spam.</p>
