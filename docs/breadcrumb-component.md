@@ -38,7 +38,7 @@ One glyph everywhere. Paste as an Embed so the `stroke` stays CSS-controlled —
 Image or a Webflow icon, and do not set `stroke` on the SVG itself.
 
 ```html
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
 ```
 
 ---
@@ -105,7 +105,7 @@ One combo class, **`is-light`**, overriding only the three colour values. 11 pag
 |---|---|---|
 | Parent label | Text | middle crumb text |
 | Parent link | Link | middle crumb destination |
-| Show parent | Visibility | off for the 13 two-crumb pages |
+| Show parent | Visibility | off for the 12 two-crumb pages |
 | Show as link | Visibility | off where the parent has no page behind it |
 | Current label | Text | last crumb |
 
@@ -116,9 +116,9 @@ One combo class, **`is-light`**, overriding only the three colour values. 11 pag
 The **default instance** — dark, parent shown, parent linked — covers 27 pages. Everything below is
 a deviation from it.
 
-### Show parent = OFF (13 pages, two crumbs)
+### Show parent = OFF (12 pages, two crumbs)
 
-`about` · `blog` · `cloudmisp` · `cloudmisp-v3` · `cyber-threat-intelligence` ·
+`about` · `blog` · `cloudmisp` · `cyber-threat-intelligence` ·
 `fraud-data-sharing` · `security-operations` · `newsletter` · plus the 5 legal pages
 
 ### Parent values (28 pages, three crumbs)
