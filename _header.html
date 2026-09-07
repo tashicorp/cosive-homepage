@@ -9,7 +9,7 @@
     <nav class="main-nav">
       <ul>
         <li><a href="cloudmisp.html" data-nav="cloudmisp">CloudMISP</a></li>
-        <li><a href="cyber-threat-intelligence.html" data-nav="cti">Cyber Threat Intelligence</a></li>
+        <li><a href="cyber-threat-intelligence.html" data-nav="cti">Cyber Threat Intel</a></li>
         <li><a href="security-operations.html" data-nav="secops">Security Operations</a></li>
         <li><a href="fraud-data-sharing.html" data-nav="fraud">Fraud Data Sharing</a></li>
         <li class="nav-dropdown nav-dropdown--mega">
@@ -55,6 +55,19 @@
   /* Resources dropdown. Lifted from cloudmisp.html's implementation, with three
      values brought to the live cosive.com spec: menu padding Space/XS 0, link
      padding Space/XS Space/MD, link size Text/SM. CSS-only — no JS needed. */
+  /* ── Full-size bar sizing ──
+     Injected at runtime, so these land after each page's own header CSS and win.
+     The bar needed 1528px at its old size, which is wider than most laptops; at
+     15px with the shortened CTI label and a 28px logo it needs ~1400px.
+     white-space is the safety net: without it a tight fit wraps a label onto two
+     lines inside its own item, which is what the collision actually was. */
+  .main-nav a,
+  .nav-dropdown__toggle {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .header-logo img { height: 28px; }
+
   .nav-dropdown { position: relative; }
 
   .nav-dropdown__toggle {
@@ -213,15 +226,15 @@
     font-weight: 700;
   }
 
-  /* The nav row wraps to a second line once it runs out of width — that is the
-     site's pre-existing behaviour (the seven-item nav already wrapped below
-     ~1400px and overflowed below ~978px). Capabilities makes the row ~150px
-     wider, so tighten spacing and type through the mid widths: that keeps the
-     row on one line down to ~1200px (better than before) and removes the
-     sub-978px overflow entirely. min-width:901px leaves each page's own mobile
-     block below that untouched. */
-  @media (max-width: 1500px) and (min-width: 901px) {
-    .main-nav ul { gap: 2px; }
+  /* Compression tier. The boundary is the load-bearing number: it must sit ABOVE
+     the width at which the full-size bar stops fitting, with margin. It used to
+     be 1500px while the bar needed 1528px, which left 1501-1528 uncompressed and
+     out of room — the 14" MacBook Pro's 1512px landed in that gap. Measured after
+     the resize above, the bar now needs ~1400px, so this boundary keeps ~40px of
+     headroom and leaves 1440 on the full-size tier.
+     min-width:901px leaves each page's own mobile block below that untouched. */
+  @media (max-width: 1430px) and (min-width: 901px) {
+    .main-nav ul { gap: var(--space-2xs); }
     .main-nav a,
     .nav-dropdown__toggle {
       padding-left: var(--space-xs);
@@ -236,7 +249,10 @@
     }
   }
 
-  @media (max-width: 980px) and (min-width: 901px) {
+  /* Last-ditch tier. Widened from 980px: eight items at Text/SM need ~744px of
+     text and carets alone, so below ~1150px every remaining pixel has to come
+     out of padding and gap. */
+  @media (max-width: 1150px) and (min-width: 901px) {
     .main-nav ul { gap: 0; }
     .main-nav a,
     .nav-dropdown__toggle { padding-left: var(--space-2xs); padding-right: var(--space-2xs); }
