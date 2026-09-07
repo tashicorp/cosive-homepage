@@ -434,39 +434,6 @@
   }
   .cti-btn:hover { background: var(--color-white); color: var(--color-dark); }
 
-  /* ── Contributor portraits — moved out of the hero and into the
-     "test yourself" card, so these are now LIGHT-ground values. ── */
-  .cti-people {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-  }
-  .cti-person {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .cti-person img {
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-full);
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-  .cti-person__name {
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-text-primary);
-  }
-  .cti-person__role {
-    display: block;
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    line-height: 1.4;
-  }
-
   /* ── Hero ladder — compact instance of the level motif ──
      Deliberately NOT given the .cti-ladder class. .cti-ladder carries three
      responsive rules (two-up at 900, one-up at 600, and a `height !important`
@@ -591,62 +558,40 @@
 
 
 
-  /* ── 3. Customer quote + our standing — sits directly under the section nav ──
-     The site's .hero-testimonial says the customer half, but it inks its label
-     with --color-accent (red). Red appears nowhere in this page's body, so
-     this is a page-local build on --page-accent-deep instead.
-     Two columns: what a customer says about us on the left, what we are on the
-     right. The reader meets both kinds of proof before the argument starts. */
-  .cti-quote-band {
+  /* ── 3. Customer quote — the site-standard centred testimonial ──
+     This is .hero-testimonial, carried over from index.html,
+     improve-cti-team.html, manage-my-misp.html and
+     consume-share-threat-intelligence.html so the page reads as part of the
+     site rather than as its own thing. It replaces a two-column band that
+     shared the hero's 1fr/2fr tracks: that band set the reader up for a
+     two-column page, and every section below it is one column or a different
+     split, so the expectation broke on the first scroll.
+     Two page-local deviations, both deliberate:
+       1. The label inks with --page-accent-deep, not --color-accent. Red
+          appears nowhere in this page's body.
+       2. A "read the case study" link is appended. The other pages have no
+          case study to point at; this one does. */
+  .hero-testimonial {
     padding: var(--space-7xl) 0;
     background: var(--color-white);
     border-bottom: 1px solid var(--color-border);
   }
-  /* Held off the divider by the same Space/4XL the banner uses on its panel
-     side, so the rule has equal air on both flanks. */
-  .cti-quote-band__quote { padding-left: var(--space-4xl); }
-  .cti-quote-band__grid {
-    display: grid;
-    /* The banner's tracks, exactly: 1fr / 2fr with a Space/4XL gutter. Same
-       container padding, same gap, so the two dividers land on one line. */
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    column-gap: var(--space-4xl);
-    /* `stretch`, not `start`: the credential column paints a panel, and it has
-       to be the full row height for that panel to reach the band edges. */
-    align-items: stretch;
+  /* The component runs full-bleed on every other page. This quote is longer
+     than those, so it gets a measure — wide enough to stay a pull-quote, short
+     enough that a centred line is still comfortable to track. */
+  .hero-testimonial .testimonial-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+    text-align: center;
   }
-  /* Mirrors the banner: a tinted panel with a 1px edge, running the FULL band
-     height and bleeding to the viewport right. The negative margins are exactly
-     the band's own padding, and the matching padding puts the content back —
-     the same construction as .cti-hero__ladder-wrap, in the light-ground
-     palette. Color/Blue Tint is the page's one alternate ground; Color/Border
-     is the light-ground counterpart of the banner's 0.08 white rule. */
-  .cti-quote-band__credential {
-    /* -4xl on the right carries the panel across the gutter, so its edge lands
-       on the START of column 2 — where the banner's divider sits — not the end
-       of column 1, which would be a gutter-width out. The right padding then
-       holds the content back to the column-1 boundary. */
-    margin: calc(var(--space-7xl) * -1) calc(var(--space-4xl) * -1) calc(var(--space-7xl) * -1) calc(var(--space-3xl) * -1);
-    padding: var(--space-7xl) var(--space-4xl) var(--space-7xl) var(--space-3xl);
-    background: var(--page-accent-tint);
-    border-right: 1px solid var(--color-border);
+  .testimonial-sinewave {
+    display: block;
+    width: var(--space-5xl);
+    height: auto;
+    margin: 0 auto var(--space-lg);
   }
-  .cti-quote-band__title {
-    font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    line-height: var(--leading-snug);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-lg);
-  }
-  .cti-quote-band__note {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-loose);
-    margin-top: var(--space-lg);
-  }
-  .cti-quote-band__note strong { color: var(--color-text-primary); font-weight: 600; }
-  .cti-quote-band__label {
+  .hero-testimonial .testimonial-label {
     font-family: var(--font-heading);
     font-size: var(--text-sm);
     font-weight: 700;
@@ -655,33 +600,31 @@
     color: var(--page-accent-deep);
     margin-bottom: var(--space-lg);
   }
-  .cti-quote-band blockquote {
+  /* Heading font, weight 500, deliberately NOT italic — the site's quote idiom. */
+  .hero-testimonial blockquote {
     font-family: var(--font-heading);
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl);
     font-weight: 500;
-    line-height: var(--leading-snug);
-    color: var(--color-text-primary);
-    /* A measure, so the quote reads as a pull-quote rather than a full-width
-       paragraph. The rest of the page has none; this is the one place it
-       matters most. */
-    max-width: 940px;
-    margin: 0 0 var(--space-lg);
-  }
-  .cti-quote-band cite {
-    display: block;
-    font-size: var(--text-lg);
     font-style: normal;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-lg);
   }
-  .cti-quote-band__logo {
+  .hero-testimonial cite {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 400;
+  }
+  .hero-testimonial .testimonial-logo {
     display: block;
-    height: 40px;
+    height: 3rem;
     width: auto;
-    margin: var(--space-lg) 0 0;
+    margin: var(--space-lg) auto 0;
   }
   /* --page-accent-deep, not --page-accent: this is a light ground, where
      Color/Blue is 2.30:1 and can never carry text. */
-  .cti-quote-band__cta {
+  .testimonial-cta {
     display: inline-block;
     margin-top: var(--space-lg);
     font-size: var(--text-base);
@@ -690,9 +633,65 @@
     border-bottom: 1px solid var(--page-accent-deep);
     transition: color 0.2s, border-color 0.2s;
   }
-  .cti-quote-band__cta:hover {
+  .testimonial-cta:hover {
     color: var(--color-text-primary);
     border-bottom-color: var(--color-text-primary);
+  }
+
+  /* ── Expertise strip ──
+     A flat band, deliberately NOT a .cti-section: no grid, no eyebrow, and
+     padding that keeps it to roughly the height of its own portraits. The
+     reader crosses it rather than stopping at it, which is the point of putting
+     it between the framework section and the model. The tint
+     is the one the old credential panel painted, so the palette is unchanged.
+     Grey → tint → dark already separates the three grounds; the hairline on top
+     is Color/Border, the same rule the testimonial closes on, and it gives the
+     strip a defined edge where it meets the framework section rather than the
+     tint just fading up out of the grey. No rule underneath — the dark band
+     below is its own hard edge. */
+  .cti-expertise-strip {
+    padding: var(--space-2xl) 0;
+    background: var(--page-accent-tint);
+    border-top: 1px solid var(--color-border);
+  }
+  .cti-expertise-strip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+  /* Set side by side, not overlapped — two named people, so neither is
+     partly hidden behind the other. */
+  .cti-expertise-strip__faces {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--space-xs);
+  }
+  .cti-expertise-strip__faces img {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+  }
+  /* Left-aligned against the faces rather than centred within itself: the two
+     lines are very different lengths, and a shared left edge reads as one
+     block. The pair is still centred in the page as a unit. */
+  .cti-expertise-strip__body { text-align: left; }
+  /* --page-accent-deep, not --page-accent: on this tint Color/Blue is nowhere
+     near carrying text. */
+  .cti-expertise-strip__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--page-accent-deep);
+    margin-bottom: var(--space-2xs);
+  }
+  .cti-expertise-strip__text {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
   }
 
   /* ── 3. Section shell + shared section head ──
@@ -836,8 +835,12 @@
   }
   .cti-section-head--rows { margin-bottom: var(--space-3xl); }
 
-  /* Two tracks in the quote band's proportions, so the "test yourself" card
-     lands on exactly the same line as the "our expertise" panel above it.
+  /* A wider main column than aside, so the "test yourself" card reads as a
+     sidecar to the argument rather than a second column of equal weight.
+     These proportions were originally set to align with the "our expertise"
+     panel that used to sit directly above; that panel is now a centred strip
+     further down the page, so the alignment no longer applies — the ratio is
+     kept because it is right for the card, not because it matches anything.
      A modifier rather than a change to .cti-section-head, which is shared with
      the domains, levels, what-you-get and approach heads — those stay 50/50. */
   .cti-section-head--split {
@@ -1686,32 +1689,17 @@
       border-left: none;
     }
 
-    /* The quote band shares the banner's tracks, so it stacks at the same width.
-       Otherwise the banner is one column while the band still shows two and a
-       divider, and the two stop agreeing. */
-    .cti-quote-band__grid { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-3xl); }
-    .cti-quote-band__credential {
-      margin: 0;
-      padding: 0;
-      background: none;
-      border-right: none;
-    }
-    /* The credential is first in the DOM now, so the separating rule moves
-       onto the quote that follows it. */
-    .cti-quote-band__quote {
-      padding: var(--space-3xl) 0 0;
-      border-top: 1px solid var(--color-border);
-    }
     /* Stacked, the ladder would sprawl to full width and stop reading as a
        compact motif. */
     .cti-hero__ladder-wrap { max-width: 760px; }
   }
 
-  /* The section nav runs out of room before anything else does: eight items is
-     987px of content in a (viewport - 96px) box, so it overflows at ~1083px.
-     The scroll strip has to start there, not at 900 — otherwise there is a
-     band where it silently clips. The tighter gap also buys back ~60px, so it
-     genuinely fits down to about 1020 before it needs to scroll at all. */
+  /* The section nav runs out of room before anything else does. It was eight
+     items — 987px of content in a (viewport - 96px) box, overflowing at
+     ~1083px — and is now seven, so it fits comfortably further down. The
+     threshold stays at 1100 rather than being retuned: it is the conservative
+     side, and the strip must never silently clip. The tighter gap buys back
+     another ~60px on top of that. */
   @media (max-width: 1100px) {
     .cti-section-nav__inner { position: relative; justify-content: flex-start; }
     .cti-section-nav__inner::after {
@@ -1723,6 +1711,15 @@
       pointer-events: none;
     }
     .cti-section-nav__list { gap: var(--space-lg); padding-right: var(--space-3xl); }
+  }
+
+  /* Below about 920px the faces and the body stop fitting on one row and flex
+     wraps them onto two. Left-aligned, the body then sits on a different axis
+     from the centred faces and the strip stops reading as one object, so it
+     gives up its left edge and centres too. 1000 rather than the measured 920,
+     to stay clear of the wrap point at any font scale. */
+  @media (max-width: 1000px) {
+    .cti-expertise-strip__body { text-align: center; }
   }
 
   @media (max-width: 900px) {
@@ -1750,8 +1747,11 @@
 
     /* CTI-CMM sections — the four-column head collapses to one column */
     .cti-section { padding: var(--space-7xl) 0; }
-    .cti-quote-band { padding: var(--space-5xl) 0; }
-    .cti-quote-band blockquote { font-size: var(--text-2xl); }
+    .hero-testimonial { padding: var(--space-5xl) 0; }
+    /* The component ships a fixed Space/3XL inner padding on every other page.
+       Here it tracks .container instead, so the quote lines up with every
+       section above and below it. */
+    .hero-testimonial .testimonial-inner { padding: 0 var(--space-lg); }
     .cti-section-head {
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: auto;
@@ -1873,9 +1873,6 @@
       hyphens: auto;
       overflow-wrap: break-word;
     }
-    .cti-quote-band .cti-person img { width: 46px; height: 46px; }
-    .cti-quote-band .cti-person__name { font-size: var(--text-sm); }
-    .cti-quote-band .cti-person__role { font-size: var(--text-xs); }
 
     /* Section nav */
     .cti-section-nav__inner { height: 52px; }
@@ -1884,9 +1881,13 @@
 
     /* CTI-CMM sections */
     .cti-section { padding: var(--space-5xl) 0; }
-    .cti-quote-band { padding: var(--space-4xl) 0; }
-    .cti-quote-band blockquote { font-size: var(--text-xl); }
-    .cti-quote-band cite { font-size: var(--text-base); }
+    .hero-testimonial { padding: var(--space-4xl) 0; }
+    .hero-testimonial blockquote { font-size: var(--text-xl); }
+    .hero-testimonial cite { font-size: var(--text-base); }
+    /* The text no longer fits beside the faces; it wraps under them, and the
+       body's left edge gives way to the strip's centre line. */
+    .cti-expertise-strip__inner { flex-direction: column; text-align: center; gap: var(--space-md); }
+    .cti-expertise-strip__heading { font-size: var(--text-lg); }
     .cti-eyebrow { font-size: 13px; }
     .cti-section-head__eyebrow { margin-bottom: var(--space-md); }
     .cti-h2 { font-size: 28px; line-height: 1.2; }
@@ -2034,7 +2035,6 @@
 <nav class="cti-section-nav" aria-label="Page sections">
   <div class="container cti-section-nav__inner">
     <ul class="cti-section-nav__list">
-      <li><a href="#our-expertise" class="cti-section-nav__link">Our expertise</a></li>
       <li><a href="#why-cti-cmm" class="cti-section-nav__link">Why CTI-CMM</a></li>
       <li><a href="#domains" class="cti-section-nav__link">How it works</a></li>
       <li><a href="#what-you-get" class="cti-section-nav__link">What you get</a></li>
@@ -2047,44 +2047,18 @@
 </nav>
 
 <!-- ══ 3. Customer quote — placed directly under the nav, where it does the
-     most work: the reader meets the proof before the argument. This is a pull
-     quote naming the engagement; the complete testimonial runs in the case
-     study, which the CTA links to. ══ -->
-<section class="cti-quote-band" id="our-expertise">
-  <div class="container cti-quote-band__grid">
-    <!-- Our own standing on the left, what a customer says about us on the
-         right: both halves of the proof, before the argument starts. -->
-    <div class="cti-quote-band__credential">
-      <div class="cti-quote-band__label">Our expertise</div>
-      <h2 class="cti-quote-band__title">We help build CTI-CMM</h2>
-
-      <div class="cti-people">
-        <div class="cti-person">
-          <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" width="52" height="52" loading="lazy">
-          <div>
-            <span class="cti-person__name">Chris Horsley</span>
-            <span class="cti-person__role">Principal Security Consultant &amp; CTO</span>
-          </div>
-        </div>
-        <div class="cti-person">
-          <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" width="52" height="52" loading="lazy">
-          <div>
-            <span class="cti-person__name">Prescott Pym</span>
-            <span class="cti-person__role">Principal Security Consultant</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="cti-quote-band__note">We are <strong>volunteer contributors</strong> to the framework, shaping it alongside a small group of leading CTI practitioners from around the world.</p>
-    </div>
-
-    <div class="cti-quote-band__quote">
-      <div class="cti-quote-band__label">What our customers say about us</div>
-      <blockquote>&ldquo;The cyber threat intelligence maturity assessment report and subsequent recommendations were practical and thoughtfully developed, going well beyond high-level suggestions to clearly outline how we could approach implementation in our context.&rdquo;</blockquote>
-      <cite>Sasenka Abeysooriya, Program Director</cite>
-      <img class="cti-quote-band__logo" src="logos/uq.svg" alt="The University of Queensland" width="152" height="40" loading="lazy">
-      <a href="#case-study" class="cti-quote-band__cta">Read the case study</a>
-    </div>
+     most work: the reader meets the proof before the argument. This is the
+     site-standard .hero-testimonial, centred like every other page's, so the
+     reader is not set up to expect a two-column page. The complete testimonial
+     runs in the case study, which the CTA links to. ══ -->
+<section class="hero-testimonial" id="customer-quote">
+  <div class="testimonial-inner">
+    <img class="testimonial-sinewave" src="icons/cosive-sinewave.svg" alt="" width="80" height="24" loading="lazy">
+    <div class="testimonial-label">What our customers say about us</div>
+    <blockquote>&ldquo;The cyber threat intelligence maturity assessment report and subsequent recommendations were practical and thoughtfully developed, going well beyond high-level suggestions to clearly outline how we could approach implementation in our context.&rdquo;</blockquote>
+    <cite>&mdash; Sasenka Abeysooriya, Program Director</cite>
+    <img class="testimonial-logo" src="logos/uq.svg" alt="The University of Queensland" width="152" height="40" loading="lazy">
+    <a href="#case-study" class="testimonial-cta">Read the case study</a>
   </div>
 </section>
 
@@ -2109,6 +2083,22 @@
         <a href="https://cosive.com/cti-cmm-assessment-tool" class="cti-btn--deep">Open the free assessment tool</a>
         <p class="cti-help-card__after">Once you have a draft score, <a class="cti-link" href="#contact">talk to us</a> about an independent assessment.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4b. Our expertise — a flat one-line strip, not a section. It fills the
+     gap between the framework and the model without restating either, and
+     keeps the #our-expertise anchor working. ══ -->
+<section class="cti-expertise-strip" id="our-expertise">
+  <div class="container cti-expertise-strip__inner">
+    <div class="cti-expertise-strip__faces">
+      <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" width="56" height="56" loading="lazy">
+      <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" width="56" height="56" loading="lazy">
+    </div>
+    <div class="cti-expertise-strip__body">
+      <h2 class="cti-expertise-strip__heading">Nobody knows CTI-CMM better.</h2>
+      <p class="cti-expertise-strip__text">Our CTI-CMM assessors Chris Horsley and Prescott Pym are volunteer contributors to the framework.</p>
     </div>
   </div>
 </section>
@@ -2516,7 +2506,7 @@
   var sectionNav = document.querySelector('.cti-section-nav');
   if (!sectionNav) return;
   var navList = sectionNav.querySelector('.cti-section-nav__list');
-  var sectionIds = ['our-expertise','why-cti-cmm','domains','what-you-get','why-cosive','case-study','how-it-works','faq'];
+  var sectionIds = ['why-cti-cmm','domains','what-you-get','why-cosive','case-study','how-it-works','faq'];
   // Every observed section now has its own link in the bar, so no folding is
   // needed; the map is kept as the hook for any future merged section.
   var navMapping = {};
