@@ -616,6 +616,21 @@
     font-style: normal;
     font-weight: 400;
   }
+  .hero-testimonial .testimonial-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero-testimonial .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
   .hero-testimonial .testimonial-logo {
     display: block;
     height: 3rem;
@@ -2056,7 +2071,10 @@
     <img class="testimonial-sinewave" src="icons/cosive-sinewave.svg" alt="" width="80" height="24" loading="lazy">
     <div class="testimonial-label">What our customers say about us</div>
     <blockquote>&ldquo;The cyber threat intelligence maturity assessment report and subsequent recommendations were practical and thoughtfully developed, going well beyond high-level suggestions to clearly outline how we could approach implementation in our context.&rdquo;</blockquote>
-    <cite>&mdash; Sasenka Abeysooriya, Program Director</cite>
+    <div class="testimonial-attribution">
+      <img class="testimonial-avatar" src="images/homepage/sasenka-abeysooriya.jpg" alt="Sasenka Abeysooriya" width="56" height="56" loading="lazy">
+      <cite>Sasenka Abeysooriya, Program Director</cite>
+    </div>
     <img class="testimonial-logo" src="logos/uq.svg" alt="The University of Queensland" width="152" height="40" loading="lazy">
     <a href="#case-study" class="testimonial-cta">Read the case study</a>
   </div>

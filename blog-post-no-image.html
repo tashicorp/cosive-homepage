@@ -161,11 +161,10 @@
   }
 
   /* ── Article Hero ── */
-  /* Dark banner, using the same Color/Dark + dot-grid treatment as the blog
-     index hero and the newsletter band. No photo behind it: the index hero can
-     carry a generic image because its headline is generic, but a stock photo
-     behind a specific article title reads as filler. No bottom border either —
-     the dark-to-white edge is the divider. */
+  /* Dark banner for a post with no featured image. Rather than sitting flat on
+     Color/Dark, it carries the existing Cosive line pattern, faded out to the
+     left so the headline column stays clean. No bottom border: the dark-to-white
+     edge is the divider. */
   .article-hero {
     position: relative;
     padding: var(--space-6xl) 0;
@@ -173,25 +172,49 @@
     overflow: hidden;
   }
 
-  /* Featured image, treated like the /blog hero. The overlay is 0.94 rather
-     than that hero's 0.88 because this image is a UI screenshot with a mean
-     luminance of 237/255 — near-white, where the /blog training-room shot is
-     dim, so a lighter overlay would lift the whole banner off Color/Dark. */
+  /* Two background layers on one pseudo-element, both anchored to the right.
+
+     66.67% 100% spans the right two thirds at full height. That stretches the
+     mesh ~1.5x horizontally, which is deliberate: at natural aspect a 2/3-wide
+     image would be 718px tall and lose 35% of its height to cropping. The mesh
+     is abstract enough that the stretch does not read as an error, and this is
+     the only sizing that keeps both the full height and the 2/3 width.
+
+     The stretch only works because hero-pattern.svg carries
+     preserveAspectRatio="none". An SVG with a viewBox defaults to xMidYMid
+     meet, which LETTERBOXES inside whatever box background-size gives it: at
+     933x470 against a 1440x1108 viewBox it drew 611x470 centred, leaving 161px
+     blank down each side. background-size alone cannot stretch an SVG — the
+     attribute has to be on the file. If this artwork is ever re-downloaded from
+     the CDN, that attribute must be re-added.
+
+     Softening the image's left edge is the gradient's job. Both are now sized
+     as percentages of the element, so the image edge sits at a fixed 33% and
+     the fade tracks it at every viewport width. (When the image was sized by
+     height instead, the gradient had to be px-anchored for the same reason —
+     whichever way the image is sized, the gradient must match it.)
+
+     The fade clears at 72%, so it is still ~34% opaque where the headline ends
+     near 54% — the gradient deliberately overlaps the title's right edge rather
+     than starting clear of it. The gradient is listed first, so it paints ABOVE
+     the pattern.
+
+     A stacked gradient rather than mask-image because this is headed for
+     Webflow, whose Style panel has no mask-image but does support a gradient
+     layer above an image layer — so this translates to the Designer as-is.
+
+     The artwork carries its own opacity='0.1' internally, so it needs no
+     grayscale filter and no ::after scrim; a scrim would simply erase it. */
   .article-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('images/blog/misp-beta-ui-walkthrough.jpg') center / cover no-repeat;
-    filter: grayscale(1);
+    background:
+      linear-gradient(to right,
+        var(--color-dark) 18%,
+        rgba(14,20,28,0) 72%),
+      url('images/blog/hero-pattern.svg') right center / 66.67% 100% no-repeat;
     z-index: 0;
-  }
-
-  .article-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(14,20,28,0.94);
-    z-index: 1;
   }
 
   /* ── Breadcrumb — site standard. Hierarchy is carried by opacity, never

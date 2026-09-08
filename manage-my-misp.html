@@ -832,6 +832,21 @@
     font-weight: 400;
   }
 
+  .hero-testimonial .testimonial-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero-testimonial .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
   .hero-testimonial .testimonial-logo {
     display: block;
     height: 3rem;
@@ -1610,7 +1625,10 @@
     <img src="icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
     <div class="testimonial-label">What our customers say about us</div>
     <blockquote>&ldquo;Cosive brought a high level of expertise and depth of knowledge to our engagement, and from the outset they were collaborative in developing the engagement methodology and deliverables.&rdquo;</blockquote>
-    <cite>&mdash; Sasenka Abeysooriya, Program Director</cite>
+    <div class="testimonial-attribution">
+      <img class="testimonial-avatar" src="images/homepage/sasenka-abeysooriya.jpg" alt="Sasenka Abeysooriya" width="56" height="56" loading="lazy">
+      <cite>Sasenka Abeysooriya, Program Director</cite>
+    </div>
     <img src="logos/uq.svg" alt="The University of Queensland" class="testimonial-logo">
   </div>
 </section>

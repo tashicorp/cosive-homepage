@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog - Insights from the field | Cosive</title>
-<meta name="description" content="Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.">
+<title>Threat Intelligence &amp; Security Operations Blog | Cosive</title>
+<meta name="description" content="Our specialists write up what they learn building threat intelligence, security operations and fraud data sharing programmes — notes you can use in your own.">
+<link rel="canonical" href="https://www.cosive.com/blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Threat Intelligence &amp; Security Operations Blog | Cosive">
+<meta property="og:description" content="What our specialists learn building threat intelligence, security operations and fraud data sharing.">
+<meta property="og:url" content="https://www.cosive.com/blog">
+<meta property="og:image" content="https://www.cosive.com/images/og/og-blog.png">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -470,41 +477,56 @@
     line-height: var(--leading-normal);
   }
 
+  /* Authors and the CTA sit on one centred row; the date has moved up beside
+     the category badge in the card header. */
   .blog-card-footer {
     margin-top: auto;
     padding-top: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  /* One self-contained avatar + name pair per author, mirroring
+     .article-meta-author on blog-post.html. Replaces the overlapping facepile:
+     binding the avatar to its own name removes the separator, the paint-order
+     override and the last-child margin reset, which is what lets a CMS
+     collection render this row directly. */
+  .blog-card-authors {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    row-gap: var(--space-sm);
+    /* The second pair drops to its own line below ~400px. */
+    flex-wrap: wrap;
   }
 
   .blog-card-author {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    /* Shrinkable, or a long name overflows instead of wrapping. */
+    min-width: 0;
   }
 
-  /* Text column must be shrinkable or two names overflow instead of wrapping */
-  .blog-card-author > div { min-width: 0; }
-
-  /* Facepile for co-authors. Overlap scaled from .team-avatars (index.html:1028),
-     which uses -14px on 64px avatars — the same 22% at this size. */
-  .blog-card-avatars {
+  /* Name over role. min-width:0 lets a long title wrap rather than pushing the
+     pair wider than the card. */
+  .blog-card-author-text {
     display: flex;
-    gap: 0;
-    flex-shrink: 0;
+    flex-direction: column;
+    min-width: 0;
   }
 
-  .blog-card-avatars > * {
+  .blog-card-avatar,
+  .blog-card-monogram {
     width: 44px;
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--color-light-grey);
-    margin-right: -10px;
-    position: relative;
+    flex-shrink: 0;
   }
-
-  /* Without this the second author would paint over the first */
-  .blog-card-avatars > *:first-child { z-index: 1; }
-  .blog-card-avatars > *:last-child { margin-right: 0; }
 
   /* Stand-in for an author with no photo */
   .blog-card-monogram {
@@ -520,22 +542,15 @@
 
   .blog-card-author-name {
     font-weight: 600;
-    font-size: var(--text-base);
+    /* Text/SM, matching .article-meta-author-name — 16px reads heavy beside a
+       32px avatar on a single line. */
+    font-size: var(--text-sm);
     color: var(--color-text-primary);
   }
 
   .blog-card-author-role {
     font-size: var(--text-xs);
     color: var(--color-text-secondary);
-  }
-
-  .blog-card-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-2xs);
   }
 
   /* ── Lead Card ── */
@@ -1068,18 +1083,24 @@
       <a href="blog-post.html" class="blog-card lead" data-category="security-operations">
         <div class="blog-card-header">
           <span class="category-badge">Security Operations</span>
-        </div>
+      </div>
         <h2>How the ASD June 2026 ISM Uplifts CTI Programs</h2>
         <p class="blog-card-excerpt">The ASD released an updated Information Security Manual in June 2026, and there’s more in it for threat intelligence teams than the changelog suggests. We’ve read through the CTI-relevant controls and pulled out what actually changes for Australian organisations, what you can safely defer, and where the new guidance gives you leverage to argue for resourcing you’ve been asking for.</p>
         <div class="blog-card-footer">
-          <div class="blog-card-author">
-            <div class="blog-card-avatars">
-              <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2aa83e24e3b979ecbc36_prescott-pym-cosive.jpg" alt="Prescott Pym" loading="lazy">
-              <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
-            </div>
-            <div>
-              <div class="blog-card-author-name">Prescott Pym &amp; Chris Horsley</div>
-              <div class="blog-card-date">18 Aug 2026</div>
+          <div class="blog-card-authors">
+            <div class="blog-card-author">
+              <img class="blog-card-avatar" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/687f2aa83e24e3b979ecbc36_prescott-pym-cosive.jpg" alt="Prescott Pym" loading="lazy">
+              <div class="blog-card-author-text">
+                <span class="blog-card-author-name">Prescott Pym</span>
+                <span class="blog-card-author-role">Principal Security Consultant</span>
+              </div>
+              <div class="blog-card-author">
+                <img class="blog-card-avatar" src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Chris Horsley</span>
+                  <span class="blog-card-author-role">Principal Security Consultant &amp; CTO</span>
+                </div>
+              </div>
             </div>
           </div>
           <span class="blog-card-cta">Read article <span class="cta-arrow">&rarr;</span></span>
@@ -1109,18 +1130,24 @@
         <a href="https://cosive.com/blog/misp-beta-ui-ux-mode-v2-5-32-a-walkthrough" class="blog-card" data-category="threat-intelligence">
           <div class="blog-card-header">
             <span class="category-badge">Threat Intelligence</span>
-          </div>
+        </div>
           <h3>MISP Beta UI/UX Mode (v2.5.32): A Walkthrough</h3>
           <p class="blog-card-excerpt">We’ve been doing some work at Cosive to modernise the MISP user interface and bring more responsive web design into the experience. The result is a new beta UI that you can enable today if you’re running a recent version of MISP (v2.5.32 or later). This update is driven by a simple goal: make MISP easier to use, especially for analysts working on smaller screens or remotely.</p>
           <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
-                <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Chris Horsley &amp; Tash Postolovski</div>
-                <div class="blog-card-date">15 Aug 2026</div>
+            <div class="blog-card-authors">
+              <div class="blog-card-author">
+                <img class="blog-card-avatar" src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Chris Horsley</span>
+                  <span class="blog-card-author-role">Principal Security Consultant &amp; CTO</span>
+                </div>
+                <div class="blog-card-author">
+                  <img class="blog-card-avatar" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
+                  <div class="blog-card-author-text">
+                    <span class="blog-card-author-name">Tash Postolovski</span>
+                    <span class="blog-card-author-role">Technical Marketing Manager</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1129,17 +1156,17 @@
         <a href="https://cosive.com/blog/misp-2025-retrospective-monthly-highlights" class="blog-card" data-category="threat-intelligence">
           <div class="blog-card-header">
             <span class="category-badge">Threat Intelligence</span>
-          </div>
+        </div>
           <h3>MISP 2025 Retrospective: Monthly Highlights</h3>
           <p class="blog-card-excerpt">The MISP developer community shipped a steady stream of releases through 2025, and it’s easy to lose track of what landed when. We’ve gone back through the year month by month and pulled out the changes worth knowing about: new features, quality-of-life improvements, and a few smaller fixes that quietly make day-to-day analyst work easier.</p>
           <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
+            <div class="blog-card-authors">
+              <div class="blog-card-author">
                 <span class="blog-card-monogram" aria-hidden="true">JC</span>
-              </div>
-              <div>
-                <div class="blog-card-author-name">Joe Cozzupoli</div>
-                <div class="blog-card-date">10 Aug 2026</div>
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Joe Cozzupoli</span>
+                  <span class="blog-card-author-role">Field CISO &amp; Principal Security Advisor</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1148,17 +1175,17 @@
         <a href="https://cosive.com/blog/meet-joe-cozzupoli-field-ciso-and-principal-security-advisor-at-cosive" class="blog-card" data-category="company-news">
           <div class="blog-card-header">
             <span class="category-badge">Company News</span>
-          </div>
+        </div>
           <h3>Meet Joe Cozzupoli, Field CISO at Cosive</h3>
           <p class="blog-card-excerpt">Joe Cozzupoli has joined Cosive as Field CISO and Principal Security Advisor. He comes to us after years on the other side of the table, running security programs and making the same budget and resourcing calls our customers face every day. We sat down with Joe to talk about what he’s seen work, what he’d do differently, and how he plans to spend his first few months.</p>
           <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Tash Postolovski</div>
-                <div class="blog-card-date">04 Aug 2026</div>
+            <div class="blog-card-authors">
+              <div class="blog-card-author">
+                <img class="blog-card-avatar" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Tash Postolovski</span>
+                  <span class="blog-card-author-role">Technical Marketing Manager</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1167,17 +1194,17 @@
         <a href="https://cosive.com/blog/what-i-learned-about-logging-from-moving-house" class="blog-card" data-category="security-operations">
           <div class="blog-card-header">
             <span class="category-badge">Security Operations</span>
-          </div>
+        </div>
           <h3>What I Learned About Logging From Moving House</h3>
           <p class="blog-card-excerpt">Sometimes the best security analogies come from everyday life. I moved house recently, and somewhere between labelling boxes and losing track of the kettle I realised I was solving the same problem we solve with log management: what do you keep, what do you throw out, and how do you find the one thing you need six months later?</p>
           <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <div class="blog-card-avatars">
-                <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" loading="lazy">
-              </div>
-              <div>
-                <div class="blog-card-author-name">Prescott Pym</div>
-                <div class="blog-card-date">28 Jul 2026</div>
+            <div class="blog-card-authors">
+              <div class="blog-card-author">
+                <img class="blog-card-avatar" src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" loading="lazy">
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Prescott Pym</span>
+                  <span class="blog-card-author-role">Principal Security Consultant</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1186,18 +1213,18 @@
         <a href="https://cosive.com/blog/cti-cmm-improving-cyber-threat-intel-maturity" class="blog-card" data-category="podcast">
         <div class="blog-card-header">
         <span class="category-badge">Podcast</span>
-        </div>
+      </div>
         <h3>CTI-CMM: Improving Cyber Threat Intel Maturity</h3>
         <p class="blog-card-excerpt">The Cyber Threat Intelligence Capability Maturity Model gives teams a way to benchmark where they are without turning it into a compliance exercise. In this episode we talk through how CTI-CMM is structured, where teams typically over-estimate their own maturity, and how to use it to have a more useful conversation with the people who fund your program.</p>
         <div class="blog-card-footer">
-        <div class="blog-card-author">
-        <div class="blog-card-avatars">
-          <img src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
-        </div>
-        <div>
-        <div class="blog-card-author-name">Terry MacDonald</div>
-        <div class="blog-card-date">20 Jul 2026</div>
-        </div>
+        <div class="blog-card-authors">
+          <div class="blog-card-author">
+            <img class="blog-card-avatar" src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
+            <div class="blog-card-author-text">
+              <span class="blog-card-author-name">Terry MacDonald</span>
+              <span class="blog-card-author-role">Principal Security Consultant &amp; COO</span>
+            </div>
+          </div>
         </div>
         </div>
         </a>

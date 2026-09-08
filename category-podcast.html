@@ -482,41 +482,56 @@
     line-height: var(--leading-normal);
   }
 
+  /* Authors and the CTA sit on one centred row; the date has moved up beside
+     the category badge in the card header. */
   .blog-card-footer {
     margin-top: auto;
     padding-top: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  /* One self-contained avatar + name pair per author, mirroring
+     .article-meta-author on blog-post.html. Replaces the overlapping facepile:
+     binding the avatar to its own name removes the separator, the paint-order
+     override and the last-child margin reset, which is what lets a CMS
+     collection render this row directly. */
+  .blog-card-authors {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    row-gap: var(--space-sm);
+    /* The second pair drops to its own line below ~400px. */
+    flex-wrap: wrap;
   }
 
   .blog-card-author {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    /* Shrinkable, or a long name overflows instead of wrapping. */
+    min-width: 0;
   }
 
-  /* Text column must be shrinkable or two names overflow instead of wrapping */
-  .blog-card-author > div { min-width: 0; }
-
-  /* Facepile for co-authors. Overlap scaled from .team-avatars (index.html:1028),
-     which uses -14px on 64px avatars — the same 22% at this size. */
-  .blog-card-avatars {
+  /* Name over role. min-width:0 lets a long title wrap rather than pushing the
+     pair wider than the card. */
+  .blog-card-author-text {
     display: flex;
-    gap: 0;
-    flex-shrink: 0;
+    flex-direction: column;
+    min-width: 0;
   }
 
-  .blog-card-avatars > * {
+  .blog-card-avatar,
+  .blog-card-monogram {
     width: 44px;
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--color-light-grey);
-    margin-right: -10px;
-    position: relative;
+    flex-shrink: 0;
   }
-
-  /* Without this the second author would paint over the first */
-  .blog-card-avatars > *:first-child { z-index: 1; }
-  .blog-card-avatars > *:last-child { margin-right: 0; }
 
   /* Stand-in for an author with no photo */
   .blog-card-monogram {
@@ -532,22 +547,15 @@
 
   .blog-card-author-name {
     font-weight: 600;
-    font-size: var(--text-base);
+    /* Text/SM, matching .article-meta-author-name — 16px reads heavy beside a
+       32px avatar on a single line. */
+    font-size: var(--text-sm);
     color: var(--color-text-primary);
   }
 
   .blog-card-author-role {
     font-size: var(--text-xs);
     color: var(--color-text-secondary);
-  }
-
-  .blog-card-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-2xs);
   }
 
   /* ── Lead Card ── */
@@ -1123,15 +1131,17 @@
         <a href="https://cosive.com/blog/cti-cmm-improving-cyber-threat-intel-maturity" class="blog-card" data-category="podcast">
           <div class="blog-card-header">
             <span class="category-badge">Podcast</span>
-          </div>
+        </div>
           <h3>CTI-CMM: Improving Cyber Threat Intel Maturity</h3>
           <p class="blog-card-excerpt">The Cyber Threat Intelligence Capability Maturity Model gives teams a way to benchmark where they are without turning it into a compliance exercise. In this episode we talk through how CTI-CMM is structured, where teams typically over-estimate their own maturity, and how to use it to have a more useful conversation with the people who fund your program.</p>
           <div class="blog-card-footer">
-            <div class="blog-card-author">
-              <img src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
-              <div>
-                <div class="blog-card-author-name">Terry MacDonald</div>
-                <div class="blog-card-date">20 Jul 2026</div>
+            <div class="blog-card-authors">
+              <div class="blog-card-author">
+                <img class="blog-card-avatar" src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
+                <div class="blog-card-author-text">
+                  <span class="blog-card-author-name">Terry MacDonald</span>
+                  <span class="blog-card-author-role">Principal Security Consultant &amp; COO</span>
+                </div>
               </div>
             </div>
           </div>

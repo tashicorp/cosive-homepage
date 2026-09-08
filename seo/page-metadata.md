@@ -132,3 +132,9 @@ toggle "use SEO title/description", or paste the **OG title** below where a punc
 - **Meta description** (158): `We build custom fraud tools and integrate your transaction monitoring and case management platforms — automating fraud operations for banks and central banks.`
 - **OG title**: `Custom fraud tooling and integrations`
 - **OG image**: upload `images/og/og-build-and-integrate-fraud-tools.png` → set in the Open Graph tab (leave the OG image field empty otherwise)
+
+### 21. Blog → `https://www.cosive.com/blog`
+- **Title** (55): `Threat Intelligence & Security Operations Blog | Cosive`
+- **Meta description** (157): `Our specialists write up what they learn building threat intelligence, security operations and fraud data sharing programmes — notes you can use in your own.`
+- **OG title**: `Insights from the field`
+- **OG image**: upload `images/og/og-blog.png` → set in the Open Graph tab (leave the OG image field empty otherwise)
