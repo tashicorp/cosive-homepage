@@ -6,30 +6,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { background: #05070b; }
+  html, body { background: #0e141c; }
   .og {
     position: relative;
     width: 1200px;
     height: 630px;
     overflow: hidden;
     font-family: 'Manrope', sans-serif;
-    background: #05070b;
+    /* Color/Dark, not the #05070b the photo cards use — this card carries the
+       CTI-CMM page's own ground so the two read as the same thing. */
+    background: #0e141c;
   }
-  .og__bg {
+  /* The hero's two offset blue washes, verbatim from cti-cmm.html:344-347.
+     They read as a glow behind the type rather than a coloured ground. */
+  .og__glow {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 42%;
-  }
-  /* darken left + top for text legibility, matching the existing card set */
-  .og__overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(90deg, rgba(5,7,11,0.92) 0%, rgba(5,7,11,0.78) 42%, rgba(5,7,11,0.30) 100%),
-      linear-gradient(180deg, rgba(5,7,11,0.85) 0%, rgba(5,7,11,0.15) 30%, rgba(5,7,11,0.15) 100%);
+    background-image:
+      radial-gradient(ellipse at 22% 40%, rgba(42,182,246,0.13) 0%, transparent 58%),
+      radial-gradient(ellipse at 78% 88%, rgba(42,182,246,0.07) 0%, transparent 52%);
   }
   .og__logo {
     position: absolute;
@@ -38,11 +33,15 @@
     width: 274px;
     height: auto;
   }
+  /* Narrowed from the photo cards' `right: 90px`: the ladder owns the right of
+     the canvas, so the text column stops short of it. */
   .og__content {
     position: absolute;
     left: 80px;
-    right: 90px;
-    top: 205px;
+    right: 520px;
+    /* Higher than the photo cards' 205px: a three-line headline in this
+       narrower column needs the room, or the sub runs into the wordmark. */
+    top: 150px;
   }
   .og__title {
     color: #ffffff;
@@ -68,16 +67,62 @@
     font-weight: 700;
     letter-spacing: 0.2px;
   }
+
+  /* ── The maturity ladder ──
+     The page's signature motif, at card scale. Heights hold the page's
+     48 : 112 : 176 : 240 ratio (--level-h-*) scaled ×1.5, so the tallest bar is
+     360px — the ceiling that keeps it clear of the logo. Fills, the 6px top
+     corners, the top-lit edge and the 2px accent baseline are all verbatim from
+     cti-cmm.html:135-138, 1344-1358. */
+  .og__ladder {
+    position: absolute;
+    right: 80px;
+    bottom: 66px;
+    display: grid;
+    grid-template-columns: repeat(4, 84px);
+    column-gap: 12px;
+    align-items: end;
+  }
+  .og__bar {
+    border-radius: 6px 6px 0 0;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-bottom: none;
+  }
+  .og__bar:nth-child(1) { height: 72px;  background: #133143; }
+  .og__bar:nth-child(2) { height: 168px; background: #19526f; }
+  .og__bar:nth-child(3) { height: 264px; background: #1f78a3; }
+  .og__bar:nth-child(4) { height: 360px; background: #2ab6f6; }
+  .og__level {
+    border-top: 2px solid #2ab6f6;
+    padding-top: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    /* text-indent cancels the trailing letter-space, which would otherwise
+       push centred text a fraction left of the bar's centre. */
+    text-align: center;
+    text-indent: 0.08em;
+    color: #2ab6f6;
+  }
 </style>
 </head>
 <body>
   <div class="og">
-    <img class="og__bg" src="images/blog/blog-banner-auscert.webp" alt="">
-    <div class="og__overlay"></div>
+    <div class="og__glow"></div>
     <img class="og__logo" src="logos/cosive_logo_reverse_full_color_transparent_print.png" alt="Cosive">
     <div class="og__content">
-      <div class="og__title">Threat Intelligence &amp; Security Operations Blog</div>
-      <div class="og__sub">Our specialists write up what they learn building threat intelligence, security operations and fraud data sharing programmes — notes you can use in your own.</div>
+      <div class="og__title">Find out where your CTI programme stands</div>
+      <div class="og__sub">The capability maturity model for threat intelligence.</div>
+    </div>
+    <div class="og__ladder">
+      <div class="og__bar"></div>
+      <div class="og__bar"></div>
+      <div class="og__bar"></div>
+      <div class="og__bar"></div>
+      <div class="og__level">CTI0</div>
+      <div class="og__level">CTI1</div>
+      <div class="og__level">CTI2</div>
+      <div class="og__level">CTI3</div>
     </div>
     <div class="og__url">cosive.com</div>
   </div>

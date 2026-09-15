@@ -138,3 +138,9 @@ toggle "use SEO title/description", or paste the **OG title** below where a punc
 - **Meta description** (157): `Our specialists write up what they learn building threat intelligence, security operations and fraud data sharing programmes — notes you can use in your own.`
 - **OG title**: `Insights from the field`
 - **OG image**: upload `images/og/og-blog.png` → set in the Open Graph tab (leave the OG image field empty otherwise)
+
+### 22. CTI-CMM → `https://www.cosive.com/cti-cmm`
+- **Title** (59): `CTI-CMM — Threat Intelligence Maturity Assessments | Cosive`
+- **Meta description** (157): `CTI-CMM measures how well your threat intelligence supports the people who use it. We run independent assessments — and give you a free self-assessment tool.`
+- **OG title**: `Find out where your CTI programme stands`
+- **OG image**: upload `images/og/og-cti-cmm.png` → set in the Open Graph tab (leave the OG image field empty otherwise)
