@@ -48,8 +48,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Cyber Threat Intelligence",
-          "item": "https://www.cosive.com/cyber-threat-intelligence"
+          "name": "Cyber Threat Intelligence"
         }
       ]
     },
@@ -164,8 +163,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Fraud Data Sharing",
-          "item": "https://www.cosive.com/fraud-data-sharing"
+          "name": "Fraud Data Sharing"
         }
       ]
     },
@@ -272,8 +270,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Security Operations",
-          "item": "https://www.cosive.com/security-operations"
+          "name": "Security Operations"
         }
       ]
     },
@@ -361,7 +358,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Consume & Share Threat Intelligence
-`https://www.cosive.com/consume-share-threat-intelligence`
+`https://www.cosive.com/cti/consume-share-cyber-threat-intelligence`
 
 ```html
 <script type="application/ld+json">
@@ -370,7 +367,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/consume-share-threat-intelligence#service",
+      "@id": "https://www.cosive.com/cti/consume-share-cyber-threat-intelligence#service",
       "name": "Consume & Share Threat Intelligence",
       "serviceType": "Cyber threat intelligence",
       "description": "Consume, share and act on intelligence from CERTs, ISACs and NCSCs. We run the platform, feeds and integrations so your analysts can focus on real threats.",
@@ -389,11 +386,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Cyber threat intelligence teams"
       },
-      "url": "https://www.cosive.com/consume-share-threat-intelligence"
+      "url": "https://www.cosive.com/cti/consume-share-cyber-threat-intelligence"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/consume-share-threat-intelligence#breadcrumb",
+      "@id": "https://www.cosive.com/cti/consume-share-cyber-threat-intelligence#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -410,14 +407,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Consume & Share Threat Intelligence",
-          "item": "https://www.cosive.com/consume-share-threat-intelligence"
+          "name": "Consume & Share Threat Intelligence"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/consume-share-threat-intelligence#faqpage",
+      "@id": "https://www.cosive.com/cti/consume-share-cyber-threat-intelligence#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -483,7 +479,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Start a CTI Sharing Community
-`https://www.cosive.com/start-cti-sharing-community`
+`https://www.cosive.com/cti/start-a-threat-intel-sharing-community`
 
 ```html
 <script type="application/ld+json">
@@ -492,7 +488,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/start-cti-sharing-community#service",
+      "@id": "https://www.cosive.com/cti/start-a-threat-intel-sharing-community#service",
       "name": "Start a CTI Sharing Community",
       "serviceType": "Cyber threat intelligence",
       "description": "Turn collective knowledge into collective defence. We help you design, launch and run a CTI sharing community — governance, onboarding and engagement.",
@@ -511,11 +507,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Cyber threat intelligence teams"
       },
-      "url": "https://www.cosive.com/start-cti-sharing-community"
+      "url": "https://www.cosive.com/cti/start-a-threat-intel-sharing-community"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/start-cti-sharing-community#breadcrumb",
+      "@id": "https://www.cosive.com/cti/start-a-threat-intel-sharing-community#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -532,14 +528,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Start a CTI Sharing Community",
-          "item": "https://www.cosive.com/start-cti-sharing-community"
+          "name": "Start a CTI Sharing Community"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/start-cti-sharing-community#faqpage",
+      "@id": "https://www.cosive.com/cti/start-a-threat-intel-sharing-community#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -589,7 +584,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Improve Your Threat Intelligence Team
-`https://www.cosive.com/improve-cti-team`
+`https://www.cosive.com/cti/improve-your-threat-intelligence-team`
 
 ```html
 <script type="application/ld+json">
@@ -598,7 +593,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/improve-cti-team#service",
+      "@id": "https://www.cosive.com/cti/improve-your-threat-intelligence-team#service",
       "name": "Improve Your Threat Intelligence Team",
       "serviceType": "Cyber threat intelligence",
       "description": "Build a new CTI team or mature an existing one — gap analysis, roadmaps, ATT&CK consulting and CTI-CMM benchmarking to help your analysts do their best work.",
@@ -617,11 +612,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Cyber threat intelligence teams"
       },
-      "url": "https://www.cosive.com/improve-cti-team"
+      "url": "https://www.cosive.com/cti/improve-your-threat-intelligence-team"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/improve-cti-team#breadcrumb",
+      "@id": "https://www.cosive.com/cti/improve-your-threat-intelligence-team#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -638,14 +633,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Improve Your Threat Intelligence Team",
-          "item": "https://www.cosive.com/improve-cti-team"
+          "name": "Improve Your Threat Intelligence Team"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/improve-cti-team#faqpage",
+      "@id": "https://www.cosive.com/cti/improve-your-threat-intelligence-team#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -679,7 +673,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Find Useful Threat Intelligence Feeds
-`https://www.cosive.com/find-useful-threat-intel-feeds`
+`https://www.cosive.com/cti/find-useful-threat-intelligence-feeds`
 
 ```html
 <script type="application/ld+json">
@@ -688,7 +682,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/find-useful-threat-intel-feeds#service",
+      "@id": "https://www.cosive.com/cti/find-useful-threat-intelligence-feeds#service",
       "name": "Find Useful Threat Intelligence Feeds",
       "serviceType": "Cyber threat intelligence",
       "description": "We help you find, source and get value from threat intelligence feeds — the right providers under one contract, with workflows that make your CTI actionable.",
@@ -707,11 +701,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Cyber threat intelligence teams"
       },
-      "url": "https://www.cosive.com/find-useful-threat-intel-feeds"
+      "url": "https://www.cosive.com/cti/find-useful-threat-intelligence-feeds"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/find-useful-threat-intel-feeds#breadcrumb",
+      "@id": "https://www.cosive.com/cti/find-useful-threat-intelligence-feeds#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -728,14 +722,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Find Useful Threat Intelligence Feeds",
-          "item": "https://www.cosive.com/find-useful-threat-intel-feeds"
+          "name": "Find Useful Threat Intelligence Feeds"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/find-useful-threat-intel-feeds#faqpage",
+      "@id": "https://www.cosive.com/cti/find-useful-threat-intelligence-feeds#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -793,7 +786,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Build & Integrate CTI Tools
-`https://www.cosive.com/build-and-integrate-cti-tools`
+`https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools`
 
 ```html
 <script type="application/ld+json">
@@ -802,7 +795,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/build-and-integrate-cti-tools#service",
+      "@id": "https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools#service",
       "name": "Build & Integrate CTI Tools",
       "serviceType": "Security engineering",
       "description": "We build custom CTI tools and integrate your threat intelligence platforms — plugins, enrichment and TIP extensions, backed by 8 years as MISP contributors.",
@@ -821,11 +814,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Cyber threat intelligence teams"
       },
-      "url": "https://www.cosive.com/build-and-integrate-cti-tools"
+      "url": "https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/build-and-integrate-cti-tools#breadcrumb",
+      "@id": "https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -842,14 +835,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Build & Integrate CTI Tools",
-          "item": "https://www.cosive.com/build-and-integrate-cti-tools"
+          "name": "Build & Integrate CTI Tools"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/build-and-integrate-cti-tools#faqpage",
+      "@id": "https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -915,7 +907,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Consume & Share Fraud Data
-`https://www.cosive.com/consume-share-fraud-data`
+`https://www.cosive.com/fraud-data/consume-share-fraud-data`
 
 ```html
 <script type="application/ld+json">
@@ -924,7 +916,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/consume-share-fraud-data#service",
+      "@id": "https://www.cosive.com/fraud-data/consume-share-fraud-data#service",
       "name": "Consume & Share Fraud Data",
       "serviceType": "Fraud data sharing",
       "description": "Connect securely to your regulator's fraud data exchange. We handle integration, data mapping and management so you can act on shared fraud intelligence.",
@@ -943,11 +935,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Banks and financial institutions"
       },
-      "url": "https://www.cosive.com/consume-share-fraud-data"
+      "url": "https://www.cosive.com/fraud-data/consume-share-fraud-data"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/consume-share-fraud-data#breadcrumb",
+      "@id": "https://www.cosive.com/fraud-data/consume-share-fraud-data#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -964,14 +956,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Consume & Share Fraud Data",
-          "item": "https://www.cosive.com/consume-share-fraud-data"
+          "name": "Consume & Share Fraud Data"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/consume-share-fraud-data#faqpage",
+      "@id": "https://www.cosive.com/fraud-data/consume-share-fraud-data#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1037,7 +1028,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Start a Fraud Data Sharing Community
-`https://www.cosive.com/start-sharing-community`
+`https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community`
 
 ```html
 <script type="application/ld+json">
@@ -1046,7 +1037,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/start-sharing-community#service",
+      "@id": "https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community#service",
       "name": "Start a Fraud Data Sharing Community",
       "serviceType": "Fraud data sharing",
       "description": "Plan, launch and operate a fraud data sharing community with confidence — governance design, CloudMISP deployment, member onboarding and ongoing operations.",
@@ -1065,11 +1056,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Banks and financial institutions"
       },
-      "url": "https://www.cosive.com/start-sharing-community"
+      "url": "https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/start-sharing-community#breadcrumb",
+      "@id": "https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1086,14 +1077,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Start a Fraud Data Sharing Community",
-          "item": "https://www.cosive.com/start-sharing-community"
+          "name": "Start a Fraud Data Sharing Community"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/start-sharing-community#faqpage",
+      "@id": "https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1151,7 +1141,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Build & Integrate Fraud Tools
-`https://www.cosive.com/build-and-integrate-fraud-tools`
+`https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools`
 
 ```html
 <script type="application/ld+json">
@@ -1160,7 +1150,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/build-and-integrate-fraud-tools#service",
+      "@id": "https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools#service",
       "name": "Build & Integrate Fraud Tools",
       "serviceType": "Security engineering",
       "description": "We build custom fraud tools and integrate your transaction monitoring and case management platforms — automating fraud operations for banks and central banks.",
@@ -1179,11 +1169,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Banks and financial institutions"
       },
-      "url": "https://www.cosive.com/build-and-integrate-fraud-tools"
+      "url": "https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/build-and-integrate-fraud-tools#breadcrumb",
+      "@id": "https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1200,14 +1190,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Build & Integrate Fraud Tools",
-          "item": "https://www.cosive.com/build-and-integrate-fraud-tools"
+          "name": "Build & Integrate Fraud Tools"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/build-and-integrate-fraud-tools#faqpage",
+      "@id": "https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1273,7 +1262,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Improve Your Cybersecurity Ops Team
-`https://www.cosive.com/improve-secops-team`
+`https://www.cosive.com/secops/improve-my-secops-team`
 
 ```html
 <script type="application/ld+json">
@@ -1282,7 +1271,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/improve-secops-team#service",
+      "@id": "https://www.cosive.com/secops/improve-my-secops-team#service",
       "name": "Improve Your Cybersecurity Ops Team",
       "serviceType": "Security operations",
       "description": "Assess your SecOps capability, sharpen incident response and adopt the right frameworks. We help you build a more effective security team, step by step.",
@@ -1301,11 +1290,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/improve-secops-team"
+      "url": "https://www.cosive.com/secops/improve-my-secops-team"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/improve-secops-team#breadcrumb",
+      "@id": "https://www.cosive.com/secops/improve-my-secops-team#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1322,14 +1311,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Improve Your Cybersecurity Ops Team",
-          "item": "https://www.cosive.com/improve-secops-team"
+          "name": "Improve Your Cybersecurity Ops Team"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/improve-secops-team#faqpage",
+      "@id": "https://www.cosive.com/secops/improve-my-secops-team#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1371,7 +1359,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Start a New Cybersecurity Ops Team
-`https://www.cosive.com/start-new-cybersecurity-ops-team`
+`https://www.cosive.com/secops/start-a-new-secops-team`
 
 ```html
 <script type="application/ld+json">
@@ -1380,7 +1368,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/start-new-cybersecurity-ops-team#service",
+      "@id": "https://www.cosive.com/secops/start-a-new-secops-team#service",
       "name": "Start a New Cybersecurity Ops Team",
       "serviceType": "Security operations",
       "description": "Starting a new security operations team? We help you scope the functions you need, staff the roles and launch — even sitting in on candidate interviews.",
@@ -1399,11 +1387,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/start-new-cybersecurity-ops-team"
+      "url": "https://www.cosive.com/secops/start-a-new-secops-team"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/start-new-cybersecurity-ops-team#breadcrumb",
+      "@id": "https://www.cosive.com/secops/start-a-new-secops-team#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1420,14 +1408,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Start a New Cybersecurity Ops Team",
-          "item": "https://www.cosive.com/start-new-cybersecurity-ops-team"
+          "name": "Start a New Cybersecurity Ops Team"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/start-new-cybersecurity-ops-team#faqpage",
+      "@id": "https://www.cosive.com/secops/start-a-new-secops-team#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1477,7 +1464,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Automate Your Cybersecurity Ops Team
-`https://www.cosive.com/automate-cybersecurity-ops-team`
+`https://www.cosive.com/secops/automate-my-security-operations-team`
 
 ```html
 <script type="application/ld+json">
@@ -1486,7 +1473,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/automate-cybersecurity-ops-team#service",
+      "@id": "https://www.cosive.com/secops/automate-my-security-operations-team#service",
       "name": "Automate Your Cybersecurity Ops Team",
       "serviceType": "Security operations",
       "description": "Handle more threats with less manual effort. We help lean security teams adopt SOAR and automation to cut alert noise and speed up incident response.",
@@ -1505,11 +1492,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/automate-cybersecurity-ops-team"
+      "url": "https://www.cosive.com/secops/automate-my-security-operations-team"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/automate-cybersecurity-ops-team#breadcrumb",
+      "@id": "https://www.cosive.com/secops/automate-my-security-operations-team#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1526,14 +1513,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Automate Your Cybersecurity Ops Team",
-          "item": "https://www.cosive.com/automate-cybersecurity-ops-team"
+          "name": "Automate Your Cybersecurity Ops Team"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/automate-cybersecurity-ops-team#faqpage",
+      "@id": "https://www.cosive.com/secops/automate-my-security-operations-team#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1567,7 +1553,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Use the ATT&CK Framework
-`https://www.cosive.com/use-attack-framework`
+`https://www.cosive.com/secops/use-the-att-ck-framework`
 
 ```html
 <script type="application/ld+json">
@@ -1576,7 +1562,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/use-attack-framework#service",
+      "@id": "https://www.cosive.com/secops/use-the-att-ck-framework#service",
       "name": "Use the MITRE ATT&CK Framework",
       "serviceType": "Security operations",
       "description": "Put MITRE ATT&CK into practice with mapping, gap analysis and detection engineering, so you can focus your defences where they matter most.",
@@ -1595,11 +1581,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/use-attack-framework"
+      "url": "https://www.cosive.com/secops/use-the-att-ck-framework"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/use-attack-framework#breadcrumb",
+      "@id": "https://www.cosive.com/secops/use-the-att-ck-framework#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1616,14 +1602,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Use the ATT&CK Framework",
-          "item": "https://www.cosive.com/use-attack-framework"
+          "name": "Use the ATT&CK Framework"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/use-attack-framework#faqpage",
+      "@id": "https://www.cosive.com/secops/use-the-att-ck-framework#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1681,7 +1666,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Build & Integrate SecOps Tools
-`https://www.cosive.com/build-and-integrate-secops-tools`
+`https://www.cosive.com/secops/build-and-integrate-security-operations-tools`
 
 ```html
 <script type="application/ld+json">
@@ -1690,7 +1675,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/build-and-integrate-secops-tools#service",
+      "@id": "https://www.cosive.com/secops/build-and-integrate-security-operations-tools#service",
       "name": "Build & Integrate SecOps Tools",
       "serviceType": "Security engineering",
       "description": "We build custom security operations tools and integrate your SIEM, SOAR and EDR — automating SOC workflows, backed by 8 years of security engineering.",
@@ -1709,11 +1694,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/build-and-integrate-secops-tools"
+      "url": "https://www.cosive.com/secops/build-and-integrate-security-operations-tools"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/build-and-integrate-secops-tools#breadcrumb",
+      "@id": "https://www.cosive.com/secops/build-and-integrate-security-operations-tools#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1730,14 +1715,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Build & Integrate SecOps Tools",
-          "item": "https://www.cosive.com/build-and-integrate-secops-tools"
+          "name": "Build & Integrate SecOps Tools"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/build-and-integrate-secops-tools#faqpage",
+      "@id": "https://www.cosive.com/secops/build-and-integrate-security-operations-tools#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1803,7 +1787,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Help Us Join FIRST
-`https://www.cosive.com/help-us-join-first`
+`https://www.cosive.com/secops/help-us-join-first`
 
 ```html
 <script type="application/ld+json">
@@ -1812,7 +1796,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/help-us-join-first#service",
+      "@id": "https://www.cosive.com/secops/help-us-join-first#service",
       "name": "Join FIRST.org — Membership Help",
       "serviceType": "Security maturity",
       "description": "We guide your CSIRT, MSSP or product CSIRT through FIRST.org membership — from SIM3 gap analysis to a confident application and acceptance.",
@@ -1831,11 +1815,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Security operations teams"
       },
-      "url": "https://www.cosive.com/help-us-join-first"
+      "url": "https://www.cosive.com/secops/help-us-join-first"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/help-us-join-first#breadcrumb",
+      "@id": "https://www.cosive.com/secops/help-us-join-first#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1852,14 +1836,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Help Us Join FIRST",
-          "item": "https://www.cosive.com/help-us-join-first"
+          "name": "Help Us Join FIRST"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/help-us-join-first#faqpage",
+      "@id": "https://www.cosive.com/secops/help-us-join-first#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1901,7 +1884,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## CloudMISP
-`https://www.cosive.com/cloudmisp`
+`https://www.cosive.com/cloud-misp`
 
 ```html
 <script type="application/ld+json">
@@ -1910,7 +1893,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/cloudmisp#service",
+      "@id": "https://www.cosive.com/cloud-misp#service",
       "name": "CloudMISP — Managed MISP Hosting",
       "serviceType": "Managed MISP hosting",
       "description": "CloudMISP is our managed, enterprise-grade MISP platform. Core, Accelerator and Sharing bundles give you the intel platform you need — no infrastructure to run.",
@@ -1929,11 +1912,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Threat intelligence teams"
       },
-      "url": "https://www.cosive.com/cloudmisp"
+      "url": "https://www.cosive.com/cloud-misp"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/cloudmisp#breadcrumb",
+      "@id": "https://www.cosive.com/cloud-misp#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1944,14 +1927,13 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "CloudMISP",
-          "item": "https://www.cosive.com/cloudmisp"
+          "name": "CloudMISP"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/cloudmisp#faqpage",
+      "@id": "https://www.cosive.com/cloud-misp#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -2017,7 +1999,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
 ```
 
 ## Managed MISP (Manage my MISP)
-`https://www.cosive.com/manage-my-misp`
+`https://www.cosive.com/cti/manage-my-misp-for-me`
 
 ```html
 <script type="application/ld+json">
@@ -2026,7 +2008,7 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.cosive.com/manage-my-misp#service",
+      "@id": "https://www.cosive.com/cti/manage-my-misp-for-me#service",
       "name": "Managed MISP Hosting",
       "serviceType": "Managed MISP hosting",
       "description": "Stop running MISP yourself. Our fully managed MISP hosting handles updates, patches and infrastructure, so your team can focus on the threat intelligence work.",
@@ -2045,11 +2027,11 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
         "@type": "Audience",
         "audienceType": "Threat intelligence teams"
       },
-      "url": "https://www.cosive.com/manage-my-misp"
+      "url": "https://www.cosive.com/cti/manage-my-misp-for-me"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.cosive.com/manage-my-misp#breadcrumb",
+      "@id": "https://www.cosive.com/cti/manage-my-misp-for-me#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -2061,19 +2043,18 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
           "@type": "ListItem",
           "position": 2,
           "name": "CloudMISP",
-          "item": "https://www.cosive.com/cloudmisp"
+          "item": "https://www.cosive.com/cloud-misp"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Managed MISP (Manage my MISP)",
-          "item": "https://www.cosive.com/manage-my-misp"
+          "name": "Managed MISP (Manage my MISP)"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.cosive.com/manage-my-misp#faqpage",
+      "@id": "https://www.cosive.com/cti/manage-my-misp-for-me#faqpage",
       "mainEntity": [
         {
           "@type": "Question",
@@ -2114,6 +2095,1031 @@ One `@graph` per page: a lean **Service** (its `provider` references the site-wi
             "@type": "Answer",
             "text": "Tell us where you are and we’ll give you honest advice. Some teams hand off MISP operations entirely with CloudMISP; others want targeted help with one problem — connecting a feed, integrating a SIEM, or improving analysis workflows. We’ll recommend what would actually help, whether that’s managed hosting, a consulting engagement, or something you can do yourselves."
           }
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+
+---
+
+# Pages added (site-wide coverage)
+
+> `Organization` and `WebSite` are defined once in site-wide code (`organization-jsonld.html`) and
+> must **not** be redeclared per page — reference them by `@id` instead.
+> `/categories/cybersecurity` 301s to `/categories/security-operations`; it is not a separate page.
+
+## About
+`https://www.cosive.com/about`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.cosive.com/about#webpage",
+      "url": "https://www.cosive.com/about",
+      "name": "About Cosive",
+      "description": "Cosive are international specialists in threat intelligence, security operations, and fraud data sharing — helping 100+ organisations start, improve, and run their programmes since 2015.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/about#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Team
+`https://www.cosive.com/team`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/team#webpage",
+      "url": "https://www.cosive.com/team",
+      "name": "Our Team",
+      "description": "The specialists behind Cosive's threat intelligence, security operations and fraud data sharing work.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/team#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Team — Chris Horsley
+`https://www.cosive.com/team/chris-horsley`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.cosive.com/team/chris-horsley#profilepage",
+      "url": "https://www.cosive.com/team/chris-horsley",
+      "name": "Chris Horsley — Cosive",
+      "description": "Internationally acclaimed speaker and trainer on cyber threat intelligence and fraud data sharing. Contributor to the MISP threat intelligence platform.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "inLanguage": "en-AU",
+      "mainEntity": {
+        "@id": "https://www.cosive.com/#chris-horsley"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#chris-horsley",
+      "name": "Chris Horsley",
+      "jobTitle": "Principal Security Consultant & CTO",
+      "description": "Internationally acclaimed speaker and trainer on cyber threat intelligence and fraud data sharing. Contributor to the MISP threat intelligence platform.",
+      "worksFor": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "url": "https://www.cosive.com/team/chris-horsley",
+      "knowsAbout": [
+        "Cyber threat intelligence",
+        "MISP",
+        "CTI-CMM",
+        "Incident response"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/chrishorsley/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/team/chris-horsley#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team",
+          "item": "https://www.cosive.com/team"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chris Horsley"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Team — Terry MacDonald
+`https://www.cosive.com/team/terry-macdonald`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.cosive.com/team/terry-macdonald#profilepage",
+      "url": "https://www.cosive.com/team/terry-macdonald",
+      "name": "Terry MacDonald — Cosive",
+      "description": "Involved in information security for over 25 years and a major contributor to the OASIS STIX, TAXII and CybOX threat intelligence standards.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "inLanguage": "en-AU",
+      "mainEntity": {
+        "@id": "https://www.cosive.com/#terry-macdonald"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#terry-macdonald",
+      "name": "Terry MacDonald",
+      "jobTitle": "Principal Security Consultant & COO",
+      "description": "Involved in information security for over 25 years and a major contributor to the OASIS STIX, TAXII and CybOX threat intelligence standards.",
+      "worksFor": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "url": "https://www.cosive.com/team/terry-macdonald",
+      "knowsAbout": [
+        "Cyber threat intelligence",
+        "STIX/TAXII",
+        "Threat intelligence sharing",
+        "MISP"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/terrymacdonald/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/team/terry-macdonald#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team",
+          "item": "https://www.cosive.com/team"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Terry MacDonald"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Team — Prescott Pym
+`https://www.cosive.com/team/prescott-pym`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.cosive.com/team/prescott-pym#profilepage",
+      "url": "https://www.cosive.com/team/prescott-pym",
+      "name": "Prescott Pym — Cosive",
+      "description": "Co-designed Australia's national threat sharing program, CTIS. Contributor to CTI-CMM, the leading CTI maturity framework. More than 25 years managing security operations and threat intelligence teams.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "inLanguage": "en-AU",
+      "mainEntity": {
+        "@id": "https://www.cosive.com/#prescott-pym"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#prescott-pym",
+      "name": "Prescott Pym",
+      "jobTitle": "Principal Security Consultant",
+      "description": "Co-designed Australia's national threat sharing program, CTIS. Contributor to CTI-CMM, the leading CTI maturity framework. More than 25 years managing security operations and threat intelligence teams.",
+      "worksFor": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "url": "https://www.cosive.com/team/prescott-pym",
+      "knowsAbout": [
+        "Cyber threat intelligence",
+        "Security operations",
+        "CTI-CMM",
+        "Threat intelligence sharing"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/prescottpym/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/team/prescott-pym#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team",
+          "item": "https://www.cosive.com/team"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Prescott Pym"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Team — Neethu Pushkaran
+`https://www.cosive.com/team/neethu-pushkaran`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.cosive.com/team/neethu-pushkaran#profilepage",
+      "url": "https://www.cosive.com/team/neethu-pushkaran",
+      "name": "Neethu Pushkaran — Cosive",
+      "description": "Senior Security Consultant at Cosive with expertise in cyber threat intelligence, security operations, and incident response.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "inLanguage": "en-AU",
+      "mainEntity": {
+        "@id": "https://www.cosive.com/#neethu-pushkaran"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.cosive.com/#neethu-pushkaran",
+      "name": "Neethu Pushkaran",
+      "jobTitle": "Senior Security Consultant",
+      "description": "Senior Security Consultant at Cosive with expertise in cyber threat intelligence, security operations, and incident response.",
+      "worksFor": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "url": "https://www.cosive.com/team/neethu-pushkaran",
+      "knowsAbout": [
+        "Cyber threat intelligence",
+        "Security operations",
+        "Incident response"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/team/neethu-pushkaran#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team",
+          "item": "https://www.cosive.com/team"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Neethu Pushkaran"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog
+`https://www.cosive.com/blog`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "CollectionPage",
+        "Blog"
+      ],
+      "@id": "https://www.cosive.com/blog#webpage",
+      "url": "https://www.cosive.com/blog",
+      "name": "Threat Intelligence & Security Operations Blog",
+      "description": "Our specialists write up what they learn building threat intelligence, security operations and fraud data sharing programmes — notes you can use in your own.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/blog#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog category — Company News
+`https://www.cosive.com/categories/company-news`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/categories/company-news#webpage",
+      "url": "https://www.cosive.com/categories/company-news",
+      "name": "Company News | Cosive Blog",
+      "description": "Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/categories/company-news#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.cosive.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Company News"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog category — Engineering
+`https://www.cosive.com/categories/engineering`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/categories/engineering#webpage",
+      "url": "https://www.cosive.com/categories/engineering",
+      "name": "Engineering | Cosive Blog",
+      "description": "Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/categories/engineering#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.cosive.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Engineering"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog category — Podcast
+`https://www.cosive.com/categories/podcast`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/categories/podcast#webpage",
+      "url": "https://www.cosive.com/categories/podcast",
+      "name": "Podcast | Cosive Blog",
+      "description": "Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/categories/podcast#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.cosive.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Podcast"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog category — Security Operations
+`https://www.cosive.com/categories/security-operations`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/categories/security-operations#webpage",
+      "url": "https://www.cosive.com/categories/security-operations",
+      "name": "Security Operations | Cosive Blog",
+      "description": "Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/categories/security-operations#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.cosive.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Security Operations"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Blog category — Threat Intelligence
+`https://www.cosive.com/categories/threat-intelligence`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.cosive.com/categories/threat-intelligence#webpage",
+      "url": "https://www.cosive.com/categories/threat-intelligence",
+      "name": "Threat Intelligence | Cosive Blog",
+      "description": "Security improves when knowledge is shared. Cosive specialists publish what they know about threat intelligence, security operations, and fraud data sharing.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/categories/threat-intelligence#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.cosive.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Threat Intelligence"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## CTI-CMM
+`https://www.cosive.com/cti-cmm`
+
+> **Not yet live** — `/cti-cmm` currently returns 404. `cti-cmm.html` is an unpublished page.
+> Do not confuse it with `/cti-cmm-assessment-tool`, which is a separate live page.
+> Publish the page before shipping this block.
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.cosive.com/cti-cmm#service",
+      "name": "CTI-CMM Assessment",
+      "serviceType": "Threat intelligence maturity assessment",
+      "description": "CTI-CMM is the capability maturity model for threat intelligence. Cosive runs independent assessments against the model and helps you act on what they find.",
+      "provider": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "areaServed": [
+        "Australia",
+        "New Zealand",
+        "Asia-Pacific",
+        "Europe",
+        "Middle East",
+        "North America"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Threat intelligence teams"
+      },
+      "url": "https://www.cosive.com/cti-cmm"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/cti-cmm#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CTI-CMM"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+## Newsletter
+`https://www.cosive.com/newsletter`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/newsletter#webpage",
+      "url": "https://www.cosive.com/newsletter",
+      "name": "Newsletter",
+      "description": "Subscribe to the Cosive newsletter — occasional, practical updates on threat intelligence, MISP and fraud data sharing from the team behind Australia's national CTIS.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/newsletter#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Newsletter"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Privacy Policy
+`https://www.cosive.com/privacy-policy`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/privacy-policy#webpage",
+      "url": "https://www.cosive.com/privacy-policy",
+      "name": "Privacy Policy",
+      "description": "Cosive's Privacy Policy — how we collect, use, store and protect your personal information, and the rights you have over your data.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/privacy-policy#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privacy Policy"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Website Terms of Use
+`https://www.cosive.com/website-terms-of-use`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/website-terms-of-use#webpage",
+      "url": "https://www.cosive.com/website-terms-of-use",
+      "name": "Website Terms of Use",
+      "description": "Cosive's Website Terms of Use — the terms that apply when you access and use the Cosive website.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/website-terms-of-use#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Website Terms of Use"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## Modern Slavery Statement
+`https://www.cosive.com/modern-slavery`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/modern-slavery#webpage",
+      "url": "https://www.cosive.com/modern-slavery",
+      "name": "Modern Slavery Statement",
+      "description": "Cosive's Modern Slavery Statement — the steps we take to identify and address modern slavery risks in our operations and supply chain.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/modern-slavery#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Modern Slavery Statement"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## CloudMISP Support Policy
+`https://www.cosive.com/cloudmisp-support-policy`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/cloudmisp-support-policy#webpage",
+      "url": "https://www.cosive.com/cloudmisp-support-policy",
+      "name": "CloudMISP Support Policy",
+      "description": "The support Cosive provides with CloudMISP — channels, response times and service commitments included with your managed MISP instance.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/cloudmisp-support-policy#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CloudMISP Support Policy"
+        }
+      ]
+    }
+  ]
+}
+</script>
+```
+
+---
+
+## CloudMISP Fair Use Policy
+`https://www.cosive.com/cloudmisp-fair-use-policy`
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/cloudmisp-fair-use-policy#webpage",
+      "url": "https://www.cosive.com/cloudmisp-fair-use-policy",
+      "name": "CloudMISP Fair Use Policy",
+      "description": "Cosive's CloudMISP Fair Use Policy — the reasonable-use limits that apply to unlimited users and included storage on CloudMISP plans.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/cloudmisp-fair-use-policy#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CloudMISP Fair Use Policy"
         }
       ]
     }

@@ -163,9 +163,9 @@
 
   /* ── Article Hero ── */
   /* Dark banner for a post with no featured image. Rather than sitting flat on
-     Color/Dark, it carries the existing Cosive line pattern, faded out to the
-     left so the headline column stays clean. No bottom border: the dark-to-white
-     edge is the divider. */
+     Color/Dark, it carries the Cosive wave field, faded out to the left so the
+     headline column stays clean. No bottom border: the dark-to-white edge is
+     the divider. */
   .article-hero {
     position: relative;
     padding: var(--space-6xl) 0;
@@ -173,38 +173,51 @@
     overflow: hidden;
   }
 
-  /* Two background layers on one pseudo-element, both anchored to the right.
+  /* Two background layers on one pseudo-element. These values mirror the live
+     Webflow banner exactly (.v2-blog-banner-fallback-background) — change them
+     in both places or the page and the site diverge.
 
-     66.67% 100% spans the right two thirds at full height. That stretches the
-     mesh ~1.5x horizontally, which is deliberate: at natural aspect a 2/3-wide
-     image would be 718px tall and lose 35% of its height to cropping. The mesh
-     is abstract enough that the stretch does not read as an error, and this is
-     the only sizing that keeps both the full height and the 2/3 width.
+     120% 100% oversizes the wave to one and a fifth of the banner's width at
+     full height. Positioned at 50%, an image wider than its box overflows both
+     sides equally: it spans -10% to 110%, so the artwork is a crop of
+     something wider and neither vertical edge of the SVG is ever on screen.
+     That is also why the gradient needs no special left stop — see below.
 
-     The stretch only works because hero-pattern.svg carries
+     -30px lifts the wave off the bottom edge. It has to be a LENGTH, not a
+     percentage: at 100% height the image is exactly as tall as the element, so
+     (container - image) is zero and every percentage — 0%, 50%, 100% — resolves
+     to the same place and moves nothing. The 30px it vacates at the bottom
+     shows no seam because the artwork's lowest strands are sparse, ~1-5% ink.
+
+     The wave is 2.49:1 naturally and this box is 3.68:1 at a 1440x470 banner,
+     so it is stretched horizontally rather than squashed — and the box aspect
+     moves with the banner, which grows with the title (552px on this page's
+     three-line, two-author example). The artwork is abstract enough to carry
+     that.
+
+     The stretch only works because hero-wave-field.svg carries
      preserveAspectRatio="none". An SVG with a viewBox defaults to xMidYMid
-     meet, which LETTERBOXES inside whatever box background-size gives it: at
-     933x470 against a 1440x1108 viewBox it drew 611x470 centred, leaving 161px
-     blank down each side. background-size alone cannot stretch an SVG — the
-     attribute has to be on the file. If this artwork is ever re-downloaded from
-     the CDN, that attribute must be re-added.
+     meet, which LETTERBOXES inside whatever box background-size gives it
+     rather than filling it. background-size alone cannot stretch an SVG — the
+     attribute has to be on the file. If this artwork is ever regenerated,
+     that attribute must be re-added.
 
-     Softening the image's left edge is the gradient's job. Both are now sized
-     as percentages of the element, so the image edge sits at a fixed 33% and
-     the fade tracks it at every viewport width. (When the image was sized by
-     height instead, the gradient had to be px-anchored for the same reason —
-     whichever way the image is sized, the gradient must match it.)
+     The gradient fades the artwork out to the left so the headline column
+     stays clean, clearing at 72% — still ~34% opaque where the headline ends
+     near 54%, deliberately overlapping the title's right edge rather than
+     starting clear of it. It is listed first, so it paints ABOVE the artwork.
 
-     The fade clears at 72%, so it is still ~34% opaque where the headline ends
-     near 54% — the gradient deliberately overlaps the title's right edge rather
-     than starting clear of it. The gradient is listed first, so it paints ABOVE
-     the pattern.
+     One coupling to know about if the size ever changes: the SVG is cropped
+     hard at x=0, so if the image is ever narrowed to the point where its left
+     edge lands inside the banner, the gradient must be fully opaque there or
+     that crop shows as a vertical seam through the waves. At 120% it is off
+     canvas and the question does not arise.
 
      A stacked gradient rather than mask-image because this is headed for
      Webflow, whose Style panel has no mask-image but does support a gradient
      layer above an image layer — so this translates to the Designer as-is.
 
-     The artwork carries its own opacity='0.1' internally, so it needs no
+     The artwork carries its own opacity='0.15' internally, so it needs no
      grayscale filter and no ::after scrim; a scrim would simply erase it. */
   .article-hero::before {
     content: '';
@@ -214,7 +227,7 @@
       linear-gradient(to right,
         var(--color-dark) 18%,
         rgba(14,20,28,0) 72%),
-      url('images/blog/hero-pattern.svg') right center / 66.67% 100% no-repeat;
+      url('images/blog/hero-wave-field.svg') 50% -30px / 120% 100% no-repeat;
     z-index: 0;
   }
 
@@ -1501,7 +1514,7 @@
     <div class="article-meta">
       <span class="article-meta-detail">2 Mar 2026</span>
       <div class="article-meta-author">
-        <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
+        <img src="images/homepage/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
         <div>
           <div class="article-meta-author-name">Chris Horsley</div>
           <div class="article-meta-author-role">Principal Security Consultant &amp; CTO</div>
@@ -1723,7 +1736,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <div class="author-bios-grid">
     <div class="author-bio-label">Written by</div>
     <div class="author-bio-inner">
-      <img class="author-bio-photo" src="images/homepage/chris-horsley.jpg" alt="Chris Horsley" loading="lazy">
+      <img class="author-bio-photo" src="images/homepage/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
       <div>
         <div class="author-bio-name">Chris Horsley</div>
         <div class="author-bio-role">Principal Security Consultant &amp; CTO</div>
@@ -1764,7 +1777,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" loading="lazy">
+              <img class="blog-card-avatar" src="images/homepage/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Prescott Pym</span>
                 <span class="blog-card-author-role">Principal Security Consultant</span>
@@ -1783,7 +1796,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/prescott-pym.jpg" alt="Prescott Pym" loading="lazy">
+              <img class="blog-card-avatar" src="images/homepage/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Prescott Pym</span>
                 <span class="blog-card-author-role">Principal Security Consultant</span>
@@ -1802,7 +1815,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald" loading="lazy">
+              <img class="blog-card-avatar" src="images/homepage/terry-macdonald.webp" alt="Terry MacDonald" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Terry MacDonald</span>
                 <span class="blog-card-author-role">Principal Security Consultant &amp; COO</span>

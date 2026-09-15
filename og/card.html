@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog OG card</title>
+<style>
+  /* Fonts are inlined as data URIs by generate.mjs so the render is fully
+     self-contained and never races the network. */
+  @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400; font-display: block;
+               src: url({{FONT_MANROPE_400}}) format('woff2'); }
+  @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 600; font-display: block;
+               src: url({{FONT_MANROPE_600}}) format('woff2'); }
+  @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 700; font-display: block;
+               src: url({{FONT_MANROPE_700}}) format('woff2'); }
+  @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 700; font-display: block;
+               src: url({{FONT_GEIST_MONO_700}}) format('woff2'); }
+
+  /* Values below are the live site's desktop tokens, verified against the
+     rendered banner at a 1440px viewport. See og/README.md. */
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-accent: #e53834;
+    --color-light-grey: #f8f9fa;
+    --color-mid-grey: #f0f0f0;
+    --color-dark-grey: #bbbbbb;
+
+    --space-xs: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-3xl: 3rem;
+    --space-5xl: 5rem;
+
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-6xl: 3rem;
+
+    --leading-tight: 1.1em;
+    --leading-normal: 1.55em;
+    --tracking-uppercase: 0.08em;
+    --radius-sm: 4px;
+
+    --font-heading: 'Manrope', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { width: 1200px; height: 630px; }
+  body { background: var(--color-dark); font-family: var(--font-heading); }
+
+  /* The banner at true OG size. The live section is 1440x470 (3.06:1) and a
+     share card is 1.91:1, so the card is proportionally taller. That extra
+     height is spent pushing the logo to the top and the post details to the
+     bottom rather than scaling the banner's type up to fill it — everything
+     below the title keeps the banner's proportions, one step larger, so it
+     still reads at thumbnail size. */
+  .banner {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--color-dark);
+    padding: var(--space-5xl) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Featured-image variant. The live site puts the image itself at 6% over
+     Color/Dark rather than laying a scrim over a full-opacity image — same
+     result, and this is the rule that ships. */
+  .bg-featured {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.06;
+  }
+
+  /* No-featured-image variant. Gradient listed first so it paints ABOVE the
+     wave field, fading it out to the left so the headline column stays clean.
+
+     120% 100% at 50% / -30px is lifted verbatim from the live banner, so the
+     card and the page it represents carry the same numbers. They do not render
+     the same shape: this card is 1200x630 (1.9:1) against the banner's
+     1440x470 (3.06:1), so the same percentages leave the waves noticeably
+     taller and steeper here. Accepted — matching the live values is the
+     convention, not matching the rendered proportions.
+
+     The -30px must stay a length: at 100% height the image is exactly as tall
+     as the element, so a percentage Y resolves against (container - image) = 0
+     and moves nothing.
+
+     Stretching at all only works because hero-wave-field.svg carries
+     preserveAspectRatio="none" — an SVG with a viewBox otherwise letterboxes
+     inside whatever box background-size gives it. */
+  .bg-fallback {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image:
+      linear-gradient(90deg, #0e141c 18%, #0e141c00 72%),
+      url({{PATTERN}});
+    background-position: 0 0, 50% -30px;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, 120% 100%;
+  }
+
+  .padding-global {
+    position: relative;
+    z-index: 2;
+    margin: 0 var(--space-3xl);
+  }
+
+  /* 274px matches the logo on the existing cards in images/og/, set by _og.html. */
+  .logo {
+    display: block;
+    width: 274px;
+    height: auto;
+  }
+
+  .content { width: 66%; }
+
+  .title {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-lg);
+  }
+
+  .metadata {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  /* Two steps up from the banner's Text/SM so the card still reads as a
+     thumbnail. The line box is scaled with it — 32.4px is the banner's
+     inherited line height (18px body x 1.8) and what gives the badge its
+     height, so 42px keeps the badge's proportions at the larger size. */
+  .badge, .date {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: 42px;
+  }
+
+  .badge {
+    color: var(--color-white);
+    background: rgba(229, 56, 52, 0.6);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-uppercase);
+    white-space: nowrap;
+  }
+
+  .date { color: var(--color-dark-grey); }
+
+  .authors {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .author img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(248, 249, 250, 0.8);
+    flex-shrink: 0;
+  }
+
+  .author-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .author-name {
+    color: var(--color-light-grey);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: var(--leading-normal);
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .author-role {
+    color: var(--color-mid-grey);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    line-height: var(--leading-normal);
+    opacity: 0.75;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    {{BACKGROUND}}
+    <div class="padding-global">
+      <img class="logo" src="{{LOGO}}" alt="Cosive">
+    </div>
+    <div class="padding-global">
+      <div class="content">
+        <h1 class="title">{{TITLE}}</h1>
+        <div class="metadata">
+          <span class="badge">{{CATEGORY}}</span>
+          <span class="date">{{DATE}}</span>
+        </div>
+        <div class="authors">{{AUTHORS}}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

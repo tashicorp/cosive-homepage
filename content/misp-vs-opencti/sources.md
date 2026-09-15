@@ -54,7 +54,7 @@ All facts in `article.md` were verified against primary sources (official GitHub
 - GitHub stats (9,803★ / 1,431 forks) — https://api.github.com/repos/OpenCTI-Platform/opencti
 
 **Cosive (first-party, for the managed-MISP + experience claims)**
-- CloudMISP — https://www.cosive.com/cloudmisp
+- CloudMISP — https://www.cosive.com/cloud-misp
 
 ## Caveats carried into the copy (kept honest)
 - GitHub stars are a **directional** popularity proxy only; MISP's footprint is split across many repos, so a single-repo count understates it. The article states this.

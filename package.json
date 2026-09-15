@@ -9,7 +9,8 @@
   "main": "index.js",
   "scripts": {
     "start": "browser-sync start --server --port 8765 --files '*.html, *.js, css/*.css, js/*.js, images/**/*'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "og": "node og/generate.mjs"
   },
   "repository": {
     "type": "git",

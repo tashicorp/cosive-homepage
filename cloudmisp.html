@@ -8,6 +8,8 @@
 <meta name="description" content="CloudMISP is an enterprise-grade managed MISP platform. Three bundles — Core, Accelerator, and Sharing — give your team the threat intelligence platform it needs, without the infrastructure overhead.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://player.vimeo.com" rel="preconnect">
+<link href="https://f.vimeocdn.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
 <style>
@@ -430,6 +432,21 @@ ul, ol { list-style: none; }
 .cm-analyst__screenshot img { width: 100%; }
 
 .cm-analyst__video {}
+.cm-hero__video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+.cm-hero__video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 .cm-analyst__video-placeholder {
   aspect-ratio: 16 / 9;
   background: rgba(255,255,255,0.05);
@@ -1549,7 +1566,7 @@ ul, ol { list-style: none; }
      1. HEADER
      ============================================================ -->
 <div id="site-header-placeholder" data-nav-active="cloudmisp" style="min-height:calc(var(--space-5xl) + 1px)"></div>
-<script src="header-include.js"></script>
+<script src="header-include.js" defer></script>
 
 <!-- ============================================================
      2. HERO
@@ -1568,8 +1585,12 @@ ul, ol { list-style: none; }
         <p class="cm-hero__subtitle"><strong>We handle the deployment, testing, and day-to-day operations so your analysts can focus on the intelligence.</strong></p>
         <a href="#contact" class="cm-btn--primary" style="margin-top: var(--space-xl)">Request a CloudMISP demo</a>
       </div>
-      <div class="cm-analyst__screenshot">
-        <img src="images/cti/cloudmisp-insight-ui-events-index.png" alt="CloudMISP Insight UI — events index showing threat intelligence events, attributes, and correlations">
+      <div class="cm-hero__video">
+        <iframe src="https://player.vimeo.com/video/1225182058?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;color=e53834&amp;dnt=1"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Chris Horsley Introduces CloudMISP"></iframe>
       </div>
     </div>
   </div>
@@ -1603,7 +1624,7 @@ ul, ol { list-style: none; }
       <p>Whether you are a single team getting started with CTI or a national sharing community connecting dozens of organisations, CloudMISP scales to meet you where you are.</p>
     </div>
     <div class="cm-intro__diagram">
-      <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP hub-and-spoke overview — CloudMISP connects your threat analysts, identity provider, MISP community, SIEMs, infrastructure, and threat intel feeds">
+      <img src="images/cti/diagram-cloudmisp-overview.svg" alt="CloudMISP hub-and-spoke overview — CloudMISP connects your threat analysts, identity provider, MISP community, SIEMs, infrastructure, and threat intel feeds" width="300" height="96" loading="lazy">
     </div>
   </div>
 </section>
@@ -1710,7 +1731,7 @@ ul, ol { list-style: none; }
         </div>
         <div class="cm-intro__team-grid">
           <div class="cm-intro__team-member">
-            <img src="images/homepage/chris-horsley.jpg" alt="Chris Horsley">
+            <img src="images/homepage/chris-horsley.webp" alt="Chris Horsley" width="620" height="620" loading="lazy">
             <div class="cm-intro__team-member-body">
               <h3><a href="https://www.linkedin.com/in/chrishorsley/" target="_blank" rel="noopener">Chris Horsley</a></h3>
               <span>Co-founder &amp; Account Manager</span>
@@ -1718,7 +1739,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-intro__team-member">
-            <img src="images/homepage/terry-macdonald.jpg" alt="Terry MacDonald">
+            <img src="images/homepage/terry-macdonald.webp" alt="Terry MacDonald" width="620" height="620" loading="lazy">
             <div class="cm-intro__team-member-body">
               <h3><a href="https://www.linkedin.com/in/terrymacdonald/" target="_blank" rel="noopener">Terry MacDonald</a></h3>
               <span>Co-founder &amp; Account Manager</span>
@@ -1726,7 +1747,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-intro__team-member">
-            <img src="images/homepage/prescott-pym.jpg" alt="Prescott Pym">
+            <img src="images/homepage/prescott-pym.webp" alt="Prescott Pym" width="620" height="620" loading="lazy">
             <div class="cm-intro__team-member-body">
               <h3><a href="https://www.linkedin.com/in/prescottpym/" target="_blank" rel="noopener">Prescott Pym</a></h3>
               <span>Principal Consultant &amp; Account Manager</span>
@@ -1734,7 +1755,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-intro__team-member">
-            <img src="images/homepage/james-garratt.jpg" alt="James Garratt">
+            <img src="images/homepage/james-garratt.webp" alt="James Garratt" width="496" height="496" loading="lazy">
             <div class="cm-intro__team-member-body">
               <h3><a href="https://www.linkedin.com/in/james-garratt/" target="_blank" rel="noopener">James Garratt</a></h3>
               <span>Infrastructure Lead</span>
@@ -1742,7 +1763,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-intro__team-member">
-            <img src="images/homepage/lilith-la-rose.jpg" alt="Lilith La Rose">
+            <img src="images/homepage/lilith-la-rose.webp" alt="Lilith La Rose" width="496" height="496" loading="lazy">
             <div class="cm-intro__team-member-body">
               <h3>Lilith La Rose</h3>
               <span>Security/DevOps Engineer</span>
@@ -1767,7 +1788,7 @@ ul, ol { list-style: none; }
       <p>CloudMISP's Insight UI is purpose-built for this workflow — designed to make threat intelligence operational, not just stored.</p>
     </div>
     <div class="cm-analyst__video">
-      <iframe title="vimeo-player" src="https://player.vimeo.com/video/1211916205?h=c2214ed936" width="100%" style="aspect-ratio: 16 / 9;" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/1211916205?h=c2214ed936&amp;color=e53834&amp;dnt=1" width="100%" style="aspect-ratio: 16 / 9; border: 0;" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -1798,7 +1819,7 @@ ul, ol { list-style: none; }
           <p>With CloudMISP Accelerator, our engineers build and maintain these integrations for you, so your team stays focused on analysis rather than plumbing.</p>
         </div>
         <div class="cm-consume-share__diagram">
-          <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls">
+          <img src="images/cti/diagram-cloudmisp-consume.svg" alt="CloudMISP connecting to SIEM, SOAR, EDR, and firewalls" width="300" height="96" loading="lazy">
         </div>
       </div>
       <div class="cm-tabs__pane" role="tabpanel"
@@ -1809,7 +1830,7 @@ ul, ol { list-style: none; }
           <p>CloudMISP Share gives community operators the tools to manage members, control access, and offer multiple sharing models (push, pull, and direct login) so partners can participate in the way that works for them.</p>
         </div>
         <div class="cm-consume-share__diagram">
-          <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="CloudMISP sharing pipeline — feeds, triage, curation, and distribution to partner organisations">
+          <img src="images/cti/diagram-cloudmisp-sharing.svg" alt="CloudMISP sharing pipeline — feeds, triage, curation, and distribution to partner organisations" width="300" height="94" loading="lazy">
         </div>
       </div>
     </div>
@@ -2058,7 +2079,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-case__image">
-            <img src="images/secops/ir-indicator-lights.webp" alt="">
+            <img src="images/secops/ir-indicator-lights.webp" alt="" width="1600" height="1200" loading="lazy">
           </div>
         </div>
       </div>
@@ -2090,7 +2111,7 @@ ul, ol { list-style: none; }
             </div>
           </div>
           <div class="cm-case__image">
-            <img src="images/secops/plan-buildout-laptops.webp" alt="">
+            <img src="images/secops/plan-buildout-laptops.webp" alt="" width="1600" height="1067" loading="lazy">
           </div>
         </div>
       </div>
@@ -2112,7 +2133,7 @@ ul, ol { list-style: none; }
   <div class="cm-wrap">
     <div class="cm-why__grid">
       <div class="cm-why__text">
-        <img src="icons/cosive-sinewave.svg" alt="" class="cm-why__sinewave">
+        <img src="icons/cosive-sinewave.svg" alt="" class="cm-why__sinewave" width="300" height="137" loading="lazy">
         <div class="cm-label">Why Cosive</div>
         <h2 class="cm-h2">We've done this many times before — for organisations like yours</h2>
         <div class="cm-why__list">
@@ -2138,13 +2159,13 @@ ul, ol { list-style: none; }
       </div>
       <div class="cm-why__photos">
         <div class="cm-why__photos-card">
-          <img src="images/secops/chris-horsley-speaker.webp" alt="Chris Horsley presenting at FIRST Conference">
+          <img src="images/secops/chris-horsley-speaker-sm.webp" alt="Chris Horsley presenting at FIRST Conference" width="800" height="645" loading="lazy">
         </div>
         <div class="cm-why__photos-card">
-          <img src="images/shared/prescott-pym-speaker.jpg" alt="Prescott Pym presenting at AUSCERT">
+          <img src="images/shared/prescott-pym-speaker.webp" alt="Prescott Pym presenting at AUSCERT" width="680" height="543" loading="lazy">
         </div>
         <div class="cm-why__photos-card">
-          <img src="images/shared/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at a security conference">
+          <img src="images/shared/terry-presenting-cropped.webp" alt="Terry MacDonald presenting at a security conference" width="350" height="461" loading="lazy">
         </div>
       </div>
     </div>
@@ -2245,7 +2266,7 @@ ul, ol { list-style: none; }
     <div class="cm-contact__inner">
       <!-- Left column: heading + form -->
       <div class="cm-contact__left">
-        <img class="cm-contact__sinewave" src="icons/cosive-sinewave.svg" alt="Cosive">
+        <img class="cm-contact__sinewave" src="icons/cosive-sinewave.svg" alt="Cosive" width="300" height="137" loading="lazy">
         <div class="cm-label">Get in touch</div>
         <h2 class="cm-h2">Request a CloudMISP demo</h2>
         <p class="cm-contact__subtitle">Tell us about your team and what you are trying to achieve. We will get back to you within one business day.</p>
@@ -2298,7 +2319,7 @@ ul, ol { list-style: none; }
 <footer class="cm-bottom-bar">
   <div class="cm-bottom-bar__inner">
     <a href="index.html" class="cm-bottom-bar__logo">
-      <img src="logos/cosive_logo_full_color_transparent_print.png" alt="Cosive">
+      <img src="logos/cosive-logo-web.png" alt="Cosive" loading="lazy">
     </a>
     <div class="cm-bottom-bar__links">
       <a href="about.html">About</a>
@@ -2430,6 +2451,7 @@ ul, ol { list-style: none; }
   });
 })();
 </script>
+
 
 </body>
 </html>
