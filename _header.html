@@ -43,18 +43,78 @@
             </li>
           </ul>
         </li>
-        <li class="nav-dropdown">
+        <li class="nav-dropdown nav-dropdown--mega nav-dropdown--cols2">
           <button class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
             Resources
             <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <ul class="nav-dropdown__menu">
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="/cti-cmm-assessment-tool">CTI-CMM Assessment Tool</a></li>
-            <li><a href="/presentations">Presentations</a></li>
-            <li><a href="/podcast">Podcast</a></li>
-            <li><a href="/misp-guide">MISP Guide</a></li>
-            <li><a href="categories/company-news.html">Newsroom</a></li>
+            <li>
+              <a href="blog.html" data-nav="blog">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/> <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">Blog</span>
+                  <span class="nav-mega__desc">Read what our specialists learn building CTI and SecOps programmes.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/cti-cmm-assessment-tool" data-nav="cti-cmm-tool">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/> <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/> <path d="m9 14 2 2 4-4"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">CTI-CMM Assessment Tool</span>
+                  <span class="nav-mega__desc">Score your CTI programme against the model, free, in your browser.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/presentations" data-nav="presentations">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/> <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/> <path d="m7 21 5-5 5 5"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">Presentations</span>
+                  <span class="nav-mega__desc">Watch talks and slide decks from Cosive at industry conferences.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/podcast" data-nav="podcast">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/> <path d="M19 10v2a7 7 0 0 1-14 0v-2"/> <rect x="9" y="2" width="6" height="13" rx="3"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">Podcast</span>
+                  <span class="nav-mega__desc">Hear practitioners talk through CTI, SecOps and fraud data sharing.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/misp-guide" data-nav="misp-guide">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"/> <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">MISP Guide</span>
+                  <span class="nav-mega__desc">Deploy, run and get more out of MISP, start to finish.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="categories/company-news.html" data-nav="newsroom">
+                <span class="nav-mega__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"/> <path d="M18 14h-8"/> <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/> <rect width="8" height="4" x="10" y="6" rx="1"/></svg>
+                </span>
+                <span class="nav-mega__text">
+                  <span class="nav-mega__title">Newsroom</span>
+                  <span class="nav-mega__desc">Company news, partnerships, and what the team is working on.</span>
+                </span>
+              </a>
+            </li>
           </ul>
         </li>
         <li><a href="about.html" data-nav="about">About</a></li>
@@ -235,6 +295,34 @@
 
   .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active .nav-mega__title {
     font-weight: 700;
+  }
+
+  /* ── Two-column mega variant ──
+     Layered on --mega rather than changing it: Capabilities has two items and
+     stays a single 340px column, Resources has six and would otherwise make a
+     ~460px-tall panel. Everything else — the centring transform, the max-width
+     guard, item and icon styling — is inherited unchanged.
+     The `height: 100%` already on mega items becomes meaningful here, giving
+     equal-height rows across the two columns.
+     Deliberately placed BEFORE the max-width:900px block, which resets the panel
+     to display:block for the stacked mobile menu and must win. */
+  .main-nav .nav-dropdown--cols2 .nav-dropdown__menu {
+    width: 640px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xs);
+    /* Right-aligned, not centred on the trigger like --mega. At 640px wide the
+       centred version overflowed the viewport below ~1440px — by 270px at the
+       901px breakpoint — because Resources sits near the right gutter. Hanging
+       the panel leftwards from the trigger's right edge cannot overflow. */
+    left: auto;
+    right: 0;
+    transform: translateY(-4px);
+  }
+
+  .main-nav .nav-dropdown--cols2:hover .nav-dropdown__menu,
+  .main-nav .nav-dropdown--cols2:focus-within .nav-dropdown__menu {
+    transform: translateY(0);
   }
 
   /* Compression tier. The boundary is the load-bearing number: it must sit ABOVE
