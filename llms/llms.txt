@@ -1,0 +1,113 @@
+# Cosive
+
+> Cosive is an Australian and New Zealand cybersecurity consultancy that helps organisations start, improve, and run cyber threat intelligence (CTI), security operations (SecOps), and fraud data sharing programmes.
+
+Cosive was founded in 2015 and has worked with more than 100 organisations — banks, central banks, government agencies, CERTs, and critical infrastructure providers — across Australia, New Zealand, and internationally. Cosive combines consulting, engineering, and managed platforms, and is an authorised reseller of OpenCTI and EclecticIQ Intelligence Center.
+
+MISP is Cosive's core specialism. Its consultants are long-standing MISP practitioners and contributors, and the site hosts an extensive open MISP knowledge base. CloudMISP is Cosive's managed MISP hosting service.
+
+Cosive works across three practice areas — cyber threat intelligence, security operations, and fraud data sharing. Each is organised around what a team is trying to do (consume and share data, build and integrate tools, start a community, improve a team) rather than around products.
+
+Cosive runs independent maturity assessments against public models, principally CTI-CMM for threat intelligence and SIM3 for incident response teams, and publishes a free CTI-CMM assessment tool.
+
+The sections below mirror the navigation used on cosive.com.
+
+## Cyber Threat Intelligence
+
+- [Cyber Threat Intelligence](https://www.cosive.com/cyber-threat-intelligence): Practice overview — CTI programme consulting, MISP deployment, sharing communities, and tool integration.
+- [Consume & share threat intelligence](https://www.cosive.com/cti/consume-share-cyber-threat-intelligence): Acting on intelligence from CERTs, ISACs, and NCSCs, with the platform, feeds, and integrations run by Cosive.
+- [Start a sharing community](https://www.cosive.com/cti/start-a-threat-intel-sharing-community): Governance, legal frameworks, analyst onboarding, and member engagement for CTI sharing communities.
+- [Improve your CTI team](https://www.cosive.com/cti/improve-your-threat-intelligence-team): Gap analysis, roadmaps, and CTI-CMM benchmarking for new and existing CTI teams.
+- [Find useful threat intelligence feeds](https://www.cosive.com/cti/find-useful-threat-intelligence-feeds): Sourcing feed providers under a single contract, and the workflows to use them.
+- [Integrate CTI tools](https://www.cosive.com/cti/build-and-integrate-threat-intelligence-tools): Custom CTI tooling, bespoke plugins, enrichment modules, and TIP extensions.
+- [Manage my MISP for me](https://www.cosive.com/cti/manage-my-misp-for-me): Managed MISP hosting, migration from self-hosted instances, workflow consulting, and integration.
+
+## Fraud Data Sharing
+
+- [Fraud Data Sharing](https://www.cosive.com/fraud-data-sharing): Practice overview — secure fraud data sharing for banks and financial institutions.
+- [Consume & share fraud data](https://www.cosive.com/fraud-data/consume-share-fraud-data): Connecting to a regulator's fraud data exchange, including integration, data mapping, and management.
+- [Start a sharing community](https://www.cosive.com/fraud-data/start-a-fraud-data-sharing-community): Governance design, CloudMISP deployment, member onboarding, and ongoing operations.
+- [Integrate fraud tools](https://www.cosive.com/fraud-data/build-and-integrate-fraud-tools): Custom fraud tooling, transaction monitoring and case management integration, and workflow automation.
+
+## Security Operations
+
+- [Security Operations](https://www.cosive.com/security-operations): Practice overview — SOC maturity assessments, CSIRT setup, SOAR automation, and FIRST membership guidance.
+- [Improve my SecOps team](https://www.cosive.com/secops/improve-my-secops-team): Assessing SecOps capability, improving incident response, and adopting security frameworks.
+- [Start a new SecOps team](https://www.cosive.com/secops/start-a-new-secops-team): Planning, staffing, and launching a SecOps team, from deciding which functions are needed to sitting in on candidate interviews.
+- [Automate your SecOps team](https://www.cosive.com/secops/automate-my-security-operations-team): SOAR platform adoption and automation for resource-constrained security teams.
+- [Use the ATT&CK Framework](https://www.cosive.com/secops/use-the-att-ck-framework): ATT&CK mapping, gap analysis, and detection engineering.
+- [Integrate security tools](https://www.cosive.com/secops/build-and-integrate-security-operations-tools): Custom security operations tooling, SIEM/SOAR/EDR integration, and SOC workflow automation.
+- [Help us join FIRST.org](https://www.cosive.com/secops/help-us-join-first): Guidance for CSIRTs, MSSPs, and Product CSIRTs through FIRST membership, from SIM3 gap analysis to acceptance.
+
+## Capabilities
+
+- [CloudMISP](https://www.cosive.com/cloud-misp): Managed MISP hosting. Cosive handles deployment, upgrades, and operations.
+- [CTI-CMM](https://www.cosive.com/cti-cmm): The capability maturity model for threat intelligence, and independent assessments against it.
+- [MISP Training](https://www.cosive.com/capabilities/misp-kickstart-training): MISP Kickstart — introductory MISP training with lab scenarios based on real-world use cases.
+
+## Company
+
+- [Cosive](https://www.cosive.com/): Home page, covering the three practice areas.
+- [About](https://www.cosive.com/about): Company history since 2015, how Cosive works, and the organisations it has helped.
+- [Contact](https://www.cosive.com/contact-us): How to reach Cosive. Enquiries are answered during AEST (UTC+10) business hours.
+- [Blog](https://www.cosive.com/blog): Writing from Cosive's specialists on CTI, SecOps, MISP, and fraud data sharing.
+- [Team](https://www.cosive.com/team): The consultants, engineers, and operators behind Cosive's CTI and SecOps work.
+- [Newsroom](https://www.cosive.com/categories/company-news): Company news and announcements.
+- [Newsletter](https://www.cosive.com/newsletter): Email updates on threat intelligence, MISP, and fraud data sharing.
+- [LinkedIn](https://www.linkedin.com/company/cosive): Company updates and team news.
+- [YouTube](https://www.youtube.com/@Cosive): Recorded talks and podcast episodes.
+
+## Resources
+
+- [Support Portal](https://www.cosive.com/support): Customer support portal.
+- [CTI-CMM Assessment Tool](https://www.cosive.com/cti-cmm-assessment-tool): A free tool for measuring and tracking threat intelligence maturity against the current CTI-CMM framework.
+- [Presentations](https://www.cosive.com/presentations): Videos and slide decks from talks given by Cosive staff.
+- [MISP Guide](https://www.cosive.com/misp-guide): Index of Cosive's MISP guides, training, and resources.
+- [Fraud Detection in Banking](https://www.cosive.com/fraud-detection-in-banking-guide): Fraud detection tools and techniques for banks and fintechs.
+- [Podcast](https://www.cosive.com/categories/podcast): Podcast episodes on CTI, SecOps, and security engineering.
+
+## MISP guides
+
+Individual guides collected under the MISP Guide hub above.
+
+- [How to use MISP](https://www.cosive.com/misp-how-to-use): First steps in MISP, from logging an event to adding a threat intel feed.
+- [MISP feeds](https://www.cosive.com/misp-feeds): The main MISP feeds collected in one place, with guidance on choosing between them.
+- [Best MISP integrations](https://www.cosive.com/best-misp-integrations): Survey of the available MISP integrations and what each is used for.
+- [Deploying MISP on AWS](https://www.cosive.com/misp-on-aws): Standing up MISP on AWS, and what changes when the instance is for a production SOC.
+- [Installing MISP with Docker](https://www.cosive.com/misp-docker): Running MISP under Docker, and the factors that matter for production deployments.
+- [Deploying MISP on Kubernetes](https://www.cosive.com/deploying-misp-on-kubernetes): Considerations when running MISP on Kubernetes.
+- [MISP SSO](https://www.cosive.com/misp-sso): MISP's single sign-on capabilities, the hybrid login improvement, and enterprise implementation steps.
+- [MISP YARA rules](https://www.cosive.com/misp-yara-rules): How and why to use YARA rules with MISP.
+- [MISP TAXII push](https://www.cosive.com/misp-guides/misp-taxii-push): Publishing MISP events as STIX bundles over a TAXII transport server.
+
+## Threat intelligence platform comparisons
+
+- [MISP vs OpenCTI](https://www.cosive.com/misp-vs-opencti): Two open source threat intelligence platforms compared.
+- [MISP vs Anomali ThreatStream](https://www.cosive.com/misp-vs-anomali): Open source MISP compared with Anomali's commercial TIP.
+- [MISP vs Recorded Future](https://www.cosive.com/misp-vs-recorded-future): How MISP and Recorded Future differ in purpose and fit.
+- [MISP vs ThreatQuotient (ThreatQ)](https://www.cosive.com/misp-vs-threatquotient-threatq): Feature and fit comparison between MISP and ThreatQ.
+- [MISP vs YETI](https://www.cosive.com/misp-vs-yeti): Two open source TIPs compared for teams choosing between them.
+- [MISP vs CRITs](https://www.cosive.com/misp-vs-crits): Comparison of MISP and CRITs, with a clear recommendation.
+- [MISP vs STIX](https://www.cosive.com/misp-vs-stix): How the MISP and STIX data formats differ in describing cyber threats.
+- [OpenCTI alternative](https://www.cosive.com/opencti-alternative): Open source threat intelligence platforms to weigh up against OpenCTI.
+
+## Selected writing
+
+- [What is MISP? The ultimate introduction](https://www.cosive.com/blog/what-is-misp-the-ultimate-introduction): Introduction to MISP for teams new to the platform.
+- [7 MISP best practices](https://www.cosive.com/blog/7-misp-best-practices-lessons-from-effective-threat-intel-teams): Lessons drawn from effective threat intelligence teams.
+- [The opportunity cost of self-hosting MISP](https://www.cosive.com/blog/the-opportunity-cost-of-self-hosting-misp): What self-hosting MISP costs an analyst team.
+- [When threat intelligence outgrows the spreadsheet](https://www.cosive.com/blog/when-threat-intelligence-outgrows-the-spreadsheet-moving-to-misp): The signs it is time to move from spreadsheets to MISP.
+- [ISM June 2026 update: CTI is now mandatory for compliance](https://www.cosive.com/blog/ism-june-2026-update-cyber-threat-intelligence-is-now-mandatory-for-compliance): What the Australian ISM change means for security teams.
+- [Threat intelligence: the CISO's guide](https://www.cosive.com/threat-intelligence-the-cisos-guide): How CTI supports a shift from reactive to proactive security posture.
+- [SOC maturity assessment in Australia](https://www.cosive.com/blog/soc-maturity-assessment-australia): How SOC maturity assessments work and what they surface.
+- [Running your SOC playbooks as code](https://www.cosive.com/blog/running-your-soc-playbooks-as-code): Treating incident response playbooks as version-controlled code.
+- [Establishing a threat intel programme](https://www.cosive.com/blog/establishing-a-threat-intel-program-principles-for-security-leaders): Principles for security leaders starting a CTI programme.
+- [Getting more out of MISP and Microsoft Sentinel](https://www.cosive.com/blog/getting-more-out-of-misp-and-microsoft-sentinel): Working with the MISP and Microsoft Sentinel integration.
+
+## Legal
+
+- [Privacy Policy](https://www.cosive.com/privacy-policy): How Cosive handles personal information.
+- [Website Terms of Use](https://www.cosive.com/website-terms-of-use): Terms governing use of cosive.com.
+- [Modern Slavery Statement](https://www.cosive.com/modern-slavery): Cosive's statement under modern slavery reporting requirements.
+- [CloudMISP Fair Use Policy](https://www.cosive.com/cloudmisp-fair-use-policy): Usage limits and fair use conditions that apply to CloudMISP.
+- [CloudMISP Support Policy](https://www.cosive.com/cloudmisp-support-policy): Support scope and response times for CloudMISP customers.

@@ -10,6 +10,7 @@ all 20 pages plus current (2025–2026) Webflow SEO and AEO best practice.
 | `structured-data.md` | Site-wide **`@graph`**: enriched Organization + WebSite + founder Persons | Site settings → **Head Code** |
 | `per-page-schema.md` | Per-page **`@graph`**: Service + BreadcrumbList (linked to Org by `@id`) | Page settings → **Custom Code → Inside `<head>`** |
 | `faqpage-schema.md` | **FAQPage** JSON-LD from each page's FAQ (⚠️ low priority — see note) | Page settings → **Custom Code → Inside `<head>`** |
+| [`../llms/llms.txt`](../llms/llms.txt) | Curated **`llms.txt`** map of the site for AI answer engines — maintained via the `/llms.txt` command | Site settings → **SEO → llms.txt** (served at `https://www.cosive.com/llms.txt`) |
 
 ## Do this in order (highest ROI first)
 1. **Titles + meta descriptions** — paste from `page-metadata.md`. Fixes the 5 pages that have **no meta description today** (Home, Cyber Threat Intelligence, Fraud Data Sharing, Security Operations, Consume & Share Fraud Data) and tightens the other 15.
@@ -69,6 +70,20 @@ to do them as a follow-up.
 
 ## Notes on things that recently changed
 - **FAQ rich results were removed by Google (May 2026).** FAQPage schema still parses for AI/machines but no longer shows the SERP dropdown — hence it's low priority here.
-- **`llms.txt` — skip it.** Google confirmed it ignores the file; ~10% adoption with no measurable SEO/citation effect. Not worth adding for a marketing site.
+- **`llms.txt` — now shipped** (reversed from the earlier "skip it" call). Google still ignores it for ranking, but ChatGPT, Claude and Perplexity do fetch it, and it is cheap to maintain. It lives in [`llms/`](../llms/) with its own archive of superseded versions. Run **`/llms.txt`** to audit and update it.
 - **Sitelinks searchbox is deprecated** — that's why the WebSite schema here omits `SearchAction`.
 - **Title/description lengths aren't hard limits** — Google truncates by pixel width and often rewrites both; the targets here (≤60 / ~155) are safe display widths, not rules.
+
+---
+
+## Maintaining `llms.txt`
+
+Moved. The file now lives in [`llms/`](../llms/) — current version at `llms/llms.txt`, superseded
+versions under `llms/archive/`.
+
+**Run `/llms.txt`** to audit the deployed file, re-derive the site structure from the live footer
+and sitemap, rewrite, validate every link, and archive the outgoing version.
+
+The procedure and the editorial rules — spec format, footer-mirrored sections, and the
+"what not to include" list — are in [`.claude/skills/llms-txt/SKILL.md`](../.claude/skills/llms-txt/SKILL.md).
+Kept there rather than duplicated here, so there is one source of truth.
