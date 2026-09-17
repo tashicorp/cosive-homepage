@@ -10,8 +10,7 @@ Cosive works across three practice areas — cyber threat intelligence, security
 
 Cosive runs independent maturity assessments against public models, principally CTI-CMM for threat intelligence and SIM3 for incident response teams, and publishes a free CTI-CMM assessment tool.
 
-The sections below mirror the navigation used on cosive.com. They are a curated selection, not a
-complete index — for full URL coverage, see the XML sitemap at https://www.cosive.com/sitemap.xml
+The sections below mirror the navigation used on cosive.com.
 
 ## Cyber Threat Intelligence
 
