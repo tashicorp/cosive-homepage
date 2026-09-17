@@ -16,12 +16,12 @@ One component, two grounds. Structure, icon, size and spacing are identical; onl
 
 ```html
 <nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+  <a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path
      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline
      points="9 22 9 12 15 12 15 22"/></svg>Home</a>
   <span class="separator">/</span>
-  <a href="parent.html">Parent</a>
+  <a href="../parent.html">Parent</a>
   <span class="separator">/</span>
   <span class="current" aria-current="page">This page</span>
 </nav>
@@ -74,11 +74,11 @@ else about it is the standard.
 **Skeleton:**
 ```html
 <div class="page-banner">
-  <img src="images/[bg].webp" alt="">
+  <img src="../images/[bg].webp" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="index.html" class="breadcrumb-home">
+        <a href="../index.html" class="breadcrumb-home">
           <svg><!-- home icon --></svg>Home
         </a>
         <span class="separator">/</span>
@@ -104,11 +104,11 @@ else about it is the standard.
 **Skeleton:**
 ```html
 <div class="page-banner">
-  <img src="images/[bg].webp" alt="">
+  <img src="../images/[bg].webp" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="index.html" class="breadcrumb-home"><svg><!-- home icon: see Breadcrumb standard above --></svg>Home</a>
+        <a href="../index.html" class="breadcrumb-home"><svg><!-- home icon: see Breadcrumb standard above --></svg>Home</a>
         <span class="separator">/</span>
         <a href="[hub].html" class="badge-cti">Hub Name</a>
         <span class="separator">/</span>
@@ -217,7 +217,7 @@ else about it is the standard.
         <!-- repeat details -->
       </div>
       <div class="faq-image">
-        <img src="images/[faq].webp" alt="">
+        <img src="../images/[faq].webp" alt="">
       </div>
     </div>
   </div>
@@ -295,7 +295,7 @@ else about it is the standard.
     </h3>
     <div class="industry-grid">
       <a href="[page].html" class="industry-card" data-cluster="0">
-        <img src="images/[card].webp" alt="Card title">
+        <img src="../images/[card].webp" alt="Card title">
         <div class="industry-card-content">
           <h2>Card Title</h2>
           <div class="card-actions">
@@ -435,7 +435,7 @@ else about it is the standard.
         <a href="#" class="btn-primary" style="margin-top: var(--space-lg);">CTA</a>
       </div>
       <div>
-        <img src="images/[img].webp" alt="" style="width: 100%; aspect-ratio: 2.14/1; object-fit: cover; border-radius: var(--radius-lg);">
+        <img src="../images/[img].webp" alt="" style="width: 100%; aspect-ratio: 2.14/1; object-fit: cover; border-radius: var(--radius-lg);">
       </div>
     </div>
 
@@ -528,7 +528,7 @@ else about it is the standard.
       </div>
       <div class="subsection-box" style="margin-top: 0; max-width: none;">
         <div class="outcome-diagram">
-          <img src="images/[diagram].svg" alt="" style="width: 100%; height: auto;">
+          <img src="../images/[diagram].svg" alt="" style="width: 100%; height: auto;">
         </div>
       </div>
     </div>
@@ -563,7 +563,7 @@ else about it is the standard.
       <p>Before description.</p>
     </div>
     <div class="outcome-diagram">
-      <img src="images/[before].svg" alt="">
+      <img src="../images/[before].svg" alt="">
     </div>
   </div>
   <div class="subsection-box subsection-box--white">
@@ -573,7 +573,7 @@ else about it is the standard.
       <p>After description.</p>
     </div>
     <div class="outcome-diagram">
-      <img src="images/[after].svg" alt="">
+      <img src="../images/[after].svg" alt="">
     </div>
   </div>
 </div>
@@ -623,7 +623,7 @@ else about it is the standard.
 ```html
 <section class="hero-testimonial">
   <div class="testimonial-inner">
-    <img src="icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
+    <img src="../icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
     <div class="testimonial-label">What our customers say</div>
     <blockquote>&ldquo;Customer quote text.&rdquo;</blockquote>
     <cite>&mdash; Name, Title</cite>
@@ -661,7 +661,7 @@ else about it is the standard.
         </ul>
       </div>
       <div class="outcome-diagram">
-        <img src="images/[diagram].svg" alt="" style="width: 100%; height: auto;">
+        <img src="../images/[diagram].svg" alt="" style="width: 100%; height: auto;">
       </div>
     </div>
   </div>
@@ -745,7 +745,7 @@ else about it is the standard.
       </div>
     </div>
     <div class="differentiators-photo">
-      <img src="images/[photo].webp" alt="">
+      <img src="../images/[photo].webp" alt="">
       <div class="differentiators-caption">Photo caption</div>
     </div>
   </div>
@@ -803,7 +803,7 @@ else about it is the standard.
     <p class="cases-intro">Intro text.</p>
     <div class="cases-grid">
       <div class="case-card">
-        <img src="images/[case].webp" alt="">
+        <img src="../images/[case].webp" alt="">
         <div class="case-card-body">
           <span class="case-card-tag">Tag</span>
           <h3>Case study title</h3>
@@ -975,7 +975,7 @@ else about it is the standard.
     </div>
     <div class="scenarios-grid">
       <div class="scenario-card">
-        <img class="scenario-card-img" src="images/[scenario].webp" alt="" loading="lazy">
+        <img class="scenario-card-img" src="../images/[scenario].webp" alt="" loading="lazy">
         <div class="scenario-card-number">Category</div>
         <div class="scenario-card-title">Title with <span style="color: var(--color-accent);">accent</span></div>
         <div class="scenario-card-body">Description text.</div>

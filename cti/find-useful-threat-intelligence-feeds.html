@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
-<title>Start a New Cybersecurity Ops Team - Cosive</title>
-<meta name="description" content="We help you plan, staff, and launch a new cybersecurity operations team — from figuring out what functions you need to sitting in on candidate interviews.">
+<title>Find Useful Threat Intelligence Feeds - Cosive</title>
+<meta name="description" content="Cosive helps you find, source, and get value from threat intelligence feeds. We match you with the right providers, wrap feeds under a single contract, and build workflows that make your CTI actionable.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,34 +28,32 @@
     --font-heading: 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
 
-    /* ── Sizing Tokens ── */
-
-    /* Spacing (4px base grid) */
-    --space-2xs: 0.25rem;   /* 4px */
-    --space-xs: 0.5rem;     /* 8px */
-    --space-sm: 0.75rem;    /* 12px */
-    --space-md: 1rem;       /* 16px */
-    --space-lg: 1.5rem;     /* 24px */
-    --space-xl: 2rem;       /* 32px */
-    --space-2xl: 2.5rem;    /* 40px */
-    --space-3xl: 3rem;      /* 48px */
-    --space-4xl: 4rem;      /* 64px */
-    --space-5xl: 5rem;      /* 80px */
-    --space-6xl: 6rem;      /* 96px */
-    --space-7xl: 8rem;      /* 128px */
-    --space-8xl: 10rem;     /* 160px */
+    /* Spacing */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3rem;
+    --space-4xl: 4rem;
+    --space-5xl: 5rem;
+    --space-6xl: 6rem;
+    --space-7xl: 8rem;
+    --space-8xl: 10rem;
 
     /* Font sizes */
-    --text-xs: 0.75rem;     /* 12px */
-    --text-sm: 0.875rem;    /* 14px */
-    --text-base: 1rem;      /* 16px */
-    --text-lg: 1.125rem;    /* 18px */
-    --text-xl: 1.25rem;     /* 20px */
-    --text-2xl: 1.5rem;     /* 24px */
-    --text-3xl: 1.75rem;    /* 28px */
-    --text-4xl: 2rem;       /* 32px */
-    --text-5xl: 2.5rem;     /* 40px */
-    --text-6xl: 3rem;       /* 48px */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+    --text-4xl: 2rem;
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
 
     /* Line height */
     --leading-tight: 1.1;
@@ -194,7 +192,7 @@
   .page-banner {
     position: relative;
     overflow: hidden;
-    background: #1e2d3d;
+    background: #121212;
   }
 
   .page-banner > img {
@@ -203,7 +201,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 35%;
     filter: grayscale(0.4);
     opacity: 0.45;
   }
@@ -319,6 +316,15 @@
     line-height: var(--leading-snug);
   }
 
+  .page-banner .banner-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-xs);
+    letter-spacing: var(--tracking-wide);
+  }
+
   .banner-description {
     font-family: var(--font-heading);
     font-size: var(--text-3xl);
@@ -365,7 +371,7 @@
 
   .btn-primary:hover { background: var(--color-accent-dark); }
 
-  /* ── Section patterns ── */
+  /* ── Infra sections ── */
   .infra-section {
     padding: var(--space-8xl) 0;
     background: var(--color-white);
@@ -375,41 +381,12 @@
     background: var(--color-light-grey);
   }
 
-  .infra-section--dark {
-    background: var(--color-dark);
-  }
-
-  .infra-section--dark .section-label {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .infra-section--dark .heading-style-h2,
-  .infra-section--dark .heading-style-h3 {
-    color: var(--color-white);
-  }
-
-  .infra-section--dark .infra-intro p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .infra-section--dark .infra-intro ul {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .infra-section--dark .infra-intro li {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .infra-section--dark p:not(.infra-intro p) {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
   .infra-intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4xl);
     align-items: start;
-    margin-bottom: var(--space-5xl);
+    margin-bottom: var(--space-4xl);
   }
 
   .infra-intro-grid:last-child {
@@ -423,217 +400,36 @@
     margin-bottom: var(--space-md);
   }
 
-  .infra-intro ul {
-    margin: var(--space-sm) 0 0;
-    padding-left: var(--space-lg);
-    list-style: disc;
-    color: var(--color-text-secondary);
-    font-size: var(--text-base);
-    line-height: var(--leading-loose);
-  }
-
-  .infra-intro li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .infra-intro li:last-child {
+  .infra-intro p:last-child {
     margin-bottom: 0;
   }
 
-  /* ── Build Grid (numbered feature cards) ── */
-  .build-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4xl);
-    margin-top: var(--space-5xl);
-  }
-
-  .build-feature {
-    padding-top: var(--space-xl);
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-
-  .build-feature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: var(--color-accent);
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .build-feature:hover::before {
-    width: 64px;
-  }
-
-  .build-feature:hover {
-    transform: translateY(-2px);
-  }
-
-  .build-feature-number {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    margin: var(--space-lg) 0 var(--space-sm);
-  }
-
-  .build-feature-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: var(--leading-snug);
-    margin-bottom: var(--space-sm);
-  }
-
-  .build-feature-desc {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    color: var(--color-text-secondary);
-    transition: color 0.3s ease;
-  }
-
-  .build-feature:hover .build-feature-desc {
-    color: var(--color-text-primary);
-  }
-
-  .build-feature-list {
-    list-style: none;
-    padding: 0;
-    margin-top: var(--space-sm);
-  }
-
-  .build-feature-list li {
-    position: relative;
-    padding-left: 1.25em;
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    line-height: var(--leading-normal);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-2xs);
-  }
-
-  .build-feature-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--color-accent);
-  }
-
-  .build-feature:hover .build-feature-list li {
-    color: var(--color-text-primary);
+  .infra-intro-image {
+    align-self: center;
   }
 
   .infra-intro-image img {
     width: 100%;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-  }
-
-  .accent {
-    color: var(--color-accent);
-  }
-
-  /* ── Numbered List Variant ── */
-  .numbered-list-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4xl);
-    align-items: start;
-  }
-
-  .numbered-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3xl);
-  }
-
-  .numbered-item {
-    position: relative;
-    padding-left: var(--space-xl);
-  }
-
-  .numbered-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--color-accent);
-    border-radius: var(--radius-sm);
-  }
-
-  .numbered-item-number {
-    font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    font-weight: 800;
-    color: var(--color-accent);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-xs);
-  }
-
-  .numbered-item-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: var(--leading-snug);
-    margin-bottom: var(--space-xs);
-  }
-
-  .numbered-item-desc {
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    color: var(--color-text-secondary);
-  }
-
-  .numbered-list-image {
-    position: sticky;
-    top: 108px;
-    align-self: start;
-  }
-
-  .numbered-list-image img {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
     display: block;
   }
 
-  /* ── Reversed Intro Grid ── */
-  .infra-intro-grid--reversed .infra-intro { order: 2; }
-  .infra-intro-grid--reversed > :last-child { order: 1; }
-
   /* ── Navigation Cards ── */
+  #dont-know, #know-feeds, #feeds-not-working, #need-tip {
+    scroll-margin-top: 8rem;
+  }
+
   .nav-cards-heading {
     text-align: center;
     margin-bottom: 2rem;
   }
 
-  #understand, #plan, #hiring {
-    scroll-margin-top: 8rem;
-  }
-
   .nav-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
-  /* 2x2 nav cards grid for 4 cards */
-  .nav-cards-grid--2x2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   .nav-card {
     display: flex;
@@ -685,9 +481,42 @@
     height: 2.4em;
   }
 
+  .accent {
+    color: var(--color-accent);
+  }
+
+  .infra-intro ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-lg);
+    list-style: disc;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .infra-intro li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .infra-intro li:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro-image img {
+    border: 1px solid var(--color-border);
+  }
+
+  #platform-eclecticiq .infra-intro-image img {
+    border: none;
+  }
+
+  #platform-cloudmisp, #platform-opencti, #platform-eclecticiq {
+    scroll-margin-top: 8rem;
+  }
+
   /* ── Social proof / credentials section ── */
   .credentials-section {
-    background: #000000;
+    background: var(--color-dark);
   }
 
   .credentials-inner {
@@ -696,7 +525,7 @@
     gap: 0;
     align-items: stretch;
     overflow: hidden;
-    background: #000000;
+    background: var(--color-dark);
   }
 
   .credentials-box {
@@ -738,7 +567,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, #000000 0%, transparent 40%);
+    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
     z-index: 1;
     pointer-events: none;
   }
@@ -749,7 +578,7 @@
     height: 100%;
     object-fit: cover;
     object-position: 80% center;
-    filter: grayscale(1);
+    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
   }
 
   .credentials-caption {
@@ -812,73 +641,17 @@
     font-weight: 700;
   }
 
-  /* ── Help section (light-bg icon items) ── */
-  .help-section .icon-credentials {
-    gap: 0;
-  }
-
-  .help-section .icon-item {
+  /* Light-background icon items (inside infra-intro sections) */
+  .infra-intro .icon-item {
     border-bottom-color: var(--color-border);
   }
 
-  .help-section .icon-item-text {
+  .infra-intro .icon-item-text {
     color: var(--color-text-secondary);
   }
 
-  .help-section .icon-item-text strong {
+  .infra-intro .icon-item-text strong {
     color: var(--color-text-primary);
-  }
-
-  .help-section .icon-item-text a {
-    color: var(--color-accent);
-    font-weight: 600;
-  }
-
-  .help-section .icon-item-text a:hover {
-    color: var(--color-accent-dark);
-  }
-
-  /* ── TIP / misp-grid layout (2-col with diagram) ── */
-  .misp-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3xl);
-  }
-
-  @media (min-width: 1400px) {
-    .misp-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4xl);
-      align-items: start;
-    }
-  }
-
-  .misp-grid .subsection-box {
-    padding: var(--space-xl);
-  }
-
-  .misp-grid .subsection-box .outcome-diagram {
-    width: 100%;
-    margin: 0;
-  }
-
-  /* ── Subsection box (bordered diagram container) ── */
-  .subsection-box {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    overflow: hidden;
-    background: var(--color-light-grey);
-  }
-
-  .outcome-diagram {
-    padding: 0;
-    align-self: center;
-  }
-
-  .outcome-diagram img {
-    width: 100%;
-    height: auto;
   }
 
   /* ── FAQ ── */
@@ -976,26 +749,12 @@
     color: var(--color-accent-dark);
   }
 
-  .faq-answer ul {
-    margin: 0 0 var(--space-sm);
-    padding-left: var(--space-lg);
-    list-style: disc;
-  }
-
-  .faq-answer li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .faq-answer li:last-child {
-    margin-bottom: 0;
-  }
-
   /* ── Wavy SVG separator ── */
   .people-cta-separator {
     display: flex;
     justify-content: center;
     padding: var(--space-8xl) 0 0;
-    background: var(--color-white);
+    background: var(--color-light-grey);
   }
 
   .people-cta-separator img {
@@ -1006,7 +765,7 @@
   /* ── Contact section ── */
   .contact-section {
     padding: var(--space-4xl) 0 var(--space-8xl);
-    background: var(--color-white);
+    background: var(--color-light-grey);
     text-align: center;
   }
 
@@ -1170,17 +929,9 @@
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
-    .numbered-list-grid { grid-template-columns: 1fr; }
-    .numbered-list-image { position: static; }
-    .infra-intro-grid--reversed .infra-intro,
-    .infra-intro-grid--reversed > :last-child { order: unset; }
-    .faq-inner { grid-template-columns: 1fr; }
-    .faq-image { display: none; }
   }
 
   @media (max-width: 900px) {
-    /* Heading system */
     .heading-style-h1 { font-size: 1.8rem; }
     .heading-style-h2 { font-size: var(--text-2xl); }
 
@@ -1202,35 +953,28 @@
       gap: var(--space-xl);
     }
 
-    .nav-cards-grid,
-    .nav-cards-grid--2x2 {
-      grid-template-columns: 1fr;
-    }
-    .nav-card {
-      min-height: auto;
-    }
-
     .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .nav-cards-grid { grid-template-columns: 1fr; }
+    .nav-card { min-height: auto; }
 
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
 
-    /* Credentials */
     .credentials-box h2 { font-size: var(--text-2xl); }
 
-    .infra-section { padding: var(--space-7xl) 0; }
+    .infra-section,
     .faq-section { padding: var(--space-7xl) 0; }
     .people-cta-separator { padding-top: var(--space-7xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-7xl); }
   }
 
   @media (max-width: 600px) {
-    /* Heading system */
     .heading-style-h1 { font-size: var(--text-2xl); }
     .heading-style-h2 { font-size: 1.3rem; }
 
     .page-banner h1 { font-size: var(--text-3xl); }
     .page-banner-inner { padding: var(--space-6xl) 0; }
+    .page-banner .banner-subtitle { font-size: var(--text-lg); }
 
     .banner-form-card { padding: var(--space-lg); }
     .banner-form-card .form-row { grid-template-columns: 1fr; }
@@ -1242,23 +986,21 @@
       font-size: 1.25rem;
     }
 
-    /* Credentials */
     .credentials-box { padding: var(--space-xl) var(--space-lg); }
     .credentials-box h2 { font-size: var(--text-2xl); }
 
     .form-row { grid-template-columns: 1fr; }
 
-    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
-    .build-feature-title { font-size: var(--text-lg); }
-
     .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
     .footer-columns { grid-template-columns: repeat(2, 1fr); }
 
-    .infra-section { padding: var(--space-5xl) 0; }
+    .infra-section,
+    .platforms-section,
     .faq-section { padding: var(--space-5xl) 0; }
     .people-cta-separator { padding-top: var(--space-5xl); }
     .contact-section { padding-bottom: var(--space-5xl); }
   }
+
 </style>
 <script type="application/ld+json">
 {
@@ -1274,13 +1016,13 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Security Operations",
-      "item": "https://www.cosive.com/security-operations"
+      "name": "Cyber Threat Intelligence",
+      "item": "https://www.cosive.com/cyber-threat-intelligence"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Start a new cybersecurity ops team"
+      "name": "Find useful threat intelligence feeds"
     }
   ]
 }
@@ -1288,30 +1030,30 @@
 </head>
 <body>
 
-<div id="site-header-placeholder" data-nav-active="secops" style="min-height:calc(var(--space-5xl) + 1px)"></div>
-<script src="header-include.js"></script>
+<div id="site-header-placeholder" data-nav-active="cti" style="min-height:calc(var(--space-5xl) + 1px)"></div>
+<script src="../header-include.js"></script>
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="images/shared/hero-start-team.webp" alt="">
+  <img src="../images/shared/hero-find-feeds.webp" alt="Data centre corridor with rows of illuminated server racks">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="../index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
         <span class="separator">/</span>
-        <a href="security-operations.html" class="badge-secops">Security Operations</a>
+        <a href="../cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
         <span class="separator">/</span>
-        <span class="current" aria-current="page">Start a new cybersecurity ops team</span>
+        <span class="current" aria-current="page">Find useful threat intelligence feeds</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Start a new cybersecurity ops team</h1>
-          <p class="banner-description">Been asked to build a cybersecurity operations team and not sure where to start? We help you figure out what you need, <strong>plan the right team size and structure, and even sit in on interviews</strong> to make sure you hire well.</p>
+          <h1 class="heading-style-h1">Find useful threat intelligence feeds</h1>
+          <p class="banner-description">Getting a threat intelligence platform is only part of the story. You also need <strong>high-quality threat intel feeds</strong> that deliver real value. We help you find, source, and get the most from your feeds &mdash; so your investment in CTI actually pays off.</p>
         </div>
         <div class="banner-form-card">
-          <h3 class="heading-style-h4">Talk to us about building your team</h3>
+          <h3 class="heading-style-h4">Talk to us about your threat intelligence feeds</h3>
           <form class="contact-form" action="#" method="post">
-            <input type="hidden" name="category" value="Cybersecurity Operations">
+            <input type="hidden" name="category" value="Cyber Threat Intelligence">
             <div class="form-row">
               <div class="form-group">
                 <label for="banner-first-name">First name</label>
@@ -1345,276 +1087,352 @@
 <!-- 2. Navigation Cards -->
 <section class="infra-section">
   <div class="container">
-
     <div class="nav-cards-heading">
-      <h3 class="heading-style-h3">How can we help?</h3>
+      <h3 class="heading-style-h3">What describes your situation?</h3>
     </div>
-
     <div class="nav-cards-grid">
-      <a href="#understand" class="nav-card">
-        <div class="nav-card-title">Understand what you need</div>
+      <a href="#dont-know" class="nav-card">
+        <div class="nav-card-title">I don&rsquo;t know what feeds I need</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
-      <a href="#plan" class="nav-card">
-        <div class="nav-card-title">Plan the build out</div>
+      <a href="#know-feeds" class="nav-card">
+        <div class="nav-card-title">I know what feeds I want</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
-      <a href="#hiring" class="nav-card">
-        <div class="nav-card-title">Help with hiring</div>
+      <a href="#feeds-not-working" class="nav-card">
+        <div class="nav-card-title">My feeds aren&rsquo;t giving me what I need</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#need-tip" class="nav-card">
+        <div class="nav-card-title">I have feeds but no way to combine them</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- 3. Credentials / Why Work With Us -->
-<section class="credentials-section">
-  <div class="credentials-inner">
-    <div class="credentials-box">
-        <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
-        <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">We&rsquo;ve built security operations teams before</h2>
+<!-- 3. If you don't know what feeds you need -->
+<section class="infra-section infra-section--alt" id="dont-know">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">Getting started</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">We&rsquo;ll help you find the right feeds for your organisation</h2>
+        <p style="margin-bottom: var(--space-lg);">Threat intelligence feeds deliver structured data about threats &mdash; indicators of compromise, threat actor profiles, vulnerability details, and more. If you&rsquo;re new to CTI feeds, the number of providers and data types can feel overwhelming. The good news is you don&rsquo;t need to buy everything at once. Start with your biggest risks, define what you need to know, and build from there. We&rsquo;ll help you work out what matters for your organisation and find the feeds that match.</p>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep SecOps experience building and running teams internationally</strong> &mdash; our consultants have established security operations teams across sectors and countries, from national CERTs to enterprise SOCs</div>
+            <div class="icon-item-text"><strong>Priority intelligence requirements.</strong> We help you develop PIRs so you know what threat intel you actually need &mdash; and spend money on feeds that deliver results.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Feed sourcing.</strong> We&rsquo;re connected to specialist threat intelligence feed providers globally. We&rsquo;ve sought out the best, and we use that knowledge to match you with the feeds that meet your PIRs.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Coverage.</strong> We help you select a range of providers that cover your PIRs, giving you the best opportunity to make your CTI actionable.</div>
+          </div>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="../images/cti/find-useful-threat-intelligence-feeds/feeds-getting-started.webp" alt="Abstract black and white digital pattern representing data and threat intelligence feeds">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. If you know what feeds you want -->
+<section class="infra-section" id="know-feeds">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro-image">
+        <img src="../images/cti/find-useful-threat-intelligence-feeds/feeds-sourcing.webp" alt="Close-up of a blue eyeball in the dark representing threat intelligence visibility">
+      </div>
+      <div class="infra-intro">
+        <div class="section-label">Sourcing feeds</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Make your purchasing process simpler</h2>
+        <p style="margin-bottom: var(--space-lg);">Buying threat intelligence feeds often means dealing with multiple vendors, separate contracts, and drawn-out procurement cycles. We simplify that. As a reseller connected to specialist CTI providers around the world, we handle the sourcing, negotiation, and integration so you can focus on using the intelligence rather than buying it.</p>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Better pricing.</strong> We have reseller agreements with CTI providers around the world, and we can often get you a better price than going direct. One conversation with us replaces dozens of vendor negotiations.</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
-            <div class="icon-item-text"><strong>SIM3 assessors who know what effective teams look like</strong> &mdash; we use the Security Incident Management Maturity Model to benchmark and design teams, so you start with a clear picture of what good looks like</div>
+            <div class="icon-item-text"><strong>Single contract.</strong> Rather than negotiating with many different providers, we wrap all your feeds under a single annual contract. One deal through procurement.</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Practical, right-sized advice</strong> &mdash; we don&rsquo;t give you a one-size-fits-all blueprint. We tailor our recommendations to your budget, timeline, and organisational context</div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="icon-item-text"><strong>Senior practitioners you work with directly</strong> &mdash; no junior consultants reading from a playbook. You get experienced people who&rsquo;ve spent their careers in security operations</div>
+            <div class="icon-item-text"><strong>Connected to your environment.</strong> We don&rsquo;t just source feeds &mdash; we help you get them integrated into your TIP, SIEM, or existing workflows so your analysts can act on intelligence from day one.</div>
           </div>
         </div>
       </div>
-      <div class="credentials-photo">
-        <img src="images/shared/prescott-pym-speaker.png" alt="Cosive's Prescott Pym speaking at AUSCERT">
-        <div class="credentials-caption">Cosive's Prescott Pym speaking at AUSCERT.</div>
-      </div>
+    </div>
   </div>
 </section>
 
-<!-- 4. Understand What You Need -->
-<section class="infra-section infra-section--alt" id="understand">
+<!-- 5. If your feeds aren't delivering -->
+<section class="infra-section infra-section--alt" id="feeds-not-working">
   <div class="container">
     <div class="infra-intro-grid">
       <div class="infra-intro">
-        <div class="section-label">Understand your needs</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Figure out what functions your SecOps team needs to provide</h2>
-        <p>Before you hire anyone, you need to understand what your organisation actually needs from a security operations team. We help you map out the functions, capabilities, and tools required &mdash; so you build a team that fits your risk profile and budget, not someone else&rsquo;s template.</p>
-        <p>Every organisation is different. A team of three looks very different to a team of fifteen, and both can be effective if they&rsquo;re focused on the right things.</p>
-        <div style="margin-top: var(--space-xl);">
-          <a href="#contact" class="btn-primary">Discuss your requirements</a>
+        <div class="section-label">Get the best feeds</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Find the best feeds for your needs</h2>
+        <p style="margin-bottom: var(--space-lg);">Every organisation has a unique risk posture and faces different threats &mdash; a bank is different to a telecommunications provider, which is different to critical infrastructure. The right set of CTI feeds for one organisation is not the right set for another. We help you find the feeds that actually match your needs.</p>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Finding better sources.</strong> If your current feeds don&rsquo;t deliver what you need, we help you find alternative providers that match your requirements and deliver the outcomes you&rsquo;re looking for.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Making feeds work harder.</strong> We help you set up automated workflows, triaging processes, and distribution mechanisms so the right CTI gets to the right places within your organisation.</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Demonstrating value.</strong> We help you show value to senior leadership, providing them a clear return on their investment in threat intelligence.</div>
+          </div>
         </div>
+        <p style="margin-top: var(--space-xl); font-size: var(--text-base); line-height: var(--leading-normal);">
+          <a href="../cti/improve-your-threat-intelligence-team.html" style="color: var(--color-accent); font-weight: 600;">Struggling to show value in your CTI programme? We can help.</a>
+        </p>
       </div>
-      <div>
-        <img src="images/secops/start-a-new-secops-team/understand-needs-review.webp" alt="Two people reviewing documents at a table"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
-      </div>
-    </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">SecOps functions mapping</h3>
-        <p class="build-feature-desc">Identify which security operations functions your team actually needs to provide. Not every organisation needs the same set of capabilities &mdash; we help you focus on what matters for your risk profile and industry.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Team size and structure</h3>
-        <p class="build-feature-desc">Right-size your team for your organisation. We help you work out how many people you need, what roles to create, and how to structure the team so it can operate effectively from day one.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Capability assessment</h3>
-        <p class="build-feature-desc">Work out which capabilities are essential for your team versus nice-to-have. We help you prioritise so you can build incrementally rather than trying to do everything at once.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Technology requirements</h3>
-        <p class="build-feature-desc">Understand what tools and platforms you&rsquo;ll need to support your team. We give you practical, vendor-neutral advice based on your budget and what your team will actually use.</p>
+      <div class="infra-intro-image">
+        <img src="../images/cti/find-useful-threat-intelligence-feeds/feeds-best-feeds.webp" alt="Worm's-eye view of a ceiling with warm light representing upward growth and value">
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. Plan the Build Out -->
-<section class="infra-section" id="plan">
-  <div class="container">
-    <div class="infra-intro" style="margin-bottom: var(--space-3xl);">
-      <div class="section-label">Plan the build out</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Plan your cybersecurity operations team build out</h2>
-      <p>We can perform a SecOps assessment to figure out exactly what shape your team needs to be in order to be effective. From there, we build you a phased implementation roadmap &mdash; so you know what to do first, what can wait, and how to measure progress along the way.</p>
-      <p>This isn&rsquo;t an abstract strategy document. It&rsquo;s a practical plan you can start executing immediately, with clear milestones and realistic timelines.</p>
-    </div>
-    <div class="numbered-list-grid">
-      <div class="numbered-list">
-        <div class="numbered-item">
-          <div class="numbered-item-number">01</div>
-          <h3 class="numbered-item-title">SIM3 baseline assessment</h3>
-          <p class="numbered-item-desc">A structured assessment of what your organisation needs from a security operations team. We use frameworks like SIM3 to give you an objective baseline and clear targets to build towards.</p>
-        </div>
-        <div class="numbered-item">
-          <div class="numbered-item-number">02</div>
-          <h3 class="numbered-item-title">Implementation roadmap</h3>
-          <p class="numbered-item-desc">A phased plan for standing up your team over time. We break the build into manageable stages so you can show progress early and adjust as you learn what works.</p>
-        </div>
-        <div class="numbered-item">
-          <div class="numbered-item-number">03</div>
-          <h3 class="numbered-item-title">Process design</h3>
-          <p class="numbered-item-desc">Design your core operational processes &mdash; incident response, triage, escalation, and handover. We help you get the fundamentals right so your team can hit the ground running.</p>
-        </div>
-        <div class="numbered-item">
-          <div class="numbered-item-number">04</div>
-          <h3 class="numbered-item-title">Framework adoption</h3>
-          <p class="numbered-item-desc">Help choosing and operationalising the right frameworks for your team. Whether it&rsquo;s SIM3, SOC-CMM, ATT&amp;CK, or a combination &mdash; we help you adopt what&rsquo;s useful without drowning in process.</p>
-        </div>
-      </div>
-      <div class="numbered-list-image">
-        <img src="images/shared/plan-buildout-laptops.webp" alt="People working on laptops with notebooks">
-      </div>
-    </div>
-    <div style="margin-top: var(--space-3xl);">
-      <a href="#contact" class="btn-primary">Discuss your build plan</a>
-    </div>
+<!-- 6. Platform intro -->
+<section class="infra-section" id="need-tip">
+  <div class="container" style="text-align: center; max-width: 48em;">
+    <div class="section-label">Platforms</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Turn your feeds into actionable intelligence</h2>
+    <p style="font-size: var(--text-lg); color: var(--color-text-secondary); line-height: var(--leading-loose);">Feeds deliver raw data — a threat intelligence platform turns it into something your team can act on. A TIP ingests your feeds, normalises the data across formats, correlates indicators from different sources, and pushes enriched intelligence to your SIEM, SOAR, and analyst workflows. We deploy and support three platforms, each suited to different team sizes and integration needs.</p>
   </div>
 </section>
 
-<!-- 6. Help With Hiring -->
-<section class="infra-section infra-section--alt" id="hiring">
+<!-- 6a. CloudMISP Platform -->
+<section class="infra-section infra-section--alt" id="platform-cloudmisp">
   <div class="container">
-    <div class="infra-intro-grid infra-intro-grid--reversed">
+    <div class="infra-intro-grid">
       <div class="infra-intro">
-        <div class="section-label">Help with hiring</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Hire the right people for your cybersecurity operations team</h2>
-        <p>Not sure what traits make a good incident responder? We can help you choose the best team to provide a good range of skills. From writing job descriptions that attract the right candidates to sitting in on interviews &mdash; we make sure you hire people who can actually do the job.</p>
-        <p>Getting your first hires right is critical. The people you bring in early set the culture and capability of your team for years to come.</p>
+        <div class="section-label">CloudMISP</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Cosive <span class="accent">CloudMISP</span></h2>
+        <p>If your team is spending time on platform maintenance instead of analysis, a managed service frees them up. CloudMISP is our rearchitected, containerised MISP SaaS &mdash; deployed in a dedicated VPC in your preferred AWS region so your analysts can focus on intelligence, not infrastructure.</p>
+        <p>We handle hosting, monitoring, updates, and security patches. You get a production-ready MISP instance with built-in sharing workflows, multi-community support, and the confidence that your platform is being looked after by the team that built it.</p>
         <div style="margin-top: var(--space-xl);">
-          <a href="#contact" class="btn-primary">Discuss your hiring needs</a>
+          <a href="../cloud-misp.html" class="btn-primary">Learn more about CloudMISP</a>
         </div>
       </div>
-      <div>
-        <img src="images/secops/start-a-new-secops-team/hiring-rooftop.webp" alt="Two people sitting and talking on a rooftop"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
-      </div>
-    </div>
-    <div class="build-grid">
-      <div class="build-feature">
-        <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">Role definition</h3>
-        <p class="build-feature-desc">Define the roles your team needs and write job descriptions that attract the right candidates. We help you describe what you actually need &mdash; not a wish list of every security certification in existence.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Skills assessment</h3>
-        <p class="build-feature-desc">Identify the right mix of skills for your team. A good SecOps team needs a balance of technical depth, analytical thinking, and communication &mdash; we help you work out what that looks like for your context.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Interview support</h3>
-        <p class="build-feature-desc">We can sit in on candidate interviews and help you select the best people. Our experience hiring and managing security teams means we know what to look for beyond the CV.</p>
-      </div>
-      <div class="build-feature">
-        <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Onboarding planning</h3>
-        <p class="build-feature-desc">Help structure onboarding for your new security hires. Good onboarding accelerates time-to-value and helps new team members feel confident and productive from the start.</p>
+      <div class="infra-intro-image">
+        <img src="../images/shared/scenario-cloudmisp.webp" alt="MISP Beta UI showing the redesigned Event Index with tags, clusters, and streamlined navigation">
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. FAQ -->
+<!-- 6b. OpenCTI Platform -->
+<section class="infra-section" id="platform-opencti">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro-image">
+        <img src="../images/shared/scenario-opencti.webp" alt="OpenCTI platform dashboard showing threat intelligence data">
+      </div>
+      <div class="infra-intro">
+        <div class="section-label">OpenCTI</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Filigran <span class="accent">OpenCTI</span></h2>
+        <p>For teams that need flexible knowledge graph modelling and strong STIX support, OpenCTI gives you control and extensibility. Its STIX-native data model means your intelligence relationships are first-class objects &mdash; not afterthoughts bolted onto a flat database.</p>
+        <p>We help you plan, deploy, and tune OpenCTI so it fits your team&rsquo;s workflows &mdash; whether you self-host or use Filigran&rsquo;s SaaS offering. From connector configuration to dashboard design, we make sure you get value from the platform quickly.</p>
+        <ul>
+          <li>STIX-native data model with full relationship mapping</li>
+          <li>Connector ecosystem for feed ingestion and enrichment</li>
+          <li>Flexible dashboards and reporting</li>
+          <li>Self-hosted or SaaS deployment options</li>
+        </ul>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss OpenCTI deployment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6c. EclecticIQ Platform -->
+<section class="infra-section infra-section--alt" id="platform-eclecticiq">
+  <div class="container">
+    <div class="infra-intro-grid">
+      <div class="infra-intro">
+        <div class="section-label">EclecticIQ</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">EclecticIQ <span class="accent">Intelligence Center</span></h2>
+        <p>For enterprise security teams that need deep integration with their existing stack and analyst-centric workflows, EclecticIQ Intelligence Center provides a structured environment for creating, managing, and disseminating intelligence.</p>
+        <p>We help you get the most from EclecticIQ &mdash; configuring analyst workbenches, building bi-directional integrations with your SIEM and SOAR, and setting up outgoing feeds so your intelligence reaches the teams and tools that need it.</p>
+        <ul>
+          <li>Analyst workbench with structured analysis tools</li>
+          <li>Bi-directional SIEM and SOAR integrations</li>
+          <li>Outgoing feed management for sharing with partners</li>
+          <li>Enterprise support and SLA guarantees</li>
+        </ul>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss EclecticIQ</a>
+        </div>
+      </div>
+      <div class="infra-intro-image">
+        <img src="../images/shared/scenario-eclecticiq.webp" alt="EclecticIQ Intelligence Center platform interface">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Credentials -->
+<section class="credentials-section">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+      <div class="credentials-separator"><img src="../icons/cosive-sinewave.svg" alt="Cosive"></div>
+      <div class="credentials-label">Why work with us</div>
+      <h2 class="heading-style-h2">Threat intelligence feed expertise you can trust</h2>
+      <div class="icon-credentials">
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Connected to specialist feed providers globally</strong> &mdash; sourcing the best intelligence from around the world</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Deep PIR development expertise</strong> &mdash; helping teams define what intelligence they actually need</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Built CTI workflows for major international organisations</strong> &mdash; automating triage, enrichment, and distribution</div>
+        </div>
+        <div class="icon-item">
+          <div class="icon-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="icon-item-text"><strong>Platform-agnostic</strong> &mdash; we work with MISP, OpenCTI, EclecticIQ, and other STIX/TAXII platforms</div>
+        </div>
+      </div>
+    </div>
+    <div class="credentials-photo">
+      <img src="../images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+      <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
 <section class="faq-section">
   <div class="container">
-    <div class="section-label">Frequently asked questions</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about starting a cybersecurity operations team</h2>
+    <div class="section-label">FAQ</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear about threat intelligence feeds</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          How do I start a cybersecurity operations team from scratch?
+          What threat intelligence feed providers do you work with?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Start by understanding what your organisation actually needs to protect, then map the functions your team will provide &mdash; monitoring, detection, incident response, vulnerability management &mdash; and match them to realistic team sizes and budgets. Most effective teams start small (two or three people on the highest-priority functions) and grow deliberately. A <a href="security-operations.html">SIM3</a> assessment gives you an objective baseline, and a phased roadmap stops you trying to do everything at once.</p>
+          <p>We work with a broad range of commercial and open-source feed providers worldwide, and we&rsquo;re vendor-neutral &mdash; rather than pushing one source, we match you to the feeds that best cover your priority intelligence requirements (PIRs) and operational context, under a single contract where that&rsquo;s simpler for you.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          How many people do I need on a security operations team?
+          Can you get threat intelligence feeds into our TIP?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>There&rsquo;s no single number &mdash; it depends on the functions you need to cover, your risk profile and your coverage requirements. Some organisations run effective security operations with three people; others need fifteen or more. Start by defining what your team must do &mdash; 24/7 monitoring versus business-hours triage &mdash; then factor in what can be automated or outsourced. A small team doing the right things well beats a large one spread too thin.</p>
+          <p>Yes &mdash; we configure feed ingestion, build custom connectors and automate the workflows that get intelligence flowing into your threat intelligence platform, whether that&rsquo;s <a href="../cloud-misp.html">CloudMISP</a>, OpenCTI, EclecticIQ or another STIX/TAXII-compatible platform. You get clean, deduplicated intelligence in your tools without manual copy-paste.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What roles do I need to hire for a new SOC or SecOps team?
+          What are PIRs (priority intelligence requirements)?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Most new teams start with a mix of incident responders and security analysts who can triage alerts, investigate incidents and maintain detection rules, then add dedicated roles &mdash; threat intelligence, detection engineering, vulnerability management, security automation &mdash; as they mature. When hiring, prioritise strong analytical thinking and clear communication: technical knowledge can be trained, but investigative judgement is harder to teach.</p>
+          <p>Priority intelligence requirements (PIRs) define what your organisation actually needs to know about the threat landscape &mdash; the questions your intelligence programme exists to answer. They guide which feeds you subscribe to, where analysts focus and what you report, so your CTI effort stays aligned to real business risk rather than chasing everything.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What frameworks should I use to build a security operations team?
+          What is a CTI workflow, and why does it matter?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>The two most widely used are <a href="security-operations.html">SIM3</a> (best for benchmarking and certifying CSIRTs and SOCs) and <a href="improve-secops-team.html">SOC-CMM</a> (designed specifically for SOC-focused teams). <a href="use-attack-framework.html">MITRE ATT&amp;CK</a> is also valuable for mapping detection coverage and finding gaps. The right choice depends on your team structure and goals &mdash; we help you pick and apply the one that fits.</p>
+          <p>A CTI workflow is the process for ingesting, triaging, enriching and distributing threat intelligence. Without one, feeds just become noise; with a good one, the right intelligence reaches the right people at the right time &mdash; and flows automatically into the tools that act on it.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          Should I outsource security operations or build an in-house team?
+          Why does triaging threat intelligence matter?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>Both work, and many organisations use a hybrid. An in-house team gives you direct control, deeper organisational knowledge and the ability to handle sensitive investigations internally; outsourcing to a managed SOC can provide 24/7 coverage and specialist expertise a small internal team can&rsquo;t sustain. It often comes down to which functions need internal context &mdash; incident response and threat intelligence do &mdash; versus which can be commoditised, like first-tier monitoring. A small in-house team plus external support is a common, effective start.</p>
+          <p>Not all intelligence is relevant to you, so triage is how analysts focus on what matters &mdash; filtering out noise and prioritising the indicators that match your threat profile and PIRs. It&rsquo;s the difference between a feed that drives action and one that drowns your team in alerts.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Should I subscribe to as many feeds as possible?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>No &mdash; more feeds doesn&rsquo;t mean better intelligence. What matters is coverage of your PIRs: a few well-chosen, high-quality feeds consistently outperform a large number of overlapping or irrelevant ones, and cost less to run. Start from what you need to know, then choose feeds to match.</p>
         </div>
       </details>
 
     </div>
     <div class="faq-image">
-      <img src="images/secops/start-a-new-secops-team/faq.webp" alt="Airport control tower and terminal building under blue sky">
+      <img src="../images/cti/find-useful-threat-intelligence-feeds/feeds-cta-bg.webp" alt="Blue and white light streaks">
     </div>
     </div>
   </div>
 </section>
 
-<!-- Wavy SVG separator -->
-<div class="people-cta-separator"><img src="icons/wavy-separator.svg" alt=""></div>
+<!-- 9. Sinewave divider -->
+<div class="people-cta-separator"><img src="../icons/cosive-sinewave.svg" alt="Cosive"></div>
 
-<!-- Contact Form -->
+<!-- 10. Contact CTA -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start building your security operations team</h2>
-      <p class="contact-subtitle">Tell us where you&rsquo;re at and we&rsquo;ll help you figure out the right next steps for building your SecOps team.</p>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Find the best threat intel feeds</h2>
+      <p class="contact-subtitle">Tell us about your threat intelligence feed needs and we&rsquo;ll get back to you as soon as possible.</p>
       <form class="contact-form" action="#" method="post">
-        <input type="hidden" name="category" value="Cybersecurity Operations">
+        <input type="hidden" name="category" value="Cyber Threat Intelligence">
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First name</label>
@@ -1643,8 +1461,9 @@
   </div>
 </section>
 
+<!-- 11. Footer -->
 <div id="site-footer-placeholder"></div>
-<script src="footer-include.js"></script>
+<script src="../footer-include.js"></script>
 
 </body>
 </html>

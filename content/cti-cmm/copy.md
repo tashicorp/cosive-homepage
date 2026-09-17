@@ -253,7 +253,7 @@ duplication of any question already on the site. (Checked against all 100+ exist
 
 ## 11. Sinewave divider — `.people-cta-separator` (§5)
 
-`<img src="icons/cosive-sinewave.svg" alt="Cosive">` — use the `cosive-sinewave` skill.
+`<img src="../../icons/cosive-sinewave.svg" alt="Cosive">` — use the `cosive-sinewave` skill.
 
 ---
 

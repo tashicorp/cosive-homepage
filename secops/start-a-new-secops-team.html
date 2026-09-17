@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
-<title>Improve My Cybersecurity Ops Team - Cosive</title>
-<meta name="description" content="We help you assess your SecOps capabilities, improve incident response, adopt security frameworks, and build a more effective cybersecurity operations team.">
+<title>Start a New Cybersecurity Ops Team - Cosive</title>
+<meta name="description" content="We help you plan, staff, and launch a new cybersecurity operations team — from figuring out what functions you need to sitting in on candidate interviews.">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -203,6 +203,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 35%;
     filter: grayscale(0.4);
     opacity: 0.45;
   }
@@ -345,7 +346,7 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     color: var(--color-accent);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-lg);
   }
 
   .btn-primary {
@@ -408,7 +409,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4xl);
     align-items: start;
-    margin-bottom: var(--space-7xl);
+    margin-bottom: var(--space-5xl);
   }
 
   .infra-intro-grid:last-child {
@@ -419,7 +420,7 @@
     font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-loose);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .infra-intro ul {
@@ -443,12 +444,12 @@
   .build-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6xl);
-    margin-top: var(--space-7xl);
+    gap: var(--space-4xl);
+    margin-top: var(--space-5xl);
   }
 
   .build-feature {
-    padding-top: var(--space-2xl);
+    padding-top: var(--space-xl);
     position: relative;
     transition: transform 0.3s ease;
   }
@@ -477,7 +478,7 @@
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-secondary);
-    margin: var(--space-lg) 0 var(--space-md);
+    margin: var(--space-lg) 0 var(--space-sm);
   }
 
   .build-feature-title {
@@ -486,7 +487,7 @@
     font-weight: 700;
     color: var(--color-text-primary);
     line-height: var(--leading-snug);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   .build-feature-desc {
@@ -553,7 +554,7 @@
   .numbered-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-5xl);
+    gap: var(--space-3xl);
   }
 
   .numbered-item {
@@ -578,7 +579,7 @@
     font-weight: 800;
     color: var(--color-accent);
     line-height: var(--leading-tight);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
   }
 
   .numbered-item-title {
@@ -587,7 +588,7 @@
     font-weight: 700;
     color: var(--color-text-primary);
     line-height: var(--leading-snug);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
   }
 
   .numbered-item-desc {
@@ -609,13 +610,17 @@
     display: block;
   }
 
+  /* ── Reversed Intro Grid ── */
+  .infra-intro-grid--reversed .infra-intro { order: 2; }
+  .infra-intro-grid--reversed > :last-child { order: 1; }
+
   /* ── Navigation Cards ── */
   .nav-cards-heading {
     text-align: center;
     margin-bottom: 2rem;
   }
 
-  #assess, #staff, #incident-response, #frameworks {
+  #understand, #plan, #hiring {
     scroll-margin-top: 8rem;
   }
 
@@ -708,7 +713,7 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
     color: var(--color-accent);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .credentials-separator {
@@ -721,7 +726,7 @@
   }
 
   .credentials-box h2 {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     color: var(--color-white);
   }
 
@@ -744,7 +749,7 @@
     height: 100%;
     object-fit: cover;
     object-position: 80% center;
-    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+    filter: grayscale(1);
   }
 
   .credentials-caption {
@@ -768,7 +773,7 @@
     display: flex;
     align-items: flex-start;
     gap: var(--space-lg);
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
@@ -885,7 +890,7 @@
   .faq-inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: var(--space-6xl);
+    gap: var(--space-4xl);
     align-items: start;
   }
 
@@ -990,7 +995,7 @@
     display: flex;
     justify-content: center;
     padding: var(--space-8xl) 0 0;
-    background: var(--color-light-grey);
+    background: var(--color-white);
   }
 
   .people-cta-separator img {
@@ -1001,7 +1006,7 @@
   /* ── Contact section ── */
   .contact-section {
     padding: var(--space-4xl) 0 var(--space-8xl);
-    background: var(--color-light-grey);
+    background: var(--color-white);
     text-align: center;
   }
 
@@ -1162,12 +1167,14 @@
   }
 
   @media (max-width: 1200px) {
-    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-4xl); }
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .credentials-inner { grid-template-columns: 1fr; }
     .credentials-photo { min-height: 300px; }
-    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-5xl); margin-top: var(--space-5xl); }
+    .build-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-3xl); }
     .numbered-list-grid { grid-template-columns: 1fr; }
     .numbered-list-image { position: static; }
+    .infra-intro-grid--reversed .infra-intro,
+    .infra-intro-grid--reversed > :last-child { order: unset; }
     .faq-inner { grid-template-columns: 1fr; }
     .faq-image { display: none; }
   }
@@ -1211,7 +1218,7 @@
     /* Credentials */
     .credentials-box h2 { font-size: var(--text-2xl); }
 
-    .infra-section,
+    .infra-section { padding: var(--space-7xl) 0; }
     .faq-section { padding: var(--space-7xl) 0; }
     .people-cta-separator { padding-top: var(--space-7xl); }
     .contact-section { padding: var(--space-3xl) 0 var(--space-7xl); }
@@ -1241,15 +1248,14 @@
 
     .form-row { grid-template-columns: 1fr; }
 
-    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-4xl); }
+    .build-grid { grid-template-columns: 1fr; gap: var(--space-3xl); margin-top: var(--space-xl); }
     .build-feature-title { font-size: var(--text-lg); }
 
     .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
     .footer-columns { grid-template-columns: repeat(2, 1fr); }
 
-    .infra-section,
+    .infra-section { padding: var(--space-5xl) 0; }
     .faq-section { padding: var(--space-5xl) 0; }
-
     .people-cta-separator { padding-top: var(--space-5xl); }
     .contact-section { padding-bottom: var(--space-5xl); }
   }
@@ -1274,7 +1280,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Improve my cybersecurity ops team"
+      "name": "Start a new cybersecurity ops team"
     }
   ]
 }
@@ -1283,27 +1289,27 @@
 <body>
 
 <div id="site-header-placeholder" data-nav-active="secops" style="min-height:calc(var(--space-5xl) + 1px)"></div>
-<script src="header-include.js"></script>
+<script src="../header-include.js"></script>
 
 <!-- 1. Page Banner -->
 <div class="page-banner">
-  <img src="images/secops/improve-my-secops-team/banner-bg.webp" alt="">
+  <img src="../images/shared/hero-start-team.webp" alt="">
   <div class="page-banner-inner">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="../index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
         <span class="separator">/</span>
-        <a href="security-operations.html" class="badge-secops">Security Operations</a>
+        <a href="../security-operations.html" class="badge-secops">Security Operations</a>
         <span class="separator">/</span>
-        <span class="current" aria-current="page">Improve my cybersecurity ops team</span>
+        <span class="current" aria-current="page">Start a new cybersecurity ops team</span>
       </nav>
       <div class="banner-grid">
         <div class="banner-text">
-          <h1 class="heading-style-h1">Improve my cybersecurity ops team</h1>
-          <p class="banner-description">Whether you need to assess your current capabilities, improve your incident response, or adopt security frameworks &mdash; <strong>we help you build a more effective SecOps team with practical advice and hands-on support</strong>.</p>
+          <h1 class="heading-style-h1">Start a new cybersecurity ops team</h1>
+          <p class="banner-description">Been asked to build a cybersecurity operations team and not sure where to start? We help you figure out what you need, <strong>plan the right team size and structure, and even sit in on interviews</strong> to make sure you hire well.</p>
         </div>
         <div class="banner-form-card">
-          <h3 class="heading-style-h4">Talk to us about your SecOps goals</h3>
+          <h3 class="heading-style-h4">Talk to us about building your team</h3>
           <form class="contact-form" action="#" method="post">
             <input type="hidden" name="category" value="Cybersecurity Operations">
             <div class="form-row">
@@ -1341,24 +1347,20 @@
   <div class="container">
 
     <div class="nav-cards-heading">
-      <h3 class="heading-style-h3">What would you like to do?</h3>
+      <h3 class="heading-style-h3">How can we help?</h3>
     </div>
 
-    <div class="nav-cards-grid nav-cards-grid--2x2">
-      <a href="#improve" class="nav-card">
-        <div class="nav-card-title">Assess and improve my team</div>
+    <div class="nav-cards-grid">
+      <a href="#understand" class="nav-card">
+        <div class="nav-card-title">Understand what you need</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
-      <a href="#incident-response" class="nav-card">
-        <div class="nav-card-title">Improve our incident response</div>
+      <a href="#plan" class="nav-card">
+        <div class="nav-card-title">Plan the build out</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
-      <a href="#first" class="nav-card">
-        <div class="nav-card-title">Join FIRST</div>
-        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
-      </a>
-      <a href="#frameworks" class="nav-card">
-        <div class="nav-card-title">Adopt security frameworks</div>
+      <a href="#hiring" class="nav-card">
+        <div class="nav-card-title">Help with hiring</div>
         <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
       </a>
     </div>
@@ -1369,277 +1371,248 @@
 <section class="credentials-section">
   <div class="credentials-inner">
     <div class="credentials-box">
-        <div class="credentials-separator"><img src="icons/cosive-sinewave.svg" alt="Cosive"></div>
+        <div class="credentials-separator"><img src="../icons/cosive-sinewave.svg" alt="Cosive"></div>
         <div class="credentials-label">Why work with us</div>
-        <h2 class="heading-style-h2">Security operations expertise you can trust</h2>
+        <h2 class="heading-style-h2">We&rsquo;ve built security operations teams before</h2>
         <div class="icon-credentials">
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
             </div>
-            <div class="icon-item-text"><strong>Deep SecOps experience across international CERTs and managed security providers</strong> &mdash; our team has worked in and with security operations centres around the world</div>
+            <div class="icon-item-text"><strong>Deep SecOps experience building and running teams internationally</strong> &mdash; our consultants have established security operations teams across sectors and countries, from national CERTs to enterprise SOCs</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
-            <div class="icon-item-text"><strong>SIM3 assessors with experience assessing security teams globally</strong> &mdash; we use the Security Incident Management Maturity Model to provide objective, structured assessments</div>
+            <div class="icon-item-text"><strong>SIM3 assessors who know what effective teams look like</strong> &mdash; we use the Security Incident Management Maturity Model to benchmark and design teams, so you start with a clear picture of what good looks like</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
-            <div class="icon-item-text"><strong>ATT&amp;CK and VERIS framework specialists</strong> &mdash; we help teams classify threats, map detections, and build structured security incident vocabularies</div>
+            <div class="icon-item-text"><strong>Practical, right-sized advice</strong> &mdash; we don&rsquo;t give you a one-size-fits-all blueprint. We tailor our recommendations to your budget, timeline, and organisational context</div>
           </div>
           <div class="icon-item">
             <div class="icon-item-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <div class="icon-item-text"><strong>A team of senior security practitioners</strong> &mdash; you work directly with experienced consultants who&rsquo;ve spent their careers building and running security operations</div>
+            <div class="icon-item-text"><strong>Senior practitioners you work with directly</strong> &mdash; no junior consultants reading from a playbook. You get experienced people who&rsquo;ve spent their careers in security operations</div>
           </div>
         </div>
       </div>
       <div class="credentials-photo">
-        <img src="images/secops/improve-my-secops-team/credentials-conference.webp" alt="Team presenting at a security conference">
-        <div class="credentials-caption">Cosive are frequent presenters at FIRST, AUSCERT and NZITF.</div>
+        <img src="../images/shared/prescott-pym-speaker.png" alt="Cosive's Prescott Pym speaking at AUSCERT">
+        <div class="credentials-caption">Cosive's Prescott Pym speaking at AUSCERT.</div>
       </div>
   </div>
 </section>
 
-<!-- 4. Assess & Improve -->
-<section class="infra-section infra-section--alt" id="improve">
+<!-- 4. Understand What You Need -->
+<section class="infra-section infra-section--alt" id="understand">
   <div class="container">
     <div class="infra-intro-grid">
-      <div>
-        <img src="images/secops/improve-my-secops-team/assess-improve-map.webp" alt="Person pointing at a map while planning a route"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center bottom; border-radius: var(--radius-lg); display: block;">
-      </div>
       <div class="infra-intro">
-        <div class="section-label">Assess &amp; Improve</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Benchmark your security operations and build on what works</h2>
-        <p>We help you assess your current security operations maturity and build a practical improvement plan tailored to your organisation. We use frameworks like <strong>SIM3</strong> to give you an objective, repeatable baseline so you can measure where you are and track real progress over time. Hiring senior cybersecurity staff is expensive and slow &mdash; our consultants have up to 25 years of experience and can embed in your team to deliver difficult projects and develop your people&rsquo;s capabilities.</p>
-        <div style="margin-top: var(--space-3xl);">
-          <a href="#contact" class="btn-primary">Discuss improving your team</a>
+        <div class="section-label">Understand your needs</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Figure out what functions your SecOps team needs to provide</h2>
+        <p>Before you hire anyone, you need to understand what your organisation actually needs from a security operations team. We help you map out the functions, capabilities, and tools required &mdash; so you build a team that fits your risk profile and budget, not someone else&rsquo;s template.</p>
+        <p>Every organisation is different. A team of three looks very different to a team of fifteen, and both can be effective if they&rsquo;re focused on the right things.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss your requirements</a>
         </div>
+      </div>
+      <div>
+        <img src="../images/secops/start-a-new-secops-team/understand-needs-review.webp" alt="Two people reviewing documents at a table"
+             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
       </div>
     </div>
     <div class="build-grid">
       <div class="build-feature">
         <div class="build-feature-number">01</div>
-        <h3 class="build-feature-title">SIM3 gap assessment</h3>
-        <p class="build-feature-desc">A structured gap assessment using the SIM3 framework, based on our extensive experience assessing security teams globally. We typically use SIM3 because it gives you a repeatable way to measure maturity across organisation, human, tools, and processes.</p>
+        <h3 class="build-feature-title">SecOps functions mapping</h3>
+        <p class="build-feature-desc">Identify which security operations functions your team actually needs to provide. Not every organisation needs the same set of capabilities &mdash; we help you focus on what matters for your risk profile and industry.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">02</div>
-        <h3 class="build-feature-title">Improvement roadmap</h3>
-        <p class="build-feature-desc">We develop a multi-year improvement roadmap to fix your security team &mdash; a practical path to an efficient, effective capability that accounts for your budget, team size, and organisational context.</p>
+        <h3 class="build-feature-title">Team size and structure</h3>
+        <p class="build-feature-desc">Right-size your team for your organisation. We help you work out how many people you need, what roles to create, and how to structure the team so it can operate effectively from day one.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">03</div>
-        <h3 class="build-feature-title">Staff augmentation</h3>
-        <p class="build-feature-desc">Experienced staff with 10&ndash;26 years of cybersecurity experience, embedded in your team to help you do the projects you just don&rsquo;t have time to do &mdash; and level up your people&rsquo;s skills along the way.</p>
+        <h3 class="build-feature-title">Capability assessment</h3>
+        <p class="build-feature-desc">Work out which capabilities are essential for your team versus nice-to-have. We help you prioritise so you can build incrementally rather than trying to do everything at once.</p>
       </div>
       <div class="build-feature">
         <div class="build-feature-number">04</div>
-        <h3 class="build-feature-title">Industry benchmarking</h3>
-        <p class="build-feature-desc">Benchmark yourself against others in your industry so you understand where to improve. We help you compare your security operations to peers in your sector and set realistic, organisation-specific targets.</p>
+        <h3 class="build-feature-title">Technology requirements</h3>
+        <p class="build-feature-desc">Understand what tools and platforms you&rsquo;ll need to support your team. We give you practical, vendor-neutral advice based on your budget and what your team will actually use.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. Incident Response -->
-<section class="infra-section" id="incident-response">
+<!-- 5. Plan the Build Out -->
+<section class="infra-section" id="plan">
   <div class="container">
-    <div class="infra-intro" style="margin-bottom: var(--space-5xl);">
-      <div class="section-label">Incident Response</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Build incident response processes that work under pressure</h2>
-      <p>We have extensive experience helping organisations create and improve their incident response processes. Whether you&rsquo;re building from scratch or refining what you have, we focus on making IR processes that work reliably when it matters most.</p>
-      <p>We act as a resource multiplier for your team &mdash; helping you do more with less by tuning alerts, automating repetitive tasks, and aligning your detection rules with your actual threat landscape.</p>
+    <div class="infra-intro" style="margin-bottom: var(--space-3xl);">
+      <div class="section-label">Plan the build out</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Plan your cybersecurity operations team build out</h2>
+      <p>We can perform a SecOps assessment to figure out exactly what shape your team needs to be in order to be effective. From there, we build you a phased implementation roadmap &mdash; so you know what to do first, what can wait, and how to measure progress along the way.</p>
+      <p>This isn&rsquo;t an abstract strategy document. It&rsquo;s a practical plan you can start executing immediately, with clear milestones and realistic timelines.</p>
     </div>
     <div class="numbered-list-grid">
       <div class="numbered-list">
         <div class="numbered-item">
           <div class="numbered-item-number">01</div>
-          <h3 class="numbered-item-title">IR process design</h3>
-          <p class="numbered-item-desc">Create and improve incident response processes so they work reliably and effectively. We design processes that match your team&rsquo;s size and operating environment.</p>
+          <h3 class="numbered-item-title">SIM3 baseline assessment</h3>
+          <p class="numbered-item-desc">A structured assessment of what your organisation needs from a security operations team. We use frameworks like SIM3 to give you an objective baseline and clear targets to build towards.</p>
         </div>
         <div class="numbered-item">
           <div class="numbered-item-number">02</div>
-          <h3 class="numbered-item-title">Triage &amp; investigation</h3>
-          <p class="numbered-item-desc">Work out the best way to triage and investigate new potential security incidents. We help you build consistent, repeatable approaches to handling alerts.</p>
+          <h3 class="numbered-item-title">Implementation roadmap</h3>
+          <p class="numbered-item-desc">A phased plan for standing up your team over time. We break the build into manageable stages so you can show progress early and adjust as you learn what works.</p>
         </div>
         <div class="numbered-item">
           <div class="numbered-item-number">03</div>
-          <h3 class="numbered-item-title">Alert tuning &amp; automation</h3>
-          <p class="numbered-item-desc">Reduce alert fatigue so that your staff get an opportunity to work on other things. We tune detection rules and automate repetitive tasks &mdash; a resource multiplier for lean teams.</p>
+          <h3 class="numbered-item-title">Process design</h3>
+          <p class="numbered-item-desc">Design your core operational processes &mdash; incident response, triage, escalation, and handover. We help you get the fundamentals right so your team can hit the ground running.</p>
         </div>
         <div class="numbered-item">
           <div class="numbered-item-number">04</div>
-          <h3 class="numbered-item-title">Table-top exercises (TTX)</h3>
-          <p class="numbered-item-desc">Scenario-based exercises to make sure that people know what to do when an incident occurs. We design and facilitate exercises tailored to your threat landscape.</p>
+          <h3 class="numbered-item-title">Framework adoption</h3>
+          <p class="numbered-item-desc">Help choosing and operationalising the right frameworks for your team. Whether it&rsquo;s SIM3, SOC-CMM, ATT&amp;CK, or a combination &mdash; we help you adopt what&rsquo;s useful without drowning in process.</p>
         </div>
       </div>
       <div class="numbered-list-image">
-        <img src="images/shared/ir-indicator-lights.webp" alt="Close-up of red and green indicator lights">
+        <img src="../images/shared/plan-buildout-laptops.webp" alt="People working on laptops with notebooks">
       </div>
     </div>
-    <div style="margin-top: var(--space-5xl);">
-      <a href="#contact" class="btn-primary">Discuss IR improvement</a>
+    <div style="margin-top: var(--space-3xl);">
+      <a href="#contact" class="btn-primary">Discuss your build plan</a>
     </div>
   </div>
 </section>
 
-<!-- 6. Join FIRST -->
-<section class="infra-section infra-section--alt" id="first">
+<!-- 6. Help With Hiring -->
+<section class="infra-section infra-section--alt" id="hiring">
   <div class="container">
-    <div class="misp-grid">
-      <div style="margin-top: 0; max-width: none; position: relative;">
-        <img src="images/shared/chris-horsley-speaker.webp" alt="Chris Horsley speaking at FIRST Conference"
-             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center 30%; border-radius: var(--radius-lg); display: block;">
-        <div style="position: absolute; bottom: var(--space-sm); right: var(--space-md); font-size: var(--text-sm); color: var(--color-white); background: rgba(0, 0, 0, 0.6); padding: var(--space-2xs) var(--space-xs); border-radius: var(--radius-sm);">
-          Cosive co-founder Chris Horsley presenting at the annual FIRST Conference in Copenhagen.
+    <div class="infra-intro-grid infra-intro-grid--reversed">
+      <div class="infra-intro">
+        <div class="section-label">Help with hiring</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">Hire the right people for your cybersecurity operations team</h2>
+        <p>Not sure what traits make a good incident responder? We can help you choose the best team to provide a good range of skills. From writing job descriptions that attract the right candidates to sitting in on interviews &mdash; we make sure you hire people who can actually do the job.</p>
+        <p>Getting your first hires right is critical. The people you bring in early set the culture and capability of your team for years to come.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="#contact" class="btn-primary">Discuss your hiring needs</a>
         </div>
       </div>
-      <div class="infra-intro">
-        <div class="section-label">Join FIRST</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Join FIRST, the world&rsquo;s largest incident response community</h2>
-        <p>FIRST (Forum of Incident Response and Security Teams) connects your team to a global network of security professionals. We can guide you through the application process and help you get the most out of your membership.</p>
-        <ul>
-          <li>Learn from the world&rsquo;s best incident response teams</li>
-          <li>Access helpful content about how to set up a SecOps team</li>
-          <li>Access Cyber Threat Intelligence to protect your organisation</li>
-          <li>Cheap tickets to the FIRST Annual Conference, one of the best defender-oriented conferences in the world</li>
-        </ul>
-        <div style="margin-top: var(--space-3xl);">
-          <a href="#contact" class="btn-primary">Talk to us about joining FIRST</a>
-        </div>
+      <div>
+        <img src="../images/secops/start-a-new-secops-team/hiring-rooftop.webp" alt="Two people sitting and talking on a rooftop"
+             style="width: 100%; aspect-ratio: 2.14 / 1; object-fit: cover; object-position: center; border-radius: var(--radius-lg); display: block;">
+      </div>
+    </div>
+    <div class="build-grid">
+      <div class="build-feature">
+        <div class="build-feature-number">01</div>
+        <h3 class="build-feature-title">Role definition</h3>
+        <p class="build-feature-desc">Define the roles your team needs and write job descriptions that attract the right candidates. We help you describe what you actually need &mdash; not a wish list of every security certification in existence.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">02</div>
+        <h3 class="build-feature-title">Skills assessment</h3>
+        <p class="build-feature-desc">Identify the right mix of skills for your team. A good SecOps team needs a balance of technical depth, analytical thinking, and communication &mdash; we help you work out what that looks like for your context.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">03</div>
+        <h3 class="build-feature-title">Interview support</h3>
+        <p class="build-feature-desc">We can sit in on candidate interviews and help you select the best people. Our experience hiring and managing security teams means we know what to look for beyond the CV.</p>
+      </div>
+      <div class="build-feature">
+        <div class="build-feature-number">04</div>
+        <h3 class="build-feature-title">Onboarding planning</h3>
+        <p class="build-feature-desc">Help structure onboarding for your new security hires. Good onboarding accelerates time-to-value and helps new team members feel confident and productive from the start.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. Frameworks & Threat Modelling -->
-<section class="infra-section infra-section--dark" id="frameworks">
-  <div class="container">
-    <div class="misp-grid">
-      <div class="infra-intro">
-        <div class="section-label">Frameworks &amp; Threat Modelling</div>
-        <h2 class="heading-style-h2" style="margin-bottom: var(--space-2xl);">Map threats with ATT&amp;CK and VERIS to see how they reach you</h2>
-        <p>ATT&amp;CK mapping gives your team a <strong>structured way to describe adversary behaviour</strong>, classify incidents, and pinpoint where your defences are strongest and weakest. We help you operationalise ATT&amp;CK and VERIS so they become <strong>practical tools your analysts actually use</strong>, not shelf documents.</p>
-        <p>Once threats are mapped to techniques and tactics, you can overlay your logging and detection coverage to find the gaps — and focus effort where it matters most.</p>
-        <div class="icon-credentials" style="margin-top: var(--space-4xl);">
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-              </svg>
-            </div>
-            <div class="icon-item-text">
-              <strong>Classify security incidents using ATT&amp;CK or VERIS frameworks</strong> &mdash; give your team a structured vocabulary for categorising threats and mapping them to known adversary behaviours
-            </div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-              </svg>
-            </div>
-            <div class="icon-item-text">
-              <strong>Define logging standards</strong> &mdash; make sure your analysts have the information they need when investigating incidents, without drowning in noise
-            </div>
-          </div>
-          <div class="icon-item">
-            <div class="icon-item-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <div class="icon-item-text">
-              <strong>Develop attack flow diagrams</strong> &mdash; understand the choke points that let you catch your most likely threats, and where the best detection opportunities exist
-            </div>
-          </div>
-        </div>
-        <div style="margin-top: var(--space-4xl);">
-          <a href="#contact" class="btn-primary">Discuss framework adoption</a>
-        </div>
-      </div>
-      <div class="subsection-box" style="margin-top: 0; max-width: none;">
-        <div class="outcome-diagram">
-          <img src="images/shared/attack-navigator.png" alt="MITRE ATT&CK Navigator showing Enterprise matrix with highlighted threat technique mappings across tactics">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 8. FAQ -->
+<!-- 7. FAQ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-label">Frequently asked questions</div>
-    <h2 class="heading-style-h2" style="margin-bottom: var(--space-4xl);">Common questions about improving your security operations</h2>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Common questions about starting a cybersecurity operations team</h2>
 
     <div class="faq-inner">
     <div class="faq-list">
 
       <details>
         <summary>
-          How do you help us improve our SecOps team?
+          How do I start a cybersecurity operations team from scratch?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>We start by assessing where your team is now &mdash; usually with a SIM3 or SOC-CMM maturity assessment &mdash; then build a prioritised improvement plan across people, process and tooling. From there we do the practical work: sharpening detection engineering, mapping coverage to <a href="use-attack-framework.html">MITRE ATT&amp;CK</a>, running tabletop exercises and upskilling analysts so improvements stick. See our full <a href="security-operations.html">security operations services</a>.</p>
+          <p>Start by understanding what your organisation actually needs to protect, then map the functions your team will provide &mdash; monitoring, detection, incident response, vulnerability management &mdash; and match them to realistic team sizes and budgets. Most effective teams start small (two or three people on the highest-priority functions) and grow deliberately. A <a href="../security-operations.html">SIM3</a> assessment gives you an objective baseline, and a phased roadmap stops you trying to do everything at once.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What is the VERIS framework?
+          How many people do I need on a security operations team?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>VERIS (Vocabulary for Event Recording and Incident Sharing) is a framework for describing security incidents in a structured, repeatable way. Developed by the team behind the Verizon Data Breach Investigations Report (DBIR), it gives you a common taxonomy for recording who did what to which assets and what the impact was &mdash; so you can build a consistent incident database that supports trend analysis, benchmarking and evidence-based security decisions.</p>
+          <p>There&rsquo;s no single number &mdash; it depends on the functions you need to cover, your risk profile and your coverage requirements. Some organisations run effective security operations with three people; others need fifteen or more. Start by defining what your team must do &mdash; 24/7 monitoring versus business-hours triage &mdash; then factor in what can be automated or outsourced. A small team doing the right things well beats a large one spread too thin.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What is the SOC-CMM capability maturity model?
+          What roles do I need to hire for a new SOC or SecOps team?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>SOC-CMM (Security Operations Centre Capability Maturity Model) is a framework for assessing and improving a SOC&rsquo;s maturity across domains including business alignment, people, process, technology and services. It suits teams that are primarily SOC-focused rather than broader CSIRT or incident-response teams &mdash; we help you choose between SOC-CMM and <a href="security-operations.html">SIM3</a> based on your team structure and goals.</p>
+          <p>Most new teams start with a mix of incident responders and security analysts who can triage alerts, investigate incidents and maintain detection rules, then add dedicated roles &mdash; threat intelligence, detection engineering, vulnerability management, security automation &mdash; as they mature. When hiring, prioritise strong analytical thinking and clear communication: technical knowledge can be trained, but investigative judgement is harder to teach.</p>
         </div>
       </details>
 
       <details>
         <summary>
-          What is a TTX (tabletop exercise)?
+          What frameworks should I use to build a security operations team?
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="faq-answer">
-          <p>A TTX (tabletop exercise) is a discussion-based exercise where your team walks through their roles and responses during a simulated security incident. Unlike a full drill, it doesn&rsquo;t touch live systems &mdash; it&rsquo;s a structured conversation that surfaces gaps in process, communication and decision-making before a real incident does. We design and facilitate TTXs tailored to your threat landscape so the scenarios are relevant and the outcomes actionable.</p>
+          <p>The two most widely used are <a href="../security-operations.html">SIM3</a> (best for benchmarking and certifying CSIRTs and SOCs) and <a href="../secops/improve-my-secops-team.html">SOC-CMM</a> (designed specifically for SOC-focused teams). <a href="../secops/use-the-att-ck-framework.html">MITRE ATT&amp;CK</a> is also valuable for mapping detection coverage and finding gaps. The right choice depends on your team structure and goals &mdash; we help you pick and apply the one that fits.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Should I outsource security operations or build an in-house team?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Both work, and many organisations use a hybrid. An in-house team gives you direct control, deeper organisational knowledge and the ability to handle sensitive investigations internally; outsourcing to a managed SOC can provide 24/7 coverage and specialist expertise a small internal team can&rsquo;t sustain. It often comes down to which functions need internal context &mdash; incident response and threat intelligence do &mdash; versus which can be commoditised, like first-tier monitoring. A small in-house team plus external support is a common, effective start.</p>
         </div>
       </details>
 
     </div>
     <div class="faq-image">
-      <img src="images/secops/improve-my-secops-team/faq.webp" alt="Security analyst working at a computer">
+      <img src="../images/secops/start-a-new-secops-team/faq.webp" alt="Airport control tower and terminal building under blue sky">
     </div>
     </div>
   </div>
 </section>
 
 <!-- Wavy SVG separator -->
-<div class="people-cta-separator"><img src="icons/wavy-separator.svg" alt=""></div>
+<div class="people-cta-separator"><img src="../icons/wavy-separator.svg" alt=""></div>
 
 <!-- Contact Form -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-inner">
       <div class="section-label">Get in touch</div>
-      <h2 class="heading-style-h2" style="margin-bottom: var(--space-4xl);">Start improving your security operations</h2>
-      <p class="contact-subtitle">Tell us about your SecOps goals and we&rsquo;ll get back to you with practical next steps.</p>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start building your security operations team</h2>
+      <p class="contact-subtitle">Tell us where you&rsquo;re at and we&rsquo;ll help you figure out the right next steps for building your SecOps team.</p>
       <form class="contact-form" action="#" method="post">
         <input type="hidden" name="category" value="Cybersecurity Operations">
         <div class="form-row">
@@ -1671,7 +1644,7 @@
 </section>
 
 <div id="site-footer-placeholder"></div>
-<script src="footer-include.js"></script>
+<script src="../footer-include.js"></script>
 
 </body>
 </html>
