@@ -156,7 +156,7 @@ Neither is a component variant. Both belong to the surrounding layout.
 ## Not componentisable
 
 The **`BreadcrumbList` JSON-LD** must match each page's visible trail exactly and lives in
-`<head>`, so it stays per-page custom code. Track it per page in `WEBFLOW-PROGRESS.md` — it is the
+`<head>`, so it stays per-page custom code. Track it per page as you build — it is the
 piece most likely to be skipped, and schema that disagrees with the page is worse than none.
 
 A crumb with no page behind it gets a `name` and no `item`:

@@ -23,7 +23,7 @@ E-E-A-T = **Experience, Expertise, Authoritativeness, Trustworthiness**. You ask
    - the CTIS / national-scale MISP case study or the CloudMISP page
    - `presentations/from-stix-to-misp-and-back-again-how-hard-could-it-be` (directly relevant to the interop section)
 6. **Off-page authority (the hardest but highest-ceiling).** Earn mentions/links from the MISP and wider CTI community: conference talks, MISP project contributions credited publicly, FIRST.org membership, guest articles. Authoritativeness is largely conferred by *others*, not self-declared.
-7. **Quarterly refresh cadence.** Both platforms ship fast (MISP ~monthly, OpenCTI weekly-cadence builds). Put a recurring reminder to re-verify versions/stats each quarter and bump `dateModified` — AI citations decay without freshness (per `seo/aeo-content.md`).
+7. **Quarterly refresh cadence.** Both platforms ship fast (MISP ~monthly, OpenCTI weekly-cadence builds). Put a recurring reminder to re-verify versions/stats each quarter and bump `dateModified` — AI citations decay without freshness.
 8. **Create the OG image** `images/og/og-misp-vs-opencti.png` so shares/citations render with a branded card (small trust/CTR signal).
 9. **Consider a comparison table** for the feature sections — scannable, and answer engines lift structured comparisons readily (keep the prose too; the table supplements it).
 

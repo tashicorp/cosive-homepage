@@ -1,5 +1,32 @@
 # Project Instructions
 
+## Repository Layout
+
+**The repo root is the website. Everything else lives in `meta/`.**
+
+The root holds only what a browser loads when the GitHub Pages preview is served
+(`https://tashicorp.github.io/cosive-homepage/`): the HTML pages, their `cti/ secops/ fraud-data/
+team/ categories/` subdirectories, `images/ icons/ logos/`, the `header-include.js` /
+`footer-include.js` scripts and the `_header.html` / `_footer.html` partials they fetch.
+
+`meta/` holds everything the browser never requests — `content/` (copy drafts), `design/` (canvas
+source), `diagrams/` (D2 sources), `docs/`, `llms/`, `og/` (card generator), `tov/`, `fonts/`.
+
+**When adding a file, ask: does a page load this?** If no, it belongs in `meta/`, not the root.
+
+Four things stay at the root despite not being browser-loaded, and must not be moved:
+
+- **`CLAUDE.md`** — Claude Code only auto-loads project instructions from the repo root.
+- **`.nojekyll`** — without it GitHub Pages runs Jekyll, which drops `_`-prefixed paths and would
+  404 `_header.html`, `_footer.html` and `images/blog/_post-template/`.
+- **`package.json` / `package-lock.json`** — npm resolves `node_modules/` from here.
+- **`header-include.js` / `footer-include.js`** — they derive the site root from their own URL, so
+  they must sit beside `_header.html` / `_footer.html` at the root.
+
+`icons/` and `logos/` stay whole even though most of their files are never requested by a page:
+that artwork is pasted **inline** into the HTML, and the files are the masters uploaded to Webflow.
+Unreferenced does not mean unused.
+
 ## Webflow Variables
 
 This design is being implemented in Webflow. When providing styling values (in plans, guidance, or code), always use **Webflow variable names** rather than absolute values or CSS custom property names. Include the resolved value in parentheses for reference.

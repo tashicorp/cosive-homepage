@@ -1,6 +1,6 @@
 # /misp-vs-opencti — page metadata (Webflow page settings)
 
-Follows `seo/page-metadata.md` conventions. Australian English. Keep the URL slug `/misp-vs-opencti` unchanged (preserves ranking continuity — this is an update at the same URL, not a new page).
+Title ≤ 60 chars, description ~155, `… | Cosive` suffix. Australian English. Keep the URL slug `/misp-vs-opencti` unchanged (preserves ranking continuity — this is an update at the same URL, not a new page).
 
 ## SEO title (≤ 60 chars)
 `MISP vs OpenCTI: 2026 Comparison | Cosive`

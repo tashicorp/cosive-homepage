@@ -1,5 +1,11 @@
 # Cosive site relaunch — SEO-safe go-live plan
 
+> **Status: completed. Kept as a record of how the relaunch was executed.**
+> The steps below are left as written and are deliberately not updated. Two companion files they
+> name no longer exist: `qa/page-inventory.csv` (the keep/retire decision sheet) and
+> `cosive-sitemap.xml` (the hand-maintained sitemap). Webflow now auto-generates
+> `https://www.cosive.com/sitemap.xml`, so there is no sitemap in this repo to maintain.
+
 **Goal:** launch the redesigned site (new home + CloudMISP replacing existing pages, ~20 new pages, `/capabilities/*` and `/capability-area/*` deprecated) **without the overall site or the surviving pages losing rankings**. Losing traffic to the deliberately-retired pages is acceptable; collateral damage to everything else is not.
 
 **Companion file:** `qa/page-inventory.csv` — the keep/retire decision for all 206 current URLs. This plan tells you *how* to execute whatever that sheet says.

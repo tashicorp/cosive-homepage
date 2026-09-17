@@ -1,6 +1,7 @@
 <!--
   Paste in the /misp-vs-opencti page's custom code (Head or Before-</body>).
-  Reuses the site-wide @ids from seo/structured-data.md — do NOT redefine
+  Reuses the site-wide @ids already published in Webflow's site-wide head code —
+  do NOT redefine
   Organization / Person here; this only references them by @id.
   FAQ answer text MUST stay byte-identical to the visible FAQ in article.md.
 -->

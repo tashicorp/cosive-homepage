@@ -139,5 +139,4 @@ Keep it plain: no hero, forms or cards — a clean reading layout.
 ---
 
 ## Related
-- Launch/URL/redirect checklist → `seo/launch-checklist.md`
-- AEO content pass → `seo/aeo-post-launch-plan.md`
+- Site relaunch / redirect plan → `meta/docs/site-relaunch-seo-plan.md`

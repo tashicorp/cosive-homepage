@@ -13,7 +13,7 @@ listed under *Needs confirmation*.
 
 ## Page metadata
 
-Per `seo/page-metadata.md` conventions.
+Title ≤ 60 chars, description ~155, Australian English, `… | Cosive` suffix.
 
 - **SEO title** (43): `CTI-CMM Assessment & Benchmarking | Cosive`
 - **Meta description** (156): `CTI-CMM measures how well your threat intelligence supports the people who use it. We run independent assessments — and give you a free self-assessment tool.`
@@ -273,7 +273,7 @@ Fields exactly as `improve-cti-team.html:2019` — `first_name`, `last_name`, `e
 ```
 
 > ⚠️ **Decide before building.** The brief says "Pipedrive category as Cyber Threat Intelligence".
-> `todo/webflow-make-pipedrive-integration.md` defines the Pipedrive `Service interest` field as a
+> The Pipedrive integration spec defined the `Service interest` field as a
 > single-option list of exactly `CTI | Fraud | SecOps | MISP | General`, and requires a `page`
 > hidden field too. But most CTI pages currently hardcode `value="Cyber Threat Intelligence"`,
 > which is not a valid option in that list; `consume-share-threat-intelligence.html` uses `CTI`.
@@ -335,8 +335,8 @@ until that page is corrected. Recommended fix on `cyber-threat-intelligence.html
 > prioritised path to improve. Cosive runs CTI-CMM assessments and offers a free
 > [CTI-CMM assessment tool](/cti-cmm-assessment-tool).
 
-Same correction applies to the second answer ("score you across…"). Both are mirrored in
-`seo/faqpage-schema.md` and `seo/per-page-schema.md` and must be resynced if changed.
+Same correction applies to the second answer ("score you across…"). Both are mirrored in the page's
+FAQPage JSON-LD and must be resynced if changed.
 
 *(This supersedes the earlier instruction to reuse "collection, analysis, dissemination and
 feedback" verbatim — that phrase is fine as a description of the intelligence cycle, just not as a
@@ -360,11 +360,11 @@ description of CTI-CMM's structure.)*
 - [Intel 471 — Introducing the CTI Capability Maturity Model](https://www.intel471.com/blog/introducing-the-cti-capability-maturity-model-a-resource-for-measuring-and-building-mature-cti-programs) — origin, 28-member volunteer group, stakeholder-first rationale.
 - [Briefing: The CTI Capability Maturity Model](https://breached.company/briefing-the-cyber-threat-intelligence-capability-maturity-model-cti-cmm/) — the 11 domain names and the CTI0–CTI3 level definitions.
 - Cosive's assessment tool, read directly: `https://www.cosive.com/cti-cmm-assessment-tool` (embeds `cosive.github.io/cti-cmm-assessment-tool`) and its source at `github.com/chorsley/cti-cmm-assessment-tool` — v1.3.1, 11 domains, benchmark/planning modes, local-storage auto-save, JSON/CSV export.
-- On-site consistency: `tov/Cosive Tone of Voice.txt`, `docs/section-library.md`, `todo/webflow-make-pipedrive-integration.md`, `seo/page-metadata.md`, and the existing CTI-CMM copy in `index.html`, `about.html`, `cyber-threat-intelligence.html`, `improve-cti-team.html`.
+- On-site consistency: `meta/tov/Cosive Tone of Voice.txt`, `meta/docs/section-library.md`, and the existing CTI-CMM copy in `index.html`, `about.html`, `cyber-threat-intelligence.html`, `improve-cti-team.html`.
 
 ## Follow-ups once this page ships
 
 - Repoint the "CTI-CMM" link in `improve-cti-team.html:1990` (currently → `cyber-threat-intelligence.html`) at `/cti-cmm`, and do the same in the `cyber-threat-intelligence.html` FAQ answers.
 - Add `Service` and `FAQPage` JSON-LD to `cti-cmm.html`; it currently has only `WebPage` + `BreadcrumbList`.
-- Add `/cti-cmm` to `cosive-sitemap.xml` and `llms.txt` (llms.txt currently credits CTI-CMM benchmarking to `/improve-cti-team` only).
-- Resync any FAQ text into `seo/faqpage-schema.md` and `seo/per-page-schema.md`.
+- ~~Add `/cti-cmm` to the sitemap and llms.txt~~ — done; Webflow auto-generates the sitemap and
+  `/cti-cmm` is in `meta/llms/llms.txt`.
