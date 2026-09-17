@@ -34,7 +34,7 @@ Full reference: `webflow-variables.md`
 
 ## Tone of Voice
 
-Before writing or editing any copy (headings, body text, CTAs, meta descriptions, etc.), read the tone-of-voice and key messages guide in `tov/` for instructions on the Cosive tone of voice.
+Before writing or editing any copy (headings, body text, CTAs, meta descriptions, etc.), read the tone-of-voice and key messages guide in `meta/tov/` for instructions on the Cosive tone of voice.
 
 ## SVG Icons
 

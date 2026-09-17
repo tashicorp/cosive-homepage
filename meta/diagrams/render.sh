@@ -1,6 +1,6 @@
 #!/bin/bash
 # Render all D2 source diagrams to PNG
-# Usage: ./diagrams/render.sh [optional-specific-file.d2]
+# Usage: ./meta/diagrams/render.sh [optional-specific-file.d2]
 
 set -euo pipefail
 cd "$(dirname "$0")"

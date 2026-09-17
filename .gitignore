@@ -2,7 +2,7 @@
 .playwright-mcp/
 node_modules/
 previews/
-diagrams/fonts/
+meta/diagrams/fonts/
 
 # Development screenshots
 verify-*.png
@@ -33,9 +33,9 @@ gh-pages-about.png
 # macOS
 .DS_Store
 
-# Generated design-canvas bundle — rebuilt from design/*/.dc.html by the
+# Generated design-canvas bundle — rebuilt from meta/design/*/.dc.html by the
 # seeder on every publish; ~2.4MB, so keep it out of the history.
-design/**/*-page-design.html
+meta/design/**/*-page-design.html
 
 # Exported design PDFs — regenerated from the .dc.html artboards
-design/**/*.pdf
+meta/design/**/*.pdf

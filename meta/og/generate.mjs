@@ -9,7 +9,7 @@
  * the post's own banner as a share card instead, for posts with and without a
  * featured image alike.
  *
- *   node og/generate.mjs <post-url> [<post-url> ...]
+ *   node meta/og/generate.mjs <post-url> [<post-url> ...]
  *   npm run og -- <post-url>
  *
  * Output: images/og/blog/<slug>/og-blog-post-<slug>.png — one folder per post,
@@ -22,22 +22,22 @@ import { execFile } from 'child_process';
 import { chromium } from 'playwright';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(HERE, '..');
+const ROOT = resolve(HERE, '..', '..');
 const OUT_DIR = join(ROOT, 'images', 'og', 'blog');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
 const FONTS = {
-  FONT_MANROPE_400: 'fonts/manrope-400.woff2',
-  FONT_MANROPE_600: 'fonts/manrope-600.woff2',
-  FONT_MANROPE_700: 'fonts/manrope-700.woff2',
-  FONT_GEIST_MONO_700: 'fonts/geist-mono-700.woff2',
+  FONT_MANROPE_400: 'meta/fonts/manrope-400.woff2',
+  FONT_MANROPE_600: 'meta/fonts/manrope-600.woff2',
+  FONT_MANROPE_700: 'meta/fonts/manrope-700.woff2',
+  FONT_GEIST_MONO_700: 'meta/fonts/geist-mono-700.woff2',
 };
 
 const urls = process.argv.slice(2).filter((a) => !a.startsWith('-'));
 if (!urls.length) {
-  console.error('usage: node og/generate.mjs <post-url> [<post-url> ...]');
+  console.error('usage: node meta/og/generate.mjs <post-url> [<post-url> ...]');
   process.exit(2);
 }
 

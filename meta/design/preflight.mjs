@@ -14,7 +14,7 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
-import { chromium } from '../node_modules/playwright/index.mjs';
+import { chromium } from '../../node_modules/playwright/index.mjs';
 
 const CAP = 8000;              // hard clamp in seed-canvas.mjs
 const SLACK = 0.03;            // headroom for font-loading variance
