@@ -4,6 +4,13 @@ Maintains `meta/reference/llms/llms.txt` — the curated map of cosive.com read 
 Follows the [llms.txt spec](https://llmstxt.org/). Google ignores it for ranking; ChatGPT, Claude
 and Perplexity fetch it.
 
+The artifact itself lives next door, because it is read, not run:
+
+| Path | What it is |
+|---|---|
+| `meta/reference/llms/llms.txt` | **The current version. Source of truth.** |
+| `meta/reference/llms/archive/llms-<YYYY-MM-DD>.txt` | Superseded versions, named by the date they were **retired** |
+
 **The script does the mechanical half. The editorial half is a judgement call and is not automated.**
 
 ```bash
@@ -27,6 +34,10 @@ node meta/generators/llms/generate.mjs archive    # snapshot the outgoing file b
 ## What you do
 
 ### Structure — sections mirror the site footer
+
+⚠️ **The repo's `_footer.html` is not the source of truth for URLs.** It still uses old flat slugs
+(`manage-my-misp.html`) that 404 live. `audit` reads the footer off the **published site** for this
+reason — never derive structure from the repo copy.
 
 Use the footer's columns, in footer order, and reuse its own link labels ("Integrate CTI tools", not
 "Build and integrate threat intelligence tools"). Each pillar section leads with its pillar page,
@@ -64,9 +75,16 @@ copywriter or marketer is noise:
 
 ## Deploying
 
-Manual, and the script cannot do it. Paste `meta/reference/llms/llms.txt` into Webflow →
-**Site settings → SEO → llms.txt** → republish. Cloudflare caches it ~12h, so check `last-modified`
-rather than assuming a failed deploy.
+Manual, and the script cannot do it — the file is served from the site root by Webflow, not from
+this repo.
+
+1. Copy the contents of `meta/reference/llms/llms.txt`.
+2. Webflow → **Site settings → SEO → llms.txt**.
+3. Republish.
+
+It then serves at `https://www.cosive.com/llms.txt`. Cloudflare caches it ~12h, so check the
+`last-modified` header rather than assuming a failed deploy — `audit` will report DRIFTED until the
+cache turns over.
 
 ## Why not just point at sitemap.xml?
 

@@ -20,7 +20,8 @@ meta/
       README.md      the editorial rules the script cannot enforce
   reference/      things you READ
     tov/          Cosive tone of voice — read before writing any copy
-    llms/         llms.txt source + archive — the artifact; its tooling is in generators/llms
+    llms/         llms.txt + archive/ — the artifact. Docs live with the tooling,
+                  in generators/llms/README.md
 ```
 
 ## The rule for generators
