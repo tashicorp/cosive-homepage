@@ -177,7 +177,7 @@ Paste into **Page Settings → Head**.
 ### Verify before publishing
 
 - **Bio page slugs.** `url` assumes `/team/firstname-lastname`. The prototype uses `team-terry-macdonald.html`; confirm what the Webflow CMS actually produces and correct all four, or drop the `url` line.
-- **Neethu's image.** Hers is a local file in the prototype (`images/neethu-square.jpg`), so there's no stable public URL yet. Add the Webflow CDN URL once uploaded.
+- **Neethu's image.** Hers is a local file in the prototype (`images/shared/neethu-square.jpg`), so there's no stable public URL yet. Add the Webflow CDN URL once uploaded.
 - **`sameAs` is present only for the four members with real LinkedIn URLs.** The other six have `href="#"` placeholders. Do not invent profile URLs — a wrong `sameAs` actively damages entity resolution.
 
 ## 4. Update the Organization schema

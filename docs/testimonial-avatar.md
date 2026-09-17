@@ -55,7 +55,7 @@ testimonial's white ground.
 
 ### The asset
 
-`images/homepage/sasenka-abeysooriya.jpg` — **168 × 168, 8.7KB.**
+`images/shared/sasenka-abeysooriya.jpg` — **168 × 168, 8.7KB.**
 
 Sized for its only use. At 56px CSS that is exactly 3× DPR, so it is pin-sharp on the densest phone
 screens with no wasted bytes. This deliberately departs from the 800 × 800 masters beside it in
@@ -87,7 +87,7 @@ the structural work below happens **inside the main component** — instances ca
 values, they cannot be restructured. Enter it by double-clicking an instance, or right-click →
 Edit Component.
 
-1. Upload `images/homepage/sasenka-abeysooriya.jpg` (168 × 168, 8.7KB) to Assets.
+1. Upload `images/shared/sasenka-abeysooriya.jpg` (168 × 168, 8.7KB) to Assets.
 2. Inside the main component, add a Div Block immediately before the citation, class
    `v2-testimonial-attribution`.
 3. Drag the citation into it **in the Navigator** — far easier than on canvas inside a slider.

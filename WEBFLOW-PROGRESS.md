@@ -24,7 +24,7 @@ Tracking which pages have been built in Webflow from the HTML prototypes.
   #### Section 2: Page Banner
   ```
   [Section] Page Banner
-    [Image] Banner Background Image          ← images/cti/banner-bg-manage-misp.webp
+    [Image] Banner Background Image          ← images/cti/manage-my-misp-for-me/banner-bg.webp
     [Div Block] Page Banner Inner
       [Div Block] Container
         [Nav] Breadcrumb
@@ -173,7 +173,7 @@ Tracking which pages have been built in Webflow from the HTML prototypes.
           [Div Block] CTA Wrapper
             [Link Block] Button Primary      ← href: #contact, "Discuss MISP consulting"
         [Div Block] Services Intro Image
-          [Image] Consulting Photo           ← images/cti/misp-consulting-collaboration.jpg
+          [Image] Consulting Photo           ← images/cti/manage-my-misp-for-me/misp-consulting-collaboration.jpg
       [Div Block] Build Grid (3×2 feature grid)
         [Div Block] Build Feature
           [Text Block] Build Feature Number "01"
@@ -282,7 +282,7 @@ Tracking which pages have been built in Webflow from the HTML prototypes.
             [List Item] "Operated at scale with high-availability requirements"
             [List Item] "Demonstrated the managed hosting model that became CloudMISP"
         [Div Block] Infra Intro Image
-          [Image] CTIS Architecture Diagram  ← images/cti/diagram-ctis-sharing.svg
+          [Image] CTIS Architecture Diagram  ← images/cti/manage-my-misp-for-me/diagram-ctis-sharing.svg
   ```
 
   #### Section 10: Testimonial
@@ -316,7 +316,7 @@ Tracking which pages have been built in Webflow from the HTML prototypes.
           — Q4: "Can you help us connect to threat intelligence feeds and sharing communities?"
           — Q5: "How do we know which of your services is right for us?"
         [Div Block] FAQ Image
-          [Image] FAQ Sidebar Image          ← images/cti/faq-misp-services.webp
+          [Image] FAQ Sidebar Image          ← images/cti/manage-my-misp-for-me/faq.webp
   ```
 
   #### Section 12: Wavy Separator

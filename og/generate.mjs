@@ -119,7 +119,7 @@ const template = readFileSync(join(HERE, 'card.html'), 'utf8');
 const fonts = Object.fromEntries(
   Object.entries(FONTS).map(([k, p]) => [k, fileUri(p, 'font/woff2')])
 );
-const pattern = fileUri('images/blog/hero-wave-field.svg', 'image/svg+xml');
+const pattern = fileUri('images/blog/_post-template/hero-wave-field.svg', 'image/svg+xml');
 const logo = fileUri('logos/cosive_logo_reverse_full_color_transparent_print.png', 'image/png');
 
 const browser = await chromium.launch();

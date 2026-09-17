@@ -182,7 +182,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: url('images/blog/misp-beta-ui-walkthrough.jpg') center / cover no-repeat;
+    background: url('images/blog/_post-template/misp-beta-ui-walkthrough.jpg') center / cover no-repeat;
     filter: grayscale(1);
     z-index: 0;
   }
@@ -1478,7 +1478,7 @@
     <div class="article-meta">
       <span class="article-meta-detail">2 Mar 2026</span>
       <div class="article-meta-author">
-        <img src="images/homepage/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
+        <img src="images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
         <div>
           <div class="article-meta-author-name">Chris Horsley</div>
           <div class="article-meta-author-role">Principal Security Consultant &amp; CTO</div>
@@ -1516,7 +1516,7 @@
   <p>We contributed these changes back to MISP because we actively use and recommend the open-source platform professionally, and we maintain <a href="cloudmisp.html">CloudMISP</a>, our enterprise deployment solution. Making MISP better for everyone is part of what we do.</p>
 
   <figure>
-    <img src="images/blog/placeholders/01-event-listing-beta.png" alt="Screenshot of the MISP beta UI/UX mode showing the redesigned event listing interface" width="1600" height="840" loading="lazy">
+    <img src="images/blog/_post-template/01-event-listing-beta.png" alt="Screenshot of the MISP beta UI/UX mode showing the redesigned event listing interface" width="1600" height="840" loading="lazy">
     <figcaption>The redesigned MISP event listing in beta UI/UX mode (v2.5.32)</figcaption>
   </figure>
 
@@ -1535,7 +1535,7 @@
   <p>The redesigned interface tackles these concerns through improved layout, reduced visual noise, and reorganised information hierarchy to prioritise what analysts actually need.</p>
 
   <figure>
-    <img src="images/blog/placeholders/02-classic-offscreen.png" alt="Screenshot showing the classic MISP interface with event titles pushed off-screen on a smaller display" width="1600" height="840" loading="lazy">
+    <img src="images/blog/_post-template/02-classic-offscreen.png" alt="Screenshot showing the classic MISP interface with event titles pushed off-screen on a smaller display" width="1600" height="840" loading="lazy">
     <figcaption>In the classic UI, event titles and critical context often appeared off-screen on smaller displays</figcaption>
   </figure>
 
@@ -1563,7 +1563,7 @@ cd /var/www/MISP/app
 sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</code></pre>
 
   <figure>
-    <img src="images/blog/placeholders/03-global-actions-menu.png" alt="Screenshot showing the Global Actions menu with the Beta UI toggle button" width="1600" height="700" loading="lazy">
+    <img src="images/blog/_post-template/03-global-actions-menu.png" alt="Screenshot showing the Global Actions menu with the Beta UI toggle button" width="1600" height="700" loading="lazy">
     <figcaption>Enabling the beta UI from the Global Actions menu</figcaption>
   </figure>
 
@@ -1574,7 +1574,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <p>The refresh introduces greater spacing and visual breathing room, making content easier to scan and process while retaining all functionality. The goal is to reduce cognitive load without removing the data analysts rely on.</p>
 
   <figure>
-    <img src="images/blog/placeholders/04-density-comparison.png" alt="Side-by-side comparison of classic and beta UI information density on the event listing page" width="1600" height="700" loading="lazy">
+    <img src="images/blog/_post-template/04-density-comparison.png" alt="Side-by-side comparison of classic and beta UI information density on the event listing page" width="1600" height="700" loading="lazy">
     <figcaption>Comparison of information density between classic (left) and beta UI (right)</figcaption>
   </figure>
 
@@ -1589,7 +1589,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <p>Previously, action icons lined the right side of event listings. The updated version consolidates actions into a dropdown menu with text labels for each option. This improves discoverability, especially for less frequent users of certain features.</p>
 
   <figure>
-    <img src="images/blog/placeholders/05-action-dropdown.png" alt="Screenshot showing the simplified action button dropdown menu replacing the previous icon row" width="1600" height="840" loading="lazy">
+    <img src="images/blog/_post-template/05-action-dropdown.png" alt="Screenshot showing the simplified action button dropdown menu replacing the previous icon row" width="1600" height="840" loading="lazy">
     <figcaption>Action buttons consolidated into a labelled dropdown menu</figcaption>
   </figure>
 
@@ -1600,7 +1600,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <p>Only chosen tag categories appear in the column, reducing visual noise while emphasising workflow-critical tags like <code>TLP</code> and <code>Workflow</code> taxonomies.</p>
 
   <figure>
-    <img src="images/blog/placeholders/06-highlight-tags.png" alt="Screenshot of the Highlight Tags column showing TLP and Workflow taxonomy tags prominently displayed" width="1600" height="840" loading="lazy">
+    <img src="images/blog/_post-template/06-highlight-tags.png" alt="Screenshot of the Highlight Tags column showing TLP and Workflow taxonomy tags prominently displayed" width="1600" height="840" loading="lazy">
     <figcaption>The Highlight Tags column shows only the taxonomies you select, cutting through the noise</figcaption>
   </figure>
 
@@ -1611,7 +1611,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <p>The redesign groups options logically, creates intuitive menu hierarchies, and uses icons for quick category identification. Related features like tags, taxonomies, remote services, and feeds are consolidated. Event creation is more prominent, and import options (STIX, JSON, free text) are easier to access.</p>
 
   <figure>
-    <img src="images/blog/placeholders/07-navigation.png" alt="Screenshot of the streamlined left navigation menu with logically grouped options and icons" width="1600" height="900" loading="lazy">
+    <img src="images/blog/_post-template/07-navigation.png" alt="Screenshot of the streamlined left navigation menu with logically grouped options and icons" width="1600" height="900" loading="lazy">
     <figcaption>The restructured navigation groups related options and uses icons for quick identification</figcaption>
   </figure>
 
@@ -1700,7 +1700,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
   <div class="author-bios-grid">
     <div class="author-bio-label">Written by</div>
     <div class="author-bio-inner">
-      <img class="author-bio-photo" src="images/homepage/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
+      <img class="author-bio-photo" src="images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
       <div>
         <div class="author-bio-name">Chris Horsley</div>
         <div class="author-bio-role">Principal Security Consultant &amp; CTO</div>
@@ -1741,7 +1741,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
+              <img class="blog-card-avatar" src="images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Prescott Pym</span>
                 <span class="blog-card-author-role">Principal Security Consultant</span>
@@ -1760,7 +1760,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
+              <img class="blog-card-avatar" src="images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Prescott Pym</span>
                 <span class="blog-card-author-role">Principal Security Consultant</span>
@@ -1779,7 +1779,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
         <div class="blog-card-footer">
           <div class="blog-card-authors">
             <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/homepage/terry-macdonald.webp" alt="Terry MacDonald" loading="lazy">
+              <img class="blog-card-avatar" src="images/shared/terry-macdonald.webp" alt="Terry MacDonald" loading="lazy">
               <div class="blog-card-author-text">
                 <span class="blog-card-author-name">Terry MacDonald</span>
                 <span class="blog-card-author-role">Principal Security Consultant &amp; COO</span>
