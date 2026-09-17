@@ -15,9 +15,12 @@ meta/
       card.html   templated card (11 {{placeholders}}), driven by generate.mjs
       _og.html    one-off hardcoded CTI-CMM card mock — render and screenshot by hand
       fonts/      woff2 files, inlined as data URIs by generate.mjs
+    llms/         llms.txt auditor — `npm run llms`, driven by the /llms.txt command
+      generate.mjs   audit | validate | archive
+      README.md      the editorial rules the script cannot enforce
   reference/      things you READ
     tov/          Cosive tone of voice — read before writing any copy
-    llms/         llms.txt source + archive, maintained by `/llms.txt`
+    llms/         llms.txt source + archive — the artifact; its tooling is in generators/llms
 ```
 
 ## The rule for generators

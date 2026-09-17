@@ -14,7 +14,8 @@ team/ categories/` subdirectories, `images/ icons/ logos/`, the `header-include.
 - **`meta/generators/`** — things that **run**. Each generator owns the assets it consumes, so it
   stays self-contained: `generators/og/` holds `generate.mjs`, its `card.html` template, and the
   `fonts/` it inlines. Resolve a generator's own assets relative to the script (`HERE`), not the
-  repo root — that way moving a generator can never orphan them.
+  repo root — that way moving a generator can never orphan them. `generators/llms/` audits and
+  validates `llms.txt`; its README carries the editorial rules the script cannot enforce.
 - **`meta/reference/`** — things you **read**. `reference/tov/` (tone of voice, read before writing
   any copy) and `reference/llms/` (llms.txt source and archive).
 

@@ -12,7 +12,8 @@ Follows the [llms.txt spec](https://llmstxt.org/).
 
 Run **`/llms.txt`** — it audits the deployed file, re-derives the site structure from the live
 footer and sitemap, rewrites, validates every link, and archives the outgoing version. The full
-procedure and editorial rules live in `.claude/skills/llms-txt/SKILL.md`.
+procedure lives in the `/llms.txt` command; the editorial rules live in
+`meta/generators/llms/README.md`.
 
 Two things that catch people out:
 
