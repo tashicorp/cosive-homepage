@@ -9,8 +9,8 @@ The root holds only what a browser loads when the GitHub Pages preview is served
 team/ categories/` subdirectories, `images/ icons/ logos/`, the `header-include.js` /
 `footer-include.js` scripts and the `_header.html` / `_footer.html` partials they fetch.
 
-`meta/` holds everything the browser never requests — `content/` (copy drafts), `design/` (canvas
-source), `diagrams/` (D2 sources), `docs/`, `llms/`, `og/` (card generator), `tov/`, `fonts/`.
+`meta/` holds everything the browser never requests — currently `llms/` (llms.txt source and
+archive), `og/` (OG card generator) and `tov/` (tone of voice).
 
 **When adding a file, ask: does a page load this?** If no, it belongs in `meta/`, not the root.
 

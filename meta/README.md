@@ -7,27 +7,35 @@ include machinery. If a browser never requests a file, it lives here instead.
 
 | Directory | What it is |
 |---|---|
-| `content/` | Long-form copy drafts, not yet published |
-| `design/` | Claude Design canvas source for the CTI-CMM page (`.dc.html` artboards) + `preflight.mjs` |
-| `diagrams/` | D2 diagram sources and `render.sh`; rendered SVGs are hand-copied into `images/` |
-| `docs/` | Component and page design documentation |
-| `llms/` | `llms.txt` source and its archive — see `.claude/skills/llms-txt/` |
-| `og/` | OG share-card generator (`npm run og`) |
+| `llms/` | `llms.txt` source and its archive — maintained by `/llms.txt`, see `.claude/skills/llms-txt/` |
+| `og/` | OG share-card generator (`npm run og`) — **currently not runnable, see below** |
 | `tov/` | Cosive tone of voice guide — read before writing any copy |
-| `fonts/` | woff2 files, used only by the OG generator; pages get Manrope from Google Fonts |
 
-Loose files: `_og.html` and `organization-jsonld.html` are paste-into-Webflow snippets,
-`cosive-logo.svg` is the logo master, `team-seo-kit.md` is an SEO reference.
+## `npm run og` is currently broken
+
+`meta/og/generate.mjs` inlines four woff2 files as base64 data URIs so the rendered card needs no
+network. Those fonts lived in `meta/fonts/`, which has been deleted, so the script throws `ENOENT`
+as soon as it is given a URL.
+
+To make it work again, pick one:
+
+- restore `meta/fonts/{manrope-400,manrope-600,manrope-700,geist-mono-700}.woff2`
+  (`git checkout 09397f0 -- meta/fonts`), or
+- change `FONTS` in `generate.mjs` to load from Google Fonts instead of inlining — simpler, but the
+  card then depends on the network at render time, or
+- retire `meta/og/` if per-post cards are no longer wanted.
+
+`playwright` also needs a browser binary that does **not** live in `node_modules`. On a fresh clone:
+`npx playwright install chromium`.
 
 ## Paths
 
 Tooling here reaches back to the repo root, so two path forms coexist:
 
 - `meta/og/generate.mjs` sets `ROOT = resolve(HERE, '..', '..')` — the **repo root** — then reads
-  `meta/fonts/…`, `logos/…` and `images/…` relative to it, and writes cards to `images/og/blog/`.
-- `meta/design/preflight.mjs` reaches node_modules via `../../`.
-- `.gitignore` patterns containing a slash are root-anchored, so entries for this tree are written
-  `meta/design/**/*.pdf`, not `design/**/*.pdf`.
+  `logos/…` and `images/…` relative to it, and writes cards to `images/og/blog/`.
+- `.gitignore` patterns containing a slash are root-anchored, so entries for this tree must be
+  written `meta/…`, not bare.
 
 In prose, paths are written relative to the repo root (`images/shared/x.webp`), since that is how
 everyone navigates the repo.
