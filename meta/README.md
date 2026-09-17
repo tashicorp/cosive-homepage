@@ -3,42 +3,47 @@
 Everything that is **not** loaded by the website.
 
 The repo root is the preview site — HTML pages, `images/`, `icons/`, `logos/` and the header/footer
-include machinery. If a browser never requests a file, it lives here instead.
+include machinery. If a browser never requests a file, it lives here.
 
-| Directory | What it is |
-|---|---|
-| `llms/` | `llms.txt` source and its archive — maintained by `/llms.txt`, see `.claude/skills/llms-txt/` |
-| `og/` | OG share-card generator (`npm run og`) — **currently not runnable, see below** |
-| `tov/` | Cosive tone of voice guide — read before writing any copy |
+Split by what the thing *is*:
 
-## `npm run og` is currently broken
+```
+meta/
+  generators/     things that RUN
+    og/           OG share-card generator — `npm run og`
+      generate.mjs
+      card.html   templated card (11 {{placeholders}}), driven by generate.mjs
+      _og.html    one-off hardcoded CTI-CMM card mock — render and screenshot by hand
+      fonts/      woff2 files, inlined as data URIs by generate.mjs
+  reference/      things you READ
+    tov/          Cosive tone of voice — read before writing any copy
+    llms/         llms.txt source + archive, maintained by `/llms.txt`
+```
 
-`meta/og/generate.mjs` inlines four woff2 files as base64 data URIs so the rendered card needs no
-network. Those fonts lived in `meta/fonts/`, which has been deleted, so the script throws `ENOENT`
-as soon as it is given a URL.
+## The rule for generators
 
-To make it work again, pick one:
+**A generator owns the assets it consumes.** `fonts/` sits inside `generators/og/` because nothing
+else uses it, and `generate.mjs` resolves it relative to the script's own directory (`HERE`) rather
+than the repo root. That is deliberate: the fonts were previously at `meta/fonts/`, resolved via
+`ROOT`, and were orphaned the moment the directory moved. `HERE`-relative assets travel with their
+generator.
 
-- restore `meta/fonts/{manrope-400,manrope-600,manrope-700,geist-mono-700}.woff2`
-  (`git checkout 09397f0 -- meta/fonts`), or
-- change `FONTS` in `generate.mjs` to load from Google Fonts instead of inlining — simpler, but the
-  card then depends on the network at render time, or
-- retire `meta/og/` if per-post cards are no longer wanted.
+Only reach for `ROOT` (the repo root, `resolve(HERE, '..', '..', '..')`) when a generator genuinely
+needs something from the website — `generate.mjs` does this for `logos/` and `images/`, and to write
+its output to `images/og/blog/`.
+
+## Running the OG generator
+
+```bash
+npm run og -- https://www.cosive.com/blog/<slug>
+```
 
 `playwright` also needs a browser binary that does **not** live in `node_modules`. On a fresh clone:
-`npx playwright install chromium`.
 
-## Paths
-
-Tooling here reaches back to the repo root, so two path forms coexist:
-
-- `meta/og/generate.mjs` sets `ROOT = resolve(HERE, '..', '..')` — the **repo root** — then reads
-  `logos/…` and `images/…` relative to it, and writes cards to `images/og/blog/`.
-- `.gitignore` patterns containing a slash are root-anchored, so entries for this tree must be
-  written `meta/…`, not bare.
-
-In prose, paths are written relative to the repo root (`images/shared/x.webp`), since that is how
-everyone navigates the repo.
+```bash
+npm install
+npx playwright install chromium
+```
 
 ## Note
 

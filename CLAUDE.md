@@ -9,10 +9,17 @@ The root holds only what a browser loads when the GitHub Pages preview is served
 team/ categories/` subdirectories, `images/ icons/ logos/`, the `header-include.js` /
 `footer-include.js` scripts and the `_header.html` / `_footer.html` partials they fetch.
 
-`meta/` holds everything the browser never requests — currently `llms/` (llms.txt source and
-archive), `og/` (OG card generator) and `tov/` (tone of voice).
+`meta/` holds everything the browser never requests, split by what the thing *is*:
 
-**When adding a file, ask: does a page load this?** If no, it belongs in `meta/`, not the root.
+- **`meta/generators/`** — things that **run**. Each generator owns the assets it consumes, so it
+  stays self-contained: `generators/og/` holds `generate.mjs`, its `card.html` template, and the
+  `fonts/` it inlines. Resolve a generator's own assets relative to the script (`HERE`), not the
+  repo root — that way moving a generator can never orphan them.
+- **`meta/reference/`** — things you **read**. `reference/tov/` (tone of voice, read before writing
+  any copy) and `reference/llms/` (llms.txt source and archive).
+
+**Two questions when adding a file.** Does a page load it? If no, it goes in `meta/`, not the root.
+Then: does it run, or is it read? That picks `generators/` or `reference/`.
 
 Four things stay at the root despite not being browser-loaded, and must not be moved:
 
@@ -61,7 +68,7 @@ Full reference: `webflow-variables.md`
 
 ## Tone of Voice
 
-Before writing or editing any copy (headings, body text, CTAs, meta descriptions, etc.), read the tone-of-voice and key messages guide in `meta/tov/` for instructions on the Cosive tone of voice.
+Before writing or editing any copy (headings, body text, CTAs, meta descriptions, etc.), read the tone-of-voice and key messages guide in `meta/reference/tov/` for instructions on the Cosive tone of voice.
 
 ## SVG Icons
 

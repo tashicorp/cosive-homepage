@@ -10,7 +10,7 @@
   "scripts": {
     "start": "browser-sync start --server --port 8765 --files '**/*.html, *.js, images/**/*'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "og": "node meta/og/generate.mjs"
+    "og": "node meta/generators/og/generate.mjs"
   },
   "repository": {
     "type": "git",

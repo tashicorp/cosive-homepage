@@ -9,7 +9,7 @@
  * the post's own banner as a share card instead, for posts with and without a
  * featured image alike.
  *
- *   node meta/og/generate.mjs <post-url> [<post-url> ...]
+ *   node meta/generators/og/generate.mjs <post-url> [<post-url> ...]
  *   npm run og -- <post-url>
  *
  * Output: images/og/blog/<slug>/og-blog-post-<slug>.png — one folder per post,
@@ -22,22 +22,24 @@ import { execFile } from 'child_process';
 import { chromium } from 'playwright';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(HERE, '..', '..');
+const ROOT = resolve(HERE, '..', '..', '..');
 const OUT_DIR = join(ROOT, 'images', 'og', 'blog');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
+// Resolved against HERE, not ROOT — the fonts live beside this script, so moving
+// the generator can never orphan them again.
 const FONTS = {
-  FONT_MANROPE_400: 'meta/fonts/manrope-400.woff2',
-  FONT_MANROPE_600: 'meta/fonts/manrope-600.woff2',
-  FONT_MANROPE_700: 'meta/fonts/manrope-700.woff2',
-  FONT_GEIST_MONO_700: 'meta/fonts/geist-mono-700.woff2',
+  FONT_MANROPE_400: 'fonts/manrope-400.woff2',
+  FONT_MANROPE_600: 'fonts/manrope-600.woff2',
+  FONT_MANROPE_700: 'fonts/manrope-700.woff2',
+  FONT_GEIST_MONO_700: 'fonts/geist-mono-700.woff2',
 };
 
 const urls = process.argv.slice(2).filter((a) => !a.startsWith('-'));
 if (!urls.length) {
-  console.error('usage: node meta/og/generate.mjs <post-url> [<post-url> ...]');
+  console.error('usage: node meta/generators/og/generate.mjs <post-url> [<post-url> ...]');
   process.exit(2);
 }
 
@@ -47,6 +49,8 @@ const esc = (s) =>
 const dataUri = (buf, mime) => `data:${mime};base64,${Buffer.from(buf).toString('base64')}`;
 
 const fileUri = (rel, mime) => dataUri(readFileSync(join(ROOT, rel)), mime);
+// Same, but for files shipped alongside the generator.
+const hereUri = (rel, mime) => dataUri(readFileSync(join(HERE, rel)), mime);
 
 /** Fetch a remote image and inline it, so the render never touches the network. */
 async function inlineRemote(url) {
@@ -117,7 +121,7 @@ const slugOf = (url) => new URL(url).pathname.replace(/\/$/, '').split('/').pop(
 
 const template = readFileSync(join(HERE, 'card.html'), 'utf8');
 const fonts = Object.fromEntries(
-  Object.entries(FONTS).map(([k, p]) => [k, fileUri(p, 'font/woff2')])
+  Object.entries(FONTS).map(([k, p]) => [k, hereUri(p, 'font/woff2')])
 );
 const pattern = fileUri('images/blog/_post-template/hero-wave-field.svg', 'image/svg+xml');
 const logo = fileUri('logos/cosive_logo_reverse_full_color_transparent_print.png', 'image/png');
