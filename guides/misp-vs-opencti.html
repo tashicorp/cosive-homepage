@@ -1528,18 +1528,172 @@
      comparison guide the question "who says so?" carries as much weight as the
      question itself, and a narrower rail would read as a sidebar afterthought.
      The breadcrumb stays full-width above the split. */
-  .guide-hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4xl);
-    align-items: start;
+  /* The banner carries less furniture than it used to, so the headline takes
+     the room back: one step up at both ends of the inherited clamp. */
+  .article-hero .article-title {
+    font-size: clamp(var(--text-4xl), 4.5vw, var(--text-6xl));
   }
 
-  /* The framing paragraph. VISIBLE — see requirement 3 in the header comment. */
-  .article-intro {
-    font-size: var(--text-xl);
+  .guide-hero-grid {
+    display: grid;
+    /* Same tracks as .article-layout below, in the same 1400px container with
+       the same Space/3XL padding — so the credential column's left edge lands
+       exactly on the CloudMISP card's left edge further down the page. */
+    grid-template-columns: 2fr 1fr;
+    gap: 0 var(--space-4xl);
+    /* `stretch`, not `start`: the credential column paints the panel, and it
+       has to be the full row height for that panel to reach the band edges.
+       Content in both columns still flows from the top. */
+    align-items: stretch;
+  }
+
+  /* The flat panel behind the authorship claim, and its edge. The negative
+     margins are exactly the hero's own padding, and the matching padding puts
+     the content back where it was — so the tint and the 2px rule span the FULL
+     band height and bleed to the container's right edge, while the content
+     stays on the page grid. Copied from .cti-hero__ladder-wrap, cti-cmm.html:456.
+
+     COUPLED: --space-6xl mirrors .article-hero's `padding: var(--space-6xl) 0`
+     and --space-3xl mirrors .container's `padding: 0 var(--space-3xl)`. Change
+     either and the panel silently stops reaching the edges. */
+  .guide-hero__credential {
+    /* Right side bleeds to the VIEWPORT edge, not the container edge: .container
+       is capped at --container-page and centred, so cancelling its padding alone
+       would strand the panel short on wide screens. -50vw overshoots past any
+       plausible gutter and .article-hero{overflow:hidden} clips it; the matching
+       50vw padding puts the content back on the grid. */
+    /* Negative left margin pulls the panel across the column gap, so its rule
+       lands on the article body's right edge rather than the sidebar's left
+       edge. The Space/4XL padding-left then puts the panel's text back onto the
+       CloudMISP card's left edge — both alignments fall out of the same pull. */
+    margin: calc(var(--space-6xl) * -1) -50vw calc(var(--space-6xl) * -1) calc(var(--space-4xl) * -1);
+    padding: var(--space-6xl) 50vw var(--space-6xl) var(--space-4xl);
+    /* One step deeper than the band so the column still reads as a panel. */
+    background: var(--color-mid-grey);
+    border-left: 1px solid var(--color-border);
+  }
+
+  /* The gap used to separate the headline from the credential column; the
+     panel now occupies it, so the column carries the inset itself. */
+  .guide-hero__main { padding-right: var(--space-5xl); }
+
+  /* ── Light hero ──────────────────────────────────────────────────────
+     The banner was built for Color/Dark. Every dark-surface rule below is
+     flipped here rather than in the inherited region, which stays verbatim.
+     Color/Light Grey is the repo's standard section tint, and the 1px rule
+     replaces the dark-to-white edge that used to be the divider (see the
+     comment at line 244). A border sits outside the padding box, so the
+     credential column's negative margins still stop cleanly against it. */
+  .article-hero {
+    background: var(--color-light-grey);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* The inherited breadcrumb ladder is unscoped and white; scoping these with
+     .article-hero outranks it without touching that region. */
+  .article-hero .breadcrumb,
+  .article-hero .breadcrumb a,
+  .article-hero .breadcrumb .separator,
+  .article-hero .breadcrumb .breadcrumb__plain { color: var(--color-text-secondary); }
+  .article-hero .breadcrumb a:hover { color: var(--color-text-primary); }
+  .article-hero .breadcrumb svg { stroke: var(--color-text-secondary); }
+  .article-hero .breadcrumb .current { color: var(--color-text-primary); }
+
+  /* The base .category-badge is already accent-on-tint and correct on light —
+     this just undoes the dark-surface inversion. */
+  .article-hero .category-badge {
+    color: var(--color-accent);
+    background: rgba(229, 56, 52, 0.08);
+  }
+
+  .article-hero .article-title { color: var(--color-text-primary); }
+  .article-hero .article-meta-author-name { color: var(--color-text-primary); }
+  .article-hero .article-meta-author-role { color: var(--color-text-secondary); }
+  /* Color/Light Grey would vanish against the band. */
+  .article-hero .article-meta-author img { border-color: var(--color-border); }
+
+  /* ── Summary ─────────────────────────────────────────────────────────
+     The takeaways, above the fold. Deliberately not a restatement of the
+     .verdict cards below: those answer "which one", these name the axis,
+     the real cost, the both-at-once option and the early-maturity case. */
+  /* Matches security-operations.html:13 and the other capability pages. Also
+     applies to the TOC's own section links and the FAQ anchors. */
+  html { scroll-behavior: smooth; }
+
+  /* The site header is sticky and Space/5XL tall, so an anchor jump would land
+     the TOC underneath it. Same offset the sidebar card uses to clear it. */
+  .article-toc { scroll-margin-top: calc(var(--space-5xl) + var(--space-xl)); }
+
+  .guide-summary { margin-bottom: var(--space-xl); }
+
+  /* Same eyebrow idiom as .expert-author__label. */
+  .guide-summary__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .guide-summary__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .guide-summary__list li {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: var(--text-lg);
     line-height: var(--leading-normal);
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-primary);
+  }
+  /* A short accent rule rather than a shape — echoes the left rules on
+     .disclosure and the credential column, and keeps the marker from
+     competing with the accent CTA below the list. */
+  .guide-summary__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: var(--space-sm);
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  /* Mirrors .expert-author__link, the banner's other text CTA, one step up in
+     size because this is the primary action once the summary is read. The
+     underline is transparent at rest so the affordance appears on interaction
+     without adding another rule-line to an already busy banner. */
+  .guide-summary__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-lg);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+  }
+  /* Accent at rest, so hover steps to Accent Dark — the repo's standard pair. */
+  .guide-summary__cta:hover {
+    color: var(--color-accent-dark);
+    text-decoration-color: var(--color-accent-dark);
+  }
+  .guide-summary__cta svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* The framing paragraph. VISIBLE — see requirement 3 in the header comment.
+     Text/2XL matches .cm-hero__subtitle, the equivalent lede on cloud-misp.html. */
+  .article-intro {
+    font-size: var(--text-2xl);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
     margin-bottom: var(--space-xl);
   }
 
@@ -1548,11 +1702,11 @@
      The page's central E-E-A-T claim, so it gets a panel rather than a
      byline: label, photo, name, role, full bio and both links. Reviewers
      sit beneath it, deliberately an order of magnitude quieter. */
+  /* Plain content — .guide-hero__credential carries the tint and the rule. */
   .expert-author {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    background: none;
+    border-left: none;
+    padding: 0;
   }
 
   .expert-author__label {
@@ -1588,7 +1742,7 @@
     font-size: var(--text-2xl);
     font-weight: 800;
     line-height: var(--leading-snug);
-    color: var(--color-white);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-2xs);
   }
   /* No underline — the panel already reads as a unit, and the name sits at
@@ -1605,7 +1759,7 @@
     align-items: center;
     align-self: center;
     line-height: 1;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-secondary);
     transition: color 0.2s;
   }
   .expert-author__social:hover { color: var(--color-accent); }
@@ -1613,7 +1767,7 @@
 
   .expert-author__role {
     font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-secondary);
   }
 
   /* The bio was already a list of credentials written as a sentence. Rendered
@@ -1627,7 +1781,7 @@
     padding-left: var(--space-lg);
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-secondary);
   }
   .expert-author__credentials li + li { margin-top: var(--space-xs); }
   /* Accent chevron pointing right, matching the label above rather than a
@@ -1653,7 +1807,7 @@
   .expert-author__link {
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--color-text-primary);
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
@@ -1672,10 +1826,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-sm);
-    /* Sits in the left column under the dates, so it aligns to the title
-       rather than to the author panel's inner padding. */
-    margin-top: var(--space-2xl);
+    gap: var(--space-md);
+    /* Hairline marks the break between who wrote it and who checked it. The
+       column supplies the inset, so no padding-left of its own. */
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
   }
 
   /* Same idiom as .expert-author__label — mono, bold, uppercase, tracked —
@@ -1688,8 +1844,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
-    color: rgba(255, 255, 255, 0.45);
-    margin-bottom: var(--space-2xs);
+    color: var(--color-text-secondary);
   }
 
   /* Each contributor is a .article-meta-author, the same component a blog
@@ -1818,6 +1973,117 @@
      holding it at the apparatus tier. */
   .faq-answer p:last-child { margin-bottom: 0; }
 
+  /* ── CloudMISP promo ─────────────────────────────────────────────────
+     Same card element as blog-post.html: .article-share is nested INSIDE
+     .article-aside__card, and its dark-surface overrides are scoped to that
+     class, so the class stays and only the skin changes. Recipe is
+     cloud-misp.html's hero — Color/Dark, two radial glows, clouds photo
+     screen-blended. Deliberately diverges from the two blog templates, which
+     keep "Work with us"; the three files are hand-duplicated, not shared. */
+  .article-aside__card {
+    background-image:
+      radial-gradient(ellipse at 30% 50%, rgba(229, 56, 52, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 80%, rgba(42, 182, 246, 0.05) 0%, transparent 50%);
+  }
+
+  /* Replaces the inherited dot grid. Shorthand, not background-image — the
+     inherited rule also sets background-size: 24px 24px, which longhand would
+     leave in place and tile the photo. */
+  .article-aside__card::before {
+    background: url('../images/cloud-misp/cloudmisp-clouds-bg.webp') center / cover no-repeat;
+    opacity: 0.25;
+    mix-blend-mode: screen;
+  }
+
+  /* .cm-label — sans, not mono. The one place cloud-misp.html names the product. */
+  .cm-promo__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  /* .tier-features — CloudMISP's list idiom is a 4px accent dot, not a tick. */
+  .cm-promo__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+  .cm-promo__list li {
+    position: relative;
+    padding-left: var(--space-md);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .cm-promo__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: var(--space-2xs);
+    height: var(--space-2xs);
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+  }
+
+  /* .cm-btn--primary sits at Space/SM vertical; the inherited button is Space/MD. */
+  .article-aside__btn { padding: var(--space-sm) var(--space-xl); }
+
+  /* Sticky moves to the column so the share row travels with the card now that
+     it sits outside it. align-self: start is required — a grid item stretches
+     to the row's full height by default, and a sticky box as tall as its
+     scroll container has nowhere to stick. */
+  .article-aside {
+    align-self: start;
+    position: sticky;
+    top: calc(var(--space-5xl) + var(--space-xl));
+    margin-top: var(--space-4xl);
+  }
+
+  /* relative, NOT static — ::before (inset: 0) has no other positioned
+     ancestor and would otherwise size to the viewport. top: auto is required:
+     the inherited rule pairs position:sticky with top:112px, and on a relative
+     box that 112px becomes a visual offset that drops the card and hides the
+     share row underneath it. */
+  .article-aside__card {
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    /* One step down from Radius/LG. ::before uses border-radius: inherit, so
+       the clouds layer follows without a second declaration. */
+    border-radius: var(--radius-md);
+  }
+
+  /* Outside the card the share row sits on white, so the light base styles are
+     correct. These two restore the layout the dark overrides were providing:
+     the base .article-share has no flex-wrap, and the label's full-width rule
+     was scoped to .article-aside__card so it no longer matches. */
+  .article-aside .article-share {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+  }
+  .article-aside .share-label { flex: 0 0 100%; }
+
+  /* Space/XL above the bullets read as a section break rather than a list
+     intro, and 0.7 sat too dim against Color/Dark. */
+  .article-aside__desc {
+    margin-bottom: var(--space-md);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .cm-promo__list li { color: rgba(255, 255, 255, 0.85); }
+
+  @media (max-width: 1100px) {
+    .article-aside { position: static; margin-top: 0; margin-bottom: var(--space-4xl); }
+    .article-aside__card { margin-bottom: 0; }
+  }
+
   /* ── Sources ─────────────────────────────────────────────────────────
      Citation density is an audited weakness; every factual claim in the
      body should trace to an entry here. */
@@ -1851,13 +2117,18 @@
     /* The author panel follows the guide it vouches for rather than sitting
        beside it; equal weight only means anything while they are side by side. */
     .guide-hero-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    /* Margins and padding must be zeroed together or the band breaks. The tint
+       and rule are kept — unlike cti-cmm, which drops them — because on one
+       column they still separate "who says so" from the guide itself. */
+    .guide-hero__credential { margin: 0; padding: var(--space-lg) var(--space-xl); }
+    .guide-hero__main { padding-right: 0; }
     /* Steps with .article-body h4, the tier this question sits in. */
     .faq-item summary { font-size: var(--text-2xl); }
   }
 
   @media (max-width: 600px) {
-    .article-intro { font-size: var(--text-lg); }
-    .expert-author { padding: var(--space-lg); }
+    .article-hero .article-title { font-size: var(--text-3xl); }
+    .article-intro { font-size: var(--text-xl); }
     .expert-author__photo { width: 64px; height: 64px; }
     .expert-author__name { font-size: var(--text-xl); }
     .expert-author__credentials li { font-size: var(--text-xs); }
@@ -1994,7 +2265,7 @@
 
       <!-- Column 1 — the guide. The breadcrumb rides in this track rather than
            full-width above it, so the two columns read as equal blocks. -->
-      <div>
+      <div class="guide-hero__main">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
           <span class="separator">/</span>
@@ -2019,38 +2290,31 @@
           we&rsquo;d pick.
         </p>
 
-        <!-- [CMS: expertAuthor + reviewers] (-> Team). One visible list, two
-             distinct schema roles: Chris is Article.author, the rest are
-             WebPage.reviewedBy. A reviewer is credited, never authored. -->
-        <div class="guide-reviewers">
-          <span class="guide-reviewers__label">Contributors</span>
-          <div class="article-meta-author">
-            <img src="../images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
-            <div>
-              <div class="article-meta-author-name"><a href="../team/chris-horsley.html">Chris Horsley</a></div>
-              <div class="article-meta-author-role">Principal Security Consultant &amp; CTO</div>
-            </div>
-          </div>
-          <div class="article-meta-author">
-            <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-            <div>
-              <div class="article-meta-author-name">Tash Postolovski</div>
-              <div class="article-meta-author-role">Technical Marketing Manager</div>
-            </div>
-          </div>
-          <div class="article-meta-author">
-            <img src="../images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
-            <div>
-              <div class="article-meta-author-name"><a href="../team/prescott-pym.html">Prescott Pym</a></div>
-              <div class="article-meta-author-role">Principal Security Consultant</div>
-            </div>
-          </div>
+        <!-- [CMS: summary] — the takeaways, above the fold. Must not restate
+             the .verdict cards at #at-a-glance: those answer "which one", these
+             name the deciding axis, the real cost, the run-both option and the
+             early-maturity case. No schema node; Article.description covers the
+             abstract already. -->
+        <div class="guide-summary">
+          <div class="guide-summary__label">Summary</div>
+          <ul class="guide-summary__list">
+            <li>The deciding question is what you&rsquo;ll do with the data: exchange it with other organisations, or interrogate it yourself.</li>
+            <li>Neither charges a licence fee. Your real cost is operational &mdash; one is a single service where the other is a stack.</li>
+            <li>Running both is legitimate &mdash; MISP for sharing, OpenCTI for analysis &mdash; if you have the team for two.</li>
+            <li>If you can&rsquo;t tell which you need, you&rsquo;re early. Process matters more than the platform.</li>
+          </ul>
+          <a href="#contents" class="guide-summary__cta">
+            Read the full guide
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M7 9l3 3 3-3"/></svg>
+          </a>
         </div>
+
       </div>
 
-      <!-- Column 2 — who says so. Equal weight to the guide itself.
+      <!-- Column 2 — who says so. Equal weight to the guide itself: this
+           column IS the panel, bleeding to the band's edges.
            [CMS: expertAuthor] (single reference -> Team) -->
-      <div>
+      <div class="guide-hero__credential">
         <div class="expert-author">
           <div class="expert-author__label">Expert author</div>
 
@@ -2078,8 +2342,29 @@
           <div class="expert-author__links">
             <a href="../team/chris-horsley.html" class="expert-author__link">
               View author profile
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
             </a>
+          </div>
+        </div>
+        <!-- [CMS: reviewers] (multi-reference -> Team). Sits under the author
+             panel it qualifies. Chris is not listed: he is Article.author and
+             the panel above credits him. A reviewer is credited, never authored,
+             so these two map to WebPage.reviewedBy and nothing else. -->
+        <div class="guide-reviewers">
+          <span class="guide-reviewers__label">Contributors</span>
+          <div class="article-meta-author">
+            <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
+            <div>
+              <div class="article-meta-author-name">Tash Postolovski</div>
+              <div class="article-meta-author-role">Technical Marketing Manager</div>
+            </div>
+          </div>
+          <div class="article-meta-author">
+            <img src="../images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
+            <div>
+              <div class="article-meta-author-name"><a href="../team/prescott-pym.html">Prescott Pym</a></div>
+              <div class="article-meta-author-role">Principal Security Consultant</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2092,7 +2377,7 @@
 <div class="article-layout">
 <article class="article-body">
 
-  <details class="article-toc" open>
+  <details class="article-toc" id="contents" open>
     <summary>Table of Contents</summary>
     <ol class="toc-list">
       <li><a href="#at-a-glance">At a glance</a></li>
@@ -2334,22 +2619,27 @@
 
 <aside class="article-aside">
   <div class="article-aside__card">
-    <img src="../icons/cosive-sinewave.svg" alt="" class="article-aside__wave">
-    <h2 class="article-aside__heading">Work with us</h2>
-    <p class="article-aside__desc">We work with security teams globally on threat intelligence, security operations, and fraud data sharing, starting from wherever you are today. If you have something you&rsquo;re working through, we&rsquo;d like to hear about it.</p>
-    <a href="/contact-us" class="article-aside__btn">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+    <div class="cm-promo__label">Cosive CloudMISP</div>
+    <h2 class="article-aside__heading">MISP without the upkeep</h2>
+    <p class="article-aside__desc">If this guide points you at MISP, we can run it for you.</p>
+    <ul class="cm-promo__list">
+      <li>Hosted, upgraded and backed up</li>
+      <li>Feeds and integrations configured</li>
+      <li>Supported by MISP contributors</li>
+    </ul>
+    <a href="../cloud-misp.html" class="article-aside__btn">Learn more about CloudMISP <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
 
-    <div class="article-share">
-      <span class="share-label">Share with colleagues</span>
-      <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!'})">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Copy link
-      </button>
-      <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </button>
-    </div>
+  <div class="article-share">
+    <span class="share-label">Share article with colleagues</span>
+    <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy link
+    </button>
+    <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </button>
   </div>
 </aside>
 
