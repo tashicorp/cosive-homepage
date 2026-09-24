@@ -1,0 +1,94 @@
+<script>
+(function () {
+  var GAP = 8; // Space/XS (0.5rem) of breathing room under the sticky header
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button > 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var cta = e.target && e.target.closest &&
+              e.target.closest('a.v2-brand-button.in-top-nav');
+    if (!cta) return;
+    var target = document.getElementById('contact');
+    if (!target) return;              // no contact section here: follow href
+    e.preventDefault();               // only ever on the scroll path
+    closeMobileMenu();
+    var reduce = window.matchMedia &&
+                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      window.scrollTo(0, wantedTop(target));
+      correctForLayoutShift(target);
+    } else {
+      smoothScrollTo(target);
+    }
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+  function offsetTop() {
+    var x = Math.round(window.innerWidth / 2), bottom = 0;
+    for (var y = 1; y <= 240; y += 16) {
+      var els = document.elementsFromPoint(x, y);
+      for (var i = 0; i < els.length; i++) {
+        var pos = getComputedStyle(els[i]).position;
+        if (pos !== 'sticky' && pos !== 'fixed') continue;
+        var b = els[i].getBoundingClientRect().bottom;
+        if (b > bottom && b <= 320) bottom = b;   // ignore full-height overlays
+      }
+    }
+    var pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    return Math.max(bottom ? bottom + GAP : 0, pad);
+  }
+  function wantedTop(section, off) {
+    if (off === undefined) off = offsetTop();
+    var top = Math.max(section.getBoundingClientRect().top + window.pageYOffset - off, 0);
+    var form = section.querySelector('form, .w-embed, iframe');
+    if (!form) return top;
+    var r = form.getBoundingClientRect();
+    var formTop = r.top + window.pageYOffset;
+    var need = r.bottom + window.pageYOffset - window.innerHeight + GAP;
+    if (need > top) top = Math.min(need, formTop - off);
+    return Math.max(top, 0);
+  }
+  function smoothScrollTo(target) {
+    var startY = window.pageYOffset;
+    var dur = Math.min(900, Math.max(350, Math.abs(wantedTop(target) - startY) * 0.35));
+    var t0 = null, off = offsetTop(), offAt = 0, cancelled = false;
+    function stop() { cancelled = true; }
+    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, stop, { passive: true, once: true });
+    });
+    requestAnimationFrame(function frame(now) {
+      if (cancelled) return;
+      if (t0 === null) { t0 = now; offAt = now; }
+      if (now - offAt > 100) { off = offsetTop(); offAt = now; }
+      var p = Math.min((now - t0) / dur, 1);
+      var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;  // easeInOutCubic
+      window.scrollTo(0, startY + (wantedTop(target, off) - startY) * e);
+      if (p < 1) requestAnimationFrame(frame);
+      else correctForLayoutShift(target);   // mops up anything that loaded at the very end
+    });
+  }
+  function correctForLayoutShift(target) {
+    var lastY = null, idle = 0, t0 = Date.now();
+    (function watch() {
+      var y = window.pageYOffset;
+      idle = (lastY !== null && Math.abs(y - lastY) < 1) ? idle + 1 : 0;
+      lastY = y;
+      if (idle >= 3) {
+        var want = wantedTop(target);
+        if (Math.abs(want - y) <= 2) return;   // landed
+        window.scrollTo({ top: want, behavior: 'auto' });
+        idle = 0;
+      }
+      if (Date.now() - t0 < 3000) requestAnimationFrame(watch);
+    })();
+  }
+  function closeMobileMenu() {
+    var nav = document.querySelector('.main-nav.open');
+    if (nav) {
+      var btn = document.querySelector('.nav-toggle');
+      if (btn) btn.click(); else nav.classList.remove('open');
+    }
+    var wf = document.querySelector('.w-nav-button.w--open');  // Webflow navbar
+    if (wf) wf.click();
+  }
+})();
+</script>

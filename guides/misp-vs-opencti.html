@@ -1,15 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
-<title>MISP Beta UI/UX Mode (v2.5.32): A Walkthrough from Contributor Chris Horsley | Cosive Blog</title>
-<meta name="description" content="A walkthrough of the new MISP beta UI/UX mode introduced in v2.5.32, covering the redesigned interface and workflow improvements for threat intelligence analysts.">
+
+<!--
+  ============================================================================
+  GUIDE / COMPARISON TEMPLATE  ·  worked example: MISP vs OpenCTI
+  ============================================================================
+  Built on blog-post.html. The <style> block below is that file's, verbatim, so
+  the header, footer, breadcrumb, byline, prose, tables and author bios are the
+  SAME components as an article. Only the blocks a comparison needs on top of an
+  article are added at the end of the stylesheet, under GUIDE ADDITIONS.
+
+  Every block marked [CMS: fieldName] becomes a Webflow collection field.
+  Everything unmarked is template chrome and stays fixed across all items.
+
+  Collection: Guides                URL: /guides/<slug>
+  ---------------------------------------------------------------------------
+  FIELD                TYPE                  NOTES
+  ---------------------------------------------------------------------------
+  name                 Plain text            H1 + <title> + schema headline
+  slug                 Slug                  /guides/<slug>
+  metaTitle            Plain text (60)       <title>; falls back to name
+  metaDescription      Plain text (155)      meta + og:description
+  subjectA / subjectB  Plain text            "MISP" / "OpenCTI"
+  intro                Rich text             VISIBLE framing paragraph
+  expertAuthor         Reference             -> Team; the banner callout +
+                                                Article.author in schema
+  reviewers            Multi-reference       -> Team (0..n); small credit under
+                                                the callout + WebPage.reviewedBy
+  datePublished        Date                  rendered + schema
+  dateModified         Date                  MUST be >= datePublished
+  disclosure           Rich text             commercial-interest statement
+  verdictA / verdictB  Rich text             "Choose X if..." bullet lists
+  rows                 Multi-reference       -> Comparison Rows collection
+  body                 Rich text             narrative sections (H2/H3)
+  faqs                 Multi-reference       -> FAQ collection (4-6 items)
+  sources              Multi-reference       -> Sources collection
+  ogImage              Image                 1200x630
+  ---------------------------------------------------------------------------
+  Comparison Rows collection : dimension, valueA, valueB
+  FAQ collection             : question, answer  (answer 40-60 words, plain)
+  Sources collection         : label, url, publisher
+  ---------------------------------------------------------------------------
+  E-E-A-T requirements this template enforces — do not strip any of them:
+   0. The expert author is a named practitioner with a real profile page. The
+      banner gives authorship equal column weight to the guide itself, because
+      on a comparison "who says so?" carries as much weight as the comparison.
+      Reviewers are credited beneath, deliberately much smaller, and are NEVER
+      promoted to authors in the markup.
+   1. Article.author is a Person in schema, never Organization; reviewers are
+      WebPage.reviewedBy.
+   2. dateModified >= datePublished, and both rendered in <time datetime>.
+   3. The intro paragraph is VISIBLE. Never reuse the `utility-page` class here
+      — the shared 404 stylesheet sets .paragraph.utility-page{display:none},
+      which is what silently hid the intro on all eight legacy comparison pages.
+   4. Byline names link to /team/<slug>, not only to LinkedIn.
+   5. Disclosure sits above the recommendation, not in the footer.
+   6. FAQ accordion text and FAQPage schema text must match EXACTLY.
+  ============================================================================
+-->
+
+<!-- [CMS: metaTitle] -->
+<title>MISP vs OpenCTI: How to Choose | Cosive</title>
+<!-- [CMS: metaDescription] — 155 char ceiling -->
+<meta name="description" content="How MISP and OpenCTI differ on sharing, data model, architecture and day-to-day operations — and a practical way to choose between them.">
+<link rel="canonical" href="https://www.cosive.com/guides/misp-vs-opencti">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cosive">
+<meta property="og:title" content="MISP vs OpenCTI: How to Choose">
+<meta property="og:description" content="How MISP and OpenCTI differ on sharing, data model, architecture and day-to-day operations — and a practical way to choose between them.">
+<meta property="og:url" content="https://www.cosive.com/guides/misp-vs-opencti">
+<meta property="og:image" content="https://www.cosive.com/images/og/og-misp-vs-opencti.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MISP vs OpenCTI: How to Choose">
+<meta name="twitter:description" content="How MISP and OpenCTI differ on sharing, data model, architecture and day-to-day operations — and a practical way to choose between them.">
+<meta name="twitter:image" content="https://www.cosive.com/images/og/og-misp-vs-opencti.png">
+
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -225,6 +302,8 @@
   }
 
   .breadcrumb .separator { color: rgba(255, 255, 255, 0.75); }
+
+  .breadcrumb .breadcrumb__plain { color: rgba(255, 255, 255, 0.85); }
 
   .breadcrumb .current { color: var(--color-white); font-weight: 400; }
 
@@ -1422,28 +1501,481 @@
 
     .footer-columns { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     GUIDE ADDITIONS
+     Everything above is blog-post.html's stylesheet, unchanged. Below are
+     only the blocks a comparison guide needs that an article does not.
+     All of it is built from the same tokens — no new colours or spacing.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* A guide has no featured image, so the hero is flat Color/Dark. The article
+     hero's image layers are switched off rather than deleted, so a guide that
+     later gets artwork only needs the CMS image wired back into ::before. */
+  .article-hero::before,
+  .article-hero::after { display: none; }
+
+  /* blog-post.html's hero container is `2fr 1fr` so a post's breadcrumb and
+     category badge stack in the left track. A guide has no badge and splits
+     itself, so that outer grid only stranded ~430px on the right. One track. */
+  .article-hero .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Hero splits into two equal columns: the guide's own framing on the left,
+     the authorship credential on the right. Equal weight is deliberate — on a
+     comparison guide the question "who says so?" carries as much weight as the
+     question itself, and a narrower rail would read as a sidebar afterthought.
+     The breadcrumb stays full-width above the split. */
+  .guide-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  /* The framing paragraph. VISIBLE — see requirement 3 in the header comment. */
+  .article-intro {
+    font-size: var(--text-xl);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-xl);
+  }
+
+
+  /* ── Expert author callout ───────────────────────────────────────────
+     The page's central E-E-A-T claim, so it gets a panel rather than a
+     byline: label, photo, name, role, full bio and both links. Reviewers
+     sit beneath it, deliberately an order of magnitude quieter. */
+  .expert-author {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .expert-author__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .expert-author__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .expert-author__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .expert-author__name {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+    margin-bottom: var(--space-2xs);
+  }
+  /* No underline — the panel already reads as a unit, and the name sits at
+     Text/2XL where a rule under it only adds noise. */
+  .expert-author__name a {
+    color: inherit;
+    transition: color 0.2s;
+  }
+  .expert-author__name a:hover { color: var(--color-accent); }
+
+  /* LinkedIn glyph, beside the name rather than a labelled link below it. */
+  .expert-author__social {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s;
+  }
+  .expert-author__social:hover { color: var(--color-accent); }
+  .expert-author__social svg { width: 18px; height: 18px; display: block; }
+
+  .expert-author__role {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* The bio was already a list of credentials written as a sentence. Rendered
+     as one, the page's central E-E-A-T claim is legible at a glance. */
+  .expert-author__credentials {
+    list-style: none;
+    margin-bottom: var(--space-md);
+  }
+  .expert-author__credentials li {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .expert-author__credentials li + li { margin-top: var(--space-xs); }
+  /* Accent chevron pointing right, matching the label above rather than a
+     generic bullet. */
+  .expert-author__credentials li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid var(--color-accent);
+    border-right: 2px solid var(--color-accent);
+    transform: rotate(45deg);
+  }
+
+  .expert-author__links {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .expert-author__link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-white);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: color 0.2s;
+  }
+  .expert-author__link:hover { color: var(--color-accent); }
+  .expert-author__link svg { width: 16px; height: 16px; flex-shrink: 0; }
+  /* The chevron leads the eye to the click, so it tracks the link colour. */
+  .expert-author__link:hover svg circle,
+  .expert-author__link:hover svg path { stroke: currentColor; }
+
+  /* ── Reviewers ───────────────────────────────────────────────────────
+     Credit, not a byline. Sized well below the author callout so the
+     hierarchy is unambiguous at a glance. */
+  .guide-reviewers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    /* Sits in the left column under the dates, so it aligns to the title
+       rather than to the author panel's inner padding. */
+    margin-top: var(--space-2xl);
+  }
+
+  /* Same idiom as .expert-author__label — mono, bold, uppercase, tracked —
+     but held grey rather than Color/Accent so the panel keeps top billing.
+     Space/2XS on top of the column gap lands on Space/MD, the gap that label
+     leaves below itself. */
+  .guide-reviewers__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: var(--space-2xs);
+  }
+
+  /* Each contributor is a .article-meta-author, the same component a blog
+     post bylines with — portrait, name, role — so the two pages credit people
+     identically. The .article-hero overrides above carry it onto Color/Dark.
+     Only the link state is new: a blog post's names don't link. */
+  .guide-reviewers .article-meta-author-name a {
+    color: inherit;
+    transition: color 0.2s;
+  }
+  .guide-reviewers .article-meta-author-name a:hover { color: var(--color-accent); }
+
+  /* ── Disclosure ──────────────────────────────────────────────────────
+     Above the recommendation, never in the footer. Accent rule on the left
+     borrows the pull-quote idiom so it reads as editorial, not as a banner. */
+  .disclosure {
+    /* 2px is the rule-accent width everywhere in the baseline (dd, .toc-list a,
+       thead th), and Radius/LG is the panel radius everywhere else on the page. */
+    border-left: 2px solid var(--color-accent);
+    background: var(--color-light-grey);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: var(--space-lg) var(--space-xl);
+    margin: 0 0 var(--space-3xl);
+  }
+  .disclosure-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+  }
+  /* Secondary prose in a rule-marked block — the same shape as .article-body dd,
+     so it takes dd's tier: one clear step below body copy, not apparatus. */
+  .disclosure p {
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+  .disclosure p + p { margin-top: var(--space-sm); }
+
+  /* ── At a glance ─────────────────────────────────────────────────────
+     The most liftable block on the page: answer engines quote this pair. */
+  .verdict {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0 var(--space-3xl);
+  }
+  .verdict-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .verdict-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    /* The blog reserves 800 for h2 and uses 700 at every sub-level. */
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    margin: 0 0 var(--space-md);
+    color: var(--color-text-primary);
+  }
+  .verdict-card ul { list-style: none; margin: 0; padding: 0; }
+  .verdict-card li {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+  .verdict-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+  .verdict-card li:last-child { margin-bottom: 0; }
+
+  /* ── FAQ ─────────────────────────────────────────────────────────────
+     Same accordion idiom as .article-toc: flat panel, mono +/- affordance,
+     server-rendered text so crawlers and LLMs read it closed. */
+  .guide-faq { margin: var(--space-4xl) 0 0; }
+
+  .faq-item {
+    background: var(--color-light-grey);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-sm);
+  }
+  .faq-item summary {
+    font-family: var(--font-heading);
+    /* An FAQ question is a sub-heading under the section's h2, so it takes
+       .article-body h4's tier — and must outrank the answer beneath it. */
+    font-size: clamp(1.75rem, 1.1667rem + 0.7778vw, 2.1rem);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+    padding: var(--space-lg) var(--space-xl);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: var(--font-mono);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-answer { padding: 0 var(--space-xl) var(--space-lg); }
+  /* Inherits .article-body p — an answer is argument, and nothing justified
+     holding it at the apparatus tier. */
+  .faq-answer p:last-child { margin-bottom: 0; }
+
+  /* ── Sources ─────────────────────────────────────────────────────────
+     Citation density is an audited weakness; every factual claim in the
+     body should trace to an entry here. */
+  .guide-sources {
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+  }
+  /* h2 inherits .article-body h2 — it was the only one of the page's nine
+     rendering at half size. .guide-sources already supplies the top margin. */
+  .guide-sources h2 { margin-top: 0; }
+  /* The margin shorthand alone left .article-body ol's padding-left in place,
+     double-indenting the list. Zero it, as .verdict-card ul does. */
+  .guide-sources ol { margin: 0 0 0 var(--space-lg); padding-left: 0; }
+  .guide-sources li {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Author bios: the on-site profile link sits beside LinkedIn. The team page
+     carries the Person entity; LinkedIn is the sameAs corroboration. */
+  .author-bio-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center; }
+
+  /* These two track blog-post.html's ladder (1400 / 1100 / 900 / 600) rather
+     than introducing 960 and 767. They sit after the inherited queries, so
+     they win where both touch the same property. */
+  @media (max-width: 900px) {
+    .verdict { grid-template-columns: 1fr; }
+    /* The author panel follows the guide it vouches for rather than sitting
+       beside it; equal weight only means anything while they are side by side. */
+    .guide-hero-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    /* Steps with .article-body h4, the tier this question sits in. */
+    .faq-item summary { font-size: var(--text-2xl); }
+  }
+
+  @media (max-width: 600px) {
+    .article-intro { font-size: var(--text-lg); }
+    .expert-author { padding: var(--space-lg); }
+    .expert-author__photo { width: 64px; height: 64px; }
+    .expert-author__name { font-size: var(--text-xl); }
+    .expert-author__credentials li { font-size: var(--text-xs); }
+    .faq-item summary { font-size: var(--text-lg); padding: var(--space-md) var(--space-lg); }
+    .faq-answer { padding: 0 var(--space-lg) var(--space-md); }
+  }
 </style>
+
+<!--
+  Schema. One @graph, sibling nodes, following the cti-cmm.html pattern.
+
+  Authorship mirrors the page exactly: the expert author is Article.author
+  (a Person, never {"@type":"Organization"}), and reviewers are carried as
+  WebPage.reviewedBy — a reviewer is credited, not an author, and conflating
+  the two is the contradiction between visible and machine-readable that this
+  template exists to avoid.
+
+  Every URL is absolute. dateModified >= datePublished.
+-->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.cosive.com/"
+      "@type": "Article",
+      "@id": "https://www.cosive.com/guides/misp-vs-opencti#article",
+      "headline": "MISP vs OpenCTI: How to Choose",
+      "description": "How MISP and OpenCTI differ on sharing, data model, architecture and day-to-day operations — and a practical way to choose between them.",
+      "image": "https://www.cosive.com/images/og/og-misp-vs-opencti.png",
+      "author": { "@id": "https://www.cosive.com/#chris-horsley" },
+      "publisher": { "@id": "https://www.cosive.com/#organization" },
+      "datePublished": "2023-11-01",
+      "dateModified": "2026-08-13",
+      "isPartOf": { "@id": "https://www.cosive.com/#website" },
+      "mainEntityOfPage": { "@id": "https://www.cosive.com/guides/misp-vs-opencti#webpage" },
+      "about": [
+        { "@type": "SoftwareApplication", "name": "MISP", "applicationCategory": "SecurityApplication" },
+        { "@type": "SoftwareApplication", "name": "OpenCTI", "applicationCategory": "SecurityApplication" }
+      ],
+      "inLanguage": "en-AU"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://www.cosive.com/blog"
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/guides/misp-vs-opencti#webpage",
+      "url": "https://www.cosive.com/guides/misp-vs-opencti",
+      "name": "MISP vs OpenCTI: How to Choose",
+      "isPartOf": { "@id": "https://www.cosive.com/#website" },
+      "about": { "@id": "https://www.cosive.com/#organization" },
+      "primaryImageOfPage": "https://www.cosive.com/images/og/og-misp-vs-opencti.png",
+      "reviewedBy": [
+        { "@id": "https://www.cosive.com/#tash-postolovski" },
+        { "@id": "https://www.cosive.com/#prescott-pym" }
+      ],
+      "lastReviewed": "2026-08-13",
+      "inLanguage": "en-AU"
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "MISP Beta UI/UX Mode (v2.5.32)"
+      "@type": "FAQPage",
+      "@id": "https://www.cosive.com/guides/misp-vs-opencti#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is MISP or OpenCTI better for sharing threat intelligence with other organisations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MISP, in most cases. Sharing is its founding purpose, so synchronisation between instances, sharing groups and per-attribute distribution levels are built into the core data model rather than added on. That is why national sharing communities run on it — Australia's CTIS platform serves more than 450 organisations on MISP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can MISP and OpenCTI be used together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and plenty of teams do. OpenCTI ships a MISP connector that ingests events on a schedule, so a common pattern is MISP for community sharing and OpenCTI as the analysis layer on top. Run both only if you have the people to operate two platforms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platform is easier to self-host?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MISP has the lighter footprint: a PHP application with a MySQL database. OpenCTI runs a set of services — Elasticsearch, Redis, RabbitMQ, object storage and its connectors — so it asks more of your infrastructure team. Neither is difficult to install; both take real effort to keep running."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does either platform cost anything to license?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are open source and free to license, so your real cost is operational: hosting, upgrades, backups and the analyst time to keep the data useful. Filigran offers a paid OpenCTI enterprise edition, and managed MISP services exist, including our own CloudMISP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platform handles STIX better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenCTI, because STIX 2.1 is its native data model rather than an import format. MISP models data as events, attributes and objects, and converts to STIX on export. If your programme is committed to STIX end to end, OpenCTI removes a translation step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need a threat intelligence platform at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not to begin with. A useful CTI function can start with a spreadsheet, a few trusted sources and one analyst spending an hour a week. Adopt a platform when manual tracking starts costing more time than it saves — early maturity depends far more on people and process than tooling."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/guides/misp-vs-opencti#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cosive.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides" },
+        { "@type": "ListItem", "position": 3, "name": "MISP vs OpenCTI" }
+      ]
     }
   ]
 }
@@ -1451,220 +1983,358 @@
 </head>
 <body>
 
-<div id="site-header-placeholder" style="min-height:calc(var(--space-5xl) + 1px)"></div>
-<script src="header-include.js"></script>
+<div id="site-header-placeholder" data-nav-active="cti" style="min-height:calc(var(--space-5xl) + 1px)"></div>
+<script src="../header-include.js"></script>
 
-<!-- Article Hero -->
+<!-- Guide Hero — same .article-hero component as a blog post, minus the
+     featured image and the category badge. -->
 <section class="article-hero">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
-      <span class="separator">/</span>
-      <a href="blog.html">Blog</a>
-      <span class="separator">/</span>
-      <span class="current" aria-current="page">MISP Beta UI/UX Mode (v2.5.32)</span>
-    </nav>
-    <span class="category-badge">Threat Intelligence</span>
-    <h1 class="article-title">MISP Beta UI/UX Mode (v2.5.32): A Walkthrough from Contributor Chris Horsley</h1>
-    <div class="article-meta">
-      <span class="article-meta-detail">2 Mar 2026</span>
-      <div class="article-meta-author">
-        <img src="images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
-        <div>
-          <div class="article-meta-author-name">Chris Horsley</div>
-          <div class="article-meta-author-role">Principal Security Consultant &amp; CTO</div>
+    <div class="guide-hero-grid">
+
+      <!-- Column 1 — the guide. The breadcrumb rides in this track rather than
+           full-width above it, so the two columns read as equal blocks. -->
+      <div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+          <span class="separator">/</span>
+          <span class="breadcrumb__plain">Guides</span>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">MISP vs OpenCTI</span>
+        </nav>
+
+        <!-- [CMS: dateModified] — a comparison guide lives or dies on how
+             current it is, so the badge slot carries the update date rather
+             than a category. datePublished stays in schema only. -->
+        <span class="category-badge">Updated <time datetime="2026-08-13">13 August 2026</time></span>
+
+        <!-- [CMS: name] -->
+        <h1 class="article-title">MISP vs OpenCTI: how to choose</h1>
+
+        <!-- [CMS: intro] — VISIBLE. Never class this `utility-page`. -->
+        <p class="article-intro">
+          Both are open source threat intelligence platforms, both are actively maintained, and
+          either will serve you well. They were built to solve different problems, though, and
+          that difference is what should decide it. Here is how they compare, and how
+          we&rsquo;d pick.
+        </p>
+
+        <!-- [CMS: expertAuthor + reviewers] (-> Team). One visible list, two
+             distinct schema roles: Chris is Article.author, the rest are
+             WebPage.reviewedBy. A reviewer is credited, never authored. -->
+        <div class="guide-reviewers">
+          <span class="guide-reviewers__label">Contributors</span>
+          <div class="article-meta-author">
+            <img src="../images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
+            <div>
+              <div class="article-meta-author-name"><a href="../team/chris-horsley.html">Chris Horsley</a></div>
+              <div class="article-meta-author-role">Principal Security Consultant &amp; CTO</div>
+            </div>
+          </div>
+          <div class="article-meta-author">
+            <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
+            <div>
+              <div class="article-meta-author-name">Tash Postolovski</div>
+              <div class="article-meta-author-role">Technical Marketing Manager</div>
+            </div>
+          </div>
+          <div class="article-meta-author">
+            <img src="../images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
+            <div>
+              <div class="article-meta-author-name"><a href="../team/prescott-pym.html">Prescott Pym</a></div>
+              <div class="article-meta-author-role">Principal Security Consultant</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="article-meta-author">
-        <img src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-        <div>
-          <div class="article-meta-author-name">Tash Postolovski</div>
-          <div class="article-meta-author-role">Technical Marketing Manager</div>
+
+      <!-- Column 2 — who says so. Equal weight to the guide itself.
+           [CMS: expertAuthor] (single reference -> Team) -->
+      <div>
+        <div class="expert-author">
+          <div class="expert-author__label">Expert author</div>
+
+          <div class="expert-author__head">
+            <img class="expert-author__photo" src="../images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
+            <div>
+              <div class="expert-author__name">
+                <a href="../team/chris-horsley.html">Chris Horsley</a>
+                <a href="https://www.linkedin.com/in/chrishorsley/" class="expert-author__social" target="_blank" rel="noopener" aria-label="Chris Horsley on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              </div>
+              <div class="expert-author__role">Principal Security Consultant &amp; CTO, Cosive</div>
+            </div>
+          </div>
+
+          <!-- [CMS: credentials] — the bio was already a list written as a
+               sentence. Same facts, rendered so they can be scanned. -->
+          <ul class="expert-author__credentials">
+            <li>Contributor to the MISP project, and leads Cosive&rsquo;s open-source development work</li>
+            <li>Co-founded Cosive in 2015, after 12 years with national CSIRTs</li>
+            <li>Leads the engineering behind CloudMISP, Cosive&rsquo;s managed MISP service</li>
+            <li>Contributor to CTI-CMM, the CTI maturity framework</li>
+            <li>Speaks and trains on threat intelligence at FIRST, AUSCERT and NZITF</li>
+          </ul>
+
+          <div class="expert-author__links">
+            <a href="../team/chris-horsley.html" class="expert-author__link">
+              View author profile
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Article Body + sticky CTA sidebar -->
+<!-- Guide Body + sticky CTA sidebar — identical layout to a blog post -->
 <div class="article-layout">
 <article class="article-body">
 
   <details class="article-toc" open>
     <summary>Table of Contents</summary>
     <ol class="toc-list">
-      <li><a href="#why-change">Why change the UI?</a></li>
-      <li><a href="#how-to-enable">How to enable the beta UI</a></li>
-      <li><a href="#whats-changed">What's changed?</a></li>
-      <li><a href="#switching-back">Switching back to classic</a></li>
-      <li><a href="#whats-next">What's included, and what's next</a></li>
-      <li><a href="#feedback">We want your feedback</a></li>
+      <li><a href="#at-a-glance">At a glance</a></li>
+      <li><a href="#comparison">How they compare</a></li>
+      <li><a href="#sharing">Sharing is where they differ most</a></li>
+      <li><a href="#data-model">The data model shapes everything else</a></li>
+      <li><a href="#operations">What each costs you to run</a></li>
+      <li><a href="#together">Running both is a legitimate answer</a></li>
+      <li><a href="#how-wed-choose">How we&rsquo;d choose</a></li>
+      <li><a href="#faq">Common questions</a></li>
     </ol>
   </details>
 
-  <p>We have been working on modernising the MISP user interface with responsive web design improvements. The new beta interface is available for users running MISP v2.5.32 or later, and it targets ease of use for analysts working on smaller screens or remotely.</p>
+  <!-- Disclosure — above the recommendation, not in the footer.
+       [CMS: disclosure] -->
+  <aside class="disclosure">
+    <div class="disclosure-label">Our commercial interests</div>
+    <p>
+      We have a stake in both platforms, so weigh this page accordingly. Cosive contributes code
+      and documentation to the MISP project, and we sell CloudMISP, a managed MISP service. We
+      are also an authorised reseller of OpenCTI.
+    </p>
+    <p>
+      That means we earn revenue whichever platform you choose. We have tried to write the
+      comparison we&rsquo;d give a client who asked us over coffee, and we&rsquo;ve said plainly
+      where each tool is the better fit.
+    </p>
+  </aside>
 
-  <p>We contributed these changes back to MISP because we actively use and recommend the open-source platform professionally, and we maintain <a href="cloud-misp.html">CloudMISP</a>, our enterprise deployment solution. Making MISP better for everyone is part of what we do.</p>
+  <h2 id="at-a-glance">At a glance</h2>
 
-  <figure>
-    <img src="images/blog/_post-template/01-event-listing-beta.png" alt="Screenshot of the MISP beta UI/UX mode showing the redesigned event listing interface" width="1600" height="840" loading="lazy">
-    <figcaption>The redesigned MISP event listing in beta UI/UX mode (v2.5.32)</figcaption>
-  </figure>
+  <!-- [CMS: verdictA / verdictB] — the block answer engines lift -->
+  <div class="verdict">
+    <div class="verdict-card">
+      <h3>Choose MISP if&hellip;</h3>
+      <ul>
+        <li>Sharing with other organisations is the point &mdash; a sector ISAC, a national community, or partners you exchange indicators with</li>
+        <li>You want the lighter operational footprint: one application, one database</li>
+        <li>You need fine-grained control over who sees each attribute</li>
+        <li>Your team is small and you&rsquo;d rather not run a distributed stack</li>
+      </ul>
+    </div>
+    <div class="verdict-card">
+      <h3>Choose OpenCTI if&hellip;</h3>
+      <ul>
+        <li>Analysis and investigation matter more to you than distribution</li>
+        <li>You&rsquo;re committed to STIX 2.1 as your data model end to end</li>
+        <li>Your analysts want a knowledge graph they can pivot through visually</li>
+        <li>You have infrastructure support for a multi-service deployment</li>
+      </ul>
+    </div>
+  </div>
 
-  <h2 id="why-change">Why change the UI?</h2>
+  <h2 id="comparison">How they compare</h2>
 
-  <p>Analysts frequently work from portable devices with limited screen real estate. MISP contains substantial valuable data, but the classic design sometimes pushes essential information beyond the visible viewport.</p>
-
-  <p>Specific challenges included:</p>
-
-  <ul>
-    <li>Event titles (the Info column) positioned offscreen to the right</li>
-    <li>Frequently accessed action buttons hidden outside the viewing area</li>
-    <li>High information density creating visual clutter</li>
-  </ul>
-
-  <p>The redesigned interface tackles these concerns through improved layout, reduced visual noise, and reorganised information hierarchy to prioritise what analysts actually need.</p>
-
-  <figure>
-    <img src="images/blog/_post-template/02-classic-offscreen.png" alt="Screenshot showing the classic MISP interface with event titles pushed off-screen on a smaller display" width="1600" height="840" loading="lazy">
-    <figcaption>In the classic UI, event titles and critical context often appeared off-screen on smaller displays</figcaption>
-  </figure>
-
-  <blockquote>
-    <p>Most of the analysts we work with are not sitting at a three-monitor desk. They are on a laptop, in a meeting, trying to answer one question quickly. The interface should meet them there.</p>
-    <cite>Chris Horsley, Principal Security Consultant &amp; CTO, Cosive</cite>
-  </blockquote>
-
-  <h2 id="how-to-enable">How to enable the beta UI</h2>
-
-  <p>For MISP v2.5.32 or later, enabling the new interface takes three steps:</p>
-
-  <ol>
-    <li>Navigate to <strong>Global Actions</strong></li>
-    <li>Select the <strong>Beta UI</strong> button</li>
-    <li>The interface loads immediately</li>
-  </ol>
-
-  <p>This setting operates on a per-user basis, so you can try it without affecting anyone else in your organisation. You can switch back to the classic interface at any time.</p>
-
-  <p>If you administer MISP and would rather set it from the command line, the equivalent is:</p>
-
-  <pre><code># Per-user setting — no server restart, no effect on other analysts
-cd /var/www/MISP/app
-sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</code></pre>
-
-  <figure>
-    <img src="images/blog/_post-template/03-global-actions-menu.png" alt="Screenshot showing the Global Actions menu with the Beta UI toggle button" width="1600" height="700" loading="lazy">
-    <figcaption>Enabling the beta UI from the Global Actions menu</figcaption>
-  </figure>
-
-  <h2 id="whats-changed">What's changed?</h2>
-
-  <h3>1. Reduced information density</h3>
-
-  <p>The refresh introduces greater spacing and visual breathing room, making content easier to scan and process while retaining all functionality. The goal is to reduce cognitive load without removing the data analysts rely on.</p>
-
-  <figure>
-    <img src="images/blog/_post-template/04-density-comparison.png" alt="Side-by-side comparison of classic and beta UI information density on the event listing page" width="1600" height="700" loading="lazy">
-    <figcaption>Comparison of information density between classic (left) and beta UI (right)</figcaption>
-  </figure>
-
-  <h3>2. Responsive design</h3>
-
-  <p>The layout intelligently adjusts during browser resizing. Event titles shift leftward for prominence, important context remains immediately visible, and the interface adapts smoothly across different screen dimensions.</p>
-
-  <p>This eliminates excessive horizontal scrolling for users working across varied devices — from ultrawide monitors to 13-inch laptops.</p>
-
-  <h3>3. Action buttons simplified</h3>
-
-  <p>Previously, action icons lined the right side of event listings. The updated version consolidates actions into a dropdown menu with text labels for each option. This improves discoverability, especially for less frequent users of certain features.</p>
-
-  <figure>
-    <img src="images/blog/_post-template/05-action-dropdown.png" alt="Screenshot showing the simplified action button dropdown menu replacing the previous icon row" width="1600" height="840" loading="lazy">
-    <figcaption>Action buttons consolidated into a labelled dropdown menu</figcaption>
-  </figure>
-
-  <h3>4. Highlight tags for focused visibility</h3>
-
-  <p>A new column called <strong>Highlight Tags</strong> surfaces only the tags that matter most to your workflow. Navigate to <strong>Tag Taxonomies</strong> and select which taxonomy families should receive highlighting.</p>
-
-  <p>Only chosen tag categories appear in the column, reducing visual noise while emphasising workflow-critical tags like <code>TLP</code> and <code>Workflow</code> taxonomies.</p>
-
-  <figure>
-    <img src="images/blog/_post-template/06-highlight-tags.png" alt="Screenshot of the Highlight Tags column showing TLP and Workflow taxonomy tags prominently displayed" width="1600" height="840" loading="lazy">
-    <figcaption>The Highlight Tags column shows only the taxonomies you select, cutting through the noise</figcaption>
-  </figure>
-
-  <h3>5. Streamlined top navigation</h3>
-
-  <p>The left navigation menu underwent hierarchical restructuring, reflecting cognitive science principles about human information processing — specifically, the idea of limiting choices to around seven items at once.</p>
-
-  <p>The redesign groups options logically, creates intuitive menu hierarchies, and uses icons for quick category identification. Related features like tags, taxonomies, remote services, and feeds are consolidated. Event creation is more prominent, and import options (STIX, JSON, free text) are easier to access.</p>
-
-  <figure>
-    <img src="images/blog/_post-template/07-navigation.png" alt="Screenshot of the streamlined left navigation menu with logically grouped options and icons" width="1600" height="900" loading="lazy">
-    <figcaption>The restructured navigation groups related options and uses icons for quick identification</figcaption>
-  </figure>
-
-  <hr>
-
-  <h2 id="switching-back">Switching back to classic</h2>
-
-  <p>If you prefer the traditional interface, simply disable the beta UI within your account settings. The change applies only to your account, so teams can run a mix of classic and beta users without any friction.</p>
-
-  <h2 id="whats-next">What's included, and what's next</h2>
-
-  <p>The current beta covers:</p>
-
-  <ul>
-    <li><strong>Event Listing page</strong> — the primary day-to-day view for most analysts</li>
-    <li><strong>Navigation bar</strong> — the top-level menu structure</li>
-  </ul>
-
-  <p>Where each screen currently sits:</p>
-
+  <!-- [CMS: rows] — repeater over the Comparison Rows collection.
+       .table-scroll and the table styling are the blog article's. -->
   <div class="table-scroll">
     <table>
       <thead>
         <tr>
-          <th>Screen</th>
-          <th>Status</th>
-          <th>Available from</th>
+          <th scope="col">Dimension</th>
+          <th scope="col">MISP</th>
+          <th scope="col">OpenCTI</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Event listing</td><td>In beta</td><td>v2.5.32</td></tr>
-        <tr><td>Navigation bar</td><td>In beta</td><td>v2.5.32</td></tr>
-        <tr><td>Event detail</td><td>In progress</td><td>&mdash;</td></tr>
-        <tr><td>Attribute editor</td><td>Planned</td><td>&mdash;</td></tr>
+        <tr>
+          <th scope="row">Built for</th>
+          <td>Sharing indicators between organisations</td>
+          <td>Structuring and analysing intelligence in one place</td>
+        </tr>
+        <tr>
+          <th scope="row">Native data model</th>
+          <td>Events, attributes and objects; STIX on import and export</td>
+          <td>STIX 2.1 natively</td>
+        </tr>
+        <tr>
+          <th scope="row">Sharing model</th>
+          <td>Instance-to-instance sync, sharing groups, per-attribute distribution levels</td>
+          <td>Connector-based ingest and export; sharing is not the core design</td>
+        </tr>
+        <tr>
+          <th scope="row">Architecture</th>
+          <td>PHP application plus MySQL</td>
+          <td>Elasticsearch, Redis, RabbitMQ, object storage, worker connectors</td>
+        </tr>
+        <tr>
+          <th scope="row">Analysis and visualisation</th>
+          <td>Correlation, taxonomies, galaxies and warning lists</td>
+          <td>Knowledge graph with visual pivoting across entities</td>
+        </tr>
+        <tr>
+          <th scope="row">Integration approach</th>
+          <td>Mature REST API, PyMISP, wide third-party support</td>
+          <td>GraphQL API plus a large catalogue of maintained connectors</td>
+        </tr>
+        <tr>
+          <th scope="row">Licence</th>
+          <td>Open source, free to licence</td>
+          <td>Open source, free to licence; paid enterprise edition available</td>
+        </tr>
+        <tr>
+          <th scope="row">Operational load</th>
+          <td>Lower &mdash; one service to patch and back up</td>
+          <td>Higher &mdash; several services to keep healthy</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <h4>Known limitations</h4>
+  <!-- [CMS: body] — Webflow Rich Text from here to the FAQ -->
 
-  <p>The beta covers the listing and navigation only, so moving into an event drops you back into the classic layout. Saved filters carry across, but column widths do not. Neither is a blocker for day-to-day use, and both are on the list.</p>
+  <h2 id="sharing">Sharing is where they differ most</h2>
+  <p>
+    MISP began as a way for teams to exchange indicators, and the data model still shows it.
+    Distribution is set per attribute, sharing groups let you scope who receives what, and two
+    instances can synchronise directly. If your goal is to join or run a community, that
+    machinery already exists and is well understood by the people you&rsquo;ll be sharing with.
+  </p>
+  <p>
+    OpenCTI approaches the same problem from the analysis side. It ingests from many sources,
+    normalises everything into STIX 2.1, and gives analysts a graph to explore. You can push data
+    out, but distribution is a connector you configure rather than a property of every record.
+  </p>
 
-  <p>We plan to gradually extend the refreshed interface to additional screens, informed by community feedback. The goal is to iterate in the open and contribute improvements back to the broader MISP community over time.</p>
+  <h2 id="data-model">The data model shapes everything else</h2>
+  <p>
+    OpenCTI stores STIX 2.1 natively. If your programme has standardised on STIX, that removes a
+    translation step and keeps your exports faithful to what your analysts entered.
+  </p>
+  <p>
+    MISP&rsquo;s model predates STIX 2.1 and is its own: events holding attributes and objects.
+    It converts to STIX on export, which works well, though the mapping is not always one to one.
+    In our experience this rarely blocks anyone &mdash; but it is worth knowing before you commit.
+  </p>
 
-  <h2 id="feedback">We want your feedback</h2>
+  <h2 id="operations">What each costs you to run</h2>
+  <p>
+    Neither platform charges a licence fee, so the real cost is operational. MISP is a PHP
+    application with a MySQL database: one service to patch, back up and restore. OpenCTI runs
+    Elasticsearch, Redis, RabbitMQ, object storage and a set of worker connectors, which is a
+    heavier commitment for whoever owns your infrastructure.
+  </p>
+  <p>
+    Be honest about capacity here. A platform nobody has time to maintain will drift, and analysts
+    will quietly go back to spreadsheets. If you don&rsquo;t have the people, a managed service is
+    a reasonable answer for either tool.
+  </p>
 
-  <p>This is a beta release and it will improve through iteration. If you try the new interface, we would love to hear about:</p>
+  <h2 id="together">Running both is a legitimate answer</h2>
+  <p>
+    These aren&rsquo;t mutually exclusive. A common pattern is MISP for community sharing, with
+    OpenCTI sitting above it as the analysis layer &mdash; OpenCTI&rsquo;s MISP connector pulls
+    events in on a schedule. It&rsquo;s a good fit when you need both the sharing relationships
+    and the graph.
+  </p>
+  <p>
+    The caveat is people, not technology. Two platforms means two upgrade paths and two sets of
+    failures. Run both when you have the team to support both, not before.
+  </p>
 
-  <ul>
-    <li>What works well in your day-to-day workflow</li>
-    <li>Any slowdowns or difficulties you encounter</li>
-    <li>Suggestions for further usability improvements</li>
-  </ul>
+  <h2 id="how-wed-choose">How we&rsquo;d choose</h2>
+  <p>
+    Start from what you&rsquo;ll actually do with the data. If most of your value comes from
+    exchanging intelligence with other organisations, pick MISP &mdash; the sharing model and the
+    installed base in sharing communities make it the lower-friction choice. If most of your value
+    comes from your own analysts connecting and interrogating what you already hold,
+    OpenCTI&rsquo;s graph earns its extra operational weight.
+  </p>
+  <p>
+    If you&rsquo;re not sure yet, that&rsquo;s a signal you&rsquo;re early &mdash; and early CTI
+    maturity depends far more on people and process than on which platform you run. Get the
+    process working with something simple, then let the constraint you actually hit decide the
+    tool.
+  </p>
 
-  <p>Since MISP is a community-driven project, usability improvements benefit the entire user base. <a href="/contact-us">Get in touch</a> with your feedback, or contribute directly through the MISP open-source project.</p>
+  <!-- FAQ — [CMS: faqs]. Answer text MUST match the FAQPage schema above
+       character for character. Regenerate the schema when copy changes. -->
+  <section class="guide-faq">
+    <h2 id="faq">Common questions</h2>
+
+    <details class="faq-item">
+      <summary>Is MISP or OpenCTI better for sharing threat intelligence with other organisations?</summary>
+      <div class="faq-answer">
+        <p>MISP, in most cases. Sharing is its founding purpose, so synchronisation between instances, sharing groups and per-attribute distribution levels are built into the core data model rather than added on. That is why national sharing communities run on it &mdash; Australia's CTIS platform serves more than 450 organisations on MISP.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can MISP and OpenCTI be used together?</summary>
+      <div class="faq-answer">
+        <p>Yes, and plenty of teams do. OpenCTI ships a MISP connector that ingests events on a schedule, so a common pattern is MISP for community sharing and OpenCTI as the analysis layer on top. Run both only if you have the people to operate two platforms.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Which platform is easier to self-host?</summary>
+      <div class="faq-answer">
+        <p>MISP has the lighter footprint: a PHP application with a MySQL database. OpenCTI runs a set of services &mdash; Elasticsearch, Redis, RabbitMQ, object storage and its connectors &mdash; so it asks more of your infrastructure team. Neither is difficult to install; both take real effort to keep running.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does either platform cost anything to license?</summary>
+      <div class="faq-answer">
+        <p>Both are open source and free to license, so your real cost is operational: hosting, upgrades, backups and the analyst time to keep the data useful. Filigran offers a paid OpenCTI enterprise edition, and managed MISP services exist, including our own CloudMISP.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Which platform handles STIX better?</summary>
+      <div class="faq-answer">
+        <p>OpenCTI, because STIX 2.1 is its native data model rather than an import format. MISP models data as events, attributes and objects, and converts to STIX on export. If your programme is committed to STIX end to end, OpenCTI removes a translation step.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Do we need a threat intelligence platform at all?</summary>
+      <div class="faq-answer">
+        <p>Not to begin with. A useful CTI function can start with a spreadsheet, a few trusted sources and one analyst spending an hour a week. Adopt a platform when manual tracking starts costing more time than it saves &mdash; early maturity depends far more on people and process than tooling.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- [CMS: sources] — every factual claim above should trace to an entry -->
+  <section class="guide-sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.misp-project.org/" target="_blank" rel="noopener">The MISP Project</a> &mdash; official documentation and release history.</li>
+      <li><a href="https://docs.opencti.io/" target="_blank" rel="noopener">OpenCTI documentation</a> &mdash; Filigran; architecture and deployment requirements.</li>
+      <li><a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html" target="_blank" rel="noopener">STIX 2.1 specification</a> &mdash; OASIS Cyber Threat Intelligence Technical Committee.</li>
+      <li><a href="https://www.cyber.gov.au/" target="_blank" rel="noopener">Australian Signals Directorate</a> &mdash; Cyber Threat Intelligence Sharing (CTIS) programme.</li>
+    </ol>
+  </section>
 
 </article>
 
 
 <aside class="article-aside">
   <div class="article-aside__card">
-    <img src="icons/cosive-sinewave.svg" alt="" class="article-aside__wave">
+    <img src="../icons/cosive-sinewave.svg" alt="" class="article-aside__wave">
     <h2 class="article-aside__heading">Work with us</h2>
     <p class="article-aside__desc">We work with security teams globally on threat intelligence, security operations, and fraud data sharing, starting from wherever you are today. If you have something you&rsquo;re working through, we&rsquo;d like to hear about it.</p>
     <a href="/contact-us" class="article-aside__btn">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
@@ -1686,98 +2356,38 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
 
 </div>
 
-<!-- Author Bios -->
-<section class="author-bio">
-  <div class="author-bios-grid">
-    <div class="author-bio-label">Written by</div>
-    <div class="author-bio-inner">
-      <img class="author-bio-photo" src="images/shared/chris-horsley.webp" alt="Chris Horsley" loading="lazy">
-      <div>
-        <div class="author-bio-name">Chris Horsley</div>
-        <div class="author-bio-role">Principal Security Consultant &amp; CTO</div>
-        <p class="author-bio-text">Chris is a core contributor to MISP and leads Cosive's open-source development efforts. He works on improving threat intelligence tooling and infrastructure, and oversees the engineering behind CloudMISP.</p>
-        <a href="https://www.linkedin.com/in/chris-horsley/" class="author-bio-link" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          Connect on LinkedIn
-        </a>
-      </div>
-    </div>
-    <div class="author-bio-inner">
-      <img class="author-bio-photo" src="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fb14/64803c6b70cea7d8d0f8346a_tash-headshot.jpg" alt="Tash Postolovski" loading="lazy">
-      <div>
-        <div class="author-bio-name">Tash Postolovski</div>
-        <div class="author-bio-role">Technical Marketing Manager</div>
-        <p class="author-bio-text">Tash helps translate complex security concepts into clear, accessible content. She works closely with the engineering team to communicate Cosive's open-source contributions and product updates.</p>
-        <a href="https://www.linkedin.com/in/tashpostolovski/" class="author-bio-link" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          Connect on LinkedIn
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Author bios: deliberately none here. The Expert Author callout in the
+     banner carries the photo, full bio and links, so repeating it at the foot
+     of the page would duplicate the same block twice on one screen. -->
 
-<!-- Related Posts -->
+<!-- More guides — same .related-posts / .blog-card components as a blog post -->
 <section class="related-posts">
   <div class="container">
-    <h2 class="related-section-title">Related articles</h2>
+    <h2 class="related-section-title">More guides</h2>
     <div class="related-grid">
 
-      <a href="https://cosive.com/blog/ism-june-2026-update-cyber-threat-intelligence-is-now-mandatory-for-compliance" class="blog-card">
+      <a href="https://www.cosive.com/misp-vs-yeti" class="blog-card">
         <div class="blog-card-header">
-          <span class="category-badge">Security Operations</span>
-      </div>
-        <h3>How the ASD June 2026 ISM Uplifts CTI Programs</h3>
-        <p class="blog-card-excerpt">An analysis of the latest ASD Information Security Manual updates and what they mean for cyber threat intelligence programs.</p>
-        <div class="blog-card-footer">
-          <div class="blog-card-authors">
-            <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
-              <div class="blog-card-author-text">
-                <span class="blog-card-author-name">Prescott Pym</span>
-                <span class="blog-card-author-role">Principal Security Consultant</span>
-              </div>
-            </div>
-          </div>
+          <span class="category-badge">Guide</span>
         </div>
+        <h3>MISP vs Yeti</h3>
+        <p class="blog-card-excerpt">Two open source options for teams that want to organise threat intelligence without a heavyweight platform.</p>
       </a>
 
-      <a href="https://cosive.com/blog/what-i-learned-about-logging-from-moving-house" class="blog-card">
+      <a href="https://www.cosive.com/misp-vs-recorded-future" class="blog-card">
         <div class="blog-card-header">
-          <span class="category-badge">Security Operations</span>
-      </div>
-        <h3>What I Learned About Logging From Moving House</h3>
-        <p class="blog-card-excerpt">Sometimes the best security analogies come from everyday life. Here is what packing boxes taught me about log management.</p>
-        <div class="blog-card-footer">
-          <div class="blog-card-authors">
-            <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/shared/prescott-pym.webp" alt="Prescott Pym" loading="lazy">
-              <div class="blog-card-author-text">
-                <span class="blog-card-author-name">Prescott Pym</span>
-                <span class="blog-card-author-role">Principal Security Consultant</span>
-              </div>
-            </div>
-          </div>
+          <span class="category-badge">Guide</span>
         </div>
+        <h3>MISP vs Recorded Future</h3>
+        <p class="blog-card-excerpt">How an open source sharing platform compares with a commercial intelligence subscription, and where each fits.</p>
       </a>
 
-      <a href="https://cosive.com/blog/cti-cmm-improving-cyber-threat-intel-maturity" class="blog-card">
+      <a href="https://www.cosive.com/opencti-alternative" class="blog-card">
         <div class="blog-card-header">
-          <span class="category-badge">Podcast</span>
-      </div>
-        <h3>CTI-CMM: Improving Cyber Threat Intel Maturity</h3>
-        <p class="blog-card-excerpt">A conversation about the Cyber Threat Intelligence Capability Maturity Model and how organisations can use it to benchmark and improve.</p>
-        <div class="blog-card-footer">
-          <div class="blog-card-authors">
-            <div class="blog-card-author">
-              <img class="blog-card-avatar" src="images/shared/terry-macdonald.webp" alt="Terry MacDonald" loading="lazy">
-              <div class="blog-card-author-text">
-                <span class="blog-card-author-name">Terry MacDonald</span>
-                <span class="blog-card-author-role">Principal Security Consultant &amp; COO</span>
-              </div>
-            </div>
-          </div>
+          <span class="category-badge">Guide</span>
         </div>
+        <h3>OpenCTI alternatives</h3>
+        <p class="blog-card-excerpt">Open source threat intelligence platforms worth weighing up against OpenCTI, and how to tell them apart.</p>
       </a>
 
     </div>
@@ -1798,7 +2408,7 @@ sudo -u www-data ./Console/cake Admin setSetting "MISP.ui_beta_enabled" true</co
 </section>
 
 <div id="site-footer-placeholder"></div>
-<script src="footer-include.js"></script>
+<script src="../footer-include.js"></script>
 
 </body>
 </html>

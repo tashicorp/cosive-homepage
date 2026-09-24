@@ -4,10 +4,10 @@
     <a href="index.html" class="header-logo">
       <img src="logos/cosive-logo-web.png" alt="Cosive">
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="cloud-misp.html" data-nav="cloudmisp">CloudMISP</a></li>
         <li><a href="cyber-threat-intelligence.html" data-nav="cti">Cyber Threat Intel</a></li>
@@ -52,7 +52,7 @@
             <li>
               <a href="blog.html" data-nav="blog">
                 <span class="nav-mega__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/> <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/> <path d="M4 4a16 16 0 0 1 16 16"/> <circle cx="5" cy="19" r="1"/></svg>
                 </span>
                 <span class="nav-mega__text">
                   <span class="nav-mega__title">Blog</span>
@@ -118,7 +118,7 @@
           </ul>
         </li>
         <li><a href="about.html" data-nav="about">About</a></li>
-        <li><a href="/contact-us" class="nav-cta">Contact Us</a></li>
+        <li><a href="/contact-us" class="v2-brand-button in-top-nav nav-cta">Contact Us</a></li>
       </ul>
     </nav>
   </div>
@@ -304,7 +304,7 @@
      guard, item and icon styling — is inherited unchanged.
      The `height: 100%` already on mega items becomes meaningful here, giving
      equal-height rows across the two columns.
-     Deliberately placed BEFORE the max-width:900px block, which resets the panel
+     Deliberately placed BEFORE the max-width:991px block, which resets the panel
      to display:block for the stacked mobile menu and must win. */
   .main-nav .nav-dropdown--cols2 .nav-dropdown__menu {
     width: 640px;
@@ -313,7 +313,7 @@
     gap: var(--space-2xs);
     /* Right-aligned, not centred on the trigger like --mega. At 640px wide the
        centred version overflowed the viewport below ~1440px — by 270px at the
-       901px breakpoint — because Resources sits near the right gutter. Hanging
+       992px breakpoint — because Resources sits near the right gutter. Hanging
        the panel leftwards from the trigger's right edge cannot overflow. */
     left: auto;
     right: 0;
@@ -331,8 +331,8 @@
      out of room — the 14" MacBook Pro's 1512px landed in that gap. Measured after
      the resize above, the bar now needs ~1400px, so this boundary keeps ~40px of
      headroom and leaves 1440 on the full-size tier.
-     min-width:901px leaves each page's own mobile block below that untouched. */
-  @media (max-width: 1430px) and (min-width: 901px) {
+     min-width:992px leaves each page's own mobile block below that untouched. */
+  @media (max-width: 1430px) and (min-width: 992px) {
     .main-nav ul { gap: var(--space-2xs); }
     .main-nav a,
     .nav-dropdown__toggle {
@@ -351,47 +351,177 @@
   /* Last-ditch tier. Widened from 980px: eight items at Text/SM need ~744px of
      text and carets alone, so below ~1150px every remaining pixel has to come
      out of padding and gap. */
-  @media (max-width: 1150px) and (min-width: 901px) {
+  @media (max-width: 1150px) and (min-width: 992px) {
     .main-nav ul { gap: 0; }
     .main-nav a,
     .nav-dropdown__toggle { padding-left: var(--space-2xs); padding-right: var(--space-2xs); }
     .nav-cta { padding-left: var(--space-sm) !important; padding-right: var(--space-sm) !important; }
   }
 
-  @media (max-width: 900px) {
-    /* Expand inline within the stacked mobile menu — there is no hover on touch. */
-    .nav-dropdown__toggle { width: 100%; justify-content: space-between; padding: var(--space-md) 0; }
-    .main-nav .nav-dropdown__menu {
+  /* ── Small screens: full-screen drawer ──
+     The bar keeps a constant height and the menu becomes a fixed panel filling
+     everything below it, with its own scrollbar.
+     It used to be an in-flow block inside the sticky header, which made the
+     header ~900px tall once both dropdowns were force-expanded — and a sticky
+     element pinned at top:0 never scrolls its overflow into view, so About and
+     Contact Us were unreachable on any phone shorter than that. Taking the panel
+     out of the header's flow is what makes the overflow structurally impossible;
+     collapsing the two sections is what keeps it from happening in the first
+     place, at 8 rows instead of 16. */
+  @media (max-width: 991px) {
+    /* ── Rules the page stylesheets used to supply ──
+       Every page carried its own copy of these inside an @media (max-width: 900px)
+       block. They live here now: the drawer needs them across 901-991 too, and one
+       copy beside the markup beats 41 that can drift.
+       Scoped to `> ul >` throughout — .nav-dropdown__menu is also a ul of lis, and
+       the page copies caught it, which is what the old
+       `.nav-dropdown__menu li + li { border-top: none }` patch existed to undo. */
+    .nav-toggle { display: block; }
+    .main-nav { display: none; }
+    .main-nav > ul { flex-direction: column; gap: 0; width: 100%; }
+    .main-nav > ul > li + li { border-top: 1px solid var(--color-border); }
+    .main-nav > ul > li:last-child { border-top: none; }
+    .main-nav > ul > li > a {
+      display: block;
+      font-size: var(--text-base);
+      border-radius: var(--radius-none);
+    }
+
+    /* Constant-height bar. The page copies removed above wrapped the nav onto a
+       second line (flex-wrap:wrap, height:auto); the panel no longer lives in the
+       bar, so the height can be fixed — and has to be, because the drawer's top
+       offset is measured off it. Space/5XL also matches the
+       #site-header-placeholder min-height every page reserves, so the injection
+       no longer shifts the page by the ~20px the auto height was short. */
+    .header-inner {
+      flex-wrap: nowrap;
+      height: var(--space-5xl);
+      padding: 0 var(--space-lg);
+    }
+
+    .nav-toggle { min-width: var(--space-3xl); min-height: var(--space-3xl); }
+
+    /* The +1px is the header's own bottom border. */
+    .main-nav {
+      position: fixed;
+      top: calc(var(--space-5xl) + 1px);
+      left: 0; right: 0; bottom: 0;
+      width: auto;
+      background: var(--color-white);
+    }
+
+    .main-nav.open { display: flex; flex-direction: column; }
+
+    /* Direct child only: .nav-dropdown__menu is also a ul inside .main-nav and
+       must not inherit the scroll container.
+       min-height:0 is load-bearing — without it this flex child refuses to
+       shrink below its content and the panel overflows instead of scrolling. */
+    .main-nav > ul {
+      flex: 1;
+      min-height: 0;
+      align-items: stretch;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 var(--space-lg);
+    }
+
+    /* The drawer covers the page, so the page behind it must not scroll. Both
+       elements, because which one owns the scroll varies across the 42 pages. */
+    html.nav-open, body.nav-open { overflow: hidden; }
+
+    /* ── Accordion ──
+       The panel <ul> is the toggle's next sibling, so aria-expanded is both the
+       a11y state and the style hook — no parallel class to keep in sync.
+       display:none also gates the :hover and :focus-within openers above, which
+       is what stops a sticky touch :hover from springing a panel open. */
+    /* Space/SM rather than the page stylesheets' Space/MD. Eight rows at the
+       looser rhythm plus an open section overflow a 640px-tall phone by a few
+       pixels, which left the last row visibly cut; at 48px a row the whole menu
+       with one section open fits with room to spare, and 48px is still above
+       the 44px touch-target floor. */
+    .main-nav > ul > li > a,
+    .nav-dropdown__toggle { padding: var(--space-sm) 0; }
+    .nav-dropdown__toggle { width: 100%; justify-content: space-between; }
+
+    .main-nav .nav-dropdown__menu,
+    .main-nav .nav-dropdown--mega .nav-dropdown__menu {
+      display: none;
+      /* display gates the panel, but the base rule's visibility:hidden and
+         opacity:0 survive display:block and would leave an expanded section
+         invisible — :focus-within was masking it, so a tapped section worked
+         and the pre-opened active one did not. */
+      opacity: 1;
+      visibility: visible;
       position: static;
-      opacity: 1; visibility: visible; transform: none;
+      width: auto;
       min-width: 0;
+      max-width: none;
+      transform: none;
       border: none; border-radius: 0; box-shadow: none;
       padding: 0 0 var(--space-sm) var(--space-md);
       margin: 0;
     }
-    .main-nav .nav-dropdown__menu a { padding: var(--space-sm) 0; }
-    .nav-dropdown__menu li + li { border-top: none; }
 
-    /* Mega panel collapses to the same stacked list as Resources. */
-    .main-nav .nav-dropdown--mega .nav-dropdown__menu {
-      position: static;
-      display: block;
-      width: auto;
-      max-width: none;
-      transform: none;
-      padding: 0 0 var(--space-sm) var(--space-md);
-    }
+    .main-nav .nav-dropdown__toggle[aria-expanded="true"] + .nav-dropdown__menu { display: block; }
+
+    /* The --mega/--cols2 hover transforms are 0,4,0 and would otherwise outrank
+       the reset above; --mega's translate(-50%) is the one that visibly breaks. */
     .main-nav .nav-dropdown--mega:hover .nav-dropdown__menu,
-    .main-nav .nav-dropdown--mega:focus-within .nav-dropdown__menu { transform: none; }
+    .main-nav .nav-dropdown--mega:focus-within .nav-dropdown__menu,
+    .main-nav .nav-dropdown--cols2:hover .nav-dropdown__menu,
+    .main-nav .nav-dropdown--cols2:focus-within .nav-dropdown__menu { transform: none; }
+
+    .main-nav .nav-dropdown__menu a { padding: var(--space-sm) 0; }
     .main-nav .nav-dropdown--mega .nav-dropdown__menu a {
       padding: var(--space-sm) 0;
       align-items: center;
       height: auto;
     }
-    /* Four items with descriptions makes the stacked menu unusably tall on a
-       phone; the icon and title carry enough meaning on their own. */
+
+    /* Six Resources items with descriptions would double the section's height;
+       the icon and title carry enough meaning on their own. */
     .nav-mega__desc { display: none; }
     .nav-mega__title { font-size: var(--text-sm); font-weight: 500; }
-    .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active { background: none; }
+
+    /* Where you are. The same quiet treatment the top-level links get — dark
+       text at 600 — rather than a panel highlight or an accent rule. The parent
+       toggle is already marked by .nav-dropdown__toggle.nav-active above, so
+       this only has to say which item inside the open section, and the accent
+       icon beside it already carries colour. */
+    .main-nav .nav-dropdown--mega .nav-dropdown__menu a.nav-active {
+      background: none;
+    }
+
+    .main-nav .nav-dropdown__menu a.nav-active .nav-mega__title {
+      color: var(--color-text-primary);
+      font-weight: 600;
+    }
+
+    /* Touch leaves :hover stuck on the last thing tapped, which would point the
+       caret up over a closed section. aria-expanded is the only truth here, so
+       it needs the .main-nav prefix to match the hover rule's specificity. */
+    .nav-dropdown:hover .nav-dropdown__toggle svg,
+    .nav-dropdown:focus-within .nav-dropdown__toggle svg { transform: none; }
+    .main-nav .nav-dropdown__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-dropdown__toggle svg { transition: none; }
+    }
+
+    /* ── CTA ──
+       Inline, directly under About, and scrolling with the list like every other
+       row — but keeping the accent button treatment so it still pulls the eye.
+       Only the wrapper's padding is ours; the button itself is the same
+       .nav-cta the desktop bar uses. */
+    .main-nav > ul > li:last-child {
+      padding: var(--space-md) 0;
+    }
+
+    .nav-cta {
+      display: block;
+      text-align: center;
+      padding: var(--space-md) !important;
+    }
   }
 </style>
