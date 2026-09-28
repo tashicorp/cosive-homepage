@@ -41,6 +41,38 @@ previewed and sent to people. Delete a mockup once its question is answered; see
 that artwork is pasted **inline** into the HTML, and the files are the masters uploaded to Webflow.
 Unreferenced does not mean unused.
 
+## noindex — every page, no exceptions
+
+This repo is a **private prototype** served publicly at
+`https://tashicorp.github.io/cosive-homepage/`. GitHub Pages on a public repo has no access
+control, so the only thing keeping it out of search results is a robots meta tag in **every**
+HTML file.
+
+Every `.html` file — pages, partials, fragments, mockups, generator templates — must carry this
+as the first line of `<head>`, or line 1 if the file has no `<head>`:
+
+```html
+<!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
+```
+
+**When you create a new page, add it before anything else.** Verify with:
+
+```
+node meta/generators/noindex/check.mjs          # exit 1 if any page is indexable
+node meta/generators/noindex/check.mjs --fix    # insert it where missing
+```
+
+A `PostToolUse` hook runs `--fix` automatically after any `.html` write, but the hook lives in
+`.claude/settings.json`, which **is gitignored** — it protects this machine only. The rule above
+and the checker are what travel with the repo.
+
+Keep the `github-pages-preview-only` comment: it marks the line as staging-only, to be stripped
+when markup moves into Webflow. Production pages on `www.cosive.com` must **not** carry it.
+
+`meta/generators/noindex/README.md` covers what this does not protect — chiefly the non-HTML
+files (`CLAUDE.md`, `llms.txt`, `package.json`, every `meta/**/README.md`) which are served
+publicly and cannot hold a meta tag.
+
 ## Webflow Variables
 
 This design is being implemented in Webflow. When providing styling values (in plans, guidance, or code), always use **Webflow variable names** rather than absolute values or CSS custom property names. Include the resolved value in parentheses for reference.
