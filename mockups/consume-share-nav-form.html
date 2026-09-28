@@ -270,6 +270,16 @@
     align-items: start;
   }
 
+  /* The banner's top padding is cut to Space/XL so the form card — and so the
+     nav bar under it — sit as high as possible. That moved the breadcrumb up
+     with it, from the 96px the rest of the site starts at to 32px. This puts
+     only the text column back: Space/XL + Space/4XL = the original 96px.
+     align-items: start means the two columns are independent, so the form card
+     stays where the height budget needs it. The text column is ~364px against
+     the card's 693px, so the card still sets the banner's height and nothing
+     below the fold moves. */
+  .banner-text { margin-top: var(--space-4xl); }
+
   /* ── Banner form card — dimensions taken from production,
      https://www.cosive.com/cti/consume-share-cyber-threat-intelligence
      measured at 1440 wide on 2026-09-28:
