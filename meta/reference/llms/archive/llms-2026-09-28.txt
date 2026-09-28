@@ -44,7 +44,7 @@ complete index — for full URL coverage, see the XML sitemap at https://www.cos
 
 - [CloudMISP](https://www.cosive.com/cloud-misp): Managed MISP hosting. Cosive handles deployment, upgrades, and operations.
 - [CTI-CMM](https://www.cosive.com/cti-cmm): The capability maturity model for threat intelligence, and independent assessments against it.
-- [MISP Training](https://www.cosive.com/capabilities/misp-training): Cosive's MISP training courses, course outlines and delivery format. Currently MISP Kickstart, a two-half-day introduction taught live online with lab scenarios based on real-world use cases.
+- [MISP Training](https://www.cosive.com/capabilities/misp-kickstart-training): MISP Kickstart — introductory MISP training with lab scenarios based on real-world use cases.
 
 ## Company
 

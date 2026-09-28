@@ -1,0 +1,2869 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
+
+<!--
+  ============================================================================
+  MISP TRAINING  ·  second instance of the Capability page family
+  ----------------------------------------------------------------------------
+  Built from design/misp-kickstart-training/ — the canvas at
+  https://claude.ai/artifact/HYtVyFVb8UeDYNSeYmitd9 (Version 10). Its sticky
+  notes carry the reasoning behind every decision here; this file carries only
+  the reasons a future editor needs at the point of editing.
+
+  Family rules this page inherits from cti-cmm.html, the first instance:
+    · Dark typographic hero, no photograph. The glow is the only texture.
+    · DEPARTURE: this page is red, not CTI Blue. cti-cmm.html keeps the blue.
+      The law it inherits is the surface inversion, not the hue: --page-accent
+      (#f4645f) is 2.91:1 on white and must never carry text on a light ground;
+      --page-accent-deep (#c1121f) is 6.22:1 and is the light-ground ink.
+      Solid fills sidestep the inversion and use Color/Accent directly.
+    · Red is the page accent now, so it can no longer mark anything. The one
+      semantic hue is amber --lab-accent-deep, on the Lab chip.
+    · Hairline rules over bordered cards; vary the vertical rhythm.
+    · Shared _header.html and the full _footer.html. No bespoke footer.
+
+  Two family defects fixed here rather than inherited: cti-cmm.html has no
+  prefers-reduced-motion block and no single easing curve. Both are below.
+  ============================================================================
+-->
+
+<title>MISP Training — MISP Courses for CTI and SOC Teams | Cosive</title>
+<meta name="description" content="Hands-on MISP training from the team that contributes to MISP. MISP Kickstart runs live online over two half-days, with labs built on real-world use cases.">
+<link rel="canonical" href="https://www.cosive.com/capabilities/misp-training">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cosive">
+<meta property="og:title" content="Practical MISP training for CTI and SOC teams">
+<meta property="og:description" content="Hands-on MISP training from the team that contributes to MISP. MISP Kickstart runs live online over two half-days, with labs built on real-world use cases.">
+<meta property="og:url" content="https://www.cosive.com/capabilities/misp-training">
+<meta property="og:image" content="https://www.cosive.com/images/og/og-misp-training.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Cosive MISP Training — practical MISP training for CTI and SOC teams, two half-days live online.">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Practical MISP training for CTI and SOC teams">
+<meta name="twitter:description" content="Hands-on MISP training from the team that contributes to MISP. MISP Kickstart runs live online over two half-days, with labs built on real-world use cases.">
+<meta name="twitter:image" content="https://www.cosive.com/images/og/og-misp-training.png">
+<meta name="twitter:image:alt" content="Cosive MISP Training — practical MISP training for CTI and SOC teams, two half-days live online.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+
+    /* ── Page colour personality: Cosive Red ──
+       This page has left cti-cmm.html's CTI Blue; cti-cmm.html still carries it.
+       The surface-inversion law is unchanged, and deliberately so — each red was
+       derived to land on the ratio the blue it replaces had, so every contrast
+       note in this file stayed true through the hue swap.
+       The two reds are NOT interchangeable. --page-accent (#f4645f) is 2.91:1 on
+       white — below even the large-text floor — so it must never carry text,
+       labels or icons on a light surface; on --color-dark it is 6.02:1.
+       It is a lighter red than Color/Accent on purpose: #e53834 is only 4.36:1
+       on --color-dark, which fails AA for the 12-13px labels this token carries.
+       #f4645f is the most saturated red at this hue that still clears the floor
+       there, so it reads as red rather than as the salmon a further-lightened
+       one would. Solid FILLS do not have this constraint and use Color/Accent
+       directly — see .cti-btn.
+       --page-accent-deep (#c1121f, Color/Accent Dark) is 6.22:1 on white and is
+       the light-ground accent. Note it is NOT Color/Accent #e53834: that is
+       4.25:1 on white and ~4.2:1 on --color-dark, which fails AA for the 12px
+       labels this token has to carry. */
+    --page-accent: #f4645f;
+    --page-accent-deep: #c1121f;
+
+    /* ── Lab marker — the one semantic hue on this page ──
+       Amber obeys the SAME surface-inversion law as the page accent, at almost
+       the same ratios, so it adds a hue rather than a new discipline:
+         --lab-accent      #f5b64c  1.80:1 on white ✗   10.28:1 on dark ✓
+         --lab-accent-deep #8f5f0b  5.51:1 on white ✓    3.36:1 on dark ✗
+       (compare --page-accent-deep at 5.49:1 on white.)
+
+       BOTH ARE UNUSED. The Lab chip is the marker they were derived for, and it
+       now carries Color/Blue instead — see its own note. They stay declared,
+       with the ratios above, because re-deriving a semantic hue for this page
+       family is the expensive part, and amber remains the answer if the blue is
+       ever needed elsewhere. If a lab marker does go back to amber, note the
+       chip sits on a DARK section, so it wants --lab-accent (10.28:1 there),
+       not --lab-accent-deep. The rule holds:
+       --lab-accent on dark, --lab-accent-deep on light, and never as an
+       eyebrow, button, link, focus ring, section ground or tinted band. The
+       page carries no tinted band at all now — the closing form sits on
+       Color/Light Grey like the other pale sections. */
+    /* Color/Blue, per CLAUDE.md's variable list. Carries the Lab chip, which
+       sits on a dark section: as a fill it takes a --color-dark label at
+       8.03:1. It must never carry text on a light ground — 2.30:1 there — and
+       is not a substitute for the page accent. */
+    --color-blue: #2ab6f6;
+
+    --lab-accent: #f5b64c;
+    --lab-accent-deep: #8f5f0b;
+
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-mono: 'Geist Mono', 'JetBrains Mono', 'Courier New', monospace;
+
+    /* ── Sizing Tokens ── */
+
+    /* Spacing (4px base grid) */
+    --space-2xs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 0.75rem;    /* 12px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 2.5rem;    /* 40px */
+    --space-3xl: 3rem;      /* 48px */
+    --space-4xl: 4rem;      /* 64px */
+    --space-5xl: 5rem;      /* 80px */
+    --space-6xl: 6rem;      /* 96px */
+    --space-7xl: 8rem;      /* 128px */
+    --space-8xl: 10rem;     /* 160px */
+
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.75rem;    /* 28px */
+    --text-4xl: 2rem;       /* 32px */
+    --text-5xl: 2.5rem;     /* 40px */
+    --text-6xl: 3rem;       /* 48px */
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+
+    /* ── Motion ──
+       The family brief specifies one easing curve for the whole site. It is
+       already in use on guides/misp-vs-opencti.html; cti-cmm.html never
+       adopted it. Declared once here so nothing hardcodes a second curve. */
+    --ease: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ──
+     _header.html ships its own <style> for the nav itself (including the whole
+     mobile drawer, centralised there in commit 62dd4d5 — do NOT re-add
+     per-page .nav-toggle / .main-nav rules). These few rules are the ones that
+     still live per-page on every file in the repo. */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  /* Hamburger toggle (hidden on desktop; _header.html shows it below 991px) */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    display: block;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     1. Hero — dark, glow, typographic. No photograph.
+     ═══════════════════════════════════════════════════════════════ */
+  .cti-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-dark);
+    padding: var(--space-7xl) 0 var(--space-8xl);
+  }
+
+  /* One non-interactive texture layer, copied from cti-cmm.html. Two offset
+     red washes rather than a flat tint — reads as a glow behind the type
+     instead of a coloured ground. */
+  .cti-hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(ellipse at 22% 40%, rgba(229,56,52,0.13) 0%, transparent 58%),
+      radial-gradient(ellipse at 78% 88%, rgba(229,56,52,0.07) 0%, transparent 52%);
+  }
+
+  .cti-hero__inner { position: relative; z-index: 1; }
+
+  /* Site standard. Hierarchy is carried by opacity, never colour. */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s;
+  }
+  .breadcrumb a:hover { color: var(--color-white); }
+  .breadcrumb svg { width: 14px; height: 14px; stroke: rgba(255, 255, 255, 0.75); flex-shrink: 0; }
+  .breadcrumb .separator { color: rgba(255, 255, 255, 0.75); }
+  /* Capabilities has no page behind it — "show as link = OFF". It sits in a
+     link's slot, so it takes a link's ink. */
+  .breadcrumb .breadcrumb__plain { color: rgba(255, 255, 255, 0.85); }
+  .breadcrumb .current { color: var(--color-white); font-weight: 400; }
+
+  /* The inverse of cti-cmm.html's hero grid. There the figure (the level
+     ladder) took the wide track; here the wide track is the copy and the
+     narrow one is the private-training offer. */
+  .cti-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+    /* `stretch`, not `start`: the offer column paints a panel that has to be
+       the full row height to reach the band edges. Content still flows from
+       the top in both columns. */
+    align-items: stretch;
+  }
+
+  .cti-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-white);
+    /* Sized against the left track, not an abstract measure. The track is
+       ~793px at 1440, so 760/740 lets the type run most of the column instead
+       of stopping 180px short of the offer panel's hairline. */
+    max-width: 760px;
+    margin-bottom: var(--space-xl);
+  }
+  .cti-hero__sub {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 740px;
+  }
+
+
+  /* ── The certificate seal line ──
+     No rosette, seal, medal or award icon exists anywhere in icons/, so the
+     mark is drawn inline in the repo's Feather/Lucide language. If it is ever
+     extracted to icons/credential-seal.svg it needs stroke="#f4645f"
+     hardcoded and a tight square viewBox, per CLAUDE.md — the page accent, not
+     the #e53834 the rest of the credential-* family carries: this seal sits on
+     the dark hero, where #e53834 is only ~4.2:1. */
+  .trn-seal {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: var(--space-xl);
+  }
+  .trn-seal svg {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: var(--page-accent);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .trn-seal span {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  /* ── .trn-private — the hero's second half is the offer, not a facts list ──
+     Cosive's live page leads its call to action with private delivery, so that
+     is what this panel carries.
+
+     Construction copied from .cti-hero__ladder-wrap in cti-cmm.html: the
+     negative margins are exactly the hero's own padding and the matching
+     padding puts the content back where it was, so the panel's ground and its
+     1px edge span the FULL band height and bleed to the container's right
+     edge, while the content stays on the page grid. Doing it here rather than
+     with an absolutely-positioned layer means the edge tracks the fractional
+     grid tracks automatically.
+
+     COUPLED: the four margin values mirror .cti-hero's padding and
+     .container's padding. Change either and the panel silently stops reaching
+     the band edges. */
+  .trn-private {
+    margin: calc(var(--space-7xl) * -1) calc(var(--space-3xl) * -1) calc(var(--space-8xl) * -1) 0;
+    padding: var(--space-7xl) var(--space-3xl) var(--space-8xl) var(--space-4xl);
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .trn-private__eyebrow {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent);
+    margin-bottom: var(--space-md);
+  }
+  .trn-private__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+  .trn-private__body {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: var(--space-lg);
+  }
+  .trn-private__regions {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  /* PENDING COSIVE: these six are the enquiry form's own Region options, which
+     record where an ENQUIRER is rather than where training has been delivered.
+     Hence "Regions we run in" rather than any past-tense claim. Confirm the
+     list matches real delivery coverage. */
+  .trn-private__regions-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+  }
+  .trn-private__regions p {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .trn-private__cta { margin-top: var(--space-xl); align-self: flex-start; }
+
+  /* inline-flex is load-bearing: as an inline element the vertical padding
+     paints outside the line box and the gap above the button collapses.
+     The fill is --page-accent, where white would be 2.30:1 — so the label
+     stays --color-dark at 8.03:1. */
+  .cti-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Color/Accent, not --page-accent: a solid fill has no on-dark text
+       constraint, so the button carries the brand red proper. White label at
+       4.25:1 — the same pairing .nav-cta and every other primary button in the
+       repo uses. --color-accent-dark is 6.22:1 if that floor ever has to be met. */
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--text-base);
+    padding: 14px var(--space-lg);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cti-btn:hover { background: var(--color-white); color: var(--color-dark); }
+  .cti-btn svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s var(--ease);
+  }
+  .cti-btn:hover svg { transform: translateX(4px); }
+
+  /* Light-ground button. --page-accent-deep, not --page-accent: the lighter
+     accent is 2.30:1 on white and fails as a text-bearing surface. Standalone
+     class — never combined with .cti-btn. */
+  .cti-btn--deep {
+    display: inline-block;
+    background: var(--page-accent-deep);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: var(--text-base);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+  }
+  .cti-btn--deep:hover { background: #990e19; color: var(--color-white); }
+
+  /* ═══════════════════════════════════════════════════════════════
+     2. Sticky section nav — pattern lifted from cti-cmm.html
+     ═══════════════════════════════════════════════════════════════ */
+  .cti-section-nav {
+    position: sticky;
+    top: var(--space-5xl);              /* below the 80px site header */
+    z-index: 99;
+    background: var(--color-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cti-section-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--space-4xl);           /* 64px */
+  }
+  .cti-section-nav__list {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cti-section-nav__list::-webkit-scrollbar { display: none; }
+  .cti-section-nav__link {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-white);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cti-section-nav__link:hover { color: rgba(255,255,255,0.7); }
+  .cti-section-nav__link--active {
+    color: var(--page-accent);
+    border-bottom-color: var(--page-accent);
+    font-weight: 600;
+  }
+
+  /* The one action in a bar of section anchors, so it takes the page accent to
+     separate it from them. --page-accent is the on-dark red at 6.02:1 here.
+     Deliberately NOT added to the scrollspy's sectionIds: the underline in this
+     bar means "you are here", and a CTA that lit up on arrival would compete
+     with that. Same wording and arrow as the hero's .cti-btn, which points at
+     the same #contact — the two read as one offer in two places.
+     The anchor needs no scroll-margin: the nav script already sets
+     scroll-padding-top on :root from the measured header and bar heights. */
+  .cti-section-nav__link--cta {
+    gap: 7px;
+    color: var(--page-accent);
+    font-weight: 600;
+  }
+  .cti-section-nav__link--cta:hover { color: var(--color-white); }
+  .cti-section-nav__link--cta svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* ═══════════════════════════════════════════════════════════════
+     Shared section shell and heads
+     ═══════════════════════════════════════════════════════════════ */
+  .cti-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-white);
+  }
+  .cti-section--grey { background: var(--color-light-grey); }
+
+  .cti-eyebrow {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent-deep);
+    margin-bottom: var(--space-md);
+  }
+  .cti-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+  }
+  .cti-lede {
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    max-width: 66ch;                   /* the ~68-72 character measure */
+    margin-top: var(--space-lg);
+  }
+  .cti-link {
+    color: var(--page-accent-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .cti-link:hover { color: #990e19; }
+
+  /* Dark-ground variants. --page-accent is the on-dark red;
+     --page-accent-deep would be the wrong one here. */
+  .cti-section--dark .cti-eyebrow { color: var(--page-accent); }
+  .cti-section--dark .cti-h2 { color: var(--color-white); }
+  .cti-section--dark .cti-lede { color: rgba(255, 255, 255, 0.7); }
+
+  /* ═══════════════════════════════════════════════════════════════
+     3. Who it's for — before / after, with the prerequisites callout
+     ═══════════════════════════════════════════════════════════════ */
+  /* ── The section's shared grid ──
+     All three layers of "Who it's for" — the head, the before/after rows and
+     the past-students badges — sit on these same three tracks, so their edges
+     fall on the same two lines all the way down the section.
+
+     Two equal columns either side of a Space/4XL (4rem) centre channel, with
+     a Space/XL (2rem) gap on each side of it. The channel holds the
+     before/after arrows and is otherwise empty; it is deliberately narrow,
+     because the total space between the two columns is what decides whether
+     they read as halves. An earlier twelve-column version made them
+     mathematically equal but left 261px between them, and at that width
+     neither column looks like half of anything.
+
+     Anything added to this section takes .trn-grid and one of the three
+     columns. Do not introduce a second set of tracks. */
+  .trn-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--space-4xl) minmax(0, 1fr);
+    column-gap: var(--space-xl);
+  }
+
+  /* The eyebrow sits ABOVE this grid, not inside it, so the prerequisites
+     callout's top edge lines up with the top of the H2 rather than with the
+     eyebrow. */
+  .trn-who__head {
+    row-gap: var(--space-3xl);
+    align-items: start;
+    margin-bottom: var(--space-3xl);
+  }
+  .trn-who__intro { grid-column: 1; }
+  .trn-who__head .trn-students { grid-column: 3; }
+  .trn-who__head .cti-lede { margin-top: var(--space-lg); }
+
+  /* #about takes the same two-column head, so the prerequisites card and the
+     attendee badges sit on the same right-hand edge down the page. Same tracks
+     as .trn-who__head — per the .trn-grid note above, no second set. */
+  .trn-about__head {
+    row-gap: var(--space-3xl);
+    align-items: start;
+    margin-bottom: var(--space-3xl);
+  }
+  .trn-about__intro { grid-column: 1; }
+  .trn-about__head .trn-quote { grid-column: 3; }
+  /* The prerequisites card now sits under the copy in column 1, so it needs a
+     gap of its own — it used to get one from the grid's row-gap. */
+  .trn-about__intro .trn-needs { margin-top: var(--space-2xl); }
+
+  /* ── .trn-students — who has sat the course ──
+     A direct child of .trn-who__head in column 3, where the prerequisites card
+     used to sit. It aligns to the top of the H2, so no margin of its own —
+     the stacked margin below 900 comes from the head's row-gap. */
+  .trn-students { margin-top: 0; }
+
+  /* Same treatment and the same 14px undershoot as .trn-shift__col-label /
+     .trn-shift__head above, so this layer carries the label-then-content
+     rhythm of the one directly before it. */
+  .trn-students__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    padding-bottom: 14px;
+  }
+  .trn-students__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  /* ── .trn-students__badge — the job roles ──
+     Verbatim from security-operations.html:497-508, the tinted-and-outlined
+     variant of the repo's .customer-item-tags .tag, recoloured from the site
+     red onto this page's accent, and back to red now the page is red -- though
+     to Accent Dark, not the Color/Accent the source uses, because this badge
+     carries text.
+
+     These sit in the right column of a Color/Light Grey section. A solid fill
+     made them the heaviest thing in the section, ahead of the H2. Tinted, they
+     read as the supporting detail they are.
+
+     The fill is translucent, so it composites over whatever it sits on:
+     ~#fcf3f4 on white, ~#f5edef on Color/Light Grey. --page-accent-deep is
+     5.41:1 on the grey composite (5.71:1 on white), so it clears AA either
+     way — but a darker section background would need rechecking. The outline
+     is non-text. --page-accent (#f4645f) stays off light ground, as everywhere
+     else on this page. */
+  .trn-students__badge {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--page-accent-deep);
+    background: rgba(193, 18, 31, 0.05);
+    border: 1px solid rgba(193, 18, 31, 0.3);
+  }
+
+  /* ── .trn-needs — prerequisites ──
+     Headed "Prerequisites" at the client's request. Worth knowing: the tone of
+     voice guide bans copy that reads as gatekeeping, and "Prerequisites" plus
+     a list is close to its own example of that, so the copy underneath does the
+     softening — the command line stated as the only technical skill needed,
+     and "no prior MISP experience" below the rule. If it ever reads as a bar
+     rather than a floor, the heading is the word to change. */
+  .trn-needs {
+    background: var(--color-light-grey);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .trn-needs__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent-deep);
+    margin-bottom: var(--space-lg);
+  }
+  .trn-needs__item {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .trn-needs__item:last-of-type { margin-bottom: 0; }
+  .trn-needs__item svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    fill: none;
+    stroke: var(--page-accent-deep);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .trn-needs__item p {
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--color-text-primary);
+  }
+  .trn-needs__item strong { font-weight: 600; }
+  .trn-needs__note {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── .trn-shift — where your team is now → where they end up ──
+     The left column is the most dangerous copy on the page. The tone guide
+     bans shaming, gatekeeping and implying failure or incompetence, and a
+     "before" column describing the reader's own team is exactly where that
+     goes wrong. All three are written as circumstance, not fault. If one ever
+     lands as a dig, the left column is where to edit.
+
+     Weight and colour carry the shift rather than any label: before is
+     secondary grey at regular weight, after is primary dark at 600. */
+  .trn-shift__head { padding-bottom: 14px; }
+  .trn-shift__col-label {
+    grid-column: 1;
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+  }
+  .trn-shift__col-label--after {
+    grid-column: 3;
+    color: var(--page-accent-deep);
+  }
+  .trn-shift__row {
+    align-items: center;
+    padding: 28px 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .trn-shift__cell--before { grid-column: 1; }
+  .trn-shift__cell--after { grid-column: 3; }
+  .trn-shift__row:last-child { border-bottom: 1px solid var(--color-border); }
+  .trn-shift__before {
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+  .trn-shift__after {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+  }
+  .trn-shift__arrow {
+    grid-column: 2;
+    justify-self: center;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: var(--page-accent-deep);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* The stacked variant's labels and down-arrow, hidden until the grid folds.
+     The down arrow carries its own geometry rather than sharing
+     .trn-shift__arrow, whose `display: none` at 900 would otherwise win. */
+  .trn-shift__stack-label { display: none; }
+  .trn-shift__arrow--down {
+    display: none;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--page-accent-deep);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     4. Why Cosive — full-bleed proof band
+     ═══════════════════════════════════════════════════════════════ */
+  /* Verbatim from cti-cmm.html:1117-1224, the family's proof band: photo edge
+     to edge, darkened only where type lands, an open middle held by
+     .cti-proof__gap, and the claims across the foot. Two deviations only: the
+     grid's column count follows the claim count (four here, five there), and
+     .cti-proof__gap is shorter — see its own note. Change nothing else without
+     changing cti-cmm.html too. */
+  .cti-proof {
+    position: relative;
+    background: var(--color-dark);
+    overflow: hidden;
+  }
+  .cti-proof__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 42%;
+  }
+  /* Darkens only the top and foot, leaving the middle of the frame open so the
+     room stays legible as a photograph rather than a texture. */
+  .cti-proof__veil {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+      #0e141c 0%,
+      rgba(14, 20, 28, 0.97) 8%,
+      rgba(14, 20, 28, 0.82) 16%,
+      rgba(14, 20, 28, 0.50) 26%,
+      rgba(14, 20, 28, 0.28) 36%,
+      rgba(14, 20, 28, 0.55) 50%,
+      rgba(14, 20, 28, 0.94) 62%,
+      #0e141c 72%);
+  }
+  /* Space/5XL (5rem) top and Space/6XL (6rem) bottom on the claims below, so
+     the band breathes against the light sections either side of it. The veil
+     is keyed to percentages of the band height, so growing the padding scales
+     the photo window with it rather than exposing more photograph. */
+  .cti-proof__head { position: relative; padding-top: var(--space-5xl); }
+  .cti-proof__eyebrow {
+    color: var(--page-accent);
+    margin-bottom: var(--space-lg);
+  }
+  .cti-proof__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3xl);
+  }
+  .cti-proof__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-white);
+    max-width: 760px;
+  }
+  .cti-proof__credit {
+    flex-shrink: 0;
+    font-size: 13px;
+    /* Same treatment as the case-study strip's caption. */
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+    text-align: right;
+    padding-top: 6px;
+  }
+  .cti-proof__cta { margin-top: var(--space-2xl); }
+  /* The open middle of the photo — the reason the band is this tall at all.
+     The one value that departs from cti-cmm.html, which uses 300/180/120. This
+     page's heading is one line where that page's is two, so at 300 the band
+     read as mostly empty dark between the button and the claims. 200 lifts the
+     screen and speaker toward the top of the section and takes a third out of
+     that run. It is also the floor: at 180 the audience starts showing through
+     behind the first claim, because the veil's dark-out stop (62%) rises with
+     the band and crosses the claims row. */
+  .cti-proof__gap { height: 200px; }
+
+  .cti-proof__claims {
+    position: relative;
+    padding-bottom: var(--space-6xl);
+  }
+  .cti-proof__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.20);
+  }
+  .cti-claim {
+    padding: 28px 28px 8px 28px;
+    border-right: 1px solid rgba(255, 255, 255, 0.20);
+  }
+  /* First cell sits flush to the container edge; last drops its rule so none
+     runs down the band's own edge. */
+  .cti-claim:first-child { padding-left: 0; }
+  .cti-claim:last-child { border-right: none; }
+  .cti-claim__check {
+    display: block;
+    width: 22px;
+    height: 22px;
+    color: var(--page-accent);
+    margin-bottom: var(--space-md);
+  }
+  .cti-claim__check svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .cti-claim__lead {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-white);
+    line-height: 1.35;
+    margin-bottom: var(--space-xs);
+  }
+  .cti-claim__plain {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.66);
+    line-height: var(--leading-normal);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     5. Instructors — .expert-author, re-tokened from dark to light
+     ═══════════════════════════════════════════════════════════════ */
+  /* The component is guides/misp-vs-opencti.html's, the repo's newest
+     credibility block: credentials as a scannable list rather than a prose
+     paragraph, the name linked to the on-site profile, LinkedIn demoted to a
+     glyph. Its original is built for Color/Dark, so every surface value is
+     flipped here and the accent moves from Color/Accent to Accent Dark, which
+     is this page's --page-accent-deep.
+
+     Light grey ground, not the page tint: it is held for the closing band,
+     and this section sits between two dark ones, so a dark ground here would
+     merge all three into one slab. */
+  /* Three across: one row, one instructor per column. No align-items:start —
+     the cards stretch to the tallest, so their bottom edges line up even when
+     one has a longer credential than the others. */
+  .trn-instructors__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2xl);
+    margin-top: var(--space-3xl);
+  }
+  /* Flex column so .expert-author__link can take margin-top:auto and sit on the
+     card's floor. Stretching the card alone would leave each link floating
+     directly under its own list at a different height. */
+  .expert-author {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .expert-author__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent-deep);
+    margin-bottom: var(--space-lg);
+  }
+  .expert-author__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: 22px;
+  }
+  .expert-author__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .expert-author__name {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+    margin-bottom: 5px;
+  }
+  .expert-author__name a { color: inherit; transition: color 0.2s; }
+  .expert-author__name a:hover { color: var(--page-accent-deep); }
+  /* LinkedIn glyph, beside the name rather than a labelled link below it. */
+  .expert-author__social {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+  .expert-author__social:hover { color: var(--page-accent-deep); }
+  .expert-author__social svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .expert-author__role {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+  /* The bio was already a list of credentials written as a sentence. Rendered
+     as one, the claim is legible at a glance. */
+  .expert-author__credentials { margin-bottom: 22px; }
+  .expert-author__credentials li {
+    position: relative;
+    padding-left: 26px;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+  }
+  .expert-author__credentials li + li { margin-top: 10px; }
+  /* Accent chevron pointing right, matching the label above rather than a
+     generic bullet. */
+  .expert-author__credentials li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid var(--page-accent-deep);
+    border-right: 2px solid var(--page-accent-deep);
+    transform: rotate(45deg);
+  }
+  .expert-author__link {
+    margin-top: auto;          /* pins the link to the card floor */
+    align-self: flex-start;    /* ...without stretching it across the card */
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--page-accent-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: color 0.2s;
+  }
+  .expert-author__link:hover { color: #990e19; }
+  .expert-author__link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     6. What we'll cover — the syllabus, on dark
+     ═══════════════════════════════════════════════════════════════ */
+  .cti-dark {
+    background: var(--color-dark);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-8xl) 0;
+  }
+  .cti-dark__inner { position: relative; }
+
+  /* ── .trn-syllabus — the .cti-domain hairline cell, re-laid ──
+     Two columns with day groups rather than cti-cmm's four-across matrix, so
+     the sequence reads as a syllabus rather than a table. Its nth-child(4n…)
+     edge rules assumed four columns and are rewritten here for two.
+
+     No expand/collapse: seven <details> rows would be visually
+     indistinguishable from an FAQ accordion, and this page has none. */
+  .trn-syllabus {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4xl);
+    margin-top: var(--space-3xl);
+  }
+  .trn-syllabus__day {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: rgba(255, 255, 255, 0.55);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  /* Each module is a card. The surface is the repo's dark card,
+     .cm-integration-card from cloud-misp.html:807-815 — a 4% white lift with
+     a 10% outline on Radius/LG. Padding matches .trn-needs, this page's own
+     card on the light side, so the two read as the same object inverted.
+
+     No hover state: these are not links and nothing happens on click. */
+  .trn-syllabus__module {
+    display: flex;
+    gap: var(--space-xl);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  /* The padding now lives inside the card, so the separation between cards
+     has to be declared rather than falling out of it. */
+  .trn-syllabus__module + .trn-syllabus__module { margin-top: var(--space-lg); }
+  /* flex: 1 is load-bearing. Without it the body is a flex item sizing to its
+     own content, so every module ends up a different width and the two topic
+     columns inside land on a different line in each one. min-width: 0 lets it
+     shrink below its longest word rather than forcing the row wider. */
+  .trn-syllabus__module > div {
+    flex: 1;
+    min-width: 0;
+  }
+  /* line-height matches the h4's, so the numeral shares a baseline with the
+     module title rather than needing a hand-tuned padding-top. */
+  .trn-syllabus__n {
+    flex-shrink: 0;
+    width: 42px;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--page-accent);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+  .trn-syllabus__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xs);
+  }
+  .trn-syllabus__title h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--color-white);
+  }
+  /* Near-white, and a rung larger than the topic list beneath it. The ladder
+     in each module is title at full white and Text/XL, this at 0.82 and
+     Text/Base, then the topics at 0.62 and Text/SM — three steps in both size
+     and weight of ink. */
+  .trn-syllabus__desc {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.82);
+  }
+  /* Solid Color/Accent with white type, in Font/Mono. Never colour alone —
+     the chip carries the word "Lab" too.
+
+     Color/Blue (#2ab6f6) with a --color-dark label, 8.03:1. It was solid
+     Color/Accent until the page went red; at that point the chip matched every
+     eyebrow, tick and button on the page and marked nothing, so it needed a hue
+     of its own. Blue is the ONE semantic hue here; red is the page accent.
+
+     Note the surface: this chip is inside .cti-section--dark, so it follows the
+     on-dark fill idiom — light fill, dark label, the same construction .cti-btn
+     uses on the hero. The deeper #2d6da3 would be the light-ground choice and is
+     wrong here: a dark-blue chip on a dark section barely reads as a chip.
+     The prompt takes currentColor, so it follows the label without its own
+     rule. It is Lucide terminal — a prompt chevron and a cursor rule, which is
+     what the labs actually are: the prerequisite for this course is "basic
+     familiarity with the command line". Two strokes and no bounding box, so
+     nothing collapses at 13px. Glassware was tried first (beaker, then
+     flask-round, then test-tube-diagonal) and beaker in particular read as a
+     drinking glass at chip size. Avoid square-terminal here: its rounded
+     rect fills in at this size.
+
+     The amber --lab-accent pair is now unused again; see the note at :root. */
+  .trn-syllabus__lab {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-dark);
+    background: var(--color-blue);
+    border-radius: 3px;
+    padding: 3px 7px;
+  }
+  /* Lucide "beaker", drawn inline in the repo's Feather/Lucide language like
+     the check marks elsewhere on this page. currentColor so it tracks the
+     chip's white; if it is ever extracted to icons/beaker.svg it needs
+     stroke="#ffffff" per CLAUDE.md, since a standalone file in Webflow
+     inherits nothing. */
+  .trn-syllabus__lab svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* The concrete contents of each module, under its framing sentence. Two
+     even columns rather than a wrapping row, so the items line up down the
+     module instead of ragging against each other.
+
+     The tick is this page's own check, the same polyline and stroke geometry
+     as .trn-needs__item in the prerequisites card — restroked to
+     --page-accent, which is the on-dark red (6.02:1 here; --page-accent-deep
+     is the light-ground one and would be far too dark on this band). */
+  .trn-syllabus__topics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm) var(--space-lg);
+    list-style: none;
+    margin-top: var(--space-lg);
+  }
+  .trn-syllabus__topics li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.62);
+  }
+  .trn-syllabus__topics svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    fill: none;
+    stroke: var(--page-accent);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     7. Outcomes — a grid, deliberately not a third hairline list
+     ═══════════════════════════════════════════════════════════════ */
+  /* The page already has two hairline-row sections; a third would read as the
+     same block again. Cards fill Light Grey with no border — the inversion of
+     the instructor section, which is white cards on grey. Each card is a
+     numeral, a capability and the detail behind it; the numeral does the work
+     the old hairline-and-colour-shift third line used to. */
+  .trn-outcomes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-3xl);
+  }
+  .trn-outcomes__card {
+    background: var(--color-light-grey);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  /* Deliberately much larger than .trn-syllabus__n (Text/2XL) — that one is a
+     list marker beside its module, this one is the card's opening gesture.
+     --page-accent-deep, never --page-accent: 5.90:1 on the Light Grey card
+     against 2.91:1, which fails even the large-text threshold.
+     aria-hidden: the numerals are decoration, and a screen reader announcing
+     "zero one" before each heading is noise, not structure. */
+  .trn-outcomes__n {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--page-accent-deep);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: var(--space-md);
+  }
+  .trn-outcomes__capability {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+  }
+  /* No bottom margin: this is the last thing in the card now that the
+     "what it means" line is gone, so the card's own padding closes it. */
+  .trn-outcomes__detail {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+  }
+  /* ═══════════════════════════════════════════════════════════════
+     8. Next step — the one form on the page
+     ═══════════════════════════════════════════════════════════════ */
+  /* Site-standard .contact-* / .form-* class names so this maps straight onto
+     the existing pattern; only the focus colour and the submit differ,
+     following this page's accent rather than the red used elsewhere.
+
+     id="contact" is on the SECTION wrapper, not the form — see
+     meta/reference/webflow/README.md: the top-nav Contact Us button needs it
+     there to scroll rather than navigate. Every in-page CTA points at
+     #contact for the same reason. */
+  .contact-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-light-grey);
+  }
+  /* align-items: stretch (the default, left implicit) so the dark quote panel
+     runs the full height of the form beside it — .cm-contact__inner does the
+     same. Its attribution takes margin-top:auto and sits on the panel floor. */
+  .trn-register {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-4xl);
+    margin-top: var(--space-3xl);
+  }
+  .contact-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    max-width: 62ch;
+    margin-top: var(--space-md);
+  }
+  /* A reserved min-height so nothing jumps if the native form is later swapped
+     for the Pipedrive embed, which loads asynchronously. */
+  .trn-register__embed {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    min-height: 480px;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input,
+  .form-group select { height: 46px; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--page-accent-deep); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .contact-form button {
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    padding: 14px 36px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     Quotes — .trn-quote, two surfaces
+     Construction lifted from cloud-misp.html's .cm-quotes__card (body, light)
+     and .cm-contact__right .cm-quotes__card (contact, dark panel): oversized
+     opening mark, quote, then a hairline and the attribution.
+
+     Tokens are this page's, not CloudMISP's. That page uses --color-accent
+     (#e53834) for the rule and the mark; here the accent is a page variable,
+     and on a light ground it must be --page-accent-deep (#c1121f, 6.22:1),
+     never --page-accent (2.91:1). On the dark panel the rule inverts and the
+     mark takes --page-accent, which is the on-dark red.
+     ═══════════════════════════════════════════════════════════ */
+  .trn-quote {
+    background: var(--color-white);
+    border-left: 3px solid var(--page-accent-deep);
+    border-radius: var(--radius-none);
+    padding: var(--space-xl);
+  }
+  .trn-quote__mark {
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--page-accent-deep);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+  }
+  .trn-quote__text {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+  }
+  .trn-quote__attribution {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+  }
+  .trn-quote__role {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .trn-quote__org {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2xs);
+  }
+
+  /* Dark panel, beside the form. justify-content + margin-top:auto on the
+     attribution let it match the form's height without the quote floating. */
+  .trn-quote--dark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-dark);
+    border-left: none;
+    border-radius: var(--radius-lg);
+    padding: var(--space-3xl);
+  }
+  .trn-quote--dark .trn-quote__mark { font-size: var(--text-6xl); color: var(--page-accent); }
+  .trn-quote--dark .trn-quote__text {
+    font-size: var(--text-xl);
+    color: var(--color-white);
+    line-height: var(--leading-snug);
+  }
+  .trn-quote--dark .trn-quote__attribution {
+    border-top-color: rgba(255, 255, 255, 0.15);
+    margin-top: auto;
+  }
+  .trn-quote--dark .trn-quote__role { color: var(--color-white); }
+  .trn-quote--dark .trn-quote__org { color: rgba(255, 255, 255, 0.6); }
+
+  /* Staging-only marker, the .cm-placeholder-notice idiom from cloud-misp.html.
+     Both quotes are invented. This must not reach production with the text
+     still in place — see meta/reference/to-do/eeat-audit.md. */
+  .trn-placeholder-notice {
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    padding: var(--space-2xs) var(--space-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+  .trn-quote--dark .trn-placeholder-notice {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ── Light Footer ──
+     _footer.html carries markup only (unlike _header.html, which ships its own
+     <style>), so every page has to supply these rules. Copied verbatim from the
+     pillar pages. Without them the footer logo has no height cap and blows the
+     page out to ~5900px wide. */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-5xl) 0 var(--space-3xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4xl) var(--space-2xl);
+  }
+
+  .footer-col { flex: 0 0 auto; }
+
+  .footer-col-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-col-title a { color: inherit; transition: color 0.2s; }
+  .footer-col-title a:hover { color: var(--color-accent); }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-col li a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--color-accent); }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom .footer-logo img { height: var(--space-xl); }
+
+  .footer-bottom-links { display: flex; align-items: center; gap: var(--space-lg); }
+
+  .footer-bottom-links a {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover { color: var(--color-accent); }
+
+  .footer-copyright {
+    font-size: var(--text-xs);
+    color: var(--color-text-primary);
+    text-align: right;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     Responsive — the ladder cti-cmm.html uses, at the same thresholds
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* The footer's fit-content flex row only holds all seven columns above
+     ~1400px. */
+  @media (max-width: 1400px) {
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 1200px) {
+    /* One column — nothing to sit beside, so the offer panel's bleed, its
+       ground and its edge come off and it goes back to being a plain block. */
+    .cti-hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xl); }
+    .trn-private {
+      margin: 0;
+      padding: var(--space-lg) 0 0;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      max-width: 660px;
+    }
+    /* The section grid does NOT fold here — all three of its layers fold
+       together at 900, below. Folding the head early left the section
+       half-folded between these two widths, which is the disharmony this
+       grid exists to remove. */
+    .trn-register { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl); }
+  }
+
+  /* The section nav runs out of room before anything else does. Five labels
+     plus the pill is roughly 790px in a (viewport - 96px) box, so it fits well
+     past this; the threshold stays conservative because the strip must never
+     silently clip. */
+  /* The section nav runs out of room before anything else does. Verbatim from
+     cti-cmm.html:1719-1730 — the strip must never silently clip, so the
+     threshold stays on the conservative side. */
+  @media (max-width: 1100px) {
+    /* Keep the three in one row rather than orphaning a third card on its own
+       line; the gutter gives back the width instead. */
+    .trn-instructors__grid { gap: var(--space-lg); }
+
+    .cti-section-nav__inner { position: relative; justify-content: flex-start; }
+    .cti-section-nav__inner::after {
+      content: "";
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: var(--space-3xl);
+      background: linear-gradient(to right, transparent, var(--color-dark));
+      pointer-events: none;
+    }
+    .cti-section-nav__list { gap: var(--space-lg); padding-right: var(--space-3xl); }
+  }
+
+  /* The tablet pass. */
+  @media (max-width: 900px) {
+    .container { padding: 0 var(--space-lg); }
+
+    .cti-hero { padding: var(--space-4xl) 0 var(--space-5xl); }
+    .cti-hero__title { font-size: var(--text-5xl); }
+    .cti-hero__sub { font-size: var(--text-2xl); }
+
+    .cti-section,
+    .cti-dark,
+    .contact-section { padding: var(--space-7xl) 0; }
+
+    .cti-h2 { font-size: var(--text-4xl); }
+    .cti-proof__title { font-size: var(--text-4xl); }
+
+    /* The whole section grid folds at once: every layer goes to one column,
+       so the head, the before/after rows and the badges all stay in step. */
+    .trn-grid { grid-template-columns: minmax(0, 1fr); }
+    .trn-course__head { grid-template-columns: minmax(0, 1fr); }
+    .trn-who__intro,
+    .trn-who__head .trn-students,
+    .trn-about__intro,
+    .trn-about__head .trn-quote,
+    .trn-course__intro,
+    .trn-course__head .trn-track,
+    .trn-shift__cell--before,
+    .trn-shift__cell--after { grid-column: 1 / -1; }
+    .trn-who__head,
+    .trn-about__head,
+    .trn-course__head { row-gap: var(--space-xl); }
+
+    /* The before/after pairs stack: the two-column grid means nothing in one
+       column, so each pair becomes a labelled block and the arrow turns down. */
+    .trn-shift__head { display: none; }
+    .trn-shift__row {
+      align-items: start;
+      padding: var(--space-lg) 0;
+    }
+    .trn-shift__stack-label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .trn-shift__stack-label--after { color: var(--page-accent-deep); }
+    .trn-shift__before { margin-bottom: 14px; }
+    .trn-shift__arrow { display: none; }
+    .trn-shift__arrow--down { display: block; margin-bottom: var(--space-sm); }
+
+    /* Why Cosive — claims wrap to a shorter grid, credit drops below the head */
+    .cti-proof__row { flex-direction: column; gap: var(--space-lg); }
+    .cti-proof__credit { text-align: left; padding-top: 0; }
+    .cti-proof__gap { height: 120px; }
+    .cti-proof__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cti-claim { padding-left: var(--space-lg); }
+    .cti-claim:nth-child(odd) { padding-left: 0; }
+    .cti-claim:nth-child(even) { border-right: none; }
+    .cti-claim + .cti-claim { border-top: 1px solid rgba(255, 255, 255, 0.14); }
+    /* The veil is keyed to percentages of the band height, so once the claims
+       stack and the band grows they fall inside the photo's open window
+       (measured: 47% down at 900px, 38% at 390px, where the veil is only
+       ~0.3-0.45 opaque). This ground travels with the claims block instead. */
+    .cti-proof__claims {
+      padding-top: var(--space-3xl);
+      background: linear-gradient(to bottom,
+        transparent 0,
+        var(--color-dark) var(--space-3xl),
+        var(--color-dark) 100%);
+    }
+
+    .trn-instructors__grid,
+    .trn-outcomes,
+    .trn-syllabus { grid-template-columns: minmax(0, 1fr); }
+    .trn-syllabus { gap: var(--space-xl); }
+  }
+
+  /* The phone pass. */
+  @media (max-width: 600px) {
+    .cti-hero { padding: var(--space-3xl) 0 var(--space-4xl); }
+    .breadcrumb { margin-bottom: var(--space-lg); }
+    .cti-hero__title { font-size: var(--text-4xl); margin-bottom: var(--space-md); }
+    .cti-hero__sub { font-size: var(--text-xl); }
+    .trn-seal span { font-size: var(--text-base); }
+    /* Full-width so the primary action is not a small target on a phone. */
+    .trn-private__cta { align-self: stretch; }
+    .cti-btn { display: flex; width: 100%; padding: 15px var(--space-lg); }
+
+    .cti-section,
+    .cti-dark,
+    .contact-section { padding: var(--space-5xl) 0; }
+
+    /* Section nav — cti-cmm.html:1884-1886 */
+    .cti-section-nav__inner { height: 52px; }
+    .cti-section-nav__list { gap: var(--space-lg); }
+    .cti-section-nav__link { font-size: var(--text-sm); }
+
+    .cti-eyebrow { font-size: 13px; }
+    .cti-h2 { font-size: var(--text-3xl); line-height: 1.2; }
+    .cti-lede { font-size: var(--text-base); }
+    /* Why Cosive */
+    .cti-proof__head { padding-top: var(--space-2xl); }
+    .cti-proof__title { font-size: 28px; }
+    .cti-proof__gap { height: 80px; }
+    .cti-proof__claims { padding-bottom: var(--space-3xl); }
+    .cti-proof__grid { grid-template-columns: minmax(0, 1fr); }
+    .cti-claim { padding: var(--space-lg) 0 var(--space-xs); border-right: none; }
+    .cti-claim:first-child { padding-top: var(--space-lg); }
+
+    .trn-outcomes__n { font-size: var(--text-5xl); }
+    .trn-needs,
+    .trn-outcomes__card,
+    .expert-author,
+    .trn-register__embed { padding: var(--space-lg); }
+    /* The guide component's own rules below 600. */
+    .expert-author__photo { width: 64px; height: 64px; }
+    .expert-author__name { font-size: var(--text-xl); }
+    .expert-author__credentials li { font-size: var(--text-sm); }
+
+    .trn-shift__before,
+    .trn-shift__after { font-size: var(--text-base); }
+
+    /* Two topic columns are ~140px wide at this width; one is legible. */
+    .trn-syllabus__topics { grid-template-columns: minmax(0, 1fr); }
+
+    .form-row { grid-template-columns: minmax(0, 1fr); }
+    .trn-register__embed { min-height: 0; }
+
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-copyright { text-align: center; }
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── Reduced motion ──
+     Required by the family brief and missing from cti-cmm.html. Every
+     transition on this page is a colour change or a 4px nudge, so killing the
+     nudge and leaving the colour shifts is the right reading of "reduce". */
+  /* ═══════════════════════════════════════════════════════════
+     8. Track record — .trn-track
+     NOT a card. This was built as the dark mirror of .trn-needs, which turned
+     out to be the exact recipe .trn-syllabus__module already uses directly
+     below it — same 4% fill, same Radius/LG, same 28px padding, same accent
+     tick — so it read as a fourth module floating above the syllabus.
+
+     A hairline list instead, sitting on the section ground with no surface of
+     its own. That is what the family brief at the top of this file asks for
+     ("hairline rules over bordered cards"), so the box was the off-brief
+     choice here in the first place.
+
+     Two things carry the distinction and both must survive edits: there is no
+     tick icon (the modules own that mark), and the venue names are Font/Mono
+     against the modules' Manrope h4. Reinstating either collapses the
+     difference again.
+     ═══════════════════════════════════════════════════════════ */
+  .trn-track__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--page-accent);
+    margin-bottom: var(--space-md);
+  }
+  .trn-track__intro {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.66);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  /* The rule between items is the component's only structure. Same weight as
+     .trn-track__intro's, so the intro's bottom edge reads as the first of the
+     set rather than a different kind of line. */
+  .trn-track__item {
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .trn-track__item:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  /* Font/Mono, not Font/Heading. The modules below title in Manrope at Text/XL;
+     a mono cap-line at Text/XS is a different class of object at a glance, not
+     a smaller version of the same one. */
+  .trn-track__lead {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-white);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-xs);
+  }
+  .trn-track__plain {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.66);
+    line-height: var(--leading-normal);
+  }
+
+  /* The course head takes the same three tracks as #about and #who, so the
+     track-record card lands on the same right-hand edge as the prerequisites
+     card further up the page. */
+  /* These are .trn-syllabus's tracks, deliberately NOT .trn-grid's. The track
+     card has to line up with the "Half-day two" column directly below it, and
+     the two grids resolve differently: .trn-grid's third column starts at
+     (W + 128px) / 2 because of its Space/4XL centre channel plus two Space/XL
+     gaps, while the syllabus's second column starts at (W + 64px) / 2 from its
+     single Space/4XL gap. That is a 32px disagreement at any container width.
+     Matching the syllabus wins here — the card sits inside the same section as
+     the thing it must align to, whereas #about and #who are screens away. */
+  .trn-course__head {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-4xl);
+    row-gap: var(--space-3xl);
+    align-items: start;
+  }
+  .trn-course__intro { grid-column: 1; }
+  .trn-course__head .trn-track { grid-column: 2; }
+
+  /* ══════════════════════════════════════════════════════════════
+     9. FAQ — .cti-faq, lifted unchanged from cti-cmm.html, the family's first
+     instance. Its own responsive rules travel with it rather than being split
+     across this page's 900px and 600px blocks, so the component stays in one
+     piece and can be moved again without hunting for its parts.
+     ══════════════════════════════════════════════════════════════ */
+  .cti-faq { padding: var(--space-8xl) 0; background: var(--color-white); }
+  .cti-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0 var(--space-4xl);
+    align-items: start;
+  }
+  .cti-faq__eyebrow { grid-column: 1; grid-row: 1; margin-bottom: var(--space-lg); }
+  .cti-faq__title { grid-column: 1; grid-row: 2; }
+  .cti-faq__list { grid-column: 2; grid-row: 2; max-width: 780px; }
+  /* Caps the last item so the stack closes with a rule. */
+  .cti-faq__list::after {
+    content: "";
+    display: block;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cti-faq__item {
+    border-top: 1px solid var(--color-border);
+    padding: 28px 0;
+  }
+  .cti-faq__q {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+  .cti-faq__q::-webkit-details-marker { display: none; }
+  .cti-faq__q:hover { color: var(--page-accent-deep); }
+  .cti-faq__q:focus-visible {
+    outline: 2px solid var(--page-accent-deep);
+    outline-offset: 4px;
+  }
+  .cti-faq__chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    fill: none;
+    stroke: var(--page-accent-deep);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s;
+  }
+  .cti-faq__item[open] .cti-faq__chevron { transform: rotate(180deg); }
+  .cti-faq__a {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: 14px;
+    max-width: 700px;
+  @media (max-width: 900px) {
+    .cti-faq { padding: var(--space-7xl) 0; }
+    .cti-faq__grid { grid-template-columns: minmax(0, 1fr); }
+    .cti-faq__eyebrow,
+    .cti-faq__title,
+    .cti-faq__list { grid-column: 1; grid-row: auto; }
+    .cti-faq__list { margin-top: var(--space-2xl); }
+  }
+  @media (max-width: 600px) {
+    .cti-faq { padding: var(--space-5xl) 0; }
+    .cti-faq__item { padding: var(--space-lg) 0; }
+    .cti-faq__q { font-size: var(--text-lg); gap: var(--space-md); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cti-btn svg { transition: none; }
+    .cti-btn:hover svg { transform: none; }
+  }
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cosive.com/capabilities/misp-training#webpage",
+      "url": "https://www.cosive.com/capabilities/misp-training",
+      "name": "MISP Training",
+      "description": "Hands-on MISP training from the team that contributes to MISP. MISP Kickstart runs live online over two half-days, with labs built on real-world use cases.",
+      "isPartOf": {
+        "@id": "https://www.cosive.com/#website"
+      },
+      "about": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "inLanguage": "en-AU"
+    },
+    {
+      "@type": "Course",
+      "@id": "https://www.cosive.com/capabilities/misp-training#course",
+      "name": "MISP Kickstart Training",
+      "description": "An introduction to MISP built around lab scenarios based on real-world use cases. Over two half-days your team stands up its own MISP instance, gets real threat data flowing into it, learns to correlate and analyse that data, and sees how sharing works.",
+      "url": "https://www.cosive.com/capabilities/misp-training",
+      "courseMode": "online",
+      "courseWorkload": "PT8H",
+      "educationalLevel": "Beginner",
+      "educationalCredentialAwarded": "Certificate of completion",
+      "inLanguage": "en",
+      "isAccessibleForFree": false,
+      "provider": {
+        "@id": "https://www.cosive.com/#organization"
+      },
+      "instructor": [
+        {
+          "@type": "Person",
+          "name": "Chris Horsley",
+          "jobTitle": "Principal Security Consultant & CTO",
+          "url": "https://www.cosive.com/team/chris-horsley",
+          "sameAs": "https://www.linkedin.com/in/chrishorsley/"
+        },
+        {
+          "@type": "Person",
+          "name": "James Garratt",
+          "jobTitle": "Infrastructure Lead",
+          "sameAs": "https://www.linkedin.com/in/james-garratt/"
+        },
+        {
+          "@type": "Person",
+          "name": "Prescott Pym",
+          "jobTitle": "Principal Security Consultant",
+          "url": "https://www.cosive.com/team/prescott-pym",
+          "sameAs": "https://www.linkedin.com/in/prescottpym/"
+        }
+      ],
+      "coursePrerequisites": "Basic familiarity with the command line. No prior MISP experience is required.",
+      "teaches": [
+        "What MISP is and where it sits in threat intelligence sharing",
+        "Setting up, configuring and upgrading your own MISP instance",
+        "Organisations, user roles and permissions, taxonomies and galaxies",
+        "Ingesting threat data from feeds, manual entry and custom sources",
+        "Correlating events, handling false positives and recording sightings",
+        "Sharing groups, distribution levels and where STIX/TAXII fits"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.cosive.com/capabilities/misp-training#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long is the MISP Kickstart course?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The course runs over two half-days, with eight hours of live, instructor-led training in total. We run it online in your team’s timezone.\n\nSplitting the course across two days also gives attendees time to explore the MISP instance they set up on day one before moving into feeds, enrichment and sharing on day two."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is your next course, and will we have to wait?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most of our MISP training is private, with courses run for one organisation at a time. Rather than asking your team to fit around a fixed public training calendar, we arrange the course around your availability.\n\nGet in touch and we can work with you to find suitable dates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do attendees get a certificate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every attendee receives a certificate of completion.\n\nThey also keep the course materials, practical exercises and supporting resources, so they can revisit the labs and use them as a reference after the course."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are CPE credits available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The course includes eight hours of instructor-led training. We can provide documentation confirming attendance and training hours to support a CPE claim.\n\nCosive is not an accredited CPE provider, so you’ll need to check with your certification body to confirm whether the training is eligible for CPE credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer student or community discounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in some circumstances. We consider discounted pricing for students, non-profits and community CERTs on a case-by-case basis.\n\nCosive contributes code to the open-source MISP project and supports the broader threat intelligence community through training and knowledge sharing. If cost is a barrier to attending, get in touch and tell us a little about your situation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.cosive.com/capabilities/misp-training#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cosive.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Capabilities"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MISP Training",
+          "item": "https://www.cosive.com/capabilities/misp-training"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body>
+
+<div id="site-header-placeholder" data-nav-active="misp-training" style="min-height:calc(var(--space-5xl) + 1px)"></div>
+<script src="../header-include.js"></script>
+
+<!-- ══ 1. Hero — dark, glow, typographic. No photograph. ══ -->
+<section class="cti-hero">
+  <div class="cti-hero__glow"></div>
+
+  <div class="container cti-hero__inner">
+    <div class="cti-hero__grid">
+      <div>
+        <!-- The breadcrumb sits INSIDE the left grid cell, as it does on
+             cti-cmm.html. Above the grid it would push the grid's top edge down
+             by its own height, and the offer panel's negative pull only cancels
+             the hero's padding — so its hairline would stop short of the header
+             instead of running the full band. -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+          <span class="separator">/</span>
+          <span class="breadcrumb__plain">Capabilities</span>
+          <span class="separator">/</span>
+          <span class="current" aria-current="page">MISP Training</span>
+        </nav>
+
+        <h1 class="cti-hero__title">MISP Training</h1>
+        <p class="cti-hero__sub">Practical, hands-on MISP training that gives your team the skills and confidence to use MISP for real-world threat intelligence and information sharing.</p>
+
+        <div class="trn-seal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+          <span>Certificate on completion</span>
+        </div>
+      </div>
+
+      <!-- The offer, not a facts list. The format facts are in the chips above
+           and the certificate is on the seal line; this panel carries the thing
+           Cosive's own call to action leads with. -->
+      <aside class="trn-private">
+        <div class="trn-private__eyebrow">Private training</div>
+        <h2 class="trn-private__title">We run it for your team</h2>
+        <p class="trn-private__body">We deliver MISP training privately for organisations worldwide. Live and online, scheduled in your team&rsquo;s timezone.</p>
+
+        <div class="trn-private__regions">
+          <div class="trn-private__regions-label">We run training in these regions:</div>
+          <p>Africa &middot; Asia Pacific &middot; Europe &middot; LATAM &middot; Middle East &middot; North America</p>
+        </div>
+
+        <div class="trn-private__cta">
+          <a href="#contact" class="cti-btn">Request a quote<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. Sticky section nav ══
+     Labels track document order — the scrollspy highlights the last visible
+     section, so a nav out of sequence highlights out of sequence. -->
+<nav class="cti-section-nav" aria-label="Page sections">
+  <div class="container cti-section-nav__inner">
+    <ul class="cti-section-nav__list">
+      <li><a href="#about" class="cti-section-nav__link">About</a></li>
+      <li><a href="#who" class="cti-section-nav__link">Who it&rsquo;s for</a></li>
+      <li><a href="#proof" class="cti-section-nav__link">Why Cosive</a></li>
+      <li><a href="#instructors" class="cti-section-nav__link">Instructors</a></li>
+      <li><a href="#modules" class="cti-section-nav__link">The course</a></li>
+      <li><a href="#outcomes" class="cti-section-nav__link">Outcomes</a></li>
+      <li><a href="#faq" class="cti-section-nav__link">FAQ</a></li>
+      <li><a href="#contact" class="cti-section-nav__link cti-section-nav__link--cta">Request a quote<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ 3. What MISP training is ══
+     The brief's summary section. MISP itself is defined in one sentence and
+     linked out rather than re-explained here — .claude/skills/faqs/SKILL.md:
+     define once, link everywhere, so a commodity definition doesn't sit on a
+     page that should carry information only Cosive can give. -->
+<section class="cti-section" id="about">
+  <div class="container">
+    <!-- The eyebrow sits ABOVE .trn-grid, matching #who below, so the quote
+         card's top edge lines up with the H2, not with the eyebrow. The
+         prerequisites card moved under the copy in column 1. -->
+    <div class="cti-eyebrow">MISP training</div>
+
+    <div class="trn-grid trn-about__head">
+      <div class="trn-about__intro">
+        <h2 class="cti-h2">Training that gets your team working effectively in MISP</h2>
+        <!-- First mention of MISP on the page links out rather than defining it
+             here — .claude/skills/faqs/SKILL.md: define once, link everywhere. -->
+        <p class="cti-lede"><a href="../cloud-misp.html">MISP</a> gives threat intelligence teams a powerful way to store, correlate and share intelligence. But the platform is only useful when your team knows how to use it well.</p>
+        <p class="cti-lede">Our MISP training is practical and hands-on. Your team works through lab scenarios based on real-world use cases, building the skills they need to use MISP in their day-to-day work.</p>
+        <p class="cti-lede">We run our courses live and online, in your team&rsquo;s timezone, and the people teaching them know MISP from experience. Cosive contributes code to the open-source MISP project and runs MISP in production for organisations around the world. We bring that experience into the training, helping your team understand both how MISP works and how to use it effectively.</p>
+
+        <aside class="trn-needs">
+          <div class="trn-needs__label">Prerequisites</div>
+          <div class="trn-needs__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <p>Basic familiarity with the command line.</p>
+          </div>
+          <div class="trn-needs__item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <p>A computer each person can install software on, with administrator rights.</p>
+          </div>
+          <p class="trn-needs__note">No prior MISP experience required.</p>
+        </aside>
+      </div>
+
+      <!-- PLACEHOLDER QUOTE — invented. Replace with a real attendee quote and
+           attribution before this goes anywhere near production. -->
+      <div class="trn-quote">
+        <span class="trn-placeholder-notice">Placeholder — replace with a real quote</span>
+        <div class="trn-quote__mark" aria-hidden="true">&ldquo;</div>
+        <p class="trn-quote__text">By the end of the course, MISP felt much less daunting. When we went back to work, we had a much clearer idea of where to start, how to get our intelligence into the platform and how we could use it as a team. Having already worked through those steps in the labs gave us the confidence to keep going on our own.</p>
+        <div class="trn-quote__attribution">
+          <span class="trn-quote__role">Role</span>
+          <span class="trn-quote__org">Organisation &middot; Sector</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. Who it's for — before / after ══ -->
+<section class="cti-section cti-section--grey" id="who">
+  <div class="container">
+    <div class="cti-eyebrow">Who it&rsquo;s for</div>
+
+    <div class="trn-grid trn-who__head">
+      <div class="trn-who__intro">
+        <h2 class="cti-h2">Build your security team&rsquo;s confidence with MISP</h2>
+        <p class="cti-lede">Getting value from MISP depends on the people using it. Whether your team is new to MISP or already has an instance running, this training builds the practical skills to use it more confidently in day-to-day threat intelligence work.</p>
+      </div>
+
+      <div class="trn-students">
+        <div class="trn-students__label">Who should attend</div>
+        <div class="trn-students__badges">
+          <span class="trn-students__badge">CTI analysts</span>
+          <span class="trn-students__badge">Security professionals new to MISP</span>
+          <span class="trn-students__badge">SOC analysts and incident responders</span>
+          <span class="trn-students__badge">Law enforcement and government teams</span>
+          <span class="trn-students__badge">Security researchers</span>
+          <span class="trn-students__badge">System and network administrators</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trn-shift">
+      <div class="trn-grid trn-shift__head">
+        <div class="trn-shift__col-label">Where your team is now</div>
+        <div class="trn-shift__col-label trn-shift__col-label--after">After the course</div>
+      </div>
+
+      <div class="trn-grid trn-shift__row">
+        <div class="trn-shift__cell trn-shift__cell--before">
+          <div class="trn-shift__stack-label">Now</div>
+          <p class="trn-shift__before">Nobody on the team has used MISP before.</p>
+        </div>
+        <svg class="trn-shift__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        <div class="trn-shift__cell trn-shift__cell--after">
+          <svg class="trn-shift__arrow--down" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="6 13 12 19 18 13"></polyline></svg>
+          <div class="trn-shift__stack-label trn-shift__stack-label--after">After the course</div>
+          <p class="trn-shift__after">Your team can navigate MISP and handle common day-to-day tasks with confidence.</p>
+        </div>
+      </div>
+
+      <div class="trn-grid trn-shift__row">
+        <div class="trn-shift__cell trn-shift__cell--before">
+          <div class="trn-shift__stack-label">Now</div>
+          <p class="trn-shift__before">One person knows how MISP works, and everyone else relies on them.</p>
+        </div>
+        <svg class="trn-shift__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        <div class="trn-shift__cell trn-shift__cell--after">
+          <svg class="trn-shift__arrow--down" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="6 13 12 19 18 13"></polyline></svg>
+          <div class="trn-shift__stack-label trn-shift__stack-label--after">After the course</div>
+          <p class="trn-shift__after">More of your team can work independently in MISP, reducing reliance on one person.</p>
+        </div>
+      </div>
+
+      <div class="trn-grid trn-shift__row">
+        <div class="trn-shift__cell trn-shift__cell--before">
+          <div class="trn-shift__stack-label">Now</div>
+          <p class="trn-shift__before">MISP is running, but mostly being used to store indicators.</p>
+        </div>
+        <svg class="trn-shift__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        <div class="trn-shift__cell trn-shift__cell--after">
+          <svg class="trn-shift__arrow--down" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="6 13 12 19 18 13"></polyline></svg>
+          <div class="trn-shift__stack-label trn-shift__stack-label--after">After the course</div>
+          <p class="trn-shift__after">Your team can use more of MISP&rsquo;s capabilities to analyse, enrich and share threat intelligence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. Why Cosive — full-bleed proof band ══
+     Placed above the instructors so the two contributor claims hand straight
+     off to the section that names the people behind them. -->
+<section class="cti-proof" id="proof">
+  <img class="cti-proof__photo" src="../images/shared/cosive-misp-training-auscert.jpg"
+       alt="Cosive delivering MISP Kickstart training in person at AUSCERT Brisbane 2025"
+       width="2048" height="1536" loading="lazy" decoding="async">
+  <div class="cti-proof__veil"></div>
+
+  <div class="container cti-proof__head">
+    <div class="cti-eyebrow cti-proof__eyebrow">Why Cosive</div>
+    <div class="cti-proof__row">
+      <h2 class="cti-proof__title">Nobody knows MISP better</h2>
+      <div class="cti-proof__credit">Cosive delivering MISP Kickstart at AUSCERT Brisbane 2025.</div>
+    </div>
+    <div class="cti-proof__cta">
+      <a href="#contact" class="cti-btn">Request a quote<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+    </div>
+  </div>
+
+  <div class="cti-proof__gap"></div>
+
+  <div class="container cti-proof__claims">
+    <div class="cti-proof__grid">
+      <div class="cti-claim">
+        <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div class="cti-claim__lead">We teach MISP at AUSCERT and hack.lu</div>
+        <div class="cti-claim__plain">Our AUSCERT course in Brisbane sold out to a full room.</div>
+      </div>
+      <div class="cti-claim">
+        <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div class="cti-claim__lead">We&rsquo;re core contributors to MISP</div>
+        <div class="cti-claim__plain">We regularly contribute code to the MISP project.</div>
+      </div>
+      <div class="cti-claim">
+        <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div class="cti-claim__lead">We trained the MISP core team</div>
+        <div class="cti-claim__plain">We have run MISP training for the project&rsquo;s own developers.</div>
+      </div>
+      <div class="cti-claim">
+        <span class="cti-claim__check"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        <div class="cti-claim__lead">We run MISP in production</div>
+        <div class="cti-claim__plain">We run CloudMISP, our managed MISP service, for major organisations around the world.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. Instructors ══
+     PENDING COSIVE: James Garratt has no team/*.html page, so his name is
+     plain text and carries no profile link. One sentence about him exists in
+     the whole repo (cloud-misp.html:1750). A second named MISP instructor with
+     no profile behind him is a real E-E-A-T gap.
+
+     Chris's job title is inconsistent across the site — four variants. This
+     uses the team-page one. "Core contributor" is likewise the stronger of two
+     published forms; about.html, cloud-misp.html and blog-post.html use it,
+     index.html and the team page say "contributor". Worth standardising. -->
+<section class="cti-section cti-section--grey" id="instructors">
+  <div class="container">
+    <div class="cti-eyebrow">Your instructors</div>
+    <h2 class="cti-h2">Taught by people who build and run MISP</h2>
+    <p class="cti-lede">Facilitated by some of the world&rsquo;s foremost CTI experts.</p>
+
+    <div class="trn-instructors__grid">
+      <div class="expert-author">
+        <div class="expert-author__label">Instructor</div>
+        <div class="expert-author__head">
+          <img class="expert-author__photo" src="../images/shared/chris-horsley.webp" alt="Chris Horsley" width="80" height="80" loading="lazy">
+          <div>
+            <div class="expert-author__name">
+              <a href="../team/chris-horsley.html">Chris Horsley</a>
+              <a href="https://www.linkedin.com/in/chrishorsley/" class="expert-author__social" target="_blank" rel="noopener" aria-label="Chris Horsley on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            </div>
+            <div class="expert-author__role">Principal Security Consultant &amp; CTO</div>
+          </div>
+        </div>
+        <ul class="expert-author__credentials">
+          <li>Core contributor to the MISP project, and leads Cosive&rsquo;s open-source development work</li>
+          <li>Trains and presents on MISP and intelligence sharing at FIRST, AUSCERT, hack.lu and NZITF</li>
+          <li>Leads the engineering behind CloudMISP, Cosive&rsquo;s managed MISP service</li>
+          <li>Co-founded Cosive in 2015, after 12 years with national CSIRTs</li>
+        </ul>
+        <a href="../team/chris-horsley.html" class="expert-author__link">
+          View profile
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
+        </a>
+      </div>
+
+      <div class="expert-author">
+        <div class="expert-author__label">Instructor</div>
+        <div class="expert-author__head">
+          <img class="expert-author__photo" src="../images/shared/james-garratt.webp" alt="James Garratt" width="80" height="80" loading="lazy">
+          <div>
+            <div class="expert-author__name">
+              <span>James Garratt</span>
+              <a href="https://www.linkedin.com/in/james-garratt/" class="expert-author__social" target="_blank" rel="noopener" aria-label="James Garratt on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            </div>
+            <div class="expert-author__role">Infrastructure Lead</div>
+          </div>
+        </div>
+        <ul class="expert-author__credentials">
+          <li>Has delivered MISP training at hack.lu and AUSCERT</li>
+          <li>Specialises in cloud infrastructure</li>
+          <li>Infrastructure lead for CloudMISP, Cosive&rsquo;s managed MISP service</li>
+          <li>More than 20 years across IT operations, software engineering and security</li>
+        </ul>
+        <!-- PENDING COSIVE: href="#" — James has no team/ profile page yet, so
+             there is nothing to point this at. Create team/james-garratt.html
+             on the prescott-pym.html pattern and swap the href. -->
+        <a href="#" class="expert-author__link">
+          View profile
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
+        </a>
+      </div>
+
+      <!-- Prescott's credentials are his own published bio, team/prescott-pym.html:543,
+           reworded only to Australian English ("Centres"). -->
+      <div class="expert-author">
+        <div class="expert-author__label">Instructor</div>
+        <div class="expert-author__head">
+          <img class="expert-author__photo" src="../images/shared/prescott-pym.webp" alt="Prescott Pym" width="80" height="80" loading="lazy">
+          <div>
+            <div class="expert-author__name">
+              <a href="../team/prescott-pym.html">Prescott Pym</a>
+              <a href="https://www.linkedin.com/in/prescottpym/" class="expert-author__social" target="_blank" rel="noopener" aria-label="Prescott Pym on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            </div>
+            <div class="expert-author__role">Principal Security Consultant</div>
+          </div>
+        </div>
+        <ul class="expert-author__credentials">
+          <li>Co-designed CTIS, Australia&rsquo;s national threat sharing programme</li>
+          <li>Contributor to CTI-CMM, the leading CTI maturity framework</li>
+          <li>More than 25 years running Security Operations Centres and CTI programmes</li>
+          <li>Has worked across Australia, India, Japan, Germany, Switzerland and the USA</li>
+        </ul>
+        <a href="../team/prescott-pym.html" class="expert-author__link">
+          View profile
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. Course 01 — MISP Kickstart ══
+     This section opens the course block: it names the course, describes it,
+     then lists what it covers. A second course is a second copy of this run of
+     sections — course head, syllabus, outcomes, venues — under its own
+     "Course 02" heading, no redesign.
+
+     The old header here was a second heading for the same course ("The two
+     half-days" / "What we'll cover"), one section after the course had already
+     been introduced. Its lede also restated the hero chips verbatim; the first
+     paragraph below carries the same facts in prose.
+
+     PENDING COSIVE: the Lab chips mark only modules 2, 3 and 4 — the three the
+     live page names explicitly as lab scenarios. Confirm whether 5 and 6
+     include lab work. No count is stated anywhere on the page, so nothing is
+     fabricated. -->
+<section class="cti-dark cti-section--dark" id="modules">
+  <div class="container cti-dark__inner">
+    <div class="cti-eyebrow">Our courses &middot; Course 01</div>
+
+    <div class="trn-course__head">
+      <div class="trn-course__intro">
+        <h2 class="cti-h2">MISP Kickstart Training</h2>
+        <p class="cti-lede">MISP Kickstart is our practical introduction to MISP. Over two half-days, live and online, your team sets up, configures and uses MISP — taught by CTI practitioners who contribute to the MISP project.</p>
+        <p class="cti-lede">Rather than working through theory, attendees run lab scenarios based on real-world use cases: MISP setup and configuration, getting threat data in and enriching it, analysis and correlation, feeds, automation, sharing communities, and threat intelligence sharing.</p>
+        <p class="cti-lede">By the end, every attendee has built a working MISP instance, has practical experience using it, and has the foundation to apply MISP to your organisation&rsquo;s threat intelligence requirements. Everyone keeps the course materials, the practical exercises and the supporting resources, and receives a certificate of completion.</p>
+      </div>
+
+      <!-- Track record, formerly its own grey band below Outcomes. As a card
+           beside the course it answers "have you actually taught this?" while
+           the reader is still deciding, instead of after they have scrolled
+           past the syllabus. Both facts are claimed elsewhere in the repo
+           (about.html, cloud-misp.html, the instructor bios); nothing here
+           is new. -->
+      <aside class="trn-track">
+        <div class="trn-track__label">Track record</div>
+        <p class="trn-track__intro">We have taught MISP Kickstart publicly, at two of the conferences closest to this work, and privately for individual teams.</p>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">AUSCERT</div>
+          <p class="trn-track__plain">Delivered in person in Brisbane to a sold-out room at AUSCERT 2025.</p>
+        </div>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">hack.lu</div>
+          <p class="trn-track__plain">Delivered at hack.lu in Luxembourg, where much of the MISP community gathers each year.</p>
+        </div>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">Private courses</div>
+          <p class="trn-track__plain">Delivered privately for major organisations.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PENDING COSIVE: the Lab chip marks modules the published course copy
+         describes as hands-on — 02 "hands-on labs", 03 "a hands-on lab… a
+         practical exercise", 04 "hands-on experience". Module 06 says only
+         "practical experience in configuring sharing settings", which is
+         weaker and never uses the word, so it carries no chip. Ask whether
+         06 includes a lab; if it does, add the chip there and nowhere else. -->
+    <div class="trn-syllabus">
+      <div>
+        <div class="trn-syllabus__day">Half-day one</div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">01</span>
+          <div>
+            <div class="trn-syllabus__title"><h4>Introduction</h4></div>
+            <p class="trn-syllabus__desc">You&rsquo;ll understand its background, functions, and its role in Cyber Threat Intelligence (CTI) sharing. Additionally, you&rsquo;ll be primed on CTI sharing fundamentals.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>MISP background and functions</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>CTI sharing fundamentals</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>The course lab scenario</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">02</span>
+          <div>
+            <div class="trn-syllabus__title">
+              <h4>Set up your own instance</h4>
+              <span class="trn-syllabus__lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 17 6-6-6-6"></path><path d="M12 19h8"></path></svg>Lab</span>
+            </div>
+            <p class="trn-syllabus__desc">This module walks you through the process of downloading and importing the MISP Appliance, and logging in for the first time.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Downloading the MISP Appliance</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>First login</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Securing the initial account</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Upgrading MISP</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Common problems</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Lessons learned</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">03</span>
+          <div>
+            <div class="trn-syllabus__title">
+              <h4>MISP in action</h4>
+              <span class="trn-syllabus__lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 17 6-6-6-6"></path><path d="M12 19h8"></path></svg>Lab</span>
+            </div>
+            <p class="trn-syllabus__desc">This module introduces MISP terminology and guides you through setting up your organisation, including a hands-on lab for configuring the primary organisation.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>MISP terminology</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Your primary organisation</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Adding admin users</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Events and attributes</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>The dashboard</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Taxonomies and galaxies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="trn-syllabus__day">Half-day two</div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">04</span>
+          <div>
+            <div class="trn-syllabus__title">
+              <h4>Threat data ingestion</h4>
+              <span class="trn-syllabus__lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 17 6-6-6-6"></path><path d="M12 19h8"></path></svg>Lab</span>
+            </div>
+            <p class="trn-syllabus__desc">This module provides a comprehensive understanding of threat data ingestion in MISP, emphasising practical skills in data enrichment.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Importing threat feeds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Manual entry</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Custom feeds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Other data sources</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Enrichment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">05</span>
+          <div>
+            <div class="trn-syllabus__title"><h4>Threat data analysis</h4></div>
+            <p class="trn-syllabus__desc">This module focuses on enhancing your proficiency in analysing threat data, providing practical insights into identifying patterns, mitigating false positives, leveraging MISP Sightings, and utilising MISP for in-depth malware analysis.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Event correlation</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Handling false positives</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>MISP Sightings</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Malware analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">06</span>
+          <div>
+            <div class="trn-syllabus__title"><h4>Threat data sharing</h4></div>
+            <p class="trn-syllabus__desc">You&rsquo;ll gain practical experience in configuring sharing settings, defining access levels, and participating in collaborative threat intelligence efforts.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Sharing groups and communities</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Distribution levels</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Sharing events and attributes</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>STIX/TAXII</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trn-syllabus__module">
+          <span class="trn-syllabus__n">07</span>
+          <div>
+            <div class="trn-syllabus__title"><h4>Review and Q&amp;A</h4></div>
+            <p class="trn-syllabus__desc">In Module 7, we will conduct a comprehensive review of key concepts covered throughout the course, reinforcing your understanding of critical elements.</p>
+            <ul class="trn-syllabus__topics">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Review of key concepts</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Open discussion and Q&amp;A</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Course evaluation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. Outcomes ══ -->
+<section class="cti-section" id="outcomes">
+  <div class="container">
+    <div class="cti-eyebrow">Outcomes</div>
+    <h2 class="cti-h2">What your team can do after the course</h2>
+    <p class="cti-lede">Two half-days won&rsquo;t make anyone a MISP expert. They will give your team practical experience with the core workflows they need to start using MISP more effectively in their day-to-day threat intelligence work.</p>
+
+    <div class="trn-outcomes">
+      <div class="trn-outcomes__card">
+        <span class="trn-outcomes__n" aria-hidden="true">01</span>
+        <h3 class="trn-outcomes__capability">Set up and manage MISP</h3>
+        <p class="trn-outcomes__detail">Install, configure and upgrade a MISP instance, and manage organisations, users and permissions.</p>
+      </div>
+      <div class="trn-outcomes__card">
+        <span class="trn-outcomes__n" aria-hidden="true">02</span>
+        <h3 class="trn-outcomes__capability">Bring threat intelligence into MISP</h3>
+        <p class="trn-outcomes__detail">Add intelligence manually, configure threat feeds and custom feeds, and enrich it using the sources available to your team.</p>
+      </div>
+      <div class="trn-outcomes__card">
+        <span class="trn-outcomes__n" aria-hidden="true">03</span>
+        <h3 class="trn-outcomes__capability">Analyse and work with intelligence</h3>
+        <p class="trn-outcomes__detail">Correlate events, manage false positives, record sightings, and use MISP to support malware analysis.</p>
+      </div>
+      <div class="trn-outcomes__card">
+        <span class="trn-outcomes__n" aria-hidden="true">04</span>
+        <h3 class="trn-outcomes__capability">Share intelligence appropriately</h3>
+        <p class="trn-outcomes__detail">Sharing groups and communities, distribution levels, and where STIX/TAXII fits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. FAQ ══
+     Six questions, not the brief's eight: .claude/skills/faqs/SKILL.md caps a
+     page at 4-6 and forbids padding, and two of the brief's pairs are the same
+     question twice — "training for my staff" / "train one person" is one Q, and
+     "when is your next course" / "will I have to wait" is another. Merged, no
+     topic is lost.
+
+     PENDING COSIVE: three answers are deliberately non-committal because the
+     facts are not published anywhere — the schedule, the CPE position and
+     discounts. The CPE answer in particular states what Cosive will supply and
+     needs sign-off before this goes live.
+
+     The FAQPage node in the @graph above is generated from this exact copy.
+     Edit one and you must edit the other — mismatched schema is a violation. -->
+<section class="cti-faq" id="faq">
+  <div class="container cti-faq__grid">
+    <div class="cti-eyebrow cti-faq__eyebrow">FAQ</div>
+    <h2 class="cti-h2 cti-faq__title">Frequently asked questions</h2>
+
+    <div class="cti-faq__list">
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">How long is the MISP Kickstart course?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">The course runs over two half-days, with eight hours of live, instructor-led training in total. We run it online in your team&rsquo;s timezone.</p>
+          <p class="cti-faq__a">Splitting the course across two days also gives attendees time to explore the MISP instance they set up on day one before moving into feeds, enrichment and sharing on day two.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">When is your next course, and will we have to wait?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Most of our MISP training is private, with courses run for one organisation at a time. Rather than asking your team to fit around a fixed public training calendar, we arrange the course around your availability.</p>
+          <p class="cti-faq__a">Get in touch and we can work with you to find suitable dates.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Do attendees get a certificate?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Yes. Every attendee receives a certificate of completion.</p>
+          <p class="cti-faq__a">They also keep the course materials, practical exercises and supporting resources, so they can revisit the labs and use them as a reference after the course.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Are CPE credits available?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">The course includes eight hours of instructor-led training. We can provide documentation confirming attendance and training hours to support a CPE claim.</p>
+          <p class="cti-faq__a">Cosive is not an accredited CPE provider, so you&rsquo;ll need to check with your certification body to confirm whether the training is eligible for CPE credits.</p>
+        </details>
+        <details class="cti-faq__item">
+          <summary class="cti-faq__q">Do you offer student or community discounts?<svg class="cti-faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+          <p class="cti-faq__a">Yes, in some circumstances. We consider discounted pricing for students, non-profits and community CERTs on a case-by-case basis.</p>
+          <p class="cti-faq__a">Cosive contributes code to the open-source MISP project and supports the broader threat intelligence community through training and knowledge sharing. If cost is a barrier to attending, get in touch and tell us a little about your situation.</p>
+        </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10. Next step ══
+     id="contact" is on this wrapper, not the form — meta/reference/webflow/
+     README.md requires it there for the top-nav Contact Us button to scroll
+     rather than navigate. -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="cti-eyebrow">Next step</div>
+    <h2 class="cti-h2">Talk to us about training your team</h2>
+    <p class="contact-subtitle">Tell us about your team and we&rsquo;ll come back with a quote.</p>
+
+    <div class="trn-register">
+      <div class="trn-register__embed">
+        <!-- The live site's enquiry form is a Pipedrive embed. This is the
+             repo-standard native form so the page previews and styles locally;
+             swap the two at build time. The container above already reserves
+             the height the iframe needs, so nothing jumps on load.
+
+             <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/1GaNFZRQ9COjr5CCEoyQQEtwhutazNWJdQ9KtJiFcoJNZg3Vbjg28cK3S39C3JuKf">
+               <script src="https://webforms.pipedrive.com/f/loader"></script>
+             </div>
+
+             The Pipedrive webform must file these enquiries under the category
+             "MISP Training" — the page level, not the course level — so a second
+             course added to this page lands in the same pipeline. The hidden
+             input below carries the same value for the local form.
+        -->
+        <form class="contact-form" action="#" method="post">
+          <input type="hidden" name="category" value="MISP Training">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="organisation">Organisation</label>
+            <input type="text" id="organisation" name="organisation" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="team-size">How many people would attend?</label>
+            <input type="text" id="team-size" name="team_size">
+          </div>
+          <button type="submit" class="cti-btn--deep">Request a quote</button>
+        </form>
+      </div>
+
+      <!-- PLACEHOLDER QUOTE — invented. Replace before production.
+           Dark panel beside the form, the .cm-contact__right treatment from
+           cloud-misp.html. -->
+      <div class="trn-quote trn-quote--dark">
+        <span class="trn-placeholder-notice">Placeholder &mdash; replace with a real quote</span>
+        <div class="trn-quote__mark" aria-hidden="true">&ldquo;</div>
+        <p class="trn-quote__text">By the end of the course, MISP felt much less daunting. When we went back to work, we had a much clearer idea of where to start, how to get our intelligence into the platform and how we could use it as a team. Having already worked through those steps in the labs gave us the confidence to keep going on our own.</p>
+        <div class="trn-quote__attribution">
+          <span class="trn-quote__role">Role</span>
+          <span class="trn-quote__org">Organisation &middot; Sector</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../footer-include.js"></script>
+
+<!-- ============================================================
+     SECTION NAV — active state + dynamic sticky offset
+     Same implementation as cti-cmm.html, scoped to .cti-section-nav.
+     ============================================================ -->
+<script>
+(function() {
+  var sectionNav = document.querySelector('.cti-section-nav');
+  if (!sectionNav) return;
+  var navList = sectionNav.querySelector('.cti-section-nav__list');
+  var sectionIds = ['about','who','proof','instructors','modules','outcomes','faq'];
+  // Every observed section has its own link in the bar again, so nothing needs
+  // folding; the map stays as the hook for any future merged section.
+  var navMapping = {};
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+
+  // The site header is injected by header-include.js, so its height is not
+  // known until that fetch resolves — measure rather than hardcode 80px.
+  function updateOffsets() {
+    var header = document.querySelector('.site-header');
+    var headerH = header ? header.offsetHeight : 80;
+    sectionNav.style.top = headerH + 'px';
+    document.documentElement.style.scrollPaddingTop = (headerH + sectionNav.offsetHeight + 4) + 'px';
+    return headerH;
+  }
+
+  var headerH = updateOffsets();
+  window.addEventListener('resize', function() { headerH = updateOffsets(); });
+  window.addEventListener('load', function() { headerH = updateOffsets(); });
+
+  var currentActive = null;
+  function setActive(link) {
+    if (currentActive === link) return;
+    if (currentActive) currentActive.classList.remove('cti-section-nav__link--active');
+    currentActive = link;
+    if (link) link.classList.add('cti-section-nav__link--active');
+  }
+
+  var visible = {};
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { visible[entry.target.id] = entry.isIntersecting; });
+    var activeId = null;
+    for (var i = 0; i < sectionIds.length; i++) {
+      if (visible[sectionIds[i]]) activeId = sectionIds[i];
+    }
+    var linkTarget = activeId ? (navMapping[activeId] || activeId) : null;
+    setActive(linkTarget ? sectionNav.querySelector('a[href="#' + linkTarget + '"]') : null);
+  }, {
+    rootMargin: -(headerH + sectionNav.offsetHeight + 1) + 'px 0px -40% 0px',
+    threshold: 0
+  });
+  sections.forEach(function(sec) { observer.observe(sec); });
+
+  // Mobile: centre the clicked link in the scroll strip.
+  navList.addEventListener('click', function(e) {
+    var link = e.target.closest('.cti-section-nav__link');
+    if (link && window.innerWidth <= 900) {
+      setTimeout(function() {
+        link.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
