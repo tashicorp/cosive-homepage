@@ -31,6 +31,12 @@ Four things stay at the root despite not being browser-loaded, and must not be m
 - **`header-include.js` / `footer-include.js`** — they derive the site root from their own URL, so
   they must sit beside `_header.html` / `_footer.html` at the root.
 
+`mockups/` is the one root directory a page loads but the site does not own: forked pages used to
+compare design options before one is rolled out. Each is `noindex, nofollow`, nothing links to it,
+and each file opens with a comment stating the problem, the fix and the trade-off. They live at the
+root rather than in `meta/` because a browser does load them — that is the whole point, they get
+previewed and sent to people. Delete a mockup once its question is answered; see `mockups/README.md`.
+
 `icons/` and `logos/` stay whole even though most of their files are never requested by a page:
 that artwork is pasted **inline** into the HTML, and the files are the masters uploaded to Webflow.
 Unreferenced does not mean unused.
