@@ -35,6 +35,14 @@ inside it, rather than the card being sized by whatever those fields add up to.
 The mockups do not embed the real iframe: nobody should be able to submit a
 live lead from a mockup.
 
+The stand-in reproduces the Pipedrive form's content — heading "Start consuming
+and sharing threat intel", then **Your name**, **Work email**, **Organisation
+name** and **How can we help?** (all required), Send, and the three notes about
+required fields, sensitive information and reCAPTCHA. Both Pipedrive iframes on
+the page share one form id, so the page-foot form carries the same content.
+The asterisks are `aria-hidden`: `required` on the input is what actually
+announces the field as mandatory.
+
 Two things this corrected, both of which had been flattering the mockups:
 
 - `grid-template-columns: 2fr 1fr` carries a min-content floor, and the form's

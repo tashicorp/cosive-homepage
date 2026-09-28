@@ -300,6 +300,27 @@
     min-height: var(--space-5xl);
   }
 
+  /* The asterisk is decoration: `required` on the input is what actually tells
+     a screen reader the field is mandatory, so the span is aria-hidden and the
+     "Required fields are marked with *" note explains it for everyone else. */
+  .banner-form-card .form-req { color: var(--color-accent); }
+
+  .banner-form-card .form-notes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+  }
+
+  .banner-form-card .form-notes a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+  }
+
+  .banner-form-card .form-notes a:hover { color: var(--color-text-primary); }
+
   .banner-form-card .form-row {
     gap: var(--space-md);
   }
@@ -1879,33 +1900,35 @@
 
           <p class="banner-description">We help threat analysts <strong>consume threat intelligence from NCSCs, CERTs, and ISACs</strong>, share intelligence with peers, and act on it &mdash; handling the platform, integration, and feed management so your team can focus on threats, not infrastructure.</p>
         </div>
+        <!-- Content matches the Pipedrive webform this card holds in
+             production. Deliberately a stand-in rather than the real embed:
+             nobody should be able to submit a live lead from a mockup. -->
         <div class="banner-form-card">
-          <h3 class="heading-style-h4">Talk to us about your threat intelligence goals</h3>
+          <h3 class="heading-style-h4">Start consuming and sharing threat intel</h3>
           <form class="contact-form" action="#" method="post">
             <input type="hidden" name="category" value="CTI">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="banner-first-name">First name</label>
-                <input type="text" id="banner-first-name" name="first_name" required>
-              </div>
-              <div class="form-group">
-                <label for="banner-last-name">Last name</label>
-                <input type="text" id="banner-last-name" name="last_name" required>
-              </div>
+            <div class="form-group">
+              <label for="banner-name">Your name <span class="form-req" aria-hidden="true">*</span></label>
+              <input type="text" id="banner-name" name="name" required>
             </div>
             <div class="form-group">
-              <label for="banner-email">Email</label>
+              <label for="banner-email">Work email <span class="form-req" aria-hidden="true">*</span></label>
               <input type="email" id="banner-email" name="email" required>
             </div>
             <div class="form-group">
-              <label for="banner-company">Company</label>
-              <input type="text" id="banner-company" name="company">
+              <label for="banner-org">Organisation name <span class="form-req" aria-hidden="true">*</span></label>
+              <input type="text" id="banner-org" name="organisation" required>
             </div>
             <div class="form-group">
-              <label for="banner-message">Message</label>
-              <textarea id="banner-message" name="message" rows="3"></textarea>
+              <label for="banner-help">How can we help? <span class="form-req" aria-hidden="true">*</span></label>
+              <textarea id="banner-help" name="message" rows="3" required></textarea>
             </div>
             <button type="submit" class="btn-primary">Send</button>
+            <div class="form-notes">
+              <p>Required fields are marked with *</p>
+              <p>Never share sensitive information (credit card numbers, social security numbers, passwords) through this form.</p>
+              <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</p>
+            </div>
           </form>
         </div>
       </div>
