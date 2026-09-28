@@ -23,6 +23,7 @@ in fact 11,768px long across ten sections.
 |---|---|---|
 | `consume-share-nav.html` | Form out of the banner, sticky section nav in — names six sections, last item links to `#contact` | No |
 | `consume-share-arrow.html` | A chevron in a translucent disc, pinned inside the banner, smooth-scrolls to the first section | Yes |
+| `consume-share-nav-form.html` | Both: the same section nav, with the form kept and the banner tightened to make room for it | Yes |
 
 Measured at 1440x800, banner bottom edge (the fold is y=800):
 
@@ -31,6 +32,14 @@ Measured at 1440x800, banner bottom edge (the fold is y=800):
 | original | y=822 | nothing — the banner overshoots the fold |
 | `consume-share-nav.html` | y=579 | the whole nav bar (579–644), then 156px of the next section |
 | `consume-share-arrow.html` | y=822 | unchanged; the cue sits inside the banner at y=734 |
+| `consume-share-nav-form.html` | y=618 | the whole nav bar (618–683), then 117px of the next section |
+
+`consume-share-nav-form.html` only works because the banner gives up ~130px:
+at the original padding the nav bar sat at 822–886, entirely below the fold,
+which would have made it worse than useless. That height comes out of
+`.page-banner-inner` and the form card's internal spacing — all five fields are
+kept, but the card is tighter than the site standard (449px, down from ~540px).
+It is the busiest of the three: banner, form and nav bar all at once.
 
 ### Notes for whoever picks one
 

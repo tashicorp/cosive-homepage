@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<!--
+  ══════════════════════════════════════════════════════════════════════════
+  MOCKUP 3 of 3 — SECTION NAV *AND* FORM
+  Fork of cti/consume-share-cyber-threat-intelligence.html. Not part of the
+  site; see mockups/README.md.
+
+  PROBLEM: the banner wraps 96px of padding around a ~540px form card, so its
+  bottom edge lands at y=822 on a 1440x800 viewport — past the fold. Nothing
+  below it is visible and the page reads as "a paragraph and a contact form",
+  when it is in fact ten sections long.
+
+  THIS FIX: mockup 1's sticky section nav, but the form stays in the banner.
+  Both halves of the trade-off, which is only possible if the banner gives up
+  enough height for the nav bar to clear the fold — at the original padding
+  the bar sat at 822-886, entirely below it, which would have made the nav
+  worse than useless.
+
+  So the banner is tightened rather than emptied: ~130px comes out of its
+  padding and the form card's internal spacing, with all five fields kept.
+  Nothing is removed from the page.
+
+  TRADE-OFF: the busiest of the three. The form is tighter than the site
+  standard, and the reader meets a banner, a form and a nav bar at once.
+  ══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- github-pages-preview-only --><meta name="robots" content="noindex, nofollow">
+<title>MOCKUP 3 (nav + form) — Consume &amp; share threat intelligence</title>
+<meta name="description" content="We help threat analysts consume, share, and act on intelligence from NCSCs, CERTs, and ISACs. We handle the platform, integrations, and feeds so your team can focus on threats.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.prod.website-files.com/64753857f50bbd0ca3a5fad6/6488176c049d8f8a147e795b_cosive-favicon.png" rel="shortcut icon" type="image/x-icon">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-dark: #0e141c;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    --color-light-grey: #f8f9fa;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f6368;
+    --color-accent: #e53834;
+    --page-accent: #f4645f;   /* on-dark red; #e53834 is only 3.4:1 on --color-dark */
+    --color-accent-dark: #c1121f;
+    --color-mid-grey: #f0f0f0;
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    /* ── Sizing Tokens ── */
+
+    /* Spacing (4px base grid) */
+    --space-2xs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 0.75rem;    /* 12px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 2.5rem;    /* 40px */
+    --space-3xl: 3rem;      /* 48px */
+    --space-4xl: 4rem;      /* 64px */
+    --space-5xl: 5rem;      /* 80px */
+    --space-6xl: 6rem;      /* 96px */
+    --space-7xl: 8rem;      /* 128px */
+    --space-8xl: 10rem;     /* 160px */
+
+    /* Font sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.75rem;    /* 28px */
+    --text-4xl: 2rem;       /* 32px */
+    --text-5xl: 2.5rem;     /* 40px */
+    --text-6xl: 3rem;       /* 48px */
+
+    /* Line height */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.55;
+    --leading-loose: 1.75;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-narrow: 640px;
+    --container-standard: 768px;
+    --container-page: 1400px;
+  }
+
+  /* ── Heading Style System ── */
+  .heading-style-h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--color-text-primary);
+  }
+  .heading-style-h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-snug);
+    color: var(--color-text-primary);
+  }
+  .heading-style-h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-background);
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--space-5xl);
+  }
+
+  .header-logo img { height: var(--space-xl); }
+
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .main-nav a:hover { color: var(--color-text-primary); }
+
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: var(--color-white) !important;
+    border: none !important;
+    padding: var(--space-xs) var(--space-lg) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--color-accent-dark) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+
+  .nav-toggle svg { width: var(--space-lg); height: var(--space-lg); display: block; }
+
+  /* ── Page Banner ── */
+  .page-banner {
+    position: relative;
+    overflow: hidden;
+    background: #121212;
+  }
+
+  .page-banner > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.4);
+    opacity: 0.45;
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 20, 28, 0.4);
+    z-index: 1;
+  }
+
+  .page-banner-inner {
+    position: relative;
+    z-index: 2;
+    /* Was 6XL top and bottom (96/96). The single biggest lever on the banner's
+       height, and the nav bar below it has to clear the fold. */
+    padding: var(--space-3xl) 0 var(--space-2xl);
+  }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .banner-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);     /* was XL */
+  }
+
+  .banner-form-card h3 {
+    margin-bottom: var(--space-md);   /* was LG */
+  }
+
+  .banner-form-card .contact-form {
+    gap: var(--space-sm);         /* was MD */
+  }
+
+  .banner-form-card .form-group label {
+    font-size: var(--text-sm);
+  }
+
+  /* 8px between every label and its field, five times over, was 40px of the
+     banner's height. 2px still reads as "these two belong together". */
+  .banner-form-card .form-group {
+    gap: 2px;
+  }
+
+  .banner-form-card .form-group input,
+  .banner-form-card .form-group textarea {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-base);
+    border-color: var(--color-border);
+  }
+
+  .banner-form-card .form-group textarea {
+    /* height, not min-height: rows="3" in the markup beats a min-height and
+       holds the field at 74px. It still grows on drag. */
+    height: var(--space-3xl);
+    min-height: var(--space-3xl);
+  }
+
+  .banner-form-card .form-row {
+    gap: var(--space-md);
+  }
+
+  .banner-form-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     Sticky section nav — verbatim from capabilities/misp-kickstart-training.html
+     ═══════════════════════════════════════════════════════════════ */
+  .cti-section-nav {
+    position: sticky;
+    top: var(--space-5xl);              /* below the 80px site header */
+    z-index: 99;
+    background: var(--color-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cti-section-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--space-4xl);           /* 64px */
+  }
+  .cti-section-nav__list {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cti-section-nav__list::-webkit-scrollbar { display: none; }
+  .cti-section-nav__link {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-white);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cti-section-nav__link:hover { color: rgba(255,255,255,0.7); }
+  .cti-section-nav__link--active {
+    color: var(--page-accent);
+    border-bottom-color: var(--page-accent);
+    font-weight: 600;
+  }
+
+  /* The one action in a bar of section anchors, so it takes the page accent to
+     separate it from them. Deliberately NOT in the scrollspy's sectionIds: the
+     underline in this bar means "you are here", and a CTA that lit up on
+     arrival would compete with that. It needs no scroll-margin — the nav
+     script sets scroll-padding-top on :root from the measured heights. */
+  .cti-section-nav__link--cta {
+    gap: 7px;
+    color: var(--page-accent);
+    font-weight: 600;
+  }
+  .cti-section-nav__link--cta:hover { color: var(--color-white); }
+  .cti-section-nav__link--cta svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── Breadcrumb — site standard. Hierarchy is carried by opacity, never
+     colour; the home icon is always present; 32px to the H1. */
+  .page-banner .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .page-banner .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s;
+  }
+
+  .page-banner .breadcrumb a:hover {
+    color: var(--color-white);
+  }
+
+  .page-banner .breadcrumb svg {
+    width: 14px;
+    height: 14px;
+    stroke: rgba(255, 255, 255, 0.75);
+    flex-shrink: 0;
+  }
+
+  .page-banner .breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .page-banner .breadcrumb .current {
+    color: var(--color-white);
+    font-weight: 400;
+  }
+
+
+  .page-banner h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+  }
+
+  .page-banner .banner-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-xs);
+    letter-spacing: var(--tracking-wide);
+  }
+
+
+  .banner-description {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--color-light-grey);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .banner-description strong {
+    color: var(--color-white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── Shared section patterns ── */
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--color-accent-dark); }
+
+  /* ── Section A: Value Proposition ── */
+  .infra-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-white);
+  }
+
+  .infra-section--alt {
+    background: var(--color-light-grey);
+  }
+
+  /* ── 2a-i. Outcomes & Value Intro ── */
+  .infra-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+    margin-bottom: var(--space-4xl);
+  }
+
+  .infra-intro-grid--stacked {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .infra-intro-grid:last-child {
+    margin-bottom: 0;
+  }
+
+  .infra-intro p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-md);
+  }
+
+  .infra-intro ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: var(--space-lg);
+    list-style: disc;
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .infra-intro li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .infra-intro li:last-child {
+    margin-bottom: 0;
+  }
+
+  .outcome-diagram {
+    padding: 0;
+    align-self: center;
+  }
+
+  .outcome-diagram svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .infra-intro-grid--stacked .outcome-diagram {
+    width: 100%;
+  }
+
+  /* ── 2a-ii. Scenario Cards ── */
+  .scenarios-heading {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .scenarios-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+  }
+
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .scenario-card {
+    position: relative;
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid #c0c3c8;
+  }
+
+
+  .scenario-card-img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  .scenario-card-number {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .scenario-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+  }
+
+  .scenario-card-subtitle {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-top: -8px;
+  }
+
+  .scenario-card-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .scenario-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-2xs);
+  }
+
+  .scenario-list li {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    padding-left: var(--space-md);
+    position: relative;
+  }
+
+  .scenario-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: var(--space-xs);
+    width: var(--space-2xs);
+    height: var(--space-2xs);
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+  }
+
+  .scenario-list li a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .scenario-list li a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .scenario-card .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-top: auto;
+  }
+
+  .scenario-card .card-cta svg {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+  }
+
+  .scenario-card .card-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: auto;
+  }
+
+  /* ── Hero testimonial (full width below nav cards) ── */
+  .hero-testimonial {
+    background: var(--color-white);
+    padding: 0 0 var(--space-7xl);
+  }
+
+  .hero-testimonial .testimonial-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3xl);
+    text-align: center;
+  }
+
+  .testimonial-sinewave {
+    display: block;
+    width: var(--space-5xl);
+    height: auto;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .hero-testimonial .testimonial-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-testimonial blockquote {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-testimonial cite {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .hero-testimonial .testimonial-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero-testimonial .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .hero-testimonial .testimonial-logo {
+    display: block;
+    height: 3rem;
+    width: auto;
+    margin: var(--space-lg) auto 0;
+  }
+
+  /* ── Social proof / credentials section ── */
+  .credentials-section {
+    background: var(--color-dark);
+  }
+
+  .credentials-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    background: var(--color-dark);
+  }
+
+  .credentials-box {
+    padding: var(--space-8xl) var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .credentials-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .credentials-separator {
+    margin-bottom: var(--space-lg);
+  }
+
+  .credentials-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  .credentials-box h2 {
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
+  }
+
+  .credentials-photo {
+    position: relative;
+  }
+
+  .credentials-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-dark) 0%, transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .credentials-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center;
+    filter: grayscale(1) sepia(0.3) hue-rotate(180deg) saturate(0.4) brightness(0.85);
+  }
+
+  .credentials-caption {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  .icon-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .icon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .icon-item:first-child {
+    padding-top: 0;
+  }
+
+  .icon-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .icon-item-icon {
+    width: var(--space-xl);
+    height: var(--space-xl);
+    flex-shrink: 0;
+    color: var(--color-accent);
+    padding-top: var(--space-2xs);
+  }
+
+  .icon-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon-item-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .icon-item-text strong {
+    color: var(--color-white);
+    font-weight: 700;
+  }
+
+  /* ── CloudMISP Tiers ── */
+  .tiers-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-light-grey);
+  }
+
+  .tiers-intro {
+    max-width: var(--container-standard);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .tiers-intro p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-md);
+  }
+
+  .tiers-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .tier-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tier-card.is-featured {
+    border: 2px solid var(--color-accent);
+    position: relative;
+    box-shadow: 0 4px 24px rgba(229, 56, 52, 0.10);
+    transform: scale(1.03);
+    z-index: 1;
+  }
+
+  .tier-card.is-featured::before {
+    content: "Most popular";
+    position: absolute;
+    top: 0;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    line-height: 1;
+  }
+
+  .tier-card.is-gold {
+    border: 1px solid #d4a843;
+    position: relative;
+  }
+
+  .tier-card.is-gold::before {
+    content: "Most comprehensive";
+    position: absolute;
+    top: 0;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #d4a843, #b8922e);
+    color: var(--color-white);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+    line-height: 1;
+  }
+
+  .tier-card-label {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+  }
+
+  .tier-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+  }
+
+  .tier-card-subtitle {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-top: calc(-1 * var(--space-xs));
+  }
+
+  .tier-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .tier-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+  }
+
+  .tier-features li {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    padding-left: var(--space-md);
+    position: relative;
+  }
+
+  .tier-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: var(--space-xs);
+    width: var(--space-2xs);
+    height: var(--space-2xs);
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+  }
+
+  .tier-features a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .tier-features a:hover {
+    text-decoration: underline;
+  }
+
+  .tier-best-for {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+    margin-top: auto;
+  }
+
+  .tier-best-for strong {
+    color: var(--color-text-primary);
+  }
+
+  /* ── Tier Add-ons ── */
+  .tiers-addons {
+    margin-top: var(--space-xl);
+  }
+
+  .tiers-addons-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .tiers-addons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .addon-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .addon-card-icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-mid-grey);
+    border-radius: var(--radius-md);
+    color: var(--color-accent);
+  }
+
+  .addon-card-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .addon-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .addon-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+  }
+
+  .addon-card-desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Platforms section ── */
+  .platforms-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-white);
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm) 0;
+  }
+
+  .platform-card {
+    padding: var(--space-xl) var(--space-2xl);
+    border-radius: var(--radius-none);
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    position: relative;
+  }
+
+  .platform-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: var(--space-2xs);
+    background: var(--color-border);
+  }
+
+  .platform-card:last-child::after {
+    display: none;
+  }
+
+  .platform-card:first-child {
+    padding-left: 0;
+  }
+
+  .platform-card .panel-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .platform-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: var(--leading-normal);
+  }
+
+  .platform-card .platform-full-name {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    line-height: var(--leading-normal);
+  }
+
+  .platform-card p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Metrics ── */
+  .metrics-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-accent);
+  }
+
+  .metrics-section .section-label {
+    color: var(--color-white);
+  }
+
+  .metrics-section .heading-style-h2 {
+    color: var(--color-white);
+  }
+
+  .section-label--light {
+    color: var(--color-accent);
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .metric-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+  }
+
+  .metric-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-xs);
+  }
+
+  .metric-label {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Case Studies ── */
+  .cases-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-dark, #0e141c);
+  }
+
+  .cases-section .section-label {
+    color: var(--color-accent);
+  }
+
+  .cases-section .heading-style-h2 {
+    color: var(--color-white);
+  }
+
+  .cases-intro {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .case-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .case-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .case-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .case-card-body {
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .case-card-tag {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+  }
+
+  .case-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: var(--leading-normal);
+  }
+
+  .case-card p {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-normal);
+  }
+
+  .cases-cta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .cases-cta:hover {
+    gap: var(--space-md);
+  }
+
+  .cases-cta svg {
+    width: var(--space-lg);
+    height: var(--space-lg);
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: var(--space-8xl) 0;
+    background: var(--color-white);
+  }
+
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .faq-list {
+    max-width: none;
+  }
+
+  .faq-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    position: sticky;
+    top: var(--space-6xl);
+  }
+
+  .faq-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .faq-list details {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-list details:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) 0;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    list-style: none;
+  }
+
+  .faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .faq-chevron {
+    width: var(--space-lg);
+    height: var(--space-lg);
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+    transition: transform 0.2s;
+    color: var(--color-text-secondary);
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 0 var(--space-lg);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-loose);
+  }
+
+  .faq-answer p { margin-bottom: var(--space-sm); }
+  .faq-answer p:last-child { margin-bottom: 0; }
+
+  .faq-answer a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .faq-answer a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .faq-answer ul {
+    margin: 0 0 var(--space-sm);
+    padding-left: var(--space-lg);
+    list-style: disc;
+  }
+
+  .faq-answer li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .faq-answer li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Wavy SVG separator ── */
+  .people-cta-separator {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-8xl) 0 0;
+    background: var(--color-light-grey);
+  }
+
+  .people-cta-separator img {
+    width: var(--space-5xl);
+    height: auto;
+  }
+
+  /* ── Contact section ── */
+  .contact-section {
+    padding: var(--space-4xl) 0 var(--space-8xl);
+    background: var(--color-light-grey);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+  }
+
+  .contact-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+
+  /* ── Light Footer ── */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-5xl) 0 var(--space-3xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  /* Sitemap columns */
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4xl) var(--space-2xl);
+  }
+
+  .footer-col { flex: 0 0 auto; }
+
+  .footer-col-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-col-title a { color: inherit; transition: color 0.2s; }
+  .footer-col-title a:hover { color: var(--color-accent); }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-col li a {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-snug);
+    transition: color 0.2s;
+  }
+
+  .footer-col li a:hover { color: var(--color-accent); }
+
+  /* Bottom bar: logo left · copyright right */
+  .footer-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom .footer-logo img { height: var(--space-xl); }
+
+  .footer-bottom-links { display: flex; align-items: center; gap: var(--space-lg); }
+
+  .footer-bottom-links a {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover { color: var(--color-accent); }
+
+  .footer-copyright {
+    font-size: var(--text-xs);
+    color: var(--color-text-primary);
+    text-align: right;
+  }
+
+  /* ── Responsive ── */
+
+  /* Footer: fit-content flex row only holds all 7 columns above ~1400px */
+  /* Seven labels is the widest this bar gets; the threshold stays conservative
+     because the strip must never silently clip. Adapted from
+     cti-cmm.html:1719-1730. */
+  @media (max-width: 1250px) {
+    .cti-section-nav__inner { position: relative; justify-content: flex-start; }
+    .cti-section-nav__inner::after {
+      content: "";
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: var(--space-3xl);
+      background: linear-gradient(to right, transparent, var(--color-dark));
+      pointer-events: none;
+    }
+    .cti-section-nav__list { gap: var(--space-lg); padding-right: var(--space-3xl); }
+  }
+
+  @media (max-width: 1400px) {
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 1200px) {
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
+    .credentials-inner { grid-template-columns: 1fr; }
+    .credentials-photo { min-height: 300px; }
+
+    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+    .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    /* Heading system */
+    .heading-style-h1 { font-size: 1.8rem; }
+    .heading-style-h2 { font-size: var(--text-2xl); }
+
+    .container { padding: 0 var(--space-lg); }
+
+    .page-banner h1 { font-size: var(--text-4xl); }
+
+    .banner-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    /* Section nav — misp-kickstart-training.html:1696-1699 */
+    .cti-section-nav__inner { height: 52px; }
+    .cti-section-nav__list { gap: var(--space-lg); }
+    .cti-section-nav__link { font-size: var(--text-sm); }
+
+    .infra-intro-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .scenarios-grid { grid-template-columns: 1fr; }
+    .platforms-grid { grid-template-columns: 1fr; }
+    .platform-card::after { display: none; }
+    .platform-card { padding-left: 0; }
+
+
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .cases-grid { grid-template-columns: 1fr; }
+    .case-card img { height: var(--space-8xl); }
+
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-image { display: none; }
+
+    /* Credentials */
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .tiers-grid { grid-template-columns: 1fr; }
+    .tiers-addons-grid { grid-template-columns: 1fr; }
+
+    .infra-section,
+    .platforms-section,
+    .metrics-section,
+    .cases-section,
+    .faq-section,
+    .tiers-section { padding: var(--space-7xl) 0; }
+    .people-cta-separator { padding-top: var(--space-7xl); }
+    .contact-section { padding: var(--space-3xl) 0 var(--space-7xl); }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 0; padding-bottom: var(--space-4xl); }
+  }
+
+  @media (max-width: 600px) {
+    /* Heading system */
+    .heading-style-h1 { font-size: var(--text-2xl); }
+    .heading-style-h2 { font-size: 1.3rem; }
+
+    .page-banner h1 { font-size: var(--text-3xl); }
+    .page-banner-inner { padding: var(--space-6xl) 0; }
+    .page-banner .banner-subtitle { font-size: var(--text-lg); }
+
+    .banner-form-card { padding: var(--space-lg); }
+    .banner-form-card .form-row { grid-template-columns: 1fr; }
+
+    .metrics-grid { grid-template-columns: 1fr; }
+
+
+    .scenario-card { padding: var(--space-lg); }
+
+    /* Hero testimonial */
+    .hero-testimonial { padding-top: 0; padding-bottom: var(--space-3xl); }
+    .hero-testimonial blockquote { font-size: var(--text-xl); }
+    .hero-testimonial cite { font-size: var(--text-base); }
+
+    /* Credentials */
+    .credentials-box { padding: var(--space-xl) var(--space-lg); }
+    .credentials-box h2 { font-size: var(--text-2xl); }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
+
+    .infra-section,
+    .platforms-section,
+    .metrics-section,
+    .cases-section,
+    .faq-section,
+    .tiers-section { padding: var(--space-5xl) 0; }
+    .people-cta-separator { padding-top: var(--space-5xl); }
+    .contact-section { padding-bottom: var(--space-5xl); }
+  }
+
+  /* ── Navigation Cards ── */
+
+  #consume, #share {
+    scroll-margin-top: 8rem; /* Space/7XL */
+  }
+
+  .nav-cards-heading {
+    text-align: center;
+    margin-bottom: 2rem; /* Space/XL */
+  }
+
+  .nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; /* Space/XL */
+  }
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem; /* Space/SM */
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 12px; /* Radius/LG */
+    min-height: 140px;
+    padding: 1.25rem 2rem 1.25rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1a2332;
+  }
+
+  .nav-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem; /* Text/2XL */
+    font-weight: 700;
+    line-height: 1.3em; /* Leading/Snug */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-card .card-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.25s ease;
+  }
+
+  .nav-card:hover .card-cta {
+    color: var(--color-white);
+  }
+
+  .nav-card .card-cta svg {
+    width: 2.4em;
+    height: 2.4em;
+  }
+
+  @media (max-width: 900px) {
+    .nav-cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav-card {
+      padding: 2rem 1.5rem; /* Space/XL / Space/LG */
+    }
+    .nav-card-title {
+      font-size: 1.25rem; /* Text/XL */
+    }
+  }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.cosive.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cyber Threat Intelligence",
+      "item": "https://www.cosive.com/cyber-threat-intelligence"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Consume & share threat intelligence"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="site-header-placeholder" data-nav-active="cti" style="min-height:calc(var(--space-5xl) + 1px)"></div>
+<script src="../header-include.js"></script>
+
+<!-- 1. Page Banner -->
+<div class="page-banner">
+  <img src="../images/shared/banner-bg.jpg" alt="">
+  <div class="page-banner-inner">
+    <div class="container">
+      <div class="banner-grid">
+        <div class="banner-text">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html" class="breadcrumb-home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+            <span class="separator">/</span>
+            <a href="../cyber-threat-intelligence.html" class="badge-cti">Cyber Threat Intelligence</a>
+            <span class="separator">/</span>
+            <span class="current" aria-current="page">Consume &amp; share threat intelligence</span>
+          </nav>
+          <h1 class="heading-style-h1">Consume &amp; share threat intelligence</h1>
+
+          <p class="banner-description">We help threat analysts <strong>consume threat intelligence from NCSCs, CERTs, and ISACs</strong>, share intelligence with peers, and act on it &mdash; handling the platform, integration, and feed management so your team can focus on threats, not infrastructure.</p>
+        </div>
+        <div class="banner-form-card">
+          <h3 class="heading-style-h4">Talk to us about your threat intelligence goals</h3>
+          <form class="contact-form" action="#" method="post">
+            <input type="hidden" name="category" value="CTI">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="banner-first-name">First name</label>
+                <input type="text" id="banner-first-name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="banner-last-name">Last name</label>
+                <input type="text" id="banner-last-name" name="last_name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="banner-email">Email</label>
+              <input type="email" id="banner-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="banner-company">Company</label>
+              <input type="text" id="banner-company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="banner-message">Message</label>
+              <textarea id="banner-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Navigation Cards -->
+<!-- ══ Sticky section nav ══
+     Order matches the DOM order of the sections: the scrollspy highlights the
+     LAST intersecting section, so a nav out of sequence highlights out of
+     sequence. The final item is the link to the contact form at the foot of
+     the page. -->
+<nav class="cti-section-nav" aria-label="Page sections">
+  <div class="container cti-section-nav__inner">
+    <ul class="cti-section-nav__list">
+      <li><a href="#engagement" class="cti-section-nav__link">Expertise</a></li>
+      <li><a href="#outcomes" class="cti-section-nav__link">Outcomes</a></li>
+      <li><a href="#cases" class="cti-section-nav__link">Case studies</a></li>
+      <li><a href="#consume" class="cti-section-nav__link">Consume</a></li>
+      <li><a href="#share" class="cti-section-nav__link">Share</a></li>
+      <li><a href="#cloudmisp" class="cti-section-nav__link">CloudMISP</a></li>
+      <li><a href="#contact" class="cti-section-nav__link cti-section-nav__link--cta">Get in touch<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="infra-section">
+  <div class="container">
+
+    <div class="nav-cards-heading">
+      <h3 class="heading-style-h3">What would you like to do?</h3>
+    </div>
+
+    <div class="nav-cards-grid">
+      <a href="#consume" class="nav-card">
+        <div class="nav-card-title">I need to consume threat intelligence</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#share" class="nav-card">
+        <div class="nav-card-title">I want to share threat intelligence</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+      <a href="#cloudmisp" class="nav-card">
+        <div class="nav-card-title">Implement a threat intel platform</div>
+        <span class="card-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg></span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Customer testimonial -->
+<section class="hero-testimonial">
+  <div class="testimonial-inner">
+    <img src="../icons/cosive-sinewave.svg" alt="Cosive" class="testimonial-sinewave">
+    <div class="testimonial-label">What our customers say about us</div>
+    <blockquote>&ldquo;Cosive brought a high level of expertise and depth of knowledge to our engagement, and from the outset they were collaborative in developing the engagement methodology and deliverables.&rdquo;</blockquote>
+    <div class="testimonial-attribution">
+      <img class="testimonial-avatar" src="../images/shared/sasenka-abeysooriya.jpg" alt="Sasenka Abeysooriya" width="56" height="56" loading="lazy">
+      <cite>Sasenka Abeysooriya, Program Director</cite>
+    </div>
+    <img src="../logos/uq.svg" alt="The University of Queensland" class="testimonial-logo">
+  </div>
+</section>
+
+<!-- Social proof / credentials -->
+<section class="credentials-section" id="engagement">
+  <div class="credentials-inner">
+    <div class="credentials-box">
+        <div class="credentials-separator"><img src="../icons/cosive-sinewave.svg" alt="Cosive"></div>
+        <div class="credentials-label">Why work with us</div>
+        <h2 class="heading-style-h2">Threat intelligence expertise you can trust</h2>
+        <div class="icon-credentials">
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Threat modelling and analysis</strong> &mdash; identifying the adversaries, techniques, and attack paths most relevant to your organisation</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Extensive experience in CTI triaging and workflow development</strong> &mdash; helping teams build repeatable processes for handling, prioritising, and acting on intelligence</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Built &amp; operated sharing communities</strong> for national CERTs and government agencies</div>
+          </div>
+          <div class="icon-item">
+            <div class="icon-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h1"/><path d="M14 10h1"/><path d="M9 14h1"/><path d="M14 14h1"/></svg>
+            </div>
+            <div class="icon-item-text"><strong>Deep expertise in threat intelligence frameworks</strong> &mdash; MITRE ATT&amp;CK, CTI-CMM, STIX/TAXII</div>
+          </div>
+        </div>
+      </div>
+      <div class="credentials-photo">
+        <img src="../images/shared/terry-presenting.jpg" alt="Terry MacDonald presenting at NZITF">
+        <div class="credentials-caption">Cosive co-founder Terry MacDonald presenting at the NZITF Conference.</div>
+      </div>
+  </div>
+</section>
+
+<!-- Key Outcomes / Metrics -->
+<section class="metrics-section" id="outcomes">
+  <div class="container">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: var(--space-sm);">
+      <rect x="2" y="2" width="20" height="20" rx="4" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.2)"/>
+      <path d="M7 12.5l3 3 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="section-label">Key Outcomes</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Results from our threat intelligence engagements</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">50+</div>
+        <div class="metric-label">Threat intelligence platform deployments worldwide</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">12</div>
+        <div class="metric-label">Countries with active deployments</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">1M+</div>
+        <div class="metric-label">Indicators processed daily</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">99.9%</div>
+        <div class="metric-label">CloudMISP platform uptime</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">24/7</div>
+        <div class="metric-label">Monitoring and support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="cases-section" id="cases">
+  <div class="container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-md);">How organisations are sharing threat intelligence</h2>
+    <p class="cases-intro">Real results from real engagements across threat intelligence sharing, national programmes, and threat intelligence platform migrations.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <img src="https://unsplash.com/photos/P-t9yap_20M/download?w=800" alt="Australian government building">
+        <div class="case-card-body">
+          <span class="case-card-tag">Government</span>
+          <h3>Australian Cyber Threat Intelligence Sharing (CTIS)</h3>
+          <p>How Cosive designed and built the infrastructure for Australia's national cyber threat intelligence sharing program, connecting government agencies and critical infrastructure operators.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="European infrastructure">
+        <div class="case-card-body">
+          <span class="case-card-tag">Critical Infrastructure</span>
+          <h3>European ISAC Threat Intelligence Sharing Platform</h3>
+          <p>Deploying a managed threat intelligence sharing platform for a European sector ISAC, enabling cross-border threat intelligence exchange between member organisations.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://unsplash.com/photos/UwnH5jSrdr4/download?w=800" alt="Government security operations">
+        <div class="case-card-body">
+          <span class="case-card-tag">Government</span>
+          <h3>Government Agency TIP Migration</h3>
+          <p>Migrating a government security agency from a legacy TIP to CloudMISP, improving feed management, correlation, and sharing workflows.</p>
+        </div>
+      </div>
+    </div>
+    <a href="/case-studies" class="cases-cta">View all case studies <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8.5"/><path d="M9 7l3 3-3 3"/></svg></a>
+  </div>
+</section>
+
+<!-- 2a. How we help you consume threat intelligence -->
+<section class="infra-section infra-section--alt" id="consume">
+  <div class="container">
+
+    <div class="infra-intro-grid infra-intro-grid--stacked">
+      <div class="infra-intro">
+        <div class="section-label">Consume</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you consume threat intelligence</h2>
+        <p>If you're standing up a threat intelligence capability for the first time — or formalising one that's been ad hoc — you're probably feeling the pressure from multiple directions:</p>
+        <ul>
+          <li>Regulations like NIS2, DORA, and Australia's SOCI Act are raising the bar on how you identify, assess, and respond to threats</li>
+          <li>Boards and executives want regular threat briefings</li>
+          <li>Your team is already stretched</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">You don't need to solve all of this at once. We help you start consuming threat intelligence in a structured way — connecting your feeds, analysts, and security tools through a platform that:</p>
+        <ul>
+          <li>Ingests indicators from commercial feeds, open-source intelligence, and sharing communities</li>
+          <li>Distributes enriched IOCs to your SIEMs, firewalls, and infrastructure automatically</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Don't have a threat intelligence platform yet? <a href="../cloud-misp.html" style="color: var(--color-accent); font-weight: 600;">CloudMISP</a> is our fully managed platform purpose-built for consuming and sharing threat intelligence.</p>
+      </div>
+      <div class="outcome-diagram">
+        <img src="../images/shared/diagram-cloudmisp-overview.svg" alt="CloudMISP overview diagram showing CloudMISP at the centre connected to analysts, Okta, MISP community, SIEMs, threat intel feeds, and infrastructure" style="width: 100%; height: auto;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2b. How we help you share threat intelligence -->
+<section class="infra-section" id="share">
+  <div class="container">
+
+    <div class="infra-intro-grid infra-intro-grid--stacked">
+      <div class="infra-intro">
+        <div class="section-label">Share</div>
+        <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">How we help you share threat intelligence</h2>
+        <p>Effective sharing starts with separating what you triage from what you publish. We configure a pipeline where:</p>
+        <ul>
+          <li>Your Triage instance ingests feeds and your analysts curate intelligence</li>
+          <li>Your Sharing instance publishes vetted indicators to partner organisations</li>
+          <li>You control exactly what leaves your environment</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">Partners connect the way that suits them:</p>
+        <ul>
+          <li>Push-only delivery for organisations that just need your indicators</li>
+          <li>Push/pull for bidirectional sharing with peers</li>
+          <li>Direct login for close collaborators</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">This flexibility lets you share with ISACs, sector peers, and government partners on their terms. CloudMISP includes built-in sharing workflows, granular access controls, and multi-community support out of the box. <a href="../cloud-misp.html" style="color: var(--color-accent); font-weight: 600;">Learn more about CloudMISP</a>.</p>
+      </div>
+      <div class="outcome-diagram">
+        <img src="../images/shared/diagram-cloudmisp-sharing.svg" alt="Pipeline diagram showing threat intel feeds ingested into Triage CloudMISP, published to Sharing CloudMISP, and distributed to partner organisations" style="width: 100%; height: auto;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CloudMISP Tiers -->
+<section class="tiers-section" id="cloudmisp">
+  <div class="container">
+    <div class="section-label">CloudMISP</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-lg);">CloudMISP: more than MISP in the cloud</h2>
+    <div class="tiers-intro">
+      <p>CloudMISP is rearchitected and containerised with watchdog services and monitoring, deployed in a dedicated VPC. It's not just MISP on an EC2 box. Deployed in any AWS region globally for data sovereignty. Available on AWS EU Sovereign Cloud.</p>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <h3>Core</h3>
+        <div class="tier-card-subtitle">For teams already experienced with MISP</div>
+        <ul class="tier-features">
+          <li>1 production MISP instance</li>
+          <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
+          <li>Automatic updates and security patches</li>
+          <li>Monitoring and alerting</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
+        </ul>
+      </div>
+      <div class="tier-card is-featured">
+        <h3>Accelerator</h3>
+        <div class="tier-card-subtitle">For orgs who want to use MISP for threat intel, but need help using it</div>
+        <ul class="tier-features">
+          <li>10 days of Cosive Professional Services each year</li>
+          <li>1 production MISP instance</li>
+          <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
+          <li>Automatic updates and security patches</li>
+          <li>Monitoring and alerting</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
+        </ul>
+      </div>
+      <div class="tier-card is-gold">
+        <h3>Insight</h3>
+        <div class="tier-card-subtitle">Core + Consulting + Training + Built-in threat feed</div>
+        <ul class="tier-features">
+          <li><a href="https://feedly.com/ti" target="_blank">Feedly for Threat Intelligence</a> license</li>
+          <li>10 days of Cosive Professional Services each year</li>
+          <li>1 production MISP instance</li>
+          <li>Managed hosting in your preferred AWS region</li>
+          <li>Dedicated VPC deployment</li>
+          <li>Automatic updates and security patches</li>
+          <li>Monitoring and alerting</li>
+          <li>Production support</li>
+          <li>Unlimited users*</li>
+          <li>100GB storage*</li>
+          <li>MISP Kickstarter training for up to 5 users in the first year</li>
+          <li>Advanced integrations with your security stack</li>
+          <li>Priority support and dedicated account management</li>
+          <li>Custom feed configuration and optimisation</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tiers-footnote" style="text-align: right; color: var(--color-text-secondary); font-size: var(--text-sm); margin-top: var(--space-xs);">* Fair use policy applies.</p>
+    <div class="tiers-addons">
+      <div class="tiers-addons-label">Optional add-ons</div>
+      <div class="tiers-addons-grid">
+        <div class="addon-card">
+          <div class="addon-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="addon-card-content">
+            <div class="addon-card-title">Sharing</div>
+            <div class="addon-card-desc">An additional MISP instance for use as a dedicated sharing hub.</div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="addon-card-content">
+            <div class="addon-card-title">STIX TAXII API</div>
+            <div class="addon-card-desc">Consume and share STIX/TAXII threat intelligence with your existing security tools.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: var(--space-2xl); text-align: center;">
+      <a href="../cloud-misp.html" class="btn-primary">Learn more about CloudMISP</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Questions we hear from threat intelligence leaders</h2>
+
+    <div class="faq-inner">
+    <div class="faq-list">
+
+      <details>
+        <summary>
+          Can you help us comply with NIS2?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. NIS2 requires essential and important entities to share cyber threat intelligence (Article 29). We deploy managed sharing platforms &mdash; like <a href="../cloud-misp.html">CloudMISP</a> &mdash; and connect you to the relevant sectoral ISACs and national CERTs, with the access controls, audit logging and data governance you need to demonstrate compliance.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help us comply with DORA?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. DORA (Articles 45 and 49) encourages voluntary threat intelligence sharing between financial entities where appropriate confidentiality protections are in place. We deploy platforms with access controls, audit logging and data governance, then connect you to the relevant sharing communities. The same platform handles both threat intelligence and fraud data sharing, so you address both obligations on one infrastructure.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help us comply with the SOCI Act?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. Australia&rsquo;s Security of Critical Infrastructure (SOCI) Act requires reporting cyber incidents to ASD. We connect you to the ASD&rsquo;s ACSC threat-sharing feeds and set up reporting workflows via MISP, so your organisation meets its obligations efficiently.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help us comply with the UK CSR?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. The UK Cyber Security and Resilience Bill strengthens obligations for critical infrastructure operators. We connect you to UK NCSC feeds and establish sharing arrangements with sector-specific communities so you meet the new requirements.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you connect us to national CERT and NCSC feeds?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We connect you to national CERT and NCSC threat feeds &mdash; including the NZ and UK NCSCs and their MISP-based sharing platforms &mdash; handling authentication, feed configuration and automated ingestion, then building workflows so your team can action the intelligence inside your existing tools.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help me start a CTI sharing community?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes. We&rsquo;ve designed and operated threat intelligence sharing communities for national CERTs and government agencies &mdash; covering governance frameworks, platform deployment, member onboarding and ongoing community management. Learn more about <a href="../cti/start-a-threat-intel-sharing-community.html">starting a sharing community</a>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Can you help us share threat intelligence, not just consume it?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Absolutely &mdash; sharing is as important as consuming. We set up sharing workflows, configure TLP and sharing-group controls, automate publishing indicators, and connect you to the communities that matter &mdash; sector ISACs, national CERTs or peer organisations &mdash; so intelligence flows both ways.</p>
+        </div>
+      </details>
+
+    </div>
+    <div class="faq-image">
+      <img src="https://images.unsplash.com/photo-1593474686394-2dedcffac7d3?w=800&q=80" alt="Brown and black sand during daytime">
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wavy SVG separator -->
+<div class="people-cta-separator"><img src="../icons/cosive-sinewave.svg" alt="Cosive"></div>
+
+<!-- Contact Form -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Get in touch</div>
+      <h2 class="heading-style-h2" style="margin-bottom: var(--space-3xl);">Start consuming and sharing threat intel</h2>
+      <p class="contact-subtitle">Tell us about your threat intelligence requirements and we'll get back to you as soon as possible.</p>
+      <form class="contact-form" action="#" method="post">
+        <input type="hidden" name="category" value="CTI">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-placeholder"></div>
+<script src="../footer-include.js"></script>
+
+<!-- ============================================================
+     SECTION NAV — active state + dynamic sticky offset
+     Same implementation as capabilities/misp-kickstart-training.html.
+     ============================================================ -->
+<script>
+(function() {
+  var sectionNav = document.querySelector('.cti-section-nav');
+  if (!sectionNav) return;
+  var navList = sectionNav.querySelector('.cti-section-nav__list');
+  var sectionIds = ['engagement','outcomes','cases','consume','share','cloudmisp','faq'];
+  // The FAQ follows CloudMISP and has no link of its own, so it folds into it:
+  // the underline holds rather than going blank for a whole section.
+  var navMapping = { faq: 'cloudmisp' };
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+
+  // The site header is injected by header-include.js, so its height is not
+  // known until that fetch resolves — measure rather than hardcode 80px.
+  function updateOffsets() {
+    var header = document.querySelector('.site-header');
+    var headerH = header ? header.offsetHeight : 80;
+    sectionNav.style.top = headerH + 'px';
+    document.documentElement.style.scrollPaddingTop = (headerH + sectionNav.offsetHeight + 4) + 'px';
+    return headerH;
+  }
+
+  var headerH = updateOffsets();
+  window.addEventListener('resize', function() { headerH = updateOffsets(); });
+  window.addEventListener('load', function() { headerH = updateOffsets(); });
+
+  var currentActive = null;
+  function setActive(link) {
+    if (currentActive === link) return;
+    if (currentActive) currentActive.classList.remove('cti-section-nav__link--active');
+    currentActive = link;
+    if (link) link.classList.add('cti-section-nav__link--active');
+  }
+
+  var visible = {};
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { visible[entry.target.id] = entry.isIntersecting; });
+    var activeId = null;
+    for (var i = 0; i < sectionIds.length; i++) {
+      if (visible[sectionIds[i]]) activeId = sectionIds[i];
+    }
+    var linkTarget = activeId ? (navMapping[activeId] || activeId) : null;
+    setActive(linkTarget ? sectionNav.querySelector('a[href="#' + linkTarget + '"]') : null);
+  }, {
+    rootMargin: -(headerH + sectionNav.offsetHeight + 1) + 'px 0px -40% 0px',
+    threshold: 0
+  });
+  sections.forEach(function(sec) { observer.observe(sec); });
+
+  // Mobile: centre the clicked link in the scroll strip.
+  navList.addEventListener('click', function(e) {
+    var link = e.target.closest('.cti-section-nav__link');
+    if (link && window.innerWidth <= 900) {
+      setTimeout(function() {
+        link.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
