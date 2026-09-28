@@ -20,8 +20,17 @@
   padding and the form card's internal spacing, with all five fields kept.
   Nothing is removed from the page.
 
-  TRADE-OFF: the busiest of the three. The form is tighter than the site
-  standard, and the reader meets a banner, a form and a nav bar at once.
+  TRADE-OFF: the busiest of the three — the reader meets a banner, a form and
+  a nav bar at once — AND it no longer fits a short window.
+
+  When the form was a stand-in set of native fields this worked at 800px tall.
+  The real card is a 645px Pipedrive iframe plus 24px of padding: 693px that
+  is Pipedrive's to set, not ours. 693 + the 81px header + the 64px nav bar is
+  838px before any banner padding at all, so on a 1440x800 viewport the nav
+  bar CANNOT reach above the fold. It clears at 900px tall and up.
+
+  If option 3 has to work at 800px, the nav has to move ABOVE the banner
+  rather than below it — a different design, not a tuning job.
   ══════════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -245,40 +254,57 @@
     position: relative;
     z-index: 2;
     /* Was 6XL top and bottom (96/96). The single biggest lever on the banner's
-       height, and the nav bar below it has to clear the fold. */
-    padding: var(--space-3xl) 0 var(--space-2xl);
+       height, and the nav bar below it has to clear the fold — but see the
+       note in the file header: against the real 693px form card it can no
+       longer clear an 800px one, whatever this is set to. */
+    padding: var(--space-xl) 0 var(--space-lg);
   }
 
   .banner-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    /* minmax(0, …), not a bare 2fr 1fr: `fr` carries a min-content floor, and
+       the form's two-up name row pushed the right column to 488px. This gives
+       the 864/432 that production renders at 1440. */
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: var(--space-3xl);
     align-items: start;
   }
 
+  /* ── Banner form card — dimensions taken from production,
+     https://www.cosive.com/cti/consume-share-cyber-threat-intelligence
+     measured at 1440 wide on 2026-09-28:
+
+       card       432 x 695,  padding 24px (Space/LG),
+                  background rgb(240,240,240) (Color/Mid Grey),
+                  border-radius 12px (Radius/LG)
+       its only child is a Pipedrive webform iframe, 645px tall — there is no
+       heading in the card; the form's own heading is inside the iframe
+       grid       864px 432px, gap 48px (Space/3XL), align-items: start
+
+     The height is Pipedrive's, not ours, so it is pinned here rather than left
+     to whatever these stand-in native fields happen to add up to. Everything
+     above the fold depends on this number being honest. ── */
   .banner-form-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
+    background: var(--color-mid-grey);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);     /* was XL */
+    padding: var(--space-lg);
+    height: calc(645px + var(--space-lg) * 2);
+    display: flex;
+    flex-direction: column;
   }
 
   .banner-form-card h3 {
-    margin-bottom: var(--space-md);   /* was LG */
+    margin-bottom: var(--space-lg);
   }
 
   .banner-form-card .contact-form {
-    gap: var(--space-sm);         /* was MD */
+    gap: var(--space-md);
+    flex: 1;
+    justify-content: space-between;
   }
 
   .banner-form-card .form-group label {
     font-size: var(--text-sm);
-  }
-
-  /* 8px between every label and its field, five times over, was 40px of the
-     banner's height. 2px still reads as "these two belong together". */
-  .banner-form-card .form-group {
-    gap: 2px;
   }
 
   .banner-form-card .form-group input,
@@ -289,10 +315,7 @@
   }
 
   .banner-form-card .form-group textarea {
-    /* height, not min-height: rows="3" in the markup beats a min-height and
-       holds the field at 74px. It still grows on drag. */
-    height: var(--space-3xl);
-    min-height: var(--space-3xl);
+    min-height: var(--space-5xl);
   }
 
   .banner-form-card .form-row {
