@@ -267,10 +267,7 @@
        the 864/432 that production renders at 1440. */
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: var(--space-3xl);
-    /* stretch, not start, so the text column is as tall as the form card and
-       has room to centre anything in. The card sets its own height explicitly,
-       so stretching the row does not change it. */
-    align-items: stretch;
+    align-items: start;
   }
 
   /* The banner's top padding is cut to Space/XL so the form card — and so the
@@ -281,19 +278,7 @@
      stays where the height budget needs it. The text column is ~364px against
      the card's 693px, so the card still sets the banner's height and nothing
      below the fold moves. */
-  .banner-text {
-    margin-top: var(--space-4xl);
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* The breadcrumb stays hard against the top of the column at the site's
-     usual 96px; the auto margins above the H1 and below the paragraph split
-     the leftover height evenly, which centres the pair between the breadcrumb
-     and the foot of the form card. Auto margins rather than a wrapper with
-     justify-content: center, so the markup is untouched. */
-  .banner-text h1 { margin-top: auto; }
-  .banner-text .banner-description { margin-bottom: auto; }
+  .banner-text { margin-top: var(--space-4xl); }
 
   /* ── Banner form card — dimensions taken from production,
      https://www.cosive.com/cti/consume-share-cyber-threat-intelligence
