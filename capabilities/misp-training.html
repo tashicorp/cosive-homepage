@@ -717,90 +717,49 @@
   .trn-column .cti-lede { max-width: none; }
   .trn-column > .contact-subtitle { max-width: 780px; }
 
-  /* The prerequisites card follows the copy in the same column, so it needs a
-     gap of its own — it used to get one from the old grid's row-gap. */
-  .trn-about__intro .trn-needs { margin-top: var(--space-2xl); }
+  /* ── .trn-facts — prerequisites, equipment, regions ──
+     One hairline definition list where there used to be three objects (a
+     rule-topped regions line, a bordered card with tick icons, a note inside
+     the card). Review called the stack busy. The family brief at the top of
+     this file asks for hairline rules over bordered cards anyway, so the card
+     was the off-brief choice.
 
-  /* ── .trn-regions — where we deliver ──
-     Lifted out of the hero's old offer panel into the overview section, so
-     every token flips to its light-ground value: Color/Border (#e8eaed) for
-     the rule, Color/Text Secondary (#5f6368) for the label.
+     Headed "Prerequisites" at the client's request. The tone of voice guide
+     bans copy that reads as gatekeeping, so that row leads with "no prior
+     MISP experience needed" and states the command line as the only skill.
+     If it ever reads as a bar rather than a floor, the label is the word to
+     change.
 
-     PENDING COSIVE: these six are the enquiry form's own Region options, which
-     record where an ENQUIRER is rather than where training has been delivered.
-     Hence "Regions we run in" rather than any past-tense claim. Confirm the
+     PENDING COSIVE: the six regions are the enquiry form's own Region options,
+     which record where an ENQUIRER is rather than where training has been
+     delivered. Hence "we run" rather than any past-tense claim. Confirm the
      list matches real delivery coverage. */
-  .trn-regions {
-    margin-top: var(--space-xl);
-    padding-top: 22px;
+  .trn-facts {
+    margin: var(--space-2xl) 0 0;
     border-top: 1px solid var(--color-border);
   }
-  .trn-regions__label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    color: var(--color-text-secondary);
-    margin-bottom: 10px;
+  .trn-facts__row {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: var(--space-xl);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
   }
-  .trn-regions p {
-    font-size: var(--text-base);
-    line-height: 1.6;
-    color: var(--color-text-primary);
-  }
-
-  /* ── .trn-needs — prerequisites ──
-     Headed "Prerequisites" at the client's request. Worth knowing: the tone of
-     voice guide bans copy that reads as gatekeeping, and "Prerequisites" plus
-     a list is close to its own example of that, so the copy underneath does the
-     softening — the command line stated as the only technical skill needed,
-     and "no prior MISP experience" below the rule. If it ever reads as a bar
-     rather than a floor, the heading is the word to change. */
-  .trn-needs {
-    background: var(--color-light-grey);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-  }
-  .trn-needs__label {
+  .trn-facts dt {
     font-family: var(--font-heading);
     font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
-    color: var(--page-accent-deep);
-    margin-bottom: var(--space-lg);
-  }
-  .trn-needs__item {
-    display: flex;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-  }
-  .trn-needs__item:last-of-type { margin-bottom: 0; }
-  .trn-needs__item svg {
-    width: 19px;
-    height: 19px;
-    flex-shrink: 0;
-    margin-top: 3px;
-    fill: none;
-    stroke: var(--page-accent-deep);
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .trn-needs__item p {
-    font-size: var(--text-base);
-    line-height: 1.5;
-    color: var(--color-text-primary);
-  }
-  .trn-needs__item strong { font-weight: 600; }
-  .trn-needs__note {
-    margin-top: var(--space-lg);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-border);
-    font-size: var(--text-sm);
-    line-height: 1.5;
     color: var(--color-text-secondary);
+    /* Lifts the cap-line onto the body's first line. */
+    padding-top: 3px;
+  }
+  .trn-facts dd {
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
   }
 
   /* ═══════════════════════════════════════════════════════════════
@@ -1097,8 +1056,7 @@
   }
   /* Each module is a card. The surface is the repo's dark card,
      .cm-integration-card from cloud-misp.html:807-815 — a 4% white lift with
-     a 10% outline on Radius/LG. Padding matches .trn-needs, this page's own
-     card on the light side, so the two read as the same object inverted.
+     a 10% outline on Radius/LG, at 28px padding.
 
      No hover state: these are not links and nothing happens on click. */
   .trn-syllabus__module {
@@ -1211,10 +1169,9 @@
      even columns rather than a wrapping row, so the items line up down the
      module instead of ragging against each other.
 
-     The tick is this page's own check, the same polyline and stroke geometry
-     as .trn-needs__item in the prerequisites card — restroked to
-     --page-accent, which is the on-dark red (6.02:1 here; --page-accent-deep
-     is the light-ground one and would be far too dark on this band). */
+     The tick is stroked --page-accent, the on-dark red (6.02:1 here;
+     --page-accent-deep is the light-ground one and would be far too dark on
+     this band). */
   .trn-syllabus__topics {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1596,10 +1553,6 @@
     .cti-h2 { font-size: var(--text-4xl); }
     .cti-proof__title { font-size: var(--text-4xl); }
 
-    /* The track record's three items stack; each keeps its own top rule, so
-       the strip reads the same way down as it did across. */
-    .trn-track__items { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
-
     .hero-testimonial { padding: var(--space-5xl) 0; }
     /* The component ships a fixed Space/3XL inner padding on every other page.
        Here it tracks .container instead, so the quote lines up with every
@@ -1667,7 +1620,6 @@
     .cti-claim:first-child { padding-top: var(--space-lg); }
 
     .trn-outcomes__n { font-size: var(--text-5xl); }
-    .trn-needs,
     .trn-outcomes__card,
     .expert-author,
     .banner-form-card,
@@ -1683,6 +1635,10 @@
     /* Two topic columns are ~140px wide at this width; one is legible. */
     .trn-syllabus__topics { grid-template-columns: minmax(0, 1fr); }
 
+    /* Label over text: a 160px label column leaves ~180px for the body. */
+    .trn-facts__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); }
+    .trn-facts dt { padding-top: 0; }
+
     .trn-register__embed { min-height: 0; }
 
     .footer-bottom { flex-direction: column; text-align: center; }
@@ -1696,88 +1652,64 @@
      nudge and leaving the colour shifts is the right reading of "reduce". */
   /* ═══════════════════════════════════════════════════════════
      8. Track record — .trn-track
-     NOT a card. This was built as the dark mirror of .trn-needs, which turned
-     out to be the exact recipe .trn-syllabus__module already uses directly
-     below it — same 4% fill, same Radius/LG, same 28px padding, same accent
-     tick — so it read as a fourth module floating above the syllabus.
+     Sits at the foot of the instructors section, under the people who hold
+     the record. It used to sit inside the course section between the intro
+     and the syllabus; review said it pulled the eye off the course content.
 
-     A hairline list instead, sitting on the section ground with no surface of
-     its own. That is what the family brief at the top of this file asks for
-     ("hairline rules over bordered cards"), so the box was the off-brief
-     choice here in the first place.
-
-     Two things carry the distinction and both must survive edits: there is no
-     tick icon (the modules own that mark), and the venue names are Font/Mono
-     against the modules' Manrope h4. Reinstating either collapses the
-     difference again.
+     A hairline row of three like items, no card: the family brief at the top
+     of this file ("hairline rules over bordered cards"). The venue names are
+     Font/Mono at Text/XS so they read as a different class of object from
+     the instructor cards' Manrope names above them.
      ═══════════════════════════════════════════════════════════ */
+  .trn-track {
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
   .trn-track__label {
     font-family: var(--font-heading);
     font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
-    color: var(--page-accent);
+    color: var(--page-accent-deep);
     margin-bottom: var(--space-md);
   }
-  /* No bottom rule: as a row, each item carries its own top rule, and a rule
-     here would sit a few pixels above three more. */
-  .trn-track__intro {
+  /* One row, four columns under one continuous rule: the label and intro
+     lead, then the three venues. The rule is the block's, not the columns',
+     so it runs unbroken across the gaps. */
+  .trn-track__intro p {
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
-    color: rgba(255, 255, 255, 0.66);
-    margin-bottom: var(--space-lg);
+    color: var(--color-text-secondary);
   }
-  /* The rule between items is the component's only structure. Same weight as
-     .trn-track__intro's, so the intro's bottom edge reads as the first of the
-     set rather than a different kind of line. */
-  .trn-track__item {
-    padding-bottom: var(--space-lg);
-    margin-bottom: var(--space-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  .trn-track__items {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-xl);
   }
-  .trn-track__item:last-of-type {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: none;
-  }
-  /* Font/Mono, not Font/Heading. The modules below title in Manrope at Text/XL;
-     a mono cap-line at Text/XS is a different class of object at a glance, not
-     a smaller version of the same one. */
   .trn-track__lead {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
-    color: var(--color-white);
+    color: var(--color-text-primary);
     line-height: var(--leading-snug);
     margin-bottom: var(--space-xs);
   }
   .trn-track__plain {
     font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.66);
+    color: var(--color-text-secondary);
     line-height: var(--leading-normal);
   }
-
-  /* The course head is one column now: the overview reads down, then the
-     track record runs across the full width below it as three like items
-     rather than a second column of prose beside the first. */
-  .trn-course__head { display: block; }
-  .trn-track { margin-top: var(--space-3xl); }
-  .trn-track__items {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-xl);
-  }
-  /* As a row, each item's rule goes on top — a bottom rule under three
-     side-by-side items reads as one line under the whole strip. */
-  .trn-track__items .trn-track__item {
-    padding-top: var(--space-lg);
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    border-bottom: none;
+  /* Lives here rather than in the 900px block above: that block comes
+     earlier in the sheet, so the grid rule above would win over it. The three
+     items stack; each keeps its own top rule, so the strip reads the same way
+     down as it did across. */
+  @media (max-width: 900px) {
+    .trn-track__items { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+    .trn-track__intro { margin-bottom: var(--space-xs); }
   }
 
   /* ══════════════════════════════════════════════════════════════
@@ -2122,32 +2054,35 @@
     <div class="cti-eyebrow">MISP training</div>
 
     <div class="trn-about__intro">
-      <h2 class="cti-h2">Training that gets your team working effectively in MISP</h2>
+      <h2 class="cti-h2">Use MISP more effectively</h2>
         <!-- First mention of MISP on the page links out rather than defining it
              here — .claude/skills/faqs/SKILL.md: define once, link everywhere. -->
         <p class="cti-lede"><a href="../cloud-misp.html">MISP</a> gives threat intelligence teams a powerful way to store, correlate and share intelligence. But the platform is only useful when your team knows how to use it well.</p>
         <p class="cti-lede">Our MISP training is practical and hands-on. Your team works through lab scenarios based on real-world use cases, building the skills they need to use MISP in their day-to-day work.</p>
-        <!-- Moved here from the hero, where it sat in the old offer panel the
-             enquiry form replaced. "Private" moved onto this label when the
-             paragraph that carried it was cut — it is the only place on the
-             page below the hero that says the training is private. -->
-        <div class="trn-regions">
-          <div class="trn-regions__label">We run private training in these regions:</div>
-          <p>Africa &middot; Asia Pacific &middot; Europe &middot; LATAM &middot; Middle East &middot; North America</p>
-        </div>
+        <!-- One list for everything the reader needs to know before enquiring.
+             This used to be three different objects stacked: a rule-topped
+             regions line, a bordered Prerequisites card with tick icons, and a
+             rule-topped "no prior experience" note inside the card. Review
+             called it busy. Three rows on one idiom now.
 
-        <aside class="trn-needs">
-          <div class="trn-needs__label">Prerequisites</div>
-          <div class="trn-needs__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <p>Basic familiarity with the command line.</p>
+             "Prerequisites" stays as a label at the client's request; the "no
+             prior MISP experience" sentence leads that row so it softens the
+             word in place. "Private" lives on the Regions row — the only place
+             below the hero that says the training is private. -->
+        <dl class="trn-facts">
+          <div class="trn-facts__row">
+            <dt>Regions</dt>
+            <dd>We run private training in Africa, Asia Pacific, Europe, LATAM, Middle East and North America.</dd>
           </div>
-          <div class="trn-needs__item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <p>A computer each person can install software on, with administrator rights.</p>
+          <div class="trn-facts__row">
+            <dt>Prerequisites</dt>
+            <dd>No prior MISP experience needed. Basic familiarity with the command line is enough.</dd>
           </div>
-          <p class="trn-needs__note">No prior MISP experience required.</p>
-        </aside>
+          <div class="trn-facts__row">
+            <dt>Equipment</dt>
+            <dd>A computer each person can install software on, with administrator rights.</dd>
+          </div>
+        </dl>
     </div>
   </div>
 </section>
@@ -2323,6 +2258,35 @@
         </a>
       </div>
     </div>
+
+    <!-- Track record, under the people who hold it. Review moved it here from
+         the course section, where it sat between the course intro and the
+         syllabus and pulled the eye off the course content; a version as its
+         own strip between this section and the course was tried and cut in
+         favour of keeping it with the instructors.
+
+         Both facts are claimed elsewhere in the repo (about.html,
+         cloud-misp.html, the instructor bios); nothing here is new. -->
+    <div class="trn-track">
+      <div class="trn-track__items">
+        <div class="trn-track__intro">
+          <div class="trn-track__label">Our track record</div>
+          <p>We have taught MISP Kickstart publicly, at two of the conferences closest to this work, and privately for individual teams.</p>
+        </div>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">AUSCERT</div>
+          <p class="trn-track__plain">Delivered in person in Brisbane to a sold-out room at AUSCERT 2025.</p>
+        </div>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">hack.lu</div>
+          <p class="trn-track__plain">Delivered at hack.lu in Luxembourg, where much of the MISP community gathers each year.</p>
+        </div>
+        <div class="trn-track__item">
+          <div class="trn-track__lead">Private courses</div>
+          <p class="trn-track__plain">Delivered privately for major organisations.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2348,38 +2312,17 @@
     <div class="trn-course__head">
       <!-- Two short paragraphs, not three long ones. The syllabus below
            already lists every topic the old middle paragraph enumerated, and
-           the certificate and materials are also answered in the FAQ. -->
+           the certificate and materials are also answered in the FAQ.
+
+           The track record used to sit here too, between this intro and the
+           syllabus. Review: it pulled the eye off the course content. It is
+           now under the instructor cards in #instructors. -->
       <div class="trn-course__intro trn-measure">
         <h2 class="cti-h2">MISP Kickstart Training</h2>
         <p class="cti-lede">MISP Kickstart is our practical introduction to MISP. Over two half-days, live and online, your team sets up, configures and uses its own MISP instance.</p>
         <p class="cti-lede">Attendees work through lab scenarios drawn from real-world use cases rather than theory. Everyone leaves with a working instance, the course materials and a certificate of completion.</p>
       </div>
 
-      <!-- Track record. It answers "have you actually taught this?" while the
-           reader is still deciding, rather than after they have scrolled past
-           the syllabus. It used to be a second column beside the overview;
-           it now runs across the full width below it, so the section has one
-           reading order. Both facts are claimed elsewhere in the repo
-           (about.html, cloud-misp.html, the instructor bios); nothing here
-           is new. -->
-      <aside class="trn-track">
-        <div class="trn-track__label">Track record</div>
-        <p class="trn-track__intro trn-measure">We have taught MISP Kickstart publicly, at two of the conferences closest to this work, and privately for individual teams.</p>
-        <div class="trn-track__items">
-          <div class="trn-track__item">
-            <div class="trn-track__lead">AUSCERT</div>
-            <p class="trn-track__plain">Delivered in person in Brisbane to a sold-out room at AUSCERT 2025.</p>
-          </div>
-          <div class="trn-track__item">
-            <div class="trn-track__lead">hack.lu</div>
-            <p class="trn-track__plain">Delivered at hack.lu in Luxembourg, where much of the MISP community gathers each year.</p>
-          </div>
-          <div class="trn-track__item">
-            <div class="trn-track__lead">Private courses</div>
-            <p class="trn-track__plain">Delivered privately for major organisations.</p>
-          </div>
-        </div>
-      </aside>
     </div>
 
     <!-- PENDING COSIVE: the Lab chip marks modules the published course copy
