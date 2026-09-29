@@ -1786,7 +1786,14 @@
      across this page's 900px and 600px blocks, so the component stays in one
      piece and can be moved again without hunting for its parts.
      ══════════════════════════════════════════════════════════════ */
-  .cti-faq { padding: var(--space-8xl) 0; background: var(--color-white); }
+  /* ── The Outcomes/FAQ seam ──
+     Both sections are white, so their two full paddings stack into one gap
+     twice the size of every other seam on the page. Halved on each side, and
+     halved again at each breakpoint below so the ratio holds. #outcomes is an
+     ID, which outranks .cti-section everywhere — the per-breakpoint values are
+     still needed because .cti-faq sets padding with the shorthand. */
+  #outcomes { padding-bottom: var(--space-5xl); }
+  .cti-faq { padding: var(--space-5xl) 0 var(--space-8xl); background: var(--color-white); }
   /* One column, like every other section: eyebrow, then title, then the
      questions. It used to be a 1fr 2fr grid with the title parked in a
      left-hand column of its own. */
@@ -1843,10 +1850,12 @@
     margin-top: 14px;
   }
   @media (max-width: 900px) {
-    .cti-faq { padding: var(--space-7xl) 0; }
+    #outcomes { padding-bottom: var(--space-4xl); }
+    .cti-faq { padding: var(--space-4xl) 0 var(--space-7xl); }
   }
   @media (max-width: 600px) {
-    .cti-faq { padding: var(--space-5xl) 0; }
+    #outcomes { padding-bottom: var(--space-2xl); }
+    .cti-faq { padding: var(--space-2xl) 0 var(--space-5xl); }
     .cti-faq__item { padding: var(--space-lg) 0; }
     .cti-faq__q { font-size: var(--text-lg); gap: var(--space-md); }
   }
